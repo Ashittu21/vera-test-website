@@ -1,0 +1,311 @@
+{% set start_year, end_year = stream.filterStartYear,"now"|date('Y') %}
+
+{% set showKeyResources = showKeyResources ?? null %}
+{% if showKeyResources is null %}
+	{% set showKeyResources = entry is defined and entry.keyResources | length >= 3 %}
+{% endif %}
+
+{% set keyView = craft.request.getParam('keyResources') %}
+
+<aside class="filter-outer{% if streamOptions.filterAltLayout is defined and streamOptions.filterAltLayout == 'unstacked' %} filter-unstacked{% endif %}">
+	<div class="filter">
+		<span class="filter__dropdown-outer">
+			<a class="active">
+				<i class="icon-filter"></i>
+				Refine</a>
+		</span>
+		{% if streamOptions.streamType != 'people' %}
+			<div class="filter__options">
+				{% if showKeyResources %}
+					<span class="filter--sortby">
+						<a href="#" {% if not keyView %} class="active" {% endif %} data-sort="latest">Latest</a>
+						/
+						<a href="#" {% if keyView %} class="active" {% endif %} data-sort="key">Key Resources</a>
+					</span>
+				{% endif %}
+				{% if hideGridList is not defined %}
+					<span class="filter--viewtype">
+						<a href="#" {% if listView is defined and not listView %} class="active" {% endif %} data-viewtype="grid">Grid</a>
+						/
+						<a href="#" {% if listView is defined and listView %} class="active" {% endif %} data-viewtype="list">List</a>
+						{% if hasMap is defined %}
+							/
+							<a href="#" data-viewtype="list">Map</a>
+						{% endif %}
+					</span>
+				{% endif %}
+			</div>
+		{% endif %}
+	</div>
+
+	<div class="filter__dropdown {% if streamOptions.filterAltLayout is defined and streamOptions.filterAltLayout == 'stacked' %}filter__dropdown--stacked{% endif %}">
+		<div class="filter__dropdown-inner">
+			<div class="filter__section filter__section--clear">
+				<span id="clear" class="filter__clear">Clear All Selected</span>
+			</div>
+
+			{% if streamOptions.fieldOptions is defined %}
+				<div class="filter__section filter__section--select">
+					<span class="filter__label">{{ streamOptions.fieldOptions.title }}</span>
+					<ul>
+						{% for option in streamOptions.fieldOptions.options %}
+							<li><input type="checkbox" id="{{ option.title|replace(' ','_')|lower }}" class="field_checkbox" data-option={{ option.option | json_encode | raw }}/>
+								<label for="{{ option.title|replace(' ','_')|lower }}">{{ option.title }}</label>
+							</li>
+						{% endfor %}
+					</ul>
+				</div>
+			{% endif %}
+
+			{% if streamOptions.sections | length %}
+				{% if streamOptions.sections|length == 1 %}
+					{% set section = streamOptions.sections[0] %}
+					<input type="hidden" checked id="{{ section[1] }}" value="{{ section[1] }}" class="section_checkbox"/>
+				{% else %}
+					<div class="filter__section filter__section--select">
+						<span class="filter__label">Content Type</span>
+						<ul>
+							{% for section in streamOptions.sections %}
+								<li>
+									<input type="checkbox" id="{{ section[1] }}" value="{{ section[1] }}" class="section_checkbox"/>
+									<label for="{{ section[1] }}">{{ section[0] }}</label>
+								</li>
+							{% endfor %}
+						</ul>
+					</div>
+				{% endif %}
+			{% endif %}
+
+			{% if streamOptions.filterRelations is defined %}
+				{% for relationBlock in streamOptions.filterRelations %}
+					<div class="filter__section filter__section--select">
+						<span class="filter__label">{{ relationBlock.title }}</span>
+						<ul>
+							{% for relation in relationBlock.relations %}
+								{% if relationBlock.type == 'type' %}
+									{% set relation_id = relation.handle %}
+									{% set relation_type = 'type' %}
+								{% else %}
+									{% set relation_id = relation.id %}
+									{% set relation_type = 'relation' %}
+								{% endif %}
+								<li>
+									<input type="checkbox" id="{{ relation_id }}" class="{{ relation_type }}_checkbox" value="{{ relation_id }}" data-type="{{ relationBlock.type }}"/>
+									<label for="{{ relation_id }}">
+										{% if relationBlock.title == 'Action Areas' %}
+											{% set workRelation = craft.entries.section('ourWork').relatedTo(relation).first %}
+											{% set shortTitle = workRelation ? workRelation.shortTitle %}
+											{% if shortTitle %}
+												{{ shortTitle }}
+											{% else %}
+												{{ relation }}
+											{% endif %}
+										{% elseif relationBlock.type == 'type' %}
+											{{ relation.name }}
+										{% else %}
+											{{ relation }}
+										{% endif %}
+									</label>
+								</li>
+							{% endfor %}
+						</ul>
+					</div>
+				{% endfor %}
+			{% endif %}
+
+			{% if streamOptions.filterAltLayout is defined and streamOptions.filterAltLayout == 'unstacked' %}
+				{% if streamOptions.keyword is not defined or streamOptions.keyword %}
+					<div class="filter__section filter__section--search">
+						<span class="filter__label">Search by Keyword</span>
+
+						<input id="search" type="text" class="filter__search" value="{{ craft.request.getParam('query') }}"/>
+					</div>
+				{% endif %}
+
+				{% if streamOptions.streamType is not defined or streamOptions.streamType != 'people' %}
+					<div class="filter__section filter__section--date">
+						<span class="filter__label">Select Date Range</span>
+
+						<div class="filter__section--date__select">
+							<span class="select-outer">
+								<select id="filter__year-from" name="filter__year-from">
+									{% for year in (start_year..end_year) %}
+										<option value="{{ year}}">{{ year }}</option>
+									{% endfor %}
+								</select>
+							</span>
+
+							to
+
+							<span class="select-outer">
+								<select id="filter__year-to" name="filter__year-to">
+									{% for year in (start_year..end_year) %}
+										<option value="{{ year}}" {% if year == end_year %} selected {% endif %}>{{ year }}</option>
+									{% endfor %}
+								</select>
+							</span>
+						</div>
+
+						<div id="date-slider"></div>
+
+					</div>
+				{% endif %}
+			{% else %}
+
+				<div class="filter__section {% if streamOptions.filterAltLayout is defined and streamOptions.filterAltLayout == 'stacked' %}filter__section--stacked{% endif %}">
+
+					{% if streamOptions.keyword is not defined or streamOptions.keyword %}
+						<div class="filter__section--search">
+							<span class="filter__label">Search by Keyword</span>
+
+							<input id="search" type="text" class="filter__search"/>
+
+						</div>
+					{% endif %}
+
+					{% if streamOptions.streamType is not defined or streamOptions.streamType != 'people' %}
+
+						<div class="filter__section--date">
+							<span class="filter__label">Search by Date</span>
+
+							<div class="filter__section--date__select">
+								<span class="select-outer">
+									<select id="filter__year-from" name="filter__year-from">
+										{% for year in (start_year..end_year) %}
+											<option value="{{ year}}">{{ year }}</option>
+										{% endfor %}
+									</select>
+								</span>
+
+								to
+
+								<span class="select-outer">
+									<select id="filter__year-to" name="filter__year-to">
+										{% for year in (start_year..end_year) %}
+											<option value="{{ year}}" {% if year == end_year %} selected {% endif %}>{{ year }}</option>
+										{% endfor %}
+									</select>
+
+								</span>
+							</div>
+
+							<div id="date-slider"></div>
+						</div>
+
+					{% endif %}
+				</div>
+			{% endif %}
+
+			<div class="filter__section--btn">
+				<button id="filter_btn" type="submit" class="btn">Apply</button>
+			</div>
+		</div>
+	</div>
+</aside>
+
+
+{% includeJsFile "/dist/js/isotope.pkgd.min.js" %}
+{% includeJsFile "/dist/js/packery-mode.pkgd.min.js" %}
+
+{% includeJsFile "/dist/twigscripts/stream.js" %}
+
+{% set streamJs %}
+$(function() {
+Stream.primaryRelation =
+	{% if streamOptions.primaryRelation is defined %}{id:
+		{{ streamOptions.primaryRelation.relations[0].id }}, type: '{{ streamOptions.primaryRelation.type }}' }{% else %}null
+	{% endif %};
+
+	{% if streamOptions.fieldSearch is defined %}
+		Stream.fieldSearch = '{{ streamOptions.fieldSearch }}';
+	{% endif %}
+
+	{% if streamOptions.news is defined and streamOptions.news != false %}
+		Stream.news.limit =
+		{{ newslimit }};
+	{% endif %}
+
+	{% if contentlimit is defined %}
+		Stream.content.limit =
+		{{ contentlimit }};
+	{% endif %}
+
+	{% if exclude is defined %}
+		Stream.content.exclude =
+		{{ exclude | json_encode | raw }};
+	{% endif %}
+
+	{% if contentPartial is defined %}
+		Stream.content.partial = '{{ contentPartial }}';
+	{% else %}
+		Stream.content.partial = '/includes/stream/stream';
+	{% endif %}
+
+	{% if showKeyResources %}
+		Stream.content.keyResources =
+		{{ entry.keyResources.ids() | json_encode(constant('JSON_NUMERIC_CHECK')) | raw }};
+	{% endif %}
+
+	Stream.content.daterange = {
+		start:
+	{{ start_year }},
+		end:
+	{{ end_year }}
+	}
+
+	$( "#date-slider" ).slider({
+			range: true,
+			min:
+			{{ start_year }},
+			max:
+			{{ end_year }},
+			values: [{{ start_year }},{{ end_year }}],
+			slide: function( event, ui ) {
+			$('#filter__year-from').val(ui.values[ 0 ]);
+			$('#date-slider .ui-slider-handle:first-of-type').attr('data-year',ui.values[0]);
+			$('#filter__year-to').val(ui.values[ 1 ]);
+			$('#date-slider .ui-slider-handle:nth-of-type(2)').attr('data-year',ui.values[1]);
+			$('#filter__year-from,#filter__year-to').change();
+			}
+		});
+	$('#date-slider .ui-slider-handle:first-of-type').attr('data-year',{{ start_year }});
+	$('#date-slider .ui-slider-handle:nth-of-type(2)').attr('data-year',{{ end_year }});
+
+	Stream.init({{ streamOptions | json_encode | raw }});
+
+	if (Stream.options.streamType == 'content' &&
+		typeof Stream.options.nopack === "undefined" &&
+		Stream.content.isgrid == false) {
+
+		Stream.content.repack();
+
+		$('#stream .filter--viewtype a:nth-child(1)').on('click', function() {
+			$(Stream.content.container).show();
+			$(Stream.loadmorebtn).show();
+			$('.filter__dropdown-outer').removeClass('disabled');
+			$(Stream.map.container).removeClass('show');
+			Stream.content.repack();
+			Stream.content.isgrid = false;
+		});
+
+		$('#stream .filter--viewtype a:nth-child(2)').on('click', function() {
+			$(Stream.content.container).show();
+			$(Stream.loadmorebtn).show();
+			$('.filter__dropdown-outer').removeClass('disabled');
+			$(Stream.map.container).removeClass('show');
+			Stream.content.unpack();
+			Stream.content.isgrid = true;
+		});
+
+		$('#stream .filter--viewtype a:nth-child(3)').on('click', function() {
+			$(Stream.content.container).hide();
+			$(Stream.loadmorebtn).hide();
+			$('.filter__dropdown-outer').addClass('disabled').removeClass('open');
+			$('.filter__dropdown').removeClass('dropped');
+			$(Stream.map.container).addClass('show');
+			map.resize();
+		});
+	}
+});
+{% endset %}
+<script>{{ streamJs }}</script>

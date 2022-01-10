@@ -1,0 +1,14 @@
+.tt-template {
+  display: none;
+}
+.footnote {
+  cursor: pointer;
+}
+.footnote .tooltip {
+  font-weight: 800;
+  margin: 0 3px 0 5px;
+  font-size: 1.5;
+}
+.tooltipster-sidetip .tooltipster-content {
+  padding: 20px;
+}

@@ -1,0 +1,43 @@
+field: 91d891dc-1fee-45bd-9011-10cd107659d1
+fieldLayouts:
+  d0048642-20ec-4bcf-8aa9-4aebef749019:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 83b7d266-4cc6-4b8d-852d-1f011abf6bb7
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  83b7d266-4cc6-4b8d-852d-1f011abf6bb7:
+    contentColumnType: string
+    fieldGroup: null
+    handle: dataViz
+    instructions: ''
+    name: 'Data Viz'
+    searchable: true
+    settings:
+      allowSelfRelations: false
+      limit: '1'
+      localizeRelations: false
+      selectionLabel: 'Add a viz'
+      showSiteMenu: true
+      source: null
+      sources:
+        - 'section:f7ebe9e2-b9cc-411d-8d01-9010f0f97e50'
+      targetSiteId: null
+      validateRelatedElements: false
+      viewMode: null
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Entries
+handle: dataViz
+name: 'Data Viz'
+sortOrder: 12

@@ -1,0 +1,57 @@
+contentColumnType: text
+fieldGroup: f8591398-94a9-4e81-b07f-a60bb6e89d81
+handle: endnotes
+instructions: ''
+name: Endnotes
+searchable: true
+settings:
+  addRowLabel: 'Add a row'
+  columnType: text
+  columns:
+    __assoc__:
+      -
+        - col2
+        -
+          __assoc__:
+            -
+              - heading
+              - Number
+            -
+              - handle
+              - number
+            -
+              - width
+              - '1'
+            -
+              - type
+              - number
+      -
+        - col1
+        -
+          __assoc__:
+            -
+              - heading
+              - Note
+            -
+              - handle
+              - notes
+            -
+              - width
+              - ''
+            -
+              - type
+              - singleline
+  defaults:
+    -
+      __assoc__:
+        -
+          - col2
+          - ''
+        -
+          - col1
+          - ''
+  maxRows: null
+  minRows: null
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Table

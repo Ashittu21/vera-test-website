@@ -1,0 +1,193 @@
+{% import '_macros/social' as social %}
+
+{% set isHome = isHome ?? false %}
+{% set hideDonate = hideDonate ?? false %}
+{#
+<header class="header header--default {{ class ?? null }} {% if isHome %} header--homepage{% endif %} hide-on-print" id="Header" role="navigation"> 
+<!--{% if isHome %} with-badge{% endif %}-->
+
+	<div class="container">
+		<h1>
+			<a class="logo" href="/">
+				Vera Institute of Justice
+			</a>
+		</h1>
+
+		{% if not hideDonate %}
+			<a href="{{ administrative.donateButtonLink }}" class="header__btn-donate btn">Donate</a>
+		{% endif %}
+
+		<div class="header__search" id="HeaderSearch">
+			<form class="header__search__container container" action="/search" method="get">
+				<a class="logo" href="/">
+					Vera Institute of Justice
+				</a>
+
+				<div>
+					<input type="text" name="query" class="header__search__input" placeholder="Enter search terms"/>
+
+					<button type="submit" class="header__search__submit">
+						<i class="icon-search">Search</i>
+					</button>
+				</div>
+
+				<div class="buttons">
+					<button class="header__search__cancel toggle-search btn">Cancel</button>
+				</div>
+			</form>
+		</div>
+
+		<nav class="main-nav-outer">
+			<ul class="main-nav">
+				<li>
+					<a href="#" data-subnav="work" class="receives-color">Issues</a>
+					<nav class="main-subnav-outer" id="workSubnav">
+						<div class="container">
+							<span class="main-subnav__heading">{{ nav.navOurWorkExplainer }}</span>
+
+							<ul class="main-subnav main-subnav--work">
+								{% for commitment in craft.entries.section('ourWork').type('commitment').with(['title','commitmentImageSquare']) %}
+									{% set image = commitment.commitmentImageSquare[0] ?? null %}
+									<li>
+										<a href="/{{ commitment.uri }}">
+											<div class="img-outer">
+												{% if image %}
+													<img src="{{image.getUrl('square174')}}" alt="{{ image.title }}" title="{{ image.title }}">
+												{% else %}
+													<img src="http://placehold.it/300x300">
+												{% endif %}
+
+											</div>
+
+											<div class="text-outer">
+												{{ commitment.title }}
+											</div>
+										</a>
+
+										<ul>
+											{% for actionArea in commitment.getChildren() %}
+												<li>
+													<a href="/{{ actionArea.uri }}">{{ actionArea.shortTitle | default(actionArea.title) }}</a>
+												</li>
+											{% endfor %}
+										</ul>
+									</li>
+								{% endfor %}
+							</ul>
+
+							<a href="/issues" class="main-subnav__see-more">All Issues</a>
+						</div>
+					</nav>
+				</li>
+				<li>
+					<a href="#" data-subnav="resources" class="receives-color">Work</a>
+					<nav class="main-subnav-outer" id="resourcesSubnav">
+						<div class="container">
+							<span class="main-subnav__heading">{{ nav.navOurApproachExplainer }}</span>
+
+							<ul class="main-subnav main-subnav--resource">
+								{% for approach in nav.navOurApproach %}
+									{% set link = approach.approachLink[0] %}
+									{% if link %}
+										<li>
+											<a href="/{{ link.uri }}">
+												<div class="text-outer">{{ approach.heading ?: link.title }}</div>
+											</a>
+											{% if approach.explainer %}
+												<span class="main-subnav__description">
+													{{ approach.explainer }}
+												</span>
+											{% endif %}
+										</li>
+									{% endif %}
+								{% endfor %}
+							</ul>
+						</div>
+					</nav>
+				</li>
+				<li>
+					<a href="/blog" class="receives-color">Blog</a>
+				</li>
+				<li>
+					<a href="#" data-subnav="about" class="receives-color">About</a>
+					<nav class="main-subnav-outer" id="aboutSubnav">
+						<div class="container">
+							<span class="main-subnav__heading"></span>
+							<ul class="main-subnav main-subnav--about">
+								{% for item in nav.navAboutBuilder %}
+									<li>
+										<a href="/about{{ item.pageSlug ? '/'~item.pageSlug : '' }}">
+											<div class="text-outer">
+												{{ item.heading }}
+											</div>
+										</a>
+
+										<span class="main-subnav__description">
+											{{ item.explainer }}
+										</span>
+									</li>
+								{% endfor %}
+								<li class="empty"></li>
+								<li class="empty"></li>
+							</ul>
+						</div>
+					</nav>
+				</li>
+			</ul>
+
+			<button class="toggle-search btn--nostyle">
+				<i class="icon-search receives-color receives-border-color" tabindex="-1">Search</i>
+			</button>
+
+			{% if not hideDonate %}
+				<a href="{{ administrative.donateButtonLink }}" class="header__btn-donate btn receives-color receives-border-color">Donate</a>
+			{% endif %}
+
+			{% set socialChannels = [
+					{
+						link: "https://twitter.com/verainstitute",
+						title: "Twitter"
+					},
+					{
+						link: "https://www.facebook.com/verainstitute",
+						title: "Facebook"
+					},
+					{
+						link: "https://www.instagram.com/verainstitute/",
+						title: "Instagram"
+					}
+				] %}
+
+			<ul class="share share--social receives-border-color">
+				{% for channel in socialChannels %}
+					<li class="share-item social-share-item receives-border-color">
+						{{ social.socialChannelLink(channel.link,channel.title) }}
+					</li>
+				{% endfor %}
+			</ul>
+
+			{% if isHome %}
+				<div class="award-badge">
+					<img src="/dist/img/Webby_Honoree_2019_BW.png"/>
+				</div>
+			{% endif %}
+
+			<!-- <div class="container">
+<aside class="hr"></aside></div> -->
+		</nav>
+
+		<div class="header__right--mobile">
+			<button class="toggle-search btn--nostyle">
+				<i class="icon-search icon-search--mobile" tabindex="-1">Search</i>
+			</button>
+
+			<button class="header__menu-toggle receives-border-color" id="HeaderMenuToggle" role="button" tabindex="0">Menu</button>
+		</div>
+
+		<aside class="hr"></aside>
+	</div>
+</header>
+#}
+
+
+{% include '/v2/global/header'%}

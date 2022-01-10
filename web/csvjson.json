@@ -1,0 +1,286 @@
+[
+  {
+    "City": "New York",
+    "State": "New York"
+  },
+  {
+    "City": "Los Angeles",
+    "State": "California"
+  },
+  {
+    "City": "Chicago",
+    "State": "Illinois"
+  },
+  {
+    "City": "Housto",
+    "State": "Texas"
+  },
+  {
+    "City": "Phoenix",
+    "State": "Arizona"
+  },
+  {
+    "City": "Philadelphia",
+    "State": "Pennsylvania"
+  },
+  {
+    "City": "San Antonio",
+    "State": "Texas"
+  },
+  {
+    "City": "San Diego",
+    "State": "California"
+  },
+  {
+    "City": "Dallas",
+    "State": "Texas"
+  },
+  {
+    "City": "San Jose",
+    "State": "California"
+  },
+  {
+    "City": "Austin",
+    "State": "Texas"
+  },
+  {
+    "City": "Jacksonville",
+    "State": "Florida"
+  },
+  {
+    "City": "Fort Worth",
+    "State": "Texas"
+  },
+  {
+    "City": "Columbus",
+    "State": "Ohio"
+  },
+  {
+    "City": "Charlotte",
+    "State": "North Carolina"
+  },
+  {
+    "City": "San Francisco",
+    "State": "California"
+  },
+  {
+    "City": "Indianapolis",
+    "State": "Indiana"
+  },
+  {
+    "City": "Seattle",
+    "State": "Washington"
+  },
+  {
+    "City": "Denver",
+    "State": "Colorado"
+  },
+  {
+    "City": "Washington",
+    "State": "District of Columbia"
+  },
+  {
+    "City": "Boston",
+    "State": "Massachusetts"
+  },
+  {
+    "City": "El Paso",
+    "State": "Texas"
+  },
+  {
+    "City": "Nashville",
+    "State": "Tennessee"
+  },
+  {
+    "City": "Detroit",
+    "State": "Michigan"
+  },
+  {
+    "City": "Oklahoma City",
+    "State": "Oklahoma"
+  },
+  {
+    "City": "Portland",
+    "State": "Oregon"
+  },
+  {
+    "City": "Las Vegas",
+    "State": "Nevada"
+  },
+  {
+    "City": "Memphis",
+    "State": "Tennessee"
+  },
+  {
+    "City": "Louisville",
+    "State": "Kentucky"
+  },
+  {
+    "City": "Baltimore",
+    "State": "Maryland"
+  },
+  {
+    "City": "Milwaukee",
+    "State": "Wisconsin"
+  },
+  {
+    "City": "Albuquerque",
+    "State": "New Mexico"
+  },
+  {
+    "City": "Tucson",
+    "State": "Arizona"
+  },
+  {
+    "City": "Fresno",
+    "State": "California"
+  },
+  {
+    "City": "Mesa",
+    "State": "Arizona"
+  },
+  {
+    "City": "Sacramento",
+    "State": "California"
+  },
+  {
+    "City": "Atlanta",
+    "State": "Georgia"
+  },
+  {
+    "City": "Kansas City",
+    "State": "Missouri"
+  },
+  {
+    "City": "Colorado Springs",
+    "State": "Colorado"
+  },
+  {
+    "City": "Omaha",
+    "State": "Nebraska"
+  },
+  {
+    "City": "Raleigh",
+    "State": "North Carolina"
+  },
+  {
+    "City": "Miami",
+    "State": "Florida"
+  },
+  {
+    "City": "Long Beach",
+    "State": "California"
+  },
+  {
+    "City": "Virginia Beach",
+    "State": "Virginia"
+  },
+  {
+    "City": "Minneapolis",
+    "State": "Minnesota"
+  },
+  {
+    "City": "Tulsa",
+    "State": "Oklahoma"
+  },
+  {
+    "City": "Tampa",
+    "State": "Florida"
+  },
+  {
+    "City": "Arlington",
+    "State": "Texas"
+  },
+  {
+    "City": "New Orleans",
+    "State": "Louisiana"
+  },
+  {
+    "City": "Birmingham",
+    "State": "Alabama"
+  },
+  {
+    "City": "Anchorage",
+    "State": "Alaska"
+  },
+  {
+    "City": "Billings",
+    "State": "Montana"
+  },
+  {
+    "City": "Boise",
+    "State": "Idaho"
+  },
+  {
+    "City": "Bridgeport",
+    "State": "Connecticut"
+  },
+  {
+    "City": "Burlington",
+    "State": "Vermont"
+  },
+  {
+    "City": "Charleston",
+    "State": "South Carolina"
+  },
+  {
+    "City": "Charleston",
+    "State": "West Virginia"
+  },
+  {
+    "City": "Cheyenne",
+    "State": "Wyoming"
+  },
+  {
+    "City": "Des Moines",
+    "State": "Iowa"
+  },
+  {
+    "City": "Fargo",
+    "State": "North Dakota"
+  },
+  {
+    "City": "Honolulu",
+    "State": "Hawaii"
+  },
+  {
+    "City": "Jackson",
+    "State": "Mississippi"
+  },
+  {
+    "City": "Little Rock",
+    "State": "Arkansas"
+  },
+  {
+    "City": "Manchester",
+    "State": "New Hampshire"
+  },
+  {
+    "City": "Newark",
+    "State": "New Jersey"
+  },
+  {
+    "City": "Portland",
+    "State": "Maine"
+  },
+  {
+    "City": "Providence",
+    "State": "Rhode Island"
+  },
+  {
+    "City": "Salt Lake City",
+    "State": "Utah"
+  },
+  {
+    "City": "Sioux Falls",
+    "State": "South Dakota"
+  },
+  {
+    "City": "Wichita",
+    "State": "Kansas"
+  },
+  {
+    "City": "Wilmington",
+    "State": "Delaware"
+  }
+]

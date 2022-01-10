@@ -1,0 +1,31 @@
+.SimpleHeader {
+  padding: 3rem;
+  @include bg-cover-center;
+  text-align: center;
+  @include screen;
+
+  @media (min-width: $mobile-large) {
+    padding: 15vh 4vw;
+  }
+}
+.SimpleHeader-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.SimpleHeader-superheading {
+  margin-bottom: 1em;
+  a {
+    color: inherit;
+    &:hover {
+      text-decoration: underline;
+      color: inherit;
+    }
+  }
+}
+.SimpleHeader-explainer {
+  margin-top: 1em;
+}
+.btn.SimpleHeader-download {
+  background-color: #fff;
+  margin-top: 4rem;
+}

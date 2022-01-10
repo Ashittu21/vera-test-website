@@ -1,0 +1,79 @@
+field: 95bc127b-3520-49ff-803a-7352214068b1
+fieldLayouts:
+  7a1e57e0-3b87-4b31-ab9c-f644a35853a0:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: cdc00848-591e-4224-add7-f25f6dd2fce2
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 96e431fe-1ec5-4b2c-84c7-f619643eb0a1
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  96e431fe-1ec5-4b2c-84c7-f619643eb0a1:
+    contentColumnType: string
+    fieldGroup: null
+    handle: related
+    instructions: ''
+    name: Related
+    searchable: true
+    settings:
+      allowSelfRelations: false
+      limit: ''
+      localizeRelations: false
+      selectionLabel: ''
+      showSiteMenu: true
+      source: null
+      sources: '*'
+      targetSiteId: null
+      validateRelatedElements: false
+      viewMode: null
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Entries
+  cdc00848-591e-4224-add7-f25f6dd2fce2:
+    contentColumnType: text
+    fieldGroup: null
+    handle: text
+    instructions: ''
+    name: Text
+    searchable: true
+    settings:
+      availableTransforms: '*'
+      availableVolumes: ''
+      cleanupHtml: true
+      columnType: text
+      configSelectionMode: choose
+      defaultTransform: ''
+      manualConfig: ''
+      purifierConfig: ''
+      purifyHtml: '1'
+      redactorConfig: SpecialReport.json
+      removeEmptyTags: '1'
+      removeInlineStyles: '1'
+      removeNbsp: '1'
+      showHtmlButtonForNonAdmins: '1'
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: true
+      uiMode: enlarged
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\redactor\Field
+handle: copyRelated
+name: 'Copy + Related'
+sortOrder: 13

@@ -1,0 +1,33 @@
+{% set baseUrl = baseUrl ?? entry.url %}
+{% set columns = [] %}
+{% for item in entry.sortableTableColumns %}
+{% set linkFrom = [] %}
+{% for piece in item.linkFrom %}
+{% set linkFrom = linkFrom | merge([{column: piece.column, directory: piece.directory}]) %}
+{% endfor %}
+{% set columns = columns | merge([{
+  column: item.column,
+  label: item.label,
+  format: item.format.value,
+  linkFrom: linkFrom,
+  width: item.width,
+  defaultColumn: item.defaultColumn,
+  isSortable: item.isSortable
+}]) %}
+{% endfor %}
+{% set id = "sortableTable_" ~ (now | date('U')) %}
+<div class="module-text">
+<div class="container SortableTable-container" id="{{ id }}" data-analytics-event='["Data Viz","Click","Sortable Table: {{ entry.title }}"]'></div>
+</div>
+<script>
+{% include 'data-viz/sortableTable/sortableTable.js' %}
+$(function() {
+  VERA.sortableTable(
+    "#{{ id }}", 
+    {{- entry.dataset[0].url | json_encode | raw }}, 
+    {{- columns | json_encode | raw }},
+    {{ baseUrl | json_encode | raw }},
+    {{ (filterState ?? null) | json_encode | raw }}
+  )
+})
+</script>

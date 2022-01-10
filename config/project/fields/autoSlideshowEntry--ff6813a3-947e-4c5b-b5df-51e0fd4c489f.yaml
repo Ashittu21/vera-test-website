@@ -1,0 +1,21 @@
+contentColumnType: string
+fieldGroup: 62eaf9ac-7045-45a4-b9c9-6db9b59feaac
+handle: autoSlideshowEntry
+instructions: ''
+name: 'Auto Slideshow Entry'
+searchable: true
+settings:
+  allowSelfRelations: false
+  limit: '1'
+  localizeRelations: false
+  selectionLabel: ''
+  showSiteMenu: true
+  source: null
+  sources:
+    - 'section:955212af-c358-4a38-9522-6088d91e4ea3'
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Entries

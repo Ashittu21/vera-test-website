@@ -1,0 +1,16 @@
+<ul 
+  class="fact-list spotlight-fact-list list-reset article-slideshow flickity--red container" 
+  style="width: 100%;">
+  {% for thing in block.facts %}
+    <li class="fact-item {{ loop.index is odd ? 'alt' : '' }}">
+      {% include 'state-of/types/fact' with { entry: thing, fromLink: entry.url } %}
+    </li>
+  {% endfor %}
+</ul>
+{% includeJs %}
+	$(function() {
+		$('.fact-list').flickity({
+			groupCells: true
+		})
+	})
+{% endincludejs %}

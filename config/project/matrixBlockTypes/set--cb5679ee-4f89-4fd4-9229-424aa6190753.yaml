@@ -1,0 +1,71 @@
+field: 04e6d816-9167-40b6-acff-230097fd4d5f
+fieldLayouts:
+  81b048d2-acfb-452c-b6e3-16b80dd06554:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: be3e877a-4f80-4f2a-a553-a4990acf1df8
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 265e87f3-434a-4a2a-91c0-d3825dce74fb
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  265e87f3-434a-4a2a-91c0-d3825dce74fb:
+    contentColumnType: string
+    fieldGroup: null
+    handle: people
+    instructions: ''
+    name: People
+    searchable: true
+    settings:
+      allowSelfRelations: false
+      limit: ''
+      localizeRelations: false
+      selectionLabel: ''
+      showSiteMenu: true
+      source: null
+      sources:
+        - 'section:8639923c-05e0-4fb4-a45a-9a2a79a690ec'
+      targetSiteId: null
+      validateRelatedElements: false
+      viewMode: null
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Entries
+  be3e877a-4f80-4f2a-a553-a4990acf1df8:
+    contentColumnType: text
+    fieldGroup: null
+    handle: label
+    instructions: ''
+    name: Label
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+handle: set
+name: Set
+sortOrder: 1

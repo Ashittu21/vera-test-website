@@ -1,0 +1,8 @@
+{% if people|length %}
+<article class="people-grid">
+  <div class="container">
+    <h3>{{ label | default("Staff") }}</h3>
+    {% include 'includes/snippets/people' with { grid: 1, large: true } %}
+  </div>
+</article>
+{% endif %}

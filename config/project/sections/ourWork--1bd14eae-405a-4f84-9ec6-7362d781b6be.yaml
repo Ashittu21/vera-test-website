@@ -1,0 +1,23 @@
+enableVersioning: true
+handle: ourWork
+name: 'Our Work'
+previewTargets:
+  -
+    __assoc__:
+      -
+        - label
+        - 'Primary entry page'
+      -
+        - urlFormat
+        - '{url}'
+propagationMethod: all
+siteSettings:
+  8ed9f980-84ac-470d-94d7-89a2cdb64916:
+    enabledByDefault: true
+    hasUrls: true
+    template: issues/_entry
+    uriFormat: '{% if object.level == 1 %}{slug}{% else %}{parent.uri}/{slug}{% endif %}'
+structure:
+  maxLevels: 4
+  uid: a2b45518-c32d-4723-b5be-c2bb038506bf
+type: structure

@@ -1,0 +1,7 @@
+{% set pages = [] %}
+{% for sibling in entry.siblings %}
+  {% set pages = pages | merge([{ 
+    entry: [sibling] 
+  }]) %}
+{% endfor %}
+{% include '_article/nav' with {pages: pages} %}

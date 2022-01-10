@@ -1,0 +1,63 @@
+{% if entry is defined and entry or category is defined %}
+	{% set signup_from = entry.title ?? category.title -%}
+	{%- set signup_from = 'Vera - '~signup_from -%}
+	{%- set signup_type = 'Footer' -%}
+
+	
+	<footer class="footer {{ class ?? null }}" role="navigation">
+		<div class="container col-outer">
+			<div class="footer__address">
+				<span class="footer__logo">Vera</span>
+				<div>
+					34 35th Street<br>
+					Suite 4-2A<br>
+					Brooklyn, NY 11232<br>
+					T: (212) 334-1300
+				</div>
+				<div class="award-badge">
+					<img src="/dist/img/Webby_Honoree_2019_BW.png"/>
+				</div>
+			</div>
+
+
+			<div class="footer__right">
+				<div class="footer__links">
+					<ul>
+						<li><a href="{{siteUrl('about')}}">About</a></li>
+						<li><a href="{{siteUrl('events')}}">Events</a></li>
+						<li><a href="{{siteUrl('careers')}}">Careers</a></li>
+						<li><a href="{{siteUrl('blog')}}">Blog</a></li>
+						<li><a href="{{siteUrl('newsroom')}}">Newsroom</a></li>
+						<li><a href="{{siteUrl('contact')}}">Contact</a></li>
+						<li><a href="{{siteUrl('partner-with-vera')}}">Partner</a></li>
+					</ul>
+				</div>
+
+				<div class="footer__social">
+					<span class="footer__social__subheading">Follow Us</span>
+
+					{% include 'includes/snippets/social_links' %}
+				</div>
+
+				<div class="footer__newsletter footer-ea-newsletter">
+					<link rel='preload' href='https://d3rse9xjbp8270.cloudfront.net/at.js' as='script' crossorigin='anonymous'>
+					<link rel='preload' href='https://d3rse9xjbp8270.cloudfront.net/at.min.css' as='style'>
+					<script type='text/javascript' src='https://d3rse9xjbp8270.cloudfront.net/at.js' crossorigin='anonymous'></script>
+					<div class="ngp-form"
+					  data-form-url="https://secure.everyaction.com/v1/Forms/q5u83Tm3LEu-pz7OVPwiVw2"
+					  data-fastaction-endpoint="https://fastaction.ngpvan.com"
+					  data-inline-errors="true"
+					  data-fastaction-nologin="true"
+					  data-databag-endpoint="https://profile.ngpvan.com"
+					  data-databag="everybody"
+					  data-mobile-autofocus="false">
+					</div>
+				</div>
+			</div>
+
+			<div class="footer__bottom">
+				{{ include(template_from_string(footer.legal)) | raw }}
+			</div>
+		</div>
+	</footer>
+{% endif %}

@@ -1,0 +1,52 @@
+childBlocks: ''
+field: 4cc124d8-7ee1-43a4-9aa0-5b5b6fcfe1cc
+fieldLayouts:
+  5db3d566-91fa-4ed5-99c5-204cf74e1000:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 1ba5aa9f-b86f-4096-ada8-5e369c3f13c6
+            instructions: null
+            label: null
+            required: '1'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 042ab8f0-cbe4-451d-87a1-86511084b456
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 92cb73a2-98e7-4fcc-a761-66c914096587
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 167ab73c-a523-403b-951b-55eaca310eb4
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: 'Tab 1'
+        sortOrder: 1
+handle: videoPlaylist
+maxBlocks: 0
+maxChildBlocks: 0
+maxSiblingBlocks: 0
+name: 'Video Playlist'
+sortOrder: 4
+topLevel: false

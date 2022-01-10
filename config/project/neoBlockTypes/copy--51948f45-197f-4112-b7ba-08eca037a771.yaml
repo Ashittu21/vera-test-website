@@ -1,0 +1,25 @@
+childBlocks: ''
+field: fa227eda-364c-43db-abf1-8275ea9334d4
+fieldLayouts:
+  b65f7601-0157-4e6f-afa3-7084e4612201:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: cdd69614-1f5c-4e2a-adba-487e2ca87ee0
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: 'Tab 1'
+        sortOrder: 1
+handle: copy
+maxBlocks: 0
+maxChildBlocks: 0
+maxSiblingBlocks: 0
+name: Copy
+sortOrder: 6
+topLevel: true

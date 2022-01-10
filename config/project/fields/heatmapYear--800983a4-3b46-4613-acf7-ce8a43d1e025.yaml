@@ -1,0 +1,19 @@
+contentColumnType: integer(10)
+fieldGroup: db841c2f-86aa-4387-8c3e-51fefc8f5945
+handle: heatmapYear
+instructions: ''
+name: 'Heatmap Year'
+searchable: true
+settings:
+  decimals: 0
+  defaultValue: null
+  max: null
+  min: '0'
+  prefix: null
+  previewCurrency: null
+  previewFormat: decimal
+  size: null
+  suffix: null
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Number

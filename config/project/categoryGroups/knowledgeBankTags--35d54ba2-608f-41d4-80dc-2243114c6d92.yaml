@@ -1,0 +1,40 @@
+fieldLayouts:
+  5e8a5947-5a9c-4e68-9ab2-ad6d8dbeee98:
+    tabs:
+      -
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\TitleField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+handle: knowledgeBankTags
+name: 'Knowledge Bank Tags'
+siteSettings:
+  8ed9f980-84ac-470d-94d7-89a2cdb64916:
+    hasUrls: false
+    template: null
+    uriFormat: null
+structure:
+  maxLevels: 2
+  uid: e0fd23e8-e6f8-41df-8937-0ccb9231e3cd

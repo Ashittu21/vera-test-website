@@ -1,0 +1,18 @@
+contentColumnType: text
+fieldGroup: f569ee7a-10dc-489c-92f7-60d63defe6f0
+handle: coordinates
+instructions: 'Comma separated: latitude,longitue'
+name: Coordinates
+searchable: true
+settings:
+  byteLimit: null
+  charLimit: null
+  code: false
+  columnType: text
+  initialRows: '4'
+  multiline: ''
+  placeholder: ''
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

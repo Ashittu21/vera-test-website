@@ -1,0 +1,18 @@
+contentColumnType: text
+fieldGroup: ff6bca1c-2054-4260-a21f-2d7007b1c024
+handle: introParagraph
+instructions: 'Please Limit to around 50 words'
+name: 'Intro Paragraph'
+searchable: true
+settings:
+  byteLimit: null
+  charLimit: null
+  code: false
+  columnType: text
+  initialRows: '4'
+  multiline: '1'
+  placeholder: ''
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

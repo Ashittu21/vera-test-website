@@ -1,0 +1,15 @@
+{% set mainDonate = craft.entries.section('donate').first %}
+{% set entry = entry.type.handle in ['action'] or (entry.otherWaysText and entry.donateOtherWays | length) ? entry : mainDonate %}
+
+{% if entry.donateArticleBuilder | length %}
+	{% include 'includes/snippets/article' with {article: entry.donateArticleBuilder} %}
+{% endif %}
+<section class="post-module module-intro module-intro--border donate-form-container{%- if bg %} donate-form-container--bg{%- endif -%}" {%- if bg -%}style="background-image: url('{{ bg.url }}')"{%- endif -%}>
+    <div class="container col-outer">
+        <div class="post-content__single__main-col iframe-contain">
+            <div style="width: 100%">
+                {% set embed = embed ?? administrative.donateEmbed %}{{ embed | raw }}
+            </div>
+        </div>
+    </div>
+</section>

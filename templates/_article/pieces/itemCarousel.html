@@ -1,0 +1,57 @@
+{% if block.children | length > 2 %}
+  {% set carouselClass = 'js-carousel' %}
+{% elseif block.children | length == 1 %}
+  {% set carouselClass = 'item-carousel--full' %}
+{% else %}
+  {% set carouselClass = 'item-carousel--half' %}
+{% endif %}
+
+{% set bgClass = block.highlightBackground.value %}
+
+<div class="item-carousel bg--{{ bgClass }}">
+  <h3 class="item-carousel__heading">{{ block.heading ?? 'Spotlight' }}</h3>
+  <ul class="{{ carouselClass }}">
+    {% for item in block.children %}
+      {% set hasPhoto = false %}
+      {% set transforms = craft.imager.transformImage( item.photo.first,
+        [
+          { width: 300 },
+          { width: 150 }
+        ]
+      ) %}
+
+      {% if transforms %}
+        {% set src = transforms[0].url %}
+        {% set srcset = craft.imager.srcset( transforms ) %}
+        {% set hasPhoto = true %}
+      {% endif %}
+
+      {% if item.slideout | length %}
+        <li class="item-carousel__block slideoutcta" data-url="{{ item.slideout.first.url }}" data-class="{{ item.slideout.first.slideoutTheme.value }}">
+      {% else %}
+        <li class="item-carousel__block">
+      {% endif %}
+        <div class="item-carousel__wrap cta_wrap">
+          {% if hasPhoto %}
+            <figure class="item-carousel__image">
+              <img src="{{ src }}" srcset="{{ srcset }}">
+            </figure>
+          {% endif %}
+          <div class="item-carousel__copy">{{ item.text | shortcodes | raw }}</div>
+        </div>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
+
+{% includeJs %}
+  $(function() {
+    var $carousel = $('.js-carousel');
+    $carousel.flickity({
+      'cellAlign': 'left',
+      'wrapAround': 'true'
+    })
+
+    window.addEventListener('resize', function() { $carousel.flickity('resize') })
+  })
+{% endincludejs %}

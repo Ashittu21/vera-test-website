@@ -1,0 +1,51 @@
+<div class="lightswitches desktop">
+{% for toggle in toggles %}
+	<div class="lightswitch">
+		<input type="checkbox" class="{{ toggle.class }}" id="{{ toggle.class ~ "__desktop" }}">
+		<label for="{{ toggle.class ~ "__desktop" }}">
+			<div>
+				<div class="toggle-side off">{% include 'includes/icons/arrow.svg' %}</div>
+				<div class="toggle-side on">{% include 'includes/icons/arrow.svg' %}</div>
+			</div>
+		</label>
+		<div class="label">
+			<div class="label-down">{{ queryData.toggleVariables[loop.index0].labelDown }}</div>
+			<div class="label-up">{{ queryData.toggleVariables[loop.index0].labelUp }}</div>
+		</div>
+	</div>
+{% endfor %}
+</div>
+
+<div class="map__overview">
+	<div class="stateOverview hidden">
+		<div class="heading">
+			<div class="flex flex--align-center">
+				<span class="title"></span>
+				<div class="hairline--gray"></div>
+			</div>
+			<ul class="big-stats">
+				{% for variable in queryData.toggleVariables %}
+				<li data-point="{{ variable.column | e('html_attr') }}">
+					<div class="popDelta number"></div>
+					<div class="label">{{ variable.label }}</div>
+				</li>
+				{% endfor %}
+			</ul>
+		</div>
+		
+		<ul class="small-stats">
+			{% for variable in queryData.additionalVariables %}
+			<li data-point="{{ variable.column | e('html_attr') }}">
+				<span class="label">{{ variable.label }}: </span><span class="number"></span>
+			</li>
+			{% endfor %}
+		</ul>
+		
+	</div>
+	
+	<div class="countryOverview">
+		{% for copy in overview %}
+		<div class="content" data-toggle-group="{{ loop.index }}">{{ copy | raw }}</div>
+		{% endfor %}
+	</div>		
+</div>

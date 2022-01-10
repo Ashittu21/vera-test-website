@@ -1,0 +1,43 @@
+field: 95bc127b-3520-49ff-803a-7352214068b1
+fieldLayouts:
+  a94d2911-4377-4caf-8a79-9ab110a9b477:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: af0b49dc-97ec-4525-b163-99509ea0a9e4
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  af0b49dc-97ec-4525-b163-99509ea0a9e4:
+    contentColumnType: string
+    fieldGroup: null
+    handle: slideout
+    instructions: 'Slideout or Accordion element'
+    name: 'Dynamic Content'
+    searchable: true
+    settings:
+      allowSelfRelations: false
+      limit: ''
+      localizeRelations: false
+      selectionLabel: ''
+      showSiteMenu: true
+      source: null
+      sources:
+        - 'section:cce065ab-4801-487f-ad16-459f0c429f5d'
+      targetSiteId: null
+      validateRelatedElements: false
+      viewMode: null
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Entries
+handle: slideout
+name: 'Dynamic Content'
+sortOrder: 23

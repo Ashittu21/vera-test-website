@@ -1,0 +1,32 @@
+contentColumnType: string
+fieldGroup: 2fa9b2e1-1f3e-40b9-9de6-673b6be4a3f1
+handle: commitmentImageHero
+instructions: '2880px by 1340px'
+name: 'Commitment Image Hero'
+searchable: true
+settings:
+  allowSelfRelations: false
+  allowUploads: true
+  allowedKinds:
+    - image
+  defaultUploadLocationSource: 'volume:a48d5d4c-e94e-40ca-b140-801253b0f802'
+  defaultUploadLocationSubpath: ''
+  limit: '1'
+  localizeRelations: false
+  previewMode: full
+  restrictFiles: '1'
+  selectionLabel: ''
+  showSiteMenu: true
+  showUnpermittedFiles: false
+  showUnpermittedVolumes: true
+  singleUploadLocationSource: 'volume:c3679b2c-c8a9-497f-a727-b1b62f2da07a'
+  singleUploadLocationSubpath: 'commitments/{slug}/'
+  source: null
+  sources: '*'
+  targetSiteId: null
+  useSingleFolder: true
+  validateRelatedElements: false
+  viewMode: large
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Assets

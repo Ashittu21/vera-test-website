@@ -1,0 +1,21 @@
+contentColumnType: string
+fieldGroup: 532961b6-a69f-4934-914a-9c266d7a2eb6
+handle: factsFigures
+instructions: ''
+name: 'Facts & Figures'
+searchable: true
+settings:
+  allowSelfRelations: false
+  limit: ''
+  localizeRelations: false
+  selectionLabel: ''
+  showSiteMenu: true
+  source: null
+  sources:
+    - 'section:072fb664-949a-491a-bea8-525f75afc443'
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Entries

@@ -1,0 +1,21 @@
+
+<section class="banner-cta">
+  <div class="banner-cta__img-outer img-outer" style="background-image: url({{ banner.bottomLinksImage.first.url }});"></div>
+
+  <div class="banner-cta__content">
+    <h2 class="banner-cta__heading">
+      {{ banner.bottomLinksCopy }}
+    </h2>
+
+    <div class="banner-cta__meta">
+    
+    {% if banner.type != 'home' %}
+      <a href="{{ banner.page.first.url }}" class="btn">{{ banner.buttonText }}</a>
+    {% elseif banner.bottomLinks | length %}
+      {% for bottomLink in banner.bottomLinks %}
+      <a href="{{ bottomLink.page.first.url }}" class="btn">{{ bottomLink.buttonText }}</a>
+      {% endfor %}
+    {% endif %}
+    </div>
+  </div>
+</section>

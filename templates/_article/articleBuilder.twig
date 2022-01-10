@@ -1,0 +1,85 @@
+{% set isBackgroundScroller = true %}
+{% set blocks = entry.articleBuilder.level(1).all() %}
+{% for block in blocks %}
+	{% if block.heroImage | length %}{% set isBackgroundScroller = true %}{% endif %}
+{% endfor %}
+
+
+{% set hasSubNav = entry.sidebarSubNav.value != 'none' and entry.sidebarSubNav.value is not null %}
+{% set hasSidebar = hasSubNav and blocks | length %}
+
+<a class="anchor anchor--chapter" id="{{ entry.title | kebab }}"></a>
+<article class="article {{ entry.excludeFromNav ? 'js-hide-radial-nav' : '' }} {{- hasSidebar ? ' has-sidebar' }} {{- hasSubNav ? ' js-has-subnav' }}"
+	data-anchor-link="{{ entry.url }}"
+	{% if isBackgroundScroller %}
+	data-article-options='{"slideFade": false}'
+	{% endif %}
+  id="article--{{ entry.title | kebab }}">
+  {% if not entry.noHero %}
+    {% if entry.customHero | length %}
+      {% set hero = entry.customHero[0] %}
+      {% if hero.hasLandingNav is defined and hero.hasLandingNav == '1' %}
+        <div class="custom-hero landing-header">
+          <div class="intro-logo-wrap container">
+            <a href="/"><img class="intro-logo" src="/dist/img/logo_med.svg"></a>
+            <h1>{{ entry.title }}</h1>
+            <a href="#" class="icon-share trigger-modal" data-modal="ShareOverlay" title="Share" aria-label="Toggle Share Menu">{{ craft.inlin.er("/dist/icons/share.svg",true) | raw }}</a>
+          </div>
+        </div>
+      {% endif %}
+      {% switch hero.type %}
+        {% case 'heroBuilder' %}
+          {% include hero.customTemplate with { entry: entry } %}
+        {% default %}
+          {% include 'hero-builder/_entry' with {
+            entry: hero,
+            asBlock: true,
+            asHero: true
+          } %}
+      {% endswitch %}
+    {% else %}
+      {% switch entry.heroEffect %}
+        {% case 'imageMask' %}
+          {% include 'hero-builder/_entry' with {
+              entry: {
+                type: 'imageMask',
+                id: entry.id
+              },
+              asBlock: true,
+              asHero: true,
+              title: entry.title,
+              subtitle: entry.subtitle,
+              image: entry.heroImage | length ? entry.heroImage[0] : null
+            } %}
+        {% default %}
+          {% if not entry.hideHeader %}<div class="banner-spacer"></div>{% endif %}
+          {% include 'includes/snippets/banner__featured' with { isEditorial: true, heroClass: 'article-hero', nextButton: true } %}
+      {% endswitch %}
+    {% endif %}
+  {% endif %}
+
+	{% if withScrollTrigger %}
+  	<div class="js-show-header-trigger"></div>
+  {% endif %}
+
+	{% if hasSubNav %}
+		{% include '/includes/snippets/sidebar__subnav' with { blocks: blocks } %}
+  {% endif %}
+
+  {% for block in blocks %}
+		{% include '_article/' ~ block.type with { index: loop.index } %}
+	{% endfor %}
+</article>
+
+
+{% if isBackgroundScroller %}
+<div class="background-scroll-container">
+	<div class="background-scroll-images"></div>
+	<div class="background-scroll-screen receives-background-color"></div>
+</div>
+{% includeJs %}
+	$(function() {
+		VERA.initBackgroundScroll($('.article[data-anchor-link="{{ entry.url }}"]'));
+	})
+{% endincludejs %}
+{% endif %}

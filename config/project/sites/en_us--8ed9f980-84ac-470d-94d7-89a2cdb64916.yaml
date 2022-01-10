@@ -1,0 +1,9 @@
+baseUrl: '@web'
+enabled: true
+handle: en_us
+hasUrls: true
+language: en-US
+name: 'Vera Institute of Justice (en-US)'
+primary: true
+siteGroup: dd1ba12d-b2bc-4300-9650-e3046d57718d
+sortOrder: 1

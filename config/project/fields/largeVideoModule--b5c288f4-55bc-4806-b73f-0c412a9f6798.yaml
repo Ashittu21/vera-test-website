@@ -1,0 +1,14 @@
+contentColumnType: string
+fieldGroup: d723273d-4ca1-44ac-83e7-4eddc646c1ed
+handle: largeVideoModule
+instructions: ''
+name: 'Large Video Module'
+searchable: true
+settings:
+  contentTable: '{{%matrixcontent_largevideomodule}}'
+  maxBlocks: '1'
+  minBlocks: ''
+  propagationMethod: all
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

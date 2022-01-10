@@ -1,0 +1,7 @@
+<section class="Split-Screen">
+  {% for panel in block.children() %}
+  <div class="Split-Screen-panel{% if loop.last %} Split-Screen-panel--sticky{% endif %}">
+    {% include '_article/' ~ panel.type with { block: panel } %}
+  </div>
+  {% endfor %}
+</section>

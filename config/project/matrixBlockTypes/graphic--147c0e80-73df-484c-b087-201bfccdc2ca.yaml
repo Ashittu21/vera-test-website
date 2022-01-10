@@ -1,0 +1,179 @@
+field: d1b6fe89-7e21-4fdf-a210-5fcbc55ae8e1
+fieldLayouts:
+  78a5ff9f-b703-4172-a15a-248e22814fd3:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 5a4c1c88-e063-407d-afd2-8ea1f4ba9329
+            instructions: null
+            label: null
+            required: '0'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 8f49d5dc-3a7d-451f-ad9f-91e3fbc6e397
+            instructions: null
+            label: null
+            required: '0'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 8a5cb5af-315f-4e35-97e3-12b29d283509
+            instructions: null
+            label: null
+            required: '0'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 7e1c8b0e-76ff-4286-b5d9-ece1a481b5e1
+            instructions: null
+            label: null
+            required: '0'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  5a4c1c88-e063-407d-afd2-8ea1f4ba9329:
+    contentColumnType: text
+    fieldGroup: null
+    handle: heading
+    instructions: ''
+    name: Heading
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: false
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  7e1c8b0e-76ff-4286-b5d9-ece1a481b5e1:
+    contentColumnType: string
+    fieldGroup: null
+    handle: graphType
+    instructions: ''
+    name: 'Graph Type'
+    searchable: true
+    settings:
+      optgroups: true
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - Bar
+            -
+              - value
+              - bar
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Circle
+            -
+              - value
+              - circle
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+  8a5cb5af-315f-4e35-97e3-12b29d283509:
+    contentColumnType: text
+    fieldGroup: null
+    handle: data
+    instructions: 'Only add 2 rows of data!'
+    name: Data
+    searchable: true
+    settings:
+      addRowLabel: 'Add a row'
+      columnType: text
+      columns:
+        __assoc__:
+          -
+            - col1
+            -
+              __assoc__:
+                -
+                  - heading
+                  - Percentage
+                -
+                  - handle
+                  - percentage
+                -
+                  - width
+                  - ''
+                -
+                  - type
+                  - singleline
+          -
+            - col2
+            -
+              __assoc__:
+                -
+                  - heading
+                  - Explainer
+                -
+                  - handle
+                  - explainer
+                -
+                  - width
+                  - ''
+                -
+                  - type
+                  - singleline
+      defaults:
+        -
+          __assoc__:
+            -
+              - col1
+              - ''
+            -
+              - col2
+              - ''
+      maxRows: null
+      minRows: null
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Table
+  8f49d5dc-3a7d-451f-ad9f-91e3fbc6e397:
+    contentColumnType: text
+    fieldGroup: null
+    handle: explainer
+    instructions: ''
+    name: Explainer
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: false
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+handle: graphic
+name: Graphic
+sortOrder: 1

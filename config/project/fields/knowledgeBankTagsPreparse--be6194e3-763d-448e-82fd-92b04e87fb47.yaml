@@ -1,0 +1,19 @@
+contentColumnType: text
+fieldGroup: 3ad6d151-958c-44f4-99b0-865c27d2922e
+handle: knowledgeBankTagsPreparse
+instructions: ''
+name: 'Knowledge Bank Tags Preparse'
+searchable: true
+settings:
+  allowSelect: ''
+  columnType: text
+  decimals: '0'
+  displayType: hidden
+  fieldTwig: "{% set entries = craft.entries.section('knowledgeBank').limit(null).relatedTo(entry) %}\r\n{% set tags = craft.categories.group('knowledgeBankTags').relatedTo(entries) %}\r\n{{ tags.ids() | json_encode | raw }}"
+  parseBeforeSave: ''
+  parseOnMove: ''
+  showField: ''
+  textareaRows: 5
+translationKeyFormat: null
+translationMethod: none
+type: besteadfast\preparsefield\fields\PreparseFieldType

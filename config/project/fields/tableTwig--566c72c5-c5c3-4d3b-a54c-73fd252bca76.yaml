@@ -1,0 +1,18 @@
+contentColumnType: text
+fieldGroup: 1c2af07a-2699-4df8-8e5a-f2400541874b
+handle: tableTwig
+instructions: ''
+name: 'Table Twig'
+searchable: true
+settings:
+  byteLimit: null
+  charLimit: null
+  code: false
+  columnType: text
+  initialRows: '4'
+  multiline: '1'
+  placeholder: ''
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

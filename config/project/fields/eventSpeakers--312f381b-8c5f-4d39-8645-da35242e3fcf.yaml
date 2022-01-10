@@ -1,0 +1,14 @@
+contentColumnType: string
+fieldGroup: 6c478341-da6f-434d-b58e-1f381004c510
+handle: eventSpeakers
+instructions: 'If the event has many speakers to be listed on the event page, add each of them here.'
+name: 'Event Speakers'
+searchable: true
+settings:
+  contentTable: '{{%matrixcontent_eventspeakers}}'
+  maxBlocks: null
+  minBlocks: null
+  propagationMethod: all
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

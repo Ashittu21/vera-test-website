@@ -1,0 +1,13 @@
+contentColumnType: string
+fieldGroup: 9e8c11c6-0d09-4e83-9ae3-8e977b222014
+handle: projectsParticipatedIn
+instructions: ''
+name: 'Projects Participated In'
+searchable: true
+settings:
+  errorMessage: 'Unable to find component class ''ManyToMany_ManyToMany''.'
+  expectedType: ManyToMany_ManyToMany
+  settings: '{"source":{"value":"14","type":"section"},"singleField":"85"}'
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\MissingField

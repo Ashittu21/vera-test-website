@@ -1,0 +1,38 @@
+{% set entry = block.entry[0] %}
+{% set isResourceSite = entry.type.handle in ["resourceSite"] %}
+
+{% set heading = block.overrideHeading ?: entry.title %}
+{% set subheading = block.overrideSubheading ?: entry.subtitle %}
+{% set layout = block.layout.value %}
+{% set linkTo = isResourceSite ? entry.linkUrl : entry.url %}
+{% set ctaText = block.buttonText ?: null %}
+{% set ext = isResourceSite %}
+
+{% set authors = entry.authors | join(", ") %}
+{% set date = entry.postDate| date('F Y') %}
+
+
+{# image #}
+{% set streamImageSquare = entry.streamImageSquare is defined and entry.streamImageSquare | length ? entry.streamImageSquare[0] : null %}
+{% set streamImageRectangle = entry.streamImageRectangle is defined and entry.streamImageRectangle | length ? entry.streamImageRectangle[0] : null %}
+{% set heroImage = entry.heroImage is defined and entry.heroImage | length ? entry.heroImage[0] : null %}
+{% set image = heroImage ?? streamImageRectangle ?? streamImageSquare %}
+
+
+{# label #}
+{% set label -%}
+{% if entry.type.handle == "blog" %}
+	Featured Post
+{% elseif entry.type.handle in specialReportTypes %}
+	Special Report
+{% elseif entry.type.handle in serialTypes %}
+	Serial
+{% else %}
+	{% if isArchived is defined and isArchived %}Archived
+	{% endif %}
+	{{ entry.type.name }}
+{% endif %}
+{%- endset %}
+
+
+{% include 'spotlights/blocks/resourceCard' %}

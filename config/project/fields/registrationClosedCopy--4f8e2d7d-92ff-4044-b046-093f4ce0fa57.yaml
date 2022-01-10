@@ -1,0 +1,18 @@
+contentColumnType: text
+fieldGroup: 6c478341-da6f-434d-b58e-1f381004c510
+handle: registrationClosedCopy
+instructions: 'Will default to "* Registration Closed. Watch livestream below *" if left blank.'
+name: 'Registration Closed Copy'
+searchable: true
+settings:
+  byteLimit: null
+  charLimit: null
+  code: false
+  columnType: text
+  initialRows: '4'
+  multiline: ''
+  placeholder: ''
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

@@ -1,0 +1,253 @@
+field: ad9b90f1-ab3e-4da4-b693-9f04c0ee68a5
+fieldLayouts:
+  1292533d-647e-4833-ae35-586fe1d9178c:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 95e474d3-56f5-4a90-898e-78e35849490f
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: c118554a-619c-461b-abee-220b3ab8b921
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: bff503ba-20dc-47cb-bc69-db48f08bdb75
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: d4eccf5b-f827-495a-bfcb-17905b5a6610
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 9842f814-b8c7-4b7d-9fd3-29b46020c32d
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: e409069c-cb34-4f61-98f6-c31f07852e1e
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: bcf48037-fbfd-4e7b-a460-165761b0d620
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  95e474d3-56f5-4a90-898e-78e35849490f:
+    contentColumnType: string
+    fieldGroup: null
+    handle: data
+    instructions: ''
+    name: Data
+    searchable: true
+    settings:
+      allowSelfRelations: false
+      allowUploads: true
+      allowedKinds: null
+      defaultUploadLocationSource: 'volume:a48d5d4c-e94e-40ca-b140-801253b0f802'
+      defaultUploadLocationSubpath: ''
+      limit: '1'
+      localizeRelations: false
+      previewMode: full
+      restrictFiles: ''
+      selectionLabel: 'Add data'
+      showSiteMenu: true
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: true
+      singleUploadLocationSource: 'volume:f52a9576-f9b8-4f2c-ad52-3896ca36f136'
+      singleUploadLocationSubpath: ''
+      source: null
+      sources: '*'
+      targetSiteId: null
+      useSingleFolder: true
+      validateRelatedElements: false
+      viewMode: list
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+  9842f814-b8c7-4b7d-9fd3-29b46020c32d:
+    contentColumnType: text
+    fieldGroup: null
+    handle: xAxisTitle
+    instructions: ''
+    name: 'x axis title '
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  bcf48037-fbfd-4e7b-a460-165761b0d620:
+    contentColumnType: text
+    fieldGroup: null
+    handle: notes
+    instructions: ''
+    name: Notes
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: '1'
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  bff503ba-20dc-47cb-bc69-db48f08bdb75:
+    contentColumnType: string
+    fieldGroup: null
+    handle: barGroups
+    instructions: 'If this is a bar chart, how many columns represent x axis groupings?'
+    name: 'Bar Groups'
+    searchable: true
+    settings:
+      optgroups: true
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - '1'
+            -
+              - value
+              - '1'
+            -
+              - default
+              - '1'
+        -
+          __assoc__:
+            -
+              - label
+              - '2'
+            -
+              - value
+              - '2'
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+  c118554a-619c-461b-abee-220b3ab8b921:
+    contentColumnType: string
+    fieldGroup: null
+    handle: chartType
+    instructions: ''
+    name: 'Chart Type'
+    searchable: true
+    settings:
+      optgroups: true
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - Bar
+            -
+              - value
+              - bar
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Line
+            -
+              - value
+              - line
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+  d4eccf5b-f827-495a-bfcb-17905b5a6610:
+    contentColumnType: text
+    fieldGroup: null
+    handle: chartTitle
+    instructions: ''
+    name: 'Chart Title'
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  e409069c-cb34-4f61-98f6-c31f07852e1e:
+    contentColumnType: text
+    fieldGroup: null
+    handle: yAxisTitle
+    instructions: ''
+    name: 'y axis title'
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+handle: chart
+name: Chart
+sortOrder: 10

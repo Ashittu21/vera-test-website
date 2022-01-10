@@ -1,0 +1,34 @@
+contentColumnType: string
+fieldGroup: ff6bca1c-2054-4260-a21f-2d7007b1c024
+handle: heroEffect
+instructions: ''
+name: 'Hero Effect'
+searchable: true
+settings:
+  optgroups: true
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - None
+        -
+          - value
+          - none
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - 'Image Mask'
+        -
+          - value
+          - imageMask
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

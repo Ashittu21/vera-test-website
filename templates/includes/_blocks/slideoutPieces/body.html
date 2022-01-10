@@ -1,0 +1,5 @@
+{% set floatedImage = piece.children.type('floatedImage').first() %}
+<div class="module-text rte">
+  {% if floatedImage %}{% include 'includes/_blocks/slideoutPieces/floatedImage' with { piece: floatedImage } %}{% endif %}
+  {{ piece.slideoutBody | shortcodes }}
+</div>

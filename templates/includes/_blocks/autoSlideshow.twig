@@ -1,0 +1,31 @@
+{% set asHero = asHero ?? false %}
+{% set options = {
+  asHero: asHero
+} %}
+<section
+  class="timed-slideshow color-combo--{{ block.colorCombo.value }}"
+  data-options={{ options | json_encode | raw }}>
+  {% if block.heading %}
+  <div class="timed-slideshow-heading receives-background-color">{{ block.heading }}</div>
+  {% endif %}
+  <div class="timed-slideshow-item-wrapper">
+  {% for block in block.children %}
+    <div class="timed-slideshow-item timed-slideshow-item--{{ block.type }}">
+    {% switch block.type %}
+      {% case 'text' %}
+      <div class="heading">{{ block.heading }}</div>
+      {% case 'photo' %}
+      {% if block.photo | length %}
+      <img src="{{ block.photo[0].url }}" style="object-position: {{ block.photo[0].focalPoint.x*100 }}% {{ block.photo[0].focalPoint.y*100 }}%;" />
+      {% endif %}
+      {% case 'video' %}
+      <video muted src="{{ block.videoFile[0].url }}" playsinline />
+      {% default %}
+    {% endswitch %}
+    </div>
+  {% endfor %}
+  </div>
+  {% if block.plaintext %}
+  <div class="timed-slideshow-description receives-background-color">{{ block.plaintext }}</div>
+  {% endif %}
+</section>

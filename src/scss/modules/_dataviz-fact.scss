@@ -1,0 +1,116 @@
+.data-viz-fact {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  @media (min-aspect-ratio: 1/1) {
+    height: calc(70vh - #{$header-height});
+  }
+
+  .heading {
+    max-width: 25em;
+    margin: 0 auto 1em;
+    text-align: center;
+  }
+
+  >.container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .huge-thin {
+    @extend .ff-sans--thin;
+
+    @media(min-width: $tablet-portrait) {
+      font-size: 3em;
+    }
+
+    @media(min-width: $desktop-ml) {
+      font-size: 4em;
+    }
+  }
+   .large-thin {
+    @extend .ff-sans--thin;
+
+    @media(min-width: $tablet-portrait) {
+      font-size: 1.25em;
+    }
+
+    @media(min-width: $desktop-ml) {
+      font-size: 2em;
+    }
+  }
+}
+
+.data-viz-fact-wrapper {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  svg {
+    height: auto;
+    max-height: 100%;
+    width: 100%;
+  }
+
+  &.percentage-people-visualization {
+
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+      "captionLeft captionRight"
+      "visualization visualization"
+    ;
+
+    .data-viz-fact-caption.left {
+      grid-area: captionLeft;
+      text-align: right;
+    }
+
+    .data-viz-fact-caption.right {
+      grid-area: captionRight;
+    }
+
+    .data-viz-fact-visualization {
+      grid-area: visualization;
+      align-items: center;
+      display: flex;
+      height: 100%;
+      min-height: 200px;
+      padding-top: 1em;
+    }
+
+    @media (min-width: $tablet-portrait) {
+      align-items: center;
+      grid-template-columns: 1fr auto 1fr;
+      grid-template-rows: auto;
+      grid-template-areas:
+        "captionLeft visualization captionRight"
+      ;
+
+      .data-viz-fact-visualization {
+        min-height: 400px;
+        padding-top: 0;
+      }
+    }
+  }
+}
+
+.data-viz-fact-visualization {
+  width: 100%;
+}
+
+.data-viz-fact-caption {
+  padding: 0 1em;
+  opacity: .1;
+  transition: opacity $transition-timing;
+
+  &.is-active {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "buttons": ["format"],
+  "formatting": ["p"],
+  "formattingAdd": {
+    "red": {
+      "title": "Red",
+      "args": ["span", "class", "color--red"]
+    }
+  }
+}

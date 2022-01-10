@@ -1,0 +1,441 @@
+header {
+  /*display:none;*/
+  width: 100%;
+  display: block;
+}
+
+.header-v2 {
+
+  @media(max-width: $menu-mobile-breakpoint){
+    display: none; 
+  }
+  
+  @media(min-width:  $menu-mobile-breakpoint){
+    display: block; 
+  }
+
+  font-family: var(--global-font-abc-whyte);
+
+  h1 {
+    .logo {
+      background: url("../img/v2/vera-logo.svg") top left no-repeat transparent;
+      background-size: contain;
+      color: transparent;
+      display: block;
+      background-position: center center;
+      width: 184px;
+      height: 63px;
+    }
+  }
+
+  .rowTop {
+    background-color: #0E002C;
+    height: 119px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    &-container{
+      max-width: 1280px;
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      margin: 0 auto;
+    }
+
+    #header-v2-top-nav {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      z-index: 100;
+
+      .clicky-menu {
+        justify-content: stretch;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        width: 100%;
+        max-height: 42px;
+        justify-content: flex-start;
+
+        font-weight: 300;
+        font-size: 14px;
+        font-style: normal;
+      }
+
+      @media (min-width: 540px) {
+        .clicky-menu {
+          display: flex;
+        }
+
+      }
+
+
+      /* General Link & Button Styles */
+      .clicky-menu a,
+      .clicky-menu button {
+        color: #FFF;
+        text-decoration: none;
+        background: transparent;
+        height: 42px;
+        font-weight: 300;
+        font-size: 14px;
+        font-style: normal;
+        transition: all 0.2s ease;
+      }
+
+      .clicky-menu a:hover,
+      .clicky-menu button:hover {
+        background-color: #2E1D97;
+
+      }
+
+      .clicky-menu [aria-expanded="false"] {
+        border-bottom: 1px solid transparent;
+        padding-right: 20px;
+        width: fit-content;
+        background-image: url("../img/v2/menu-close.svg");
+        background-repeat: no-repeat;
+        background-size: inherit;
+        background-position: right 10px center;
+      }
+
+      .clicky-menu [aria-expanded="true"] {
+        transition: all 0.2s ease;
+        background-color: #2E1D97;
+        border-bottom: 1px solid #3E2BB1;
+        padding-right: 20px;
+        width: fit-content;
+        background-image: url("../img/v2/menu-open.svg");
+        background-repeat: no-repeat;
+        background-size: inherit;
+        background-position: right 10px center;
+      }
+
+
+      /* Top Level Items */
+      .clicky-menu>li {
+        position: relative;
+        flex: 1 1 auto;
+        display: flex;
+        justify-content: stretch;
+        flex-wrap: wrap;
+        max-width: 152px;
+      }
+
+      .clicky-menu>li>a,
+      .clicky-menu>li>button {
+        flex: 1 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        border: 0;
+        font-size: inherit;
+        line-height: 1.5;
+        cursor: pointer;
+      }
+
+      @media (min-width: 540px) {
+
+        .clicky-menu>li>a,
+        .clicky-menu>li>button {
+          justify-content: center;
+        }
+      }
+
+      /* Submenu Styles */
+      .clicky-menu ul {
+        min-width: 100%;
+        width: 12em;
+        margin-top: 0;
+        padding: 0;
+        list-style: none;
+        background-color: #2E1D97;
+      }
+
+      @media (min-width: 540px) {
+        .clicky-menu {}
+      }
+
+      /* Responsive Submenu Behavior */
+      .clicky-menu ul[aria-hidden="false"] {
+        position: static;
+        width: 100%;
+        flex: 0 0 auto;
+      }
+
+      @media (min-width: 540px) {
+        .clicky-menu ul[aria-hidden="false"] {
+          position: absolute;
+          width: auto;
+
+        }
+      }
+
+      /* Submenu Links */
+
+      .clicky-menu ul li {
+        padding: 10px 20px;
+        transition: all 0.2s ease;
+
+        &:hover {
+          background-color: #3E2BB1;
+          text-decoration: underline;
+        }
+
+        a {
+          display: block;
+          background-color: transparent;
+          height: inherit;
+
+          &:hover {
+            background-color: transparent;
+          }
+        }
+      }
+
+    }
+
+    .menu-left {
+      display: flex;
+      flex-direction: row;
+      height: 100%;
+      align-items: center;
+      width: 100%;
+      max-width: 510px;
+      justify-content: flex-start;
+
+    }
+
+    .menu-center{
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      max-width: 260px;
+    }
+
+
+    .menu-right {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      max-width: 510px;
+      justify-content: flex-end;
+
+      .donate {
+        justify-content: end;
+        align-items: center;
+        display: flex;
+      }
+    }
+
+  }
+
+  .rowBottom {
+    background-color: #160643;
+    height: 67px;
+    border-bottom: 2px solid #3E2BB1;
+    width: 100%;
+    z-index: 5;
+    transition: all 0.2s ease;
+
+    &-container{
+      transition: all 0.2s ease;
+      max-width: 1280px;
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      margin: 0 auto;
+    }
+  
+
+
+    &.show-logo {
+      #header-v2-bottom-nav {
+        .isologo {
+          height: 67px;
+          align-content: center;
+          box-sizing: border-box;
+          display: flex;
+
+          img {
+            margin: 15px;
+          }
+        }
+      }
+    }
+
+    &.hide-logo {
+      #header-v2-bottom-nav {
+        .isologo {
+          display: none;
+        }
+      }
+    }
+
+
+    #header-v2-bottom-nav {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+
+      .isologo {
+        display: none;
+      }
+
+      .clicky-menu {
+        justify-content: stretch;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        width: 100%;
+      }
+
+      @media (min-width: 540px) {
+        .clicky-menu {
+          display: flex;
+        }
+
+      }
+
+
+      /* General Link & Button Styles */
+      .clicky-menu a,
+      .clicky-menu button {
+        color: #FFF;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: bold;
+        background: transparent;
+        height: 67px;
+        transition: background-color 0.2s ease;
+      }
+
+      .clicky-menu a:hover,
+      .clicky-menu button:hover {
+        background-color: #2E1D97;
+      }
+
+      .clicky-menu [aria-expanded="true"] {
+        background-color: #2E1D97;
+      }
+
+
+      /* Top Level Items */
+      .clicky-menu>li {
+        position: relative;
+        flex: 1 1 auto;
+        display: flex;
+        justify-content: stretch;
+        flex-wrap: wrap;
+      }
+
+      .clicky-menu>li>a,
+      .clicky-menu>li>button {
+        flex: 1 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        border: 0;
+        font-size: inherit;
+        line-height: 1.5;
+        cursor: pointer;
+      }
+
+      @media (min-width: 540px) {
+
+        .clicky-menu>li>a,
+        .clicky-menu>li>button {
+          justify-content: center;
+        }
+      }
+
+
+
+      /* Submenu Styles */
+      .clicky-menu ul {
+        min-width: 100%;
+        width: 12em;
+        margin-top: 0;
+        padding: 0;
+        list-style: none;
+        background-color: #2E1D97;
+        transition: background-color 0.2s ease;
+        //  width: 413px;
+      }
+
+      @media (min-width: 540px) {
+        .clicky-menu {}
+      }
+
+      /* Responsive Submenu Behavior */
+      .clicky-menu ul[aria-hidden="false"] {
+        position: static;
+        width: 100%;
+        flex: 0 0 auto;
+      }
+
+      @media (min-width: 540px) {
+        .clicky-menu ul[aria-hidden="false"] {
+          position: absolute;
+          //width: auto;
+          width: 413px;
+          z-index: 5;
+        }
+      }
+
+      /* Submenu Links */
+
+      .clicky-menu ul li {
+        padding: 13px 10px 13px 40px;
+        transition: background-color 0.2s ease;
+
+        &:hover {
+          background-color: #3E2BB1;
+
+          .hover-arrow {
+            padding-right: 30px;
+            width: fit-content;
+            background-image: url("../img/v2/arrow.svg");
+            background-repeat: no-repeat;
+            background-size: inherit;
+            background-position: right 0px center;
+          }
+        }
+
+        a {
+          display: block;
+          background-color: transparent;
+
+          span {
+            font-size: 14px;
+            font-weight: 400;
+            word-wrap: break-word;
+
+          }
+
+          &:hover {
+            background-color: transparent;
+          }
+        }
+      }
+
+      @media (min-width: 540px) {
+        .clicky-menu ul a .hover-arrow {
+
+        }
+      }
+    }
+  }
+}
+
+.header-mobile {
+  &-row {
+    background: #160643;
+    height: 60px;
+    border-bottom: 2px solid #3E2BB1
+  }
+}

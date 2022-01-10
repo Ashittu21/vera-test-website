@@ -1,0 +1,23 @@
+enableVersioning: true
+handle: spotlights
+name: Spotlights
+previewTargets:
+  -
+    __assoc__:
+      -
+        - label
+        - 'Primary entry page'
+      -
+        - urlFormat
+        - '{url}'
+propagationMethod: all
+siteSettings:
+  8ed9f980-84ac-470d-94d7-89a2cdb64916:
+    enabledByDefault: true
+    hasUrls: true
+    template: spotlights/_entry
+    uriFormat: '{% if object.level == 1 %}spotlights/{slug}{% else %}{parent.uri}/{slug}{% endif %}'
+structure:
+  maxLevels: null
+  uid: 60f09341-c918-4541-bbc1-bb8800be8048
+type: structure

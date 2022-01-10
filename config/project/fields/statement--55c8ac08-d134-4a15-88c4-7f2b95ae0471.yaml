@@ -1,0 +1,18 @@
+contentColumnType: text
+fieldGroup: 2c0ca1a3-ae52-4971-a689-fd84d8b7ba7d
+handle: statement
+instructions: ''
+name: Statement
+searchable: true
+settings:
+  byteLimit: null
+  charLimit: null
+  code: false
+  columnType: text
+  initialRows: '4'
+  multiline: ''
+  placeholder: ''
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

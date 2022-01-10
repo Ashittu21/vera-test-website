@@ -1,0 +1,21 @@
+contentColumnType: string
+fieldGroup: 19837e8c-c89c-4572-8569-fa8556eb36ce
+handle: relatedKnowledgeBankItems
+instructions: ''
+name: 'Related Knowledge Bank Items'
+searchable: true
+settings:
+  allowSelfRelations: false
+  limit: ''
+  localizeRelations: false
+  selectionLabel: ''
+  showSiteMenu: true
+  source: null
+  sources:
+    - 'section:b04b4329-db45-40d5-af36-a0aa6660ec8b'
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Entries

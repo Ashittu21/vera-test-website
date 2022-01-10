@@ -1,0 +1,90 @@
+field: 213ff235-332d-47d0-9c55-d4c0316fd8d0
+fieldLayouts:
+  46afb4ef-9952-4844-aa2d-77333acc54b2:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: c14928aa-27c1-45ef-afb9-94490426af19
+            instructions: null
+            label: null
+            required: '1'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: fddc38c9-8b2f-4247-bfa5-392d2be37199
+            instructions: null
+            label: null
+            required: '1'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: eed3415b-c8dc-49f1-a302-cc969d369207
+            instructions: null
+            label: null
+            required: '1'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  c14928aa-27c1-45ef-afb9-94490426af19:
+    contentColumnType: datetime
+    fieldGroup: null
+    handle: startTime
+    instructions: ''
+    name: 'Start Time'
+    searchable: true
+    settings:
+      max: null
+      min: null
+      minuteIncrement: '15'
+      showDate: 0
+      showTime: 1
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Date
+  eed3415b-c8dc-49f1-a302-cc969d369207:
+    contentColumnType: text
+    fieldGroup: null
+    handle: description
+    instructions: ''
+    name: Description
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: false
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  fddc38c9-8b2f-4247-bfa5-392d2be37199:
+    contentColumnType: datetime
+    fieldGroup: null
+    handle: endTime
+    instructions: ''
+    name: 'End Time'
+    searchable: true
+    settings:
+      max: null
+      min: null
+      minuteIncrement: '15'
+      showDate: 0
+      showTime: 1
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Date
+handle: agendaItem
+name: 'Agenda Item'
+sortOrder: 1

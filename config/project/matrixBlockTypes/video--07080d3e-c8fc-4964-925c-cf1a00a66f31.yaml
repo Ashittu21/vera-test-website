@@ -1,0 +1,53 @@
+field: 70d22f15-dbc1-44a0-8d3f-6f227779972a
+fieldLayouts:
+  751d0fd2-651c-44e0-9190-a8855f06c15c:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 84fa0bd9-8435-467b-a2cb-7059144b8cec
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  84fa0bd9-8435-467b-a2cb-7059144b8cec:
+    contentColumnType: string
+    fieldGroup: null
+    handle: videoClip
+    instructions: ''
+    name: 'Video Clip'
+    searchable: true
+    settings:
+      allowSelfRelations: false
+      allowUploads: true
+      allowedKinds: null
+      defaultUploadLocationSource: 'volume:a48d5d4c-e94e-40ca-b140-801253b0f802'
+      defaultUploadLocationSubpath: ''
+      limit: '1'
+      localizeRelations: false
+      previewMode: full
+      restrictFiles: ''
+      selectionLabel: ''
+      showSiteMenu: true
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: true
+      singleUploadLocationSource: 'volume:a48d5d4c-e94e-40ca-b140-801253b0f802'
+      singleUploadLocationSubpath: ''
+      source: null
+      sources: '*'
+      targetSiteId: null
+      useSingleFolder: false
+      validateRelatedElements: false
+      viewMode: list
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+handle: video
+name: Video
+sortOrder: 3

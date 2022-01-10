@@ -1,0 +1,73 @@
+{% set mapTitle = entry.heading ?? entry.title %}
+{% set baseUrl = baseUrl ?? entry.url %}
+{% set anchorUrl = entry is defined ? entry.url ~ '#' ~ (mapTitle | camel) ~ "?selectmap=STATE_NUMBER:MARKER_ID" : null %}
+{% set stateCode = entry.stateCode %}
+<article id="{{ "map__" ~entry.id }}"  class="StateHeatmapWithLinks light" data-analytics-event='["Map","Click","{{ mapTitle | escape("html_attr") }}"]'>
+	<div class="container">
+	{% if currentUser %}
+	<span class="anchorLink">{{ anchorUrl }}</span>
+	{% endif %}
+  {#
+  <div class="map__header">
+    {% if entry.overview %}
+    <div class="map__overview_wrap size--body ff-serif">
+      {{ entry.overview }}
+    </div>
+    {% endif %}
+  </div>
+  #}
+	<div class="StateHeatmapWithLinks-main">
+		<div class="StateHeatmapWithLinks-sidebar">
+      <div class="map__title_wrap">
+        <h1 class="map__title">{{ mapTitle }}</h1>
+      </div>
+    </div>
+		<div class="StateHeatmapWithLinks-vis">
+			<div class="map_inner_wrap">
+				<svg class="project-map-svg" fill="none" stroke="#000" stroke-linejoin="round" stroke-linecap="round"></svg>
+				<div class="tooltip">
+					<div class="title"></div>
+					<div class="subtitle"></div>
+				</div>
+				{% include 'includes/stream/loader' %}
+			</div>
+
+		</div>
+	</div>
+	</div>
+</article>
+{% set lineChartColumns = [] %}
+{% for chart in entry.heatmapLineChartColumns %}
+{% set lineChartColumns = lineChartColumns | merge([
+  {
+    label: chart.label,
+    county: chart.countyColumn,
+    state: chart.stateColumn,
+    national: chart.nationalColumn
+  }
+]) %}
+{% endfor %}
+{% set dataStatements = [] %}
+{% for statement in entry.heatmapDataStatements %}
+{% set dataStatements = dataStatements | merge([
+  {
+    text: statement.text,
+    column: statement.column
+  }
+]) %}
+{% endfor %}
+{% includeJs %}
+$(function() {
+  VERA.countyHeatmapWithLineCharts(
+    "#{{ "map__" ~ entry.id }}", 
+    {{ stateCode | json_encode | raw }},
+    {{ entry.dataset[0].url | json_encode | raw }}, 
+    {{ entry.heatmapColumn | json_encode | raw }},
+    {{ entry.heatmapColumnLabel | json_encode | raw }},
+    {{ lineChartColumns | json_encode | raw }},
+    {{ entry.heatmapYear | json_encode | raw }},
+    {{ dataStatements | json_encode | raw }}
+  );
+})
+{% include 'vera-maps/types/countyHeatmapWithLineCharts.js' %}
+{% endincludejs %}

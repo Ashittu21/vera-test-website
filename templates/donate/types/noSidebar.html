@@ -1,0 +1,131 @@
+{% extends '_layout' %}
+
+{% set title = entry.title %}
+{% block bodyClass -%}
+{%- if entry.donateNavToggle == false -%}
+	donate-page
+{%- endif -%}{%- endblock %}{% block content %}
+
+{% set heroImage = entry.heroImage ? entry.heroImage.one() : null %}
+{%- set bg = entry.fullHeightBackground ? entry.fullHeightBackground.one() : null -%}
+
+{% if heroImage and bg is null %}
+	<section class="text-banner text-banner--cta donate-intro">
+		<div class="text-banner__bg-image" style="background-image: url({% if heroImage %}{{ heroImage.url }}{% endif %});"></div>
+
+		<div class="text-banner__content container module-text">
+			<div class="module-text__inner">
+				<h1 class="text-banner__heading--alt">
+					{{ entry.donateCallToActionHeading != '' ? entry.donateCallToActionHeading : (entry.heading|default(entry.title)) }}
+				</h1>
+				{% if entry.donateCallToAction %}
+					{{ entry.donateCallToAction }}
+				{% endif %}
+			</div>
+		</div>
+	</section>
+{% elseif bg and not entry.hideIntro %}
+	<section class="donate-intro">
+		<div class="module-text container">
+			<div class="module-text__inner">
+				<h1 class="text-banner__heading--alt">
+					{{ entry.donateCallToActionHeading | default(entry.title) }}
+				</h1>
+				{% if entry.donateCallToAction %}
+					{{ entry.donateCallToAction }}
+				{% endif %}
+			</div>
+		</div>
+	</section>
+{% elseif entry.hero | length %}
+	{% set hero = entry.hero.first %}
+	{% if hero.type.handle == 'video' %}
+		<section class="donate-module video">
+			{%- include 'includes/snippets/video' with {video: hero.video} -%}
+			{%- if hero.heading -%}
+				<div class="container video-heading-copy video-container banner-image-left__subheading">{{ hero.heading }}</div>
+			{%- endif -%}
+		</section>
+
+		{%- set video = hero.video -%}
+		{%- if video.gatewayHandle not in includeVideoScripts -%}
+			{%- set includeVideoScripts = includeVideoScripts | merge([video.gatewayHandle]) -%}
+		{% endif %}
+	{% elseif hero.type.handle == 'image' %}
+		{% set heroImage = hero.heroImage.first %}
+		<section class="text-banner text-banner--cta donate-intro">
+			<div class="text-banner__bg-image" style="background-image: url({% if heroImage %}{{ heroImage.url }}{% endif %});"></div>
+			<div class="text-banner__content container module-text">
+				<div class="module-text__inner">
+					<h1 class="text-banner__heading--alt">
+						{{ hero.heading | length ? hero.heading : entry.donateCallToActionHeading | length ? entry.donateCallToActionHeading : entry.title }}
+					</h1>
+					{% if entry.donateCallToAction %}
+						{{ entry.donateCallToAction }}
+					{% endif %}
+				</div>
+			</div>
+		</section>
+	{% endif %}
+{% endif %}
+
+{% include 'includes/snippets/donate-form' with { embed: entry.donateEmbedCode ?: administrative.donateEmbed } %}
+
+{% block afterForm %}
+	{% if (entry.otherWaysText and entry.donateOtherWays | length) or entry.donateLegalText %}
+		<div class="donate-outer">
+			<div class="container col-outer">
+
+				<aside class="donate-info">
+					<h4>{{ entry.otherWaysText }}</h4>
+
+					{% set waysToDonate = entry.donateOtherWays %}
+					{% if waysToDonate | length %}
+						<ul>
+							{% for donateMethod in waysToDonate %}
+								<li class="one-half">
+									<h5>{{ donateMethod.explainer }}</h5>
+
+									<p>
+										{{ donateMethod.info }}
+									</p>
+								</li>
+							{% endfor %}
+						</ul>
+					{% endif %}
+					{% if entry.donateLegalText %}
+						{% set entry = entry.donateLegalText | length ? entry : mainDonate %}
+						<div class="footnote">
+							{{ entry.donateLegalText }}
+						</div>
+					{% endif %}
+				</aside>
+			</div>
+		</div>
+	{% endif %}
+{% endblock %}
+
+{% if entry.type.handle in ['donate','donateAppeal'] %}
+	<section class="donate-module">
+		{% set prioritiesPage = craft.entries.section('strategicPriorities').first %}
+		{% if prioritiesPage %}
+			<div class="post-module module-3up">
+				<div class="module-3up__inner">
+					<h3>{{ prioritiesPage.title }}</h3>
+
+					{% if prioritiesPage.priorities | length %}
+						<div class="col-outer">
+							{% for priority in prioritiesPage.priorities %}
+								<div class="one-third">
+									{{ priority.header }}
+								</div>
+							{% endfor %}
+						</div>
+					{% endif %}
+
+					<a href="{{ prioritiesPage.url }}" class="btn">Learn More</a>
+				</div>
+			</div>
+		{% endif %}
+	</section>
+{% endif %}{% endblock %}

@@ -1,0 +1,58 @@
+{% if entry %}
+	{%- switch entry.type -%}
+
+		{% case 'accordion' -%}
+
+			<div class="post-module module-text module-text--body">
+				<div class="container">
+					<div class="module-text__inner ">
+						<div class="rte">
+							<ol class="accordion">
+								{% for item in entry.accordionBuilder %}
+									<li class="accordion_item">
+										<input type="checkbox" id="accordion-item-{{ entry.id }}-{{ loop.index }}">
+										<label for="accordion-item-{{ entry.id }}-{{ loop.index }}" class="accordion__item--trigger">
+											{% if item.icon.count %}
+												{% set icon = item.icon.first() %}
+												<div class="icon">
+													<img src="{{ icon.url }}">
+												</div>
+											{% endif %}
+											<strong>{{ item.heading }}<i class="accordion__expand"></i>
+											</strong>
+										</label>
+										<div class="accordion_item__target">
+											<div class="accordion_item__target__inner">{{ item.copy | shortcodes }}</div>
+										</div>
+									</li>
+								{% endfor %}
+							</ol>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		{%- case 'slideout' -%}
+
+			<article class="slideoutcta post-module module-text module-text--body module-text--slideoutcta" data-url="{{ entry.url }}" data-class="{{ entry.slideoutTheme.value }}">
+				<div class="container">
+					<div class="module-text__inner">
+						<div class="cta_wrap">
+							<h1>{{ entry.title }}</h1>
+							{% if entry.ctaDescription %}
+								<aside>{{ entry.ctaDescription }}</aside>
+							{% endif %}
+							<div class="cta">
+								{% include 'includes/_svg/slideoutarrow.svg' %}
+								{% if entry.cta %}
+									<span>{{ entry.cta }}</span>
+								{% endif %}
+							</div>
+						</div>
+					</div>
+				</div>
+			</article>
+
+		{%- default -%}
+	{% endswitch %}
+{% endif %}

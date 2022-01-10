@@ -1,0 +1,34 @@
+{% set layout = 'about/_layout' %}
+{% set is404 = false %}
+
+{% if craft.request.isAjax %}
+	{% set layout = '_ajax_layout' %}
+{% endif %}
+{% if craft.request.segment(2) not in [
+	'about-us',
+	'presidents-message',
+	'people',
+	'board-of-trustees',
+	'reform-leadership-council',
+	'centers',
+	'financials',
+	''] %}
+	{% set layout = '_layout' %}
+	{% set is404 = true %}
+{% else %}
+	{% set section = craft.request.segment(2) %}
+	{% set entry = craft.entries.section('about').one() %}
+{% endif %}
+{% extends layout %}
+
+{% block content %}
+
+	{% if is404 %}
+		{% include 'includes/snippets/404_content' %}
+	{% else %}
+		{% if section is null or section == '' %}
+			{% set section = 'about-us' %}
+		{% endif %}
+		{% include '/about/tabs/' ~ section %}
+	{% endif %}
+{% endblock %}

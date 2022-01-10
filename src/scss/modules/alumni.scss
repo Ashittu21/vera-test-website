@@ -1,0 +1,60 @@
+.Alumni {
+}
+.Alumni-text {
+  @extend %body;
+}
+.Alumni-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: -$padding-lg;
+  margin-right: -$padding-lg;
+  margin-top: $padding-xl;
+}
+.Alumni-list-item {
+  display: flex;
+  margin-bottom: $padding-lg;
+  font-family: $ff-gt-walsheim;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  width: 100%;
+
+  @media (min-width: 1320px) {
+    margin-right: $padding-lg;
+    width: calc(50% - #{$padding-lg * 2});
+  }
+}
+.Alumni-list-item-image {
+  margin-right: $padding-sm;
+  flex-shrink: 0;
+
+  img {
+    width: 75px;
+  }
+  @media (min-width: 420px) {
+    margin-right: $padding-lg;
+    img {
+      width: 150px;
+    }
+  }
+}
+.Alumni-list-item-name {
+  font-family: $ff-gt-sectra;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 21px;
+  line-height: 18px;
+}
+.Alumni-list-item-label {
+  font-family: $ff-gt-walsheim;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 18px;
+  margin-top: $padding-xs;
+
+  @media (min-width: $tablet-portrait) {
+    margin-top: $padding-sm;
+  }
+}

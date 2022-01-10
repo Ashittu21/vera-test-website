@@ -1,0 +1,10 @@
+{% set id = "DataText" ~ random() %}
+<div class="DataText post-module module-text">
+  <div id="{{ id }}" class="container rte size--body">{{ block.text | shortcodes | replace('/\\*(.*?)\\*/','<span class="DataText-loading">*$1*</span>') | raw }}</div>
+</div>
+{% js %}
+$(function() {
+  VERA.dataText({{ id | json_encode | raw }}, {{ (dataUrl ?: (county ? countyDataUrl : stateDataUrl)) | json_encode | raw }}, {{ filterColumns | json_encode | raw }}, {{ filterValues | json_encode | raw }});
+})
+{% endjs %}
+{% includeJsFile '/dist/twigscripts/dataText.js' %}

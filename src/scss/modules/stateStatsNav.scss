@@ -1,0 +1,45 @@
+.StateStatsNav {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -1em;
+  margin-right: -1em;
+  margin-top: $padding-xl;
+  margin-bottom: $padding-xl;
+
+  @media (min-width: $mobile-large) {
+    .StateStatsNav-link {
+      width: calc(50% - 2em);
+    }
+  }
+
+  @media (min-width: $desktop-ml) {
+    .StateStatsNav-link {
+      width: calc(33.33% - 2em);
+    }
+  }
+}
+
+.StateStatsNav-link {
+  border: 1px solid $lt-gray;
+  padding: 1em;
+  margin: 1em;
+
+  &:hover,
+  &:focus {
+    border-color: $red;
+  }
+}
+
+.StateStatsNav-link-image {
+  margin-top: $padding-xl;
+  margin-bottom: $padding-xl;
+}
+
+.StateStatsNav-link-heading {
+  @extend .ff-sans--bold;
+  text-transform: uppercase;
+  color: $black;
+  text-align: center;
+  margin-bottom: $padding-xl;
+  margin-top: $padding-xl;
+}

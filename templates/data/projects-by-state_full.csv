@@ -1,0 +1,23 @@
+{%- set states = craft.categories.group('locations') -%}
+{%- for state in states -%}
+{%- set projects = craft.entries.section('projects').relatedTo(state) -%}
+{%- for project in projects -%}
+{%- set publications = craft.entries.section('publications').relatedTo(project) -%}
+{%- set pubs = null -%}
+{%- for publication in publications -%}
+{%- if not loop.first -%}
+{%- set pubs = pubs~', ' -%}
+{%- endif -%}
+{%- set pubs = pubs~publication -%}
+{%- endfor -%}
+{%- set actionAreas = project.relatedIssues.level(2) -%}
+{%- set aa = null -%}
+{%- for area in actionAreas -%}
+{%- if not loop.first -%}
+{%- set aa = aa~', ' -%}
+{%- endif -%}
+{%- set aa = aa~area -%}
+{%- endfor -%}
+"{{ state | raw}}","{{ project | raw}}","{% spaceless %}{{ project.overview | striptags | replace({"\n":' ', "\r":' ', "/\s+/":' '}) | raw }}{% endspaceless %}","{{ pubs | raw }}","{{ aa | raw }}"
+{% endfor -%}
+{%- endfor -%}

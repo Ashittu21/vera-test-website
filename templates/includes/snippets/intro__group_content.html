@@ -1,0 +1,42 @@
+<section class="post-module module-intro module-intro--{{ entry.type }} module-intro--border">
+	<div class="container col-outer">
+		<div class="two-thirds module-intro__content">
+			{% if entry.type.handle not in ['blogSeries', 'center', 'project', 'spotlight', 'eventSeries'] %}
+				{% include 'includes/snippets/breadcrumbs' %}
+				<h1 class="module-intro__title">{{ entry.title }}</h1>
+			{% endif %}
+			{% if entry.type.handle not in ['center', 'project'] %}
+				{% include 'includes/snippets/share_links' %}
+			{% endif %}
+			<div class="module-intro__text">{{ entry.overview }}</div>
+		</div>
+		<!-- /two-thirds intro__content -->
+
+		<div class="one-third module-intro__sidebar">
+			{%- if not entry.hideOverviewMap -%}
+				{%- include 'includes/snippets/sidebar__map' -%}
+			{%- endif -%}
+
+			{% cache %}
+			{% include 'includes/snippets/sidebar__relatives' %}
+			{% endcache %}
+
+			{% if entry.level > 2 or entry.type == 'spotlight' %}
+				{% include 'includes/snippets/sidebar__experts' %}
+			{% elseif entry.level == 2 and entry.relatedExperts | length %}
+				{% include 'includes/snippets/sidebar__experts' with { people: entry.relatedExperts } %}
+			{% endif %}
+
+			{% if entry.level == 2 %}
+				{% include 'includes/snippets/sidebar__spotlights' with { 
+          heading: entry.type == 'spotlight' ? "More from " ~ entry.ancestors.level(1).first.title : null,
+          spotlights: entry.type == 'spotlight' ? entry.siblings : null 
+        } %}
+			{% endif %}
+
+			{% if entry.section.handle in ['projects'] %}
+				{% set relation = entry.section.handle == 'ourWork' ? entry.selfCategory.last : entry %}
+				{% include 'includes/snippets/sidebar__centers' with {relation: relation} %}
+			{% endif %}
+		</div>
+	</section>

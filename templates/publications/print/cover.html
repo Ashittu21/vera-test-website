@@ -1,0 +1,33 @@
+{% extends '_pdf_layout' %}
+
+{% block content %}
+
+	{% set image = entry.pdfCoverImage | length %}
+	
+	{% set overlay = image ? '/dist/img/vera_publication_cover_image.svg' : '/dist/img/vera_publication_cover_noimage.svg' %}
+
+	<article id="cover" {% if not image %}class="no-image"{% endif %}>
+		
+		<div class="cover_img" {% if image %}style="background-image: url({{ entry.pdfCoverImage.first.url }})"{% endif %}></div>
+			
+		<img class="cover_overlay" src="{{ overlay }}">
+
+		<div class="title">
+			
+			<h1>{{ entry.publicationTitle }}</h1>
+			
+			<h2>{{ entry.subtitle }}</h2>
+			
+			{% if entry.authors | length %}
+				<div class="authors">
+					{%- for author in entry.authors -%}
+						{%- if not loop.first %}, {% endif %}{{ author -}}
+					{%- endfor -%}
+				</div>
+			{% endif %}
+			
+		</div>
+
+	</article>
+
+{% endblock %}

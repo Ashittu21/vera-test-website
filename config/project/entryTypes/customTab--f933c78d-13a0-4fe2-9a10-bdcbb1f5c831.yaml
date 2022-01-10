@@ -1,0 +1,69 @@
+fieldLayouts:
+  e41d0f44-1872-4002-8fb5-5c393d3b8cd9:
+    tabs:
+      -
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\EntryTitleField
+            warning: null
+            width: 100
+          -
+            fieldUid: e5fbaab6-b302-44bb-9e42-87cb910a1c2c
+            instructions: null
+            label: null
+            required: '1'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: ad6cffcd-5f05-4947-8dfa-92c4679f4943
+            instructions: null
+            label: null
+            required: '1'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: 'Custom Tab'
+        sortOrder: 1
+      -
+        elements:
+          -
+            fieldUid: e284d34a-8040-4ce4-ab1c-cd4ed3b8c6b5
+            instructions: null
+            label: null
+            required: '0'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: SEO
+        sortOrder: 2
+handle: customTab
+hasTitleField: false
+name: 'Custom Tab'
+section: 38aa58cd-ad86-413c-a4d5-6fb79ce7e7e3
+sortOrder: 0
+titleFormat: '{{object.parent}} - {customTabName}'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

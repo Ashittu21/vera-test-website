@@ -1,0 +1,32 @@
+contentColumnType: string
+fieldGroup: 9e8c11c6-0d09-4e83-9ae3-8e977b222014
+handle: signature
+instructions: ''
+name: Signature
+searchable: true
+settings:
+  allowSelfRelations: false
+  allowUploads: true
+  allowedKinds:
+    - image
+  defaultUploadLocationSource: 'volume:a48d5d4c-e94e-40ca-b140-801253b0f802'
+  defaultUploadLocationSubpath: ''
+  limit: '1'
+  localizeRelations: false
+  previewMode: full
+  restrictFiles: '1'
+  selectionLabel: 'Add a signature'
+  showSiteMenu: true
+  showUnpermittedFiles: false
+  showUnpermittedVolumes: true
+  singleUploadLocationSource: 'volume:c3679b2c-c8a9-497f-a727-b1b62f2da07a'
+  singleUploadLocationSubpath: 'headshots/{slug}/signature/'
+  source: null
+  sources: '*'
+  targetSiteId: null
+  useSingleFolder: true
+  validateRelatedElements: false
+  viewMode: large
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Assets

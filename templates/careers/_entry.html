@@ -1,0 +1,50 @@
+{% extends '_layout' %}
+
+{% set title = 'Careers' %}
+
+{% block content %}
+
+{% set data = craft.apiAccess.get("https://api.resumatorapi.com/v1/jobs/"~craft.request.getParam('id')~"?apikey=hsH36JzBxRo7j3Lq7PQqSZrFGI7rXuhd") %}
+
+<div class="container"><aside class="hr"></aside></div>
+
+<article class="post-content__single__container">
+  <header class="post-content__single__header">
+    <div class="container">
+      <div class="post-content__meta module-intro__breadcrumbs">
+        <span class="breadcrumb-outer">
+          <a class="post-content__meta__label" href="{{ siteUrl('careers') }}">Careers</a>
+        </span>
+
+        <span class="post-content__meta__date">{{ data.original_open_date | date('F d, Y') }}</span>
+      </div>
+      <h2 class="post-content__title">{{ data.title }}</h2>
+    </div>
+	</header>
+  <div class="post-module module-text module-text--quick-links module-text--share">
+    <div class="container">
+      <div class="module-text__inner module-intro post-content__single__main-col">
+          {# include 'includes/snippets/share_links' #}
+
+				<div class="module-intro__text">
+          <p class="intro">{{ data.description|raw }}</p>
+        </div>
+
+        <div class="post-content__sidebar module-intro__sidebar">
+          <div class="sidebar__careers-form">
+            <h5 class="sidebar__label">Location</h5>
+            <p>{{ data.city}}, {{ data.state}}</p>
+            <h5 class="sidebar__label">Department</h5>
+            <p>{{ data.department }}</p>
+            <h5 class="sidebar__label">Type</h5>
+            <p>{{ data.type }}</p>
+            <a class="btn" href="http://vera.applytojob.com/apply/{{ data.board_code }}" target="_blank">
+              Apply
+            </a>
+		      </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+{% endblock %}

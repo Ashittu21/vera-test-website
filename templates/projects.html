@@ -1,0 +1,44 @@
+{% extends '_layout' %}
+
+{% set title = entry.title %}
+
+{% block content %}
+
+	{% include 'includes/snippets/approach_top.html' %}
+
+	<section class="featured-stream-modules">
+		<div class="container">
+			<h4>Featured</h4>
+			{% set features = entry.featuredProjects %}
+			{% include 'includes/stream/feature_module.html' %}
+		</section>
+
+		<section class="filter-projects">
+			{% set streamOptions = {
+		title: 'All Projects',
+		news: false,
+		filterAltLayout: 'unstacked', 
+		sections: [
+			['Projects', 'projects'],
+		],
+		fieldOptions: {
+			title: 'Content Type',
+			options: [
+				{
+					title: 'Active Projects',
+					option: 'isArchived:0'
+				},{
+					title: 'Archived Projects',
+					option: 'isArchived:1'
+				}
+			]
+		},
+		filterRelations: [{type: 'categories', 
+						relations: craft.categories.group('ourWork').level(2), 
+						title: 'Action Areas'}]
+	} %}
+
+			{% include 'includes/stream/stream_full' with {hasMap: true} %}
+
+		</section>
+	{% endblock %}

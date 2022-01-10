@@ -1,0 +1,22 @@
+contentColumnType: string
+fieldGroup: db841c2f-86aa-4387-8c3e-51fefc8f5945
+handle: map
+instructions: ''
+name: Map/Viz
+searchable: true
+settings:
+  allowSelfRelations: false
+  limit: ''
+  localizeRelations: false
+  selectionLabel: ''
+  showSiteMenu: true
+  source: null
+  sources:
+    - 'section:f7ebe9e2-b9cc-411d-8d01-9010f0f97e50'
+    - 'section:5ecd8130-6ef0-405f-a72f-9c663ddbdf84'
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Entries

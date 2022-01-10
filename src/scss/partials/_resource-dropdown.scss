@@ -1,0 +1,225 @@
+.dropdown-outer {
+    @include font-size(1.5);
+    @extend .ff-sans;
+    max-width: $dec-one-third*$desktop-ml;
+    text-align: left;
+    position: relative;
+    display: block;
+    background: $white;
+
+    &:after {
+        z-index: 7;
+        top: 11px;
+        // right: 95px;
+        pointer-events: none;
+        right: 10px;
+        @include transition(transform 0.15s ease-in);
+
+        // @media (min-width: $tablet-landscape) {
+        //     right: $padding-lg;
+        // }
+    }
+
+    &.open {
+        &:after {
+            top: 15px;
+            @include transform(rotate(225deg));
+        }
+
+        .dropdown {
+            max-height: 100vh;
+            padding-top: $padding-sm;
+            padding-bottom: $padding-sm;
+        }
+    }
+}
+
+.dropdown-active {
+    position: relative;
+    z-index: 6;
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 0.2mm;
+    padding: $padding-xxs $padding-lg $padding-xxs $padding-sm;
+    cursor: pointer;
+    line-height: 1;
+    border: 1px solid $black;
+    @include transition(border 0.15s ease-in);
+
+    b,
+    strong {
+        @extend .ff-sans--bold;
+    }
+}
+
+.dropdown {
+    list-style: none;
+    padding: 0 $padding-sm;
+    max-height: 0;
+    @include transition((max-height 0.15s ease-in-out, padding 0.15s ease-in-out));
+    overflow: hidden;
+    border: 1px solid $black;
+    border-top: 0;
+    background: $white;
+
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 5;
+    margin-top: -1px;
+
+    @media (min-width: $tablet-landscape) {
+        padding: 0 $padding-med;
+    }
+
+    li {
+        border-bottom: 1px solid $lt-gray-alt;
+        @include justify(stretch);
+        flex-flow: row nowrap;
+        line-height: 1.2;
+
+        &:last-child {
+            border: none;
+        }
+    }
+
+    span {
+        padding: $padding-xxs 0;
+    }
+
+    a {
+        display: block;
+        text-align: center;
+        @include font-size(1.3);
+    }
+
+    i {
+        display: block;
+    }
+}
+
+.dropdown-left {
+    display: inline-block;
+    width: 66%;
+    white-space: nowrap;
+    padding-right: $padding-med;
+}
+
+.dropdown-num {
+    width: 20px;
+}
+
+.dropdown-num,
+.dropdown-title {
+    white-space: normal;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.dropdown-title {
+    padding-right: $padding-sm;
+}
+
+// resource dropdown has been replaced by grid/table
+// has a "see more" reveal CTA if more than 4 items in table
+
+.resource-grid {
+    h5 {
+        @extend .ff-sans--bold;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    ul {
+        display: flex;
+        position: relative;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    li {
+        @extend .ff-sans;
+        align-items: center;
+        display: flex;
+        border: 1px solid;
+        line-height: 1.2;
+        justify-content: space-between;
+        margin: 1em 0;
+        width: 100%;
+
+        @media (min-width: $mobile-large) {
+            width: $one-half;
+        }
+    }
+}
+
+.resource-item-link {
+    align-items: center;
+    color: inherit;
+    display: flex;
+    height: 100%;
+    padding: $padding-xs $padding-sm;
+
+    &:not(:only-child) {
+        padding-right: $padding-sm/2;
+    }
+
+    &+.resource-item-link {
+        padding-left: $padding-sm/2;
+        border-left: 1px solid $black;
+    }
+
+    .no-touch &:hover {
+        background-color: $red;
+        color: $white;
+    }
+}
+.resource-item-link--primary {
+    width: 100%;
+    justify-content: space-between;
+}
+
+.resource-item-link-icon {
+    flex-shrink: 0;
+}
+
+.resources--toggled {
+    max-height: 0;
+    overflow: hidden;
+    @include transition(max-height 0.4s ease-in-out);
+
+    &.open {
+        max-height: 200vh;
+    }
+}
+
+.resource-grid .resource__see-more {
+    display: inline-block;
+    position: relative;
+    top: 10px;
+    padding-right: 30px;
+    @extend .ff-sans;
+    cursor: pointer;
+
+    &:after {
+        display: block;
+        width: 10px;
+        height: 10px;
+        border: 2px solid $med-gray-bg;
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 10px;
+        @include transform((rotate(135deg) translate(0,-52%)));
+        border-left: 0;
+        border-bottom: 0;
+        @include transition(all 0.15s ease-in);
+    }
+
+    &.open:after {
+        top: 12px;
+        right: 2px;
+        @include transform((rotate(315deg) translate(0,-52%)));
+    }
+}

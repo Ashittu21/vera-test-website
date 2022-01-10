@@ -1,0 +1,18 @@
+contentColumnType: text
+fieldGroup: 6c478341-da6f-434d-b58e-1f381004c510
+handle: additionalDetails
+instructions: 'e.g. Reception to Follow'
+name: 'Additional Details'
+searchable: true
+settings:
+  byteLimit: null
+  charLimit: null
+  code: false
+  columnType: text
+  initialRows: '1'
+  multiline: '1'
+  placeholder: ''
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

@@ -1,0 +1,18 @@
+contentColumnType: text
+fieldGroup: ab9ecd7f-c343-4238-bbe3-616c16cfba84
+handle: otherWaysText
+instructions: ''
+name: 'Right Column Heading'
+searchable: true
+settings:
+  byteLimit: null
+  charLimit: null
+  code: false
+  columnType: text
+  initialRows: '4'
+  multiline: ''
+  placeholder: ''
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

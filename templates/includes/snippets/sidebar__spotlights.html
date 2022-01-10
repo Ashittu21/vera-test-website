@@ -1,0 +1,24 @@
+{% set heading = heading ?? "Spotlights" %}
+{% set spotlights = spotlights ?: craft.entries.section('spotlights').relatedTo(entry.selfCategory.last).limit(6) %}
+{% if spotlights | length %}
+	<article class="sidebar__spotlights sidebar_module">
+		<h5 class="sidebar__label">{{ heading }}</h5>
+		<ul class="sidebar__grid--2up">
+			{% for spotlight in spotlights %}
+				{% set img = spotlight.streamImageSquare[0] ?? spotlight.heroImage[0] ?? null %}
+				<li>
+					<a href="{{ spotlight.url }}">
+						{% if img %}
+							<div class="img-outer">
+								<img src="{{ img.getUrl('square130') }}">
+							</div>
+						{% endif %}
+						<div class="text-outer">
+							{{ spotlight.title }}
+						</div>
+					</a>
+				</li>
+			{% endfor %}
+		</ul>
+	</article>
+{% endif %}

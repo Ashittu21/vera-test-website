@@ -1,0 +1,14 @@
+enableVersioning: true
+handle: autoSlideshow
+name: Slideshow
+propagationMethod: all
+siteSettings:
+  8ed9f980-84ac-470d-94d7-89a2cdb64916:
+    enabledByDefault: true
+    hasUrls: false
+    template: null
+    uriFormat: null
+structure:
+  maxLevels: 1
+  uid: 7f6efb92-a3d4-44e1-a427-362212725e31
+type: structure

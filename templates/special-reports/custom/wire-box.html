@@ -1,0 +1,44 @@
+{% extends '_ajax_layout' %}
+{% set hero = entry.customHero[0] %}
+
+{% block content %}
+<article class="article-theme--black black-box-content wire-box-content"
+  data-anchor-link="{{ hero.url }}"
+  data-article-theme="black">
+
+  <div class="js-wrapper fade-in wire-box-wrap">
+    <section class="open-box-header">
+      <h3 class="open-box-superheading">{{ hero.superheading }}</h3>
+      <h2 class="open-box-heading">{{ hero.heading }}</h2>
+      {% if hero.subheading | length %}
+        <h3 class="open-box-subheading">{{ hero.subheading }}</h3>
+      {% endif %}
+    </section>
+
+    <div id="wire-box">
+      {% include 'includes/_svg/box.svg' %}
+    </div>
+
+    {% if hero.text | length %}
+      <section class="open-box-copy">
+        {{ hero.text | shortcodes | raw }}
+      </section>
+    {% endif %}
+  </div>
+
+  {% set blocks = entry.articleBuilder.level(1) %}
+  {% if blocks | length %}
+    <div class="subway-nav-wrap">
+      {% include 'special-reports/custom/subway-nav' with { blocks: blocks } %}
+    </div>
+  {% endif %}
+</article>
+
+
+{% endblock %}
+
+{% block footer %}{% endblock %}
+
+{% includeJs %}
+  {% include 'special-reports/custom/wire-box.js' %}
+{% endincludejs %}

@@ -1,0 +1,49 @@
+{% extends '_layout' %}
+{% set title = entry.title %}
+{% set navClass =
+'color-combo--' ~ entry.colorCombo %}
+{% block nav %}
+	{% if entry.level ==
+2 or entry.children | length %}
+		{% include 'includes/_header/header__burger'
+with { class: navClass } %}
+	{% else %}
+		{% include 'includes/snippets/header'
+with { class: navClass } %}
+	{% endif %}
+{% endblock %}
+{% block content %}
+	<div class="color-combo--{{ entry.colorCombo }}">
+		{% include 'includes/snippets/banner' with { crumb: entry.level > 1 ?
+  entry.parent : null } %}
+		{% include 'includes/snippets/intro__group_content'
+  %}
+		{% set noPad = entry.spotlightContent.first.type.handle in
+  ["resourceBlock"] %}
+		<div class="spotlight-stream stream-outer receives-background-color receives-color {% if noPad %}spotlight-stream--nopad{% endif %}">
+			{% for block in entry.spotlightContent %}
+				{% set fullBleed =
+    block.type.handle in ["resourceBlock","externalResourceBlock"] and
+    block.layout == "fullBleedImage" %}
+				<div class="
+						      {% if block['colorCombo'] is defined %}color-combo--{{ block.colorCombo }}{% endif %}
+						      {% if not fullBleed %}
+						      container spotlight-block--{{ block.type.handle }}
+						      {% endif %}
+						      ">
+					{% include 'spotlights/blocks/' ~ block.type.handle %}
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+	{% if entry.level > 1 %}
+		<div class="container">
+			{% include 'spotlights/blocks/multipleEntries' with { block: { heading: "More
+  from " ~ entry.parent.title, entries: entry.siblings }} %}
+		</div>
+	{% endif %}
+{% endblock %}
+{% block footer %}
+	{% include
+'includes/snippets/footer' with { class: navClass } %}
+{% endblock %}

@@ -1,0 +1,43 @@
+{% cache for 1 day unless currentUser %}
+{% set babies = entry.siblings.type(['topic','article']).ids() %}
+<section class="container best-of">
+	{%- set section = craft.sections.getSectionByHandle('bestOf') -%}
+	{%- set types = section.getEntryTypes() -%}
+	{%- set sourceIds = babies | merge([entry.id]) -%}
+	{%- for type in types -%}
+		{%- set list = craft.entries.section(section).type(type).relatedTo({
+		sourceElement: sourceIds,
+		field: 'bestOf'
+	}) -%}
+		{%- if list | length -%}
+			{% set defaultshow = type.handle in ['twitter'] ? null : 9 %}
+			<div class="best-of-category">
+				<h2>{{ type.name }}</h2>
+
+				<div data-show-more='{"itemSelector": "ul", "buttonSelector": "button"}'>
+					<ul class="best-of-list list-reset indent">
+						{%- for item in list[:defaultshow] -%}
+							{% include 'state-of/_/bestOfItem' with { entry: item } %}
+						{%- endfor -%}
+					</ul>
+					{% if defaultshow and list | length > defaultshow %}
+						<ul class="best-of-list list-reset indent">
+							{%- for item in list[defaultshow:] -%}
+								{% include 'state-of/_/bestOfItem' with { entry: item } %}
+							{%- endfor -%}
+
+						</ul>
+						<button class="btn">Show More</button>
+					{% endif %}
+				</div>
+			</div>
+		{%- endif -%}
+	{%- endfor -%}
+</section>
+{% endcache %}
+
+{% if craft.request.isAjax %}
+	{% includeJs %}
+	ShowMore();
+	{% endincludejs %}
+{% endif %}

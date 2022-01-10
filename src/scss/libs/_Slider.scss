@@ -1,0 +1,51 @@
+#Slider--article {
+	$gutter: 200px;
+	$transition-time: .3s;
+	
+	display: flex;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	z-index: 999999;
+	pointer-events: none;
+	
+	.Slider--screen {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		background-color: rgba(0,0,0,.75);
+		opacity: 0;
+		transition: opacity $transition-time;
+	}
+	
+	.Slider--inner {
+		width: 1020px;
+		max-width: 100%;
+		position: relative;
+		left: 100%;
+		transition: left $transition-time;
+		margin-left: auto;
+		overflow-y: auto;
+	}
+	
+	&.Slider__open {
+		pointer-events: auto;
+		
+		.Slider--screen {
+			opacity: 1;
+		}
+		
+		.Slider--inner {
+			left: 0;
+		}
+	}
+	
+}
+
+body.no-scroll {
+	overflow: hidden;
+}

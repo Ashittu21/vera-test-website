@@ -1,0 +1,23 @@
+contentColumnType: string
+fieldGroup: a49b71d0-4d2e-4176-adc3-275acb9215d6
+handle: relatedOffices
+instructions: ''
+name: 'Vera Office'
+searchable: true
+settings:
+  allowLimit: false
+  allowMultipleSources: false
+  allowSelfRelations: false
+  branchLimit: ''
+  limit: null
+  localizeRelations: false
+  selectionLabel: 'Add an office'
+  showSiteMenu: true
+  source: 'group:ee498376-0261-42fd-b4ac-444c5936449c'
+  sources: '*'
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Categories

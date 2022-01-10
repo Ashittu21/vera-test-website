@@ -1,0 +1,3 @@
+{%- set id = "Footnote" ~ (now | date('U')) ~ random() -%}
+<span class="footnote"><a href="javascript:void(0)" class="tooltip" data-tooltip-content="#tt-{{ id }}"><i class="footnote__num"></i></a><span class="tt-template"><span id="tt-{{ id }}">{{ shortcode.getContent() | raw }}</span></span>
+</span>

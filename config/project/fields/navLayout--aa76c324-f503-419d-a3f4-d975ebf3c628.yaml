@@ -1,0 +1,34 @@
+contentColumnType: string
+fieldGroup: 62eaf9ac-7045-45a4-b9c9-6db9b59feaac
+handle: navLayout
+instructions: ''
+name: 'Nav Layout'
+searchable: true
+settings:
+  optgroups: true
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - Grid
+        -
+          - value
+          - grid
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Vertical
+        -
+          - value
+          - vertical
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

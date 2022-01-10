@@ -1,0 +1,87 @@
+field: 68c4d7e2-c537-4394-990f-c1735c44f48c
+fieldLayouts:
+  fd6f88cc-e071-4d8d-a9fe-bdd43f8955f6:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: be23a721-187d-491a-8460-abc6ee7336bc
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: cdda6162-7920-4a33-add9-f81c99eee856
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  be23a721-187d-491a-8460-abc6ee7336bc:
+    contentColumnType: string
+    fieldGroup: null
+    handle: map
+    instructions: ''
+    name: Map
+    searchable: true
+    settings:
+      allowSelfRelations: false
+      limit: ''
+      localizeRelations: false
+      selectionLabel: ''
+      showSiteMenu: true
+      source: null
+      sources:
+        - 'section:5ecd8130-6ef0-405f-a72f-9c663ddbdf84'
+      targetSiteId: null
+      validateRelatedElements: false
+      viewMode: null
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Entries
+  cdda6162-7920-4a33-add9-f81c99eee856:
+    contentColumnType: string
+    fieldGroup: null
+    handle: mapTheme
+    instructions: ''
+    name: 'Map Theme'
+    searchable: true
+    settings:
+      optgroups: true
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - Light
+            -
+              - value
+              - light
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Medium
+            -
+              - value
+              - medium
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+handle: map
+name: Map
+sortOrder: 11

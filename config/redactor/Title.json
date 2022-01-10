@@ -1,0 +1,6 @@
+{
+  "buttons": ["format","html"],
+  "paragraphize": false,
+  "enterKey": true,
+  "linebreaks": true
+}

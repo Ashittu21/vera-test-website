@@ -1,0 +1,38 @@
+.fill-in-the-blanks {
+	max-width: 40em;
+	margin: $padding-lg auto;
+	@extend .size--body--large;
+	@extend .ff-sans;
+	line-height: 2;
+
+	select {
+		background-color: $red;
+		color: $white;
+		vertical-align: middle;
+		@extend .ff-sans;
+		text-transform: none;
+		font-size: inherit;
+		padding: 0 5rem 0 2rem;
+		line-height: 1.5;
+
+		background-image: url(/dist/icons/select-down__white.svg);
+		background-repeat: no-repeat;
+		background-size: 2rem auto;
+		background-position: calc(100% - .5em) center;
+	}
+
+	.answer {
+		min-width: 3em;
+		color: $red;
+
+		&:empty:after {
+			content: '     ';
+			white-space: pre;
+		}
+		border-bottom: 1px solid;
+	}
+
+	@media print {
+		page-break-inside: avoid;
+	}
+}

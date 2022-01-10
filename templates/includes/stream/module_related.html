@@ -1,0 +1,34 @@
+{% spaceless %}
+	{% set url = entry.url %}
+	{% set image = entry.streamImageSquare.first ?? null %}
+	{% if image %}
+		{% set imageUrl = image.getUrl( {width: 200, height: 200, position: 'center-center' } ) %}
+	{% endif %}
+	{% set title = entry.title %}
+	{% set authors = entry.authors %}
+	{% set noAuthors = noAuthors ?? false %}
+	{% set date = entry.type.handle in ['post','eventPost'] ? entry.postDate : null %}
+{% endspaceless %}
+<article class="module__related">
+	<a href="{{ url }}">
+		<div class="top">
+			{% if image %}
+				<img class="stream_image" src="{{ imageUrl }}">
+			{% endif %}
+
+			<h1 class="title">{{ title }}</h1>
+		</div>
+
+		{% if date or authors | length %}
+			<div class="bottom">
+				{% if authors | length and not noAuthors %}
+					{% include 'includes/snippets/people' with {people: authors, peopleClass: 'small'} %}
+				{% endif %}
+
+				{% if date %}
+					<aside class="stream-module__meta__date">{{ date | date("F d Y") }}</aside>
+				{% endif %}
+			</div>
+		{% endif %}
+	</a>
+</article>

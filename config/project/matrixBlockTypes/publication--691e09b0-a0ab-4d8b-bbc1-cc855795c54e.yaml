@@ -1,0 +1,88 @@
+field: 7b2863bc-9b95-419a-a226-4be78dca30e2
+fieldLayouts:
+  008e4f5b-8bcc-44f3-bf12-10f1638bd656:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 22c41829-d3df-4360-8799-68f577b5ca71
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: efac4a2c-7874-4041-a08f-2159014a168a
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  22c41829-d3df-4360-8799-68f577b5ca71:
+    contentColumnType: text
+    fieldGroup: null
+    handle: publicationTitle
+    instructions: ''
+    name: 'Publication Title'
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  efac4a2c-7874-4041-a08f-2159014a168a:
+    contentColumnType: string
+    fieldGroup: null
+    handle: download
+    instructions: ''
+    name: Download
+    searchable: true
+    settings:
+      allowSelfRelations: false
+      allowUploads: true
+      allowedKinds:
+        - audio
+        - excel
+        - image
+        - pdf
+        - text
+        - video
+      defaultUploadLocationSource: 'volume:a48d5d4c-e94e-40ca-b140-801253b0f802'
+      defaultUploadLocationSubpath: ''
+      limit: '1'
+      localizeRelations: false
+      previewMode: full
+      restrictFiles: '1'
+      selectionLabel: 'Add a Publication'
+      showSiteMenu: true
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: true
+      singleUploadLocationSource: 'volume:f268e466-b078-41f2-a13d-e38afcce3b27'
+      singleUploadLocationSubpath: publications
+      source: null
+      sources:
+        - 'volume:f268e466-b078-41f2-a13d-e38afcce3b27'
+      targetSiteId: null
+      useSingleFolder: true
+      validateRelatedElements: false
+      viewMode: list
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+handle: publication
+name: 'Publication File'
+sortOrder: 1

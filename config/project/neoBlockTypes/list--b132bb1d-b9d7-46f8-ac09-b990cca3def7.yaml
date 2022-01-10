@@ -1,0 +1,11 @@
+childBlocks:
+  - heading
+  - listItem
+field: 8beb1641-c6da-43b5-8033-8b0f0001149a
+handle: list
+maxBlocks: 0
+maxChildBlocks: 0
+maxSiblingBlocks: 0
+name: List
+sortOrder: 7
+topLevel: false

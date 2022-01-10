@@ -1,0 +1,5 @@
+<div class="FullColumnImage full image-size--{{ block.imageSize }}">
+	{% for block in block.children.type('photo') %}
+		{% include '/_article/pieces/photo' %}
+	{% endfor %}
+</div>

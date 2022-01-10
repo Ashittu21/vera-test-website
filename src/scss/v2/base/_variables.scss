@@ -1,0 +1,19 @@
+// breakpoints
+$mobile-small: 350px;
+$mobile-medium: 480px;
+$mobile-large: 700px;
+$tablet-portrait: 768px;
+$tablet-landscape: 1024px;
+$desktop-medium: 1180px;
+$desktop-ml: 1280px;
+$desktop-mlarge: 1440px;
+$desktop-large: 1520px;
+
+
+$mobile-breakpoint: $tablet-portrait;
+$menu-mobile-breakpoint: 992px;
+
+$max-copy: 840px;
+
+// easing
+//$ease-nice: cubic-bezier(0.19, 0.11, 0.21, 0.99);

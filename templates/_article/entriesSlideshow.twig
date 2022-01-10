@@ -1,0 +1,24 @@
+{% set image = null %}
+<div class="stream-module__carousel">
+  <div class="js-carousel">
+    {% if block.heading %}
+      <div class="stream-module__carousel__title js-fade-out">
+        <div class="line"></div>
+        <h2 class="title">{{ block.heading }}</h2>
+        {% if block.subheading %}
+          <h3 class="subtitle">{{ block.subheading }}</h3>
+        {% endif %}
+      </div>
+    {% endif %}
+    {% for module in block.entries %}
+      {% include 'includes/stream/stream_module' with { size: 'half', linkOut: false} %}
+    {% endfor %}
+  </div>
+
+</div>
+
+{% includeJs %}
+  $(function() {
+    window.VERA.initCarousel({ cellAlign: 'left' })
+  })
+{% endincludejs %}

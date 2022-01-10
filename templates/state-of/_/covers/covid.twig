@@ -1,0 +1,37 @@
+{% set images = landing.heroImage %}
+<div class="cover state-of-2018-cover{% if images | length is even %} state-of-2018-cover--even{% endif %}">
+	<div class="tile-intro">
+
+		<div class="enter-bar"></div>
+
+		<div class="tile bg--black"></div>
+		{% for image in images | reverse %}
+		<div class="tile" style="background-image: url({{ craft.imager.transformImage(image, { width: 2880, jpegQuality: 75, ratio: 8/5, position: image.focalPoint.x ~ '% ' ~ image.focalPoint.y ~ '%' }) }})"></div>
+		{% endfor %}
+		{# bg--black #}
+		<div class="tile bg--black">
+			<h1>
+				<div>
+					<div class="state-of-2018-heading">
+
+						<div class="covid-heading-the will-fade-in will-slide-right">
+							<h1 class="ff-sans--bold">{{ landing.heading|raw }}</h1>
+							</div>
+						{# <div class="state-of-2018-heading-stateof ff-serif--medium will-fade-in will-slide-right ">State of</div>
+						<div class="state-of-2018-heading-justice ff-serif--medium will-fade-in will-slide-right ">Justice</div>
+						<div class="state-of-2018-heading-reform ff-serif--medium will-fade-in will-slide-right ">Reform</div>
+						<div class="state-of-2018-heading-year ff-sans--thin color--black will-fade-in will-slide-right">2018</div> #}
+				</div>
+			</h1>
+		</div>
+
+	</div>
+	<div class="loader">
+		{% include 'includes/stream/loader' with { isHidden: false } %}
+	</div>
+	<div class="line"></div>
+</div>
+
+{% includeJs %}
+{% include 'state-of/_/covers/2018.js' %}
+{% endincludejs %}

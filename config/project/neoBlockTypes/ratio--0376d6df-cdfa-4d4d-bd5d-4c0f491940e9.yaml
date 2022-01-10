@@ -1,0 +1,25 @@
+childBlocks: ''
+field: f169c5fc-b73a-407b-a234-05171b57ee74
+fieldLayouts:
+  795b6bf5-b5a1-433e-acba-f7bdf0e498e1:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 2eb8ad2e-759e-4578-9a9c-33d7731bebbe
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: 'Tab 1'
+        sortOrder: 1
+handle: ratio
+maxBlocks: 0
+maxChildBlocks: 0
+maxSiblingBlocks: 0
+name: Ratio
+sortOrder: 5
+topLevel: false

@@ -1,0 +1,14 @@
+contentColumnType: string
+fieldGroup: 2c0ca1a3-ae52-4971-a689-fd84d8b7ba7d
+handle: bottomLinks
+instructions: ''
+name: 'Bottom Links'
+searchable: true
+settings:
+  contentTable: '{{%matrixcontent_bottomlinks}}'
+  maxBlocks: '2'
+  minBlocks: ''
+  propagationMethod: all
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

@@ -1,0 +1,101 @@
+{% set image = entry.heroImage.first ?? null %}
+{% set video = entry.heroVideo ?? null %}
+{% set isEditorial = isEditorial ?? null %}
+{% set print = print ?? false %}
+{% set nextButton = nextButton ?? false %}
+{% set carouselClass = '' %}
+{% for block in entry.specialReportsArticle %}
+	{% set carouselClass = block.type == 'entriesSlideshow' ? 'featured-banner--carousel' : '' %}
+{% endfor %}
+
+{% if entry.hideHeader %}
+	<!-- Do nothing? -->
+{% elseif video %}
+	{% include 'includes/snippets/video' with {video: video, class: 'full'} %}
+{% elseif entry.heroType == 'campaignSlide' and entry.specialReportsArticle | length and entry.specialReportsArticle[0].type.handle in 'entriesSlideshow' %}
+	<section class="featured-banner i-parallax parallax{% if entry.type == 'specialReport' %} featured-banner--special{% endif %}{% if entry.level < 3 %} fadein{% endif %}  {{ heroClass ?? null }} {{ carouselClass }}">
+
+		{% if not print %}
+			<div class="screen full-opacity"></div>
+		{% endif %}
+
+		{% include 'includes/snippets/banner__featured-copy' with { entry: entry, nextButton: nextButton } %}
+
+		{% if entry.heroVideoAmbient | length %}
+			<div class="ambient-video-wrap hide-on-print">
+				<video class="ambient-video" autoplay loop muted>
+					<source src="{{ entry.heroVideoAmbient.first.url }}">
+				</video>
+			</div>
+		{% endif %}
+	</section>
+{% else %}
+	<section
+		class="
+												      featured-banner
+												      i-parallax parallax
+												      hide-on-print
+												      {% if entry.type == 'specialReport' %} featured-banner--special{% endif %}
+												      {# deprecate inner human toll story? #}
+												      {#{% if entry.level == 3 %} additional-reading module-text{% endif %}#}
+												      {% if entry.level < 3 %} fadein{% endif %}
+												      {{ heroClass ?? null }}
+												      {{ carouselClass }}
+												      {% if image %} hasBgImage{% endif %}
+												      " {% if image %} style="background-image: url({{ image.url }});" {% endif %}>
+
+		{#
+								    {% if image and entry.level == 3 %}<div class="container"><div class="module-text__inner">
+								      <img src="{{ image.url }}" class="fadein" />
+								  	{% endif %}
+								    #}
+
+		{% if image and print %}
+			<img src="{{ image.url }}" class="print-image">
+		{% endif %}
+
+		{% if image %}
+			{% include 'includes/snippets/attribution' %}
+		{% endif %}
+
+		{% if image and image.caption | length %}
+			<button class="caption-reveal">i</button>
+			<aside class="bg-image__caption">
+				<p>{{ image.caption }}</p>
+			</aside>
+		{% endif %}
+
+		{#{% if entry.level == 3 %}</div></div>{% endif %}#}
+
+		{% block heroInner %}{% endblock %}
+
+		{# Slideshow! #}
+		{% if entry.heroImage | length > 1 %}
+			{% include '_slideshow/slick-slideshow' with { images: entry.heroImage, arrows: 'false' } %}
+		{% endif %}
+
+		{% if not print %}
+			<div class="screen"></div>
+		{% endif %}
+
+		{% include 'includes/snippets/banner__featured-copy' with { entry: entry, nextButton: nextButton } %}
+
+		{% if entry.heroVideoAmbient | length %}
+			<div class="ambient-video-wrap hide-on-print">
+				<video class="ambient-video" autoplay loop muted>
+					<source src="{{ entry.heroVideoAmbient.first.url }}">
+				</video>
+			</div>
+		{% endif %}
+	</section>
+	<section class="
+												    featured-banner
+												    {% if entry.type == 'specialReport' %} featured-banner--special{% endif %}
+												    {{ heroClass ?? null }}
+												    show-on-print">
+		{% if image %}
+			<img src="{{ image.url }}" class="print-image">
+		{% endif %}
+		{% include 'includes/snippets/banner__featured-copy' with { entry: entry, nextButton: nextButton } %}
+	</section>
+{% endif %}

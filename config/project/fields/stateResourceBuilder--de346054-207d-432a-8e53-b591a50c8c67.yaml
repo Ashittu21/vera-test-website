@@ -1,0 +1,15 @@
+contentColumnType: string
+fieldGroup: 3ad6d151-958c-44f4-99b0-865c27d2922e
+handle: stateResourceBuilder
+instructions: ''
+name: 'State Resource Builder'
+searchable: true
+settings:
+  maxBlocks: ''
+  maxTopBlocks: ''
+  minBlocks: ''
+  propagationMethod: all
+  wasModified: true
+translationKeyFormat: null
+translationMethod: site
+type: benf\neo\Field

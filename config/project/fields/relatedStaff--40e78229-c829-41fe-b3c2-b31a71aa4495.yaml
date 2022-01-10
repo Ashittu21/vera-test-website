@@ -1,0 +1,13 @@
+contentColumnType: string
+fieldGroup: b0b7642d-1b11-4256-9daf-b41ae0bb891e
+handle: relatedStaff
+instructions: ''
+name: 'Related Staff'
+searchable: true
+settings:
+  errorMessage: 'Unable to find component class ''ManyToMany_ManyToMany''.'
+  expectedType: ManyToMany_ManyToMany
+  settings: '{"source":{"value":"20","type":"section"},"singleField":"73"}'
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\MissingField

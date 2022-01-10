@@ -1,0 +1,68 @@
+field: 6b8a6962-52c1-47ac-8226-43242152c137
+fieldLayouts:
+  24dac154-6204-4b2f-87bd-019ca4e29728:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: d77ce3f8-562f-4900-990f-1df97bc1fa2a
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 92fc095f-7e83-47fa-9238-d0467d209637
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  92fc095f-7e83-47fa-9238-d0467d209637:
+    contentColumnType: text
+    fieldGroup: null
+    handle: linkUrl
+    instructions: 'For external links, include the http:// or https:// prefix. For anchor links, use the # prefix.'
+    name: 'Link Url'
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  d77ce3f8-562f-4900-990f-1df97bc1fa2a:
+    contentColumnType: text
+    fieldGroup: null
+    handle: linkText
+    instructions: ''
+    name: 'Link Text'
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+handle: cta
+name: CTA
+sortOrder: 1

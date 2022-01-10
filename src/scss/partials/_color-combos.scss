@@ -1,0 +1,235 @@
+//defaults
+.highlight {
+  color: $red;
+}
+.receives-fill-highlight {
+  fill: $red;
+}
+.receives-color-highlight {
+  color: $red;
+}
+
+@keyframes pulse-fill {
+  from {
+    fill-opacity: 0.25;
+  }
+  to {
+    fill-opacity: 0.75;
+  }
+}
+.pulse-fill {
+  animation: pulse-fill 4s linear infinite alternate;
+}
+
+//value, bgColor, textColor
+$colorCombos: (
+  ("red", $red, "white", $white, $black),
+  ("white", $white, "red", $red, $black),
+  ("black", $black, "white", $white, $red),
+  ("white", $white, "black", $black, $red),
+  ("lightGray", $lt-gray-bg, "black", $black, $red),
+  ("trueblack", #000, "white", $white, $red)
+);
+
+@mixin colorCombos($prefix, $colorCombos) {
+  @each $o in $colorCombos {
+    .#{$prefix}--#{nth($o,1)}-#{nth($o,3)} {
+      --bg-color: #{nth($o, 2)};
+      --color: #{nth($o, 4)};
+      --accent: #{nth($o, 5)};
+      background-color: #{nth($o, 2)};
+      color: #{nth($o, 4)};
+
+      // .color--#{nth($o,1)} {
+      // 	color: #{nth($o,4)};
+      // }
+
+      .custom-list__bullet * {
+        fill: #{nth($o, 4)};
+      }
+
+      .receives-background-color {
+        background-color: #{nth($o, 2)};
+      }
+      .receives-color {
+        color: #{nth($o, 4)};
+      }
+      .receives-border-color {
+        border-color: #{nth($o, 4)};
+      }
+      .receives-fill-color {
+        fill: #{nth($o, 4)};
+      }
+      .receives-stroke-color {
+        stroke: #{nth($o, 4)};
+      }
+
+      .receives-fill-highlight {
+        fill: #{nth($o, 5)};
+      }
+      .receives-color-highlight {
+        color: #{nth($o, 5)};
+      }
+      .receives-accent-color {
+        color: #{nth($o, 5)};
+      }
+      .receives-accent-border {
+        border-color: #{nth($o, 5)};
+      }
+    }
+  }
+}
+
+@include colorCombos("color-combo", $colorCombos);
+@include colorCombos("local-color-combo", $colorCombos);
+
+$gradientCombos: (
+  ("blackGradient", ($med-gray, $black), "white", $white, $red),
+  ("lightGrayGradient", (#dce4ea, $white), "black", $black, $red)
+);
+
+@each $o in $gradientCombos {
+  $gradientColors: nth($o, 2);
+  .color-combo--#{nth($o,1)}-#{nth($o,3)} {
+    background-image: linear-gradient(
+      nth($gradientColors, 1),
+      nth($gradientColors, 2)
+    );
+    color: #{nth($o, 4)};
+
+    .color--#{nth($o,1)} {
+      color: #{nth($o, 4)};
+    }
+
+    .custom-list__bullet * {
+      fill: #{nth($o, 4)};
+    }
+    .receives-color {
+      color: #{nth($o, 4)};
+    }
+    .receives-border-color {
+      border-color: #{nth($o, 4)};
+    }
+    .receives-fill-color {
+      fill: #{nth($o, 4)};
+    }
+    .receives-stroke-color {
+      stroke: #{nth($o, 4)};
+    }
+
+    .receives-fill-highlight {
+      fill: #{nth($o, 5)};
+    }
+    .receives-color-highlight {
+      color: #{nth($o, 5)};
+    }
+    .receives-accent-color {
+      color: #{nth($o, 5)};
+    }
+    .receives-accent-border {
+      border-color: #{nth($o, 5)};
+    }
+  }
+
+  body.color-combo--#{nth($o,1)}-#{nth($o,3)} {
+    background-color: nth($gradientColors, 1);
+    background-image: none;
+    color: #{nth($o, 4)};
+  }
+}
+
+// @each $o in $gradientCombos{
+// 	$gradientColors: nth($o,2);
+// 	.bg-gradient--#{nth($o,1)}-#{nth($o,3)} {
+// 		position: relative;
+
+// 		&:after {
+// 			background-image: linear-gradient(nth($gradientColors, 2), rgba(nth($gradientColors, 1), 0));
+// 			bottom: 0;
+// 			content: '';
+// 			height: 100%;
+// 			left: 0;
+// 			position: absolute;
+// 			right: 0;
+// 			top: 0;
+// 			width: 100%;
+// 			will-change: transform;
+// 			z-index: -1;
+// 		}
+// 	}
+// }
+
+$colors: (
+  ("red", $red),
+  ("black", $black),
+  ("white", $white),
+  ("gray", $dk-gray)
+);
+
+@each $o in $colors {
+  .color--#{nth($o,1)} {
+    color: #{nth($o, 2)};
+  }
+
+  .bg-color--#{nth($o,1)} {
+    background-color: #{nth($o, 2)};
+  }
+
+  .link-color--#{nth($o,1)} {
+    color: #{nth($o, 2)};
+  }
+}
+
+.color-combo--inherit {
+  background-color: inherit;
+  color: inherit;
+}
+
+// specific colors for lists
+.color-combo--blackGradient-white {
+  .bg--lighten {
+    background-color: lighten($black, 5%);
+  }
+}
+
+.color-combo--blackGradient-white {
+  .bg--darken {
+    background-color: darken($black, 5%);
+  }
+}
+
+.color-combo--lightGrayGradient-black {
+  .bg--lighten {
+    background-color: #c9d4db;
+  }
+}
+
+.color-combo--lightGrayGradient-black {
+  .bg--darken {
+    background-color: #c9d4db;
+  }
+}
+
+.color-combo--black-white {
+  .bg--darken {
+    background-color: darken($black, 5%);
+  }
+}
+
+.color-combo--black-white {
+  .bg--lighten {
+    background-color: lighten($black, 5%);
+  }
+}
+
+.color-combo--white-black {
+  .bg--darken {
+    background-color: darken($white, 5%);
+  }
+}
+
+.color-combo--white-black {
+  .bg--lighten {
+    background-color: lighten($white, 5%);
+  }
+}

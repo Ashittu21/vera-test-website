@@ -1,0 +1,28 @@
+contentColumnType: text
+fieldGroup: 62eaf9ac-7045-45a4-b9c9-6db9b59feaac
+handle: text
+instructions: ''
+name: Text
+searchable: true
+settings:
+  availableTransforms: '*'
+  availableVolumes:
+    - '5'
+  cleanupHtml: '1'
+  columnType: text
+  configSelectionMode: choose
+  defaultTransform: ''
+  manualConfig: ''
+  purifierConfig: ''
+  purifyHtml: ''
+  redactorConfig: BlogArticle.json
+  removeEmptyTags: true
+  removeInlineStyles: true
+  removeNbsp: true
+  showHtmlButtonForNonAdmins: true
+  showUnpermittedFiles: false
+  showUnpermittedVolumes: true
+  uiMode: enlarged
+translationKeyFormat: null
+translationMethod: none
+type: craft\redactor\Field

@@ -1,0 +1,14 @@
+enableVersioning: true
+handle: dataViz
+name: 'Data Viz'
+propagationMethod: all
+siteSettings:
+  8ed9f980-84ac-470d-94d7-89a2cdb64916:
+    enabledByDefault: true
+    hasUrls: true
+    template: data-viz/_entry
+    uriFormat: 'data-viz/{slug}'
+structure:
+  maxLevels: 1
+  uid: 8008c8c4-12a2-4181-94dc-c575f12d7ef3
+type: structure

@@ -1,0 +1,12 @@
+{% set id = "StateStatsNav" ~ random() %}
+{% if stateDataUrl %}
+<div id="{{ id }}" class="container"></div>
+{% js %}
+$(function() {
+  VERA.stateStatsNav({{ id | json_encode | raw }}, {{ stateDataUrl | json_encode | raw }}, {{ entry.url  | json_encode | raw }});
+});
+{% endjs %}
+{% includeJsFile '/dist/twigscripts/stateStatsNav.js' %}
+{% else %}
+State Stats Nav is missing a state data file
+{% endif %}

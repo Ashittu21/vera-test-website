@@ -1,0 +1,14 @@
+contentColumnType: string
+fieldGroup: f8591398-94a9-4e81-b07f-a60bb6e89d81
+handle: legacyDownloads
+instructions: 'These are downloads or internal resources that exist apart from the publication but should nevertheless be included in the list of publication resources alongside any publication documents that are a child of this overview.'
+name: 'Publication Resources'
+searchable: true
+settings:
+  contentTable: '{{%matrixcontent_legacydownloads}}'
+  maxBlocks: ''
+  minBlocks: ''
+  propagationMethod: all
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

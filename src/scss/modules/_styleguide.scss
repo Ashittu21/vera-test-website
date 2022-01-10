@@ -1,0 +1,130 @@
+.styleguide {
+  h1 { margin: 1rem; }
+
+  section { margin-top: 30px; }
+
+  // tabs
+  .tabs > input,
+  .tabs .tab {
+    display: none;
+  }
+
+  #tab-type:checked ~ .tab-type,
+  #tab-colors:checked ~ .tab-colors,
+  #tab-viz:checked ~ .tab-viz {
+    display: block;
+  }
+
+  #tab-type:checked ~ nav .tab-type,
+  #tab-colors:checked ~ nav .tab-colors,
+  #tab-viz:checked ~ nav .tab-viz {
+    label {
+      background: $white;
+      border-color: $lt-gray-bg;
+      @extend .ff-sans;
+      font-weight: bold;
+    }
+  }
+
+  .tabs__nav {
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+    padding: 15px 0;
+
+    li {
+      width: 33%;
+    }
+
+    label {
+      background: $lt-gray-bg;
+      border: 1px solid $white;
+      border-bottom: 0;
+      display: block;
+      padding: 15px 25px;
+      white-space: nowrap;
+
+      &:hover {
+        background: $lt-gray-alt;
+        cursor: pointer;
+      }
+
+      &:active {
+        background: $white;
+      }
+    }
+  }
+
+  .grid {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 2.5rem 0;
+
+    li {
+      align-items: flex-start;
+      display: flex;
+      flex-direction: column;
+      height: auto;
+      justify-content: space-between;
+      margin: 30px 0;
+      min-height: 80px;
+      min-width: 20%;
+      padding: 1rem;
+      position: relative;
+    }
+  }
+
+  .grid--33 { width: 33%; }
+  .grid--50 { width: 50%; }
+
+  .tab-colors .grid li { min-width: auto; }
+
+  .grid--label {
+    background-color: $med-gray-bg;
+    color: #fff;
+    @extend .ff-sans;
+    margin-top: 10px;
+    padding: 0 3px;
+  }
+
+  .grid--label-dk {
+    color: $dk-gray-alt;
+    @extend .ff-sans;
+  }
+
+  .tooltipster-base,
+  .stream-module__label { position: relative; }
+
+  .list--label {
+    clear: both;
+    margin: 2rem 0;
+  }
+
+  .block-grid {
+    li {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      height: auto;
+      justify-content: space-between;
+      margin: 0;
+      text-align: center;
+      width: 100px;
+    }
+
+    span {
+      display: inline-block;
+      @extend .ff-sans;
+    }
+  }
+
+  .block-grid__block {
+    height: 50px;
+    margin: 1rem;
+    padding: 10px;
+    width: 50px;
+  }
+
+  .icon-share svg * { fill: $black; }
+}

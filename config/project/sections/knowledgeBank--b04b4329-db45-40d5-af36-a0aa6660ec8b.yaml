@@ -1,0 +1,14 @@
+enableVersioning: true
+handle: knowledgeBank
+name: 'Knowledge Bank'
+propagationMethod: all
+siteSettings:
+  8ed9f980-84ac-470d-94d7-89a2cdb64916:
+    enabledByDefault: true
+    hasUrls: false
+    template: null
+    uriFormat: null
+structure:
+  maxLevels: 1
+  uid: f69c4a72-5315-4990-9421-b1d6f1312b68
+type: structure

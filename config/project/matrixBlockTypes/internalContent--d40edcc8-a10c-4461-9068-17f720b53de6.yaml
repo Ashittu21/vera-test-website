@@ -1,0 +1,349 @@
+field: 973a55f2-ce57-4b5f-a176-7e11d42a8452
+fieldLayouts:
+  5c2275ec-e9cd-4e8b-81ee-b4b395e6cfbd:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 79bdb9f9-1378-4ed9-b9a6-d01a2efdd58e
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 65faf6e7-8c91-4ceb-ab01-aa2f0dd12b37
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 9490f25f-9a91-4537-8fe9-16df9bba53f2
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: e9c91e37-f0ac-4898-81da-0b37b0324916
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 98532609-c042-4be2-bd5e-7170553689b2
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 64c51ee7-a985-46a9-8303-673d23078b35
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 13390250-380a-41fd-8e46-ba177709642c
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: a322a006-4161-4644-bbf9-e4d2b1c6227b
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: f36eb4fe-aae3-41f8-a82b-3d5b81070d27
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  13390250-380a-41fd-8e46-ba177709642c:
+    contentColumnType: string
+    fieldGroup: null
+    handle: theme
+    instructions: ''
+    name: Theme
+    searchable: true
+    settings:
+      optgroups: true
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - 'White Box'
+            -
+              - value
+              - whiteBox
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - 'No Box'
+            -
+              - value
+              - noBox
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - 'Full Page'
+            -
+              - value
+              - fullPage
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+  64c51ee7-a985-46a9-8303-673d23078b35:
+    contentColumnType: text
+    fieldGroup: null
+    handle: overrideButtonText
+    instructions: ''
+    name: 'Override Button Text'
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  65faf6e7-8c91-4ceb-ab01-aa2f0dd12b37:
+    contentColumnType: string
+    fieldGroup: null
+    handle: heroImage
+    instructions: 'Dimensions: 2880px width, 1340px height, 1600px height for full page'
+    name: 'Hero Image'
+    searchable: true
+    settings:
+      allowSelfRelations: false
+      allowUploads: true
+      allowedKinds:
+        - image
+      defaultUploadLocationSource: 'volume:a48d5d4c-e94e-40ca-b140-801253b0f802'
+      defaultUploadLocationSubpath: ''
+      limit: '1'
+      localizeRelations: false
+      previewMode: full
+      restrictFiles: '1'
+      selectionLabel: 'Add an image'
+      showSiteMenu: true
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: true
+      singleUploadLocationSource: 'volume:a48d5d4c-e94e-40ca-b140-801253b0f802'
+      singleUploadLocationSubpath: home_features/
+      source: null
+      sources: '*'
+      targetSiteId: null
+      useSingleFolder: true
+      validateRelatedElements: false
+      viewMode: large
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+  79bdb9f9-1378-4ed9-b9a6-d01a2efdd58e:
+    contentColumnType: string
+    fieldGroup: null
+    handle: featuredContent
+    instructions: ''
+    name: 'Featured Content'
+    searchable: true
+    settings:
+      allowSelfRelations: false
+      limit: ''
+      localizeRelations: false
+      selectionLabel: ''
+      showSiteMenu: true
+      source: null
+      sources: '*'
+      targetSiteId: null
+      validateRelatedElements: false
+      viewMode: null
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Entries
+  9490f25f-9a91-4537-8fe9-16df9bba53f2:
+    contentColumnType: string
+    fieldGroup: null
+    handle: heroVideo
+    instructions: 'mp4.  Will override Hero Image on desktops.  Hero Image will be used for Mobile'
+    name: 'Hero Video'
+    searchable: true
+    settings:
+      allowSelfRelations: false
+      allowUploads: true
+      allowedKinds:
+        - video
+      defaultUploadLocationSource: 'volume:a48d5d4c-e94e-40ca-b140-801253b0f802'
+      defaultUploadLocationSubpath: home_features/
+      limit: '1'
+      localizeRelations: false
+      previewMode: full
+      restrictFiles: '1'
+      selectionLabel: 'Add a video'
+      showSiteMenu: true
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: true
+      singleUploadLocationSource: 'volume:a48d5d4c-e94e-40ca-b140-801253b0f802'
+      singleUploadLocationSubpath: home_features/
+      source: null
+      sources: '*'
+      targetSiteId: null
+      useSingleFolder: true
+      validateRelatedElements: false
+      viewMode: large
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+  98532609-c042-4be2-bd5e-7170553689b2:
+    contentColumnType: text
+    fieldGroup: null
+    handle: overrideSubtitle
+    instructions: ''
+    name: 'Override Subtitle'
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  a322a006-4161-4644-bbf9-e4d2b1c6227b:
+    contentColumnType: 'decimal(3,2)'
+    fieldGroup: null
+    handle: imageOverlayOpacity
+    instructions: 'Between 0 and 1'
+    name: 'Image Overlay Opacity'
+    searchable: true
+    settings:
+      decimals: '2'
+      defaultValue: null
+      max: '1'
+      min: '0'
+      prefix: ''
+      previewCurrency: ''
+      previewFormat: decimal
+      size: null
+      suffix: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Number
+  e9c91e37-f0ac-4898-81da-0b37b0324916:
+    contentColumnType: text
+    fieldGroup: null
+    handle: overrideTitle
+    instructions: ''
+    name: 'Override Title'
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  f36eb4fe-aae3-41f8-a82b-3d5b81070d27:
+    contentColumnType: string
+    fieldGroup: null
+    handle: boxPosition
+    instructions: ''
+    name: 'Box Position'
+    searchable: true
+    settings:
+      optgroups: true
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - Left
+            -
+              - value
+              - left
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Center
+            -
+              - value
+              - center
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Right
+            -
+              - value
+              - right
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+handle: internalContent
+name: 'Internal Content'
+sortOrder: 1

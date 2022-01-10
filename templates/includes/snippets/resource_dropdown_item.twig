@@ -1,0 +1,121 @@
+{% spaceless %}
+  {% set offset = offset ?? 0 %}
+  {% set idx = loop.index + offset %}
+  {% set dl = dl ?? null %}
+  {% set title -%}
+    {% if resource['publicationLandingDisplayTitle'] is defined and resource.publicationLandingDisplayTitle %}
+      {{ resource.publicationLandingDisplayTitle }}
+    {% elseif resource['publicationTitle'] is defined and resource.publicationTitle %}
+      {{ resource.publicationTitle }}
+    {% elseif resource.type.handle == 'internalResource' %}
+      {{ resource.overrideTitle ? resource.overrideTitle : resource.entry.first.title }}
+    {% else %}
+      {{ resource.title }}
+    {% endif %}
+  {%- endset %}
+
+  {% set resourcePage = resourceObj.type == 'DL' ? (alt[loop.index - 1] ?? null) : resource ?? null %}
+  {% if resourcePage and resourcePage.url is defined %}
+    {% set resourceUrl = resourcePage.url %}
+    {% set iconType = 'desktop' %}
+    {% set action = 'Read' %}
+    {% set ext = false %}
+    {% set onclick = null %}
+
+    {% if not resource.hidePdf and resourceObj.type == 'HTML' %}
+      {% if resource.overrideAutomaticPdf | length %}
+          {% set dl = resource.overrideAutomaticPdf.first %}
+      {% else %}
+          {# {% set path = craft.phantomjs.pdfPath(resource) %}
+          {% set dl = {
+              url: siteUrl(path),
+              kind: 'pdf'
+          } %} #}
+
+      {% endif %}
+      {% if dl %}
+      {% set additionalDownload %}
+        <a
+          class="resource-item-link"
+          href="{{ dl.url }}"
+          target="_blank"
+          onclick="ga('send','pageview','{{ dl.url }}')">
+          <i class="{% if dl.kind == 'audio' %}icon-audio{% else %}icon-doc{% endif %}"></i>
+        </a>
+      {% endset %}
+      {% endif %}
+    {% endif %}
+  {% elseif resource.type.handle == 'anchor' %}
+    {% set resourceUrl = craft.request.url ~ '#' ~ resource.anchor %}
+    {% set iconType = resource.icon.value %}
+    {% set action = "Explore" %}
+    {% set ext = false %}
+    {% set onclick = null %}
+  {% elseif resource.type.handle == 'externalLink' %}
+    {% set resourceUrl = resource.linkUrl %}
+    {% set title = resource.publicationTitle %}
+    {% set iconType = 'globe' %}
+    {% set ext = true %}
+  {% elseif resource.type.handle == 'internalResource' %}
+  {% set resourceEntry = resource.entry[0] %}
+    {% switch resourceEntry.type.handle %}
+    	{% case 'audio' %}
+    		{% set iconType = 'audio' %}
+    		{% set action = 'Listen' %}
+    	{% case 'video' %}
+    		{% set iconType = 'video' %}
+    		{% set action = 'Watch' %}
+    	{% case 'resourceSite' %}
+    		{% set iconType = 'globe' %}
+    		{% set action = 'Explore' %}
+    	{% default %}
+    		{% set iconType = 'desktop' %}
+    		{% set action = 'Explore' %}
+    {% endswitch %}
+    {% if resource.entry.first.type.handle in ['resourceSite'] %}
+    	{% set resourceUrl = resource.entry.first.linkUrl %}
+    {% else %}
+    	{% set resourceUrl = resource.entry.first.url %}
+    {% endif %}
+    {% set ext = true %}
+    {% set onclick = null %}  
+  {% elseif resourceObj.type == 'DL' or (resourceObj.type != 'DL' and not resource.hidePdf) %}
+    {% if resourceObj.type == 'HTML' and resource.overrideAutomaticPdf | length %}
+        {% set dl = resource.overrideAutomaticPdf.first %}
+    {% elseif resourceObj.type == 'HTML' %}
+        {% set path = craft.phantomjs.pdfPath(resource) %}
+        {% if craft.phantomjs.hasPdf(path) %}
+            {% set dl = {
+                url: siteUrl(path),
+                kind: 'pdf'
+            } %}
+        {% else %}
+            {% set dl = null %}
+        {% endif %}
+    {% else %}
+        {% set dl = resource['download'][0] ?? null %}
+    {% endif %}
+
+    {% if dl %}
+      {% set resourceUrl = dl.url %}
+      {% set ext = true %}
+      {% set onclick = "ga('send','pageview','" ~ resourceUrl ~ "')" %}
+      {% set iconType = dl.kind == 'audio' ? 'audio' : 'doc' %}
+      {% set action = 'Explore' %}
+    {% endif %}
+  {% endif %}
+{% endspaceless %}
+<li>
+  <a
+    class="resource-item-link resource-item-link--primary"
+    href="{{ resourceUrl }}"
+    {% if ext %}target="_blank" {% endif %}
+    {% if onclick is defined %}onclick="{{ onclick }}"{% endif %}>
+    <span class="dropdown-title">{{- title -}}</span>
+    <div class="resource-item-link-icon">
+      <i class="icon-{{ iconType }}"></i>
+      {#<span>{{ action }}</span>#}
+    </div>
+  </a>
+  {% if additionalDownload is defined %}{{ additionalDownload }}{% endif %}
+</li>

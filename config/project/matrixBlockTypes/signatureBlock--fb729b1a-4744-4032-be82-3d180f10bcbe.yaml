@@ -1,0 +1,43 @@
+field: 95bc127b-3520-49ff-803a-7352214068b1
+fieldLayouts:
+  b429bad0-49cc-48fd-ad20-3b23a714c5e4:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 6f7f50a4-cc82-4b98-b42c-aa0d0f6dabce
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  6f7f50a4-cc82-4b98-b42c-aa0d0f6dabce:
+    contentColumnType: string
+    fieldGroup: null
+    handle: signatory
+    instructions: ''
+    name: Signatory
+    searchable: true
+    settings:
+      allowSelfRelations: false
+      limit: ''
+      localizeRelations: false
+      selectionLabel: ''
+      showSiteMenu: true
+      source: null
+      sources:
+        - 'section:8639923c-05e0-4fb4-a45a-9a2a79a690ec'
+      targetSiteId: null
+      validateRelatedElements: false
+      viewMode: null
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Entries
+handle: signatureBlock
+name: 'Signature Block'
+sortOrder: 27

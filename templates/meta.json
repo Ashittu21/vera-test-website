@@ -1,0 +1,13 @@
+{% set id = craft.request.getParam('id') ?? null %}
+{% if id %}
+{% set entry = craft.entries.id(id).first() %}
+{% set meta = entry.stateOfSeo %}
+{{
+	{
+		title: meta.seoTitle,
+		description: meta.seoDescription,
+		image: meta.seoImage,
+		url: entry.url
+	}
+| json_encode | raw }}
+{% endif %}

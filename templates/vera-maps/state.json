@@ -1,0 +1,16 @@
+{%- set id = id ?? craft.request.getParam('id') -%}
+{%- set state = craft.entries.id(id).first() -%}
+{%- if state -%}
+{%- set response = {
+	success: true,
+	entryid: id,
+	title: state.title,
+	overview: state.overview,
+	level: 1
+} -%}
+{%- else -%}
+{%- set response = {
+	success: false
+} -%}
+{%- endif -%}
+{{ response | json_encode | raw }}

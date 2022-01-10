@@ -1,0 +1,21 @@
+contentColumnType: string
+fieldGroup: a49b71d0-4d2e-4176-adc3-275acb9215d6
+handle: relatedExperts
+instructions: ''
+name: 'Related Experts'
+searchable: true
+settings:
+  allowSelfRelations: false
+  limit: ''
+  localizeRelations: false
+  selectionLabel: ''
+  showSiteMenu: true
+  source: null
+  sources:
+    - 'section:8639923c-05e0-4fb4-a45a-9a2a79a690ec'
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Entries

@@ -1,0 +1,68 @@
+field: 7e082a1e-5c55-49fa-a069-eff03ea25e73
+fieldLayouts:
+  798fd6e0-d507-4419-ae42-432f141e1522:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: c4b93cb0-60d4-461d-ae5f-30a07d4f5ec3
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 39816010-eaf3-410f-9938-8542aaabdc6e
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  39816010-eaf3-410f-9938-8542aaabdc6e:
+    contentColumnType: text
+    fieldGroup: null
+    handle: jsonList
+    instructions: ''
+    name: 'JSON List'
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: '1'
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  c4b93cb0-60d4-461d-ae5f-30a07d4f5ec3:
+    contentColumnType: text
+    fieldGroup: null
+    handle: heading
+    instructions: ''
+    name: Heading
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: 'News Digest'
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+handle: newsDigest
+name: 'News Digest'
+sortOrder: 1

@@ -1,0 +1,35 @@
+# This is a sample build configuration for PHP.
+# Check our guides at https://confluence.atlassian.com/x/e8YWN for more examples.
+# Only use spaces to indent your .yml configuration.
+# -----
+# You can specify a custom docker image from Docker Hub as your build environment.
+image: therealsgtpenguin/docker-php-composer-node
+
+options:
+  max-time: 10 # configure default 10 minute timeout
+
+pipelines:
+  branches:
+    master:
+      - step:
+          caches:
+            - composer
+            - vendor
+            - node
+          script:
+            - composer install
+            - yarn install --production
+            - rsync -a --filter=':- ./.deployignore' ./ vera@167.71.189.247:~/apps/vera/
+    staging:
+      - step:
+          caches:
+            - composer
+            - vendor
+            - node
+          script:
+            - composer install
+            - yarn install --production
+            - rsync -a --filter=':- ./.deployignore' ./ vera@167.71.189.247:~/apps/vera-staging/
+definitions:
+  caches:
+    vendor: vendor

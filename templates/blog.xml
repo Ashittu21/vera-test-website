@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <channel>
+        <title>{{ siteName }}</title>
+        <link>{{ siteUrl }}</link>
+        <atom:link href="{{ craft.request.url }}" rel="self" type="application/rss+xml" />
+        <description>{{ craft.entries.section('blog')[0].rssDescription }}</description>
+        <language>en-us</language>
+        <pubDate>{{ now.rss }}</pubDate>
+        <lastBuildDate>{{ now.rss }}</lastBuildDate>
+
+        {% for entry in craft.entries.section('blogPosts').with(['authors']) %}
+        	{% cache using key "blog-post_"~entry.id %}
+	            <item>
+	                <title>{{ entry.title }}</title>
+	                <link>{{ entry.url }}</link>
+	                <pubDate>{{ entry.postDate.rss }}</pubDate>
+	                <dc:creator>{% if entry.authors | length %}{% for author in entry.authors %}{{ author.title }}{% if not loop.last %}, {% endif %}{% endfor %}{% else %}{{ siteName }}{% endif %}</dc:creator>
+	                <guid>{{ entry.url }}</guid>
+	            </item>
+            {% endcache %}
+        {% endfor %}
+    </channel>
+</rss>

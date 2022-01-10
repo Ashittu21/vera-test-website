@@ -1,0 +1,13 @@
+contentColumnType: boolean
+fieldGroup: b7c07949-c4d1-4af6-a996-017773fd0ef5
+handle: showStrategicPriorities
+instructions: ''
+name: 'Show Strategic Priorities'
+searchable: true
+settings:
+  default: true
+  offLabel: null
+  onLabel: null
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Lightswitch

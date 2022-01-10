@@ -1,0 +1,11 @@
+<ul class="article-text-slideshow {% if block.colorCombo %} bg-gradient--{{ block.colorCombo.value }}{% endif %}">
+  {% for block in block.textSlides %}
+    {% include '_article/pieces/textSlide' with { slide: block } %}
+  {% endfor %}
+</ul>
+
+{% includeJs %}
+  $(function() {
+    VERA.textSlideshow();
+  })
+{% endincludejs %}

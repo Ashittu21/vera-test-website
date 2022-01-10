@@ -1,0 +1,166 @@
+field: 68c4d7e2-c537-4394-990f-c1735c44f48c
+fieldLayouts:
+  e5d911e4-b517-497b-b2ba-872e722f30f8:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 48659d28-0d45-4495-84eb-505a358ca534
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: ff891254-15c4-4307-b6de-ff4e56fb7f46
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 7175afa1-ae05-4ab5-8827-90d3e71fb546
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 2d0d9f80-34fd-4fb1-a6a9-0501f9eb0457
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 4825b915-b513-4352-99f7-7deb4a3d4e72
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  2d0d9f80-34fd-4fb1-a6a9-0501f9eb0457:
+    contentColumnType: text
+    fieldGroup: null
+    handle: authorTitle
+    instructions: ''
+    name: 'Author Title'
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  4825b915-b513-4352-99f7-7deb4a3d4e72:
+    contentColumnType: string
+    fieldGroup: null
+    handle: headshot
+    instructions: ''
+    name: Headshot
+    searchable: true
+    settings:
+      allowSelfRelations: false
+      allowUploads: true
+      allowedKinds:
+        - image
+      defaultUploadLocationSource: 'volume:a48d5d4c-e94e-40ca-b140-801253b0f802'
+      defaultUploadLocationSubpath: ''
+      limit: '1'
+      localizeRelations: false
+      previewMode: full
+      restrictFiles: '1'
+      selectionLabel: 'Add an image'
+      showSiteMenu: true
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: true
+      singleUploadLocationSource: 'volume:a48d5d4c-e94e-40ca-b140-801253b0f802'
+      singleUploadLocationSubpath: '{owner.section}/{owner.slug}/headshots/'
+      source: null
+      sources: '*'
+      targetSiteId: null
+      useSingleFolder: true
+      validateRelatedElements: false
+      viewMode: large
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+  48659d28-0d45-4495-84eb-505a358ca534:
+    contentColumnType: text
+    fieldGroup: null
+    handle: context
+    instructions: ''
+    name: Context
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  7175afa1-ae05-4ab5-8827-90d3e71fb546:
+    contentColumnType: text
+    fieldGroup: null
+    handle: author
+    instructions: ''
+    name: Author
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  ff891254-15c4-4307-b6de-ff4e56fb7f46:
+    contentColumnType: text
+    fieldGroup: null
+    handle: copy
+    instructions: ''
+    name: Copy
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+handle: largeBlockQuote
+name: 'Large Block Quote'
+sortOrder: 5

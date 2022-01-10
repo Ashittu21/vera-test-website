@@ -1,0 +1,23 @@
+contentColumnType: string
+fieldGroup: a49b71d0-4d2e-4176-adc3-275acb9215d6
+handle: fundingPartner
+instructions: ''
+name: 'Funding Partner'
+searchable: true
+settings:
+  allowLimit: false
+  allowMultipleSources: false
+  allowSelfRelations: false
+  branchLimit: ''
+  limit: null
+  localizeRelations: false
+  selectionLabel: 'Add a Funding Partner'
+  showSiteMenu: true
+  source: 'group:17fa131a-7b99-4df7-82b0-cdfbfd18b8e6'
+  sources: '*'
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Categories

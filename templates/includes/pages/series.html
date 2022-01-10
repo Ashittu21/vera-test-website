@@ -1,0 +1,42 @@
+{% extends '_layout' %}
+
+{% block content %}
+	<section>
+		<img src="{{ entry.heroImage.first.url }}">
+		<h6><a href="{{ craft.entries.section(entriesSection).first.url }}">{{ craft.entries.section(entriesSection).first }}</a></h6>
+		<h1>{{ entry }}</h1>
+		<h3>{{ entry.subtitle }}</h3>
+	</section>
+	<section>
+		<div>
+			{{ entry.overview }}
+		</div>
+		<div>
+			<h6>Action Areas</h6>
+			{% for actionArea in entry.relatedIssues %}
+				{% if actionArea.level == 2 %}{{ actionArea }}{% endif %}
+			{% endfor %}
+		</div>
+	</section>
+	<section>
+		<div>
+			{% set stream = craft.entries({
+				relatedTo: entry
+			}) %}{% include 'includes/stream/stream' %}
+		</div>
+		<ul>
+			{% for series in entry.siblings %}
+			<a href="{{ series.url }}">
+				<li>
+				{% if series.heroImage.first %}
+					<img src="{{ series.heroImage.first.url }}">
+				{% endif %}
+					<div>
+						<span>{{ series }}: </span><span>{{ series.subtitle }}</span>
+					</div>
+				</li>
+			</a>
+			{% endfor %}
+		</ul>
+	</section>
+{% endblock %}

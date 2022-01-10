@@ -1,0 +1,20 @@
+contentColumnType: text
+fieldGroup: db841c2f-86aa-4387-8c3e-51fefc8f5945
+handle: parentState
+instructions: ''
+name: State
+searchable: true
+settings:
+  byteLimit: null
+  charLimit: null
+  code: ''
+  columnType: null
+  initialRows: '4'
+  mode: readonly
+  modeOverride: ''
+  multiline: ''
+  placeholder: ''
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: mmikkel\incognitofield\fields\IncognitoFieldType

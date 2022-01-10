@@ -1,0 +1,37 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  #Https
+#	RewriteCond %{HTTPS} !=on
+#	RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  RewriteCond %{HTTP_HOST} ^reimagine\.vera\.org$ [NC]
+	RewriteRule (.*) https://www.vera.org/reimagining-prison/ [L,R=301]
+
+	RewriteCond %{HTTP_HOST} ^reimagineprison\.vera\.org$ [NC]
+	RewriteRule (.*) https://www.vera.org/reimagining-prison/ [L,R=301]
+
+  # Redirect alternate domains
+	RewriteCond %{HTTP_HOST} !local$ [NC]
+  RewriteCond %{HTTP_HOST} !test$ [NC]
+	RewriteCond %{HTTP_HOST} !^www\.vera\.org$ [NC]
+	RewriteCond %{HTTP_HOST} !^staging\.vera\.org$ [NC]
+	RewriteRule (.*) https://www.vera.org/$1 [L,R=301]
+
+	# Redirect not www
+	RewriteCond %{HTTP_HOST} ^vera\.org$ [NC]
+	RewriteRule ^(.*)$ https://www\.vera\.org\/$1 [L,R=301]
+
+  # Send would-be 404 requests to Craft
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_URI} !^/(favicon\.ico|apple-touch-icon.*\.png)$ [NC]
+  RewriteRule (.+) index.php?p=$1 [QSA,L]
+
+</IfModule>
+
+<IfModule mod_headers.c>
+    SetEnvIf Origin "http(s)?://(www\.)?(vera.test|localhost:3000)$" AccessControlAllowOrigin=$0
+    Header add Access-Control-Allow-Origin %{AccessControlAllowOrigin}e env=AccessControlAllowOrigin
+    Header merge Vary Origin
+</IfModule>

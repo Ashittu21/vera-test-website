@@ -1,0 +1,256 @@
+.main-subnav-outer {
+  background: $black;
+  color: $med-gray-alt;
+  position: absolute;
+  //z-index: 10;
+  z-index: -1;
+  //top: $header-height + $mobile-header-height;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  max-height: 0;
+  padding: 0;
+  // overflow: hidden;
+  @include transition(
+    (max-height 0.25s ease-in-out, padding 0.25s ease-in-out)
+  );
+  @extend .ff-sans;
+  @include font-size(1.4);
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  // opacity: 0;
+
+  @media (min-width: #{$tablet-landscape + $nav-offset}) {
+    top: $header-height;
+    @include font-size(1.6);
+  }
+
+  .container {
+    //display: none;
+    opacity: 1;
+    @include transition(opacity 0.25s ease-in);
+
+    @media (min-width: #{$tablet-landscape + $nav-offset}) {
+      opacity: 0;
+    }
+  }
+
+  .mainnav-open &.subnav-open {
+    // opacity: 1;
+    z-index: 11;
+    padding: $padding-lg 0;
+    max-height: 200vh;
+
+    @media (min-width: #{$tablet-landscape + $nav-offset}) {
+      padding: $padding-lg * 2 0 $padding-med * 2;
+
+      .container {
+        display: block;
+        // min-height: 400px; // arbitrary?
+        opacity: 1;
+      }
+    }
+
+    @media (min-width: $desktop-large) {
+      padding: $padding-lg * 2 0 $padding-med * 2;
+    }
+  }
+}
+
+.main-subnav__heading {
+  display: block;
+  @extend .ff-serif--italic;
+  color: $med-gray-alt;
+  @include font-size(1.5);
+  margin-bottom: $padding-sm;
+
+  @media (min-width: #{$tablet-landscape + $nav-offset}) {
+    @include font-size(2);
+    margin-bottom: $padding-lg;
+  }
+}
+
+.main-subnav {
+  list-style: none;
+  width: 100%;
+
+  .img-outer,
+  img {
+    width: 80px;
+    height: 80px;
+
+    @media (min-width: #{$tablet-landscape + $nav-offset}) {
+      width: 90px;
+      height: 90px;
+    }
+  }
+
+  img {
+    @include border-radius(100%);
+    overflow: hidden;
+  }
+
+  &.main-subnav--work {
+    .text-outer {
+      padding-left: $padding-sm;
+    }
+  }
+
+  li {
+    text-align: left;
+    margin-bottom: $padding-lg;
+
+    @media (min-width: #{$tablet-landscape + $nav-offset}) {
+      padding-right: $padding-med;
+      padding-left: $padding-med;
+    }
+  }
+
+  a {
+    display: table;
+    color: $white;
+    @include font-size(1.8);
+    @extend .ff-serif--medium;
+
+    @media (min-width: #{$tablet-landscape + $nav-offset}) {
+      @include font-size(2.4);
+    }
+  }
+
+  .img-outer,
+  .text-outer {
+    display: table-cell;
+    vertical-align: middle;
+  }
+
+  // nested list
+  ul {
+    display: none;
+    padding-left: 100px;
+    line-height: 2;
+    @extend .ff-sans;
+
+    @media (min-width: #{$tablet-landscape + $nav-offset}) {
+      display: block;
+      padding-left: 110px;
+    }
+
+    a {
+      color: $med-gray-alt;
+      opacity: 0.8;
+      @include font-size(1.4);
+      @extend .ff-sans;
+
+      @media (min-width: #{$tablet-landscape + $nav-offset}) {
+        @include font-size(1.6);
+
+        margin-left: 0.75em;
+        text-indent: -0.75em; // indents second lines
+      }
+    }
+
+    li {
+      width: 100%;
+      display: block;
+      padding: 0;
+      margin: 0;
+    }
+  }
+
+  @media (min-width: $desktop-large) {
+    margin: auto;
+    @include width-by-columns(10);
+  }
+
+  @media (min-width: #{$tablet-landscape + $nav-offset}) {
+    display: flex;
+    flex-wrap: wrap;
+
+    li {
+      width: $one-third;
+    }
+
+    ul li {
+      width: 100%;
+    }
+  }
+}
+
+.no-touch .main-subnav a:hover,
+.main-subnav a:focus {
+  color: $red;
+}
+
+.main-subnav__description {
+  display: none;
+  opacity: 0.8;
+
+  @media (min-width: #{$tablet-landscape + $nav-offset}) {
+    display: block;
+  }
+}
+
+.main-subnav__see-more {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  padding: $padding-xxs $padding-xxs * 5 $padding-xxs 0;
+  @include arrow-after;
+  color: $white;
+  @include font-size(1.8);
+  @extend .ff-serif--medium;
+
+  &:after {
+    position: relative;
+    right: 0;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    margin-left: $padding-lg;
+  }
+
+  @media (min-width: #{$tablet-landscape + $nav-offset}) {
+    @include font-size(2);
+  }
+}
+
+.main-subnav--work {
+  li:last-child {
+    @media (min-width: $desktop-medium) {
+      padding-right: 0; // this whole rule is sort of based on the design, may not be necessary later
+    }
+  }
+}
+
+.main-subnav--resource,
+.main-subnav--about {
+  padding-top: $padding-xxs;
+
+  a {
+    display: flex;
+    align-items: center;
+    line-height: 1.3;
+    position: relative;
+    padding: 0 $padding-med * 2 0 0;
+    @include arrow-after;
+
+    &:after {
+      width: 12px;
+      height: 12px;
+      //top: 22px;
+    }
+  }
+
+  .text-outer {
+    //padding: 0 0 $padding-xxs;
+
+    @media (min-width: #{$tablet-landscape + $nav-offset}) {
+      padding: 0 0 $padding-xs;
+    }
+  }
+
+  @media (min-width: $desktop-large) {
+    margin: auto;
+    @include style-by-columns("max-width", 9);
+  }
+}

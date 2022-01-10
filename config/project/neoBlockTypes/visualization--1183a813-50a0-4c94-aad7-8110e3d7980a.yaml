@@ -1,0 +1,12 @@
+childBlocks:
+  - shadedStateMap
+  - percentage
+  - ratio
+field: f169c5fc-b73a-407b-a234-05171b57ee74
+handle: visualization
+maxBlocks: 1
+maxChildBlocks: 0
+maxSiblingBlocks: 0
+name: Visualization
+sortOrder: 2
+topLevel: true

@@ -1,0 +1,15 @@
+contentColumnType: string
+fieldGroup: eff14877-7ff6-48ae-81eb-2919ff7fdfd9
+handle: factBuilder
+instructions: ''
+name: 'Fact Card Builder'
+searchable: true
+settings:
+  maxBlocks: ''
+  maxTopBlocks: ''
+  minBlocks: ''
+  propagationMethod: all
+  wasModified: true
+translationKeyFormat: null
+translationMethod: site
+type: benf\neo\Field

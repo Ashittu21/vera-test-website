@@ -1,0 +1,96 @@
+.blocks {
+  @include justify(stretch, center);
+  list-style: none;
+  padding: $padding-lg 0;
+  text-align: left;
+  margin: auto;
+
+  li {
+    width: 100%;
+    border-left: 1px solid $red;
+    padding: $padding-xxs 0 $padding-xxs $padding-sm;
+    @include font-size(1.8);
+    line-height: 1.5;
+    margin-bottom: $padding-lg;
+
+    @media (min-width: $mobile-large) {
+      padding: $padding-xxs $padding-lg $padding-xxs $padding-sm;
+    }
+
+    p {
+      margin-bottom: 0;
+    }
+  }
+
+  h4 {
+    @include font-size(1.8);
+
+    @media (min-width: $tablet-landscape) {
+      @include font-size(2.5);
+      margin-bottom: 1em;
+    }
+  }
+
+  h4 a {
+    display: block;
+    position: relative;
+
+    color: $black;
+    @include arrow-after;
+    padding-right: $padding-lg;
+
+    &:after {
+      top: 4px;
+      border-color: $black;
+
+      @media (min-width: $tablet-landscape) {
+        top: 7px;
+      }
+    }
+  }
+
+  h5 {
+    @extend .ff-sans--bold;
+    @include font-size(2.1);
+    line-height: 1.5;
+  }
+
+  b,
+  strong {
+    font-weight: normal;
+    @extend .ff-serif--medium;
+  }
+}
+
+.blocks--2up {
+  li {
+    @media (min-width: $tablet-portrait) {
+      width: $one-half;
+    }
+
+    @media (min-width: $tablet-landscape) {
+      width: $one-half;
+    }
+  }
+}
+
+.blocks--3up {
+  li {
+    @media (min-width: $tablet-portrait) {
+      width: $one-third;
+      // margin-bottom: 0;
+    }
+  }
+}
+
+.blocks--4up {
+  li {
+    @media (min-width: $tablet-portrait) {
+      width: $one-half;
+    }
+
+    @media (min-width: $tablet-landscape) {
+      width: $one-fourth;
+    }
+  }
+}

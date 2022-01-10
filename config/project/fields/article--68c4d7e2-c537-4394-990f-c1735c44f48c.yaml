@@ -1,0 +1,14 @@
+contentColumnType: string
+fieldGroup: a1574b52-b575-41d9-9fdd-13f2294a57f2
+handle: article
+instructions: ''
+name: 'Blog Article'
+searchable: true
+settings:
+  contentTable: '{{%matrixcontent_article}}'
+  maxBlocks: ''
+  minBlocks: ''
+  propagationMethod: all
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

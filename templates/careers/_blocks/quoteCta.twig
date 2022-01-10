@@ -1,0 +1,10 @@
+<section class="QuoteCta careersBuilder-block-margin">
+  <div>
+  {% include '_article/pieces/quote' %}
+  </div>
+  <div class="QuoteCta-cta container">
+  {% for cta in block.children %}
+  {% include 'careers/_blocks/cta' %}
+  {% endfor %}
+  </div>
+</section>

@@ -1,0 +1,179 @@
+.module-intro--project {
+    padding-top: $padding-lg;
+
+    @media (min-width: $tablet-landscape) {
+        padding-top: $padding-lg*2;
+    }
+}
+
+.project-highlights {
+    background: $lt-gray-alt;
+}
+
+.project-key-facts {
+    background: $lt-gray;
+    padding: $padding-lg 0;
+    margin: 0;
+    text-align: center;
+
+    @media (min-width: $tablet-landscape) {
+        padding: $padding-lg*2 0;
+    }
+
+    .border-2up {
+        padding: $padding-lg 0;
+
+        @media (min-width: $desktop-medium) {
+            @include style-by-columns('max-width', 10);
+            padding-bottom: $padding-lg*2;
+            margin: auto;
+        }
+    }
+
+    .col-outer {
+        display: block;
+
+        @media (min-width: $tablet-portrait) {
+            @include justify;
+            align-items: center;
+        }
+    }
+
+    .col {
+        text-align: center;
+        margin-bottom: $padding-lg;
+
+        &.only {
+	        margin: 0 auto;
+        }
+
+        @media (min-width: $tablet-portrait) {
+            width: $one-half;
+        }
+
+        &:first-child {
+            @media (min-width: $tablet-portrait) {
+                width: 50%;
+            }
+        }
+
+        &:last-child {
+            @include font-size(1.8);
+        }
+
+        .stream-module {
+            text-align: left;
+            margin: 0;
+        }
+
+        .stream-module__subheading {
+            @extend .ff-serif--italic;
+            @include font-size(1.6);
+        }
+
+        @media (min-width: $tablet-portrait) {
+            margin: 0;
+            padding: 0 $padding-lg;
+
+            &:not(.only):first-child {
+                border-right: 1px solid $lt-gray-alt;
+            }
+        }
+
+        @media (min-width: $tablet-landscape) {
+            &:first-child {
+                padding: 0 $padding-lg*2 0 0;
+            }
+
+            &:last-child {
+                padding: 0 $padding-lg*2;
+                @include font-size(2.2);
+            }
+        }
+    }
+}
+
+.fact-text {
+    color: $red;
+    display: block;
+    margin: auto;
+    line-height: 1
+}
+
+.fact-text--huge {
+    @include subheading-font-thin;
+    @include font-size(10);
+}
+
+.fact-text--large {
+    @extend .ff-sans--bold;
+    @include font-size(2.8);
+    margin-bottom: $padding-sm;
+}
+
+.project__content {
+    .module-text:first-child {
+        @media (min-width: $tablet-landscape) {
+            padding-top: $padding-lg*2;
+        }
+    }
+}
+
+// maps
+
+
+#mapSVG{
+    margin: 40px 0;
+    display: block;
+    width: 100%;
+    max-height: 300px; // fixes some IE issues
+}
+#mapSVG .enabled, #mapSVG .enabled path{
+    fill: #BCBDBC;
+}
+#mapSVG .enabled:hover, #mapSVG .enabled:hover path{
+    fill: #5f6067;
+    transition: 0.5s;
+    cursor: pointer;
+}
+.map-tooltip{
+    pointer-events: none;
+    position: absolute;
+    font-size: 12px;
+    text-align: center;
+    background: #231F20;
+    padding: 10px 15px;
+    z-index: 5;
+    height: 25px;
+    margin: 0 auto;
+    color: #fff;
+    line-height: 4px;
+    box-shadow: 0 0 0 1px #eee;
+    transform: translateX(-20%);
+    z-index: 10;
+    margin-top: -20px;
+    display: none;
+}
+.map-tooltip.active{
+    display: block
+}
+.map-tooltip.active:not(.no-tip):after{
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    width: 0;
+    height: 0;
+    margin-left: -6px;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid #231F20;
+}
+
+// IE map spacing?
+
+@media all and (-ms-high-contrast:none) {
+    *::-ms-backdrop, .module-intro.module-intro--project .one-third {
+        align-self: flex-start; // fixes IE height issue?
+    }
+}

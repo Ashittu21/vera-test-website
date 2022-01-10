@@ -1,0 +1,36 @@
+{% extends '_ajax_layout' %}
+
+{% block nav %}{% endblock %}
+
+{% set hero = entry ?? entry.customHero[0] %}
+
+{% block content %}
+<article class="color-combo--black-white black-box-content open-box-content"
+  data-anchor-link="{{ hero.url }}"
+  data-article-theme="black">
+
+  <div id="open-box" style="opacity: 0;"></div>
+
+  <div class="black-box-header-wrapper js-wrapper fade-in">
+    <section class="black-box-header">
+      <h3 class="black-box-superheading">{{ hero.superheading }}</h3>
+      <h2 class="black-box-heading">&nbsp;{{ hero.heading }}</h2>
+      <h3 class="black-box-subheading">{{ hero.subheading }}</h3>
+    </section>
+
+    <section class="open-box-copy">
+      {{ hero.text | shortcodes | raw }}
+    </section>
+  </div>
+</article>
+
+<div class="js-show-header-trigger"></div>
+{# include 'includes/ajax-page-loader' #}
+
+{% endblock %}
+
+{% block footer %}{% endblock %}
+
+{% includeJs %}
+  {% include 'special-reports/custom/open-box.js' %}
+{% endincludejs %}

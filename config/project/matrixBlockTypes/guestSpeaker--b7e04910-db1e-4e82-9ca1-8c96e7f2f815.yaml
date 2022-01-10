@@ -1,0 +1,110 @@
+field: 312f381b-8c5f-4d39-8645-da35242e3fcf
+fieldLayouts:
+  aecd318b-3b66-4b35-bf65-5943526431f2:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 31213415-e664-47e5-a827-5f80911a9312
+            instructions: null
+            label: null
+            required: '1'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: bbca5a79-1b96-4300-9e42-5502d3e756a8
+            instructions: null
+            label: null
+            required: '0'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 8c556d41-939f-471d-9e84-083446247d9c
+            instructions: null
+            label: null
+            required: '0'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  31213415-e664-47e5-a827-5f80911a9312:
+    contentColumnType: text
+    fieldGroup: null
+    handle: speakerName
+    instructions: ''
+    name: 'Speaker Name'
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: false
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  8c556d41-939f-471d-9e84-083446247d9c:
+    contentColumnType: string
+    fieldGroup: null
+    handle: speakerHeadshot
+    instructions: ''
+    name: 'Speaker Headshot'
+    searchable: true
+    settings:
+      allowSelfRelations: false
+      allowUploads: true
+      allowedKinds:
+        - image
+      defaultUploadLocationSource: 'volume:a48d5d4c-e94e-40ca-b140-801253b0f802'
+      defaultUploadLocationSubpath: ''
+      limit: '1'
+      localizeRelations: false
+      previewMode: full
+      restrictFiles: '1'
+      selectionLabel: ''
+      showSiteMenu: true
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: true
+      singleUploadLocationSource: 'volume:c3679b2c-c8a9-497f-a727-b1b62f2da07a'
+      singleUploadLocationSubpath: headshots/
+      source: null
+      sources: '*'
+      targetSiteId: null
+      useSingleFolder: true
+      validateRelatedElements: false
+      viewMode: large
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+  bbca5a79-1b96-4300-9e42-5502d3e756a8:
+    contentColumnType: text
+    fieldGroup: null
+    handle: speakerTitle
+    instructions: ''
+    name: 'Speaker Title'
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: false
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+handle: guestSpeaker
+name: 'Quick Guest Speaker'
+sortOrder: 2

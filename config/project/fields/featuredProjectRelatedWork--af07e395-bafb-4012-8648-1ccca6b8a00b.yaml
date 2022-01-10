@@ -1,0 +1,20 @@
+contentColumnType: string
+fieldGroup: 3ad6d151-958c-44f4-99b0-865c27d2922e
+handle: featuredProjectRelatedWork
+instructions: ''
+name: 'Featured Related Work'
+searchable: true
+settings:
+  allowSelfRelations: false
+  limit: ''
+  localizeRelations: false
+  selectionLabel: ''
+  showSiteMenu: true
+  source: null
+  sources: '*'
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Entries

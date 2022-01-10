@@ -1,0 +1,73 @@
+
+{% set  mapType = (mapType ?? 'slider')%}
+{% set statesData = "" %}
+{% set data = {} %}
+{% set showOffices = true %}
+{% set showCount = (showCount is defined and showCount) ? true : false %}
+{% set id = "TimelineMap" ~ (now | date("U")) %}
+
+{% includeJsFile "https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js" %}
+{% includeJsFile "https://d3js.org/topojson.v1.min.js" %}
+{% includeJsFile "/datamaps/datamaps.usa.min.js" %}
+{% includeJsFile "/dist/js/anchorme.min.js" %}
+{% includeJsFile "/dist/twigscripts/timelineMap.js" %}
+
+{% js %}
+$(function() {
+  VERA.timelineMap({{ ("#" ~ id) | json_encode | raw }}, {{ block.dataViz[0].dataset[0].url | json_encode | raw }}, {{ showOffices | json_encode | raw }})
+})
+{% endjs %}
+
+{% includeJsFile "https://d3js.org/d3.v3.min.js" %}
+<div class="post-module module-text">
+  <div class="col-outer">
+    <div class="one-third map-filter-column">
+      {{ block.dataViz[0].body}}
+      
+      <h4>Filter:</h4>
+      <div class="filter-row">
+        <input type="radio" class="filter" name="filter" value="all" id="all" checked><label for="all" >All Points on Map</label>
+      </div>
+      <div class="filter-row">
+        <input type="radio" class="filter"  name="filter" value="SAFE Partner" id="safe-partners"><label for="safe-partners">SAFE Partners Only</label>
+      </div>
+      <h4>Timeline:</h4>
+      <input type="range" min="" max="" value="" class="slider" id="date-range">
+      <div class="year"><strong>Year: </strong><span class="year-value"></span></div>
+    </div>
+    <div class="two-thirds">
+       <article class="post-module about__where">
+        <div id="{{ id }}"></div>
+      </article>
+    </div>
+  </div>
+  <input type="checkbox" id="slideout-launch"> 
+  <div class="slideout">
+    <label class="close" for="slideout-launch">
+      <?xml version="1.0" encoding="UTF-8"?>
+      <svg width="45px" height="45px" viewBox="0 0 45 45" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <title>Group 13</title>
+          <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+              <g id="Group-18" transform="translate(-21.000000, -24.000000)">
+                  <g id="Group-13" transform="translate(43.500000, 46.500000) rotate(-315.000000) translate(-43.500000, -46.500000) translate(28.000000, 31.000000)" stroke="#FFFFFF" stroke-width="2">
+                      <line x1="15.3085937" y1="0" x2="15.3085937" y2="30.6171875" id="Path-2"></line>
+                      <line x1="30.6171875" y1="15.3085937" x2="0" y2="15.3085937" id="Path-2"></line>
+                  </g>
+              </g>
+          </g>
+      </svg>
+    </label>
+    
+    {% set data = {"fund" : "Fund", "location" : "Location" , "affiliation": "Affiliation","year" : "Began", "communityPartners" : "Community Partners", legalServiceProviders : "Legal Service Providers", "funding2021" : "Immigration Legal Services Funding Reallocated for FY2021", "moreInfo": "More Information"} %}
+    <div class="slideout__content">
+      <h2><div class="jurisdiction"></div></h2>
+      {% for key,label in data %}
+          <div class="{{ key }} row">
+          <span class="label">{{label}}:</span>
+          <span class="value"></span>
+        </div>
+      {% endfor %}
+    </div>
+
+  </div>
+</div>

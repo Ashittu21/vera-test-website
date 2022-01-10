@@ -1,0 +1,259 @@
+{% spaceless %}
+	{% import 'state-of/_/macros' as macros %}
+
+	{% extends 'state-of/_layout_internal' %}
+
+	{% set index = null %}
+	{% set isTopic = entry.pageType.value == 'topic' %}
+	{% set isLense = entry.pageType.value == 'lense' %}
+	{% for topic in entry.parent.children.type('topic') %}
+		{% if topic.id == entry.id %}
+			{% set index = isTopic ? loop.index : null %}
+		{% endif %}
+	{% endfor %}
+	{% set openArticle = isTopic ? index : true %}
+
+	{% set image = entry.heroImage.first ?? 'https://placehold.it/2880x1800' %}
+
+	{% set topicDesktopImages = craft.imager.transformImage( image, [
+    { width: 3000 },
+    { width: 1000 },
+  ], {
+    ratio: 5/4,
+    position: image.focalPoint.x ~ '% ' ~ image.focalPoint.y ~ '%'
+  }) %}
+
+{% endspaceless %}
+{% block articleInner %}
+	<article class="{{ isLense ? 'alt' : 'default' }}">
+		<section class="overview">
+
+			{{ macros.hero(image,entry.pageType.value)}}
+
+			<div class="container overview-container">
+				{% embed 'state-of/_/copy' %}
+					{% block preHeading %}
+						{% if index %}
+							<div class="chapter-index">{{ index }}</div>
+							<div class="short-title">{{ entry.title }}</div>
+						{% endif %}
+						{% if isLense %}
+							<div class="type">Lenses</div>
+						{% endif %}
+					{% endblock %}
+				{% endembed %}
+
+				<div class="sidebar">
+					{% if isTopic %}
+						<img src="{{ topicDesktopImages[0].url }}" srcset="{{ craft.imager.srcset(topicDesktopImages) }}" class="hero-image hide-on-tablet fade-in">
+						{% if image.caption %}
+							<div class="img-caption simple">{{ image.caption }}</div>
+						{% endif %}
+					{% endif %}
+					<div class="sidebar-inner">
+						{% set things = entry.spotlight %}
+						{% if things | length %}
+							<ul class="list-reset">
+								{% for thing in things %}
+									<li class="sidebar-spotlight">
+										{{ macros.spotlight(thing) }}
+									</li>
+								{% endfor %}
+							</ul>
+						{% endif %}
+					</div>
+				</div>
+			</div>
+		</section>
+
+		{% cache %}
+		{% set things = entry.topThingsToKnow %}
+		{% if things | length %}
+			{% set defaultshow = 5 %}
+			{% set counter = 0 %}
+			<section class="state-of-section-highlight">
+				<div class="container">
+					<h2 class="section-heading">Top Things to Know</h2>
+
+					<div class="indent" data-show-more='{"itemSelector": ".top-things-list", "buttonSelector": ".show-more"}'>
+						<ol class="top-things-list list-reset">
+							{% for thing in things[:defaultshow] %}
+								{% set counter = counter + 1 %}
+								{% set image =  thing.heroImage.first ?? null %}
+								<li {% if image %} class="full" {% endif %}>{{ macros.cta(thing,counter,image) }}</li>
+							{% endfor %}
+						</ol>
+
+						{% if things | length > defaultshow %}
+							<ol class="top-things-list list-reset">
+								{% for thing in things[defaultshow:] %}
+									{% set counter = counter + 1 %}
+									<li>{{ macros.cta(thing,counter) }}</li>
+								{% endfor %}
+							</ol>
+
+							<button class="btn red show-more">More things to know</button>
+						{% endif %}
+					</div>
+				</div>
+			</section>
+		{% endif %}
+		{% endcache %}
+
+		{% cache %}
+		{% if entry['factsFigures'] is defined %}
+			{# TODO remove this defined check.  staging and live were out of sync #}
+			{% set things = entry.factsFigures %}
+			{% if things | length %}
+				<section class="line-after">
+					<div class="container">
+						<h2 class="section-heading">Facts and Figures</h2>
+
+						<div class="indent indent-right">
+							<ul class="fact-list list-reset article-slideshow flickity--red">
+								{% for thing in things %}
+									<li class="fact-item {{ loop.index is odd ? 'alt' : '' }}">
+										{% include 'state-of/types/fact' with { entry: thing, fromLink: entry.url } %}
+									</li>
+								{% endfor %}
+							</ul>
+						</div>
+					</div>
+				</section>
+			{% endif %}
+		{% endif %}
+		{% endcache %}
+
+		{% cache %}
+		{% set things = entry.onOurRadar %}
+		{% if things | length %}
+			<section class="on-our-radar line-after">
+				<div class="container">
+					<h2 class="section-heading">On Our Radar</h2>
+
+					<div class="indent">
+						{% if entry.onOurRadarSpotlight | length %}
+							{{ macros.spotlight(entry.onOurRadarSpotlight.first) }}
+						{% endif %}
+						<ul class="radar-list list-reset">
+							{% for thing in things %}
+								<li>
+									{{ macros.cta(thing) }}
+								</li>
+							{% endfor %}
+						</ul>
+					</div>
+				</div>
+			</section>
+		{% endif %}
+		{% endcache %}
+
+		{% if isTopic %}
+			<section class="line-after">
+				<div class="container">
+					<h2 class="section-heading">Discussion</h2>
+
+					<div class="indent">
+						<div id="disqus_thread"></div>
+
+						{% include 'includes/snippets/disqus' %}
+					</div>
+				</div>
+			</section>
+		{% endif %}
+
+		{% cache %}
+		{% if entry['bestOf'] is defined %}
+			{% set things = entry.bestOf %}
+			{% if things | length %}
+				<section class="line-after">
+					<div class="container">
+						<h2 class="section-heading">Best of
+							{{entry.parent.slug}}</h2>
+
+						<ul class="indent best-of-list list-reset">
+							{% for thing in things %}
+								{% include 'state-of/_/bestOfItem' with { entry: thing } %}
+							{% endfor %}
+						</ul>
+					</div>
+				</section>
+			{% endif %}
+		{% endif %}
+		{% endcache %}
+
+		{% cache %}
+		{% set things = entry.siblings.pageType(entry.pageType).order('RAND()').limit(3) %}
+		{% if things | length %}
+			{% include 'state-of/_/related' with {entries: things, heading: entry.pageType.label ~ 's'} %}
+		{% endif %}
+		{% endcache %}
+
+		{% cache unless craft.app.config.env == 'dev'%}
+		{% set authors = entry.authors %}
+		{% set reviewers = entry['reviewers'] ?? [] %}
+		{% if (authors | length) or (reviewers | length) %}
+			<section class="line-after">
+				<div class="container">
+					<h2 class="section-heading">Contributors</h2>
+
+					{% if authors| length %}
+						<div class="contributor-group">
+							<h3>Vera Staff</h3>
+
+							<ul class="indent contributor-list">
+								{% for person in authors %}
+									{% include 'state-of/_/person' with { entry: person } %}
+								{% endfor %}
+								{# hack to fix flex justify #}
+								<li class="person-item"></li>
+								<li class="person-item"></li>
+							</ul>
+						</div>
+					{% endif %}
+
+					{% if reviewers | length %}
+						<div class="contributor-group">
+							<h3>External Reviewers</h3>
+
+							<aside class="section-aside">External Reviewers generously shared their time and expertise by reviewing specific sections of the report. They are not responsible for the final content.</aside>
+
+							<ul class="indent contributor-list">
+								{% for person in reviewers %}
+									{% include 'state-of/_/person' with { entry: person } %}
+								{% endfor %}
+								{# hack to fix flex justify #}
+								<li class="person-item"></li>
+								<li class="person-item"></li>
+							</ul>
+						</div>
+					{% endif %}
+				</div>
+			</section>
+		{% endif %}
+		{% endcache %}
+
+		{#
+															<section class="line-after">
+																<div class="container">
+																	<h2 class="section-heading">Endnotes</h2>
+														
+																	<div class="slide-toggle" data-slide-toggle>
+																	<ol class="indent footnote-aggregate-list"></ol>
+																	<button class="btn">Show More</button>
+																	</div>
+																</div>
+															</section>
+															#}
+
+		{% include 'includes/_footer/footer__state-of' %}
+	</article>
+
+	{% if craft.request.isAjax %}
+		{% include 'includes/snippets/share_links' with { horizontal: true } %}
+		{% includeJs %}
+		ShowMore();
+		{% endincludejs %}
+	{% endif %}
+
+{% endblock %}

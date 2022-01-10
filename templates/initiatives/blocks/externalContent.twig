@@ -1,0 +1,49 @@
+{% set module = {
+  title: block.moduleTitle,
+  subtitle: block.subtitle,
+  typeLabel: block.blockType,
+  linkUrl: block.linkUrl,
+  postDate: block.date
+} %}
+
+{% set isFeatured = null %}
+{% set module_class_prefix = 'stream-module' %}
+
+<section class="SpotlightResource SpotlightResource--right">{# replace with field #}
+<article class="stream-module stream-module--uc stream-module--uc--full">
+  <a class="stream-module__inner" href="{{ module.linkUrl }}" target="_blank">
+    {% if block.image |length %}
+        <div class="{{ module_class_prefix }}__img-outer img-outer" style="background-image: url({{ block.image.first.url }});"><div class="spacer"></div></div>
+    {% endif %}
+
+
+    <div class="{{ module_class_prefix }}__content">
+      <div class="{{ module_class_prefix }}__content-inner">
+        <div class="stream-module__title-outer">
+
+          <h3 class="{{ module_class_prefix }}__heading">{{ module.title }}</h3>
+          {% if module.subtitle|length %}
+            <p class="{{ module_class_prefix }}__subheading">{{ module.subtitle }}</p>
+          {% endif %}
+        </div>
+
+        <div class="{{ module_class_prefix }}__meta">
+          {% if module.postDate %}
+            <span class="{{ module_class_prefix }}__meta__date">
+              {{ module.postDate | date('F d, Y') }}
+            </span>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    <span class="{{ module_class_prefix }}__label grid-label">
+      {{ module.typeLabel }}
+    </span>
+  </a>
+</article>
+<div class="SpotlightResource-explainer stream-module stream-module--secondary--desc">
+  <div>{{ block.explainer}}</div>
+  <a class="btn receives-color receives-border-color" href="{{ module.linkUrl }}" target="_
+  blank">{{ block.buttonText | default("Explore") }}</a>
+</div>
+</section>

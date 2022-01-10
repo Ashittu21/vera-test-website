@@ -1,0 +1,150 @@
+{% macro select(options) %}
+<select data-options="">
+	{% for option in options %}
+	<option value="{{ option.value }}">{{ option.label }}</option>
+	{% endfor %}
+</select>
+{% endmacro %}
+
+{% import _self as macro %}
+
+{% set datasetUrl = "https://storage.googleapis.com/vera-web-assets/data/datasets/Shifting-Trends-NYS-Dataset-11.20_171120_184400.csv" %}
+
+<section class="fill-in-the-blanks container loading will-fade-in" data-dataset-url="{{ datasetUrl }}">
+	<p>In <select data-options-url="https://storage.googleapis.com/vera-web-assets/data/Add-a-CSV/shifting-trends-nys-county-fips.csv" data-name="real"></select> there are <span class="answer" data-name="real"></span> people in jail.<br>If it had the same incarceration rate as <select data-options-url="https://storage.googleapis.com/vera-web-assets/data/Add-a-CSV/shifting-trends-nys-county-fips.csv" data-name="projected"></select>, there would be <span class="answer" data-name="projected"></span> people in jail.</p>
+</section>
+
+{% includeJs %}
+
+(function() {
+	"use strict"
+
+	$(init);
+
+	function init()
+	{
+		$('.fill-in-the-blanks:not(.fill-in-the-blanks-initialized)').each(function() {
+			new FillInTheBlank(this);
+		});
+	}
+
+	var FillInTheBlank = function(elem) {
+
+		var $elem,$selects;
+		var dataset=null;
+
+		initInstance();
+
+		function initInstance()
+		{
+			$elem = $(elem);
+
+			$selects = $elem.find('select');
+
+			$selects.each(initSelect);
+
+			getData();
+
+		}
+
+		function initSelect()
+		{
+			var $select = $(this);
+
+			var $answer = $select.siblings('[data-name="' + $select.attr('data-name') + '"]');
+
+			$select.data('answer', $answer);
+
+			if ($select.attr('data-options-url')) {
+
+				$.get($select.attr('data-options-url'))
+				.done(function(response) {
+					var data = $.csv.toObjects(response);
+					populateSelect($select,data);
+				});
+
+
+			} else if ($select.attr('data-options')) {
+
+				var data = JSON.parse($select.attr('data-options'));
+				populateSelect($select,data);
+
+			}
+		}
+
+		function populateSelect($select,data)
+		{
+			data.forEach(function(d) {
+				$select.append($('<option value="' + d.value +'">' + d.label + '</option>'));
+			})
+
+			$select.addClass('select-initialized');
+
+			checkIfLoaded();
+		}
+
+		function getData()
+		{
+			$.get($elem.attr('data-dataset-url'))
+				.done(function(response) {
+
+					dataset = $.csv.toObjects(response);
+
+					checkIfLoaded();
+
+				})
+				.fail(function(response) {
+					console.warn(response);
+				})
+				;
+		}
+
+		function checkIfLoaded()
+		{
+			var loaded = !!dataset && !$selects.filter(':not(.select-initialized)').length;
+
+			if (loaded) {
+				afterLoad();
+			}
+		}
+
+		function afterLoad()
+		{
+
+			var $real = $selects.eq(0);
+			var $projected = $selects.eq(1);
+
+			$projected.find('option').eq(24).prop("selected",true);
+
+			updateAnswers();
+
+			$selects.change(updateAnswers);
+
+			$elem.removeClass('loading');
+			TweenLite.to($elem, 1, {autoAlpha: 1});
+
+			function updateAnswers()
+			{
+				var	realValue = $real.val(),
+					projectedValue = $projected.val()
+					;
+
+				var realDatum = _.find( dataset, {'fips': realValue, 'Year': '2016'} );
+
+				$real.data('answer').text(d3.format(',')(realDatum['Jail Census']));
+
+				var projectedDatum = _.find( dataset, {'fips': projectedValue, 'Year': '2016'} );
+
+				var incRate = (projectedDatum['Jail Census']/projectedDatum['Population 15-64'])*100000;
+
+				var rate = (incRate*realDatum['Population 15-64'])/100000;
+
+				$projected.data('answer').text( d3.format(',')(Math.round(rate)) );
+			}
+
+		}
+
+	}
+
+	})();
+{% endincludejs %}

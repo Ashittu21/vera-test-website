@@ -1,0 +1,58 @@
+
+<!-- Financials -->
+<section class="section__content" id="SectionContent">
+  <div class="section__content__inner" id="SectionContentInner">
+    <section class="about-financials">
+      <div class="container col-outer">
+        {% set continue = true %}
+        {% for year in entry.financials if continue %}
+          <div class="col">
+            <h2>{{ year.year }}</h2>
+
+            <h4>How we spent our funds</h4>
+
+            <section class="bar-ltr">
+              {% for bar in year.spending %}
+                <div class="bar-ltr__row-outer">
+                  <div class="bar-ltr__row bar-ltr__row{% if bar.percentage > 50 %}--lg{% endif %}" data-value="{{ bar.percentage }}">
+                    <h6>
+                      <span>{{ bar.percentage }}%</span>
+                      {{ bar.explainer }}</h6>
+                  </div>
+                </div>
+              {% endfor %}
+            </section>
+
+            <h4>Sources of grants and contributions</h4>
+
+            <section class="bar-ltr">
+              {% for bar in year.sources %}
+                <div class="bar-ltr__row-outer">
+                  <div class="bar-ltr__row bar-ltr__row{% if bar.percentage > 50 %}--lg{% endif %}" data-value="{{ bar.percentage }}">
+                    <h6>
+                      <span>{{ bar.percentage }}%</span>
+                      {{ bar.explainer }}</h6>
+                  </div>
+                </div>
+              {% endfor %}
+            </section>
+
+            <h4>Download Forms</h4>
+
+            <section class="about-financials__download">
+              <a href="{{ year.auditedFinancials.first.url }}" download>
+                <i class="icon-download"></i>
+                Audited Financials</a>
+              <a href="{{ year.form990.first.url }}" download>
+                <i class="icon-download"></i>
+                Form 990</a>
+            </section>
+          </div>
+          {% if loop.index == 2 %}
+            {% set continue = false %}
+          {% endif %}
+        {% endfor %}
+      </div>
+    </section>
+  </div>
+</section>

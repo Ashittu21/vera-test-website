@@ -1,0 +1,15 @@
+<div class="article-photo-tile">
+	<img src="{{ block.photo[0].url ?? '//placehold.it/1000x666' }}" width="1000" height="666">
+
+	{% if block.caption %}
+	{% if block.heading %}
+	<div class="heading">
+		<h4>{{ block.heading }}</h4>
+		
+		<div>{{ block.caption | shortcodes | raw }}</div>
+	</div>
+	{% else %}
+	<h4 class="heading">{{ block.caption | shortcodes | raw }}</h4>
+	{% endif %}
+	{% endif %}
+</div>

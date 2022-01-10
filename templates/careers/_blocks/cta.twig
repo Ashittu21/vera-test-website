@@ -1,0 +1,8 @@
+{% switch cta.type.handle %}
+{% case 'anchorCta' %}
+<a class="btn" href="#{{ cta.anchor }}">{{ cta.cta }}</a>
+{% case 'videoCta' %}
+{% include '_article/pieces/videocta' with {block: cta} %}
+{% default %}
+unkown block type {{ cta.type.handle }}
+{% endswitch %}

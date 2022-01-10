@@ -1,0 +1,26 @@
+{% set entry = craft.entries.section('about').one() %}
+<!-- President's Message -->
+{% include 'includes/snippets/post_header' %}
+
+<div class="post-content__single post-module post-module--about module-intro">
+  <div class="container col-outer">
+    <div class="post-content__single__main-col module-intro__content">
+      {% include 'includes/snippets/share_links' %}
+
+      <div class="module-intro__text">
+        {{ entry.presidentsMessageTop }}
+
+        <div class="module-text-footer">
+          {% if entry.presidentsSignature.first %}
+            {% set signature = entry.presidentsSignature.first %}
+            <img src="{{ signature.url }}" width="200" alt="President's Signature"/>
+          {% endif %}
+
+          <h4>{{ entry.president.first.fullName }}</h4>
+          <h6>{{ entry.president.first.jobTitle }}</h6>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

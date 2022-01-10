@@ -1,0 +1,21 @@
+contentColumnType: string
+fieldGroup: f8591398-94a9-4e81-b07f-a60bb6e89d81
+handle: updatedPublication
+instructions: ''
+name: 'Updated Publication'
+searchable: true
+settings:
+  allowSelfRelations: false
+  limit: ''
+  localizeRelations: false
+  selectionLabel: ''
+  showSiteMenu: true
+  source: null
+  sources:
+    - 'section:4b7c3d23-1010-47d7-9813-9b5a7707aa63'
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Entries

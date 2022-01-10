@@ -1,0 +1,173 @@
+// Flickity Carousel style overrides
+
+.stream-module__carousel .flickity-prev-next-button {
+  border-radius: 0;
+  background-color: $red;
+
+  width: 30px;
+  height: 30px;
+
+  @media (min-width: $slideshow-break) {
+    width: 44px;
+    height: 44px;
+  }
+
+  .arrow { fill: $white; }
+
+  &.previous {
+    right: calc(100% + 10px);
+    left: auto;
+
+    @media (min-width: $slideshow-break) {
+      right: auto;
+      left: 0;
+      transform: translate(-50%,-50%);
+    }
+  }
+
+  &.next {
+    left: calc(100% + 10px);
+    right: auto;
+
+    @media (min-width: $slideshow-break) {
+      left: auto;
+      right: 0;
+      transform: translate(50%,-50%);
+    }
+  }
+}
+
+.stream-module__carousel .flickity-button:hover {
+  background-color: $red;
+  transition: all $transition-timing;
+
+  &.next { right: -5px; }
+  &.previous { left: -5px; }
+}
+
+.stream-module__carousel .flickity-page-dots {
+  height: 10px;
+  top: calc(100% + 10px);
+
+  .dot {
+    border-radius: 0;
+    background-color: $med-gray-bg;
+    width: 60px;
+    margin: 0 3px;
+
+    &.is-selected {
+      background-color: $red;
+    }
+  }
+}
+
+.stream-module__carousel {
+  .flickity-slider {
+    align-items: center;
+    display: flex;
+  }
+
+  .flickity-button:disabled { display: none; }
+  .flickity-prev-next-button {
+
+    &.previous {
+      left: 0;
+      right: unset;
+
+      @media (min-width: $slideshow-break) {
+        right: auto;
+        left: 0;
+        transform: translate(0%, -50%);
+      }
+    }
+    &.next {
+      left: unset;
+      right: 0;
+
+      @media (min-width: $slideshow-break) {
+        left: auto;
+        right: 0;
+        transform: translate(0%, -50%);
+      }
+    }
+  }
+}
+
+// this is when a carousel lives in a campaign slide
+.carousel_wrap {
+  left: unset;
+  margin: 0 auto;
+  padding: 0;
+  position: relative;
+  right: unset;
+  width: 100%;
+  z-index: 1;
+
+  .post-article { padding-bottom: 35px; }
+  .flickity-page-dots { top: calc(100% + 10px); }
+
+  @media (min-width: $tablet-landscape) {
+    padding: 20px 0;
+    position: absolute;
+    left: 0;
+    right: 0;
+
+    .post-article { padding: 0; }
+    .flickity-page-dots { top: calc(100% + 40px); }
+  }
+
+  .stream-module__carousel .flickity-prev-next-button {
+
+    &.previous {
+      left: -10px;
+      right: unset;
+
+      @media (min-width: $slideshow-break) {
+        right: auto;
+        left: 0;
+        transform: translate(0%, -50%);
+      }
+    }
+    &.next {
+      left: unset;
+      right: -10px;
+
+      @media (min-width: $slideshow-break) {
+        left: auto;
+        right: 0;
+        transform: translate(0%, -50%);
+      }
+    }
+  }
+}
+
+
+.flickity-slider {
+  .stream-module--gc { background-color: transparent; }
+  .stream-module {
+    margin-right: 10px;
+    opacity: 0.5 !important; // need important to override 'trigger' on lazy load
+    transition: opacity $transition-timing;
+    .grid-label,
+    .list-label { display: none; }
+
+    &.is-selected { opacity: 1 !important; }
+  }
+  .stream-module,
+  .stream-module__carousel__title {
+    width: 100%;
+    @media (min-width: $tablet-portrait) {
+      @include max-width($dec-one-half);
+    }
+
+    @media (min-width: $tablet-landscape) {
+      @include max-width($dec-one-third);
+    }
+
+    @media (min-width: $tablet-portrait) { min-height: 66%; width: 50%; }
+    @media (min-width: $tablet-landscape) { min-height: 100%; }
+    @media (min-width: $desktop-ml) { min-height: 80%; }
+    @media (min-width: $desktop-large) { min-height: 100%; }
+  }
+}
+

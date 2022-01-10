@@ -1,0 +1,43 @@
+contentColumnType: text
+fieldGroup: 3ad6d151-958c-44f4-99b0-865c27d2922e
+handle: projectSeo
+instructions: ''
+name: 'Project SEO'
+searchable: true
+settings:
+  assetSources: '*'
+  openGraphType: website
+  openGraphTypeChangeable: '1'
+  robots: ''
+  robotsChangeable: '1'
+  seoDescription: ''
+  seoDescriptionSource: field
+  seoDescriptionSourceChangeable: '1'
+  seoDescriptionSourceField: overview
+  seoFacebookImageIdSource: ''
+  seoFacebookImageIdSourceChangeable: true
+  seoFacebookImageIdSourceField: ''
+  seoFacebookImageTransform: ''
+  seoImageIdSource: field
+  seoImageIdSourceChangeable: '1'
+  seoImageIdSourceField: streamImageRectangle
+  seoImageTransform: ''
+  seoKeywords: ''
+  seoKeywordsSource: custom
+  seoKeywordsSourceChangeable: '1'
+  seoKeywordsSourceField: title
+  seoMainEntityCategory: ''
+  seoMainEntityOfPage: ''
+  seoTitle: ''
+  seoTitleSource: field
+  seoTitleSourceChangeable: '1'
+  seoTitleSourceField: title
+  seoTwitterImageIdSource: ''
+  seoTwitterImageIdSourceChangeable: true
+  seoTwitterImageIdSourceField: ''
+  seoTwitterImageTransform: ''
+  twitterCardType: summary_large_image
+  twitterCardTypeChangeable: '1'
+translationKeyFormat: null
+translationMethod: none
+type: nystudio107\seomatic\fields\Seomatic_Meta

@@ -1,0 +1,177 @@
+{% set shifts = [] %}
+{% for shift in block.ratioShift %}
+{% set shifts = shifts | merge([{
+  antecedant: shift.antecedant,
+  consequent: shift.consequent
+}]) %}
+{% endfor %}
+<div
+  class="data-viz-fact-wrapper ratio-visualization"
+  data-ratio-shifts='{{ shifts | json_encode | e("html_attr") }}'
+  data-point-type="person">
+  <div class="data-viz-fact-visualization"></div>
+</div>
+{% includeJs %}
+
+  $(function() {
+    $('.ratio-visualization:not(.ratio-visualization-initlialized)').each(function(i,elem) {
+      initRatio(elem)
+    });
+  })
+
+  function initRatio(elem) {
+    var
+      scene,
+      shifts = JSON.parse(elem.dataset.ratioShifts),
+      pathString,
+      pWidth,
+      pHeight,
+      data,
+      shiftIndex=0,
+      currentShift=shifts[shiftIndex]
+
+    elem.classList.add('ratio-visualization-initialized')
+
+    var pointType = elem.dataset.pointType
+    switch (pointType) {
+      case 'person':
+          pathString = "M18 26V11c0-1.2-1-2.2-2.2-2.2h-4.7l.8-5.1c.1-.2.1-.4.1-.6V3c0-1.6-1.4-3-3-3-1.7 0-3 1.3-3 3v.1c0 .2 0 .4.1.6l.8 5.1H2.2C1 8.8 0 9.8 0 11v16.5c0 1.8.8 2.9 2.3 3.1v-.9C.8 29.5.9 27.5.9 27.5h1.4V12.6h.9v35.6c-.9.3-1.9.8-1.9 1.7h7.3v-19h.9V50h7.3c0-.9-1-1.5-1.9-1.7V12.7h.9v14.8h1.4s.1 2-1.4 2.2v.9c1.5-.2 2.3-1.3 2.3-3.1L18 26z",
+          pWidth = 18,
+          pHeight = 50,
+          xString = "M3 15l12 12M15 15l-12 12"
+        break;
+      default:
+    }
+
+    var
+      cols,
+      rows = 1,
+      xPad = 4,
+      yPad = 4,
+      pointWidth = pWidth + xPad*2,
+      pointHeight = pHeight + yPad*2
+
+    var row = function(i) { return i%rows }
+
+    var
+      height = rows*pointHeight
+
+    var svg = d3.select(elem).select('.data-viz-fact-visualization').append('svg')
+
+    update(data,shifts[shiftIndex])
+    if (shifts.length > 1) {
+      setInterval(update, 3000)
+    }
+
+    function setScrollTrigger() {
+      var VERA = window.VERA || {};
+      VERA.sm = VERA.sm || new ScrollMagic.Controller();
+      window.VERA = VERA;
+
+      return new ScrollMagic.Scene({
+        triggerElement: elem
+      })
+      .on('start', function(event) {
+        console.log(event.scrollDirection)
+        var selection = svg.selectAll('.point');
+        console.log(selection,selection.size())
+        if (selection.size()) {
+          if (event.scrollDirection === "REVERSE") {
+            console.log(selection)
+            animateOut(selection)
+          } else {
+            animateIn(selection)
+          }
+        }
+        //svg.selectAll('.point')
+      })
+      .addTo(VERA.sm)
+    }
+
+    function animateIn(selection) {
+      selection.transition()
+        .duration(2000)
+        .delay(function(d,i) {
+          return d.x ? 250 : i > currentShift.antecedant ? 500 : 0
+        })
+        .attr('opacity', 1)
+        .attr('transform', function(d,i) {
+          return 'translate(' + d.endX + ',' + (row(i)*pointHeight + yPad) + ')'
+        })
+    }
+
+    function animateOut(selection) {
+      selection
+        .transition()
+        .duration(2000)
+        .attr('opacity', 0)
+        .attr('transform', function(d,i) {
+          return 'translate(' + d.startX + ',' + (row(i)*pointHeight + yPad) + ')'
+        })
+    }
+
+    function update() {
+
+      if (!scene) {
+        scene = setScrollTrigger()
+      }
+
+      shiftIndex++
+      if (shiftIndex >= shifts.length) {
+        shiftIndex = 0
+      }
+      currentShift = shifts[shiftIndex]
+      var total = +currentShift.antecedant + +currentShift.consequent + 1;
+      cols = Math.ceil(total)
+      width = total*pointWidth
+
+      svg
+        .attr("width",width).attr("height",height)
+        .attr("viewBox","0 0 "+width+" "+height)
+
+      data = []
+      for (let i=0; i<total; i++) {
+        if (i===+currentShift.antecedant) {
+          data.push({
+            x: true
+          })
+        }
+        data.push({
+          highlight: i>=(currentShift.antecedant)
+        })
+      }
+
+      var points = svg
+        .selectAll(".point")
+        .data(data, function(d,i) {
+          var col = Math.floor(i/rows)
+          d.startX =  i > currentShift.antecedant ?
+            (Math.floor(1+currentShift.antecedant/rows)*(pointWidth) + xPad) :
+            (col*(pointWidth) + xPad);
+
+          d.endX = (col*(pointWidth) + xPad)
+
+          return d
+        })
+
+      var enter = points.enter()
+        .append('path')
+        .attr('d', function(d) {
+          return d.x ? xString : pathString
+        })
+        .attr('class', function(d,i) {
+          return 'point receives-fill-color' + (d.highlight ? ' will-highlight receives-fill-highlight' : '') + (d.x ? ' receives-stroke-color' : '')
+        })
+        .attr('stroke', function(d) {
+          return d.x ? 'black' : 'none'
+        })
+        .attr('transform', function(d,i) {
+          return 'translate(' + d.startX + ',' + (row(i)*pointHeight + yPad) + ')'
+        })
+        .attr('opacity', 0)
+
+      points.exit().remove()
+
+    }
+  }
+{% endincludejs %}

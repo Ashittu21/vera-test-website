@@ -1,0 +1,40 @@
+field: ad9b90f1-ab3e-4da4-b693-9f04c0ee68a5
+fieldLayouts:
+  aec45137-d350-4261-bfb5-ef79ffe505f1:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: e17afc0a-4ba1-4a2b-b946-050f481f3287
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  e17afc0a-4ba1-4a2b-b946-050f481f3287:
+    contentColumnType: mediumtext
+    fieldGroup: null
+    handle: code
+    instructions: 'Be careful!'
+    name: Code
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: mediumtext
+      initialRows: '4'
+      multiline: '1'
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+handle: code
+name: Code
+sortOrder: 14

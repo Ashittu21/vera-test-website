@@ -1,0 +1,36 @@
+{# @var craft \craft\web\twig\variables\CraftVariable #}
+{#
+/**
+ * Special Relations plugin for Craft CMS 3.x
+ *
+ * Children Field Input
+ *
+ * @author    sgtpenguin
+ * @copyright Copyright (c) 2020 sgtpenguin
+ * @link      https://hyperakt.com
+ * @package   SpecialRelations
+ * @since     1.0.0
+ */
+#}
+
+{% import "_includes/forms" as forms %}
+
+{{ forms.elementSelect({
+	id: id,
+	name: name,
+	elementType: elementType,
+	elements: elements,
+	limit: limit,
+	jsClass: jsClass,
+	criteria: criteria,
+	sources: sources
+})}}
+
+{% css %}
+	
+	.btn.add.is-disabled {
+		pointer-events: none;
+		opacity: .5;
+	}
+
+{% endcss %}

@@ -1,0 +1,670 @@
+.filter-grid-type {
+    width: 100%;
+}
+
+.filter-outer {
+    width: 100%;
+    background: $lt-gray-bg;
+    margin-bottom: $padding-sm;
+
+    @media (min-width: $mobile-large) {
+        margin-bottom: $padding-lg;
+    }
+}
+
+.filter {
+    @extend .ff-sans--bold;
+    @include font-size(1.6);
+    letter-spacing: 0.03mm;
+    line-height: 1;
+    width: 100%;
+    @include justify(center);
+    flex-flow: row nowrap;
+    color: $med-gray;
+
+    a {
+        color: $med-gray;
+
+
+        &.active {
+            color: $black;
+        }
+    }
+}
+
+.refine .filter-outer {
+    border-top: 1px solid $red;
+}
+
+.filter-label,
+.filter__dropdown-outer,
+.filter__options {
+    padding: $padding-sm;
+}
+
+.filter__parent-wrapper {
+    margin: 10px 0;
+    position: relative;
+}
+
+.filter__dropdown-child-outer {
+    border: none;
+    border-radius: 0;
+    background-color: $med-gray-alt;
+    padding: 0 0 1px;
+    font-size: 22px;
+    line-height: 18px;
+    text-align: center;
+    width: 20px;
+
+    position: absolute;
+    top: 2px;
+    right: 0;
+
+    &:hover {
+        background-color: $dv-border;
+        cursor: pointer;
+    }
+}
+
+.filter__options {
+    span {
+        margin-left: $padding-sm;
+
+        &:first-of-type {
+            margin-left: 0;
+        }
+
+        @media (min-width: $tablet-portrait) {
+            margin-left: $padding-lg;
+        }
+    }
+}
+
+.filter--viewtype { // grid/list view
+    // display: none;
+
+    // @media (min-width: $tablet-landscape) {
+    //     display: inline-block;
+    // }
+}
+
+.filter-label,
+.filter__dropdown-outer {
+    position: relative;
+
+    display: none;
+
+    @media (min-width: $tablet-portrait) {
+        display: inline-block;
+    }
+
+    &.disabled{
+        pointer-events: none;
+
+        a{
+            color: $med-gray !important;
+            &:after{
+                border-color: $med-gray;
+            }
+        }
+        .icon-filter:before{
+            border-top: 10px solid $med-gray;
+        }
+        .icon-filter:after{
+            background: $med-gray;
+        }
+
+    }
+    a {
+        display: inline-block;
+        position: relative;
+        padding: 0 25px 0 35px;
+
+        &:after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            right: 0;
+            width: 10px;
+            height: 10px;
+            @include transform(rotate(45deg));
+            border: 2px solid $black;
+            border-left: 0;
+            border-top: 0;
+            @include transition(transform 0.25s $ease-nice);
+        }
+    }
+
+    &.open a:after {
+        bottom: 0;
+        @include transform(rotate(225deg));
+    }
+}
+
+.search-stream .filter__dropdown-outer {
+    display: inline-block;
+}
+
+.filter__dropdown {
+    width: 100%;
+    max-height: 0;
+    @include hardware-acc;
+    @include transition((max-height 0.5s $ease-nice, opacity 0.25s $ease-nice));
+    overflow: hidden;
+    border-top: 1px solid $lt-gray-alt;
+    opacity: 0;
+    line-height: 1.4; // uh
+
+    &.dropped {
+        opacity: 1;
+        max-height: 1000px; // ?
+    }
+}
+
+.filter__dropdown-child {
+    width: 100%;
+    max-height: 0;
+    @include hardware-acc;
+    @include transition((max-height 0.5s $ease-nice, opacity 0.25s $ease-nice));
+    overflow: hidden;
+    opacity: 0;
+    margin-bottom: 0 !important;
+
+    li {
+        margin: 5px 0;
+    }
+
+    &.dropped {
+        opacity: 1;
+        max-height: 1000px; // ?
+    }
+}
+
+.filter__dropdown-inner {
+    padding: $padding-lg $padding-sm;
+    @extend .ff-sans--bold;
+    text-align: center;
+
+    @media (min-width: $tablet-portrait) {
+        padding: $padding-lg;
+    }
+
+    ul {
+        list-style: none;
+        margin-bottom: $padding-sm;
+    }
+
+    span {
+        display: block;
+    }
+
+    .filter__section-label {
+        @extend .ff-sans--oblique;
+        @include font-size(1.4);
+        border-bottom: 1px solid black;
+        display: block;
+        margin-bottom: $padding-sm;
+        text-align: left;
+    }
+
+    .filter__label {
+        @extend .ff-sans--oblique;
+        color: $red;
+        @include font-size(1.4);
+        margin-bottom: $padding-sm;
+        text-align: left;
+    }
+
+    label {
+        position: relative;
+        display: inline-block;
+        padding: 2px 0;
+        cursor: pointer;
+        @extend .ff-sans;
+        @include font-size(1.4); // standardizing???
+    }
+
+    .filter__parent {
+        font-weight: bold;
+        padding-right: 30px;
+    }
+
+    input[type=checkbox] {
+        display: none;
+        -webkit-appearance: none;
+
+        &:checked ~ label {
+            &:before {
+                font-family: 'fontello';
+                color: $red;
+                position: absolute;
+                top: 0;
+                right: 100%;
+                margin-right: 12px;
+            }
+
+            @extend .icon-ok;
+        }
+    }
+
+    input[type=text],
+    select {
+        border-radius: 0;
+        border: 0;
+        border-bottom: 1px solid $dk-gray;
+        background: transparent;
+        -webkit-appearance: none;
+    }
+
+    .filter__search {
+        width: 100%;
+    }
+
+    .btn {
+        clear: both;
+        margin: auto;
+        min-width: 75%;
+    }
+}
+
+.filter__section {
+    text-align: left;
+}
+
+@media (min-width: $tablet-landscape) {
+    .filter__dropdown-inner {
+        @include justify(flex-start);
+
+        .btn {
+            min-width: 185px;
+        }
+    }
+
+    .filter__section, .knowledge-bank-stream .filter__section {
+        width: $one-half; // used to be $one-third
+        padding-left: $padding-med;
+        margin-bottom: $padding-lg;
+    }
+
+    .filter__section--clear {
+        margin-bottom: $padding-sm;
+    }
+}
+
+.filter__section--select {
+    padding-left: $padding-med;
+    margin-bottom: $padding-lg;
+}
+
+.filter__section--search {
+    // padding-left: $padding-med;
+    margin-bottom: $padding-lg;
+
+    @media (min-width: $tablet-landscape) {
+        padding-left: 0;
+    }
+
+    .filter__label {
+        margin-bottom: $padding-xxs/2;
+    }
+}
+
+.filter__section--date {
+    text-align: left;
+    display: block;
+    padding-left: $padding-med;
+
+    &:only-child {
+	    width: 100%;
+    }
+
+    @media (min-width: $tablet-landscape) {
+        // padding-left: 0; TODO...
+        text-align: center;
+        display: inline-block;
+    }
+}
+
+.filter__section--date__select {
+	display:none;
+    // @include justify(center);
+    margin-bottom: $padding-lg + $padding-sm;
+    @extend .ff-sans;
+
+    select {
+        .two-thirds & {
+            @media (min-width: $mobile-large) and (max-width: $desktop-medium) {
+                @include font-size(1.2);
+            }
+        }
+    }
+
+    .select-outer:first-child { // first dropdown
+        margin-right: $padding-sm;
+    }
+
+    .select-outer:last-child { // last
+        margin-left: $padding-sm;
+    }
+}
+
+#date-slider {
+	width: calc(100% - 1.5em);
+	margin:2.15em auto;
+
+	.ui-corner-all, &.ui-corner-all {
+		border-radius: 0;
+		border:0;
+	}
+
+	background-color: $lt-gray-alt;
+
+	.ui-state-active {
+		color: $black;
+	}
+
+	.ui-slider-range {
+		background-color: $dk-gray-alt;
+	}
+
+	.ui-slider-handle {
+		background-color: $red;
+		top: -.2em;
+		outline: none;
+		border: 1px solid $lt-gray-bg;
+
+		&:before {
+			content: attr(data-year);
+			position:absolute;
+			display:block;
+			@extend .ff-sans;
+			font-size: 14px;
+		    font-size: 1.4rem;
+		}
+		&:first-of-type:before {
+			top: -1.5em;
+		}
+		&:nth-of-type(2):before {
+			right:0;
+			bottom: -1.5em;
+		}
+	}
+}
+
+.filter__section--clear {
+    display: block;
+    width: 100% !important;
+    padding-left: $padding-med;
+}
+
+.filter__clear {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    margin-bottom: $padding-sm;
+
+	@extend .icon-ok;
+    &:before {
+        font-family: 'fontello';
+        color: $red;
+        position: absolute;
+        top: -2px;
+        right: 100%;
+        margin-right: 12px;
+    }
+}
+
+.icon-filter {
+    position: absolute;
+    top: -2px;
+    left: 0;
+    display: inline-block;
+    margin-right: 5px;
+    width: 24px;
+    height: 18px;
+
+    &:before {
+        content: '';
+        position: absolute;
+        top: 2px;
+        left: 0;
+        display: block;
+        width: 0;
+        height: 0;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-top: 10px solid $black;
+
+        // @media (min-width: $tablet-landscape) {
+        //     border-left: 12px solid transparent;
+        //     border-right: 12px solid transparent;
+        //     border-top: 12px solid $black;
+        // }
+    }
+
+    &:after {
+        content: '';
+        position: absolute;
+        top: 3px;
+        bottom: 0;
+        left: 50%;
+        width: 3px;
+        background: $black;
+        @include transform(skewY(-45deg));
+        margin-left: -3px;
+    }
+}
+
+.filter__section--btn {
+    width: 100% !important;
+}
+
+// location, projects filters?... sigh
+
+.filter-unstacked,
+.filter-projects,
+.filter-project-related,
+.post-landing .filter-outer {
+    .filter__section--date__select {
+        text-align: left;
+    }
+
+    .filter__section--search .filter__label {
+        margin-bottom: 20px; // TODO... this is pretty rough
+    }
+
+    .filter__section--date .filter__label {
+        margin-bottom: 11px;
+    }
+}
+
+// project filter -- it's full width!
+
+.filter-projects .filter__section {
+    @media (min-width: $desktop-mlarge) {
+        width: $one-fourth;
+    }
+}
+
+// blog landing filter, centers filter -- thirds! (ugh what?)
+
+// .post-landing .filter-outer .filter__section,
+.centers-filter .filter-outer .filter__section {
+    @media (min-width: $tablet-landscape) {
+        width: $one-half;
+
+        &.filter__section--date {
+            width: 100%;
+        }
+    }
+
+    @media (min-width: $desktop-mlarge) {
+        width: $one-third;
+
+        &.filter__section--date {
+            width: $one-third;
+        }
+    }
+}
+
+// centers filter shouldn't show the clear all (no list?)
+
+.centers-filter-projects .filter__section--clear {
+    display: none !important;
+}
+
+.filter__parent {
+    // margin-bottom: 10px;
+}
+.filter__child {
+    margin-left: 20px;
+}
+
+// blog landing part two. it's different. I don't know
+.filter__dropdown--stacked {
+    @media (min-width: $tablet-landscape) {
+        .filter__section--select {
+            width: $one-third;
+        }
+
+        .filter__section--stacked {
+            width: $two-thirds;
+            @include justify(stretch);
+
+            .filter__section--search,
+            .filter__section--date {
+                width: 100%;
+                padding-left: 0;
+            }
+        }
+    }
+
+    @media (min-width: $desktop-mlarge) {
+        .filter__section--stacked {
+            .filter__section--search,
+            .filter__section--date {
+                width: $one-half;
+                display: inline-block;
+            }
+
+            .filter__section--date {
+                padding-left: $padding-med;
+            }
+        }
+    }
+}
+
+.refine .filter-red {
+    border-top: none;
+    border-bottom: 1px solid $red;
+    position: sticky;
+    top: $header-height;
+
+    @media (min-width: $tablet-landscape) {
+        max-height: calc(100vh - #{$header-height});
+        overflow: auto;
+    }
+}
+
+.filter-red {
+
+    .filter {
+        background-color: $white;
+        border-bottom: 1px solid $red;
+        height: 65px;
+        position: relative;
+
+        a,
+        a.active {
+            color: $red;
+
+            &:after {
+                display: none;
+            }
+        }
+    }
+
+    .icon-search {
+        border-color: $red;
+        margin-left: 0;
+    }
+
+    .icon-filter:before{
+        border-top: 10px solid $red;
+    }
+
+    .icon-filter:after{
+        background: $red;
+    }
+
+    .filter-label {
+        display: inline-block;
+        color: $red;
+        padding: 10px;
+
+        @media (min-width: $tablet-portrait) {
+            padding: 20px;
+        }
+    }
+
+    .filter__section--search .filter-label {
+        padding-left: 0;
+    }
+
+    .filter__search {
+        background-color: transparent;
+        color: $black;
+        position: absolute;
+        left: 30px;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        width: calc(100% - 70px);
+        border-radius: 0;
+        border: 0;
+
+        &::placeholder {
+            color: $red;
+        }
+    }
+}
+
+.filter-tall {
+    .filter__dropdown-inner {
+        flex-direction: column;
+
+        input[type=checkbox] {
+
+            &:checked ~ label {
+                &:before {
+                    top: 2px;
+                    left: 100%;
+                    margin-left: 12px;
+                    right: auto;
+                }
+            }
+        }
+    }
+
+    .filter__section-label {
+        padding-bottom: 5px;
+    }
+
+    .filter__section {
+        padding-left: 0;
+        width: 100%;
+
+        label:hover {
+            color: $red;
+        }
+    }
+
+    .filter-label {
+        position: relative;
+    }
+
+    .filter__dropdown.dropped {
+        max-height: 10000px;
+    }
+}

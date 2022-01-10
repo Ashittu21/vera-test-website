@@ -1,0 +1,17 @@
+<div class="CareersLocationCarousel careersBuilder-block-margin" data-flickity='{"cellAlign":"left","contain":true}'>
+{% for item in block.children.all() %}
+<div class="CareersLocationCarousel-item">
+  <div class="CareersLocationCarousel-item-inner">
+    <div class="CareersLocationCarousel-item-text">{{ item.plaintext }}</div>
+    <div class="CareersLocationCarousel-item-attribution">
+      {% set img = item.person[0].headshot[0] %}
+      <div><img style="border-radius:100%" src="{{ img.getUrl("square130") }}" width="{{ img.getWidth("square130") }}" height="{{ img.getHeight("square130") }}" /></div>
+      <div>
+        <div class="CareersLocationsCarousel-item-attribution-name">{{ item.person[0].title }}</div>
+        <div class="CareersLocationsCarousel-item-attribution-title">{{ item.person[0].jobTitle }}</div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endfor %}
+</div>

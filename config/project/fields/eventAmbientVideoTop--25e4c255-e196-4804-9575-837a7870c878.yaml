@@ -1,0 +1,14 @@
+contentColumnType: string
+fieldGroup: 6c478341-da6f-434d-b58e-1f381004c510
+handle: eventAmbientVideoTop
+instructions: ''
+name: 'Event Ambient Video Top'
+searchable: true
+settings:
+  contentTable: '{{%matrixcontent_eventambientvideotop}}'
+  maxBlocks: '1'
+  minBlocks: null
+  propagationMethod: all
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

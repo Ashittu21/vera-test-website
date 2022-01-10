@@ -1,0 +1,23 @@
+contentColumnType: string
+fieldGroup: 19837e8c-c89c-4572-8569-fa8556eb36ce
+handle: knowledgeBankTags
+instructions: ''
+name: 'Knowledge Bank Tags'
+searchable: true
+settings:
+  allowLimit: false
+  allowMultipleSources: false
+  allowSelfRelations: false
+  branchLimit: ''
+  limit: null
+  localizeRelations: false
+  selectionLabel: 'Add tag(s)'
+  showSiteMenu: true
+  source: 'group:35d54ba2-608f-41d4-80dc-2243114c6d92'
+  sources: '*'
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Categories

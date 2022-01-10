@@ -1,0 +1,98 @@
+field: ad9b90f1-ab3e-4da4-b693-9f04c0ee68a5
+fieldLayouts:
+  6ae4dcc4-69a3-4d2f-b74b-3e5715350983:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 28a86f3e-2990-452a-a299-55f79fd6fa63
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: bb14188f-161e-4a41-878d-a5cdde61803f
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  28a86f3e-2990-452a-a299-55f79fd6fa63:
+    contentColumnType: string
+    fieldGroup: null
+    handle: image
+    instructions: "-A full page image should have a width of 2450px\r\n-A right positioned image should have a width of 1225px"
+    name: Image
+    searchable: true
+    settings:
+      allowSelfRelations: false
+      allowUploads: true
+      allowedKinds:
+        - image
+      defaultUploadLocationSource: 'volume:a48d5d4c-e94e-40ca-b140-801253b0f802'
+      defaultUploadLocationSubpath: ''
+      limit: '1'
+      localizeRelations: false
+      previewMode: full
+      restrictFiles: '1'
+      selectionLabel: 'Add a photo'
+      showSiteMenu: true
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: true
+      singleUploadLocationSource: 'volume:a48d5d4c-e94e-40ca-b140-801253b0f802'
+      singleUploadLocationSubpath: '{owner.section}/{owner.parent.slug}/{owner.slug}/single-images/'
+      source: null
+      sources: '*'
+      targetSiteId: null
+      useSingleFolder: true
+      validateRelatedElements: false
+      viewMode: large
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+  bb14188f-161e-4a41-878d-a5cdde61803f:
+    contentColumnType: string
+    fieldGroup: null
+    handle: position
+    instructions: ''
+    name: Position
+    searchable: true
+    settings:
+      optgroups: true
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - Center
+            -
+              - value
+              - center
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Full
+            -
+              - value
+              - full
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+handle: singleImage
+name: 'Single Image'
+sortOrder: 2

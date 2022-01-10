@@ -1,0 +1,33 @@
+{% set stateslug = craft.app.request.getSegment(3) %}
+{% set state = stateslug | replace('-',' ') | title %}
+{% set countyslug = craft.app.request.getSegment(4) %}
+{% set county = countyslug | replace('-',' ') | title %}
+{% set landingSlug = craft.app.request.getSegment(2) %}
+
+{% set entry = entry ?? craft.entries.section('publications').slug(landingSlug).one() %}
+{% set parent = entry %}
+
+{% if entry.whatJailsCostData %}
+{% set stateDataUrl = entry.whatJailsCostData[0].state | length ? entry.whatJailsCostData[0].state[0].url %}
+{% set countyDataUrl = entry.whatJailsCostData[0].county | length ? entry.whatJailsCostData[0].county[0].url %}
+{% set revenuesDataUrl = entry.whatJailsCostData[0].revenues | length ? entry.whatJailsCostData[0].revenues[0].url %}
+{% set budgetDataUrl = entry.whatJailsCostData[0].budgets | length ? entry.whatJailsCostData[0].budgets[0].url %}
+{% set budgetSavingsUrl = entry.whatJailsCostData[0].jailCostSavings | length ? entry.whatJailsCostData[0].jailCostSavings[0].url %}
+{% endif %}
+{% set baseUrl = entry.url %}
+
+{% set title = county ? ((county) | title) : state ? (state | title) : entry.title %}
+{% if title[0:2] == "Mc" %}
+{% set title = title[0:2] ~ (title[2:] | title) %}
+{% endif %}
+{% if title[0:6] == "Dekalb" %}{% set title = "DeKalb County, " ~ (state | title) %}{% endif %}
+
+{% set breadcrumb = countyslug ? {title: state, url: baseUrl ~ '/' ~ stateslug} : stateslug ? entry : null %}
+
+{% if county %}
+{% include 'publications/types/whatJailsCost/county' %}
+{% elseif state %}
+{% include 'publications/types/whatJailsCost/state' %}
+{% else %}
+{% include 'publications/types/whatJailsCost/landing' %}
+{% endif %}

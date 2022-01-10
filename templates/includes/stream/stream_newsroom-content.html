@@ -1,0 +1,21 @@
+ <div id="newscol" class="col one-half ">
+    <h3>In the News</h3>
+
+	{% include 'includes/stream/news' with {newsSection: 'news'} %}
+	
+	{% include 'includes/stream/noresults' %}
+    
+    {% include 'includes/stream/nomore' %}
+	
+</div>
+
+<div id="presscol" class="col one-half">
+    <h3>Press Releases & Testimony</h3> 
+	
+	{% include 'includes/stream/news' with {newsSection: 'pressReleases', notype: true} %}
+	
+	{% include 'includes/stream/noresults' %}
+    
+    {% include 'includes/stream/nomore' %}
+	
+</div>

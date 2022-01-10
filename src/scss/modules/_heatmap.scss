@@ -1,0 +1,24 @@
+.heatmap {
+	
+	.chart {
+		
+		&.loading {
+			//padding-bottom: 66.3%;
+		}
+		
+		svg {
+			path {
+				stroke: $white;
+				vector-effect: non-scaling-stroke;
+			}
+		}
+	}
+	
+	.viz-notes {
+/*
+		margin-left: auto;
+		margin-right: auto;
+		text-align: center;
+*/
+	}
+}

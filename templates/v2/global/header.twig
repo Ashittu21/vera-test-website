@@ -1,0 +1,198 @@
+<header>
+	<section class="header-v2">
+
+		<div class="rowTop">
+			<div class="rowTop-container">
+				<div class="menu-left" id="header-v2-top-nav">
+
+						{% set navigationTop = craft.entries.section('navigationTop') %}
+						<ul class="top-left-menu clicky-menu no-js">
+							{% for node in navigationTop.level(1).all() %}
+								{% if node.hasDescendants() %}
+									<li>
+										<a href="#">
+											{{ node.title }}
+										</a>
+										<ul>
+											{% set nodeSubs = node.getChildren() %}
+											{% for nodeSub in nodeSubs.all() %}
+											<li>
+												<a
+												{% if node.navigationMain_linkField.getTarget()  %} target="{{ node.navigationMain_linkField.getTarget() }}"{% endif %}	 href="{% if nodeSub.navigationMain_linkField %}{{ nodeSub.navigationMain_linkField.getUrl() }}{% endif %}">{{ nodeSub.title }}</a>
+											</li>
+											{% endfor %}
+										</ul>
+									</li>
+							 {% else %}
+									<li>
+										<a 
+											{% if node.navigationMain_linkField.getTarget() %} target="{{ node.navigationMain_linkField.getTarget() }}"{% endif %} href="{% if node.navigationMain_linkField  %}{{ node.navigationMain_linkField.getUrl() }}{% endif %}">{{ node.title }}</a>
+									</li>
+								{% endif %}
+							{% endfor %}
+						</ul>
+
+				</div>
+				<div class="menu-center">
+						<h1>
+							<a class="logo" href="/">
+								Vera Institute of Justice
+							</a>
+						</h1>
+				</div>
+				<div class="d-md-block menu-right">
+						<div class="search"></div>
+						<div class="donate h-100 ">
+							{% if not hideDonate %}
+								<a href="{{ administrative.donateButtonLink }}" class="button arrow">Donate</a>
+							{% endif %}						
+						</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="rowBottom" id="rowBottom">
+			<div class="rowBottom-container">
+				<div id="header-v2-bottom-nav">
+							<div class="isologo">
+								<img src="/dist/img/v2/vera-isologo.svg">
+							</div>
+
+							  {% set navigationMain = craft.entries.section('navigationMain') %}
+								<ul class="row-bottom-menu clicky-menu no-js">
+									{% for node in navigationMain.level(1).all() %}
+										{% if node.hasDescendants() %}
+											<li>
+												<a href="#">
+													{{ node.title }}
+												</a>
+												<ul>
+													{% set nodeSubs = node.getChildren() %}
+													{% for nodeSub in nodeSubs.all() %}
+													<li>
+														<a
+														{% if node.navigationMain_linkField.getTarget()  %} target="{{ node.navigationMain_linkField.getTarget() }}"	{% endif %}	
+															href="{% if nodeSub.navigationMain_linkField %}{{ nodeSub.navigationMain_linkField.getUrl() }}{% endif %}">
+															<div class="hover-arrow">{{ nodeSub.title }}</div>
+															<span>{{ nodeSub.navigationMain_explainer	}}</span>
+														</a>
+													</li>
+													{% endfor %}
+												</ul>
+											</li>
+									 {% else %}
+											<li>
+												<a 
+													{% if node.navigationMain_linkField.getTarget() %} target="{{ node.navigationMain_linkField.getTarget() }}"	{% endif %}	
+													href="{% if node.navigationMain_linkField  %}{{ node.navigationMain_linkField.getUrl() }}{% endif %}">
+													{{ node.title }}
+												</a>
+											</li>
+										{% endif %}
+									{% endfor %}
+							  </ul>
+
+				</div>
+			</div>
+		</div>
+		</div>
+	</section>
+
+
+	<!-- Mobile Nav -->
+	
+	<section class="header-v2-mobile">
+		<div class="header-v2-mobile-row">
+			<div class="header-v2-mobile-row-container">
+				<div>
+					<button class="hamburger hamburger--squeeze"
+						type="button" aria-label="Menu"
+						aria-controls="navigation">
+						<span class="hamburger-box">
+							<span class="hamburger-inner"></span>
+						</span>
+					</button>
+				</div>
+				<div class="isologo-mobile">
+					<img src="https://vera.loc/dist/img/v2/vera-isologo.svg">
+				</div>
+				<div class="donate-mobile">
+					<a href="#" class="button-donate arrow">Donate</a>
+				</div>
+			</div>
+
+
+			<div class="mobile-nav">
+			 
+			 <div id="section-01">
+				{% set navigationMain = craft.entries.section('navigationMain') %}
+				<ul class="clicky-menu no-js">
+					{% for node in navigationMain.level(1).all() %}
+						{% if node.hasDescendants() %}
+							<li>
+								<a href="#">
+									{{ node.title }}
+								</a>
+								<ul>
+									{% set nodeSubs = node.getChildren() %}
+									{% for nodeSub in nodeSubs.all() %}
+									<li>
+										<a
+										{% if node.navigationMain_linkField.getTarget()  %} target="{{ node.navigationMain_linkField.getTarget() }}"	{% endif %}	
+											href="{% if nodeSub.navigationMain_linkField %}{{ nodeSub.navigationMain_linkField.getUrl() }}{% endif %}">
+										{{ nodeSub.title }}
+										</a>
+									</li>
+									{% endfor %}
+								</ul>
+							</li>
+					 {% else %}
+							<li>
+								<a 
+									{% if node.navigationMain_linkField.getTarget() %} target="{{ node.navigationMain_linkField.getTarget() }}"	{% endif %}	
+									href="{% if node.navigationMain_linkField  %}{{ node.navigationMain_linkField.getUrl() }}{% endif %}">
+									{{ node.title }}
+								</a>
+							</li>
+						{% endif %}
+					{% endfor %}
+			 </div>
+
+			 <div id="section-02">
+       
+				{% set navigationTop = craft.entries.section('navigationTop') %}
+				<ul class="clicky-menu no-js">
+					{% for node in navigationTop.level(1).all() %}
+						{% if node.hasDescendants() %}
+							<li>
+								<a href="#">
+									{{ node.title }}
+								</a>
+								<ul>
+									{% set nodeSubs = node.getChildren() %}
+									{% for nodeSub in nodeSubs.all() %}
+									<li>
+										<a
+										{% if node.navigationMain_linkField.getTarget()  %} target="{{ node.navigationMain_linkField.getTarget() }}"{% endif %}	 href="{% if nodeSub.navigationMain_linkField %}{{ nodeSub.navigationMain_linkField.getUrl() }}{% endif %}">{{ nodeSub.title }}</a>
+									</li>
+									{% endfor %}
+								</ul>
+							</li>
+					 {% else %}
+							<li>
+								<a 
+									{% if node.navigationMain_linkField.getTarget() %} target="{{ node.navigationMain_linkField.getTarget() }}"{% endif %} href="{% if node.navigationMain_linkField  %}{{ node.navigationMain_linkField.getUrl() }}{% endif %}">{{ node.title }}</a>
+							</li>
+						{% endif %}
+					{% endfor %}
+				</ul>
+        
+			 </div>
+
+			 <div id="section-search">
+				 
+			 </div>
+			</div>
+		</div>
+	</section>
+</header>

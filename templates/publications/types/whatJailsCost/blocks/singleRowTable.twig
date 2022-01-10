@@ -1,0 +1,35 @@
+{% set id = "SingleRowTable" ~ (now | date("U")) %}
+<div class="module-text">
+<div id="{{ id }}" class="SingleRowTable container">
+</div>
+{% if block.tableNotes %}
+{% include 'publications/_blocks/dataText' with { block: { text: block.tableNotes } } %}
+{% endif %}
+</div>
+
+{% set columns = [] %}
+{% for column in block.singleRowTableColumns %}
+{% set columns = columns | merge([column.columnLabel]) %}
+{% endfor %}
+{% set rows = [] %}
+{% for row in block.singleRowTableRows %}
+{% set variables = [] %}
+{% for var in row.variables %}
+{% set variables = variables | merge([{
+  column: var.variable,
+  format: var.format
+}]) %}
+{% endfor %}
+{% set rows = rows | merge([
+  {
+    label: row.label,
+    columns: variables
+  }
+]) %}
+{% endfor %}
+{% js %}
+$(function() {
+  VERA.singleRowTable("#{{ id }}", {{ dataUrl | json_encode | raw }}, {{ filterColumns | json_encode | raw }}, {{ filterValues | json_encode | raw }}, {{ columns | json_encode | raw }}, {{ rows | json_encode | raw }})
+});
+{% endjs %}
+{% includeJsFile "/dist/twigscripts/singleRowTable.js" %}

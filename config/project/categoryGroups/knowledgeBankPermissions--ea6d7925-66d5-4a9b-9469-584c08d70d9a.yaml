@@ -1,0 +1,40 @@
+fieldLayouts:
+  ff81237c-9b2e-4170-8bbd-d3c07e4399f0:
+    tabs:
+      -
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\TitleField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+handle: knowledgeBankPermissions
+name: 'Knowledge Bank Permissions'
+siteSettings:
+  8ed9f980-84ac-470d-94d7-89a2cdb64916:
+    hasUrls: true
+    template: null
+    uriFormat: '{% if object.level == 1 %}knowledge-bank-permission-level/{slug}{% else %}{parent.uri}/{slug}{% endif %}'
+structure:
+  maxLevels: null
+  uid: 856618b3-7c29-4f62-93ed-029889d90755

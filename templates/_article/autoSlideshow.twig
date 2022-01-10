@@ -1,0 +1,2 @@
+{% set show = block.autoSlideshowEntry.first.autoSlideshow.level(1)[0] %}
+{% include 'includes/_blocks/' ~ show.type.handle with { block:  show } %}

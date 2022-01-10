@@ -1,0 +1,8 @@
+{# Integrate with standardBlock? #}
+<div class="article-block-heatmap article-block-standard article-block--full container">
+	{% include 'data-viz/heatmap' with {
+		entry: block,
+		context: 'article',
+		heading: block.heading
+	} %}
+</div>

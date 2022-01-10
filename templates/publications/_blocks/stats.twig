@@ -1,0 +1,9 @@
+<div class="Stats">
+{% for stat in block.statsBuilder %}
+<div class="StatBlock">
+  <div class="StatBlock-text">{{ stat.beforeText }}</div>
+  <div class="StatBlock-callout">{{ stat.callout }}</div>
+  <div class="StatBlock-text">{{ stat.afterText }}</div>
+</div>
+{% endfor %}
+</div>

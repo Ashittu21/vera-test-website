@@ -1,0 +1,42 @@
+// .ByTheNumbers {
+//   max-width: 800px;
+// }
+
+.ByTheNumbers-row:not(:first-child) td {
+  border-top: 1px solid $lt-gray-bg;
+}
+
+.ByTheNumbers td {
+  vertical-align: middle;
+  padding-top: $padding-sm;
+  padding-bottom: $padding-sm;
+}
+
+.ByTheNumbers-figure {
+  padding-right: 1em;
+
+  @extend .ff-sans--bold;
+
+  font-size: 30px;
+  @media (min-width: $tablet-portrait) {
+    padding-right: 2em;
+    font-size: 62px;
+  }
+}
+
+.ByTheNumbers-figure-inner {
+  position: relative;
+}
+.ByTheNumbers-figure-spacer {
+  visibility: hidden;
+}
+.ByTheNumbers-figure-target {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.ByTheNumbers-text {
+  @extend .ff-sans;
+  font-size: 20px;
+}

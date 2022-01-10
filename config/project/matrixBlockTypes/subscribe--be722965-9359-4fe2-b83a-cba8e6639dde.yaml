@@ -1,0 +1,68 @@
+field: 05db5ef1-53b5-4a89-bb88-1d1d1ac069e1
+fieldLayouts:
+  9386c4e5-cee5-4ce0-9108-9741d69096d8:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: d42a168b-c17a-4d1f-bbcc-70140e28460d
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 33670421-ad48-4c85-a01a-9927ad2b3949
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  33670421-ad48-4c85-a01a-9927ad2b3949:
+    contentColumnType: text
+    fieldGroup: null
+    handle: buttonText
+    instructions: ''
+    name: 'Button Text'
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  d42a168b-c17a-4d1f-bbcc-70140e28460d:
+    contentColumnType: text
+    fieldGroup: null
+    handle: callToAction
+    instructions: ''
+    name: 'Call To Action'
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+handle: subscribe
+name: Subscribe
+sortOrder: 1

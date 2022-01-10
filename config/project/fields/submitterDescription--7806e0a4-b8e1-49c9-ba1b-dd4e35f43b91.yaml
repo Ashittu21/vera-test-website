@@ -1,0 +1,78 @@
+contentColumnType: string
+fieldGroup: 0be095f0-44b5-40a2-963b-4650c6f05ef4
+handle: submitterDescription
+instructions: '(you can choose more than one category)'
+name: 'How have you been affected by incarceration?'
+searchable: true
+settings:
+  multi: true
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - ' I am a formerly incarcerated person'
+        -
+          - value
+          - ' I am a formerly incarcerated person'
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - 'I work in corrections or law enforcement'
+        -
+          - value
+          - 'I work in corrections or law enforcement'
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - ' I have a family member who is or has been incarcerated'
+        -
+          - value
+          - ' I have a family member who is or has been incarcerated'
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - 'I am an advocate or activist'
+        -
+          - value
+          - 'I am an advocate or activist'
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - 'I am a concerned member of the community '
+        -
+          - value
+          - 'I am a concerned member of the community'
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - 'I am a government official'
+        -
+          - value
+          - 'I am a government official'
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Checkboxes

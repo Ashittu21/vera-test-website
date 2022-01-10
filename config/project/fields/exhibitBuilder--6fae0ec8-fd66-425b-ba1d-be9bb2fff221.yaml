@@ -1,0 +1,15 @@
+contentColumnType: string
+fieldGroup: b601191f-f948-4d34-91c6-bbf551672123
+handle: exhibitBuilder
+instructions: ''
+name: 'Exhibit Builder'
+searchable: true
+settings:
+  maxBlocks: ''
+  maxTopBlocks: ''
+  minBlocks: ''
+  propagationMethod: all
+  wasModified: true
+translationKeyFormat: null
+translationMethod: site
+type: benf\neo\Field

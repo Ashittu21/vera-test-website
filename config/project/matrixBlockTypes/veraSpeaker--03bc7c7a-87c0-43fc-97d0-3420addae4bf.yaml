@@ -1,0 +1,43 @@
+field: 312f381b-8c5f-4d39-8645-da35242e3fcf
+fieldLayouts:
+  75c8e837-ac97-49f0-9e15-1d7e778a9532:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 22fdf9b3-d2e4-4728-8e0d-41ccab1ef6f9
+            instructions: null
+            label: null
+            required: '1'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  22fdf9b3-d2e4-4728-8e0d-41ccab1ef6f9:
+    contentColumnType: string
+    fieldGroup: null
+    handle: speaker
+    instructions: ''
+    name: Speaker
+    searchable: true
+    settings:
+      allowSelfRelations: false
+      limit: '1'
+      localizeRelations: false
+      selectionLabel: ''
+      showSiteMenu: true
+      source: null
+      sources:
+        - 'section:8639923c-05e0-4fb4-a45a-9a2a79a690ec'
+      targetSiteId: null
+      validateRelatedElements: false
+      viewMode: null
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Entries
+handle: veraSpeaker
+name: 'Vera/Guest Staff Speaker'
+sortOrder: 1

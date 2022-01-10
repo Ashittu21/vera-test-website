@@ -1,0 +1,34 @@
+{%- set sect = craft.request.segment(2) -%}
+{%- set abbr = craft.request.getParam('abbr') -%}
+{%- set allowed_sections = ['projects', 'publications', 'all'] -%} {# restrict for security purposes#}
+{%- if not craft.request.isAjax -%}
+<pre>
+{%- endif -%}
+{%- if sect in allowed_sections -%}
+	{%- set sect = (sect == 'all') ? ['projects', 'publications'] : sect %}
+	{%- set state = craft.categories.group('locations').slug(slug).first() -%}
+	{%- set related = craft.entries.section(sect).relatedTo(state).limit(null)-%}
+	{%- set entries -%}
+		{%- for entry in  related -%}
+		{%- set authors = (sect == 'projects') ? entry.director.first : entry.authors|join(', ') -%}
+		{
+			"title" : "{{ entry }}",
+			"url" : "{{ entry.url }}",
+			"authors" : "{{ authors }}"
+		},
+		{%- endfor -%}
+	{%- endset -%}
+{
+	"state" : {
+		"name" : "{{ state.title }}",
+		"abbr" : "{{ abbr }}"
+	},
+	"count" : {{ related|length }},
+	"entries" : [
+		{{ entries|trim(',')|raw }}
+	]
+}
+{%- endif -%}
+{%- if not craft.request.isAjax -%}
+</pre>
+{%- endif -%}

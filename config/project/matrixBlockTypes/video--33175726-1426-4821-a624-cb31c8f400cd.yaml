@@ -1,0 +1,129 @@
+field: 179a8276-2292-4434-9ffc-395fdfac10ef
+fieldLayouts:
+  d6e23cd0-320b-485f-9ee4-db58cb6ecf1f:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: a91c32ab-6dd1-46c6-8c44-f194ffd212fe
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 959b8186-23f6-4207-a111-16d8ca63711b
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: b29f50b9-4072-488f-b077-83c44182d4e3
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 35c3a297-253b-45d7-8fec-b7f9c066677e
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  35c3a297-253b-45d7-8fec-b7f9c066677e:
+    contentColumnType: string
+    fieldGroup: null
+    handle: thumbnail
+    instructions: ''
+    name: Thumbnail
+    searchable: true
+    settings:
+      allowSelfRelations: false
+      allowUploads: true
+      allowedKinds:
+        - image
+      defaultUploadLocationSource: 'volume:a48d5d4c-e94e-40ca-b140-801253b0f802'
+      defaultUploadLocationSubpath: ''
+      limit: ''
+      localizeRelations: false
+      previewMode: full
+      restrictFiles: '1'
+      selectionLabel: ''
+      showSiteMenu: true
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: true
+      singleUploadLocationSource: 'volume:a48d5d4c-e94e-40ca-b140-801253b0f802'
+      singleUploadLocationSubpath: ''
+      source: null
+      sources: '*'
+      targetSiteId: null
+      useSingleFolder: true
+      validateRelatedElements: false
+      viewMode: list
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+  959b8186-23f6-4207-a111-16d8ca63711b:
+    contentColumnType: text
+    fieldGroup: null
+    handle: heading
+    instructions: ''
+    name: Heading
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  a91c32ab-6dd1-46c6-8c44-f194ffd212fe:
+    contentColumnType: string
+    fieldGroup: null
+    handle: video
+    instructions: ''
+    name: Video
+    searchable: true
+    translationKeyFormat: null
+    translationMethod: none
+    type: dukt\videos\fields\Video
+  b29f50b9-4072-488f-b077-83c44182d4e3:
+    contentColumnType: text
+    fieldGroup: null
+    handle: description
+    instructions: ''
+    name: Description
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+handle: video
+name: Video
+sortOrder: 3

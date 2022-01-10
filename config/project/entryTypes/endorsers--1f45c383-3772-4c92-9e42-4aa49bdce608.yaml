@@ -1,0 +1,56 @@
+fieldLayouts:
+  bff5482f-3554-4897-894e-8b2f8e8f051e:
+    tabs:
+      -
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\EntryTitleField
+            warning: null
+            width: 100
+          -
+            fieldUid: b3ce1737-f39f-45a1-b9a3-28a15fb5094e
+            instructions: null
+            label: null
+            required: '0'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 32bcfbf4-6985-4d93-8148-34ce1a6d8f84
+            instructions: null
+            label: null
+            required: '0'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: 'Tab 1'
+        sortOrder: 1
+handle: endorsers
+hasTitleField: true
+name: Endorsers
+section: f7ebe9e2-b9cc-411d-8d01-9010f0f97e50
+sortOrder: 11
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

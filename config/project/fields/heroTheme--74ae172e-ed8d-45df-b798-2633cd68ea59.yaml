@@ -1,0 +1,34 @@
+contentColumnType: string
+fieldGroup: 2c0ca1a3-ae52-4971-a689-fd84d8b7ba7d
+handle: heroTheme
+instructions: ''
+name: 'Hero Theme'
+searchable: true
+settings:
+  optgroups: true
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - 'White Box'
+        -
+          - value
+          - whiteBox
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - 'No Box'
+        -
+          - value
+          - noBox
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

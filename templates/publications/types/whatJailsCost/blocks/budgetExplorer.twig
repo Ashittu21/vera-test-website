@@ -1,0 +1,31 @@
+{% set budgetId = "JailBudget" ~ now | date('U') %}
+<div class=" module-text">
+<div class="JailBudgetExplorer container" id="{{ budgetId }}"></div>
+</div>
+
+{% includeJsFile '/dist/twigscripts/jailBudget.js' %}
+
+{% set dataUrl = block.dataset | length ? block.dataset[0].url : null %}
+{% set slugColumns = [] %}
+{% for column in block.slugColumns %}
+{% set slugColumns = slugColumns | merge([column.column]) %}
+{% endfor %}
+{% set budgetExplorerColumns = [] %}
+{% for column in block.budgetExplorerColumns %}
+{% set budgetExplorerColumns = budgetExplorerColumns | merge([column.column]) %}
+{% endfor %}
+{% js %}
+$(function() {
+  VERA.jailBudget("#{{ budgetId }}", 
+    {{- (dataUrl ?: budgetDataUrl) | json_encode | raw -}},
+    {{- county | json_encode | raw -}}, 
+    {{- state | json_encode | raw -}},
+    {{- slugColumns | json_encode | raw -}},
+    {{- budgetExplorerColumns | json_encode | raw -}},
+    {{- block.amountColumn | json_encode | raw -}},
+    {{- block.unfoldToLevel | json_encode | raw -}},
+    {{- block.sourceLinkColumn | json_encode | raw -}},
+    {{- block.sourceLinkText | nl2br | json_encode | raw -}}
+  );
+})
+{% endjs %}

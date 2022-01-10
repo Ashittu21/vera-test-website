@@ -1,0 +1,4 @@
+{%- set block = block.children.first -%}
+{%- if block -%}
+{% include '_article/pieces/' ~ block.type.handle %}
+{%- endif -%}

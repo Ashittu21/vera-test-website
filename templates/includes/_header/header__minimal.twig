@@ -1,0 +1,182 @@
+{% set pages = entry.children().excludeFromNav("not 1") %}
+
+{% if pages|length == 0 and initiatives %}
+	{% set pages = entry.parent.children() %}
+
+{% endif %}
+
+{% set isHome = isHome ?? false %}
+<header class="header receives-background-color header-minimal{% if isHome %}header--homepage{% endif %}{% if isHome and showBadge %} with-badge{% endif %} {{ headerClass ?? null }}" id="Header" role="navigation">
+	 <div class="container">
+		<div class="upper">
+			<a class="logo {{ logoClass ?? null }}" href="/">Vera Institute of Justice</a>
+
+			<h1>
+			{% if initiatives is defined and entry.children | length == 0 %}
+				<a href="{{ entry.parent.url }}">{{ entry.parent.title }}</a>
+			{% else %}
+				<a href="{{ entry.url }}">{{ entry.title }}</a>
+			{% endif %}
+			</h1>
+
+			<a class="logo {{ logoClass ?? null }} spacer" href="/">Vera Institute of Justice</a>
+
+			<div class="buttons">
+				<a href="#" class="icon-share trigger-modal" data-modal="ShareOverlay" title="Share" aria-label="Toggle Share Menu">{{ craft.inlin.er("/dist/icons/share.svg",true) | raw }}</a>
+				<button class="header__menu-toggle" id="HeaderMenuToggle" role="button" tabindex="0">Menu</button>
+			</div>
+		</div>
+
+		<ul class="anchor-nav">
+			{% for page in pages %}
+				<li><a href="{{ page.type.handle == 'specialReportCampaign' ? '#' ~ page.title | kebab : page.url }}" class="js-anchor-link {{ page.slug == entry.slug ? 'active' : '' }}">{{ page.title }}</a></li>
+			{% endfor %}
+		</ul>
+
+		<a href="#" class="icon-share trigger-modal" data-modal="ShareOverlay" title="Share">{{ craft.inlin.er("/dist/icons/share.svg",true) | raw }}</a>
+
+	 </div>
+</header>
+
+{% includeJs %}
+var goTo = {{ (craft.request.getParam('goTo') ?? null) | json_encode | raw }};
+{% endincludejs %}
+
+{% includeJs %}
+(function() {
+	"use strict"
+
+	var VERA = window.VERA || {};
+
+	window.VERA = VERA;
+
+	$(init);
+
+	var $header,$scrollTarget;
+
+	function init()
+	{
+
+		$header = $('header.header-minimal');
+
+		if (!$header.length) { return }
+
+		VERA.sm = VERA.sm || new ScrollMagic.Controller();
+		$scrollTarget = $('html,body');
+
+		initAnchors();
+		initPageScrolling();
+	}
+
+	function initAnchors()
+	{
+
+		$('a').click(function(event) {
+
+			$header.removeClass('mainnav-open');
+
+			var url = event.target.getAttribute('href');
+
+			var $target = $('article[data-anchor-link="' + url + '"]');
+
+			if ($target.length) {
+				event.preventDefault();
+
+				scrollToPage($target);
+			}
+
+		});
+
+	}
+
+	function initPageScrolling()
+	{
+
+		var scenes = [];
+
+		if (goTo) {
+			scrollToPageUrl(goTo,false);
+		}
+
+		$('article[data-anchor-link]').each(function() {
+
+			var scene = new ScrollMagic.Scene({
+				triggerElement: this,
+			})
+			.addTo(VERA.sm)
+			.on("enter", scrolledToPage)
+
+			updateSceneHeight(scene);
+
+			scene.duration(function() {
+				return scene.eHeight;
+			});
+
+			scenes.push(scene);
+
+		});
+
+		window.addEventListener("resize", function() {
+			scenes.forEach(updateSceneHeight);
+		});
+
+		window.addEventListener("popstate", function(event) {
+			if(event.state)scrollToPageUrl(event.state.articleUrl);
+		});
+
+		window.addEventListener("unload", function(){
+			window.scrollTo(0,0);
+		});
+
+	}
+
+	function updateSceneHeight(scene)
+	{
+		scene.eHeight = $(scene.triggerElement()).outerHeight(true);
+	}
+
+	function scrollToPage($page,animate)
+	{
+		animate = animate !== undefined ? animate : true;
+
+		var scrollTop = $page.offset().top - window.innerHeight/2 + 2;
+
+		if (animate) {
+
+			$scrollTarget.animate({
+				scrollTop: scrollTop
+			});
+
+		} else {
+
+			$scrollTarget.scrollTop(scrollTop);
+
+		}
+	}
+
+	function scrollToPageUrl(url,animate)
+	{
+		animate = animate !== undefined ? animate : true;
+
+		var $target = $('article[data-anchor-link="' + url+ '"]');
+		scrollToPage($target,animate);
+	}
+
+	function scrolledToPage(event)
+	{
+		var $e = $(event.target.triggerElement());
+		var url = $e.attr('data-anchor-link');
+		var $link = $header.find('a[href="' + url + '"]');
+
+		//Update Nav
+		$header.find('a.active').removeClass('active');
+		$link.addClass('active');
+
+		//Update History
+		document.title = $link.text();
+		var stateObj = { articleUrl: url };
+		history.pushState(stateObj, $link.text(), url);
+	}
+
+})();
+{% endincludejs %}

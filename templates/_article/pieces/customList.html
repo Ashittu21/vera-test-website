@@ -1,0 +1,50 @@
+{% set listStyle = block.listStyle.first ?? null %}
+
+{% set bgClass = block.highlightBackground.value %}
+
+<section class="article-block-list bg--{{ bgClass }}">
+  {% if block.heading %}
+    <div class="heading-wrap article-block-max-column container">
+      <div class="heading-wrap-text">
+        {% if block.headingLabel %}
+          <aside class="heading-label">
+            <div>{{ block.headingLabel }}</div>
+          </aside>
+        {% endif %}
+
+        <h3 class="heading">
+          {{- block.heading | shortcodes | raw -}}
+        </h3>
+      </div>
+    </div>
+  {% endif %}
+
+  <div class="article-block-max-column container inner">
+    <div class="article-main article-column">
+      <div
+        class="article-body rte has-liststyle"
+        data-highlight-share
+        style="{% if listStyle %}list-style-image: url('{{ listStyle.url }}');{% endif %}">
+        {{ block.text | shortcodes | raw }}
+      </div>
+
+      {% if block.children | length %}
+        <ul class="custom-list">
+        {% for item in block.children %}
+          <li class="custom-list-item">
+            {% set bullet = item.listStyle | length ? item.listStyle.first().url : '' %}
+
+            <i class="custom-list__bullet" data-lazy-svg="{{ bullet }}"></i>
+            <span class="custom-list__content {{ bullet | length ? '' : 'custom-list-item--full' }}">{{ item.text | shortcodes | raw }}</span>
+            {% for text in item.children %}
+              <div class="custom-list-item--full">
+                {{ text.text | shortcodes | raw }}
+              </div>
+            {% endfor %}
+          </li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    </div>
+  </div>
+</section>

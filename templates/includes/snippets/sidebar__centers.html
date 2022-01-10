@@ -1,0 +1,25 @@
+{% if relation is defined %}
+	{% set centers = craft.entries.section('centers').relatedTo(relation).limit(10) %}
+	{% if centers | length %}
+	<article class="sidebar__spotlights sidebar_module">
+		<h5 class="sidebar__label">Center{% if centers | length > 1 %}s{% endif %}</h5>
+		<ul class="sidebar__grid--2up">
+			{% for center in centers %}
+				{% set img = center.streamImageSquare[0] ?? null %}
+				<li>
+					<a href="{{ center.url }}">
+						{% if img %}
+						<div class="img-outer">
+							<img src="{{ img.getUrl('square130') }}">
+						</div>
+						{% endif %}
+						<div class="text-outer">
+							{{ center.title }}
+						</div>
+					</a>
+				</li>
+			{% endfor %}
+		</ul>
+	</article>
+	{% endif %}
+{% endif %}

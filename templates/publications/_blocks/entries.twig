@@ -1,0 +1,7 @@
+<div class="bg--lightGray">
+  <div class="container PublicationsEntries">
+  {% for module in block.entries if module.id != entry.id %}
+    {% include 'includes/stream/stream_module' with {size: 'half'} %}
+  {% endfor %}
+  </div>
+</div>

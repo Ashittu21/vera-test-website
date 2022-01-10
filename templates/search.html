@@ -1,0 +1,36 @@
+{% extends '_layout' %}
+
+{% set title = entry.title %}
+
+{% block content %}
+
+	{% set contentlimit, newslimit = stream.loadQuantityDefault, stream.loadQuantityDefault*1.5|round %}
+	{% set start_year, end_year = stream.filterStartYear,"now"|date('Y') %}
+
+	{% set streamOptions = {
+		title: 'Search Results',
+		keyword: false,
+		news: false,
+		sections: [
+			['Blog Posts', 'blogPosts'],
+			['Spotlights', 'spotlights'],
+			['Publications', 'publications'],
+			['Audio', 'audio'],
+			['Video', 'video'],
+			['Resource Sites', 'resourceSite'],
+			['Projects', 'projects'],
+			['Special Reports', 'specialReports'],
+			['News', 'news'],
+			['Press Releases', 'pressReleases'],
+			['Our Work', 'ourWork'],
+			['Staff', 'people'],
+			['Centers & Programs', 'centers'],
+			['Initiatives', 'initiatives']
+		],
+		streamType: 'search',
+		showArchived: true
+	} %}
+
+	{% include 'includes/stream/stream_search' %}
+
+{% endblock %}

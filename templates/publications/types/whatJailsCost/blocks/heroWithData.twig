@@ -1,0 +1,21 @@
+{% set superheading %}
+{% if breadcrumb %}<a href="{{ breadcrumb.url }}">{{ breadcrumb.title }}</a>{% endif %}
+{% endset %}
+
+{% include 'publications/_blocks/cityHero' with {
+  block: {
+    superheading: superheading,
+    heading: title,
+    map: {
+      tooltipColumns: block.tooltipColumns,
+      slugColumns: block.slugColumns,
+      dataset: [{
+        url: entry.dataTextData[0].data[0].url ?? (county ? countyDataUrl : stateDataUrl),
+      }]
+    },
+    slug: county ? (craft.request.getSegment(3) ~ "-" ~ craft.request.getLastSegment()) : craft.request.getLastSegment(),
+    headingColumns: block.tooltipHeadingColumns
+  }
+} %}
+
+{# (county ? [{column: 'state_name'},{column: 'county'}] : [{column: 'State'}]), #}

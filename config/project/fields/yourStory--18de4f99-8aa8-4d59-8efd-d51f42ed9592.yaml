@@ -1,0 +1,18 @@
+contentColumnType: text
+fieldGroup: 0be095f0-44b5-40a2-963b-4650c6f05ef4
+handle: yourStory
+instructions: ''
+name: 'Please share your incarceration story.   How have you been affected by prison or a local jail?'
+searchable: true
+settings:
+  byteLimit: null
+  charLimit: null
+  code: false
+  columnType: text
+  initialRows: '20'
+  multiline: '1'
+  placeholder: ''
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

@@ -1,0 +1,18 @@
+contentColumnType: text
+fieldGroup: 9222208b-045d-4d1c-a83a-03f0ede0b400
+handle: telephone
+instructions: ''
+name: Telephone
+searchable: true
+settings:
+  byteLimit: null
+  charLimit: null
+  code: false
+  columnType: text
+  initialRows: '4'
+  multiline: ''
+  placeholder: ''
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

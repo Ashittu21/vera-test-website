@@ -1,0 +1,36 @@
+{% set printable = true %}
+{% set layout =  craft.request.getParam('print') ? 'special-reports/print' : '_layout' %}
+
+{% set withScrollTrigger = entry.navSlidesInAfterIntro is defined and entry.navSlidesInAfterIntro ?? false %}
+
+{% extends layout %}
+
+{% block bodyClass -%}
+	special-report-editorial {{ entry.type.handle }}
+	{%- if entry.type.handle == 'specialReportCampaign' %} special-report-campaign{% endif %}
+	{%- if entry.navTheme == 'visualTiles' or withScrollTrigger %} no-pad{% endif %}
+{%- endblock %}
+
+{% block nav %}
+{% include 'includes/_header/header' with { withScrollTrigger: withScrollTrigger } %}
+{% endblock %}
+
+{% block content %}
+	{% if entry.type == 'specialReportCampaign' %}
+	<div class="campaign-slide-ctrl">
+		<button class="last-slide">Last</button>
+		<button class="next-slide">Next</button>
+		<div class="pager"><ul></ul></div>
+	</div>
+	{% endif %}
+	{% for chapter in entry.children %}
+		{% if not chapter.separatePage %}
+			{% include 'special-reports/types/' ~ chapter.type with { entry: chapter, fromOnePage: true } %}
+		{% endif %}
+	{% endfor %}
+{% endblock %}
+
+
+{% block overlay %}
+    {% include 'includes/snippets/share_overlay' with {showPrint: true} %}
+{% endblock %}

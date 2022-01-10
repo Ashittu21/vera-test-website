@@ -1,0 +1,19 @@
+contentColumnType: mediumtext
+fieldGroup: 532961b6-a69f-4934-914a-9c266d7a2eb6
+handle: aggregateMapData
+instructions: ''
+name: 'Aggregate Map Data'
+searchable: true
+settings:
+  allowSelect: ''
+  columnType: mediumtext
+  decimals: '0'
+  displayType: hidden
+  fieldTwig: "{% spaceless %}\r\n{% import 'state-of/_/macros' as macros %}\r\n{% set parent = entry.parent %}\r\n{% set children = parent.children.type('topic') %}\r\n{% set allPieces = craft.entries.section(['pieces','factsFigures']).relatedTo(children).limit(null) %}\r\n{% set statesField = craft.fields.getFieldByHandle('states') %}\r\n{% set states = ('[' ~ statesField['settings']['json'] ~ ']') | json_decode() %}\r\n{% set mapData = [] %}\r\n\r\n{% for state in states %}\r\n\r\n{% set pieces = allPieces.search('states:' ~ state.value).find() %}\r\n\t{% if pieces | length %}\r\n\t{% set body %}\r\n\t<ul class=\"map-list\">\r\n\t\t{% for piece in pieces %}\r\n\t\t<li class=\"map-list-item\">\r\n\t\t\t{{ macros.cta(piece) }}\r\n\t\t</li>\r\n\t\t{% endfor %}\r\n\t</ul>\r\n\t{% endset %}\r\n\t\r\n\t{% set datum = {\r\n\t\tstateid: \"state_\" ~ (state.value * 1),\r\n\t\ttitle: state.label,\r\n\t\tsubtitle: null,\r\n\t\tentryid: null,\r\n\t\tbody: body,\r\n\t\tmarkers: [],\r\n\t\tlevel: 1,\r\n\t\tgroup: null\r\n\t} %}\r\n\t\r\n\t{% set mapData = mapData | merge([datum]) %}\r\n\t{% endif %}\r\n{% endfor %}\r\n{% endspaceless %}\r\n{{ mapData | json_encode | raw }}\r\n"
+  parseBeforeSave: ''
+  parseOnMove: '1'
+  showField: ''
+  textareaRows: 5
+translationKeyFormat: null
+translationMethod: none
+type: besteadfast\preparsefield\fields\PreparseFieldType

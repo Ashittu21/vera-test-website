@@ -1,0 +1,21 @@
+contentColumnType: string
+fieldGroup: 532961b6-a69f-4934-914a-9c266d7a2eb6
+handle: onOurRadarSpotlight
+instructions: ''
+name: 'On Our Radar Spotlight'
+searchable: true
+settings:
+  allowSelfRelations: false
+  limit: '1'
+  localizeRelations: false
+  selectionLabel: ''
+  showSiteMenu: true
+  source: null
+  sources:
+    - 'section:b5a3ae48-79dd-4398-9db8-6bac5faac6aa'
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Entries

@@ -1,0 +1,22 @@
+<article class="container">
+  <table class="ByTheNumbers">
+    <tbody>
+    {% for item in entry.factList %}
+      <tr class="ByTheNumbers-row will-fade-in">
+        <td
+          class="ByTheNumbers-figure color--red"
+          data-count-number='{
+            "format": "{{ item.numberFormat | e("html_attr") }}",
+            "number": {{ item.number }}
+          }'>
+            <div class="ByTheNumbers-figure-inner">
+              <div class="ByTheNumbers-figure-spacer">{{ item.number }}</div>
+              <div class="ByTheNumbers-figure-target"></div>
+            </div>
+          </td>
+        <td class="ByTheNumbers-text">{{ item.text }}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</article>

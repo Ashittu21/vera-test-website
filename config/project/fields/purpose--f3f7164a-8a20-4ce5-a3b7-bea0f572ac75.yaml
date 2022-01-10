@@ -1,0 +1,14 @@
+contentColumnType: string
+fieldGroup: b7c07949-c4d1-4af6-a996-017773fd0ef5
+handle: purpose
+instructions: ''
+name: Purpose
+searchable: true
+settings:
+  contentTable: '{{%matrixcontent_purpose}}'
+  maxBlocks: ''
+  minBlocks: ''
+  propagationMethod: all
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

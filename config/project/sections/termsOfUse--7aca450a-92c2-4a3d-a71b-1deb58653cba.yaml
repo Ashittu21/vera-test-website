@@ -1,0 +1,20 @@
+enableVersioning: true
+handle: termsOfUse
+name: 'Terms of Use'
+previewTargets:
+  -
+    __assoc__:
+      -
+        - label
+        - 'Primary entry page'
+      -
+        - urlFormat
+        - '{url}'
+propagationMethod: all
+siteSettings:
+  8ed9f980-84ac-470d-94d7-89a2cdb64916:
+    enabledByDefault: true
+    hasUrls: true
+    template: terms-of-use
+    uriFormat: terms-of-use
+type: single

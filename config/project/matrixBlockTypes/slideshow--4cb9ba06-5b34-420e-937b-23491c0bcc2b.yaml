@@ -1,0 +1,54 @@
+field: d21edf89-bc7d-42c1-84a4-216ce1c86b96
+fieldLayouts:
+  e18d1647-76c8-4199-9bb2-1d3867768f76:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 7ea3b9ef-f94e-4d4e-a5f9-69fcb7635aac
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  7ea3b9ef-f94e-4d4e-a5f9-69fcb7635aac:
+    contentColumnType: string
+    fieldGroup: null
+    handle: images
+    instructions: '-Each image should have a width of 2450px'
+    name: Images
+    searchable: true
+    settings:
+      allowSelfRelations: false
+      allowUploads: true
+      allowedKinds:
+        - image
+      defaultUploadLocationSource: 'volume:a48d5d4c-e94e-40ca-b140-801253b0f802'
+      defaultUploadLocationSubpath: ''
+      limit: ''
+      localizeRelations: false
+      previewMode: full
+      restrictFiles: '1'
+      selectionLabel: 'Add an image'
+      showSiteMenu: true
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: true
+      singleUploadLocationSource: 'volume:a48d5d4c-e94e-40ca-b140-801253b0f802'
+      singleUploadLocationSubpath: '{owner.section}/{owner.parent.slug}/{owner.slug}/slideshow/'
+      source: null
+      sources: '*'
+      targetSiteId: null
+      useSingleFolder: true
+      validateRelatedElements: false
+      viewMode: large
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+handle: slideshow
+name: Slideshow
+sortOrder: 5

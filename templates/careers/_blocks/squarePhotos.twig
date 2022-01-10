@@ -1,0 +1,7 @@
+<section class="post-module module-3up-blocks careersBuilder-block-margin">
+	<div class="container col-outer">
+  {% for photo in block.threeSquareImages.all() %}
+  <div class="img-outer one-third"><img src="{{photo.url}}" alt="{{photo.title}}" /></div>
+  {% endfor %}
+  </div>
+</section>

@@ -1,0 +1,124 @@
+field: cea591b0-f89b-4ddf-9ab0-68d6136186a0
+fieldLayouts:
+  ab49206e-77be-422b-b579-ed67981ffc21:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: c8c4c2f3-b41f-45ef-9fb5-44c7d6847da1
+            instructions: null
+            label: null
+            required: '0'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 9d1c3ea3-17ab-4478-a604-c4720b334f30
+            instructions: null
+            label: null
+            required: '0'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: f45d85a4-9692-4505-92f4-06ad692cd01e
+            instructions: null
+            label: null
+            required: '0'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: ea541ae3-531e-4f16-8022-ed264a5b2daf
+            instructions: null
+            label: null
+            required: '0'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  9d1c3ea3-17ab-4478-a604-c4720b334f30:
+    contentColumnType: text
+    fieldGroup: null
+    handle: countyColumn
+    instructions: ''
+    name: 'County Column'
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: false
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  c8c4c2f3-b41f-45ef-9fb5-44c7d6847da1:
+    contentColumnType: text
+    fieldGroup: null
+    handle: label
+    instructions: ''
+    name: Label
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: false
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  ea541ae3-531e-4f16-8022-ed264a5b2daf:
+    contentColumnType: text
+    fieldGroup: null
+    handle: nationalColumn
+    instructions: ''
+    name: 'National Column'
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: false
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  f45d85a4-9692-4505-92f4-06ad692cd01e:
+    contentColumnType: text
+    fieldGroup: null
+    handle: stateColumn
+    instructions: ''
+    name: 'State Column'
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: false
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+handle: chart
+name: Chart
+sortOrder: 1

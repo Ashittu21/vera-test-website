@@ -1,0 +1,40 @@
+field: 489cffbd-0018-4a29-bc1c-71dfdf3a8b33
+fieldLayouts:
+  2173a1b9-16f9-48ac-a45f-62e61b4486ee:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: a7932927-f4b7-4de1-a70e-074b0d28a1a4
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  a7932927-f4b7-4de1-a70e-074b0d28a1a4:
+    contentColumnType: text
+    fieldGroup: null
+    handle: twitterHandle
+    instructions: ''
+    name: 'Twitter Handle'
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+handle: twitter
+name: Twitter
+sortOrder: 1

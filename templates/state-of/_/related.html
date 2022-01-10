@@ -1,0 +1,37 @@
+<section class="line-after">
+	<div class="container">
+		<h2 class="section-heading">More
+			{{ heading }}</h2>
+
+		<div class="related-modules">
+			{% for thing in entries %}
+				<article class="related-module">
+					<a href="{{ thing.url }}" data-title="{{ thing.title }}" data-nav-carousel-link data-theme="{{ thing.pageType == 'lense' ? 'alt' : 'default' }}" data-id="{{ thing.id }}">
+						{% set image = thing.heroImage[0] ?? 'https://placehold.it/2880x1800' %}
+						{% set transformedImages = craft.imager.transformImage( image, [
+						{ width: 4000 },
+						{ width: 2000 },
+						{ width: 1000 },
+						{ width: 600, jpegQuality: 65 },
+						{ width: 200, jpegQuality: 65 }
+					],{
+						ratio: 3/2,
+						position: image.focalPoint.x ~ '% ' ~ image.focalPoint.y ~ '%'
+					}, {
+						fillTransforms: false,
+						fillInterval: 400
+					}) %}
+						<img src="{{ transformedImages[2].url }}" srcset="{{ craft.imager.srcset(transformedImages) }}">
+						{% if thing.pageType == 'lense' %}
+							<div class="heading">{{ thing.title }}</div>
+						{% else %}
+							<aside class="label font--btn">{{ thing.title }}</aside>
+
+							<div class="heading">{{ thing.heading }}</div>
+						{% endif %}
+					</a>
+				</article>
+			{% endfor %}
+		</div>
+	</div>
+</section>

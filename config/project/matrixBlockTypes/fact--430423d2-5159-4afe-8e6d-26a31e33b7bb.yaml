@@ -1,0 +1,261 @@
+field: 4d6fbd6e-c236-425b-b2cb-01f86a1248cf
+fieldLayouts:
+  6e8c102d-63ec-499b-8994-2e014167c74f:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 230a3c31-eb54-45cb-94a3-36bfa34173c2
+            instructions: null
+            label: null
+            required: '0'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 48e3e740-fc8b-4d01-b529-2530dcce08f0
+            instructions: null
+            label: null
+            required: '0'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: f71dfac7-db4f-4fdb-9c5b-96372d7764ef
+            instructions: null
+            label: null
+            required: '0'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: d23f0e2d-7b55-4c58-aef4-616c8aa1b5a0
+            instructions: null
+            label: null
+            required: '0'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 71ec2743-6d8c-4310-8fc0-1c20d334484b
+            instructions: null
+            label: null
+            required: '0'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: cf1bf0c0-5984-4e96-8e9e-891bf91c7a2f
+            instructions: null
+            label: null
+            required: '0'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  230a3c31-eb54-45cb-94a3-36bfa34173c2:
+    contentColumnType: text
+    fieldGroup: null
+    handle: line1
+    instructions: ''
+    name: 'Line 1'
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: false
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  48e3e740-fc8b-4d01-b529-2530dcce08f0:
+    contentColumnType: string
+    fieldGroup: null
+    handle: line1Style
+    instructions: ''
+    name: 'Line 1 Style'
+    searchable: true
+    settings:
+      optgroups: true
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - 'Thin red super-large'
+            -
+              - value
+              - large
+            -
+              - default
+              - '1'
+        -
+          __assoc__:
+            -
+              - label
+              - 'Bold red headline'
+            -
+              - value
+              - medium
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - 'Black copy'
+            -
+              - value
+              - small
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+  71ec2743-6d8c-4310-8fc0-1c20d334484b:
+    contentColumnType: text
+    fieldGroup: null
+    handle: line3
+    instructions: ''
+    name: 'Line 3'
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: false
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  cf1bf0c0-5984-4e96-8e9e-891bf91c7a2f:
+    contentColumnType: string
+    fieldGroup: null
+    handle: line3Style
+    instructions: ''
+    name: 'Line 3 Style'
+    searchable: true
+    settings:
+      optgroups: true
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - 'Thin red super-large'
+            -
+              - value
+              - large
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - 'Bold red headline'
+            -
+              - value
+              - medium
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - 'Black copy'
+            -
+              - value
+              - small
+            -
+              - default
+              - '1'
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+  d23f0e2d-7b55-4c58-aef4-616c8aa1b5a0:
+    contentColumnType: string
+    fieldGroup: null
+    handle: line2Style
+    instructions: ''
+    name: 'Line 2 Style'
+    searchable: true
+    settings:
+      optgroups: true
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - 'Thin red super-large'
+            -
+              - value
+              - large
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - 'Bold red headline'
+            -
+              - value
+              - medium
+            -
+              - default
+              - '1'
+        -
+          __assoc__:
+            -
+              - label
+              - 'Black copy'
+            -
+              - value
+              - small
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+  f71dfac7-db4f-4fdb-9c5b-96372d7764ef:
+    contentColumnType: text
+    fieldGroup: null
+    handle: line2
+    instructions: ''
+    name: 'Line 2'
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: false
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+handle: fact
+name: Fact
+sortOrder: 1

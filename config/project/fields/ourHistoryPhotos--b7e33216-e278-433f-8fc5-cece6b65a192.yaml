@@ -1,0 +1,33 @@
+contentColumnType: string
+fieldGroup: b7c07949-c4d1-4af6-a996-017773fd0ef5
+handle: ourHistoryPhotos
+instructions: ''
+name: 'Our History Photos'
+searchable: true
+settings:
+  allowSelfRelations: false
+  allowUploads: true
+  allowedKinds:
+    - image
+  defaultUploadLocationSource: 'volume:c3679b2c-c8a9-497f-a727-b1b62f2da07a'
+  defaultUploadLocationSubpath: about/our_history/
+  limit: '2'
+  localizeRelations: false
+  previewMode: full
+  restrictFiles: '1'
+  selectionLabel: 'Add an image'
+  showSiteMenu: true
+  showUnpermittedFiles: false
+  showUnpermittedVolumes: true
+  singleUploadLocationSource: 'volume:a48d5d4c-e94e-40ca-b140-801253b0f802'
+  singleUploadLocationSubpath: ''
+  source: null
+  sources:
+    - 'volume:c3679b2c-c8a9-497f-a727-b1b62f2da07a'
+  targetSiteId: null
+  useSingleFolder: false
+  validateRelatedElements: false
+  viewMode: large
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Assets

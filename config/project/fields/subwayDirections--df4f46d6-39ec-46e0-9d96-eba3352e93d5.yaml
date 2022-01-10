@@ -1,0 +1,57 @@
+contentColumnType: text
+fieldGroup: f569ee7a-10dc-489c-92f7-60d63defe6f0
+handle: subwayDirections
+instructions: ''
+name: 'Subway Directions'
+searchable: true
+settings:
+  addRowLabel: 'Add a row'
+  columnType: text
+  columns:
+    __assoc__:
+      -
+        - col1
+        -
+          __assoc__:
+            -
+              - heading
+              - Line
+            -
+              - handle
+              - line
+            -
+              - width
+              - ''
+            -
+              - type
+              - singleline
+      -
+        - col2
+        -
+          __assoc__:
+            -
+              - heading
+              - Stop
+            -
+              - handle
+              - stop
+            -
+              - width
+              - ''
+            -
+              - type
+              - singleline
+  defaults:
+    -
+      __assoc__:
+        -
+          - col1
+          - ''
+        -
+          - col2
+          - ''
+  maxRows: null
+  minRows: null
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Table

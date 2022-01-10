@@ -1,0 +1,205 @@
+
+// specific nav style used on prosecutors custom heroes
+$backgroundColor: #DCE4EA;
+
+.subway-nav-wrap {
+  padding: 0;
+  z-index: 2;
+
+  @media (min-width: $mobile-large) {
+    opacity: 0;
+    padding: 15rem 0;
+  }
+}
+
+.subway-nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  list-style: none;
+  margin: 0 auto;
+  position: relative;
+  width: 80%;
+
+  &:after {
+    background-color: $black;
+    bottom: 30px;
+    content: '';
+    left: 50%;
+    margin: auto;
+    opacity: 0.75;
+    padding: 0;
+    position: absolute;
+    right: unset;
+    top: 30px;
+    transform: translateX(-50%);
+    width: 1px;
+    z-index: -2;
+  }
+
+  @media (min-width: $mobile-large) {
+    flex-direction: row;
+    // padding: 5rem 0 20%;
+    width: 90%;
+
+    a:hover {
+      .ring { stroke: $red; }
+      .center { fill: $red; }
+      .copy-wrap:after { background-color: $red; }
+    }
+
+    &:after {
+      background-color: $black;
+      content: '';
+      height: 1px;
+      left: 0;
+      margin: auto;
+      position: absolute;
+      right: 0;
+      transform: translateY(-50%);
+      width: 100%;
+    }
+  }
+
+  @media (min-width: $tablet-landscape) {
+    width: 80%;
+  }
+}
+
+.subway-nav__item {
+  color: $black;
+  position: relative;
+
+  .list-bullet {
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+
+    .ring { fill: $backgroundColor; }
+  }
+
+  .copy-wrap {
+    display: block;
+    margin: 2rem 0;
+    max-width: 100px;
+
+    p {
+      background-color: $backgroundColor;
+      display: inline-block;
+      @extend .ff-sans;
+      font-weight: bold;
+      text-transform: uppercase;
+
+      &:after {
+        background-color: $black;
+        content: '';
+        height: 1px;
+        opacity: 0.5;
+        position: absolute;
+        top: 50%;
+        width: 45%;
+        z-index: -1;
+      }
+    }
+
+    span {
+      @extend .ff-sans;
+    }
+  }
+
+  &:nth-of-type(odd) {
+    .copy-wrap {
+      text-align: left;
+
+      p {
+        padding-right: 10px;
+        &:after { left: 0; }
+      }
+    }
+  }
+  &:nth-of-type(even) {
+    .copy-wrap {
+      margin-left: auto;
+      text-align: right;
+
+      p {
+        padding-left: 10px;
+        &:after { right: 0; }
+      }
+    }
+  }
+
+  @media (min-width: $mobile-medium) {
+    .copy-wrap { max-width: 200px; }
+  }
+
+  @media (min-width: $mobile-large) {
+    .copy-wrap {
+      display: flex;
+      flex-direction: column;
+      // min-height: 120px;
+      margin: 0;
+      max-width: 250px;
+      padding: 2rem 0;
+
+      &:after {
+        background-color: $black;
+        content: '';
+        height: 50%;
+        left: 50%;
+        opacity: 0.5;
+        position: absolute;
+        width: 1px;
+        z-index: 1;
+      }
+
+      p:after { display: none; }
+    }
+
+    &:nth-of-type(odd) {
+      .copy-wrap {
+        text-align: left;
+        transform: translateY(-100%);
+        p { padding-right: 0; }
+
+        &:after { bottom: -22%; }
+      }
+    }
+    &:nth-of-type(even) {
+      .copy-wrap {
+        justify-content: flex-start;
+        text-align: left;
+        transform: translateY(100%);
+        p { padding-left: 0; }
+
+        &:after { top: -22%; }
+      }
+    }
+
+    &:first-child:before {
+      background-color: $backgroundColor;
+      content: '';
+      height: 100%;
+      position: absolute;
+      right: 50%;
+      top: 0;
+      width: 100%;
+      z-index: -1;
+    }
+
+    &:last-child:after {
+      background-color: $backgroundColor;
+      content: '';
+      height: 100%;
+      left: 50%;
+      position: absolute;
+      top: 0;
+      width: 100%;
+      z-index: -1;
+    }
+  }
+}

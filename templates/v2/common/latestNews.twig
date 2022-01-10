@@ -1,0 +1,55 @@
+<!-- Latest News 2 -->
+  <section class="headTitle bgColor-darkviolet">
+    <div class="headTitle-content headTitle-content--small">
+      <div class="headTitle-title">
+        <h3 class="separator left-aligned"><span>The Latest from Vera</span></h3>
+      </div>
+    </div>
+  </section>
+
+    <section class="block-latestNews">
+      <div class="block-latestNews-content">    
+
+        <div class="latest-hero-sidebar">
+          <div class="latest-hero-sidebar-left">
+            <div class="latestNews-hero">
+              <div class="latestNews-hero-container">
+                <div class="latestNews-hero-copy">
+                  <div>
+                    <div class="latestNews-hero-copy-category">
+                      <p>BLOG POST</p>
+                    </div>
+                      <div class="latestNews-hero-copy-title">
+                        <h4 class="h4">{{ block.featuredStory_title }}</h4>
+                      </div>
+                      <a href="{{ block.featuredStory_cta.getUrl() }}" class="button button-2x orange arrow">
+                        <span>{{ block.featuredStory_cta.customText }}</span>
+                      </a>
+                  </div>
+                </div>
+                <div class="latestNews-hero-image">
+                  <img src="{{ block.featuredStory_image.first.url }}" alt="">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="latest-hero-sidebar-right">
+            <div class="latest-hero-sidebar-right-SideItems">
+              <div>
+              		{% if block.latestNews_newsItems |length %}
+                    {% for newsItem in block.latestNews_newsItems %}
+                      <div class="sideItems-item">
+                        <div class="sideItems-item-tag">{{ newsItem.type.name | title | upper }}</div>
+                        <div class="sideItems-item-title"><a href="{{ newsItem.url }}">{{ newsItem.title }}</a></div>
+                        <div class="sideItems-item-date">{{ newsItem.postDate | date("M d, Y") }}</div>
+                      </div>
+                    {% endfor %}
+                  {% endif %} 
+              </div>
+            </div>
+          </div>
+        </div>
+       </div>
+    </section>
+    <!-- Latest News -->

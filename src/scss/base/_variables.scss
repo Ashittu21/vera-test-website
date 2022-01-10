@@ -1,0 +1,145 @@
+// colors
+$lt-gray: #f3f3f2;
+$lt-gray-alt: #dad9d5;
+$lt-gray-bg: #e7e6e3;
+$med-gray: #a3a3a3;
+$med-gray-bg: #bcbdbc;
+$med-gray-alt: #c4c4c4;
+$dk-gray: #4d4e56;
+$dk-gray-alt: #6f6d6e;
+$red: #ef4136;
+$red--lt: #fde3e1;
+$red--dk: darken($red, 10%);
+
+$black: #231f20;
+$white: #fff;
+
+// table row colors
+$table-row--bg-color1: #e5eff8;
+$table-row--bg-color2: #fee7e2;
+$table-row--bg-color3: #d9ebe9;
+$table-row--bg-color4: #f3f7de;
+
+// data viz colors
+$orange-lt: rgb(255, 190, 157);
+$orange-lt: #ffbe9d;
+$orange-md: rgb(255, 156, 131);
+$orange: rgb(255, 124, 104);
+$orange-dk: rgb(255, 94, 79);
+
+$dv-orange: #e17e43;
+$dv-blue: #67b3d9;
+$dv-purple: #a05eb5;
+$dv-green: #bed933;
+$dv-border: #979797;
+
+$brown: #7e3b26;
+$green: #389b60;
+$yellow: #f5cd07;
+
+$trueblack: #000;
+
+//to be iterated over
+$colors: (
+  "lightGray": $lt-gray,
+  "medGray": $med-gray,
+  "black": $black,
+  "white": $white,
+  "red": $red,
+  "darkRed": $red--dk,
+  "brown": $brown,
+  "green": $green,
+  "yellow": $yellow,
+  "trueblack": $trueblack,
+);
+
+// font size
+$body-font-size: 1.5;
+
+// breakpoints
+$mobile-small: 350px;
+$mobile-medium: 480px;
+$mobile-large: 700px;
+$tablet-portrait: 768px;
+$tablet-landscape: 1024px;
+$desktop-medium: 1180px;
+$desktop-ml: 1280px;
+$desktop-mlarge: 1440px;
+$desktop-large: 1520px;
+
+$mobile-breakpoint: $tablet-portrait;
+
+$animationScreenMin: $tablet-landscape;
+
+$breakpoints--type: (
+  "small": (
+    min-width: $mobile-large,
+  ),
+  "medium": (
+    min-width: $tablet-landscape,
+  ),
+  "large": (
+    min-width: $desktop-mlarge,
+  ),
+);
+
+// container widths
+$one-fourth: 23.43%;
+$three-fourths: 74.5%;
+$one-third: 32.06%;
+$one-third-sm: 23.67%;
+$two-thirds: 65.82%;
+$one-half: 48.69%;
+$half: 50%;
+
+$dec-one-fourth: 0.2343;
+$dec-one-third: 0.3206;
+$dec-two-thirds: 0.6582;
+$dec-one-half: 0.4869;
+
+// padding widths
+$padding-xxs: 10px;
+$padding-xs: 15px;
+$padding-sm: 20px;
+$padding-med: 30px;
+$padding-lg: 40px; // is this too big?
+$padding-xl: 60px;
+
+$padding-sizes: (
+  "xxs": $padding-xxs,
+  "xs": $padding-xs,
+  "sm": $padding-sm,
+  "med": $padding-med,
+  "lg": $padding-lg,
+  "xl": $padding-xl,
+);
+
+@each $key, $size in $padding-sizes {
+  .padding--#{$key} {
+    padding: #{$size};
+  }
+}
+
+// element heights
+$mobile-header-height: 50px;
+$header-height: 66px;
+$event-filter-height: 66px;
+
+$nav-offset: 25px;
+
+//z-index
+$zNav: 1002;
+$zOverNav: $zNav + 1;
+
+$transition-timing: 0.3s;
+
+// easing
+$ease-nice: cubic-bezier(0.19, 0.11, 0.21, 0.99);
+
+// fonts
+$ff-gt-sectra: "GT Book";
+$ff-gt-walsheim: "GT Walsheim Regular";
+$ff-ortica-bold: "Ortica Bold";
+$ff-ortica-light: "Ortica Light";
+$ff-vtc-marsha: "VTC Marsha";
+$ff-abc-whyte: "ABC Whyte";

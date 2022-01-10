@@ -1,0 +1,55 @@
+.RevenuesChartContainer {
+  margin-top: $padding-xl;
+  margin-bottom: $padding-xl;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.RevenuesChart {
+  max-width: 800px;
+  margin: 0 auto;
+
+  & + .DataText {
+    margin-top: 0;
+    padding-bottom: 0;
+  }
+}
+.RevenuesChart-heading {
+  text-align: center;
+}
+.RevenuesChart-item {
+  @extend .ff-sans;
+}
+.RevenuesChart-item-bar {
+  width: 100%;
+}
+@media (min-width: 600px) {
+  $labelWidth: 300px;
+  .RevenuesChart-item {
+    display: flex;
+    align-items: center;
+  }
+  .RevenuesChart-item-label {
+    text-align: right;
+    width: $labelWidth;
+    flex-shrink: 0;
+  }
+  .RevenuesChart-item-bar {
+    margin-left: 1.5rem;
+  }
+  .RevenuesChart-toggle {
+    margin-left: calc(#{$labelWidth} + 1.5rem);
+  }
+}
+
+.RevenuesChart-item + .RevenuesChart-item,
+.RevenuesChart-toggle-container {
+  margin-top: $padding-xxs/2;
+}
+
+.RevenuesChart-item-label {
+  font-weight: bold;
+}
+
+.RevenuesChart-item-value {
+  width: 100%;
+}

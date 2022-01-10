@@ -1,0 +1,48 @@
+{% set pages = pages ?? null %}
+{% set filteredPages = [] %}
+{% for page in pages %}
+{% if page['excludeFromNav'] is not defined or page['excludeFromNav'] != 1 %}
+{% set filteredPages = filteredPages | merge([page]) %}
+{% endif %}
+{% endfor %}
+{% if filteredPages | length %}
+  <ul class="anchor-nav tile-list tile-count--{{ filteredPages | length }}">
+    {% for page in filteredPages %}
+      {% set entry = page['entry'] is defined and page.entry | length ? page.entry[0] : page %}
+      {% set isDisabled = page['disabled'] is defined and page.disabled %}
+      {% set backgroundImageUrl =
+        page['backgroundImage'] is defined and page.backgroundImage | length ? page.backgroundImage[0].url :
+        entry['heroImage'] is defined and entry.heroImage | length ? entry.heroImage[0].url : null %}
+      {% set ext = entry['ext'] is defined ? entry.ext : false %}
+      {% set heading = page['navText'] is defined and page.navText ? page.navText : entry.title %}
+      {% set linkUrl = singlePage ? ('#' ~ heading | kebab) : entry.url ?? null %}
+      <li
+        class="tile-list-item"
+        {% if isDisabled %}disabled{% endif %}>
+        {% if linkUrl %}
+        <a
+          href="{{ linkUrl }}"
+          {% if ext %}target="_blank"{% endif %}
+          class="{% if singlePage %}js-anchor-link anchor-link{% endif %}">
+        {% endif %}
+          <div class="tile-list-item-inner
+            {%- if page['backgroundColor'] is defined %} bg--{{ page.backgroundColor | default('black') }}{% else %} bg--black{% endif %}
+            {%- if page['textColor'] is defined %} color--{{ page.textColor | default('white') }}{% else %} bg--white{% endif %}
+            {%- if backgroundImageUrl %} link--has-image {% else %} link--no-image{% endif -%}
+          ">
+            {% if backgroundImageUrl %}
+            <div class="tile-list-item-image" style="background-image: url({{ backgroundImageUrl }})"></div>
+            {% endif %}
+            <h2 class="heading">{{ heading }}</h2>
+            {% if page['subtitle'] is defined and page.subtitle %}
+              <p class="subheading">{{ page.subtitle }}</p>
+            {% endif %}
+            {% if page['labelText'] is defined and page.labelText %}<div class="label faded">{{ page.labelText }}</div>{% endif %}
+          </div>
+        {% if linkUrl %}
+        </a>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+{% endif %}

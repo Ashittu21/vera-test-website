@@ -1,0 +1,28 @@
+{
+  "buttons": [
+    "format",
+    "bold",
+    "italic",
+    "lists",
+    "link",
+    "file",
+    "image",
+    "line"
+  ],
+  "plugins": ["scriptbuttons", "fullscreen"],
+  "formatting": ["p", "blockquote"],
+  "formattingAdd": {
+    "highlight": {
+      "title": "highlight",
+      "args": ["span", "class", "highlight receives-color-highlight"]
+    },
+    "large": {
+      "title": "large and thin",
+      "args": ["span", "class", "large-thin"]
+    },
+    "huge": {
+      "title": "huge and thin",
+      "args": ["span", "class", "huge-thin"]
+    }
+  }
+}

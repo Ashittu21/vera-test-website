@@ -1,0 +1,14 @@
+contentColumnType: string
+fieldGroup: 3ad6d151-958c-44f4-99b0-865c27d2922e
+handle: knowlegeBank
+instructions: ''
+name: 'Knowlege Bank'
+searchable: true
+settings:
+  contentTable: '{{%matrixcontent_knowlegebank}}'
+  maxBlocks: ''
+  minBlocks: ''
+  propagationMethod: all
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

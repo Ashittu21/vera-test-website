@@ -1,0 +1,14 @@
+contentColumnType: string
+fieldGroup: 9e8c11c6-0d09-4e83-9ae3-8e977b222014
+handle: social
+instructions: ''
+name: Social
+searchable: true
+settings:
+  contentTable: '{{%matrixcontent_social}}'
+  maxBlocks: ''
+  minBlocks: ''
+  propagationMethod: all
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

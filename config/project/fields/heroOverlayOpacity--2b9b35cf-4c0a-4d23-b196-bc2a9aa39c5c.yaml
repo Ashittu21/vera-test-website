@@ -1,0 +1,19 @@
+contentColumnType: 'decimal(3,2)'
+fieldGroup: a1574b52-b575-41d9-9fdd-13f2294a57f2
+handle: heroOverlayOpacity
+instructions: ''
+name: 'Hero Overlay Opacity'
+searchable: true
+settings:
+  decimals: '2'
+  defaultValue: null
+  max: '1'
+  min: '0'
+  prefix: null
+  previewCurrency: null
+  previewFormat: decimal
+  size: null
+  suffix: null
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Number

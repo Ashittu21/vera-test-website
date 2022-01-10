@@ -1,0 +1,9 @@
+{% set code = craft.request.getParam('code') %}
+
+{% set secret = '12929332c9134491b0af47b59aad4410' %}
+
+{% set id = 'db93c594c2104ac2a3a44e94a558d305' %}
+
+{% set redirect = craft.instagram.redirectUrl %}
+
+{{ craft.instagram.getToken(id,secret,code,redirect) ?? 'NOTHING' }}

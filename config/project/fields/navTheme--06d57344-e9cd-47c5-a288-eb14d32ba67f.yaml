@@ -1,0 +1,67 @@
+contentColumnType: string
+fieldGroup: ff6bca1c-2054-4260-a21f-2d7007b1c024
+handle: navTheme
+instructions: ''
+name: 'Nav Theme'
+searchable: true
+settings:
+  optgroups: true
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - Normal
+        -
+          - value
+          - normal
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Minimal
+        -
+          - value
+          - minimal
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - 'Visual Tiles'
+        -
+          - value
+          - visualTiles
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Burger
+        -
+          - value
+          - burger
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - None
+        -
+          - value
+          - none
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

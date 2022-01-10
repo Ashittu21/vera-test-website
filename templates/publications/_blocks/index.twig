@@ -1,0 +1,16 @@
+{% for block in blocks %}
+  {% switch block.type.handle %}
+    {% case 'overview' %}
+      {% include 'publications/_blocks/overview' with {
+        overview: block.overview,
+        authors: entry.authors,
+        actionAreas: entry.relatedIssues is not null ? entry.relatedIssues.level(2).with('actionAreaIcon') : null
+      } %}
+    {% case 'hero' %}
+      {% include 'publications/_blocks/statePublicationsHero' %}
+    {% case 'mapViz' %}
+      {% include 'publications/_blocks/map' %}
+    {% default %}
+      {% include 'publications/_blocks/' ~ block.type.handle %}
+  {% endswitch %}
+{% endfor %}

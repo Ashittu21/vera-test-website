@@ -1,0 +1,559 @@
+dateModified: 1611760705
+email:
+  fromEmail: mmehler@vera.org
+  fromName: Vera
+  template: ''
+  transportType: craft\mail\transportadapters\Sendmail
+plugins:
+  api-access:
+    enabled: '1'
+    licenseKey: null
+    schemaVersion: 1.0.0
+    settings: null
+  api-client:
+    enabled: '1'
+    licenseKey: null
+    schemaVersion: 1.0.0
+    settings: null
+  color-mixer:
+    enabled: '1'
+    licenseKey: null
+    schemaVersion: 0.0.1
+    settings: null
+  contact-form:
+    enabled: '1'
+    licenseKey: null
+    schemaVersion: 1.0.0
+    settings:
+      allowAttachments: ''
+      honeypotField: honeyimnothome
+      prependSender: 'On behalf of'
+      prependSubject: 'Contact Us Inquiry'
+      successFlashMessage: 'Your message has been sent.'
+      toEmail: 'cagnant@vera.org,mmehler@vera.org'
+  content-stats:
+    enabled: '0'
+    licenseKey: null
+    schemaVersion: 1.1.0
+    settings: null
+  cp-sort-cols:
+    enabled: '1'
+    licenseKey: null
+    schemaVersion: '1.0'
+    settings: null
+  craft-color-mixer:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  craft-dynamic-fields:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  craft-redactor-script-buttons:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  csv-reader:
+    enabled: '1'
+    licenseKey: null
+    schemaVersion: 1.0.0
+    settings: null
+  element-api:
+    enabled: '1'
+    licenseKey: null
+    schemaVersion: 1.0.0
+    settings: null
+  entries-subset:
+    enabled: '1'
+    licenseKey: null
+    schemaVersion: 0.5.0
+    settings: null
+  fam:
+    enabled: '1'
+    licenseKey: null
+    schemaVersion: 1.0.0
+    settings: null
+  feed-me:
+    edition: standard
+    enabled: true
+    schemaVersion: 4.3.0
+  field-manager:
+    enabled: '1'
+    licenseKey: null
+    schemaVersion: 1.0.0
+    settings: null
+  focus-point:
+    enabled: '1'
+    licenseKey: null
+    schemaVersion: 1.0.1
+    settings: null
+  footnotes:
+    enabled: '1'
+    licenseKey: null
+    schemaVersion: 1.0.0
+    settings: null
+  form-builder2:
+    enabled: '1'
+    licenseKey: null
+    schemaVersion: 2.0.1
+    settings: null
+  freeform:
+    edition: lite
+    enabled: true
+    schemaVersion: 3.1.0
+  geocode:
+    enabled: '1'
+    licenseKey: null
+    schemaVersion: 1.0.0
+    settings:
+      googleApiKey: AIzaSyCUEbplmckN40d3iGssxm7TX4bjW5vZ3fs
+  google-cloud:
+    edition: standard
+    enabled: true
+    schemaVersion: '1.1'
+  helpers:
+    enabled: '1'
+    licenseKey: null
+    schemaVersion: 1.0.0
+    settings: null
+  imager:
+    enabled: '1'
+    licenseKey: null
+    schemaVersion: 1.0.0
+    settings: null
+  imager-x:
+    edition: lite
+    enabled: true
+    schemaVersion: 3.0.0
+  import:
+    enabled: '1'
+    licenseKey: null
+    schemaVersion: 1.0.0
+    settings: null
+  incognito-field:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.1.1
+  inlin:
+    enabled: '1'
+    licenseKey: null
+    schemaVersion: 2.0.0
+    settings: null
+  instagram:
+    enabled: '1'
+    licenseKey: null
+    schemaVersion: 1.0.0
+    settings:
+      clientId: db93c594c2104ac2a3a44e94a558d305
+      clientSecret: 12929332c9134491b0af47b59aad4410
+      token: 2079778980.db93c59.c632e9c09bc9441d80b6d780ec34aea5
+  json-decode-twig-filter:
+    enabled: '1'
+    licenseKey: null
+    schemaVersion: 1.0.0
+    settings: null
+  lj--dynamic-fields:
+    enabled: '1'
+    licenseKey: null
+    schemaVersion: 1.0.0
+    settings: null
+  many-to-many:
+    enabled: '1'
+    licenseKey: null
+    schemaVersion: 1.0.0
+    settings: null
+  manytomany:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.2
+  neo:
+    enabled: '1'
+    licenseKey: null
+    schemaVersion: 2.8.14
+    settings: null
+  oauth:
+    enabled: '1'
+    licenseKey: null
+    schemaVersion: 1.0.1
+    settings: null
+  phantom-js:
+    enabled: '1'
+    licenseKey: null
+    schemaVersion: 1.0.0
+    settings: null
+  preparse-field:
+    enabled: '1'
+    licenseKey: null
+    schemaVersion: 1.0.5
+    settings: null
+  query-table:
+    enabled: '1'
+    licenseKey: null
+    schemaVersion: 1.0.0
+    settings: null
+  quick-field:
+    enabled: '1'
+    licenseKey: null
+    schemaVersion: 1.0.0
+    settings: null
+  reasons:
+    enabled: '1'
+    licenseKey: null
+    schemaVersion: '1.1'
+    settings: null
+  redactor:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.3.0
+  redactor-extras:
+    enabled: '1'
+    licenseKey: null
+    schemaVersion: 1.0.0
+    settings:
+      alignment: '1'
+      counter: ''
+      definedlinks: ''
+      extraPluginCss: ''
+      extraPluginJs: ''
+      limiter: ''
+      properties: ''
+      scriptButtons: '1'
+  redactor-image-position:
+    enabled: '1'
+    licenseKey: null
+    schemaVersion: 1.0.0
+    settings:
+      figureConfig:
+        -
+          - figureWrap
+          - '<figure class="c-figure c-figure--inline"></figure>'
+        -
+          - figureLeft
+          - c-figure--left
+        -
+          - figureRight
+          - c-figure--right
+        -
+          - figureFull
+          - c-figure--full
+        -
+          - imageClass
+          - c-figure__image
+        -
+          - captionClass
+          - c-figure__caption
+  redactor-styles:
+    enabled: '1'
+    licenseKey: null
+    schemaVersion: 1.0.0
+    settings:
+      redactorStylesCss: ''
+      redactorStylesCssFile: '{baseUrl}dist/css/redactor.css'
+      redactorStylesJson: ''
+  redirect-manager:
+    enabled: '1'
+    licenseKey: null
+    schemaVersion: 1.0.0
+    settings: null
+  relabel:
+    enabled: '1'
+    licenseKey: null
+    schemaVersion: 1.0.0
+    settings: null
+  resave-entries:
+    enabled: '1'
+    licenseKey: null
+    schemaVersion: 1.0.0
+    settings: null
+  retour:
+    edition: standard
+    enabled: true
+    schemaVersion: 3.0.9
+  secret-field:
+    enabled: '1'
+    licenseKey: null
+    schemaVersion: 1.0.0
+    settings: null
+  seomatic:
+    enabled: '1'
+    licenseKey: null
+    schemaVersion: 3.0.9
+    settings: null
+  shortcodes:
+    enabled: '1'
+    licenseKey: null
+    schemaVersion: 1.0.0
+    settings: null
+  simple-sitemap:
+    enabled: '0'
+    licenseKey: null
+    schemaVersion: 1.0.0
+    settings: null
+  super-sort:
+    enabled: '1'
+    licenseKey: null
+    schemaVersion: 0.0.0.0
+    settings: null
+  supersort:
+    edition: standard
+    enabled: true
+    schemaVersion: 0.0.0.0
+  task-manager:
+    enabled: '1'
+    licenseKey: null
+    schemaVersion: 1.0.0
+    settings: null
+  time-ago-in-words:
+    enabled: '1'
+    licenseKey: null
+    schemaVersion: 1.0.0
+    settings: null
+  timeago:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  top-x:
+    enabled: '1'
+    licenseKey: null
+    schemaVersion: 1.0.0
+    settings: null
+  tracker:
+    enabled: '1'
+    licenseKey: null
+    schemaVersion: 0.0.0.0
+    settings: null
+  twitter:
+    enabled: '1'
+    licenseKey: null
+    schemaVersion: 1.0.1
+    settings:
+      tokenId: '4'
+  vera:
+    enabled: '1'
+    licenseKey: null
+    schemaVersion: 1.0.0
+    settings: null
+  videos:
+    enabled: '1'
+    licenseKey: null
+    schemaVersion: 1.0.3
+    settings:
+      tokens:
+        google: '24'
+        vimeo: '9'
+      youtubeParameters: null
+  workflow:
+    enabled: '0'
+    licenseKey: null
+    schemaVersion: 0.9.0
+    settings:
+      editorUserGroup: '3'
+      enabledSections: '*'
+      publisherUserGroup: '5'
+routes:
+  b7ae8d81-47b0-481d-8143-3016dcf0ca2c:
+    siteUid: null
+    sortOrder: 1
+    template: newsroom/index
+    uriParts:
+      - newsroom/press-releases
+    uriPattern: newsroom\/press\-releases
+  c06fe3d1-c40a-4c54-ad3b-471152114bd7:
+    siteUid: null
+    sortOrder: 7
+    template: map-data/state_entries
+    uriParts:
+      - map-data/
+      -
+        - '*'
+        - '[^\/]+'
+      - /
+      -
+        - slug
+        - '[^\/]+'
+    uriPattern: 'map\-data\/([^\/]+)\/(?P<slug>[^\/]+)'
+  ca1c0f6d-9dd8-4837-81eb-37edbe9fee87:
+    siteUid: null
+    sortOrder: 6
+    template: careers/_entry
+    uriParts:
+      - careers/job
+    uriPattern: careers\/job
+  da565d72-5e9f-42d3-990e-a5502f07a3d4:
+    siteUid: null
+    sortOrder: 5
+    template: our-work/index
+    uriParts:
+      - our-work/
+    uriPattern: our\-work\/
+  e7ecc959-1acd-496e-bdac-cf747e0117c5:
+    siteUid: null
+    sortOrder: 9
+    template: publications/types/whatJailsCost
+    uriParts:
+      - publications/what-jails-cost/
+      -
+        - '*'
+        - '[^\/]+'
+    uriPattern: 'publications/what-jails-cost/<any:[^\/]+>'
+  1:
+    siteUid: null
+    sortOrder: 1
+    template: newsroom/index
+    uriParts:
+      - newsroom/press-releases
+    uriPattern: newsroom/press-releases
+  2:
+    siteUid: null
+    sortOrder: 2
+    template: projects/_entry
+    uriParts:
+      - projects/
+      -
+        - slug
+        - '[^\/]+'
+      - /
+      -
+        - '*'
+        - '[^\/]+'
+    uriPattern: 'projects/<slug:[^\/]+>/<any:[^\/]+>'
+  3:
+    siteUid: null
+    sortOrder: 3
+    template: about/_entry
+    uriParts:
+      - about/
+      -
+        - '*'
+        - '[^\/]+'
+    uriPattern: 'about/<any:[^\/]+>'
+  3ed9d30e-034d-4c60-9bfe-0e88668a704c:
+    siteUid: null
+    sortOrder: 8
+    template: publications/types/pdf
+    uriParts:
+      - publications/
+      -
+        - '*'
+        - '[^\/]+'
+      - /
+      -
+        - slug
+        - '[^\/]+'
+      - /pdf
+    uriPattern: 'publications\/([^\/]+)\/(?P<slug>[^\/]+)\/pdf'
+  4:
+    siteUid: null
+    sortOrder: 4
+    template: centers/_entry
+    uriParts:
+      - centers/
+      -
+        - slug
+        - '[^\/]+'
+      - /
+      -
+        - '*'
+        - '[^\/]+'
+    uriPattern: 'centers/<slug:[^\/]+>/<any:[^\/]+>'
+  4f284bee-a923-447a-8854-a9d67778833d:
+    siteUid: null
+    sortOrder: 10
+    template: publications/types/whatJailsCost
+    uriParts:
+      - publications/what-jails-cost/
+      -
+        - '*'
+        - '[^\/]+'
+      - /
+      -
+        - '*'
+        - '[^\/]+'
+    uriPattern: 'publications/what-jails-cost/<any:[^\/]+>/<any2:[^\/]+>'
+  5:
+    siteUid: null
+    sortOrder: 5
+    template: our-work/index
+    uriParts:
+      - our-work/
+    uriPattern: our-work/
+  6:
+    siteUid: null
+    sortOrder: 6
+    template: careers/_entry
+    uriParts:
+      - careers/job
+    uriPattern: careers/job
+  7:
+    siteUid: null
+    sortOrder: 7
+    template: map-data/state_entries
+    uriParts:
+      - map-data/
+      -
+        - '*'
+        - '[^\/]+'
+      - /
+      -
+        - slug
+        - '[^\/]+'
+    uriPattern: 'map-data/<any:[^\/]+>/<slug:[^\/]+>'
+  211c68e8-31f8-43de-8f60-7f04b30200a5:
+    siteUid: null
+    sortOrder: 2
+    template: projects/_entry
+    uriParts:
+      - projects/
+      -
+        - slug
+        - '[^\/]+'
+      - /
+      -
+        - '*'
+        - '[^\/]+'
+    uriPattern: 'projects\/(?P<slug>[^\/]+)\/([^\/]+)'
+  6959e550-3647-47ee-9d1b-1f675f56e64a:
+    siteUid: null
+    sortOrder: 4
+    template: centers/_entry
+    uriParts:
+      - centers/
+      -
+        - slug
+        - '[^\/]+'
+      - /
+      -
+        - '*'
+        - '[^\/]+'
+    uriPattern: 'centers\/(?P<slug>[^\/]+)\/([^\/]+)'
+  7ddb87ba-07fa-4d55-923f-756baeeec4fd:
+    siteUid: null
+    sortOrder: 3
+    template: about/_entry
+    uriParts:
+      - about/
+      -
+        - '*'
+        - '[^\/]+'
+    uriPattern: 'about\/([^\/]+)'
+  8:
+    siteUid: null
+    sortOrder: 8
+    template: publications/types/pdf
+    uriParts:
+      - publications/
+      -
+        - '*'
+        - '[^\/]+'
+      - /
+      -
+        - slug
+        - '[^\/]+'
+      - /pdf
+    uriPattern: 'publications/<any:[^\/]+>/<slug:[^\/]+>/pdf'
+system:
+  edition: pro
+  live: true
+  name: 'Vera Institute of Justice'
+  schemaVersion: 3.5.13
+  timeZone: America/New_York

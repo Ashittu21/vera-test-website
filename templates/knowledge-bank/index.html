@@ -1,0 +1,180 @@
+{% extends '_layout' %}
+
+{# 
+  heading 
+  subheading
+  heroImage
+  body -> overview text
+  heading label -> research & analysis
+  featuredItac
+#}
+
+{% set exclude = ['and'] %}
+{% set title = entry.heading ? entry.heading : entry.title %}
+{% set login %}
+{% if not currentUser %}
+	<a href="/signin.html" class="btn gray">Log in to access the full library.</a>
+{% else %}
+	<form method="post" accept-charset="UTF-8">
+		{{ getCsrfInput() }}
+		{{ actionInput('users/logout') }}
+		{{ redirectInput("/itac") }}
+		<input type="submit" value="Logout" class="btn gray">
+	</form>
+{% endif %}
+{% endset %}
+{% set heroImg = entry.heroImage[0] ?? null %}
+
+{% block banner %}
+	<section class="banner-image-left">
+		<div class="container {{ not heroImg ? 'banner-center'}}">
+			<div class="col-outer">
+				{% if heroImg %}
+					<div class="banner-image-left__img-outer img-outer">
+						<img src="{{ heroImg.getUrl('square800') }}" width="400" height="400">
+						{% include 'includes/snippets/attribution' with {image: heroImg} %}
+					</div>
+				{% endif %}
+				<header class="banner-image-left__header one-half">
+					<h1 class="banner-image-left__heading">
+						{{ title }}
+					</h1>
+					<p class="banner-image-left__subheading">
+						{{ entry.subheading }}
+					</p>
+				</header>
+			</div>
+		</div>
+	</section>
+
+	{# overview text #}
+	{% if entry.body %}
+		<div class="container col-outer">
+			<div class="module-intro__text module-text__inner knowledge-overview">
+				<div class="rte">{{ entry.body }}</div>
+			</div>
+		</div>
+	{% endif %}
+
+	{# featured itac #}
+	{% if entry.featuredItac and entry.featuredItac | length %}
+		<section class="featured-stream-modules featured-stream-modules__alt">
+			<div class="container">
+				<h4>Featured</h4>
+				{% include 'includes/stream/feature_module' with {features: entry.featuredItac} %}
+			</div>
+		</section>
+	{% endif %}
+
+	{# login and heading #}
+	<section class="container split-banner">
+		<h1 class="h3">
+			{{ entry.headingLabel ? entry.headingLabel : "All Research & Analysis" }}
+		</h1>
+		{{login}}
+	</section>
+
+{% endblock %}
+
+{% set types = craft.categories.group("knowledgeBankTypes").level(1).limit(null) %}
+{% set tags = craft.categories.group("knowledgeBankTags").level(1).limit(null) %}
+{% set permissions = craft.categories.group("knowledgeBankPermissions").limit(null) %}
+{% set public = craft.categories.group("knowledgeBankPermissions").slug("public").first() %}
+{% set permissionLevels = [public] %}
+
+{% set permissionRelations = ["or"] %}
+
+{% if currentUser and currentUser.isInGroup("knowledgeBankUser") %}
+	{% for level in currentUser.knowledgeBankPermission %}
+		{# ? #}
+		{% set permLevel = craft.categories.group("knowledgeBankPermissions").id(level.id) %}
+		{% set permissionLevels = permissionLevels|merge([permLevel]) %}
+		{# ? #}
+		{% set permissionRelations = permissionRelations|merge([{ targetElement: permLevel.id }]) %}
+	{% endfor %}
+	{% set permissionRelations = permissionRelations|merge([{ targetElement: public.id }]) %}
+	{#
+																											    {% else %}
+																											    {% set permissionLevels = null %}
+																											    {% set permissionRelations = [] %}
+																											  {% endif %}
+																											  #}
+{% else %}
+	{% set permissionRelations = permissionRelations|merge([{ targetElement: public.id }]) %}
+{% endif %}
+
+{% set featureids = entry.featuredItac.ids() %}
+{% for id in featureids %}
+	{% set exclude = exclude|merge(['not '~id]) %}
+{% endfor %}
+
+{% set typeRelations = 
+	{type: 'categories', relations: types, category: "type", title: 'Content Type'}
+ %}
+
+{% set tagRelations =
+	{type: 'categories', relations: tags, category: "tag", title: 'Content Tags'}
+%}
+
+{% set filterRelations = [
+	typeRelations,
+	tagRelations
+] %}
+{% set contentlimit = 100 %}
+
+{% set streamOptions = {
+	title: null,
+	news: false,
+	sections: [
+		['ITAC Knowledge Bank', 'itacKnowledgeBank'],
+	],
+	hiddenSections: [],
+	permissionRelations: permissionRelations,
+	typeRelations: typeRelations,
+	tagRelations: tagRelations,
+	filterRelations: filterRelations,
+	streamType: 'content',
+	type: "itacKnowledgeBank",
+	entryType: "itacKnowledgeBank",
+	nopack: true,
+	exclude: exclude,
+	contentlimit: contentlimit
+} %}
+
+{% block content %}
+	{# {% set contentlimit = stream.loadQuantityDefault*1.5|round %} #}
+
+	{# {% set idsHavingCategory = craft.entries.section("itacKnowledgeBank").relatedTo(relationParam).limit(null).ids() %} #}
+	{# {% set omitIds = "and, not " ~ idsHavingCategory|join(", not ") %}
+																											  {% set test = craft.entries.section("itacKnowledgeBank").id(omitIds) %}  #}
+
+		<article class="container split-stream"> <section class="refine">
+			{% include 'knowledge-bank/blocks/filters' with {
+        streamOptions: streamOptions,
+        tags: tags,
+        types: types,
+        permissions: permissionLevels
+      } %}
+		</section>
+
+		{% set firstStream %}{% include 'knowledge-bank/entry' with {isPageRequest: true} %}{% endset %}
+		{% set streamEmpty = {streamEmpty: firstStream|trim == ''} %}
+
+		<section class="list filter-red">
+			{% include 'knowledge-bank/blocks/search' %}
+
+			<section id="stream">
+				<div class="col-outer">
+					<div class="stream-module-outer col-outer" data-view="list">
+						<div id="stream-content">
+							{{ firstStream }}
+						</div>
+						{% include 'includes/stream/noresults' with streamEmpty %}
+						{% include 'includes/stream/nomore' %}
+						{% include 'includes/stream/loader' with {loaderid: 'content_loader'} %}
+					</div>
+				</div>
+			</section>
+		</section>
+	</article>
+{% endblock %}

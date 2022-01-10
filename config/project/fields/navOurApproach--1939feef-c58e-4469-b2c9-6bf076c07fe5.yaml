@@ -1,0 +1,14 @@
+contentColumnType: string
+fieldGroup: eb8d5aaa-67b6-434f-a45a-07397e67aa3a
+handle: navOurApproach
+instructions: ''
+name: 'Nav Our Approach'
+searchable: true
+settings:
+  contentTable: '{{%matrixcontent_navourapproach}}'
+  maxBlocks: ''
+  minBlocks: ''
+  propagationMethod: all
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

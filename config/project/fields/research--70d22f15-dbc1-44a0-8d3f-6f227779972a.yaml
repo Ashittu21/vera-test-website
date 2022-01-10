@@ -1,0 +1,14 @@
+contentColumnType: string
+fieldGroup: bfa76867-af45-4883-a44a-09f0bf26852e
+handle: research
+instructions: ''
+name: Research
+searchable: true
+settings:
+  contentTable: '{{%matrixcontent_research}}'
+  maxBlocks: ''
+  minBlocks: ''
+  propagationMethod: all
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

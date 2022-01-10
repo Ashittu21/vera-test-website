@@ -1,0 +1,51 @@
+:root {
+  --global-color-dark-violet: #0E002C;
+  --global-color-medium-violet: #160643;
+  --global-color-violet: #2E1D97;
+  --global-color-light-violet: #3E2BB1;
+  --global-color-red: #EF4136;
+  --global-color-red-2: #DA392F;
+  --global-color-sand: #FFF7F0;
+  --global-color-sunflower: #FF9E44;
+  --global-color-dark-sand: #CEC0BC;
+  --global-color-darker-sand: #D2BAB4;
+  --global-color-mint: #ABFFEB;
+  --global-color-dark-mint: #97DFD1;
+  --global-color-white: #FFFFFF;
+  --global-color-text: #0A0319;
+  --global-color-gray-text: #4A4A4A;
+  --global-font-abc-whyte: 'ABC Whyte';
+  --global-font-sectra: 'GT Sectra';
+  --breakpoint-mobile: $tablet-portrait;
+}
+
+.main-content{
+  background-color: var(--global-color-sand);
+  margin: 0 auto;
+}
+
+.d-none{
+  display: none;
+}
+
+
+body.nav-pad:not(.no-pad) {
+  padding-top: 0px;
+}
+
+/*
+ *  Colors
+ */
+
+ .bgColor-sand {
+  background-color: var(--global-color-sand);
+ }
+
+ .bgColor-darkviolet {
+  background-color: var(--global-color-dark-violet);
+ }
+
+
+#content {
+  background-color: var(--global-color-sand);
+}

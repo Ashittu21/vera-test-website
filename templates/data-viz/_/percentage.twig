@@ -1,0 +1,25 @@
+{% set shifts = [] %}
+{% for shift in block.percentagePeopleShift %}
+{% set shifts = shifts | merge([{
+  percentageHighlighted: shift.percentageHighlighted
+}]) %}
+{% endfor %}
+<div
+  id="graph--{{ block.id }}"
+  class="data-viz-fact-wrapper percentage-people-visualization h3"
+  data-percentage-people-shifts='{{ shifts | json_encode | e("html_attr") }}'
+  data-point-type="person">
+  {% if block.percentagePeopleShift[0] and block.percentagePeopleShift[0].caption %}
+  <div class="data-viz-fact-caption left">{{ block.percentagePeopleShift[0].caption }}</div>
+  {% endif %}
+  {% if block.percentagePeopleShift[1] and block.percentagePeopleShift[1].caption %}
+  <div class="data-viz-fact-caption right">{{ block.percentagePeopleShift[1].caption }}</div>
+  {% endif %}
+  <div class="data-viz-fact-visualization"></div>
+</div>
+
+{% includeJs %}
+  $(function(){
+    VERA.initPercentagePeopleData()
+  })
+{% endincludejs %}

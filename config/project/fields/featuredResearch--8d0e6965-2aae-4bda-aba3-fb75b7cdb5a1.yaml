@@ -1,0 +1,25 @@
+contentColumnType: string
+fieldGroup: b7c07949-c4d1-4af6-a996-017773fd0ef5
+handle: featuredResearch
+instructions: ''
+name: 'Featured Research'
+searchable: true
+settings:
+  allowSelfRelations: false
+  limit: '3'
+  localizeRelations: false
+  selectionLabel: ''
+  showSiteMenu: true
+  source: null
+  sources:
+    - 'section:abd4843a-d96f-4c91-8d77-5628cfabd622'
+    - 'section:4b7c3d23-1010-47d7-9813-9b5a7707aa63'
+    - 'section:de58574e-6015-4303-8825-6fc4fec23327'
+    - 'section:cce065ab-4801-487f-ad16-459f0c429f5d'
+    - 'section:11a5943b-22d1-4871-8aac-84c7de4dec8e'
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Entries

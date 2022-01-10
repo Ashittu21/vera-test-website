@@ -1,0 +1,31 @@
+contentColumnType: string
+fieldGroup: a1574b52-b575-41d9-9fdd-13f2294a57f2
+handle: relatedContent
+instructions: 'Choose up to 3 pieces of content to appear at the end of the post.  If less than 3 are selected, the balance will be filled with blog posts from the same series or blog posts from shared Issues'
+name: 'Related Content'
+searchable: true
+settings:
+  allowSelfRelations: false
+  limit: '3'
+  localizeRelations: false
+  selectionLabel: ''
+  showSiteMenu: true
+  source: null
+  sources:
+    - 'section:abd4843a-d96f-4c91-8d77-5628cfabd622'
+    - 'section:2076decf-5547-47d8-9fba-9d8f1d52e7e3'
+    - 'section:0bb1ed95-7e43-4188-ba83-d2664a129c14'
+    - 'section:a3a7829e-21fa-4e92-b2a9-533a264d176e'
+    - 'section:8753af07-1f2f-4ef8-8fbb-a94f2fd2330b'
+    - 'section:38aa58cd-ad86-413c-a4d5-6fb79ce7e7e3'
+    - 'section:4b7c3d23-1010-47d7-9813-9b5a7707aa63'
+    - 'section:de58574e-6015-4303-8825-6fc4fec23327'
+    - 'section:cce065ab-4801-487f-ad16-459f0c429f5d'
+    - 'section:3b26894b-140e-447a-a0d8-d7a4ab147aaa'
+    - 'section:11a5943b-22d1-4871-8aac-84c7de4dec8e'
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Entries

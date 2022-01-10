@@ -1,0 +1,292 @@
+field: 89c0844f-f8a5-42b7-9048-c2c34c928972
+fieldLayouts:
+  6ce23a39-b040-4502-af3b-deb6259249fd:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 0d1aab00-6af9-419a-9fba-10947196ab47
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: a7c20e6c-69ab-4cb7-9bbc-aa777c7f0108
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: f3bfbd2d-2eef-4902-8cb7-24e90c448620
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 0087f1e2-ffd6-44a0-9fcd-92e1193a4752
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 1ebb095e-9ca3-4c00-b64a-400c4d9fc287
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  0087f1e2-ffd6-44a0-9fcd-92e1193a4752:
+    contentColumnType: string
+    fieldGroup: null
+    handle: auditedFinancials
+    instructions: ''
+    name: 'Audited Financials'
+    searchable: true
+    settings:
+      allowSelfRelations: false
+      allowUploads: true
+      allowedKinds:
+        - pdf
+      defaultUploadLocationSource: 'volume:a48d5d4c-e94e-40ca-b140-801253b0f802'
+      defaultUploadLocationSubpath: ''
+      limit: '1'
+      localizeRelations: false
+      previewMode: full
+      restrictFiles: '1'
+      selectionLabel: 'Add a pdf'
+      showSiteMenu: true
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: true
+      singleUploadLocationSource: 'volume:f268e466-b078-41f2-a13d-e38afcce3b27'
+      singleUploadLocationSubpath: '{owner.slug}/financials/{year}'
+      source: null
+      sources: '*'
+      targetSiteId: null
+      useSingleFolder: true
+      validateRelatedElements: false
+      viewMode: large
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+  0d1aab00-6af9-419a-9fba-10947196ab47:
+    contentColumnType: text
+    fieldGroup: null
+    handle: year
+    instructions: ''
+    name: Year
+    searchable: true
+    settings:
+      columnType: text
+      dropdownOptions: "{% for year in \"now\"|date(\"Y\")..2013 %}\r\n{ \"value\":\"{{ year }}\", \"label\":\"{{ year }}\" {% if year == \"now\"|date(\"Y\") %} , \"default\":true{% endif %}\r\n}{% if not loop.last %},{% endif %}\r\n{% endfor %}"
+    translationKeyFormat: null
+    translationMethod: none
+    type: lewisjenkins\craftdynamicfields\fields\Dropdown
+  1ebb095e-9ca3-4c00-b64a-400c4d9fc287:
+    contentColumnType: string
+    fieldGroup: null
+    handle: form990
+    instructions: ''
+    name: 'Form 990'
+    searchable: true
+    settings:
+      allowSelfRelations: false
+      allowUploads: true
+      allowedKinds:
+        - pdf
+      defaultUploadLocationSource: 'volume:a48d5d4c-e94e-40ca-b140-801253b0f802'
+      defaultUploadLocationSubpath: ''
+      limit: '1'
+      localizeRelations: false
+      previewMode: full
+      restrictFiles: '1'
+      selectionLabel: 'Add a pdf'
+      showSiteMenu: true
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: true
+      singleUploadLocationSource: 'volume:f268e466-b078-41f2-a13d-e38afcce3b27'
+      singleUploadLocationSubpath: '{owner.slug}/financials/{year}'
+      source: null
+      sources: '*'
+      targetSiteId: null
+      useSingleFolder: true
+      validateRelatedElements: false
+      viewMode: large
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+  a7c20e6c-69ab-4cb7-9bbc-aa777c7f0108:
+    contentColumnType: text
+    fieldGroup: null
+    handle: spending
+    instructions: ''
+    name: 'How we spent our funds'
+    searchable: true
+    settings:
+      addRowLabel: 'Add a row'
+      columnType: text
+      columns:
+        __assoc__:
+          -
+            - col1
+            -
+              __assoc__:
+                -
+                  - heading
+                  - Percentage
+                -
+                  - handle
+                  - percentage
+                -
+                  - width
+                  - '2'
+                -
+                  - type
+                  - number
+          -
+            - col2
+            -
+              __assoc__:
+                -
+                  - heading
+                  - Explainer
+                -
+                  - handle
+                  - explainer
+                -
+                  - width
+                  - ''
+                -
+                  - type
+                  - singleline
+      defaults:
+        -
+          __assoc__:
+            -
+              - col1
+              - ''
+            -
+              - col2
+              - 'Programs and Services'
+        -
+          __assoc__:
+            -
+              - col1
+              - ''
+            -
+              - col2
+              - Administration
+        -
+          __assoc__:
+            -
+              - col1
+              - ''
+            -
+              - col2
+              - Fundraising
+      maxRows: ''
+      minRows: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Table
+  f3bfbd2d-2eef-4902-8cb7-24e90c448620:
+    contentColumnType: text
+    fieldGroup: null
+    handle: sources
+    instructions: ''
+    name: 'Sources of grants and contributions'
+    searchable: true
+    settings:
+      addRowLabel: 'Add a row'
+      columnType: text
+      columns:
+        __assoc__:
+          -
+            - col1
+            -
+              __assoc__:
+                -
+                  - heading
+                  - Percentage
+                -
+                  - handle
+                  - percentage
+                -
+                  - width
+                  - 10%
+                -
+                  - type
+                  - number
+          -
+            - col2
+            -
+              __assoc__:
+                -
+                  - heading
+                  - Explainer
+                -
+                  - handle
+                  - explainer
+                -
+                  - width
+                  - ''
+                -
+                  - type
+                  - singleline
+      defaults:
+        -
+          __assoc__:
+            -
+              - col1
+              - ''
+            -
+              - col2
+              - Federal
+        -
+          __assoc__:
+            -
+              - col1
+              - ''
+            -
+              - col2
+              - 'State and City'
+        -
+          __assoc__:
+            -
+              - col1
+              - ''
+            -
+              - col2
+              - Foundations
+        -
+          __assoc__:
+            -
+              - col1
+              - ''
+            -
+              - col2
+              - 'Other Private Sources'
+      maxRows: ''
+      minRows: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Table
+handle: year
+name: Year
+sortOrder: 1

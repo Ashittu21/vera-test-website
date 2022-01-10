@@ -1,0 +1,96 @@
+field: aaeef9a5-570c-459c-b786-2041b449abf0
+fieldLayouts:
+  abe9deb3-7abf-4ce5-8baf-0887f5fc9b17:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: e13d685b-44de-4a5f-ba07-75341ea2154b
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 6fceead7-0fb4-4d98-a030-c79167fe52f5
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: ac5427bb-f1b2-44aa-81de-ae20c2c3246b
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  6fceead7-0fb4-4d98-a030-c79167fe52f5:
+    contentColumnType: text
+    fieldGroup: null
+    handle: callout
+    instructions: ''
+    name: Callout
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  ac5427bb-f1b2-44aa-81de-ae20c2c3246b:
+    contentColumnType: text
+    fieldGroup: null
+    handle: afterText
+    instructions: ''
+    name: 'After Text'
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  e13d685b-44de-4a5f-ba07-75341ea2154b:
+    contentColumnType: text
+    fieldGroup: null
+    handle: beforeText
+    instructions: ''
+    name: 'Before Text'
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+handle: stat
+name: Stat
+sortOrder: 1

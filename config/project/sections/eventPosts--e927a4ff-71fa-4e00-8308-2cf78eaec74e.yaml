@@ -1,0 +1,11 @@
+enableVersioning: true
+handle: eventPosts
+name: 'Event Posts'
+propagationMethod: all
+siteSettings:
+  8ed9f980-84ac-470d-94d7-89a2cdb64916:
+    enabledByDefault: true
+    hasUrls: true
+    template: event-posts/_entry
+    uriFormat: 'events/{% if object.relatedEventSeries.first %}{{ object.relatedEventSeries.first.slug }}/{% endif %}{slug}'
+type: channel

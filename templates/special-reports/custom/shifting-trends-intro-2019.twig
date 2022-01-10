@@ -1,0 +1,85 @@
+{% extends '_ajax_layout' %}
+
+{% includeJs %}
+{% include 'special-reports/custom/shifting-trends-intro.js' %}
+{% endincludejs %}
+
+{% block content %}
+<div class="scroll-section color-combo--black-white">
+  <article class="nys landing-header" data-anchor-link="{{ entry.url }}">
+    {% include 'includes/snippets/scroll-to-continue' %}
+    <!-- NY Map -->
+    <div id="nys">{% include 'special-reports/custom/nys.svg' %}</div>
+
+    <!-- Scroll phrases over map -->
+    <section class="intro container">
+      <div class="intro-phrases">
+      {% set introPhrases = [
+        {
+          copy: "For decades, the story of jail incarceration in New York was considered a big city problem.",
+          alignment: "left"
+        },
+        {
+          copy: "The Tombs.",
+          alignment: "left"
+        },
+        {
+          copy: "The Boat.",
+          alignment: "left"
+        },
+        {
+          copy: "Rikers Island.",
+          alignment: "left"
+        },
+        {
+          copy: "Yet today, New York City’s jail numbers have dropped by more than half, while jails in the rest of the state have grown.",
+          alignment: "right"
+        },
+        {
+          copy: "Three out of five New Yorkers in jail on any given day are held in facilities in the 57 counties outside New York City.",
+          alignment: "right"
+        },
+        {
+          copy: "The trend is clear: New York City is no longer the driver of jail incarceration in our state.",
+          alignment: "right"
+        }
+      ] %}
+        {% for phrase in introPhrases %}
+        <div class="phrase {{ phrase.alignment }}">{{ phrase.copy }}</div>
+        {% endfor %}
+
+      </div>
+
+      <h1 class="title">{{ entry.title }}</h1>
+
+      <aside class="subtitle">{{ entry.subtitle }}</aside>
+    </section>
+
+    {# <section class="hero-statement article-hero scaler-container ">
+      <div class="ambient-video-wrap">
+          <video class="ambient-video" autoplay="" loop="">
+            <source src="/dist/img/nys_banner.mp4">
+          </video>
+        </div>
+
+      <div class="scaler"></div>
+
+      <div class="screen"></div>
+
+      <div class="inner container">
+        <p>{{ "New York is in the midst of considering important criminal justice reforms – including bail, due process, and speedy trial – to reduce the overuse of jail." | shortcodes | raw }}</p>
+      </div>
+    </section> #}
+
+    {# <section class="secondary-statement container">
+      <div class="inner">
+        <p>We’re at a moment of growing consensus that incarceration should be a last resort, and not the default option, in our criminal justice system. Understanding the extent of the problem and exploring solutions is critical to enacting reforms that will succeed.</p>
+      </div>
+    </section> #}
+  </article>
+</div>
+
+
+{% endblock %}
+
+{% block footer %}{% endblock %}

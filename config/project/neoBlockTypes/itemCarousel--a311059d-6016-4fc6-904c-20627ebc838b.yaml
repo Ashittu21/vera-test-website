@@ -1,0 +1,35 @@
+childBlocks:
+  - carouselItem
+field: 4cc124d8-7ee1-43a4-9aa0-5b5b6fcfe1cc
+fieldLayouts:
+  cc3f5c87-bbc4-49c0-a7e2-358cfc0165b7:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 6d55dc34-f791-481d-ba5b-e6594c191d67
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 042ab8f0-cbe4-451d-87a1-86511084b456
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: 'Tab 1'
+        sortOrder: 1
+handle: itemCarousel
+maxBlocks: 0
+maxChildBlocks: 0
+maxSiblingBlocks: 0
+name: 'Item Carousel'
+sortOrder: 26
+topLevel: false

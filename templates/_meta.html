@@ -1,0 +1,157 @@
+{% header "Strict-Transport-Security: max-age=31536000" %}
+{% header "X-Frame-Options: SAMEORIGIN" %}
+{% header "X-XSS-Protection: 1; mode=block" %}
+{% header "X-Content-Type-Options: nosniff" %}
+
+{# Globalish vars #}
+{% set specialReportTypes = [
+  'specialReport',
+  'specialReportSingle',
+  'story',
+  'specialReportChaptered',
+  'specialReportCampaign',
+  'article',
+  'gallery',
+  'stateOf'
+] %}
+{% set serialTypes = [
+	'topic',
+	'page',
+	'stateOf'
+] %}
+{# end global vars  #}
+
+{% set allowedOrigins = ["https://vera.loc","http://localhost:3000","https://vera.test"] %}
+{% set origin = craft.request.getHostInfo() %}
+{% if origin in allowedOrigins %}
+{% header "Access-Control-Allow-Origin: " ~ origin %}
+{% endif %}
+
+{% set v = "1.0.08" %}
+{% set title = title ?? seomaticMeta.seoTitle ?? null %}
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+
+<head>
+
+  <!-- swiper -->
+  <link  rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/808596d26d.js"  crossorigin="anonymous"></script>
+  
+  {#<!-- 	<script src="https://cdn.optimizely.com/js/1135080016.js"></script> -->#}
+  <meta charset="utf-8" />
+  <meta property="fb:pages" content="104760636770" />
+  <meta name="facebook-domain-verification" content="rnu32rfxo22sjnrj3znub1a4x3m1cv" />
+
+  <title>
+    {% if title is defined and title is not null and entry is defined and entry and entry.slug != 'home' %}
+    {{ title }}
+    |
+    {% endif %}Vera Institute
+    {% if entry is defined and entry and entry.slug is not null and entry is defined and entry.slug == 'home' %}
+    of Justice
+    {% endif %}
+  </title>
+  <link rel="home" href="{{ siteUrl }}" />
+
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css" />
+  <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+
+  <link rel="stylesheet" href="/dist/css/main.combined.min.css?v={{ v }}" />
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge;">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, maximum-scale=1.0" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  {% if getenv('ENVIRONMENT') != 'production' or (entry is defined and entry['requireLogin']) -%}
+  <meta name="ROBOTS" content="NOINDEX">
+  {% endif -%}
+  <link rel="shortcut icon" href="/dist/icons/vera128.ico" type="image/icon" />
+
+  <!-- Standard SEO -->
+  {% set seomaticTemplatePath = 'seomatic' %}
+  {% hook 'seomaticRender' %}
+
+  <!-- Hotjar Tracking Code for https://vera.org -->
+  <script>
+    (function (h, o, t, j, a, r) {
+      h.hj = h.hj || function () {
+        (h.hj.q = h.hj.q || []).push(arguments)
+      };
+      h._hjSettings = {
+        hjid: 724554,
+        hjsv: 6
+      };
+      a = o.getElementsByTagName('head')[0];
+      r = o.createElement('script');
+      r.async = 1;
+      r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+      a.appendChild(r);
+    })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
+  </script>
+
+  <!-- Start Alexa Certify JavaScript -->
+  <script type="text/javascript">
+    _atrk_opts = {
+      atrk_acct: "V7qZr1FYxz20cv",
+      domain: "vera.org",
+      dynamic: true
+    };
+    (function () {
+      var as = document.createElement('script');
+      as.type = 'text/javascript';
+      as.async = true;
+      as.src = "https://certify-js.alexametrics.com/atrk.js";
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(as, s);
+    })();
+  </script>
+  <noscript><img src="https://certify.alexametrics.com/atrk.gif?account=V7qZr1FYxz20cv" style="display:none" height="1"
+      width="1" alt="" /></noscript>
+  <!-- End Alexa Certify JavaScript -->
+
+  <meta name="google-site-verification" content="fQZtb85e-J7dDkE9XD3MY6B8ObyCZlUaD53c7A7FW5o" />
+</head>
+
+<body class="no-touch nav-pad {% block bodyClass %}{% endblock %}"> {% block body %}{% endblock %}
+
+  <div class="tooltip_templates hide-on-print"></div>
+
+  {# {% if currentUser and (entry is defined and entry or category is defined) %}
+											{% set editlink = entry.cpEditUrl ?? category.cpEditUrl %}
+											<a id="edit_entry" class="hide-on-print" href="{{ editlink }}" target="_blank">Edit</a>
+										{% endif %} #}
+
+  {% if (entry is defined and entry.slug != "about") %}
+      {# exclude d3 for map on about page, but but other components my have dependencies #}
+      {% includeJsFile "https://d3js.org/d3.v4.min.js" %}
+  {% endif %}
+
+  <script src="https://d3js.org/d3-fetch.v1.min.js"></script>
+  {% includeJsFile "https://d3js.org/topojson.v2.min.js" %}
+
+  <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"
+    integrity="sha384-ajC4CCgR7fiujIzFLHLqpewfMIbYF1sf9+pN24RRtCVn/TADEg4M27n6c7lwYCp2"
+    crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+
+  <script src="/dist/js/libs.js?v={{ v }}"></script>
+  <script src="/dist/js/main.js?v={{ v }}"></script>
+
+  {% if "donate" not in craft.request.getSegment(1) %}
+  <script type="text/javascript">
+    window.addEventListener("load", function () {
+      var sn_modal_script = document.createElement('script');
+      sn_modal_script.src = "/sanky-modal/js/main.js?" + (
+        new Date
+      ).getTime();
+      document.querySelector('body').appendChild(sn_modal_script);
+    });
+  </script>
+  {% endif %}
+</body>
+
+</html>

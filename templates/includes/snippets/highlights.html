@@ -1,0 +1,18 @@
+{% if entry.highlights | length %}
+<section class="post-module module-highlights {{ entry.type == 'publicationOverview' ? 'publication-highlights' : 'project-highlights' }}{% if showHairline is defined and showHairline %} hairline{% endif %}">
+	<div class="container">
+		<h3>{{ entry.type == 'publicationOverview' ? 'Publication Highlights' : 'Project Objectives' }}</h3>
+		  
+
+		<ul class="blocks blocks--3up">
+			{% for hl in entry.highlights %}
+				<li>{{ hl.text }}</li>
+			{% endfor %}
+		</ul>
+
+		{% if entry.type == 'publicationOverview' %}
+		<aside class="hr"></aside>
+		{% endif %}
+	</div>
+</section>
+{% endif %}

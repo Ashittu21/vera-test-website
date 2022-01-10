@@ -1,0 +1,14 @@
+childBlocks:
+  - text
+  - number
+  - percentage
+  - ratio
+  - time
+field: 810d49e8-da69-46a8-abae-c210803fc32e
+handle: basic
+maxBlocks: 1
+maxChildBlocks: 0
+maxSiblingBlocks: 0
+name: Basic
+sortOrder: 1
+topLevel: true

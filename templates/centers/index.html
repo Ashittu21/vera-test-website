@@ -1,0 +1,10 @@
+{% set layout = '_layout' %}
+
+{% block content %}
+	<h1>Centers Landing</h1>
+	<ul>
+	{% for center in craft.entries.section('centers') %}
+		<li><a href="{{center.url}}">{{ center }}</a></li>
+	{% endfor %}
+	</ul>
+{% endblock %}

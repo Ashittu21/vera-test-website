@@ -1,0 +1,17 @@
+{% set ajaxLayout = ajaxLayout ?? false %}
+{% extends (not craft.request.isAjax and not ajaxLayout) ? "_layout" : "_ajax_layout" %}
+
+{% block content %}
+<article class="slideout--article">
+	{% if craft.request.isAjax %}
+	<div class="slideout_close">
+	{% include 'includes/_svg/slideoutarrow.svg' %}
+	</div>
+	{% endif %}
+	<h1>{{ entry.title }}</h1>
+
+	{% for piece in entry.slideoutBuilder.level(1) %}
+		{% include 'includes/_blocks/slideoutPieces/' ~ piece.type %}
+	{% endfor %}
+</article>
+{% endblock %}

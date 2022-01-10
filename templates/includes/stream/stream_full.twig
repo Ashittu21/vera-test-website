@@ -1,0 +1,123 @@
+{# Set a streamOptions object before including this!
+
+	Example:
+	{% set streamOptions = {
+		title: 'Stream Title',
+		news: boolean, whether or not stream has news column - REQUIRED,
+		keyword: boolean, false removes keyword from filter,
+		sections: [
+			['Section Name displayed in filter', 'sectionHandle'],
+		],
+		filterRelations: array of objects as such [{type: 'categories', relations: [craftmodel], title: 'Action Areas'}]
+		primaryRelation: object as such {type: 'categories' or 'entries' depending on context, relations: [craftmodel]}
+	} %}
+
+ #}
+
+{# default section set #}
+{% if streamOptions.sections is not defined %}
+	{% set streamOptions = streamOptions|merge({sections: [
+		['Blog Posts', 'blogPosts'],
+		['Spotlights', 'spotlights'],
+		['Publications', 'publications'],
+		['Audio', 'audio'],
+		['Video', 'video'],
+		['Resource Sites', 'resourceSite'],
+		['Projects', 'projects'],
+		['Special Reports', 'specialReports'],
+		['Initiatives', 'initiatives']
+	]}) %}
+{% endif %}
+
+{% set dontExcludeFeatured = streamOptions.dontExcludeFeatured ?? false %}
+
+{% if entry is defined and entry.type.handle in ['ourProjects'] %}
+	{% set streamOptions = streamOptions|merge({showArchived: true}) %}
+{% endif %}
+
+{% if streamOptions.streamType is not defined %}
+	{% set streamOptions = streamOptions|merge({streamType: 'content'}) %}
+{% endif %}
+
+{% set contentlimit, newslimit = stream.loadQuantityDefault, stream.loadQuantityDefault*1.5|round %}
+
+{% set ispeople = streamOptions.streamType == 'people' %}
+
+{% set firstNews %}{% include 'includes/stream/news' %}{% endset %}
+{% if firstNews|trim == 'null' %}
+	{% set streamOptions = streamOptions|merge({news: false}) %}
+{% endif %}
+
+{% if entry is defined and (entry.featuredContent or entry.featuredProjects or entry.featuredResearch or entry.featuredPost or entry.featuredProjectRelatedWork) and not dontExcludeFeatured %}
+	{% set featureids = entry.featuredContent ? entry.featuredContent.ids() : entry.featuredProjects ? entry.featuredProjects.ids() : entry.featuredResearch ? entry.featuredResearch.ids() : entry.featuredPost ? entry.featuredPost.ids() : entry.featuredProjectRelatedWork ? entry.featuredProjectRelatedWork.ids() : [] %}
+	{% set exclude = ['and'] %}
+	{% for id in featureids %}
+		{% set exclude = exclude|merge(['not '~id]) %}
+	{% endfor %}
+{% endif %}
+
+{% set firstStream %}{% include 'includes/stream/stream' %}{% endset %}
+{% set streamEmpty = {streamEmpty: firstStream|trim == ''} %}
+
+{% set listView = craft.request.getParam('list') ?? null %}
+
+<section id="stream">
+	<div class="stream-outer">
+		<div class="container col-outer">
+
+			<div class="stream-module-outer col-outer{% if streamOptions.news == true %} two-thirds{% endif %}" data-view="{% if listView %}list{% else %}grid{% endif %}">
+				{% if streamOptions.title is defined %}
+				<h4>{{ streamOptions.title }}</h4>
+				{% endif %}
+				{% set filterIncludes = {} %}
+				{% if exclude is defined %}
+					{% set filterIncludes = filterIncludes | merge({exclude: exclude}) %}
+				{% endif %}
+				{% if streamOptions.showKeyResources is defined %}
+					{% set filterIncludes = filterIncludes | merge({showKeyResources: streamOptions.showKeyResources}) %}
+				{% endif %}
+
+				{% include 'includes/stream/stream_filter' with filterIncludes %}
+
+				<div id="stream-content" class="mason-box">
+
+					<!-- Stream Content Goes Here -->
+
+					{{ firstStream }}
+
+					<div class="grid-sizer"></div>
+
+					<div class="gutter-sizer"></div>
+
+				</div>
+
+				{% include 'includes/stream/noresults' with streamEmpty %}
+
+				{% include 'includes/stream/nomore' %}
+
+				{% include 'includes/stream/loader' with {loaderid: 'content_loader'} %}
+
+			</div>
+			
+
+			{% if streamOptions.news == true %}
+				<div id="news-content" class="one-third">
+
+					<h4>In the News</h4>
+
+					<!-- News Content Goes Here -->
+
+					{{ firstNews }}
+
+					{% include 'includes/stream/loader' with {loaderid: 'news_loader'} %}
+
+				</div>
+			{% endif %}
+		</div>
+		{% if hasMap is defined and hasMap%}
+		<div id="stream-map" class="container">
+		{% include 'includes/stream/stream_map' %}
+		</div>
+		{% endif %}
+		</div>
+</section>

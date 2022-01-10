@@ -1,0 +1,18 @@
+contentColumnType: text
+fieldGroup: a1574b52-b575-41d9-9fdd-13f2294a57f2
+handle: twitterHandle
+instructions: ''
+name: 'Twitter handle'
+searchable: true
+settings:
+  byteLimit: null
+  charLimit: null
+  code: false
+  columnType: text
+  initialRows: '4'
+  multiline: ''
+  placeholder: ''
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

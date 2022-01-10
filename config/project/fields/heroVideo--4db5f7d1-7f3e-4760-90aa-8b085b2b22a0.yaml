@@ -1,0 +1,9 @@
+contentColumnType: string
+fieldGroup: ff6bca1c-2054-4260-a21f-2d7007b1c024
+handle: heroVideo
+instructions: ''
+name: 'Hero Video'
+searchable: true
+translationKeyFormat: null
+translationMethod: none
+type: dukt\videos\fields\Video

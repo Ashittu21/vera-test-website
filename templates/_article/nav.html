@@ -1,0 +1,6 @@
+{% set pages = pages is defined ? pages : block.navItems | length ? block.navItems : entry.children.excludeFromNav('not 1') %}
+
+{% include 'includes/snippets/grid-nav-module' with {
+  pages: pages,
+  className: block['navLayout'] is defined ? block.navLayout.value : null
+} %}

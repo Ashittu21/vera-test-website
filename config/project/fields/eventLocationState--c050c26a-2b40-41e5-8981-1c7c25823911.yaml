@@ -1,0 +1,18 @@
+contentColumnType: string
+fieldGroup: 6c478341-da6f-434d-b58e-1f381004c510
+handle: eventLocationState
+instructions: ''
+name: 'Event Location State'
+searchable: true
+settings:
+  byteLimit: null
+  charLimit: '2'
+  code: false
+  columnType: string
+  initialRows: '4'
+  multiline: ''
+  placeholder: ''
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

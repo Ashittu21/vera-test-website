@@ -1,0 +1,14 @@
+contentColumnType: string
+fieldGroup: 6c478341-da6f-434d-b58e-1f381004c510
+handle: eventAgenda
+instructions: 'If this event has an agenda, add each item here'
+name: 'Event Agenda'
+searchable: true
+settings:
+  contentTable: '{{%matrixcontent_eventagenda}}'
+  maxBlocks: null
+  minBlocks: null
+  propagationMethod: all
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

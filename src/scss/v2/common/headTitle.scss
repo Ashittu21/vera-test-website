@@ -1,0 +1,72 @@
+.headTitle {
+  width: 100%;
+  overflow: hidden;
+
+  
+  &-content{
+    max-width: $desktop-ml;
+    margin: 0 auto;
+    padding-top: 114px;
+    padding-bottom: 80px;
+    overflow: visible;
+
+    .headTitle-title {
+      color: white;
+      $separator-padding: 0 10px;
+      .separator {
+        overflow: visible;
+        position: relative;
+        text-align: center;
+        text-align: left;
+        margin-left: 10px;
+        
+        &:before {
+          content: "";
+          display: inline-block;
+          width: 10000px;
+          height: 1px;
+          border-top: 2px solid var(--global-color-light-violet);
+          position: absolute;
+          bottom: 1rem;
+          left: 0;
+        }
+        
+        span {
+          position: relative;
+          padding-right: 1rem;
+          display: inline;
+          max-width: 80%;
+          background-color: var(--global-color-dark-violet);
+          white-space: nowrap;
+          font-family: var(--global-font-sectra);
+          font-size: 60px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: 69px;
+          letter-spacing: 0em;
+          text-align: left;
+          box-sizing: content-box;
+          @media (max-width: $mobile-large) {
+            font-size: 30px;
+            line-height:35px;
+            max-width: 50%;
+            white-space: normal;
+          }
+        } 
+      }
+    }
+
+    &--small{
+      padding-top: 25px;
+      padding-bottom: 25px;
+      .headTitle-title {
+        .separator {
+          span{
+            font-size: 35px;
+            line-height:35px;
+          }
+        }
+      }
+    }
+  }
+}

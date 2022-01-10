@@ -1,0 +1,120 @@
+.rotated-square-cta {
+    width: 300px;
+    height: 300px;
+    position: relative;
+    display: table;
+    margin: 0 auto $padding-lg;
+
+    @media (min-width: $mobile-large) {
+        width: 360px;
+        height: 360px;
+    }
+
+    @media (min-width: $tablet-landscape) {
+        margin-bottom: 0;
+    }
+
+    &:before {
+        content: '';
+        display: block;
+        width: 300px;
+        height: 300px;
+        background: $lt-gray-alt;
+        background-blend-mode: multiply;
+        @include transform(rotate(10deg));
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+
+        @media (min-width: $mobile-large) {
+            width: 360px;
+            height: 360px;
+        }
+    }
+}
+
+.rotated-square-cta__inner {
+    position: relative;
+    z-index: 2;
+    width: 300px;
+    height: 300px;
+    display: table-cell;
+    vertical-align: middle;
+    padding: $padding-sm;
+    background: rgba(0,0,0,0.6);
+    overflow: hidden;
+
+    @media (min-width: $mobile-large) {
+        width: 360px;
+        height: 360px;
+    }
+
+    &:before {
+        content: '';
+        display: block;
+        width: 300px;
+        height: 300px;
+        background: $black;
+        background-blend-mode: multiply;
+        @include transform(rotate(10deg));
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+
+        @media (min-width: $mobile-large) {
+            width: 360px;
+            height: 360px;
+        }
+    }
+}
+
+.square-red {
+    .rotated-square-cta__inner {
+        background: $lt-gray;
+
+        &:before {
+            background: $red;
+        }
+    }
+
+    .btn:hover {
+        background: $white;
+        color: $red;
+    }
+}
+
+.rotated-square-cta__content {
+    position: relative;
+    z-index: 3;
+    color: $white;
+    text-align: center;
+
+    h3 {
+        @include body-font;
+        @include font-size(3.2);
+        margin-bottom: $padding-med;
+
+        @media (min-width: $tablet-portrait) {
+            @include font-size(3.5);
+        }
+    }
+
+    h4 {
+        @extend .ff-sans--bold;
+        @include font-size(2.2);
+        line-height: 1.5;
+        padding: 0 $padding-xxs;
+    }
+
+    .btn {
+        border-color: $white;
+        color: $white;
+        margin-top: $padding-sm;
+    }
+}

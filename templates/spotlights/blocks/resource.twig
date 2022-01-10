@@ -1,0 +1,10 @@
+{% set module = block.resource[0] ?? null %}
+{% if module %}
+<section class="SpotlightResource SpotlightResource--{{ block.alignText.value }}">
+{% include 'includes/stream/stream_module' with {size: 'full'} %}
+<div class="SpotlightResource-explainer stream-module stream-module--secondary--desc">
+  <div>{{ block.explainer}}</div>
+  <a class="btn receives-color receives-border-color" href="{{ block.resource[0].url }}">{{ block.buttonText | default("Explore") }}</a>
+</div>
+</section>
+{% endif %}

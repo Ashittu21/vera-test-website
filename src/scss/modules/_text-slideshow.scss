@@ -1,0 +1,68 @@
+// ============================================
+// Full Page Text Slides
+// ============================================
+
+.article-text-slideshow {
+  height: 100%;
+  // width: 100%;
+
+  margin-left: -$padding-sm;
+  width: 100vw;
+
+  @media (min-width: $mobile-large)    { margin-left: -$padding-med*2; }
+  @media (min-width: $tablet-portrait) { margin-left: -$padding-lg; }
+  @media (min-width: $desktop-ml)      { margin-left: -$padding-lg*2 };
+  @media (min-width: $desktop-large)   { margin-left: -$padding-sm*5; }
+}
+
+.article-text-slide.h3 {
+  align-items: center;
+  display: flex;
+  font-size: 22px;
+  padding: 0 $padding-sm;
+  min-height: 100vh;
+
+  @media (min-width: $mobile-large) {
+    padding: 0 $padding-med*2;
+  }
+
+  @media (min-width: $tablet-portrait) {
+    font-size: 30px;
+    padding: 0 $padding-lg;
+  }
+
+  @media (min-width: $tablet-landscape) {
+    font-size: 40px;
+  }
+
+  @media (min-width: $desktop-medium) {
+    font-size: 50px;
+  }
+
+  @media (min-width: $desktop-ml) {
+    padding: 0 $padding-lg*2;
+  }
+
+  @media (min-width: $desktop-large) {
+    padding: 0 $padding-sm*5;
+  }
+
+  .article-text-slide__wrapper {
+    max-width: 100%;
+    visibility: hidden;
+
+
+    @media (min-width: $tablet-landscape) { max-width: 80%; }
+
+    // TODO: we may want to create a custom redactor class here different color options...
+    p {
+      color: $white;
+      display: inline;
+    }
+  }
+}
+
+
+// Page specific overrides go here...
+// ============================================
+

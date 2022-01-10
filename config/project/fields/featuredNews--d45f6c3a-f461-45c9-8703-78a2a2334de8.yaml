@@ -1,0 +1,22 @@
+contentColumnType: string
+fieldGroup: 72dc75d0-00df-43ca-8e65-29ebf5aec99f
+handle: featuredNews
+instructions: ''
+name: 'Featured News'
+searchable: true
+settings:
+  allowSelfRelations: false
+  limit: '1'
+  localizeRelations: false
+  selectionLabel: ''
+  showSiteMenu: true
+  source: null
+  sources:
+    - 'section:a3a7829e-21fa-4e92-b2a9-533a264d176e'
+    - 'section:8753af07-1f2f-4ef8-8fbb-a94f2fd2330b'
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Entries

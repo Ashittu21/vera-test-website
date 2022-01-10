@@ -1,0 +1,85 @@
+{% if owner is defined %}
+{% set owner = owner.level == 1 ? owner : owner.ancestors.level(1).first %}
+
+{% set stateData = {} %}
+{% for state in owner.children %}
+{% if state.stateCode %}
+  {% set stateData = stateData | merge({
+    (state.stateCode): {
+      url: state.url,
+      pdfUrl: state.pdfDownload | length ? state.pdfDownload[0].url : null
+    }
+  }) %}
+  {% endif %}
+{% endfor %}
+
+{% endif %}
+
+{% set mapTitle = entry.heading ?? entry.title %}
+{% set baseUrl = baseUrl ?? entry.url %}
+{% set anchorUrl = entry is defined ? entry.url ~ '#' ~ (mapTitle | camel) ~ "?selectmap=STATE_NUMBER:MARKER_ID" : null %}
+
+<article id="{{ "map__" ~entry.id }}"  class="StateHeatmapWithLinks us-map light" data-analytics-event='["Map","Click","{{ mapTitle | escape("html_attr") }}"]'>
+	<div class="container">
+	{% if currentUser %}
+	<span class="anchorLink">{{ anchorUrl }}</span>
+	{% endif %}
+	<div class="map__header">
+    <div class="map__title_wrap">
+      <h1 class="map__title">{{ mapTitle }}</h1>
+    </div>
+    {% if entry.overview %}
+    <div class="map__overview_wrap size--body ff-serif">
+      {{ entry.overview }}
+    </div>
+    {% endif %}
+	</div>
+	<div class="map__inner-container">
+		<div class="map_wrap map-with-key">
+			<div class="map_inner_wrap">
+				<svg class="project-map-svg" fill="none" stroke="#000" stroke-linejoin="round" stroke-linecap="round"></svg>
+				<div class="tooltip">
+					<div class="title"></div>
+					<div class="subtitle"></div>
+				</div>
+				{% include 'includes/stream/loader' %}
+			</div>
+		</div>
+	</div>
+	</div>
+</article>
+{% set tooltipColumns = [] %}
+{% for column in entry.tooltipColumns %}
+{% set tooltipColumns = tooltipColumns | merge([
+  {
+    column: column.column,
+    label: column.label ?: column.column
+  }
+]) %}
+{% endfor %}
+{% set heatmapThresholds = [] %}
+{% for column in entry.heatmapThresholds %}
+{% set heatmapThresholds = heatmapThresholds | merge([
+  {
+    value: column.value,
+    label: column.label
+  }
+]) %}
+{% endfor %}
+{% js %}
+$(function() {
+  VERA.stateHeatmapWithLinks(
+    "#{{ "map__" ~ entry.id }}", 
+    {{ entry.dataset[0].url | json_encode | raw }}, 
+    {{ entry.tooltipHeadingColumn | json_encode | raw }},
+    {{ tooltipColumns | json_encode | raw }},
+    {{ entry.tooltipYear | json_encode | raw }},
+    {{ entry.heatmapColumn | json_encode | raw }},
+    {{ entry.heatmapColumnLabel | json_encode | raw }},
+    {{ entry.heatmapYear | json_encode | raw }},
+    {{ heatmapThresholds | json_encode | raw }},
+    {{ (stateData ?? null) | json_encode | raw }}
+  );
+})
+{% endjs %}
+{% includeJsFile '/dist/twigscripts/stateHeatmapWithLinks.js' %}

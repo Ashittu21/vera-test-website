@@ -1,0 +1,77 @@
+childBlocks:
+  - video
+  - heatmap
+  - photo
+field: 4cc124d8-7ee1-43a4-9aa0-5b5b6fcfe1cc
+fieldLayouts:
+  3ff26367-bf2e-421c-a09d-d603a806d891:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: ef9d964d-8e5e-4929-8c4c-1de8d3785586
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 042ab8f0-cbe4-451d-87a1-86511084b456
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 92cb73a2-98e7-4fcc-a761-66c914096587
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: cdd69614-1f5c-4e2a-adba-487e2ca87ee0
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+      -
+        elements:
+          -
+            fieldUid: 85da19ca-611c-4645-8f66-51694fb36829
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 3f1e58bc-9abc-4c00-b977-b3a1dfbe6bb1
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Settings
+        sortOrder: 2
+handle: standardBlock
+maxBlocks: 0
+maxChildBlocks: 0
+maxSiblingBlocks: 0
+name: 'Standard Block'
+sortOrder: 2
+topLevel: false

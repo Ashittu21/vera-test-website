@@ -1,0 +1,18 @@
+contentColumnType: text
+fieldGroup: 19837e8c-c89c-4572-8569-fa8556eb36ce
+handle: shortOverview
+instructions: ''
+name: 'Short Overview'
+searchable: true
+settings:
+  byteLimit: null
+  charLimit: '600'
+  code: false
+  columnType: text
+  initialRows: '4'
+  multiline: '1'
+  placeholder: ''
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

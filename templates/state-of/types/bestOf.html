@@ -1,0 +1,8 @@
+{% set landing = entry %}
+{% set openArticle = true %}
+
+{% extends extends ?? craft.request.isAjax ? 'state-of/_ajax_layout' : 'state-of/_layout'%}
+
+{% block article %}
+{% include 'state-of/_/bestOfList' %}
+{% endblock %}

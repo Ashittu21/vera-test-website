@@ -1,0 +1,34 @@
+contentColumnType: string
+fieldGroup: a1574b52-b575-41d9-9fdd-13f2294a57f2
+handle: reviewStatus
+instructions: ''
+name: 'Review Status'
+searchable: true
+settings:
+  optgroups: true
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - 'For Review'
+        -
+          - value
+          - 'For Review'
+        -
+          - default
+          - '1'
+    -
+      __assoc__:
+        -
+          - label
+          - 'Ready to Publish'
+        -
+          - value
+          - 'Ready to Publish'
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

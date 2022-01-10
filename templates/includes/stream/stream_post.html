@@ -1,0 +1,80 @@
+{% set module_class_prefix = 'post-module' %}
+<section class="post-module post-module__list-view stream-thing">
+	<div class="post-module__meta-outer">
+		<div class="post-module__meta__top">
+
+			{% include 'includes/stream/stream_authors' %}
+
+			{% set issues = module.relatedIssues ?? null %}
+			{% set actionAreas = [] %}
+			{% for issue in issues %}
+				{% if issue.level == 2 and issue not in actionAreas %}
+					{% set actionAreas = actionAreas | merge([issue]) %}
+				{% endif %}
+			{% endfor %}
+			{% if issues %}
+				<ul class="post-module__actionAreas">
+					{% for actionArea in actionAreas %}
+						{% set aa = craft.entries.section('ourWork').relatedTo(actionArea).first %}
+						<li>
+							<a href="{{ aa.url }}">
+								<div class="img-outer">
+									{% set icon = actionArea.actionAreaIcon[0] ?? null %}
+									{% if icon %}
+										<img src="{{ icon.url }}">
+									{% endif %}
+								</div>
+								<div class="text-outer">
+									{{ actionArea }}
+								</div>
+							</a>
+						</li>
+					{% endfor %}
+				</ul>
+			{% endif %}
+
+		</div>
+
+		<div class="post-module__meta">
+			<span class="post-module__meta__date">{{ module.postDate | date('F d, Y') }}</span>
+			{% if commentCount is defined and commentCount > 0 %}
+				<span class="post-module__meta__comments">{{ commentCount}}
+					Comments</span>
+			{% endif %}
+		</div>
+	</div>
+
+	<div class="post-module__content">
+		<div class="post-module__content-inner">
+
+			{% if module.type.handle == 'post' and module.relatedSeries | length %}
+				<p class="{{ module_class_prefix }}__blogSeries">{{ 'Series: '~module.relatedSeries.first.title }}</p>
+			{% endif %}
+
+			<h3 class="post-module__heading">
+				<a href="{{ module.url }}">{{ module }}</a>
+			</h3>
+
+			<p class="post-module__subheading">
+				{% if module.section.handle in ['knowledgeBank'] %}
+					{{ module.shortOverview }}
+				{% else %}
+					{% set article = module.article %}
+					{% set continue = true %}
+					{% set preview = '' %}
+					{% for block in article if continue == true %}
+						{% if block['text'] is defined %}
+							{% set preview = block.text %}
+							{% set continue = false %}
+						{% endif %}
+					{% endfor %}
+					{% set previewlength = 260 %}
+					{% set previewtext = preview|striptags %}
+					{{ previewtext[:previewlength]}}
+					{% if previewtext|length > previewlength %}...
+					{% endif %}
+				{% endif %}
+			</p>
+		</div>
+	</div>
+</section>

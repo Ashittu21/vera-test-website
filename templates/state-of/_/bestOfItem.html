@@ -1,0 +1,26 @@
+{% set isTwitter = entry.type.handle == 'twitter' %}
+
+{% if isTwitter %}
+{% set twitterUser = craft.twitter.get('users/show', {screen_name: entry.twitterHandle}) %}
+{% endif %}
+{% set link = isTwitter ? 'https://twitter.com/' ~ entry.twitterHandle : entry.linkUrl %}
+{% set body = entry.plaintext %}
+<li class="best-of-item {{ entry.type.handle }}">
+	<a href="{{ link }}" target="_blank">
+		{% if isTwitter and twitterUser %}
+		<img src="{{ twitterUser.profile_image_url_https | replace('_normal','_200x200') }}">
+		{% endif %}
+		
+		<div class="inner">
+			<div class="heading">{{ entry.title }}</div>
+			
+			{% if entry.subheading %}
+			<aside class="subheading">{{ entry.subheading }}</aside>
+			{% endif %}
+			
+			{% if body %}
+			<div class="body">{{ body | nl2br }}</div>
+			{% endif %}
+		</div>
+	</a>
+</li>

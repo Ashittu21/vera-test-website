@@ -1,0 +1,8 @@
+<div class="module-text">
+	{% for point in piece.timeline.timelineEntry %}
+	<div class="timeline-entry">
+		<span class="year">{{ point.year }}</span>
+		<div class="copy rte">{{ point.copy | shortcodes }}</div>
+	</div>
+	{% endfor %}
+</div>

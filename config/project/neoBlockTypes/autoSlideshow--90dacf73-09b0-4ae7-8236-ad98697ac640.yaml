@@ -1,0 +1,25 @@
+childBlocks: ''
+field: 4cc124d8-7ee1-43a4-9aa0-5b5b6fcfe1cc
+fieldLayouts:
+  21f7f98f-fb3b-49b6-aec4-952e721fc5fd:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: ff6813a3-947e-4c5b-b5df-51e0fd4c489f
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: 'Tab 1'
+        sortOrder: 1
+handle: autoSlideshow
+maxBlocks: 0
+maxChildBlocks: 0
+maxSiblingBlocks: 0
+name: 'Auto Slideshow'
+sortOrder: 34
+topLevel: true

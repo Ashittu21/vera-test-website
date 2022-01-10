@@ -1,0 +1,106 @@
+.Split-Screen {
+  @media (min-width: $tablet-portrait) {
+    display: flex;
+    min-height: 100vh;
+
+    .Split-Screen-panel {
+      width: 50%;
+    }
+  }
+}
+
+.Split-Screen-panel--sticky {
+  position: sticky;
+  top: $mobile-header-height;
+  height: calc(100vh - #{$mobile-header-height});
+  // top: 0;
+  // height: 100vh;
+
+  @media (min-width: $mobile-breakpoint) {
+    height: calc(100vh - #{$header-height});
+    top: $header-height;
+  }
+}
+
+.Hero-Split-Screen {
+  .logo--name {
+    margin: $padding-xs;
+  }
+}
+
+.Hero-Split-Screen-panel {
+
+}
+
+.Hero-Split-Screen-panel--title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: $padding-lg;
+  text-align: center;
+  position: relative;
+  padding-top: #{$mobile-header-height + $padding-lg};
+  padding-bottom: #{$mobile-header-height + $padding-lg};
+
+  @media (min-width: $mobile-breakpoint) {
+    //padding-top: $padding-lg;
+  }
+
+  .heading,
+  h1.heading {
+    @extend .ff-serif;
+  }
+
+  .heading,
+  .subheading {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%; //IE11
+  }
+
+  .subheading,
+  .share-outer {
+    margin-top: $padding-lg;
+  }
+
+  .share-outer {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .next-slide-wrap {
+    position: absolute;
+    bottom: .5em;
+    left: 0;
+  }
+
+  .Hero-Split-Screen-panel-logos {
+    margin-top: 1em;
+  }
+}
+
+.Hero-Split-Screen-panel--images {
+  height: 100vh;
+  top: 0;
+
+  img {
+    object-fit: cover;
+    height: 100%;
+  }
+}
+
+.Hero-Split-Screen-panel-logos {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.Hero-Split-Screen-panel-logo {
+  width: 100px;
+  height: 100%;
+  margin: 1em;
+  &, * {
+    @extend .receives-fill-color;
+  }
+}

@@ -1,0 +1,7 @@
+{% if entry.singlePage %}
+	{% include 'special-reports/onepage' %}
+{% elseif entry.children | length %}
+	{% redirect entry.children.first.url %}
+{% else %}
+No Chapters or stories have been added yet.
+{% endif %}

@@ -1,0 +1,42 @@
+field: 95bc127b-3520-49ff-803a-7352214068b1
+fieldLayouts:
+  5670c5ee-72ba-458f-8418-58e921cb6fbd:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 09437311-620f-40b1-b0d5-7a10fed5beea
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  09437311-620f-40b1-b0d5-7a10fed5beea:
+    contentColumnType: string
+    fieldGroup: null
+    handle: entry
+    instructions: ''
+    name: Entry
+    searchable: true
+    settings:
+      allowSelfRelations: false
+      limit: ''
+      localizeRelations: false
+      selectionLabel: ''
+      showSiteMenu: true
+      source: null
+      sources: '*'
+      targetSiteId: null
+      validateRelatedElements: false
+      viewMode: null
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Entries
+handle: featuredEntry
+name: 'Featured Entry'
+sortOrder: 16

@@ -1,0 +1,21 @@
+description: null
+handle: meisterPublications
+name: Meister_Publications
+permissions:
+  - accessplugin-workflow
+  - accesscp
+  - 'createentries:4b7c3d23-1010-47d7-9813-9b5a7707aa63'
+  - 'publishentries:4b7c3d23-1010-47d7-9813-9b5a7707aa63'
+  - 'deleteentries:4b7c3d23-1010-47d7-9813-9b5a7707aa63'
+  - 'publishpeerentries:4b7c3d23-1010-47d7-9813-9b5a7707aa63'
+  - 'deletepeerentries:4b7c3d23-1010-47d7-9813-9b5a7707aa63'
+  - 'editpeerentries:4b7c3d23-1010-47d7-9813-9b5a7707aa63'
+  - 'publishpeerentrydrafts:4b7c3d23-1010-47d7-9813-9b5a7707aa63'
+  - 'deletepeerentrydrafts:4b7c3d23-1010-47d7-9813-9b5a7707aa63'
+  - 'editpeerentrydrafts:4b7c3d23-1010-47d7-9813-9b5a7707aa63'
+  - 'editentries:4b7c3d23-1010-47d7-9813-9b5a7707aa63'
+  - 'publishentries:1c0991d2-8d3d-4a8d-90ee-ec6e35184075'
+  - 'publishpeerentrydrafts:1c0991d2-8d3d-4a8d-90ee-ec6e35184075'
+  - 'deletepeerentrydrafts:1c0991d2-8d3d-4a8d-90ee-ec6e35184075'
+  - 'editpeerentrydrafts:1c0991d2-8d3d-4a8d-90ee-ec6e35184075'
+  - 'editentries:1c0991d2-8d3d-4a8d-90ee-ec6e35184075'

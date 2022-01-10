@@ -1,0 +1,40 @@
+field: 91d891dc-1fee-45bd-9011-10cd107659d1
+fieldLayouts:
+  a55517ab-9cc6-43f6-a678-6e79638d524a:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: b310fc07-d0e2-435b-8433-53bf6e09ce05
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  b310fc07-d0e2-435b-8433-53bf6e09ce05:
+    contentColumnType: text
+    fieldGroup: null
+    handle: copy
+    instructions: ''
+    name: Copy
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+handle: largeBlockQuote
+name: 'Large Block Quote'
+sortOrder: 6

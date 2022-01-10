@@ -1,0 +1,19 @@
+<section
+  class="carousel-slideshow color-combo--{{ block.colorCombo.value }}">
+  {% for block in block.children %}
+  <div class="carousel-slideshow-item carousel-slideshow-item--{{ block.type }}">
+    <div class="carousel-slideshow-item-media">
+    {% switch block.type %}
+      {% case 'photoCaption' %}
+      {% if block.photo | length %}<img src="{{ block.photo[0].url }}">{% endif %}
+      {% case 'videoCaption' %}
+      <video muted src="{{ block.videoFile[0].url }}" playsinline />
+      {% default %}
+    {% endswitch %}
+    </div>
+    <div class="carousel-slideshow-item-caption">
+      <div class="carousel-slideshow-item-caption-inner receives-background-color">{{ block.caption }}</div>
+    </div>
+  </div>
+  {% endfor %}
+</section>

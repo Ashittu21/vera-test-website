@@ -1,0 +1,31 @@
+<div class="post-sidebar__series sidebar_module {{ entry.type.handle == 'blogSeries' or entry.type == 'blog' ? 'post-sidebar__series--blog'}}">
+	{% if entry.type.handle in ['blogSeries', 'blog'] %}
+	<h3>Blog Series</h3>
+	{% endif %}
+	<ul class="sidebar__grid">
+	{% for series in seriesList.with('heroImage', 'streamImageSquare') %}
+		<li>
+			
+			{% set bannerImg = series.streamImageSquare[0] ?? null %}
+
+			<a href="{{ series.url }}">
+			{% if bannerImg %}
+				<div class="img-outer">
+					<img src="{{ bannerImg.url }}" alt="{{ series }}"/>
+				</div>
+			{% else %}
+				{% set bannerImg = series.heroImage[0] ?? null %}
+				{% if bannerImg %}
+				<div class="img-outer">
+					<img src="{{ bannerImg.getUrl('square300') }}" alt="{{ series }}"/>
+				</div>
+				{% endif %}
+			{% endif %}
+				<div class="text-outer">
+					{{ series }}{% if series.subtitle %}: {{ series.subtitle }}{% endif %}
+				</div>
+			</a>
+		</li>
+	{% endfor %}
+	</ul>
+</div>

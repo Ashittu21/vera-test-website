@@ -1,0 +1,7 @@
+{% set type = entry.type.handle %}
+{% include 'state-of/types/' ~ type %}
+{% includeJs %}
+$(function() {
+	Site.images.fadein();
+});
+{% endincludejs %}

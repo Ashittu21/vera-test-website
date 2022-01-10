@@ -1,0 +1,23 @@
+enableVersioning: true
+handle: eventSeries
+name: 'Event Series'
+previewTargets:
+  -
+    __assoc__:
+      -
+        - label
+        - 'Primary entry page'
+      -
+        - urlFormat
+        - '{url}'
+propagationMethod: all
+siteSettings:
+  8ed9f980-84ac-470d-94d7-89a2cdb64916:
+    enabledByDefault: true
+    hasUrls: true
+    template: event-series/_entry
+    uriFormat: 'events/{slug}'
+structure:
+  maxLevels: 1
+  uid: 9581e66a-6b38-4d1e-936f-63c93562c264
+type: structure

@@ -1,0 +1,25 @@
+childBlocks: ''
+field: 75256f9f-0390-4224-9dc5-5a1c66deba01
+fieldLayouts:
+  182cad6b-47d1-4a12-b9c1-cfffd0adcd9d:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 1d279d15-deb4-4130-9960-d8677f7568cb
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: 'Tab 1'
+        sortOrder: 1
+handle: timeline
+maxBlocks: 0
+maxChildBlocks: 0
+maxSiblingBlocks: 0
+name: Timeline
+sortOrder: 4
+topLevel: true

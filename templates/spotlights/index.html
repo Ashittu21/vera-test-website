@@ -1,0 +1,27 @@
+{% set entry = craft.entries.section('ourWork').type('ourWork').first %}
+
+{% extends "_layout" %}
+
+{% block content %}
+	{% set spotlightHeading = entry.spotlightHeading[0] ?? null %}
+	{% set spotlights = craft.entries.section('spotlights').level(1).unpublished('not 1').requireLogin('not 1').order('postDate DESC') %}
+	{% if spotlights | length >= 3 %}
+		{% set spotlightHeading = entry.spotlightHeading[0] ?? null %}
+		{% if spotlightHeading %}
+			<section class="post-module module-text module-text--small">
+				<div class="container">
+					<h3>{{ spotlightHeading.spotlightTitle }}</h3>
+					{{ spotlightHeading.spotlightExplainer }}
+				</div>
+			</section>
+		{% endif %}
+		<section class="module-spotlight-grid" data-view="grid">
+			<div class="container col-outer">
+
+				{% for module in spotlights %}
+					{% include 'includes/stream/stream_module' with {size: 'half'} %}
+				{% endfor %}
+			</div>
+		</section>
+	{% endif %}
+{% endblock %}

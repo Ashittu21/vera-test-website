@@ -1,0 +1,25 @@
+childBlocks: ''
+field: 75256f9f-0390-4224-9dc5-5a1c66deba01
+fieldLayouts:
+  6cc39823-fac4-4c36-b089-ace856be9048:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: eae3a888-10a7-4bc2-91ea-cd7d537c0ab0
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+handle: floatedImage
+maxBlocks: 0
+maxChildBlocks: 0
+maxSiblingBlocks: 0
+name: 'Floated Image'
+sortOrder: 3
+topLevel: false

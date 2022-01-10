@@ -1,0 +1,80 @@
+{% spaceless %}
+
+{% set heading = heading ?? 'Related' %}
+
+{% set relatedContent = null %}
+
+{% set defaultSections = ['blogPosts', 'spotlights', 'publications', 'audio', 'video', 'resourceSite', 'projects', 'specialReports'] %}
+
+{% if entry.relatedContent | length %}
+
+	{% set relatedContent = entry.relatedContent.requireLogin('not 1').unpublished('not 1').parentUnpublished([':empty:',0]) %}
+
+{% endif %}
+
+{% if relatedContent | length < 3 %}
+	{% if entry.relatedSeries | length %}
+		{% set relations = entry.relatedSeries %}
+	{% elseif entry.relatedIssues | length %}
+    {% set relations = entry.relatedIssues %}
+  {% else %}
+    {% set relations = null %}
+	{% endif %}
+
+	{% set excludes = ['and','not '~entry.id] %}
+
+	{% if relatedContent %}
+		{% for id in relatedContent.ids() %}
+			{% set excludes = excludes | merge(['not '~id]) %}
+		{% endfor %}
+	{% endif %}
+
+  {% set remaining = 3 - relatedContent | length %}
+  
+	{% set queryObj = {
+		section: defaultSections,
+		limit: remaining,
+		order: 'postDate desc',
+		relatedTo: relations,
+		level: ['or',null,1],
+		id: excludes,
+		requireLogin: 'not 1',
+		unpublished: 'not 1',
+		parentUnpublished: [':empty:',0]
+  } %}
+  
+  {% set additionalContent = craft.entries(queryObj) %}
+	{% set relatedContent = relatedContent | length ? (relatedContent | merge(additionalContent)) : additionalContent %}
+
+{% endif %}
+{% endspaceless %}
+
+{% if relatedContent | length %}
+<section id="stream" class="hide-on-print">
+	<div class="stream-outer">
+		<div class="container col-outer">
+
+			<div class="stream-module-outer col-outer" data-view="grid">
+
+				<h4>{{ heading }}</h4>
+
+				<!-- Stream Content Goes Here -->
+
+				<div id="stream-content">
+
+					{% for module in relatedContent %}
+
+						{% include 'includes/stream/stream_module' with {size: 'half'} %}
+
+					{% endfor %}
+
+					<article class="stream-module stream-module--uc stream-module--uc--half stream-thing empty"></article>
+
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+</section>
+{% endif %}

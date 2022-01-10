@@ -1,0 +1,120 @@
+.JailBudgetExplorer {
+  margin-top: $padding-xl;
+  margin-bottom: $padding-xl;
+}
+
+.JailBudget {
+  @extend .ff-sans;
+  font-size: 16px;
+  border-bottom: 1px solid $lt-gray;
+  width: 100%;
+
+  th {
+    font-weight: bold;
+    text-align: left;
+
+    &:nth-last-child(2),
+    &:last-child {
+      text-align: right;
+    }
+  }
+  td,
+  th {
+    padding-left: 0.25em;
+    padding-right: 0.25em;
+  }
+}
+
+.JailBudget-heading {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.JailBudget-total {
+  font-weight: bold;
+  font-size: 1.25em;
+  td {
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+  }
+}
+.JailBudget-header {
+  @extend .ff-sans--bold;
+  font-size: 14px;
+  text-transform: uppercase;
+  border-top: 0 !important;
+  border-bottom: 2px solid;
+}
+.JailBudget-row {
+  display: flex;
+  align-items: center;
+  border-top: 1px solid $lt-gray;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+.JailBudget-row--level1 {
+  .JailBudget-row-title {
+    font-size: 21px;
+  }
+}
+.JailBudget-row--level2 {
+  .JailBudget-row-title {
+    font-size: 18px;
+  }
+}
+.JailBudget-row--level3 {
+  .JailBudget-row-title {
+    font-size: 16px;
+  }
+}
+.JailBudget-row--level4 {
+  .JailBudget-row-title {
+    font-size: 14px;
+  }
+}
+.JailBudget-row-title {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.JailBudget-row-title--haschildren {
+  cursor: pointer;
+  &:before {
+    content: "";
+    width: 14px;
+    height: 14px;
+    background-image: url("/dist/icons/select-down.svg");
+    background-repeat: none;
+    background-size: 100% 100%;
+    display: block;
+    margin-right: 0.5em;
+    transform: rotate(0deg);
+    transition: transform 0.3s;
+  }
+  &.open:before {
+    transform: rotate(180deg);
+  }
+}
+.JailBudget-row-total {
+  min-width: 10rem;
+  text-align: right;
+}
+.JailBudget-row-percentage {
+  min-width: 8rem;
+  text-align: right;
+}
+.JailBudget-row-source {
+  min-width: 16rem;
+  text-align: right;
+}
+
+.JailBudget-row--total {
+  font-weight: bold;
+  font-size: 16px;
+  background-color: $lt-gray;
+  // .JailBudget-row-title {
+  //   font-size: 24px;
+  // }
+}

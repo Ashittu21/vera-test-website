@@ -1,0 +1,21 @@
+{% if relatives | length %}
+<article class="sidebar__{{ relativeType }} sidebar_module">
+    <h5 class="sidebar__label">{{ relativeTitle }}{% if relatives | length > 1 %}s{% endif %}</h5>
+
+    {% if relativeType == 'people' %}
+        {% set people = relatives %}
+        {% include 'includes/snippets/people' %}
+    {% else %}
+    <ul class="{{ sidebar_class }}">
+        {% for relative in relatives %}
+            <li>
+                {% if relative.url %}<a href="{{ relative.url }}">{% endif %}
+                    <div class="text-outer">{{ relative }}</div>
+                {% if relative.url %}</a>{% endif %}
+            </li>
+        {% endfor %}    
+    </ul>
+    {% endif %}
+</article>
+
+{% endif %}

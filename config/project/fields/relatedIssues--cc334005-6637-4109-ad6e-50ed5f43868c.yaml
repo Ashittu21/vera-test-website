@@ -1,0 +1,23 @@
+contentColumnType: string
+fieldGroup: a49b71d0-4d2e-4176-adc3-275acb9215d6
+handle: relatedIssues
+instructions: ''
+name: 'Related Issues'
+searchable: true
+settings:
+  allowLimit: false
+  allowMultipleSources: false
+  allowSelfRelations: false
+  branchLimit: ''
+  limit: null
+  localizeRelations: false
+  selectionLabel: 'Add an issue'
+  showSiteMenu: true
+  source: 'group:e9238f39-d971-424b-b284-e310c48657b7'
+  sources: '*'
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Categories

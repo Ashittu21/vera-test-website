@@ -1,0 +1,68 @@
+{% if isEditorial %}
+	{% if entry.heroType in ['editorialIntroduction'] %}
+		{% set parent = entry.parent %}
+		{% set title = parent.title %}
+		{% set overview = entry.introParagraph %}
+		{% set long = title | length > 40 %}
+	{% else %}
+		{% set title = entry.title %}
+		{% set overview = null %}
+	{% endif %}
+
+	{% set extraLong = false %}
+	{% set subtitle = entry.subtitle %}
+	{# set chapterCount = parent.children.positionedBefore(entry).count() ?? null #}
+	{% set long = true %}
+
+	{% if entry.heroType == 'campaignSlide' and entry.resourceListBlock | length %}
+		{% set extraLong = true %}
+	{% endif %}
+
+
+	{# We want to render the title_wrap div for the slideshow differently #}
+	{% if entry.heroType == 'campaignSlide' and entry.specialReportsArticle| length and entry.specialReportsArticle[0].type.handle in 'entriesSlideshow' %}
+
+		{% set title = entry.specialReportsArticle.first().heading ? entry.specialReportsArticle.first().heading : title %}
+		{% set subtitle = entry.specialReportsArticle.first().subheading ? entry.specialReportsArticle.first().subheading : subtitle %}
+
+		<div class="title_wrap {% if long %}long{% endif %} js-fade-out no-pad--left">
+			{% if chapterCount is defined and chapterCount %}
+				<aside class="chapter-count">{{ chapterCount }}</aside>
+			{% endif %}
+			<div class="line"></div>
+			<h1 class="title">{{ title }}</h1>
+			{% if subtitle %}
+				<p class="subtitle">{{ subtitle }}</p>
+			{% endif %}
+			{% if nextButton %}
+				<button class="next-slide" title="Scroll Down" aria-label="Scroll Down">Scroll Down</button>
+			{% endif %}
+		</div>
+
+		<div class="carousel_wrap">{% include 'includes/snippets/article' with { article: entry.specialReportsArticle, theme: entry.chapterTheme } %}</div>
+
+	{% else %}
+
+		<div class="title_wrap {% if long %}long{% endif %}{% if extraLong %} long--extra{% endif %}">
+			{% if chapterCount is defined and chapterCount %}
+				<aside class="chapter-count">{{ chapterCount }}</aside>
+			{% endif %}
+			<div class="line"></div>
+			<h1 class="title">{{ title }}</h1>
+			{% if subtitle %}
+				<p class="subtitle">{{ subtitle }}</p>
+			{% endif %}
+			{% if overview %}
+				<p class="overview">{{ overview }}</p>
+			{% endif %}
+			{% if nextButton %}
+				<button class="next-slide" title="Scroll Down" aria-label="Scroll Down">Scroll Down</button>
+			{% endif %}
+
+			{% if entry.heroType == 'campaignSlide' %}
+				{% include 'includes/snippets/article' with { article: entry.specialReportsArticle, theme: entry.chapterTheme.value } %}
+			{% endif %}
+		</div>
+	{% endif %}
+
+{% endif %}

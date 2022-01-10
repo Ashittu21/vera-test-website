@@ -1,0 +1,97 @@
+{% if entry.type == 'project' and entry.relatedLocations|length %}
+	<h5 class="sidebar__label">Project Locations</h5>
+	{% set states_hash =
+		{
+			'Alabama': 'AL',
+			'Alaska': 'AK',
+			'American Samoa': 'AS',
+			'Arizona': 'AZ',
+			'Arkansas': 'AR',
+			'California': 'CA',
+			'Colorado': 'CO',
+			'Connecticut': 'CT',
+			'Delaware': 'DE',
+			'District Of Columbia': 'DC',
+			'Federated States Of Micronesia': 'FM',
+			'Florida': 'FL',
+			'Georgia': 'GA',
+			'Guam': 'GU',
+			'Hawaii': 'HI',
+			'Idaho': 'ID',
+			'Illinois': 'IL',
+			'Indiana': 'IN',
+			'Iowa': 'IA',
+			'Kansas': 'KS',
+			'Kentucky': 'KY',
+			'Louisiana': 'LA',
+			'Maine': 'ME',
+			'Marshall Islands': 'MH',
+			'Maryland': 'MD',
+			'Massachusetts': 'MA',
+			'Michigan': 'MI',
+			'Minnesota': 'MN',
+			'Mississippi': 'MS',
+			'Missouri': 'MO',
+			'Montana': 'MT',
+			'Nebraska': 'NE',
+			'Nevada': 'NV',
+			'New Hampshire': 'NH',
+			'New Jersey': 'NJ',
+			'New Mexico': 'NM',
+			'New York': 'NY',
+			'North Carolina': 'NC',
+			'North Dakota': 'ND',
+			'Northern Mariana Islands': 'MP',
+			'Ohio': 'OH',
+			'Oklahoma': 'OK',
+			'Oregon': 'OR',
+			'Palau': 'PW',
+			'Pennsylvania': 'PA',
+			'Puerto Rico': 'PR',
+			'Rhode Island': 'RI',
+			'South Carolina': 'SC',
+			'South Dakota': 'SD',
+			'Tennessee': 'TN',
+			'Texas': 'TX',
+			'Utah': 'UT',
+			'Vermont': 'VT',
+			'Virgin Islands': 'VI',
+			'Virginia': 'VA',
+			'Washington': 'WA',
+			'West Virginia': 'WV',
+			'Wisconsin': 'WI',
+			'Wyoming': 'WY'
+		 }
+	%}
+	{% includeJs %}
+	$(function(){
+		{% for loc in entry.relatedLocations  %}
+		$("#mapSVG #{{ states_hash[loc.title] }}").addClass('enabled');
+		{% endfor %}
+
+		$(".map-tooltip").insertAfter('main');
+		$mapTooltip = $(".map-tooltip");
+		$map = $('#mapSVG');
+	
+
+	$('.enabled').hover(function() {
+		$th = $(this);
+		$mapTooltip.css({top: $th.offset().top, left: $th.offset().left});
+		$mapTooltip.addClass('active');
+		$mapTooltip.html($(this).data('name'));
+		if($th.data('no-tip'))
+		{
+			$mapTooltip.addClass('no-tip');
+		}else{
+			$mapTooltip.removeClass('no-tip');
+		}
+
+		}, function() {
+			$mapTooltip.removeClass('active');
+		})
+	
+	});
+	{% endincludejs %}
+	{% include 'includes/snippets/map_svg' %}
+	<div class="map-tooltip"></div>
+{% endif %}

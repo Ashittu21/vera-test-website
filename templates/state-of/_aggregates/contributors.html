@@ -1,0 +1,46 @@
+{% import 'state-of/_/macros' as macros %}
+{% cache %}
+{% set babies = entry.siblings.type('topic') %}
+<article class="default">
+	{% for section in entry.contributorsBuilder.level(1) %}
+	
+	<section class="contibutor-aggregate container line-after">
+		<div class="container">
+			<h2 class="section-heading">{{ section.heading }}</h2>
+			
+			{% switch section.type %}
+			{% case 'group' %}
+			<aside class="section-aside">{{ section.explainer }}</aside>
+			
+			<ul class="indent contributor-list list-reset">
+			{% if section.fieldHandle %}
+			{% set people = craft.entries.section('people').relatedTo({
+				sourceElement: babies,
+				field: section.fieldHandle
+			}) %}
+			{% if people | length %}
+			{% for person in people %}
+			{% include 'state-of/_/person' with { entry: person } %}
+			{% endfor %}
+			{% endif %}
+			{% endif %}
+			
+			{% set people = section.authors %}
+			{% if people | length %}
+			{% for person in people %}
+			{% include 'state-of/_/person' with { entry: person } %}
+			{% endfor %}
+			{% endif %}
+			{# hack to fix flex justify #}
+			<li class="person-item"></li>
+			<li class="person-item"></li>
+			</ul>
+			{% case 'copy' %}
+			<div class="section-body">{{ section.text | shortcodes | raw }}</div>
+			{% default %}
+			{% endswitch %}
+		</div>
+	</section>
+	{% endfor %}
+</article>
+{% endcache %}

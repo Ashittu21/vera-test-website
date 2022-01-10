@@ -1,0 +1,67 @@
+contentColumnType: string
+fieldGroup: 532961b6-a69f-4934-914a-9c266d7a2eb6
+handle: bestOfType
+instructions: ''
+name: 'Best of Type'
+searchable: true
+settings:
+  optgroups: true
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - Podcast
+        -
+          - value
+          - podcast
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - 'Data Viz'
+        -
+          - value
+          - dataViz
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Twitter
+        -
+          - value
+          - twitter
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Book
+        -
+          - value
+          - book
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Documentary
+        -
+          - value
+          - documentary
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

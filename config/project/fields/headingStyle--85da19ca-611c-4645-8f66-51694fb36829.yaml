@@ -1,0 +1,45 @@
+contentColumnType: string
+fieldGroup: 62eaf9ac-7045-45a4-b9c9-6db9b59feaac
+handle: headingStyle
+instructions: ''
+name: 'Heading Style'
+searchable: true
+settings:
+  optgroups: true
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - Default
+        -
+          - value
+          - default
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - 'Red Stripe'
+        -
+          - value
+          - redStripe
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - 'Numbered with Shape'
+        -
+          - value
+          - numberedWithShape
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

@@ -1,0 +1,43 @@
+childBlocks: ''
+field: 4cc124d8-7ee1-43a4-9aa0-5b5b6fcfe1cc
+fieldLayouts:
+  029eb154-9023-4e08-a67a-d8bab3fd8de6:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 92cb73a2-98e7-4fcc-a761-66c914096587
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 042ab8f0-cbe4-451d-87a1-86511084b456
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 6cddc90f-3be3-49e8-9916-47dee0f6d8a2
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+handle: slidePhoto
+maxBlocks: 0
+maxChildBlocks: 0
+maxSiblingBlocks: 0
+name: 'Slide Photo'
+sortOrder: 16
+topLevel: false

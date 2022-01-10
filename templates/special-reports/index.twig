@@ -1,0 +1,23 @@
+{% extends "_layout" %}
+
+{% block content %}
+	{% set items = craft.entries.section(['specialReports','stateOf']).unpublished('not 1').requireLogin('not 1').level(1).order('postDate DESC') %}
+	{% if items | length >= 3 %}
+    {% set heading = entry.heading ?? 'Special Reports' %}
+    {% set explainer = entry.explainer ?? "Spotlights are curated collections of Vera's work that provide context and insights on issues that are prominently featured in the headlines." %}
+    <section class="post-module module-text module-text--small">
+      <div class="container">
+        <h3>{{ heading }}</h3>
+        {{ explainer }}
+      </div>
+    </section>
+		<section class="module-spotlight-grid" data-view="grid">
+			<div class="container col-outer">
+
+				{% for module in items %}
+					{% include 'includes/stream/stream_module' with {size: 'half'} %}
+				{% endfor %}
+			</div>
+		</section>
+	{% endif %}
+{% endblock %}

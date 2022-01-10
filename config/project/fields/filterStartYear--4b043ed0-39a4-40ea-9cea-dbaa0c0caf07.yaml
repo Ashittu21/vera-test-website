@@ -1,0 +1,19 @@
+contentColumnType: integer(10)
+fieldGroup: fcb48724-ea95-4710-b4a5-cda80e408c6d
+handle: filterStartYear
+instructions: ''
+name: 'Filter Start Year'
+searchable: true
+settings:
+  decimals: 0
+  defaultValue: null
+  max: null
+  min: '0'
+  prefix: null
+  previewCurrency: null
+  previewFormat: decimal
+  size: null
+  suffix: null
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Number

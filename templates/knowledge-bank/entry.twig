@@ -1,0 +1,114 @@
+{% spaceless %}
+
+{% set queryString = craft.request.getParam('query') %}
+{% set query = queryString | default("") %}
+{% set searchSections = ['ITAC Knowledge Bank', 'itacKnowledgeBank'] %}
+{% set entryTypes = "itacKnowledgeBank" %}
+{% set streamType = "content" %}
+{% set offset = craft.request.getParam('offset') | default(0) %}
+{% set limit = craft.request.getParam('limit') ?? streamOptions.contentlimit %}
+{% set fields = craft.request.getParam('fields') %}
+{% set fieldValues = craft.request.getParam('fieldValues') %}
+{% set relationsParam = craft.request.getParam('relations') %}
+
+ {% if streamOptions.fieldSearch is defined %}
+    {% set query = query~' '~streamOptions.fieldSearch %}
+{% else %}
+{% endif %}
+{% if query == '' %}
+  {% set order = 'postDate desc' %}
+{% else %}
+  {% set order = 'score' %}
+{% endif %}
+
+{% if craft.request.isAjax %}
+  {% set decoded = relationsParam %}
+{% else %}
+  {% set decoded = ("[" ~ relationsParam ~ "]") | json_decode %}
+{% endif %}
+
+{% set types = ["or"] %}
+{% set tags = ["or"] %}
+{% for item in decoded %}
+{% switch item.category %}
+  {% case "type" %}
+    {% set types = types|merge([item.id]) %}
+  {% case "tag" %}
+    {% set tags = tags|merge([item.id]) %}
+  {% default %}
+{% endswitch %}
+{% endfor %}
+
+{% if craft.request.isAjax %}
+  {% set permissionObjs = craft.request.getParam('permissions') %}
+  {% set permissions = permissionObjs | length > 0 ? ["or"] : null %}
+  {% for item in permissionObjs %}
+    {% set permissions = permissions|merge([
+      item.id
+    ]) %}
+  {% endfor %}
+{% else %}
+  {% set permissions = streamOptions.permissionRelations %}
+{% endif %}
+
+{% set relations = ["and"] %}
+{% if permissions is iterable %}
+{% set relations = relations|merge([permissions]) %}
+{% endif %}
+{% if types|length > 1 %}
+{% set relations = relations|merge([types]) %}
+{% endif %}
+{% if tags|length > 1 %}
+{% set relations = relations|merge([tags]) %}
+{% endif %}
+
+{% if relations | length == 2 %}
+{% set relations = relations[1] %}
+{% endif %}
+
+{% js %}
+  {% if not craft.request.isAjax %}
+  $(function() {
+    var filterfill = {
+      sections: ['ITAC Knowledge Bank', 'itacKnowledgeBank'],
+      types: "itacKnowledgeBank",
+      query: '{{ craft.request.getParam('query') }}',
+      relations: '{{ craft.request.getParam('relations') }}'
+    };
+
+    filterfill.relations = JSON.parse("[" + {{ craft.request.getParam('relations') | json_encode | raw }} + "]");
+    Stream.filter.fillOut(filterfill);
+  });
+  {% endif %}
+{% endjs %}
+
+{% if relations is not defined %}
+{% set relations = null %}
+{% endif %}
+{% set queryObj = {
+    relatedTo: relations,
+    section: searchSections,
+    order: order,
+    unpublished: 'not 1',
+    limit: limit,
+    offset: offset*limit,
+  }
+%}
+
+{% if query | trim != '' %}
+  {% set queryObj = queryObj|merge({
+    search: {
+      query: query,
+      subLeft: true,
+      subRight: true
+    }
+  }) %}
+{% endif %}
+
+{% set stream = craft.entries(queryObj).find() %}
+{% if stream | length %}
+  {% for module in stream %}
+    {% include 'includes/stream/stream_module' %}
+  {% endfor %}
+{% endif %}
+{% endspaceless %}

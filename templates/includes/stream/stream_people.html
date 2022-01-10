@@ -1,0 +1,64 @@
+{# Set a streamOptions object before including this!
+
+	Example:
+	{% set streamOptions = {
+		title: 'Stream Title',
+		news: boolean, whether or not stream has news column - REQUIRED,
+		keyword: boolean, false removes keyword from filter,
+		sections: [
+			['Section Name displayed in filter', 'sectionHandle'],
+		],
+		filterRelations: craft array of relations in filter like action areas or issues
+		primaryRelation: if results need to be related to this page
+		relationType: 'categories' or 'entries' depending on context,
+	} %}
+
+ #}
+
+{% set streamOptions = streamOptions|merge({
+	sections: [
+		['People', 'people']
+	],
+	streamType: 'people',
+	entryType: 'staff',
+	alumnus: 'not 1'
+}) %}
+{% if streamOptions.fieldValues is defined %}
+	{% set streamOptions = streamOptions|merge({fieldValues: streamOptions.fieldValues | merge([{alumnus:'not 1'}])}) %}
+{% else  %}
+	{% set streamOptions = streamOptions|merge({fieldValues: [{alumnus: 'not 1'}]}) %}
+{% endif %}
+
+{% set contentlimit = 50 %}
+
+{% set firstStream %}{% include 'includes/stream/stream' %}{% endset %}
+{% set streamEmpty = {streamEmpty: firstStream|trim == ''} %}
+
+<section id="stream" class="people-grid{% if entry.type == 'about' %} people-grid--highlight{% endif %}">
+	<div{% if not entry.type == 'about' %} class="stream-outer"{% endif %}>
+		<div class="container col-outer">
+			<div class="filter-grid-type {% if not entry.type == 'about' %}stream-module-outer col-outer{% endif %}" data-view="grid">
+				
+				{% if entry.type == 'about' %}
+				
+				<h3>All Staff</h3>
+				
+				{% endif %}
+				
+				{% include 'includes/stream/stream_filter' %}
+				
+				<div id="stream-content">
+				
+				{{ firstStream }}
+				
+				{% include 'includes/stream/noresults' with streamEmpty %}
+				
+				{% include 'includes/stream/nomore' %}
+				
+				</div>
+				
+				{% include 'includes/stream/loader' with {loaderid: 'content_loader'} %}
+				
+			</div>
+		</div>
+</section>

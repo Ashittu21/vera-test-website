@@ -1,0 +1,234 @@
+{% extends '_layout' %}
+
+{% set title = entry.title %}
+
+{% block content %}
+
+	{% include 'includes/snippets/banner__event' %}
+
+	{% if entry.featuredSpeakers|length %}
+		<header class="post-content__single__header post-content__single__header--event">
+			<div class="container">
+				<span class="meta-label">Featuring</span>
+
+				{% set people = entry.featuredSpeakers %}{% include 'includes/snippets/people' with { personEvent: true } %}
+			</div>
+		</header>
+	{% endif %}
+
+	<section class="event container">
+
+		<div class="post-module event-module event__info">
+			{% if entry.eventStartTime < now %}
+				<span class="event__past">Past Event</span>
+			{% else %}
+				{% if entry.registrationLink and not entry.registrationClosed %}
+					<a href="{{ entry.registrationLink }}" class="btn">{{ entry.registrationButtonText ?: "Register" }}</a>
+				{% endif %}
+			{% endif %}
+
+			<div class="event__date-time">
+				{% if entry.eventEndTime and (entry.eventStartTime|date('l, M j, Y') != entry.eventEndTime|date('l, M j, Y')) %}
+					{{ entry.eventStartTime|date('l, M j, Y') }}
+					&mdash;
+					{{ entry.eventEndTime|date('l, M j, Y') }}<br/>
+				{% else %}
+					{{ entry.eventStartTime|date('l, M j, Y') }}<br/>
+				{% endif %}
+				{% if not entry.hideTimes %}
+					{{ entry.eventStartTime|date('g:i A') }}
+					{% if entry.eventEndTime %}
+						&mdash;
+						{{ entry.eventEndTime|date('g:i A') }}
+					{% endif %}
+					{% if entry.timezone %}
+						{{ entry.timezone }}
+					{% endif %}<br/>
+				{% endif %}
+				{{ entry.eventLocationName | nl2br }}
+			</div>
+
+			{% if entry.additionalDetails %}
+				<div class="event__info__details">
+					{{ entry.additionalDetails | nl2br }}
+				</div>
+			{% endif %}
+
+			{% include 'includes/snippets/share_links' %}
+		</div>
+
+
+		{% if entry.embedCode %}
+			{{ entry.embedCode | raw }}
+		{% endif %}
+
+		{% if entry.eventAmbientVideoTop | length %}
+			<div class="event-video-text-top">
+				{% set block = entry.eventAmbientVideoTop[0] %}
+				<div class="post-module event-module rte">{{ block.textAbove | shortcodes }}</div>
+				{% include 'includes/snippets/video' with {video: block.video, class: 'event-overview'} %}
+				<div class="post-module event-module rte">{{ block.textBelow | shortcodes }}</div>
+			</div>
+		{% endif %}
+
+		{% if entry.eventVideo %}
+			{% set video = entry.eventVideo %}
+
+			{% include 'includes/snippets/video' with {video: video, class: 'event-overview'} %}
+		{% endif %}
+
+		{% if entry.additionalEventVideos|length %}
+
+			{% for item in entry.additionalEventVideos %}
+				{% set video = item.eventVideo %}
+				{% include 'includes/snippets/video' with {video: video, class: 'event-overview'} %}
+			{% endfor %}
+
+		{% endif %}
+
+		<div class="post-module event-module event__description rte">{{ entry.eventOverview }}</div>
+
+		{% if entry.eventAgenda|length %}
+			<aside class="hr"></aside>
+
+			<div class="post-module event-module event__agenda">
+				<h3>Agenda</h3>
+
+				<table>
+					<tbody>
+						{% for item in entry.eventAgenda %}
+							<tr>
+								<td>
+									{{ item.startTime|date('g:i A')}}
+									-
+									{{ item.endTime|date('g:i A') }}
+									{% if entry.timezone %}
+										{{ entry.timezone }}
+									{% endif %}
+								</td>
+								<td>
+									{{ item.description }}
+								</td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+		{% endif %}
+
+		{% if entry.eventSpeakers|length %}
+			<aside class="hr"></aside>
+
+			<div class="post-module event-module event__speakers">
+				<h3>Speakers</h3>
+
+				<ul class="event__speakers__list">
+					{% for speaker in entry.eventSpeakers %}
+						{% if speaker.type == 'veraSpeaker' %}
+							{% set person = speaker.speaker.first %}
+							{% set name = person.title %}
+							{% set title = person.jobTitle %}
+							{% set headshot = person.headshot[0] ?? null %}
+						{% elseif speaker.type == 'guestSpeaker' %}
+							{% set name = speaker.speakerName %}
+							{% set title = speaker.speakerTitle %}
+							{% set headshot = speaker.speakerHeadshot[0] ?? null %}
+						{% endif %}
+						{% set size = "square130" %}
+						<li class="event__speakers__list-item">
+							{% if headshot %}
+								<img src="{{ headshot.getUrl(size) }}" alt="{{ name }}"/>
+							{% else %}
+								<div class="img-placeholder"></div>
+							{% endif %}
+							<div class="event__speakers__list-item-details">
+								<h5 class="person-name">{{ name }}</h5>
+								<div class="person-info">{{ title }}</div>
+							</div>
+						</li>
+					{% endfor %}
+				</ul>
+			</div>
+		{% endif %}
+
+		{% if entry.images | length %}
+			<div class="event-slideshow">
+				{% include '_slideshow/slick-slideshow' with {
+        images: entry.images
+      } %}
+			</div>
+		{% endif %}
+
+		{% if entry.heroVideoAmbient | length %}
+			<div class="event-ambient event-module">
+				<video style="display: block; width: 100%" autoplay muted playsinline src="{{ entry.heroVideoAmbient[0].url }}"></video>
+			</div>
+		{% endif %}
+
+		{% if entry.eventLocationName or entry.eventMoreInfoContact | length %}
+			<aside class="hr"></aside>
+
+			<div class="post-module event-module event__details">
+				<h3>Details</h3>
+
+				<div class="col-outer">
+					{% if entry.eventLocationName %}
+						<div class="two-thirds">
+							{% set address = entry.eventLocationName~', '~entry.eventLocationAddress~' '~entry.eventLocationCity~', '~entry.eventLocationState~' '~entry.eventLocationZip %}
+							{% include 'includes/snippets/map' %}
+						</div>
+					{% endif %}
+
+					<div class="one-third">
+						{% if entry.eventLocationAddress and entry.eventLocationCity and entry.eventLocationState and entry.eventLocationZip %}
+							<p>
+								<b>{{ entry.eventLocationName | nl2br }}</b><br/>
+								{{ entry.eventLocationAddress }}<br/>
+								{{ entry.eventLocationCity }},
+								{{ entry.eventLocationState }}
+								{{ entry.eventLocationZip }}
+							</p>
+						{% endif %}
+						{% if entry.eventMoreInfoContact | length %}
+							<span class="event__details__subheading">For more information contact:</span>
+
+							<p>
+								<b>{{ entry.eventMoreInfoContact.first }}</b><br/>
+								<a href="mailto:{{ entry.eventMoreInfoContact.first.email }}">{{ entry.eventMoreInfoContact.first.email }}</a><br/>
+								{% if not entry.hideContactPhoneNumber %}
+									<a href="tel:{{ entry.eventMoreInfoContact.first.telephone }}">{{ entry.eventMoreInfoContact.first.telephone }}</a>
+								{% endif %}
+							</p>
+						{% endif %}
+					</div>
+				</div>
+			</div>
+		{% endif %}
+	</section>
+
+	{% if entry.relatedEventSeries | length and entry.relatedEventSeries.first.seriesDescription %}
+		<aside class="post-module special-reports-footer event-series">
+			<div class="module-text">
+				<div class="container">
+					<div class="module-text__inner">
+						<div class="rte rte--small">{{ entry.relatedEventSeries.first.seriesDescription }}</div>
+					</div>
+				</div>
+			</div>
+		</aside>
+
+	{% endif %}
+
+{% endblock %}
+
+{% set mapCss %}
+
+#map {
+
+		height: 300px;
+
+	}
+
+{% endset %}
+
+{% includeCss mapCss %}

@@ -1,0 +1,54 @@
+{% if entry.level == 3 and entry.section.handle == 'specialReports' %}
+	{% set prev = entry.parent %}
+	{% set next = entry.parent.nextSibling %}
+{% else %}
+	{% set prev = entry.prevSibling %}
+	{% set next = entry.nextSibling %}
+{% endif %}
+
+{% if prev | length or next | length %}
+<nav class="special-reports-article-nav{% if not prev or not next %} one-empty{% endif %}">
+    <div class="container col-outer">
+		<a class="article-nav article-prev{% if not prev %} empty{% endif %}" {% if prev %}href="{{ prev.url }}"{% endif %}>
+            {% if prev %}
+                {% set prevImg = prev.heroImage[0] ?? null %}
+                {% if prevImg %}
+                <span class="nav-img-outer">
+                    <div class="img-outer">
+                        <img src="{{ prevImg.getUrl('square300') }}" alt="{{ prev }}"/>
+                    </div>
+                </span>
+                {% endif %}
+
+                <span class="text-outer">
+                	{% if prev.section.handle == 'specialReports' %}
+                	{% if entry.level == 3 %}<span>Back to: </span>{% endif %}{{ prev.title ?? prev.type.name }}
+                    {% elseif prev.section.handle == 'publications' %}
+                    	{{ prev.chapterTitle ?? prev.type.name }}
+                    {% endif %}
+                </span>
+            {% endif %}
+        </a>
+		<a class="article-nav article-next{% if not next %} empty{% endif %}" {% if next %}href="{{ next.url }}"{% endif %}>
+            {% if next %}
+                <span class="text-outer">
+                	{% if next.section.handle == 'specialReports' %}
+                    	{{ next.title ?? next.type.name }}
+                    {% elseif next.section.handle == 'publications' %}
+                    	{{ next.chapterTitle ?? next.type.name }}
+                    {% endif %}
+                </span>
+
+                {% set nextImg = next.heroImage[0] ?? null %}
+                {% if nextImg %}
+                <span class="nav-img-outer">
+                    <div class="img-outer">
+                        <img src="{{ nextImg.getUrl('square300') }}" alt="{{ next }}"/>
+                    </div>
+                </span>
+                {% endif %}
+            {% endif %}
+        </a>        
+    </div>
+</nav>
+{% endif %}

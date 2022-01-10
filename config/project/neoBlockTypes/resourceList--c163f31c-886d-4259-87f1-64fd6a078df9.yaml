@@ -1,0 +1,25 @@
+childBlocks: ''
+field: 4cc124d8-7ee1-43a4-9aa0-5b5b6fcfe1cc
+fieldLayouts:
+  c78ad9a0-41b2-4b50-aa72-1338658c8190:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 179a8276-2292-4434-9ffc-395fdfac10ef
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: 'Tab 1'
+        sortOrder: 1
+handle: resourceList
+maxBlocks: 0
+maxChildBlocks: 0
+maxSiblingBlocks: 0
+name: 'Resource List'
+sortOrder: 25
+topLevel: false

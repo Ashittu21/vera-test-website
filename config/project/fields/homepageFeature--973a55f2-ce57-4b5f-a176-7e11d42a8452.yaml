@@ -1,0 +1,14 @@
+contentColumnType: string
+fieldGroup: 2c0ca1a3-ae52-4971-a689-fd84d8b7ba7d
+handle: homepageFeature
+instructions: ''
+name: 'Homepage Hero Feature'
+searchable: true
+settings:
+  contentTable: '{{%matrixcontent_homepagefeature}}'
+  maxBlocks: '1'
+  minBlocks: ''
+  propagationMethod: all
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

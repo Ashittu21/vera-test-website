@@ -1,0 +1,27 @@
+contentColumnType: text
+fieldGroup: a1574b52-b575-41d9-9fdd-13f2294a57f2
+handle: seriesDescription
+instructions: 'This text will automatically be appended as an ''info module'' to posts in the series'
+name: 'Series Description'
+searchable: true
+settings:
+  availableTransforms: ''
+  availableVolumes: ''
+  cleanupHtml: '1'
+  columnType: text
+  configSelectionMode: choose
+  defaultTransform: ''
+  manualConfig: ''
+  purifierConfig: null
+  purifyHtml: '1'
+  redactorConfig: Simple.json
+  removeEmptyTags: true
+  removeInlineStyles: true
+  removeNbsp: true
+  showHtmlButtonForNonAdmins: true
+  showUnpermittedFiles: false
+  showUnpermittedVolumes: true
+  uiMode: enlarged
+translationKeyFormat: null
+translationMethod: none
+type: craft\redactor\Field

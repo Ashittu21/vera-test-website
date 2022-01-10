@@ -1,0 +1,9 @@
+contentColumnType: string
+fieldGroup: a1574b52-b575-41d9-9fdd-13f2294a57f2
+handle: videoHeading
+instructions: ''
+name: 'Video Heading'
+searchable: true
+translationKeyFormat: null
+translationMethod: none
+type: dukt\videos\fields\Video

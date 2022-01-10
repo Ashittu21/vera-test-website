@@ -1,0 +1,38 @@
+{
+  "name": "pact",
+  "version": "0.1.0",
+  "homepage": "https://vera.test/gallery/",
+  "private": true,
+  "dependencies": {
+    "rc-slider": "^8.6.6",
+    "react": "^16.8.2",
+    "react-dom": "^16.8.2",
+    "react-flickity-component": "^3.2.0",
+    "react-masonry-component": "^6.2.1",
+    "react-modal": "^3.8.1",
+    "react-router-dom": "^4.3.1",
+    "react-router-scroll-4": "^1.0.0-beta.2",
+    "react-scripts": "^2.1.5",
+    "react-scrollable-anchor": "^0.6.1",
+    "react-share": "^2.4.0",
+    "react-spring": "^8.0.8",
+    "react-vimeo": "^2.0.0",
+    "react-waypoint": "^9.0.0",
+    "react-youtube": "^7.9.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build && cp -a build/. ../web/gallery/ && cp build/index.html ../templates/gallery/",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}

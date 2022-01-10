@@ -1,0 +1,15 @@
+contentColumnType: string
+fieldGroup: b7c07949-c4d1-4af6-a996-017773fd0ef5
+handle: galleryBuilder
+instructions: ''
+name: 'Gallery Builder'
+searchable: true
+settings:
+  maxBlocks: ''
+  maxTopBlocks: ''
+  minBlocks: ''
+  propagationMethod: all
+  wasModified: true
+translationKeyFormat: null
+translationMethod: site
+type: benf\neo\Field

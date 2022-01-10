@@ -1,0 +1,43 @@
+field: 91d891dc-1fee-45bd-9011-10cd107659d1
+fieldLayouts:
+  51e5d580-944b-42da-a34e-9fcf891194c9:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 88aca505-d900-4163-810b-c8e0d142cd20
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  88aca505-d900-4163-810b-c8e0d142cd20:
+    contentColumnType: string
+    fieldGroup: null
+    handle: facts
+    instructions: ''
+    name: 'Facts '
+    searchable: true
+    settings:
+      allowSelfRelations: false
+      limit: ''
+      localizeRelations: false
+      selectionLabel: ''
+      showSiteMenu: true
+      source: null
+      sources:
+        - 'section:072fb664-949a-491a-bea8-525f75afc443'
+      targetSiteId: null
+      validateRelatedElements: false
+      viewMode: null
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Entries
+handle: factsFigures
+name: 'Facts & Figures'
+sortOrder: 4

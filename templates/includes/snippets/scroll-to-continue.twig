@@ -1,0 +1,19 @@
+{% set hideOnScroll = hideOnScroll ?? true %}
+{% set fixed = fixed ?? true %}
+
+<div class="next-slide-wrap {{ fixed ? 'next-slide-wrap--fixed' }}">
+  <button class="next-slide" title="Scroll Down" aria-label="Scroll Down">Scroll Down</button>
+  {#<div>Scroll to begin</div>#}
+</div>
+
+{% includeJs %}
+$(function() {
+  var $nextSlide = $('.next-slide-wrap');
+  $nextSlide.on("click", function() {
+    TweenLite.to(window, .5, { scrollTo: ($(window).scrollTop() + window.innerHeight/2) });
+  });
+  $(window).one("scroll", function() {
+    $nextSlide.addClass('is-hidden');
+  })
+})
+{% endincludejs %}

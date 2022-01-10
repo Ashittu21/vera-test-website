@@ -1,0 +1,11 @@
+<article class="article-slideshow" data-flickity>
+{% for block in block.children.type('slide') %}
+	<div class="article-slideshow-slide">
+		<div class="inner">
+		{% for block in block.children.type('slidePhoto') %}
+		{% include '_article/pieces/photo' with {block: block} %}
+		{% endfor %}
+		</div>
+	</div>
+{% endfor %}
+</article>

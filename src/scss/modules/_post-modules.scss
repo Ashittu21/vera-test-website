@@ -1,0 +1,1440 @@
+.footnote .tooltip {
+  margin-left: 2px !important;
+  margin-right: 4px !important;
+  border-bottom: none !important;
+}
+
+.post-article {
+  padding: $padding-lg 0;
+
+  .post-module.special-reports-footer:last-child {
+    margin-bottom: -$padding-lg;
+  }
+
+  .post-module {
+    margin-bottom: 0;
+    padding-top: $padding-lg;
+    padding-bottom: $padding-lg;
+
+    &:last-child {
+      padding-bottom: 0;
+    }
+
+    &.special-reports-footer:last-child {
+      padding-bottom: $padding-lg;
+    }
+
+    &.slideoutcta {
+      padding-bottom: $padding-lg;
+    }
+  }
+
+  .post-module.text-box .text-box-content {
+    background-color: inherit;
+  }
+
+  &.light {
+    &,
+    .special-reports-footer {
+      background-color: $white;
+      color: $black;
+    }
+  }
+
+  &.medium {
+    &,
+    .special-reports-footer {
+      background-color: $lt-gray-bg;
+      color: $black;
+    }
+  }
+
+  &.medium {
+    &,
+    .special-reports-footer {
+      background-color: $lt-gray-bg;
+      color: $black;
+    }
+  }
+
+  &.dark {
+    &,
+    .special-reports-footer {
+      background-color: $dk-gray;
+
+      &,
+      a,
+      .people-list .text-outer h5,
+      .footnote,
+      .rte a {
+        color: $white;
+        border-bottom-color: $white;
+      }
+
+      .hr {
+        background-color: $dk-gray-alt;
+      }
+
+      .stream-module__meta__date {
+        color: $med-gray-bg;
+      }
+    }
+  }
+
+  .topx.container {
+    background-color: $lt-gray-bg;
+  }
+}
+
+.post-content__single__header + .post-article {
+  padding-top: 0;
+}
+
+.img-caption {
+  text-align: left;
+  display: inline-block;
+  border: 1px solid $red;
+  @extend .color--red;
+  @extend .ff-sans;
+  @include font-size(1.4);
+  line-height: 1.5;
+  margin: auto;
+  padding: $padding-sm $padding-xs;
+  @include hardware-acc;
+  position: relative;
+  top: -10px;
+
+  &.simple {
+    top: 0;
+    border: 0;
+    color: inherit;
+    opacity: 0.8;
+  }
+
+  @media (min-width: $tablet-portrait) {
+    @include font-size(1.6);
+  }
+}
+
+.module-related-with-copy {
+  .contain--left {
+    display: flex;
+
+    @media (max-width: $tablet-landscape) {
+      flex-wrap: wrap;
+
+      .module-related-with-copy__text {
+        width: 100%;
+      }
+
+      .module-related-with-copy__related {
+        margin-top: $padding-med;
+      }
+    }
+  }
+
+  h4 {
+    margin-bottom: $padding-lg;
+  }
+
+  .module-related-with-copy__text {
+    width: calc(100% - 450px);
+    padding-right: $padding-lg;
+  }
+
+  .module-related-with-copy__related {
+    border-left: 1px solid $red;
+    padding: $padding-xxs/2 $padding-med;
+    width: 450px;
+    //float: right;
+    align-self: flex-start;
+
+    h1 {
+      margin: 0;
+    }
+
+    .people-list li {
+      min-height: 0;
+    }
+
+    @media (min-width: $tablet-portrait) and (max-width: $tablet-landscape) {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+
+      h4 {
+        width: 100%;
+      }
+
+      .module__related {
+        width: 45%;
+
+        & + .module__related {
+          margin-top: 0;
+        }
+      }
+    }
+  }
+}
+
+.module-image-with-copy {
+  @extend %h3;
+  @include body-font;
+  // line-height: 1.75;
+  // @include font-size(2.2);
+
+  p:first-child {
+    position: relative;
+    //padding-left: $padding-lg + $padding-med;
+  }
+
+  .first-letter {
+    position: absolute;
+    top: 0;
+    right: 100%;
+    @include transform(translate(100%, 0));
+    @include big-letter;
+  }
+
+  .module-image-with-copy__img {
+    text-align: center;
+  }
+
+  @media (min-width: $tablet-landscape) {
+    @include justify(flex-start);
+    padding-bottom: $padding-lg;
+
+    .module-image-with-copy__text,
+    .module-image-with-copy__img {
+      width: $one-half;
+    }
+    .module-image-with-copy__img {
+      position: sticky;
+      top: $header-height;
+    }
+
+    .module-image-right__img {
+      text-align: right;
+    }
+    .module-image-left__img {
+      text-align: left;
+    }
+  }
+
+  .module-image-right__text {
+    @media (min-width: $tablet-landscape) {
+      padding-right: $padding-lg;
+    }
+  }
+  .module-image-left__text {
+    @media (min-width: $tablet-landscape) {
+      padding-left: $padding-lg;
+    }
+  }
+
+  .img-outer {
+    display: inline-block;
+    position: relative;
+    text-align: center;
+
+    @media (min-width: $tablet-landscape) {
+      &.image-right & {
+        padding-left: $padding-lg * 2;
+      }
+      &.image-left & {
+        padding-right: $padding-lg * 2;
+      }
+    }
+  }
+
+  .img-caption {
+    position: relative;
+    top: -10px;
+
+    @media (min-width: $tablet-landscape) {
+      left: -80px;
+      right: 80px;
+
+      &.simple {
+        top: auto;
+        left: auto;
+        right: auto;
+      }
+    }
+  }
+}
+
+.module-image-right__img-attribution {
+  text-align: center;
+}
+
+.module-pullquote {
+  // .module-pullquote__outer {
+  //     text-align: center;
+  //     display: block;
+  //     margin: auto;
+
+  //     //@include style-by-columns('max-width', 10);
+  //     padding: $padding-sm;
+  //     color: $red;
+  //     @include font-size(2);
+  //     line-height: 1.2;
+
+  //     @media (min-width: $tablet-portrait) {
+  // 	    @include font-size(3);
+  //     }
+
+  //     @media (min-width: $tablet-landscape) {
+  // 	    padding: $padding-lg;
+  //         @include font-size(4);
+  //         @include style-by-columns('padding-left', 2);
+  //         @include style-by-columns('padding-right', 2);
+  //     }
+
+  //     @include fancy-corners;
+
+  //    }
+
+  h5.intext-subhead {
+    text-align: center;
+  }
+
+  .attribution {
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+}
+
+.module-pullquote,
+.video-container:not(.no-container) {
+  @media (min-width: $tablet-landscape) {
+    padding: 0 $padding-lg * 2;
+  }
+}
+
+.attribution {
+  text-align: center;
+  padding: $padding-sm;
+  margin-bottom: $padding-lg;
+  max-width: 800px;
+  margin: 0 auto;
+
+  .person-name {
+    @include font-size(1.8);
+    @extend .ff-serif--medium;
+  }
+
+  .person-info {
+    @include font-size(1.4);
+    color: $dk-gray;
+  }
+
+  .person-headshot {
+    width: 80px;
+    height: 80px;
+    margin: 20px auto;
+    border-radius: 100%;
+  }
+}
+
+.video-attribution {
+  margin-top: $padding-sm;
+
+  .module-text {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  .person-name {
+    text-align: center;
+  }
+}
+
+.post-module .cta_wrap .person-name {
+  text-decoration: underline;
+  text-align: center;
+}
+
+.video-container {
+  box-sizing: content-box;
+  position: relative;
+
+  &.full {
+    max-width: initial;
+  }
+  &:not(:last-child) {
+    margin-bottom: $padding-lg * 2;
+  }
+  &.video-container--hasCaption:not(:last-child) {
+    margin-bottom: $padding-xxs;
+  }
+
+  &.event-overview {
+    max-width: 100%;
+    margin-top: $padding-lg * 2;
+    padding: 0;
+  }
+
+  .video-player {
+    position: relative;
+    height: auto;
+    padding-bottom: 56.25%;
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    visibility: visible;
+
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .video-player-cover {
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      background-size: cover;
+      background-position: center center;
+      cursor: pointer;
+    }
+  }
+}
+
+.module-pullquote__inner {
+  // needed for styling pseudoelements...
+  .module-pullquote__outer & {
+    @include fancy-corners-inner;
+  }
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.module-key-takeaway {
+  h3 {
+    text-align: center;
+  }
+
+  .module-pullquote {
+    margin-top: $padding-lg;
+    @include font-size(2);
+
+    @media (min-width: $tablet-landscape) {
+      @include font-size(3);
+    }
+  }
+}
+
+.module-carousel,
+.module-quote-carousel {
+  .slide {
+    outline: none !important;
+  }
+
+  .slick-arrow {
+    border: 0;
+    width: 40px;
+    height: 100%;
+    //top: 0;
+    //height: 60px;
+    position: absolute;
+    z-index: 1;
+    //top: 50%;
+    //margin-top: -30px;
+    text-indent: -9999em;
+    opacity: 1;
+    background: transparent;
+    @include transition(background 0.15s ease-in);
+
+    &:before {
+      content: "";
+      display: block;
+      width: 20px;
+      height: 20px;
+      border: 2px solid $white;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin: -10px 0 0 -10px;
+      @include transform(rotate(45deg));
+      @include transition(all 0.15s ease-in);
+    }
+  }
+
+  .slick-prev {
+    left: 0;
+
+    &:before {
+      border-top: 0;
+      border-right: 0;
+    }
+  }
+
+  .slick-next {
+    right: 0;
+
+    &:before {
+      border-bottom: 0;
+      border-left: 0;
+    }
+  }
+}
+
+.module-carousel {
+  position: relative;
+  overflow: visible;
+
+  .img-outer {
+    position: relative;
+    z-index: 1;
+    margin: 0;
+
+    // @media (min-width: $tablet-landscape) {
+    //     margin: $padding-lg*2 0;
+    // }
+  }
+
+  .img-caption {
+    // position: absolute;
+    position: relative;
+    z-index: 2;
+    margin-left: $padding-xxs;
+    margin-right: $padding-xxs;
+
+    @media (min-width: $mobile-large) {
+      margin-left: $padding-lg * 2;
+    }
+  }
+
+  /*
+    .slick-arrow {
+        //background: $white;
+
+        .no-touch &:hover {
+	        //background-color: rgba(255,255,255,0.75);
+            //background: rgba(255,255,255,1);
+        }
+    }
+*/
+}
+
+.module-text {
+  //margin: auto;
+  @include font-size(1.8);
+  line-height: 1.75;
+  margin: $padding-sm auto;
+
+  @media (min-width: $mobile-large) {
+    line-height: 1.75;
+    margin: $padding-med auto;
+  }
+
+  @media (min-width: $tablet-portrait) {
+    margin: $padding-lg auto;
+  }
+
+  @media (min-width: $tablet-landscape) {
+    @include font-size(2.2);
+    @include calc("max-width", 0.75 * #{$desktop-large});
+  }
+
+  // WIDENING COLUMNS
+  @media (min-width: $desktop-mlarge) {
+    @include calc("max-width", 0.9 * #{$desktop-large});
+  }
+
+  // styles!
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-bottom: 1.5em;
+  }
+
+  // p:last-of-type {
+  //     margin-bottom: 0;
+  // }
+}
+
+.module-text--body {
+  & + .module-text--body {
+    padding-top: 0;
+  }
+}
+
+.anchor + .module-text--body {
+  padding-top: 0;
+}
+
+.module-text--small {
+  padding: $padding-lg * 2 0;
+  text-align: center;
+
+  @media (min-width: $tablet-landscape) {
+    margin: auto;
+    @include width-by-columns(8);
+  }
+
+  @media (min-width: $desktop-medium) {
+    @include width-by-columns(6);
+  }
+
+  h3 {
+    @extend .ff-serif--medium;
+    @include font-size(3.2);
+    margin-bottom: $padding-sm;
+
+    @media (min-width: $tablet-landscape) {
+      @include font-size(4);
+    }
+  }
+}
+
+.module-text--body .module-text__inner {
+  p > img {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+  @media (min-width: $tablet-landscape) {
+    padding: 0 $padding-lg * 2;
+  }
+}
+
+.module-text--heading,
+.module-text--heading:last-of-type,
+.post-module.module-text--heading,
+.post-module.module-text--heading:last-of-type {
+  // publication single
+  padding-top: $padding-lg;
+  padding-bottom: 0;
+
+  h2 {
+    margin: 0;
+    padding: 0;
+  }
+
+  @media (min-width: $tablet-portrait) {
+    padding-top: $padding-lg * 2;
+  }
+
+  @media (min-width: $desktop-medium) {
+    padding-top: $padding-lg * 2.5;
+  }
+}
+
+.module-text--signature {
+  // also publication single
+  padding-top: 0;
+}
+
+.text-box .container {
+  @media (max-width: $mobile-medium) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.text-box .text-box-content {
+  background-color: $lt-gray-bg;
+  border-top: 1px solid $red;
+  border-bottom: 1px solid $red;
+
+  .intext-subhead {
+    @extend .ff-sans;
+    font-weight: bold;
+    @include font-size(2);
+    padding: $padding-lg $padding-lg 0;
+    text-align: center;
+    color: $red;
+  }
+
+  .module-text--text-box {
+    @extend .ff-sans;
+    @include font-size(1.6);
+    padding: $padding-sm $padding-med $padding-lg;
+
+    @media (min-width: $tablet-landscape) {
+      column-count: 2;
+      column-gap: $padding-lg;
+    }
+  }
+}
+
+.module-images-2up-caption {
+  text-align: center;
+  padding-bottom: $padding-med * 2;
+}
+
+.img-outer--2up {
+  display: inline-block;
+  margin: auto;
+  @include font-size(0);
+
+  .img-outer {
+    vertical-align: top;
+    position: relative;
+    display: inline-block;
+    margin: 0 $padding-lg $padding-sm;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+
+    @media (min-width: $tablet-landscape) {
+      @include style-by-columns("max-width", 5);
+    }
+  }
+
+  .img-caption {
+    margin-left: -$padding-lg;
+    margin-right: $padding-lg;
+  }
+}
+.img-outer--2up .img-outer {
+  .slideout--article & {
+    margin: 0;
+    @include style-by-columns("max-width", 6);
+
+    & + .img-outer {
+      margin-left: 2%;
+    }
+  }
+}
+
+.timeline-entry {
+  position: relative;
+  overflow: hidden;
+
+  .year {
+    color: $red;
+    @extend .ff-sans;
+    font-weight: bold;
+    float: left;
+    width: 100px;
+    @include font-size(1.8);
+    padding-right: 20px;
+  }
+  .copy {
+    float: left;
+    width: calc(100% - 150px);
+    border-left: 1px solid $red;
+    padding-left: 20px;
+  }
+
+  & + .timeline-entry {
+    margin-top: 50px;
+  }
+}
+
+.module-image-with-caption {
+  padding-bottom: $padding-sm; // used to be padding-lg...
+  // @media (min-width: $tablet-landscape) {
+  //     padding-bottom: $padding-med*2;
+  // }
+
+  .img-outer {
+    position: relative;
+    z-index: 1;
+  }
+
+  .img-caption {
+    // position: absolute;
+    position: relative;
+    z-index: 2;
+    margin-left: $padding-xxs;
+    margin-right: $padding-xxs;
+
+    @media (min-width: $mobile-large) {
+      margin-left: -$padding-sm;
+      margin-right: $padding-sm;
+
+      &.simple {
+        margin-left: 0;
+        margin-right: 0;
+      }
+    }
+
+    @media (min-width: $tablet-landscape) {
+      margin-right: 0;
+      @include style-by-columns("max-width", 9);
+    }
+  }
+
+  &.full-bleed {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  &.center {
+    padding-left: 0;
+    padding-right: 0;
+
+    /*
+	    @media (min-width: $mobile-large) {
+            width: 50%;
+			margin: 0 auto;
+        }
+*/
+  }
+
+  &.small {
+    max-width: 200px;
+    padding-left: 0;
+    padding-right: 0;
+    img {
+      width: auto;
+      margin: auto;
+    }
+  }
+
+  .image-overlay {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .screen {
+      display: none;
+    }
+
+    @media (max-width: $mobile-large) {
+      .image-overlay-text {
+        color: inherit;
+      }
+    }
+
+    @media (min-width: $mobile-large) {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      .screen {
+        display: block;
+      }
+    }
+  }
+
+  .image-overlay-text-wrapper {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    max-width: 100rem;
+    text-align: right;
+  }
+
+  .image-overlay-attribution {
+    margin-top: 2em;
+    margin-left: auto;
+  }
+}
+
+// on about - president's message, donate
+
+.module-3up {
+  text-align: center;
+  display: block;
+  margin: 0 auto $padding-lg;
+  padding: $padding-lg;
+  position: relative;
+  @include style-by-columns("max-width", 10);
+  @extend .ff-sans--bold;
+  @include font-size(1.8);
+  line-height: 1.2;
+
+  @media (min-width: $tablet-landscape) {
+    @include font-size(2.1);
+    line-height: 1.5;
+    @include style-by-columns("max-width", 9);
+  }
+
+  @media (min-width: $desktop-large) {
+    @include style-by-columns("max-width", 7);
+  }
+
+  h3 {
+    margin-bottom: $padding-sm;
+
+    @media (min-width: $tablet-landscape) {
+      margin-bottom: $padding-lg;
+    }
+  }
+
+  .col-outer {
+    color: $red;
+    display: block;
+
+    > * {
+      margin-bottom: $padding-lg;
+    }
+
+    @media (min-width: $tablet-portrait) {
+      display: flex;
+    }
+
+    @media (min-width: $tablet-landscape) {
+      margin-bottom: $padding-sm;
+    }
+  }
+
+  &.about-module {
+    @include fancy-corners;
+  }
+}
+
+.donate-module {
+  background: $black;
+  color: $white;
+  padding-top: $padding-lg;
+
+  @media (min-width: $tablet-landscape) {
+    padding: $padding-med * 2 0 $padding-lg;
+  }
+
+  &.video {
+    padding: $padding-med * 2 0;
+
+    .video-container:not(:last-child) {
+      margin-bottom: 20px;
+    }
+
+    .video-container:last-child {
+      margin-bottom: 0;
+    }
+
+    .video-heading-copy {
+      text-align: center;
+    }
+  }
+
+  .col-outer {
+    color: $white;
+    @extend .ff-sans;
+  }
+
+  .btn {
+    border-color: $white;
+    color: $white;
+  }
+}
+
+.about-module .module-3up__inner {
+  // needed for styling pseudoelements...
+  @include fancy-corners-inner;
+}
+.module-highlights,
+.module-key-takeaway {
+  margin: $padding-lg 0;
+  @media (min-width: $tablet-landscape) {
+    margin: $padding-lg * 2 0;
+  }
+}
+
+.module-highlights {
+  text-align: center;
+
+  li {
+    color: $dk-gray;
+
+    b,
+    strong {
+      color: $black;
+    }
+  }
+
+  @media (min-width: $tablet-landscape) {
+    li {
+      @include font-size(2);
+    }
+  }
+}
+
+.post-module.module-featured-entry {
+  .stream-module {
+    margin: 0 auto;
+  }
+}
+
+.module-video {
+  margin: 0;
+
+  a {
+    display: block;
+  }
+}
+
+.module-image-right-rotated {
+  padding: $padding-lg 0;
+
+  @media (min-width: $tablet-portrait) {
+    padding: $padding-lg * 2 0;
+
+    &:nth-child(odd) .col-outer {
+      flex-direction: row-reverse;
+    }
+
+    h4 {
+      margin-bottom: $padding-lg;
+    }
+  }
+
+  @media (min-width: $tablet-landscape) {
+    @include font-size(1.8);
+  }
+
+  .two-thirds {
+    @media (min-width: $desktop-medium) {
+      width: $one-half;
+    }
+  }
+
+  .fancy-frame {
+    margin: 0 auto $padding-lg;
+
+    @media (min-width: $tablet-portrait) {
+      margin: auto;
+    }
+  }
+
+  h4 {
+    @extend .ff-sans--bold;
+  }
+}
+
+// our work!!!
+.module-columns-3up {
+  @media (min-width: $tablet-landscape) {
+    padding-bottom: $padding-lg * 2;
+    margin-bottom: $padding-lg;
+  }
+
+  ul {
+    list-style: none;
+    max-height: 0;
+    // opacity: 0;
+    overflow: hidden;
+    border-top: 1px solid transparent;
+    // border-bottom: 1px solid transparent;
+    @include transition((max-height 0.15s ease-in, padding 0.15s ease-in));
+
+    &.mobile-visible {
+      max-height: 100vh;
+      padding-top: $padding-sm;
+      border-color: $lt-gray;
+      // opacity: 1;
+    }
+
+    @media (min-width: $tablet-portrait) {
+      // opacity: 1;
+      max-height: inherit;
+
+      &.mobile-visible {
+        opacity: 1;
+        max-height: inherit;
+        padding-top: 0;
+        border-color: transparent;
+      }
+    }
+  }
+
+  h2 {
+    @extend .ff-serif--medium;
+    @extend %h3-alt;
+
+    @media (min-width: $tablet-landscape) {
+      @include font-size(3);
+    }
+  }
+
+  h5 {
+    display: inline-block;
+    position: relative;
+    @extend .ff-sans--bold;
+    padding: 0 $padding-med $padding-med;
+    margin: 0 auto $padding-lg;
+    text-align: center;
+
+    @media (min-width: $tablet-portrait) {
+      width: 100%;
+      margin-bottom: $padding-lg;
+    }
+
+    @media (min-width: $tablet-landscape) {
+      margin-bottom: $padding-lg * 2;
+    }
+
+    &:after {
+      content: "";
+      display: block;
+      width: 100px;
+      height: 0;
+      border-bottom: 1px solid $black;
+      position: absolute;
+      z-index: 1;
+      bottom: 0;
+      left: 50%;
+      margin-left: -50px;
+    }
+  }
+
+  h5.mobile-toggle {
+    cursor: pointer;
+    padding: 0 $padding-med;
+    margin: 0 auto $padding-sm;
+
+    &:after {
+      width: 8px;
+      height: 8px;
+      border: 2px solid $black;
+      position: absolute;
+      top: 45%;
+      left: inherit;
+      right: $padding-xxs;
+      @include transform((rotate(45deg) translate(0, -50%)));
+      border-left: 0;
+      border-bottom: 0;
+      margin: 0;
+      @include transition(all 0.15s ease-in);
+    }
+
+    &.mobile-open:after {
+      top: 5%;
+      @include transform((rotate(135deg) translate(0, -50%)));
+    }
+
+    @media (min-width: $tablet-portrait) {
+      cursor: default;
+      padding-bottom: $padding-med;
+      margin-bottom: $padding-sm;
+
+      &:after,
+      &.mobile-open:after {
+        @include transform(none);
+        width: 100px;
+        height: 0;
+        border: 0;
+        border-bottom: 1px solid $black;
+        position: absolute;
+        z-index: 1;
+        top: inherit;
+        right: inherit;
+        bottom: 0;
+        left: 50%;
+        margin-left: -50px;
+      }
+    }
+
+    @media (min-width: $tablet-landscape) {
+      margin-bottom: $padding-lg;
+    }
+  }
+
+  .col-outer {
+    list-style: none;
+    @include justify(stretch);
+    justify-content: center;
+    padding-top: $padding-lg;
+    text-align: left;
+
+    @media (min-width: $tablet-portrait) {
+      text-align: center;
+
+      padding-bottom: $padding-lg;
+      margin-bottom: $padding-sm;
+    }
+  }
+
+  .col {
+    position: relative;
+    line-height: 1.4;
+    padding: $padding-sm 0 $padding-med;
+    margin-bottom: $padding-med;
+    width: 100%;
+    @include font-size(1.8);
+    text-align: center;
+    border-bottom: 1px solid $lt-gray-alt;
+
+    &:last-of-type {
+      border: 0;
+    }
+
+    @media (min-width: $tablet-portrait) {
+      width: $one-third;
+      margin-bottom: 0;
+      display: inline-block;
+      padding: 0 $padding-sm;
+      @include font-size(2.8);
+      border: 0;
+      border-right: 1px solid $lt-gray-alt;
+
+      &:last-child {
+        border: 0;
+      }
+    }
+
+    @media (min-width: $tablet-landscape) {
+      padding: 0 $padding-lg;
+    }
+  }
+
+  a {
+    color: $black;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    padding-bottom: $padding-xxs;
+    overflow: hidden;
+
+    .no-touch &:hover {
+      color: $red;
+    }
+
+    @media (max-width: $tablet-portrait - 1) {
+      height: auto !important;
+    }
+
+    @media (min-width: $tablet-portrait) {
+      display: inline-block;
+    }
+  }
+
+  img {
+    @include border-radius(100%);
+    margin: auto;
+    max-width: 133px;
+
+    @media (min-width: $tablet-portrait) {
+      max-width: 300px;
+    }
+  }
+
+  .img-outer {
+    overflow: hidden;
+    margin-bottom: $padding-lg;
+    // width: 100px;
+
+    @media (min-width: $tablet-portrait) {
+      width: 100%;
+      display: block;
+    }
+  }
+
+  .text-outer {
+    display: block;
+    width: 100%;
+    @include body-font;
+    @include font-size(1.6);
+    padding: 0 0 $padding-lg 0;
+
+    @media (min-width: $tablet-portrait) {
+      padding: 0 0 $padding-sm 0;
+    }
+
+    @media (max-width: $tablet-portrait - 1) {
+      height: auto !important;
+    }
+  }
+
+  .action-areas {
+    text-align: left;
+
+    > li {
+      overflow: hidden;
+      text-align: left;
+
+      > a {
+        display: inline-block;
+        vertical-align: top;
+        width: 48px;
+      }
+
+      > div {
+        display: inline-block;
+        width: calc(100% - 48px);
+      }
+
+      @media (max-width: $tablet-portrait - 1) {
+        height: auto !important;
+      }
+
+      &:not(:first-child) {
+        margin-top: $padding-lg;
+      }
+    }
+
+    a {
+      display: block;
+      padding-bottom: 0;
+    }
+
+    .img-outer {
+      background: $red;
+      display: block;
+      width: 34px;
+      padding: 0;
+      float: left;
+      margin: 0 $padding-sm 0 0;
+
+      @media (min-width: $tablet-landscape) {
+        width: 48px;
+        margin: 5px $padding-sm $padding-sm 0;
+      }
+    }
+
+    svg {
+      width: 34px;
+      height: 34px;
+
+      @media (min-width: $tablet-landscape) {
+        width: 48px;
+        height: 48px;
+      }
+    }
+
+    img {
+      @include border-radius(0);
+    }
+
+    .text-outer,
+    .issues {
+      width: auto;
+      // margin-left: 80px + $padding-xxs;
+      // @include font-size(2.4);
+      //padding: 0 0 $padding-sm 0;
+      //margin-left: 54px;
+      margin-left: 0;
+      text-align: left;
+
+      @media (min-width: $tablet-portrait) {
+        text-align: left;
+        //padding-bottom: $padding-med*2;
+      }
+
+      @media (min-width: $tablet-landscape) {
+        //margin-left: 68px;
+        margin-left: $padding-xs;
+      }
+
+      @media (min-width: $desktop-mlarge) {
+        margin-left: $padding-med;
+      }
+    }
+
+    .text-outer {
+      @extend .ff-serif--medium;
+      line-height: 1.175;
+      padding: 0;
+      @media (min-width: $tablet-landscape) {
+        @include font-size(2);
+      }
+
+      @media (min-width: $desktop-mlarge) {
+        @include font-size(2.4);
+      }
+    }
+  }
+
+  .issues {
+    @include font-size(1.4);
+    margin-top: $padding-xxs;
+    .issue {
+      position: relative;
+
+      @include block-bullet($red, 3px, "middle");
+      a {
+        text-align: left;
+        color: $dk-gray;
+        @extend .ff-sans;
+        padding-bottom: 0;
+        margin-bottom: $padding-xxs/2;
+        line-height: 1.25;
+
+        &:hover {
+          color: $red;
+        }
+      }
+    }
+  }
+
+  .hr {
+    background: $med-gray;
+
+    @media (min-width: $tablet-portrait) {
+      background: $lt-gray-alt;
+    }
+  }
+}
+
+// bottom margins
+
+.module-image-right,
+.module-images-2up-caption {
+  margin-bottom: $padding-lg;
+
+  @media (min-width: $tablet-landscape) {
+    margin-bottom: $padding-lg * 2;
+  }
+}
+
+.post-module:last-child,
+.post-module.no-margin-bottom {
+  padding-bottom: $padding-lg * 2;
+  margin-bottom: 0;
+}
+
+.stream-module.post-module:last-of-type {
+  padding-bottom: 0;
+}
+
+.red-line-after {
+  @include red-line-after;
+  margin: $padding-lg 0;
+  height: 1px;
+}
+
+.chart {
+  @extend .ff-sans;
+}
+
+.module-text--slideoutcta {
+  .cta_wrap {
+    padding-left: $padding-med;
+    border-left: 1px solid $red;
+    cursor: pointer;
+  }
+
+  h1 {
+    @extend .ff-sans;
+    font-weight: bold;
+    @include font-size(2.5);
+    line-height: 1.5;
+    margin-bottom: $padding-med;
+  }
+
+  aside {
+    margin-bottom: $padding-med;
+  }
+
+  h2 {
+    @extend .ff-sans;
+    @include font-size(1.6);
+    line-height: 1.5;
+  }
+
+  .cta {
+    align-items: center;
+    display: flex;
+    @extend .cta--link;
+    @include font-size(1.4);
+
+    svg + span {
+      padding-left: 1em;
+    }
+  }
+}

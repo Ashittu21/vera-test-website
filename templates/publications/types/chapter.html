@@ -1,0 +1,80 @@
+{% extends '_layout' %}
+
+{% set title = entry.title %}
+
+{% block nav %}
+	{% if entry.hideNav %}
+		{% include 'includes/snippets/header-no-nav' %}
+	{% else %}
+		{% set top = entry.ancestors.level(1).first %}
+		{% if top.type.handle in ["statePublications"] %}
+			{% include 'includes/_header/header__burger' %}
+		{% else %}
+			{% include 'includes/snippets/header__special-report' %}
+		{% endif %}
+	{% endif %}
+{% endblock %}
+
+{% block content %}
+	{% set title = entry.chapterTitle ?? entry.type.name %}
+	{% set parentEntry = entry.parent %}
+	{% if entry.heroImage | length %}
+		{% set transformed = craft.imager.transformImage(entry.heroImage[0], { ratio: 4/1 }) %}
+		<img src="{{ transformed.url }}"/>
+	{% endif %}
+
+	{% if entry.title == parentEntry.children.first.title and parentEntry.publicationTitle and parentEntry.subtitle %}
+		<section class="post-module module-intro module-intro--publication module-intro--border header-publication">
+			<div class="container col-outer">
+				<div class="two-thirds module-intro__content">
+					<div class="publication-intro-wrap">
+						<div class="post-content__meta module-intro__breadcrumbs">
+							<span class="breadcrumb-outer">
+								<p class="label">Publication</p>
+							</span>
+
+							<span class="post-content__meta__date">{{ parentEntry.postDate | date('F Y')}}</span>
+						</div>
+
+						<h2 class="post-content__title">
+							{{ parentEntry.publicationTitle }}
+							<span class="post-content__subtitle ff-serif--italic size--h3">
+								{{ parentEntry.subtitle }}
+							</span>
+						</h2>
+					</div>
+				</div>
+				<!-- /two-thirds intro__content -->
+
+				<div class="one-third module-intro__sidebar">
+					{% set people = parentEntry.authors %}
+					{% include 'includes/snippets/sidebar__experts' %}
+				</div>
+			</div>
+		</section>
+	{% endif %}
+
+	<article class="post-content__single__container">
+		{% if not entry.hideChapterTitle %}
+			<div class="post-module module-text module-text--body module-text--heading">
+				<div class="container">
+					<div class="module-text__inner rte">
+						<h2>{{ title }}</h2>
+					</div>
+				</div>
+			</div>
+		{% endif %}
+
+		{% set article = entry.publicationArticle %}
+		{% include 'includes/snippets/article' %}
+	</article>
+
+	{% if not entry.hideNav %}
+		{% set parent = entry.ancestors.level(1).first %}
+		{% if parent and parent.publicationsFooter | length %}
+			{% include 'publications/_blocks' with { blocks: parent.publicationsFooter.level(1).all() } %}
+		{% else %}
+			{% include 'includes/snippets/nav__stories' %}
+		{% endif %}
+	{% endif %}
+{% endblock %}

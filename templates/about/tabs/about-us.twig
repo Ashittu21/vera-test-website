@@ -1,0 +1,119 @@
+{% set entry = craft.entries.section('about').one() %}
+
+<!-- About Us Landing -->
+<article class="post-module about__centered-text">
+  <div class="container">
+    {% for purpose in entry.purpose %}
+      <div class="about__centered-text__block">
+        <h3 class="about__heading">{{ purpose.heading }}</h3>
+        <p class="about__subheading">{{ purpose.copy }}</p>
+      </div>
+    {% endfor %}
+
+    <a class="btn" href="{{ siteUrl('strategic-priorities') }}">{{ entry.priorityButtonText }}</a>
+  </div>
+</article>
+
+<!-- infographics -->
+<article class="post-module about__infographics">
+  <div class="container">
+    <h3 class="about__heading">{{ entry.aboutInfographicsHeader }}</h3>
+
+    <div class="infographic_wrap">
+      {% for graph in entry.infographic %}
+      <div class="infographic">
+        <div class="bars-outer">
+          <div class="bar-stats_wrap">
+            <h4 class="infographic__heading">{{ graph.heading }}</h4>
+            {% for datum in graph.data %}
+
+              <div class="bar__stats">
+                <div class="bar__stats__num">
+                  <b>{{ datum.percentage }}</b>%</div>
+                <div class="bar__stats__caption">{{ datum.explainer }}</div>
+              </div>
+            {% endfor %}
+          </div>
+          {% if graph.graphType == 'bar' %}
+            <div class="bars-inner">
+              {% for datum in graph.data %}
+                <div class="bar-outer">
+                  <div class="bar">
+                    <div class="bar__bar" data-value="{{ datum.percentage }}"></div>
+                  </div>
+                </div>
+              {% endfor %}
+
+              <aside class="graph-line line-10"></aside>
+              <aside class="graph-line line-20"></aside>
+              <aside class="graph-line line-30"></aside>
+              <aside class="graph-line line-40"></aside>
+              <aside class="graph-line line-50"></aside>
+              <aside class="graph-line line-60"></aside>
+              <aside class="graph-line line-70"></aside>
+              <aside class="graph-line line-80"></aside>
+              <aside class="graph-line line-90"></aside>
+              <aside class="graph-line line-100"></aside>
+            </div>
+          {% elseif graph.graphType == 'circle' %}
+            <div class="pies-inner">
+              {% for datum in graph.data %}
+                <div class="pie-outer">
+                  <div class="pie">
+                    <div class="pie__slice" data-value="{{ datum.percentage }}">
+                      <div class="rotated"></div>
+                    </div>
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          {% endif %}
+        </div>
+        <span class="infographic__description">{{ graph.explainer }}</span>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</article>
+
+<!-- how we work -->
+
+<!-- our values -->
+
+
+<div class="container">
+  <aside class="hr"></aside>
+</div>
+
+<!-- where we work -->
+<article class="post-module about__where">
+  <div class="container">
+    <h3 class="about__heading">{{ entry.whereWeWorkHeader }}</h3>
+    <p class="about__subheading">{{ entry.whereWeWorkExplainer }}</p>
+
+    {% include 'includes/snippets/datamaps' with {showOffices: true, showCount: true} %}
+  </div>
+</article>
+
+<article class="post-module about__history">
+  <div class="container">
+    <div class="col-outer">
+      <div class="col-lg">
+        <h3 class="about__heading">{{ entry.ourHistoryHeader }}</h3>
+        <p>{{ entry.ourHistoryExplainer }}</p>
+      </div>
+
+      <div class="col-sm">
+        {% for photo in entry.ourHistoryPhotos %}
+          <div class="img-outer">
+            <img src="{{ photo.url }}" alt="{{ photo.caption }}"/>
+
+            <span class="img-caption">
+              {{ photo.caption }}
+            </span>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</article>

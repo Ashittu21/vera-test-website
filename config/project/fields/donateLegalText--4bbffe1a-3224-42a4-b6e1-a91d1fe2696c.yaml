@@ -1,0 +1,27 @@
+contentColumnType: text
+fieldGroup: ab9ecd7f-c343-4238-bbe3-616c16cfba84
+handle: donateLegalText
+instructions: ''
+name: 'Donate Legal Text'
+searchable: true
+settings:
+  availableTransforms: '*'
+  availableVolumes: '*'
+  cleanupHtml: '1'
+  columnType: text
+  configSelectionMode: choose
+  defaultTransform: ''
+  manualConfig: ''
+  purifierConfig: null
+  purifyHtml: '1'
+  redactorConfig: Bare.json
+  removeEmptyTags: true
+  removeInlineStyles: true
+  removeNbsp: true
+  showHtmlButtonForNonAdmins: true
+  showUnpermittedFiles: false
+  showUnpermittedVolumes: true
+  uiMode: enlarged
+translationKeyFormat: null
+translationMethod: none
+type: craft\redactor\Field

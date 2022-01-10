@@ -1,0 +1,76 @@
+{% if entry.knowledgeBankOverview %}
+	<div class="container col-outer">
+		<div class="module-intro__text module-text__inner knowledge-overview">
+			<div class="rte">
+				{{ entry.knowledgeBankOverview }}
+			</div>
+		</div>
+	</div>
+{% endif %}
+
+{% if entry.featuredKnowledgeBank | length == 3 %}
+<section class="featured-stream-modules featured-stream-modules__alt">
+	<div class="container">
+		<h4>Featured</h4>
+
+			{% include 'includes/stream/feature_module' with {features: entry.featuredKnowledgeBank} %}
+	</div>
+</section>
+
+{% set featureids = entry.featuredKnowledgeBank.ids() %}
+{% set exclude = ['and'] %}
+{% for id in featureids %}
+	{% set exclude = exclude|merge(['not '~id]) %}
+{% endfor %}
+
+{% endif %}
+<section id="stream" class="post-content">
+	<div class="container col-outer">
+		<div class="stream-module-outer col-outer knowledge-bank-stream" data-view="list">
+			
+			{% set filterRelations = [
+				{type: 'type', relations: entry.knowledgeBankTypes | json_decode, title: 'Type'}
+			] %}
+
+			{% if entry.knowledgeBankTagsPreparse | json_decode | length %}
+			{% set filterRelations = filterRelations | merge([
+				{type: 'categories', relations: craft.categories.id(entry.knowledgeBankTagsPreparse | json_decode).find(), title: 'Tags'}
+			]) %}
+			{% endif %}
+			
+			{% set streamOptions = {
+				title: null,
+				news: false,
+				sections: [
+					['Knowledge Bank', 'knowledgeBank'],
+				],
+				hiddenSections: ['blogPosts','video','news','publications'],
+				primaryRelation: {type: 'entries', relations: [entry]},
+				filterRelations: filterRelations,
+				streamType: 'content',
+				nopack: true
+			} %}
+			
+			{% set contentlimit, newslimit = stream.loadQuantityDefault, stream.loadQuantityDefault*1.5|round %}
+			{% set start_year, end_year = stream.filterStartYear,"now"|date('Y') %}
+			
+			{% set firstStream %}{% include 'includes/stream/stream' with {isPageRequest: true} %}{% endset %}
+			{% set streamEmpty = {streamEmpty: firstStream|trim == ''} %}
+	
+			{% include 'includes/stream/stream_filter' with {hideGridList: true} %}
+			
+			<div id="stream-content">
+			
+				{{ firstStream }}
+				
+			</div>
+			
+			{% include 'includes/stream/noresults' with streamEmpty %}
+				
+			{% include 'includes/stream/nomore' %}
+			
+			{% include 'includes/stream/loader' with {loaderid: 'content_loader'} %}
+
+		</div>
+	</div>
+</section>

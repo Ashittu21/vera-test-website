@@ -1,0 +1,14 @@
+enableVersioning: true
+handle: pieces
+name: Pieces
+propagationMethod: all
+siteSettings:
+  8ed9f980-84ac-470d-94d7-89a2cdb64916:
+    enabledByDefault: true
+    hasUrls: true
+    template: pieces/_entry
+    uriFormat: 'pieces/{slug}'
+structure:
+  maxLevels: 1
+  uid: b60d130a-8b4c-46fe-b9cd-b4c6c2c46e9d
+type: structure

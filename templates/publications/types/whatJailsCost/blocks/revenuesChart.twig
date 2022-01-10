@@ -1,0 +1,13 @@
+{% set id = "RevenuesChart" ~ (now | date('U')) %}
+<div class="RevenuesChartContainer">
+<div id="{{ id }}" class="RevenuesChart"></div>
+{% if block.tableNotes %}
+{% include 'publications/_blocks/dataText' with { block: { text: block.tableNotes } } %}
+{% endif %}
+</div>
+{% js %}
+$(function() {
+  VERA.revenuesChart("#{{ id }}", {{ revenuesDataUrl | json_encode | raw }}, {{ (county ?: state) | json_encode | raw }}, {{ county ? "false" : "true" }}, {{ state | json_encode | raw }});
+})
+{% endjs %}
+{% includeJsFile '/dist/twigscripts/revenuesChart.js' %}

@@ -1,0 +1,65 @@
+<div class="two-thirds main-office">
+    <div class="img-outer">
+	    {% set image = office.heroImage.first ?? null %}
+        <img src="{% if image %}{{ image.url }}{% else %}http://placehold.it/500x500{% endif %}" alt=""/>
+        {% include 'includes/snippets/map' with {address: office.streetAddress~', '~office.city~', '~office.state~' '~office.zipCode} %}
+    </div>
+
+    <div class="contact-location-info col-outer">
+        <div class="col contact-location">
+            <h3>{{ office }}</h3>
+
+            <p>{{ office.streetAddress }}<br/>
+            {{ office.city }}, {{ office.state }} {{ office.zipCode }}</p>
+
+            <ul>
+                <li><span class="label">T</span>   {{ office.telephone }}</li>
+                {% if office.fax %}
+                <li><span class="label">F</span>   {{ office.fax }}</li>
+                {% endif %}
+                <li><span class="label">E</span>   <a href="mailto:{{ office.email }}">{{ office.email }}</a></li>
+            </ul>
+        </div>
+        
+        {% if office.relatedCenters | length %}
+	    	<p><a class="more" href="{{ office.relatedCenters[0].url }}">Go to Center</a></p>
+	    {% endif %}
+		
+		{% if office.subwayDirections|length %}
+	        <div class="col contact-directions">
+	            <h5>Subway Directions</h5>
+	
+	            <ul>
+		            {% for line in office.subwayDirections %}
+	                	<li><span class="label">{{ line.line }}</span>     {{ line.stop }}</li>
+					{% endfor %}
+	            </ul>
+	        </div>
+        {% endif %}
+    </div>
+</div>
+
+{% set mapCss %}
+	
+	.main-office .img-outer {			
+		position:relative;
+	}
+	
+	#map {
+		position:absolute;
+		height:100%;
+		width:41%;
+		right:0;
+		top:0;
+	}
+			
+	.main-office .img-outer img {
+		width:60%;
+		height:auto;
+		position:relative;
+		z-index:1;
+	}
+
+{% endset %}
+
+{% includeCss mapCss %}

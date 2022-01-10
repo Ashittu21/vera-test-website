@@ -1,0 +1,55 @@
+{% set sidebar_class = 'sidebar__grid' %}
+{% if entry is defined and entry.type.handle not in ['post','pressRelease','staff'] or entryType is defined %}
+	{% set sidebar_class = sidebar_class ~ '--2up' %}
+{% endif %}
+
+{% if relatives is not defined %}
+	{% set relatives = null %}
+	{% set relativeTitle = '' %}
+	{% set relativeType = '' %}
+
+	{% if entry.getSection().handle == 'ourWork' %}
+		{% if entry.hasDescendants %}
+			{% set relatives = entry.children %}
+		{% else %}
+			{% set relatives = null %}
+		{% endif %}
+		{% if relatives|length %}
+			{% set relativeTitle = (entry.hasDescendants ? '' : 'Related ') ~ relatives.first.type.name %}
+			{% set relativeType = relatives.first.type ~ 's' %}
+		{% endif %}
+	{% elseif entry.relatedIssues %}
+		{# ['publicationOverview', 'project', 'spotlight', 'blogSeries', 'blogPost'] #}
+		{% set relatives = entry.relatedIssues.level(2).with('actionAreaIcon') %}
+		{% set relativeTitle = relatives | length > 1 ? "Action Areas" : "Action Area" %}
+		{% set relativeType = 'actionAreas' %}
+	{% endif %}
+{% endif %}
+
+{%- if relatives|length %}
+	<article class="sidebar__{{ relativeType }} sidebar_module">
+		<h5 class="sidebar__label">{{ relativeTitle }}</h5>
+		<ul class="{{ sidebar_class }}">
+			{% for relative in relatives %}
+				{% set uri = relative.uri ?? craft.entries.section('ourWork').relatedTo(relative).first.uri %}
+				<li>
+					<a href="/{{ uri }}">
+						{% if relativeType == 'actionAreas' %}
+							<div class="img-outer">
+								{% if entry is defined and entry.type == 'commitment' %}
+									{% set relative = relative.selfCategory.last %}
+								{% endif %}
+
+								{% set icon = relative.actionAreaIcon[0] ?? null %}
+								{% if icon %}
+									<img src="{{ icon.url }}">
+								{% endif %}
+							</div>
+						{% endif %}
+						<div class="text-outer receives-color">{{ relative }}</div>
+					</a>
+				</li>
+			{% endfor %}
+		</ul>
+	</article>
+{% endif -%}

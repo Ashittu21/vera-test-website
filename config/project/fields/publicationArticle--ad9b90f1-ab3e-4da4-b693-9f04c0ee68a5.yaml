@@ -1,0 +1,14 @@
+contentColumnType: string
+fieldGroup: f8591398-94a9-4e81-b07f-a60bb6e89d81
+handle: publicationArticle
+instructions: ''
+name: 'Publication Article'
+searchable: true
+settings:
+  contentTable: '{{%matrixcontent_publicationarticle}}'
+  maxBlocks: ''
+  minBlocks: ''
+  propagationMethod: all
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

@@ -1,0 +1,21 @@
+<section
+  class="scrolling-slideshow color-combo--{{ block.colorCombo }}">
+  <div class="scrolling-slideshow-item-wrapper">
+  {% for block in block.children %}
+    <div class="scrolling-slideshow-item scrolling-slideshow-item--{{ block.type }}">
+      <div class="scrolling-slideshow-item-caption">
+        <div class="scrolling-slideshow-item-caption-inner receives-background-color">{{ block.caption }}</div>
+      </div>
+      <div class="scrolling-slideshow-item-media">
+      {% switch block.type %}
+        {% case 'photoCaption' %}
+        {% if block.photo | length %}<img src="{{ block.photo[0].url }}">{% endif %}
+        {% case 'videoCaption' %}
+        <video muted src="{{ block.videoFile[0].url }}" playsinline />
+        {% default %}
+      {% endswitch %}
+      </div>
+    </div>
+  {% endfor %}
+  </div>
+</section>

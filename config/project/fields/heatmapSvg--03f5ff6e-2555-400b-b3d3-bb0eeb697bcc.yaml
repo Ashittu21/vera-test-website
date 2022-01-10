@@ -1,0 +1,32 @@
+contentColumnType: string
+fieldGroup: 1c2af07a-2699-4df8-8e5a-f2400541874b
+handle: heatmapSvg
+instructions: ''
+name: 'Heatmap SVG'
+searchable: true
+settings:
+  allowSelfRelations: false
+  allowUploads: true
+  allowedKinds: null
+  defaultUploadLocationSource: 'volume:f52a9576-f9b8-4f2c-ad52-3896ca36f136'
+  defaultUploadLocationSubpath: '{slug}'
+  limit: '1'
+  localizeRelations: false
+  previewMode: full
+  restrictFiles: ''
+  selectionLabel: 'Add an SVG map'
+  showSiteMenu: true
+  showUnpermittedFiles: false
+  showUnpermittedVolumes: true
+  singleUploadLocationSource: 'volume:f52a9576-f9b8-4f2c-ad52-3896ca36f136'
+  singleUploadLocationSubpath: maps/
+  source: null
+  sources:
+    - 'volume:f52a9576-f9b8-4f2c-ad52-3896ca36f136'
+  targetSiteId: null
+  useSingleFolder: true
+  validateRelatedElements: false
+  viewMode: large
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Assets

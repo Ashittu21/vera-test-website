@@ -1,0 +1,61 @@
+{% set imageUrl = block.heroImage[0].url ?? "https://placehold.it/1440x720" %}
+{% set id = "CityHero_" ~ (now | date('U')) %}
+
+<header class="CityHero" id="{{ id }}">
+  <div class=" module-text">
+  <div class="CityHero-inner container">
+    <div class="CityHero-inner-meta">
+      <div class="CityHero-superheading ff-sans size--body">{{ block.superheading }}</div>
+      <h1 class="CityHero-heading ff-sans size--h1">{{ block.heading }}</h1>
+      {%- if block['explainer'] is defined -%}
+      <div class="CityHero-explainer ff-sans size--body rte">{{ block.explainer | shortcodes | raw}}</div>
+      {%- endif -%}
+      {%- if block['download'] is defined and block.download.url -%}
+      <a class="CityHero-download btn" 
+        href="{{ block.download.url }}" 
+        target="_blank" 
+        rel="noopener noreferer">
+        {{ block.download.label }}
+      </a>
+      {%- endif -%}
+    </div>
+    {% if block.map %}
+    <div class="CityHero-stats"></div>
+    {% endif %}
+  </div>
+  </div>
+</header>
+
+{% set entry = block.map %}
+{% if entry %}
+{% set tooltipColumns = [] %}
+{% for column in (entry.dataColumnsForChildPageHeaders ?? entry.tooltipColumns) %}
+{% set tooltipColumns = tooltipColumns | merge([
+  {
+    column: column.column,
+    label: column.label ?: column.column
+  }
+]) %}
+{% endfor %}
+{% set slugColumns = [] %}
+
+{% for row in entry.slugColumns %}
+{% set slugColumns = slugColumns | merge([
+  row.column
+]) %}
+{% endfor %}
+
+{% js %}
+$(function() {
+  VERA.citiesMapHeroData(
+    "#{{ id }}",
+    {{ entry.dataset[0].url | json_encode | raw}}, 
+    {{ slugColumns | json_encode | raw}},
+    {{ tooltipColumns | json_encode | raw }},
+    {{ (block.slug ?? craft.request.getLastSegment()) | json_encode | raw }},
+    {{ (block.headingColumns ?? []) | json_encode | raw }}
+  );
+})
+{% endjs %}
+{% includeJsFile '/dist/twigscripts/citiesMapHeroData.js' %}
+{% endif %}

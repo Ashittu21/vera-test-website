@@ -1,0 +1,104 @@
+{% if entry.requireLogin or entry.unpublished or entry.parentUnpublished == 1 or entry.ancestors.unpublished('1') | length %}
+	{% requireLogin %}
+	{% header "X-Robots-Tag: noindex, nofollow;" %}
+{% endif %}
+
+{% import 'state-of/_/macros' as macros %}
+
+{% extends '_layout' %}
+
+{% set landing = landing ?? (entry.level == 1 ? entry : entry.ancestors.level(1).first) %}
+
+{% set layout = landing.serialLayout.value ?? "carousel" %}
+
+{% set title = entry.title %}
+
+{% block nav %}
+	{% if not craft.request.isAjax %}
+		{% include 'includes/_header/header__state-of' with { headerClass: 'will-fade-in' }%}
+	{% endif %}
+{% endblock %}
+
+{% block bodyClass %}
+	state-of no-pad nav-carousel-page
+	{{ 'covid' in craft.request.segment(1) ? 'covid-article' : ''}}
+{% endblock %}
+
+{% block content %}
+	<nav id="full-nav-carousel" class="full-nav-carousel full-nav-carousel--{{ layout }}">
+		{% include 'state-of/_/covers/' ~ (landing.cover | length ? landing.cover : 'default') %}
+
+		{% cache %}
+		{% switch landing.serialLayout.value %}
+			{% case 'grid' %}
+				<div class="grid">
+					<div class="grid-intro">
+						<div class="grid-intro-inner">
+							{% if not ('covid' in craft.request.segment(1)) %}
+							<div class="grid-intro-heading">{{ landing.heading }}</div>
+							{% endif %}
+							<div class="grid-intro-overview">{{ landing.overview }}</div>
+						</div>
+					</div>
+					<div class="grid-wrapper">
+						{% for item in landing.serialGridItems %}
+							{{ macros.gridItem(item) }}
+						{% endfor %}
+					</div>
+				</div>
+
+			{% default %}
+				{# carousel #}
+				<div class="item introductory">
+					{% embed 'state-of/_/copy' with {entry: landing} %}{% endembed %}
+				</div>
+
+				{% for item in landing.children.type('article') %}
+					{{ macros.navItem(item,loop.index) }}
+				{% endfor %}
+
+				{% for item in landing.children.type('topic').pageType('topic') %}
+					{{ macros.navItem(item,loop.index) }}
+				{% endfor %}
+
+				{% set lenses = landing.children.type('topic').pageType('lense') %}
+				{% if lenses | length %}
+					<div class="item introductory">
+						{% include 'state-of/_/copy' with { entry: {
+            heading: 'Lenses',
+            text: null,
+            overview: "There are important issues that transcend many or all categories of justice reform. Through “Lenses,” we present items from across the report’s Topics in order to elevate additional insights and inspire critical thinking. We invite you to explore, comment, and share."
+          } } %}
+					</div>
+
+					{% for item in lenses %}
+						{{ macros.navItem(item,null,'alt') }}
+					{% endfor %}
+
+					{% for item in landing.children.type('page') %}
+						{{ macros.navItem(item)}}
+					{% endfor %}
+				{% endif %}
+		{% endswitch %}
+
+		{% endcache %}
+	</nav>
+
+	<div id="article">
+		{% block article %}{% endblock %}
+		{% include 'includes/stream/loader' %}</div>
+
+	{% includeJs %}
+	{% include 'state-of/layout.js' %}
+	{% endincludejs %}
+
+	{# TODO: better approach? #}
+	<article id="Slider--article">
+		<div class="Slider--inner" data-footnote-counter-type="letters">
+			{% include 'includes/stream/loader' %}
+		</div>
+	</article>
+
+{% endblock %}
+
+{% block footer %}{% endblock %}

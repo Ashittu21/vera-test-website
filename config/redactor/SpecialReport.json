@@ -1,0 +1,52 @@
+{
+  "buttons": [
+    "format",
+    "bold",
+    "italic",
+    "lists",
+    "link",
+    "file",
+    "image",
+    "line",
+    "html"
+  ],
+  "plugins": ["scriptbuttons", "fullscreen", "alignment"],
+  "formatting": ["p", "blockquote"],
+  "formattingAdd": {
+    "body": {
+      "title": "Body",
+      "api": "module.block.format",
+      "args": {"tag": "p", "class": "type--body"}
+    },
+    "intro-p": {
+      "title": "Intro Paragraph",
+      "api": "module.block.format",
+      "args": {"tag": "p", "class": "type--body--large"}
+    },
+    "heading1": {
+      "title": "Heading 1",
+      "api": "module.block.format",
+      "args": {"tag": "h2", "class": "ff-serif--medium size--h2"}
+    },
+    "heading2": {
+      "title": "Heading 2",
+      "api": "module.block.format",
+      "args": {"tag": "h3", "class": "ff-sans--bold size--h3"}
+    },
+    "heading3": {
+      "title": "Heading 3",
+      "api": "module.block.format",
+      "args": {"tag": "h4", "class": "ff-sans--bold size--h5"}
+    },
+    "footnote": {
+      "title": "Footnote",
+      "api": "module.block.format",
+      "args": {"tag": "p", "class": "footnote"}
+    },
+    "dropcap": {
+      "title": "Dropcap",
+      "api": "module.block.format",
+      "args": {"tag": "p", "class": "dropcap"}
+    }
+  }
+}

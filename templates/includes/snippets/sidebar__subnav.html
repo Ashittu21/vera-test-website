@@ -1,0 +1,27 @@
+<ul class="sidebar-subnav sidebar-subnav--{{ entry.sidebarSubNav.value }} hidden-tablet">
+	{% for block in blocks %}
+		{% set index = loop.index %}
+		{% for link in block.children if link.headingStyle == 'numberedWithShape' %}
+			{% if link.heading %}
+				<li class="sidebar-subnav-item">
+					<a href="#{{ link.heading | kebab }}" class="js-subnav-link" data-target="{{ link.heading | kebab }}">
+						<svg class="list-bullet" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="18.6px" height="18.7px" viewbox="-15 16.3 18.6 18.7" enable-background="new -15 16.3 18.6 18.7" xml:space="preserve">
+							<g>
+								<circle class="ring" fill="none" stroke="#050505" stroke-width="0.5" stroke-miterlimit="10" cx="-5.7" cy="25.6" r="8"/>
+								<circle class="center" fill="#050505" cx="-5.7" cy="25.6" r="3.6"/>
+							</g>
+						</svg>
+						<span>{{ index }}.
+							{{ link.heading }}</span>
+					</a>
+				</li>
+			{% endif %}
+		{% endfor %}
+	{% endfor %}
+</ul>
+
+{% includeJs %}
+$(function() {
+    VERA.initSidebar()
+  })
+{% endincludejs %}

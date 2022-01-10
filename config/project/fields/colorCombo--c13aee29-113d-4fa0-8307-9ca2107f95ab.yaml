@@ -1,0 +1,111 @@
+contentColumnType: string
+fieldGroup: 62eaf9ac-7045-45a4-b9c9-6db9b59feaac
+handle: colorCombo
+instructions: ''
+name: 'Color Combo'
+searchable: true
+settings:
+  optgroups: true
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - Inherit
+        -
+          - value
+          - inherit
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Red/White
+        -
+          - value
+          - red-white
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - White/Red
+        -
+          - value
+          - white-red
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Black/White
+        -
+          - value
+          - black-white
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - White/Black
+        -
+          - value
+          - white-black
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - 'Light Gray/Black'
+        -
+          - value
+          - lightGray-black
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - 'Black Gradient/White'
+        -
+          - value
+          - blackGradient-white
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - 'Light Gray Gradient/Black'
+        -
+          - value
+          - lightGrayGradient-black
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - 'True Black/White'
+        -
+          - value
+          - trueblack-white
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

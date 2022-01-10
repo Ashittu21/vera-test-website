@@ -1,0 +1,15 @@
+contentColumnType: string
+fieldGroup: 532961b6-a69f-4934-914a-9c266d7a2eb6
+handle: contributorsBuilder
+instructions: ''
+name: 'Contributors builder'
+searchable: true
+settings:
+  maxBlocks: ''
+  maxTopBlocks: ''
+  minBlocks: ''
+  propagationMethod: all
+  wasModified: true
+translationKeyFormat: null
+translationMethod: site
+type: benf\neo\Field

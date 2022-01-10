@@ -1,0 +1,242 @@
+html { position:relative; min-height:100%; }
+body { margin-bottom:100px; }
+label { color:#444444; font-size:13px; max-width: 300px;}
+input[type="radio"], input[type="checkbox"] { margin:0 4px; }
+
+.footer { background-color:#f5f5f5; position:absolute; bottom:0; height:100px; width:100%; }
+.footer div { padding:20px 15px 0; text-align:center; }
+.footer div a { color:#999; }
+
+.container{padding-bottom:50px; padding-top: 20px}
+
+iframe#cb-modal-frame { width:100%; }
+#cb-loader { text-align:center; }
+
+a { color:#2a6496; }
+a:hover,
+a:focus,
+a:active { color:#2a6496; }
+
+#InsertRecordPassword_Meter, #EditRecordPassword_Meter { width:100% !important; }
+
+.btn-primary { background-color:#2a6496; border-color:#2a6496; }
+.btn-primary:hover, 
+.btn-primary:focus, 
+.btn-primary:active, 
+.btn-primary.active, 
+.open .dropdown-toggle.btn-primary { background-color:#e9a30d; border-color:#B87F03; }
+
+.modal-body { padding-bottom:0; }
+
+/* Custom Forms */
+/*.cb-form-resp { float:none; margin:0 auto; }*/
+.cb-form-resp table { width:100%; }
+.cb-form-resp select { width:100%; min-width:120px; }
+.cb-form-resp input[type="text"],
+.cb-form-resp input[type="password"],
+.cb-form-resp input[type="file"]
+{ width:100%; }
+
+.cb-form-inline input[type="text"] { width:75%; min-width:70px; }
+.cb-form-inline td { white-space:nowrap; }
+
+.cb-form-readonly input[type="submit"] { display:none !important; }
+
+.cb-det-prop .row { padding:0 15px; text-align:center; }
+.cb-det-prop .row > div { padding:5px 0; }
+
+.cb-phone { white-space:nowrap; display:none; }
+
+/* Map Mashup */
+.map-container { position:relative; padding-bottom:75%; height:0; overflow:hidden; width:100%; }
+#map { position:absolute; top:0; left:0; width:100% !important; height:98% !important; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  h1.page-header { font-size:20px; line-height:34px; margin-top:20px; }
+  h3 { font-size:18px; }
+  
+  * {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  }
+  
+  /* responsive forms */
+  .cb-form-resp table { width: 100% !important; margin: 0px !important; }
+  .cb-form-resp td { display: block; }
+
+  .cb-form-readonly table { width: 100% !important; margin: 0px !important; }
+  .cb-form-readonly td { display: inline-block; float:left; }
+  .cb-form-readonly td:nth-child(2n+1) { clear:left; }  
+  
+  .cb-form-resp input, 
+  .cb-form-resp select,
+  .cb-form-resp textarea { width: 100% !important; }
+
+  .cb-form-resp input[type=radio],  .cb-form-resp input[type=checkbox] {
+    width: auto !important;
+  }
+
+  .cb-form-resp img[alt~="Calendar"] {
+    position: relative; left: -19px; top: 4px; z-index: 9999 ;
+  }
+
+  .cb-form-resp img[alt~="Audio"] {
+    position: relative; left: -19px; top: 4px;
+  }
+
+  .cb-form-resp img[alt~="Download"] {
+    position: relative; left: -46px; top: 4px;
+  }  
+
+  .cb-form-resp input + span > a {
+    display: inline-block;
+    width: 1px;
+    overflow: visible;
+    position: relative;
+    left: -8px;
+  }
+
+  .cb-form-resp input + a[href="#"],
+  .cb-form-resp input + a[href="#"] + a {
+    display: inline-block;
+    width: 1px;
+    overflow: visible;
+    position: relative;
+    left: -8px;
+  }
+  
+  /* responsive tables */
+  .cb-tab-resp * {
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+
+  .cb-tab-resp *:before,
+  .cb-tab-resp *:after {
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+
+  .cb-tab-resp table[id^="PageActionsCtnr"] {
+    border-spacing: 0px !important;
+    border-collapse: separate !important; 
+    margin-bottom: 7px !important; 
+  }
+
+  .cb-tab-resp table[id^="PageActionsCtnr"] td {
+    display: block;
+    width: auto!important;
+    float: left;
+    text-align: left;
+    padding: 1px !important;
+  }
+
+  .cb-tab-resp table[id^="PageActionsCtnr"] td div {
+    text-align: left !important;
+  }
+
+  .cb-tab-resp table[data-cb-name^="cbTable"] {
+    border: none !important;
+    background: transparent !important;
+    display: block;
+    -webkit-box-shadow: none !important;
+       -moz-box-shadow: none !important;
+            box-shadow: none !important;     
+  }
+
+  .cb-tab-resp table[data-cb-name^="cbTable"] tbody {
+    display: block;
+  }
+
+  .cb-tab-resp table[data-cb-name^="cbTable"] tr:first-child {
+    display: block;
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  .cb-tab-resp table[data-cb-name^="cbTable"] tr {
+    display: block;
+    border: 1px solid #dddddd; 
+    margin-bottom: 7px; 
+    width: 100%;
+  }
+
+  .cb-tab-resp table[data-cb-name^="cbTable"] td {
+    display: block;
+    border: none !important;
+    position: relative !important;
+    padding-bottom: 10px !important;
+    text-align: left !important;    
+  }
+
+  .cb-tab-resp table[data-cb-name^="cbTable"] td:before {
+    padding-right: 5px; 
+  }
+
+  .cb-tab-resp table[data-cb-name^="cbTable"] td[class^="cbResultSetActionCell"] {padding-bottom: 10px !important; padding-top: 7px  !important;} 
+  
+  /* responsive gallery */
+  .cb-gal-resp * {
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+
+  .cb-gal-resp .cb-event > div { max-width:100%; }
+  
+  .cb-gal-resp table[id^="PageActionsCtnr"] {
+    border-spacing: 0px !important;
+    border-collapse: separate !important; 
+  }
+
+  .cb-gal-resp table[id^="PageActionsCtnr"] td {
+    display: block;
+    width: auto!important;
+    float: left;
+    text-align: left;
+    padding: 1px !important;
+  }
+
+  .cb-gal-resp table[id^="PageActionsCtnr"] td div {
+    text-align: left !important;
+  }
+
+  .cb-gal-resp table[data-cb-name^="cbTable"] {
+    border-spacing: 0px !important;
+    border-collapse: collapse !important; 
+    margin-bottom: 7px;       
+  }
+
+  .cb-gal-resp table[data-cb-name^="cbTable"] td {
+    display: block;
+    width: 100% !important;
+    float: left;
+    text-align: left;
+    margin-top: 10px;   
+  }
+
+  .cb-gal-resp table[data-cb-name^="cbTable"] td div {
+    text-align: left !important;    
+  }
+
+  .cb-gal-resp table[data-cb-name^="cbTable"] td > div > div[name^="RACtnr"], 
+  .cb-gal-resp table[data-cb-name^="cbTable"] td > div > div[name^="RACtnr"]:hover { 
+    vertical-align: middle !important;
+    white-space: normal !important;
+    background: transparent !important;
+    overflow: hidden !important;
+    display: inline-block !important;
+    padding: 0px !important;      
+    margin: -6px 12px 8px 12px !important; 
+    line-height: 0px;
+    position: static !important;
+    width: auto !important;
+    opacity: 1.0 !important;
+  }
+  
+}

@@ -1,0 +1,96 @@
+field: fd7faa2a-3e0f-457a-88a0-05e680ad5c65
+fieldLayouts:
+  194205aa-9ae6-4f1f-8d14-ee7703a4f1a6:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 79f79b6e-0c90-4c7b-b031-45eb6a69cece
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 6dbc0493-c3ba-4780-a37b-3d510fb08544
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 6310ed94-fea4-4568-9bed-4eca659d1e27
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  6310ed94-fea4-4568-9bed-4eca659d1e27:
+    contentColumnType: text
+    fieldGroup: null
+    handle: siteUrl
+    instructions: ''
+    name: 'Site Url'
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  6dbc0493-c3ba-4780-a37b-3d510fb08544:
+    contentColumnType: text
+    fieldGroup: null
+    handle: description
+    instructions: ''
+    name: Description
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: '1'
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  79f79b6e-0c90-4c7b-b031-45eb6a69cece:
+    contentColumnType: text
+    fieldGroup: null
+    handle: siteName
+    instructions: ''
+    name: 'Site Name'
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+handle: externalSite
+name: 'External Site'
+sortOrder: 1

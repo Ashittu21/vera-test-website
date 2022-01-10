@@ -1,0 +1,43 @@
+{
+  "buttons": [
+    "format",
+    "bold",
+    "italic",
+    "lists",
+    "link",
+    "file",
+    "line"
+  ],
+  "plugins": ["scriptbuttons", "fullscreen"],
+  "formatting": ["p", "blockquote"],
+  "formattingAdd": {
+    "intro-p": {
+      "title": "Intro Paragraph",
+      "args": ["p", "class", "intro"]
+    },
+    "header": {
+      "title": "Heading",
+      "args": ["h2", "class", "sub-headline"]
+    },
+    "subhead": {
+      "title": "Subheading 1",
+      "args": ["h5", "class", "intext-subhead"]
+    },
+    "subhead2": {
+      "title": "Subheading 2",
+      "args": ["h5", "class", "intext-subhead-2"]
+    },
+    "subhead3": {
+      "title": "Subheading 3",
+      "args": ["h5", "class", "intext-subhead-3"]
+    },
+    "footnote": {
+      "title": "Footnote",
+      "args": ["span", "class", "footnote"]
+    },
+    "dropcap": {
+      "title": "Dropcap",
+      "args": ["p", "class", "dropcap", "toggle"]
+    }
+  }
+}

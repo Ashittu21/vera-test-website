@@ -1,0 +1,331 @@
+field: 91d891dc-1fee-45bd-9011-10cd107659d1
+fieldLayouts:
+  a3595773-e848-4efa-8fb8-0824dbb27332:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 10b009d0-0560-4e51-bb03-6aa438894144
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 64cf1269-1602-4219-9486-d831f5acddb6
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 5c9651fd-8e42-4904-9f1e-97ce1888761f
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: fc00c1ed-b390-4674-98c2-c2a1ab40ae22
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 0973a166-6f18-4940-b20f-7bc41eeb52f0
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: ee763774-7e42-4b21-8c4b-bb897e81b2fd
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: c2f01370-3f0f-48dd-aa83-621c1e2c2cb8
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  0973a166-6f18-4940-b20f-7bc41eeb52f0:
+    contentColumnType: text
+    fieldGroup: null
+    handle: subheading
+    instructions: ''
+    name: Subheading
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  10b009d0-0560-4e51-bb03-6aa438894144:
+    contentColumnType: text
+    fieldGroup: null
+    handle: linkUrl
+    instructions: 'use a full https:// url'
+    name: 'Link Url'
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  5c9651fd-8e42-4904-9f1e-97ce1888761f:
+    contentColumnType: string
+    fieldGroup: null
+    handle: colorCombo
+    instructions: ''
+    name: 'Color Combo'
+    searchable: true
+    settings:
+      optgroups: true
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - Inherit
+            -
+              - value
+              - inherit
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Red/White
+            -
+              - value
+              - red-white
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - White/Red
+            -
+              - value
+              - white-red
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Black/White
+            -
+              - value
+              - black-white
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - White/Black
+            -
+              - value
+              - white-black
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - 'True Black/White'
+            -
+              - value
+              - trueblack-white
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+  64cf1269-1602-4219-9486-d831f5acddb6:
+    contentColumnType: string
+    fieldGroup: null
+    handle: layout
+    instructions: ''
+    name: Layout
+    searchable: true
+    settings:
+      optgroups: true
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - 'Default Right'
+            -
+              - value
+              - defaultRight
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - 'Default Left'
+            -
+              - value
+              - defaultLeft
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - 'Featured Right'
+            -
+              - value
+              - featuredRight
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - 'Featured Left'
+            -
+              - value
+              - featuredLeft
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - 'Full Bleed Image'
+            -
+              - value
+              - fullBleedImage
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+  c2f01370-3f0f-48dd-aa83-621c1e2c2cb8:
+    contentColumnType: string
+    fieldGroup: null
+    handle: image
+    instructions: ''
+    name: Image
+    searchable: true
+    settings:
+      allowSelfRelations: false
+      allowUploads: true
+      allowedKinds:
+        - image
+      defaultUploadLocationSource: 'volume:a48d5d4c-e94e-40ca-b140-801253b0f802'
+      defaultUploadLocationSubpath: ''
+      limit: '1'
+      localizeRelations: false
+      previewMode: full
+      restrictFiles: '1'
+      selectionLabel: ''
+      showSiteMenu: true
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: true
+      singleUploadLocationSource: 'volume:a48d5d4c-e94e-40ca-b140-801253b0f802'
+      singleUploadLocationSubpath: '{owner.slug}'
+      source: null
+      sources: '*'
+      targetSiteId: null
+      useSingleFolder: true
+      validateRelatedElements: false
+      viewMode: large
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+  ee763774-7e42-4b21-8c4b-bb897e81b2fd:
+    contentColumnType: text
+    fieldGroup: null
+    handle: buttonText
+    instructions: ''
+    name: 'Button Text'
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  fc00c1ed-b390-4674-98c2-c2a1ab40ae22:
+    contentColumnType: text
+    fieldGroup: null
+    handle: heading
+    instructions: ''
+    name: Heading
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+handle: externalResourceBlock
+name: 'External Resource Block'
+sortOrder: 10

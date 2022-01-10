@@ -1,0 +1,96 @@
+field: aecd6fd6-1f2a-4621-a942-31d7d1f18b0f
+fieldLayouts:
+  6f19bb59-7663-45b9-932d-a9b31cc62ba8:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 8d1f9bea-32b5-4887-b23d-b7832cb79c72
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 0c0da472-7c94-4e38-8179-513a47194f1d
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 3b847d1e-f812-4049-ae88-d7f967c91438
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  0c0da472-7c94-4e38-8179-513a47194f1d:
+    contentColumnType: text
+    fieldGroup: null
+    handle: linkUrl
+    instructions: ''
+    name: 'Link Url'
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  3b847d1e-f812-4049-ae88-d7f967c91438:
+    contentColumnType: text
+    fieldGroup: null
+    handle: source
+    instructions: ''
+    name: Source
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  8d1f9bea-32b5-4887-b23d-b7832cb79c72:
+    contentColumnType: text
+    fieldGroup: null
+    handle: linkTitle
+    instructions: ''
+    name: 'Link Title'
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+handle: externalLink
+name: 'External Link'
+sortOrder: 2

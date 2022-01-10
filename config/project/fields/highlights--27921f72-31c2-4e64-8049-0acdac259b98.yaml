@@ -1,0 +1,14 @@
+contentColumnType: string
+fieldGroup: a1574b52-b575-41d9-9fdd-13f2294a57f2
+handle: highlights
+instructions: ''
+name: Highlights/Objectives
+searchable: true
+settings:
+  contentTable: '{{%matrixcontent_highlights}}'
+  maxBlocks: '3'
+  minBlocks: null
+  propagationMethod: all
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

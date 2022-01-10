@@ -1,0 +1,97 @@
+{% if size is not defined %}
+	{% set size = 'half' %}
+{% endif %}
+
+{% if features|length %}
+<div class="col-outer">
+	{% for module in features %}
+		{% include 'includes/stream/stream_module' with {notStream: true} %}
+{#
+		{% if module.type.handle in ['news', 'resourceSite'] or module.section.handle == 'knowledgeBank' %}
+			{% set link = module.linkUrl %}
+			{% set ext = true %}
+		{% else %}
+			{% set link = module.url %}
+			{% set ext = false %}
+		{% endif %}
+		<article class="stream-module stream-module--uc stream-module--uc--half">
+			<a href="{{ link }}" {{ ext ? 'target="_blank"' }} class="stream-module__inner">
+				{% set image = module.streamImageRectangle[0] ?? null %}
+				{% if image %}
+				<div class="stream-module__img-outer {% if module.type == 'video' %}stream-module__video-outer{% endif %} img-outer" style="background-image: url('{{ image.url }}');">
+						<div class="spacer"></div>
+				</div>
+				{% endif %}
+				
+				{% set previewtext = null %}
+				{% if 
+					module.type.handle not in ['spotlight','specialReport','story'] and 
+					(isFeatured is not defined or not isFeatured)
+				%}
+					{% if
+						(not image and module.subtitle == '') or
+						(module.subtitle == '' and module.title|length < 60) or 
+						(size == 'half' and not image and module.subtitle|length < 60 and module.title|length < 40) or
+						(size == 'half' and image and module.subtitle|length < 30 and module.title| length < 40) or
+						(size == 'full' and module.subtitle|length < 80 and module.title|length < 40)
+					 %}
+						{% set preview = '' %}
+			            {% if module.overview %}
+			            	{% set preview = module.overview %}
+			            {% elseif module.article or module.publicationArticle or module.specialReportsArticle %}
+			            	{% set article = module.article | default(module.publicationArticle) | default(module.specialReportsArticle) %}
+			            	{% set continue = true %}
+			            	{% for block in article if continue %}
+			            		{% if block['text'] is defined %}
+			            			{% set preview = block.text %}
+			            		{% endif %}
+			            	{% endfor %}
+			            {% endif %}
+			
+			            {% set previewlength = 350 %}
+			            {% set previewtext = preview|striptags %}
+		            {% endif %}
+				{% endif %}
+
+
+				<div class="stream-module__content">
+					<div class="stream-module__content-inner">
+						<h3 class="stream-module__heading">
+							{{ module.title }}
+						</h3>
+	
+						{% if module.subtitle %}
+						<p class="stream-module__subheading">
+							{{ module.subtitle }}
+						</p>
+						{% endif %}
+						
+						{% if previewtext is defined and previewtext %}
+							<p class="stream-module__previewtext">{{ previewtext[:previewlength] }}{% if previewtext|length > previewlength %}...{% endif %}</p>
+						{% endif %}
+						
+						{% if module.section.handle in ['knowledgeBank'] %}
+							<p class="stream-module__description">{{ module.shortOverview }}</p>
+						{% endif %}
+	
+						 <div class="stream-module__meta">
+							{% include 'includes/stream/stream_authors.html' %}	  
+							{% if module.type != 'project' %}
+							<span class="stream-module__meta__date">
+							{% if module.type.handle in ['event'] %}
+							{{ module.eventStartTime | date('F d, Y') }}
+							{% else %}
+							{{ module.postDate | date('F d, Y') }}
+							{% endif %}
+							</span>
+							{% endif %}
+						 </div>
+					</div>
+				</div>
+				<span class="stream-module__label">{{ module.type.name }}</span>
+			</a>
+		</article>
+#}
+	{% endfor %}
+</div>
+{% endif %}

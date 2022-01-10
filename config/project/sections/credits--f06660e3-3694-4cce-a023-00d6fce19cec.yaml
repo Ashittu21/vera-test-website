@@ -1,0 +1,11 @@
+enableVersioning: true
+handle: credits
+name: Credits
+propagationMethod: all
+siteSettings:
+  8ed9f980-84ac-470d-94d7-89a2cdb64916:
+    enabledByDefault: true
+    hasUrls: true
+    template: credits
+    uriFormat: credits
+type: single

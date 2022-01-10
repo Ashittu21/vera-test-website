@@ -1,0 +1,189 @@
+field: 95bc127b-3520-49ff-803a-7352214068b1
+fieldLayouts:
+  d681be13-758a-4d22-a0a5-fb51f6c0333e:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: f256868b-0071-47cc-9568-2cf61efe4289
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: afe18ef9-d308-4f15-b2ec-4cacb1739370
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 6d2aec6f-fcda-4c03-8b2b-ad90809949d6
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: a1df4d80-186b-45e8-9dd4-d24658e27aed
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: c4891bf7-1871-4ad1-8f7f-3687d4add9c7
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 819c190f-5eb5-472c-a045-61bbc9917cfe
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: a7906e3d-29a6-4ad7-8d31-e21045d46ef5
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  6d2aec6f-fcda-4c03-8b2b-ad90809949d6:
+    contentColumnType: text
+    fieldGroup: null
+    handle: subtitle
+    instructions: ''
+    name: Subtitle
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  819c190f-5eb5-472c-a045-61bbc9917cfe:
+    contentColumnType: boolean
+    fieldGroup: null
+    handle: fullContainerVideo
+    instructions: 'Set to on for wider video features that fills the container width'
+    name: 'Fill Container'
+    searchable: true
+    settings:
+      default: false
+      offLabel: null
+      onLabel: null
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Lightswitch
+  a1df4d80-186b-45e8-9dd4-d24658e27aed:
+    contentColumnType: text
+    fieldGroup: null
+    handle: slideout
+    instructions: 'Subtitle will link to slideout'
+    name: Slideout
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  a7906e3d-29a6-4ad7-8d31-e21045d46ef5:
+    contentColumnType: boolean
+    fieldGroup: null
+    handle: playOnScroll
+    instructions: ''
+    name: 'Play On Scroll'
+    searchable: true
+    settings:
+      default: false
+      offLabel: null
+      onLabel: null
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Lightswitch
+  afe18ef9-d308-4f15-b2ec-4cacb1739370:
+    contentColumnType: text
+    fieldGroup: null
+    handle: videoTitle
+    instructions: ''
+    name: Title
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  c4891bf7-1871-4ad1-8f7f-3687d4add9c7:
+    contentColumnType: text
+    fieldGroup: null
+    handle: caption
+    instructions: ''
+    name: caption
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  f256868b-0071-47cc-9568-2cf61efe4289:
+    contentColumnType: string
+    fieldGroup: null
+    handle: video
+    instructions: ''
+    name: Video
+    searchable: true
+    translationKeyFormat: null
+    translationMethod: none
+    type: dukt\videos\fields\Video
+handle: video
+name: Video
+sortOrder: 9

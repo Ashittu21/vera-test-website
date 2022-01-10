@@ -1,0 +1,6 @@
+{%- set term = shortcode.getContent -%}
+{%- set def = craft.categories.group("terms").title(term).one() -%}
+{%- if not def -%}
+{%- set def = craft.categories.group("terms").search(term).one() -%}
+{%- endif -%}
+{% if def %}<span class="term" data-definition="{{ def.definition | e("html_attr")}}">{{ term | raw }}</span>{% else %}{{ term | raw }}{% endif %}

@@ -1,0 +1,49 @@
+.VideoCta {
+}
+
+.VideoCta button {
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  img {
+    margin-right: 1em;
+  }
+}
+
+.VideoCta-modal {
+  display: none;
+
+  &.modal--open {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $black;
+    z-index: 1003;
+    padding: $padding-xl;
+
+    > .video-container {
+      width: 100%;
+      margin: 0;
+    }
+  }
+}
+.VideoCta-close {
+  position: fixed;
+  top: $padding-lg;
+  right: $padding-lg;
+  background-color: $black;
+  border: 0;
+  padding: 0;
+
+  > .modal-close {
+    position: static;
+  }
+}

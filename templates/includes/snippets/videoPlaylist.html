@@ -1,0 +1,27 @@
+{% if video is defined and video %}
+
+{% set isVideoPage = entry.section.handle in ['videoPlaylist'] ?? false %}
+{% set playOnScroll = playOnScroll ?? false %}
+
+{% set videoCover = videoCover ?? (block.photo | length ? block.photo[0].url : null) %}
+{% set container = container ?? true %}
+
+{% if isVideoPage %}<section class="post-module module-video">{% endif %}
+
+<div class="{% if container %}container{% else %}no-container{% endif %}{% if not isVideoPage %} video-container{% endif %}{% if class is defined %} {{ class }}{% endif %}">
+	{% if video %}
+	<div id="player{{ id }}" class="video-player{% if isVideoPage %} video-embed-outer{% endif %}">
+    <div id="iframe{{ id }}" class="iframe_target" {%- if videoCover is defined %}
+      data-embed="{{ video.playlistEmbed | escape }}"{% endif %}>
+    </div>
+
+    {% if videoCover is defined %}
+      <div class="video-player-cover youtube video-outer"
+        style="background-image: url('{{ videoCover }}');"></div>
+  	{% endif %}
+	</div>
+</div>
+{% endif %}
+{% if isVideoPage %}</section>{% endif %}
+
+{% endif %}

@@ -1,0 +1,58 @@
+
+{% includeCss %}
+  body {
+    padding-top: 0 !important;
+  }
+  #ReimaginingPrisonsBars {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    position: relative;
+  }
+  #ReimaginingPrisonsBars svg {
+    height: 100%;
+    width: 100%;
+  }
+  #ReimaginingPrisonsBars .title-wrap {
+    color: white;
+    max-width: 600px;
+    padding: 3em;
+    position: absolute;
+    text-align: center;
+    z-index: 1;
+  }
+  #ReimaginingPrisonsBars .subtitle {
+    margin-top: 1em;
+  }
+  #RPFace {
+    position: absolute;
+  }
+  #ReimaginingPrisonsBars .next-slide-wrap {
+    position: absolute;
+    bottom: 0
+  }
+{% endincludecss %}
+{% includeJs %}
+  {% include 'special-reports/custom/reimagining-prisons.js' %}
+  {% includeJs %}
+  $(function() {
+    var $nextSlide = $('.next-slide-wrap');
+    var $top = $('#why-reimagine')
+    $nextSlide.on("click", function() {
+      TweenLite.to(window, .5, { scrollTo: $top ? $top.offset().top : ($(window).scrollTop() + window.innerHeight) });
+    });
+  })
+  {% endincludejs %}
+{% endincludejs %}
+<div id="ReimaginingPrisonsBars" class="bg-color--black">
+  {% include 'special-reports/custom/Face.svg' %}
+  <div class="next-slide-wrap is-hidden">
+    <button
+      class="next-slide"
+      title="Scroll Down"
+      aria-label="Scroll Down">
+      Scroll Down
+    </button>
+    <div>Scroll to begin</div>
+  </div>
+</div>

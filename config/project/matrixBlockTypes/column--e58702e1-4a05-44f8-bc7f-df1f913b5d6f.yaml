@@ -1,0 +1,257 @@
+field: 78ff34bc-5ef6-45c8-a29c-0f4a0e07cc9d
+fieldLayouts:
+  92f285fd-e42d-4f89-a6ed-e91b89bc2689:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 3324c3ba-deb2-4e8a-9df2-5b5836b1ff4a
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 6ea52334-6ac7-440f-bb72-fc0e368909ed
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: e59a65a8-4cc6-4dc5-9e41-bb213ed03a93
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 256fe8df-d9d5-4f3f-80a4-2b583634f4bc
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 3a1a7980-baea-4143-a53f-6441d71baf90
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 2c20d81f-614b-4baa-91f7-73718fd20360
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: ddf03926-4168-431a-b76e-cdbd6ff9be45
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  256fe8df-d9d5-4f3f-80a4-2b583634f4bc:
+    contentColumnType: text
+    fieldGroup: null
+    handle: linkFrom
+    instructions: 'This will slugify the values of these columns and link the data point'
+    name: 'Link From'
+    searchable: true
+    settings:
+      addRowLabel: 'Add a row'
+      columnType: text
+      columns:
+        __assoc__:
+          -
+            - col1
+            -
+              __assoc__:
+                -
+                  - heading
+                  - Column
+                -
+                  - handle
+                  - column
+                -
+                  - width
+                  - ''
+                -
+                  - type
+                  - singleline
+      defaults:
+        -
+          __assoc__:
+            -
+              - col1
+              - ''
+      maxRows: ''
+      minRows: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Table
+  2c20d81f-614b-4baa-91f7-73718fd20360:
+    contentColumnType: boolean
+    fieldGroup: null
+    handle: isSortable
+    instructions: ''
+    name: 'Is Sortable'
+    searchable: true
+    settings:
+      default: true
+      offLabel: null
+      onLabel: null
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Lightswitch
+  3324c3ba-deb2-4e8a-9df2-5b5836b1ff4a:
+    contentColumnType: text
+    fieldGroup: null
+    handle: column
+    instructions: ''
+    name: Column
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  3a1a7980-baea-4143-a53f-6441d71baf90:
+    contentColumnType: smallint(3)
+    fieldGroup: null
+    handle: width
+    instructions: 'relative percentage'
+    name: Width
+    searchable: true
+    settings:
+      decimals: 0
+      defaultValue: null
+      max: '100'
+      min: '0'
+      prefix: ''
+      previewCurrency: ''
+      previewFormat: decimal
+      size: null
+      suffix: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Number
+  6ea52334-6ac7-440f-bb72-fc0e368909ed:
+    contentColumnType: text
+    fieldGroup: null
+    handle: label
+    instructions: 'Overrides column name'
+    name: Label
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  ddf03926-4168-431a-b76e-cdbd6ff9be45:
+    contentColumnType: boolean
+    fieldGroup: null
+    handle: defaultColumn
+    instructions: ''
+    name: 'Default Sort Column'
+    searchable: true
+    settings:
+      default: false
+      offLabel: null
+      onLabel: null
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Lightswitch
+  e59a65a8-4cc6-4dc5-9e41-bb213ed03a93:
+    contentColumnType: string
+    fieldGroup: null
+    handle: format
+    instructions: ''
+    name: Format
+    searchable: true
+    settings:
+      optgroups: true
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - String
+            -
+              - value
+              - string
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Money
+            -
+              - value
+              - money
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Ratio
+            -
+              - value
+              - ratio
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Percentage
+            -
+              - value
+              - percentage
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+handle: column
+name: Column
+sortOrder: 1

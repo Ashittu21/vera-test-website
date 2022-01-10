@@ -1,0 +1,77 @@
+{% extends '_layout' %}
+
+{% set title = entry.title %}
+
+{% set center = null %}
+{% if entry.type.handle in ['knowledgeBank', 'customTab', 'partners'] %}
+	{% set center = entry.parent %}
+{% elseif section in ['overview','learn-more','projects','team','partners',''] %}
+	{% set center = entry %}
+{% endif %}
+
+{% block banner %}
+	<section class="banner-alt">
+		<div class="container">
+			<div class="banner-alt__inner">
+				<span class="text-banner__breadcrumb">
+					<a href="{{ siteUrl('about/centers') }}">
+						{{ center.section }}
+					</a>
+				</span>
+
+				<h1 class="banner-alt__heading">
+					{{ center.title }}
+				</h1>
+
+				{% include 'includes/snippets/share_links' %}
+
+				{% include 'includes/snippets/people.html' with { people: center.director } %}
+				{% if entry.directorTagline %}
+				<div class="director-tagline">{{ entry.directorTagline }}</div>
+				{% endif %}
+			</div>
+		</div>
+	</section>
+	<!-- begin nav -->
+	<nav class="mobile-dropdown">
+		<div class="container">
+			<span class="mobile-dropdown__mobile-active">
+				<!-- active page -->
+				{% include 'includes/snippets/mobile_section_title' %}
+			</span>
+
+			<ul>
+				<li>
+					<a href="{{ center.url }}/overview" class="{{ (section == '' or section == 'overview') ? 'active' }}">Overview</a>
+				</li>
+				<li>
+					<a href="{{ center.url }}/learn-more" class="{{ (section == 'learn-more') ? 'active' }}">Learn More</a>
+				</li>
+				{% if craft.entries.section('projects').relatedTo(center)|length %}
+				<li>
+					<a href="{{ center.url }}/projects" class="{{ (section == 'projects') ? 'active' }}">Projects</a>
+				</li>
+				{% endif %}
+				<li>
+					<a href="{{ center.url }}/team" class="{{ (section == 'team') ? 'active' }}">Team</a>
+				</li>
+				{% if center.partners|length %}
+				<li>
+					<a href="{{ center.url }}/partners" class="{{ (section == 'partners') ? 'active' }}">Partners</a>
+				</li>
+				{% endif %}
+				{% include 'includes/snippets/custom_tab_links' with { parent: center } %}
+			</ul>
+		</div>
+	</nav>
+<aside class="mobile-dropdown-spacer"></aside>
+<!-- end nav -->
+{% endblock %}
+
+{% block ajax_wrap_open %}
+	{% include 'includes/snippets/ajax_wrap_open' %}
+{% endblock %}
+
+{% block ajax_wrap_close %}
+	{% include 'includes/snippets/ajax_wrap_close' %}
+{% endblock %}

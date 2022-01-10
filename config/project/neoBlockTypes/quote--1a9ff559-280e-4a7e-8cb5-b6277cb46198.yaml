@@ -1,0 +1,25 @@
+childBlocks: ''
+field: 6fae0ec8-fd66-425b-ba1d-be9bb2fff221
+fieldLayouts:
+  721d91ba-40e8-4fcd-9585-5a6842fe8c87:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 015fc17f-0efe-4db2-85fb-eb0f60237918
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+handle: quote
+maxBlocks: 0
+maxChildBlocks: 0
+maxSiblingBlocks: 0
+name: Quote
+sortOrder: 5
+topLevel: true

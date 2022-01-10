@@ -1,0 +1,42 @@
+{
+  "name": "police-budgets",
+  "version": "0.1.0",
+  "homepage": "https://vera.test/police-budgets/",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "d3-dsv": "^2.0.0",
+    "node-sass": "4.14.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-inlinesvg": "^2.0.0",
+    "react-input-number": "^5.0.19",
+    "react-scripts": "3.4.1",
+    "react-select": "^3.1.1",
+    "react-storage-hooks": "^4.0.1",
+    "react-vis": "^1.11.7"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build && cp -a build/. ../web/police-budgets/ && node ./configureTemplate.js",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

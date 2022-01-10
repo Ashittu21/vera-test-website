@@ -1,0 +1,25 @@
+{% set imageUrl = block.heroImage[0].url ?? "https://placehold.it/1440x720" %}
+<header class="StatePublicationsHero">
+  <div class="StatePublicationsHero-image" style="background-image: url({{ imageUrl }})"></div>
+  <div class="StatePublicationsHero-inner">
+    <div class="StatePublicationsHero-inner-text">
+      {%- if block['superheading'] is defined -%}
+      <div class="StatePublicationsHero-superheading">{{ block.superheading }}</div>
+      {%- endif -%}
+      <h1 class="StatePublicationsHero-heading ff-sans size--h2">
+        <div>{{ block.heading }}</div>
+      </h1>
+      {%- if block['explainer'] is defined -%}
+      <p class="StatePublicationsHero-explainer ff-sans size--body">{{ block.explainer | shortcodes | raw }}</p>
+      {%- endif -%}
+      {%- if block['download'] is defined -%}
+      <a class="StatePublicationsHero-download btn" 
+        href="{{ block.download.url}}" 
+        target="_blank" 
+        rel="noopener noreferer">
+        {{ block.download.label }}
+      </a>
+      {%- endif -%}
+    </div>
+  </div>
+</header>

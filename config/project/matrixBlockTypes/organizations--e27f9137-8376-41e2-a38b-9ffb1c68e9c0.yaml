@@ -1,0 +1,79 @@
+field: 0494f75d-4ced-416a-abc0-7ba783ff2619
+fieldLayouts:
+  df92fa03-4992-47c2-9a80-43f9ac837ad4:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: ee69e524-5ac8-4199-aa1a-2c10921234bb
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  ee69e524-5ac8-4199-aa1a-2c10921234bb:
+    contentColumnType: text
+    fieldGroup: null
+    handle: organizations
+    instructions: ''
+    name: Organizations
+    searchable: true
+    settings:
+      addRowLabel: 'Add a row'
+      columnType: text
+      columns:
+        __assoc__:
+          -
+            - col1
+            -
+              __assoc__:
+                -
+                  - heading
+                  - Name
+                -
+                  - handle
+                  - name
+                -
+                  - width
+                  - ''
+                -
+                  - type
+                  - singleline
+          -
+            - col2
+            -
+              __assoc__:
+                -
+                  - heading
+                  - Website
+                -
+                  - handle
+                  - website
+                -
+                  - width
+                  - ''
+                -
+                  - type
+                  - singleline
+      defaults:
+        -
+          __assoc__:
+            -
+              - col1
+              - ''
+            -
+              - col2
+              - ''
+      maxRows: ''
+      minRows: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Table
+handle: organizations
+name: Organizations
+sortOrder: 3

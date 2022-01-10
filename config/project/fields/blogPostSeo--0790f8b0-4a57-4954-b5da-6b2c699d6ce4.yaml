@@ -1,0 +1,43 @@
+contentColumnType: text
+fieldGroup: e0a75969-a752-4082-a0b5-ebd250a4b5b6
+handle: blogPostSeo
+instructions: ''
+name: 'Blog Post SEO'
+searchable: true
+settings:
+  assetSources: '*'
+  openGraphType: article
+  openGraphTypeChangeable: '1'
+  robots: ''
+  robotsChangeable: '1'
+  seoDescription: ''
+  seoDescriptionSource: field
+  seoDescriptionSourceChangeable: '1'
+  seoDescriptionSourceField: article
+  seoFacebookImageIdSource: ''
+  seoFacebookImageIdSourceChangeable: true
+  seoFacebookImageIdSourceField: ''
+  seoFacebookImageTransform: ''
+  seoImageIdSource: field
+  seoImageIdSourceChangeable: '1'
+  seoImageIdSourceField: streamImageSquare
+  seoImageTransform: ''
+  seoKeywords: ''
+  seoKeywordsSource: custom
+  seoKeywordsSourceChangeable: '1'
+  seoKeywordsSourceField: title
+  seoMainEntityCategory: ''
+  seoMainEntityOfPage: ''
+  seoTitle: ''
+  seoTitleSource: field
+  seoTitleSourceChangeable: '1'
+  seoTitleSourceField: title
+  seoTwitterImageIdSource: ''
+  seoTwitterImageIdSourceChangeable: true
+  seoTwitterImageIdSourceField: ''
+  seoTwitterImageTransform: ''
+  twitterCardType: summary_large_image
+  twitterCardTypeChangeable: '1'
+translationKeyFormat: null
+translationMethod: none
+type: nystudio107\seomatic\fields\Seomatic_Meta

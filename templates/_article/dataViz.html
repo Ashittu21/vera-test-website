@@ -1,0 +1,15 @@
+{% set hasBackgroundShift = block.heroImage | length %}
+{% set nextBlock = entry.articleBuilder.positionedAfter(block).order('lft asc').first() %}
+{% set nextBlockHasBackgroundShift = nextBlock and nextBlock.heroImage | length %}
+{% set spaceOut = (
+    (block.fullscreen == false and hasBackgroundShift) or
+    (nextBlock and nextBlock.fullscreen) or
+    (nextBlockHasBackgroundShift)
+  ) %}
+<div class="scroll-section {% if spaceOut %}scroll-section-background-shift{% endif %}">
+{% include 'data-viz/' ~ block.dataViz[0].type.handle with {
+  entry: block.dataViz[0],
+  class: block.blockTheme.value,
+  explainer: block.heading
+} %}
+</div>

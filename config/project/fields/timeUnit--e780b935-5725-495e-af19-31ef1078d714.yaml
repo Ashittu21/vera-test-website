@@ -1,0 +1,56 @@
+contentColumnType: string
+fieldGroup: eff14877-7ff6-48ae-81eb-2919ff7fdfd9
+handle: timeUnit
+instructions: ''
+name: 'Time Unit'
+searchable: true
+settings:
+  optgroups: true
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - Seconds
+        -
+          - value
+          - seconds
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Minutes
+        -
+          - value
+          - minutes
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Hours
+        -
+          - value
+          - hours
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Days
+        -
+          - value
+          - days
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

@@ -1,0 +1,758 @@
+{% import '/_macros/utils' as utils %}
+{% spaceless %}
+	{% set firstCopy = true %}
+	{% set firstSlideout = true %}
+	{% set includeCharts = false %}
+
+	{% set quickLinkBlock = null %}
+	{% if entry.quickLinks | length %}
+		{% for block in article %}
+			{% if block.type == 'copy' %}
+				{% set quickLinkBlock = block %}
+			{% endif %}
+		{% endfor %}
+	{% endif %}
+	{% set additionalReading = false %}
+	{% set isEditorial = isEditorial ?? false %}
+	{% set print = craft.request.getParam('print') ?? false %}
+{% endspaceless %}
+<article class="post-article {{ theme ?? 'light' }}" data-highlight-share>
+	{% if isEditorial and (not fromOnePage or not entry.prevSibling) %}
+		<div class="meta-wrap container">
+			<div class="post-content__meta__date">{{ entry.postDate | date('F Y')}}</div>
+			{% include 'includes/snippets/people' with {people: entry.authors | length ? entry.authors : entry.parent.authors} %}
+		</div>
+
+		<div class="container">
+			<aside class="hr"></aside>
+		</div>
+	{% endif %}
+
+	{% for block in article %}
+		{% if block.type == 'form' %}
+			<div class="post-module module-text module-text--body">
+				<div class="container">
+					<div class="module-text__inner">
+						{% include 'includes/forms/_form' with {form: block.form} %}
+					</div>
+				</div>
+			</div>
+		{% elseif block.type == 'anchor' %}
+			<a name="{{ block.anchorName}}" class="anchor"></a>
+		{% elseif block.type == 'divider' %}
+			<div class="container">
+				<aside class="hr"></aside>
+			</div>
+		{% elseif block.type == 'callToActionButton' %}
+			<div class="post-module text-center cta-button">
+				<a href="{{ block.buttonLink }}" class="btn" {% if block.openInNewWindow %} target="_blank" {% endif %}>
+					{{ block.buttonText }}
+				</a>
+			</div>
+		{% elseif block.type == 'jsonList' %}
+
+			<!-- <div id="news-list">
+															  <div class="lister">
+															    <div>
+															       <h3 class="name">Jonny</h3>
+															       <p class="city">Stockholm</p>
+															    </div>
+															    <div>
+															      <h3 class="name">Jonas</h3>
+															      <p class="city">Berdivn</p>
+															    </div>
+															  </ul>
+															</div> -->
+
+
+		{% elseif block.type == 'code' %}
+			<div class="container">{{ block.code | raw }}</div>
+		{% elseif block.type == 'callToActionDownload' %}
+			{% set dl = block.file[0] ?? null %}
+			{% if dl %}
+				<div class="post-module text-center">
+					<a href="{{ dl.url }}" target="_blank" class="btn">{{ block.buttonText }}</a>
+				</div>
+			{% endif %}
+		{% elseif block.type == 'additionalReading' %}
+
+			{% set additionalReading = block.entry.first ? block : null %}
+
+		{% elseif block.type == 'copy' %}
+			{% if firstCopy %}
+				{% set showShare =  entry.type.handle in ['post','pressRelease'] %}
+				{% set showActionAreas = entry.type.handle in ['post','pressRelease'] %}
+				{% set firstCopy = false %}
+			{% else %}
+				{% set showShare, showQuicklinks, showActionAreas = null, null, null %}
+			{% endif %}
+
+			{% set showQuicklinks = (quickLinkBlock and block.id == quickLinkBlock.id) %}
+
+			{% set showSidebar = showQuicklinks or additionalReading %}
+
+			<div class="post-module module-text module-text--body {{ showSidebar or showActionAreas ? 'module-text--quick-links'}} {{ showShare ? 'module-text--share'}}">
+				<div class="container">
+					<div class="module-text__inner {{ (showShare or showSidebar or showActionAreas) ? 'module-intro post-content__single__main-col' }}">
+						{% if showShare %}
+							{% include 'includes/snippets/share_links' %}
+						{% endif %}
+
+						<div class="{{ showShare or showSidebar or showActionAreas ? 'module-intro__text' }} rte">
+							{{ block.text | shortcodes }}
+						</div>
+						{% if showActionAreas %}
+							<div class="post-content__sidebar module-intro__sidebar">
+								{% include 'includes/snippets/sidebar__relatives' %}
+							</div>
+						{% endif %}
+						{% if showSidebar %}
+							<div class="post-content__sidebar module-intro__sidebar">
+
+								{% if additionalReading %}
+									<div class="sidebar-module">
+										<h5>Learn More</h5>
+
+										{% include 'includes/stream/stream_additional-reading' with {block: additionalReading} %}
+										{% set additionalReading = false %}
+									</div>
+								{% endif %}
+
+								{% if showQuicklinks and entry.quickLinks | length %}
+									<div class="sidebar-module">
+										<h5>Quick Links</h5>
+										{% for quickLink in entry.quickLinks %}
+											<article class="stream-module stream-module--uc stream-module--uc--secondary post-content__quicklinks">
+
+												{% set title = '' %}
+												{% set meta = '' %}
+												{% set url = '' %}
+												{% set ref = '' %}
+												{% set label = '' %}
+												{% set ext = false %}
+												{% if quickLink.type == 'veraContent' %}
+													{% set ref = quickLink.entry[0] %}
+													{% set meta = siteName %}
+													{% set title = ref.title %}
+													{% set label = ref.type %}
+													{% set url = ref.url %}
+												{% else %}
+													{% set meta = quickLink.source %}
+													{% set title = quickLink.linkTitle %}
+													{% set url = quickLink.linkUrl %}
+													{% set label = 'External Link' %}
+													{% set ext = true %}
+												{% endif %}
+
+												<a class="stream-module__inner" href="{{ url }}" {{ ext ? 'target="_blank"' }}>
+													<div class="stream-module__content">
+														<div class="stream-module__content-inner">
+															<h3 class="stream-module__heading">
+																{{ title }}
+															</h3>
+
+															<div class="stream-module__meta">
+																<ul class="stream-module__meta__author">
+																	<li>
+																		<div class="text-outer">
+																			<h5 class="person-name">{{ meta }}</h5>
+																		</div>
+																	</li>
+																</ul>
+															</div>
+														</div>
+													</div>
+													<span class="stream-module__label">{{ label }}</span>
+												</a>
+											</article>
+										{% endfor %}
+									</div>
+								{% endif %}
+							</div>
+						{% endif %}
+					</div>
+				</div>
+			</div>
+
+		{% elseif block.type == 'singleImage' %}
+
+			{% set image = block.image[0] %}
+			{% set size = block['overrideSize'] is defined and block.overrideSize != 'auto' ? block.overrideSize : null %}
+			{% set maxHeight = block['maxHeight'] is defined and block.maxHeight ? block.maxHeight : null %}
+			{% set isCentered = block.position == 'center' %}
+			<div class="
+																				        post-module
+																				        {% if isCentered %}module-text {% endif %}
+																				        module-image-with-caption container
+																				        {% if block['fullBleed'] is defined and block.fullBleed %} full-bleed{% elseif isCentered %} center{% endif %}
+																				        {% if size %} {{ size }}{% endif %}
+																				      ">
+				<div class="img-outer container">
+					<div style="position: relative">
+						{% if isCentered %}
+							<div class="module-text__inner">
+								<div>
+								{% endif %}
+								{% if maxHeight %}
+									<div class="img-maxheight" style="height: {{ maxHeight }}vh">
+									{% endif %}
+									{% include 'includes/snippets/image' with {image: image} %}
+									{% if maxHeight %}
+									</div>
+								{% endif %}
+								{% if isCentered %}
+								</div>
+							</div>
+						{% endif %}
+						{% if block['overlayText'] is defined and block.overlayText %}
+							<div class="image-overlay padding--lg">
+								<div class="screen color-combo--{{ block.overlayColorCombo.value }}" style="opacity: {{ block.overlayOpacity }}"></div>
+								<div class="image-overlay-text-wrapper">
+									<div class="image-overlay-text h1 ff-walsheim color-combo--{{ block.overlayColorCombo.value }}" style="background-color: transparent">
+										{{ block.overlayText }}
+									</div>
+									{% if block.overlayTextAttribution %}
+										<div class="image-overlay-attribution h5 padding--xxs color-combo--{{ block.overlayColorCombo.value }}">{{ block.overlayTextAttribution }}</div>
+									{% endif %}
+								</div>
+							</div>
+						{% endif %}
+					</div>
+				</div>
+			</div>
+
+		{% elseif block.type == 'copyImage' or block.type == 'copyCode' %}
+			{% if block.position == 'right' %}
+				<div class="post-module module-image-with-copy image-right container">
+					<div class="module-image-with-copy__text module-image-right__text rte">
+						{{ block.text | shortcodes}}
+					</div>
+
+					<div class="module-image-with-copy__img module-image-right__img">
+						{% switch block.type %}
+							{% case 'copyImage' %}
+								{% set image = block.image[0] %}
+								<div class="img-outer">
+									{% include 'includes/snippets/image' with {image: image} %}
+								</div>
+							{% case 'copyCode' %}
+								<div class="container">{{ block.code | raw }}</div>
+							{% default %}
+						{% endswitch %}
+					</div>
+				</div>
+			{% elseif block.position == 'left' %}
+				<div class="post-module module-image-with-copy image-left container">
+					<div class="module-image-with-copy__img module-image-left__img">
+						{% switch block.type %}
+							{% case 'copyImage' %}
+								{% set image = block.image[0] %}
+								<div class="img-outer">
+									{% include 'includes/snippets/image' with {image: image} %}
+								</div>
+							{% case 'copyCode' %}
+								<div class="container">{{ block.code | raw }}</div>
+							{% default %}
+						{% endswitch %}
+					</div>
+
+					<div class="module-image-with-copy__text module-image-left__text rte">
+						{{ block.text | shortcodes }}
+					</div>
+				</div>
+			{% endif %}
+		{% elseif block.type == 'sideBySide' %}
+			<div class="post-module module-images-2up-caption container">
+				<div class="img-outer--2up">
+					{% for image in block.images %}
+						<div class="img-outer">
+							{% include 'includes/snippets/image' with {image: image} %}
+						</div>
+					{% endfor %}
+				</div>
+			</div>
+		{% elseif block.type == 'slideshow' %}
+			<div class="post-module module-carousel-outer container">
+				{% include '_slideshow/slick-slideshow' with {
+			    images: block.images,
+			    transition: block.transition.value,
+			    autoplay: block.autoplay
+		    } %}
+			</div>
+		{% elseif block.type == 'largeBlockQuote' %}
+			{% include 'includes/article-blocks/largeBlockQuote' %}
+		{% elseif block.type == 'infoModule' %}
+			<aside class="post-module special-reports-footer">
+				<div class="module-text">
+					<div class="container">
+						<div class="module-text__inner">
+							<div class="rte rte--small">{{ block.copy }}</div>
+						</div>
+					</div>
+				</div>
+			</aside>
+		{% elseif block.type.handle == 'copyRelated' %}
+			<div class="post-module module-text module-text--body module-related-with-copy">
+				<div class="contain--left">
+					<div class="module-text__inner module-related-with-copy__text rte">
+						{{ block.text | shortcodes }}
+					</div>
+
+					<div class="module-related-with-copy__related">
+						<h4>Related</h4>
+
+						{% for entry in block.related %}
+							{% include 'includes/stream/module_related' with {entry: entry, noAuthors: true} %}
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+		{% elseif block.type == 'partHeading' %}
+			<a id="{{ block.text | kebab }}" class="part_anchor"></a>
+			<h3 class="module-text-heading">{{ block.text }}</h3>
+		{% elseif block.type == 'videoPlaylist' %}
+			<div
+				class="video-tile-container container">
+				{# Use modal to launch video #}
+				{% set mediaId = "media__" ~ block.id ~ random() %}
+				<div class="article-video-tile video-play-trigger article-sidebar-block" data-media-id="{{ mediaId }}" data-analytics-event='["Video","Play"]'>
+					<div class="media modal-video" id="{{ mediaId }}">
+						{% set class = "full" %}
+						{% include 'includes/snippets/videoPlaylist' with { video: block, id: 'playlist' } %}
+						{#% include 'includes/snippets/video' with { playlistEmbed: block.playlistId, id: 'playlist' } %#}
+					</div>
+				</div>
+			</div>
+		{% elseif block.type == 'video' and block.video | length %}
+			{% if entry.parent and entry.parent.type == 'specialReportCampaign' %}
+				<div
+					class="video-tile-container container">
+					{# Use modal to launch video #}
+					{% set mediaId = "media__" ~ block.id ~ random() %}
+					<div class="article-video-tile video-play-trigger article-sidebar-block {{ block.video.gatewayHandle }}" data-media-id="{{ mediaId }}" data-analytics-event='["Video","Play"]'>
+						<div class="media modal-video" id="{{ mediaId }}">
+							{% set class = "full" %}
+							{% include 'includes/snippets/video' with {video: block.video} %}
+						</div>
+					</div>
+				</div>
+			{% else %}
+				{% set full = block['fullContainerVideo'] ?? null %}
+				<div class="media post-module {{ full ? 'container' : 'module-text' }} hide-on-print">
+					{% if not full %}
+						<div class="container">
+						{% endif %}
+						{% if block.videoTitle or block.subtitle %}
+							<div class="rte attribution container video-attribution">
+								{% if block.videoTitle %}
+									<h5 class="intext-subhead">{{ block.videoTitle }}</h5>
+								{% endif %}
+								{% if block.subtitle %}
+									{% set hasSlideout = block['slideout'] is defined and block.slideout | length %}
+									{% if hasSlideout %}
+										<div class="slideoutcta slideoutcta--link" data-url="{{ block.slideout[0].url }}">
+											<div class="cta_wrap">
+											{% endif %}
+											<h5 class="person-name">{{ block.subtitle }}</h5>
+											{% if hasSlideout %}
+											</div>
+										</div>
+									{% endif %}
+								{% endif %}
+							</div>
+						{% endif %}
+
+
+						{% if full and full == 1 %}
+							{% set class = "full" %}
+						{% endif %}
+
+						{% include 'includes/snippets/video' with {
+					video: block.video,
+					class: block.caption ? "video-container--hasCaption",
+					playOnScroll: block['playOnScroll'] ?? false
+				} %}
+
+						{% if block.caption %}
+							<p class="video-container video-container-caption container img-caption simple">{{ block.caption }}</p>
+						{% endif %}
+
+						{% set video = block.video %}
+
+						{% if not full %}
+						</div>
+					{% endif %}
+				</div>
+			{% endif %}
+		{% elseif block.type == 'audio' and block.audioClip | length %}
+			<div class="media post-module module-text hide-on-print">
+				<div class="container">
+					<div class="rte attribution container audio-container">
+						{% if block.audioTitle %}
+							<h5 class="intext-subhead">{{ block.audioTitle }}</h5>
+						{% endif %}
+						{% if block.subtitle %}
+							{% set hasSlideout = block['slideout'] is defined and block.slideout | length %}
+							{% if hasSlideout %}
+								<div class="slideoutcta slideoutcta--link" data-url="{{ block.slideout[0].url }}">
+									<div class="cta_wrap">
+									{% endif %}
+									<h5 class="person-name">{{ block.subtitle }}</h5>
+									{% if hasSlideout %}
+									</div>
+								</div>
+							{% endif %}
+						{% endif %}
+						{% if block.image | length %}
+							<img class="person-headshot" src="{{ block.image.first.getUrl('square174') }}">
+						{% endif %}
+
+					</div>
+
+					{% include 'includes/snippets/audio' with {audio: block.audioClip} %}
+
+					{% if block.caption %}
+						<p class="module-text">{{ block.caption }}</p>
+					{% endif %}
+				</div>
+			</div>
+
+		{% elseif block.type == 'signatureBlock' %}
+			{% set signatory = block.signatory.first ?? null %}
+
+			{% if signatory %}
+				{% set signature = signatory.signature.first %}
+				{% if signature %}
+					<div class="post-module module-text module-text--body module-text--signature">
+						<div class="container">
+							<div class="module-text__inner rte">
+								<div class="signature">
+									<img src="{{ signature.url }}" width="200" alt="President's Signature"/>
+									<div class="text-outer">
+										<h4 class="person-name">{{ signatory.title }}</h4>
+										<div class="person-info">{% include 'includes/snippets/person__title' with {person: signatory} %}</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				{% endif %}
+			{% endif %}
+		{% elseif block.type == 'chart' %}
+
+			<div class="chart_container break-avoid">
+				<div class="post-module module-text module-text--body">
+					<div class="container">
+						<h3>{{ block.chartTitle }}</h3>
+
+						{% set chartId = block.chartTitle | kebab %}
+
+						<div id="chart_{{ chartId }}" class="chart">
+							<div class="tooltip"></div>
+						</div>
+
+						{% include 'includes/snippets/chart' with {
+								dataurl: block.data.first.url,
+								chartid: 'chart_'~chartId,
+								axisTitles: {
+									x: block.xAxisTitle,
+									y: block.yAxisTitle
+								},
+								type: block.chartType,
+								barGroups: block.barGroups
+							}
+						%}
+
+						{% set includeD3,includeCharts = true,true %}
+
+						{% if block.notes %}
+							<button class="table__notes__toggle">Notes</button>
+							<div class="table__notes">
+								{{ block.notes | nl2br }}
+							</div>
+						{% endif %}
+					</div>
+				</div>
+			</div>
+
+		{% elseif block.type == 'calloutModule' %}
+
+			<div class="callout-container break-avoid">
+
+				{{ block.copy }}
+
+			</div>
+
+		{% elseif block.type.handle == 'socialFeed' %}
+
+			<div class="post-module social-feeds container">
+				{% set hashtags = null %}
+				{% for tag in block.hashtags %}
+					{% if not loop.first %}
+						{% set hashtags = hashtags~', ' %}
+					{% endif %}
+					{% set hashtags = hashtags~tag.hashtag %}
+				{% endfor %}
+
+				{% cache for 1 hour %}
+
+				{% set query = hashtags | replace(', ',' OR ') | url_encode %}
+
+				{% set tweets = craft.twitter.get('search/tweets', {q: query, count: 6, result_type: 'recent'}) %}
+
+				{% if tweets.statuses | length %}
+					<div class="social-feed post-sidebar__twitter-feed">
+						<h5>
+							<a href="https://twitter.com/search?q={{ query }}" target="_blank">
+								<i class="icon-twitter"></i>
+								{{ hashtags }}</a>
+						</h5>
+
+						<ul>
+
+							{% set statuses = tweets.statuses %}
+
+							{% for tweet in statuses %}
+								{% if tweet.retweeted_status is defined %}
+									{% set text = tweet.retweeted_status.text %}
+								{% else %}
+									{% set text = tweet.text %}
+								{% endif %}
+								<li>
+									{{ text }}
+									{# {{ text | autoLinkTweet }} #}
+
+									<span class="timestamp">-{{ tweet.user.name }}<span class="right">{{ tweet.created_at  | time_ago }}
+											ago</span>
+									</span>
+								</li>
+							{% endfor %}
+
+						</ul>
+					</div>
+				{% endif %}
+
+				{% endcache %}
+
+
+				{% cache for 1 hour %}
+
+				{% set insta_token = craft.instagram.token() %}
+
+				{% set gram_response = craft.apiAccess.get('https://api.instagram.com/v1/users/self/media/recent?access_token='~insta_token~'&count=6') %}
+				{% set grams = gram_response.data %}
+
+				{% if grams | length %}
+
+					<div class="social-feed instagram-feed">
+						<h5>
+							<a href="https://www.instagram.com/verainstitute/" target="_blank">
+								<i class="icon-instagram"></i>
+								verainstitute</a>
+						</h5>
+
+						{% for gram in grams %}
+
+							<article class="instagram_post">
+
+								<a href="{{ gram.link }}" target="_blank">
+
+									{% set image = gram.images.standard_resolution %}
+
+									<img
+									src="{{ image.url }}">
+
+								{#
+																																																{% if gram.caption %}
+																																																	<span class="timestamp">{{ gram.caption.text }}</span>
+																																																{% endif %}
+																																																#}
+
+								</a>
+
+							</article>
+
+						{% endfor %}
+						<div class="empty"></div>
+						<div class="empty"></div>
+
+					</div>
+
+				{% endif %}
+
+				{% endcache %}
+
+			</div>
+
+		{% elseif block.type == 'featuredEntry' %}
+			{% set image = null %}
+			<div class="post-module container video-container module-featured-entry">
+				{% include 'includes/stream/stream_module' with {module: block.entry.first, isFeatured: true, size: 'full', class: 'stream-module--border-alt'} %}
+			</div>
+
+		{% elseif block.type == 'customFeature' %}
+			{% set image = block.image.first %}
+			{% set link = block.linkUrl %}
+			{% set ext = true %}
+
+			{% set module_class_prefix = 'stream-module' %}
+			<div class="post-module container video-container module-featured-entry">
+				<article class="stream-module stream-module--gc stream-module--gc--full stream-module--featured stream-module--border-alt {% if image %} has-image{% endif %}">
+					<a class="{{ module_class_prefix }}__inner" href="{{ link }}" {{ ext ? 'target="_blank"' }}>
+						{% if image %}
+							<div class="{{ module_class_prefix }}__img-outer img-outer" style="background-image: url({{ image.url }});">
+								<div class="spacer"></div>
+								{% include 'includes/snippets/attribution' with {noLink: true} %}
+							</div>
+						{% endif %}
+						<div class="{{ module_class_prefix }}__content">
+							<div class="{{ module_class_prefix }}__content-inner">
+								<div class="stream-module__title-outer">
+									<h3 class="{{ module_class_prefix }}__heading">{{ block.linkTitle }}</h3>
+									{% if block.subtitle|length %}
+										<p class="{{ module_class_prefix }}__subheading">{{ block.subtitle }}</p>
+									{% endif %}
+								</div>
+							</div>
+						</div>
+					</a>
+				</article>
+			</div>
+
+		{% elseif block.type == 'textBox' %}
+
+			<div class="post-module text-box">
+				<div class="container">
+					<div class="text-box-content">
+						{% if block.heading %}
+							<h5 class="intext-subhead">{{ block.heading }}</h5>
+						{% endif %}
+						<div class="module-text module-text--text-box">
+							{{- block.copy | shortcodes | raw -}}
+						</div>
+					</div>
+				</div>
+			</div>
+
+		{% elseif block.type == 'map' %}
+			{% include 'vera-maps/_maptypes' with {entry: block.map.first, mapTheme: block.mapTheme ?? null, baseUrl: entry.level == 1 ? entry.url : craft.entries.ancestorOf(entry).level(1).first().url } %}
+
+		{% elseif block.type == 'table' %}
+
+			{% spaceless %}
+				{% set data = craft.csvReader.get(block.data.first.url) %}
+				{% if block.firstRowIsHeadings and block.lastRowIsSummary %}
+					{% set head = data[0] %}
+					{% set body = data[1:(data|length - 2)] %}
+					{% set foot = data[(data|length - 1):] %}
+				{% elseif block.firstRowIsHeadings %}
+					{% set head = data[0] %}
+					{% set body = data[1:] %}
+					{% set foot = null %}
+				{% elseif block.lastRowIsSummary %}
+					{% set head = null %}
+					{% set body = data[:data|length - 1] %}
+					{% set foot = data[data|length - 1:] %}
+				{% else %}
+					{% set head = null %}
+					{% set body = data %}
+					{% set foot = null %}
+				{% endif %}
+				{% set alignment = block.columnAlignment ?? null %}
+			{% endspaceless %}
+
+			<div class="post-module module-text module-text--body break-avoid">
+				<div class="container">
+					<div class="module-text__inner">
+						{% if block.label %}
+							<aside class="table__label">{{ block.label }}</aside>
+						{% endif %}
+
+						<h4>{{ block.tableTitle }}</h4>
+
+						{% include '/includes/snippets/table' with {head: head, body: body, foot: foot, alignment: alignment} %}
+
+						{% if block.notes %}
+							<button class="table__notes__toggle">Notes</button>
+							<div class="table__notes">
+								{{ block.notes | nl2br }}
+							</div>
+						{% endif %}
+					</div>
+				</div>
+			</div>
+
+		{% elseif block.type == 'dataViz' %}
+
+			{% include 'data-viz/' ~ block.dataViz[0].type.handle with {entry: block.dataViz[0]} %}
+
+		{% elseif block.type == 'slideout' %}
+
+			{% if print and block.slideout.first.type == 'slideout' %}
+
+				{% include 'special-reports/types/slideout' with {entry: block.slideout.first, ajaxLayout: true} %}
+
+			{% elseif block.slideout | length %}
+
+				{% if firstSlideout %}
+					{% set firstSlideout = false %}
+				{% endif %}
+
+				{% include 'includes/_blocks/slideoutCta' with {entry: block.slideout.first} %}
+
+			{% endif %}
+
+			{# Carousel slide #}
+		{% elseif block.type == 'entriesSlideshow' %}
+			{# image variable is polluting the stream modules #}
+			{% set image = null %}
+			{% include 'includes/_blocks/entriesSlideshow' %}
+		{% endif %}
+
+		{# set lineblocks = ['audio','video','largeBlockQuote'] #}
+		{% set lineblocks = ['largeBlockQuote'] %}
+		{% if block.type.handle in lineblocks and not loop.last and article[loop.index0 + 1].type.handle in lineblocks %}
+
+			<div class="red-line-after"></div>
+
+		{% elseif block.type == 'logos' %}
+			<div class="color-combo--lightGray-black">
+				{% include '_article/pieces/logos' with { block: block } %}
+			</div>
+		{% elseif block.type == 'pageBreak' %}
+			<div style="page-break-after: always"></div>
+		{% endif %}
+
+	{% endfor %}
+
+	{% if entry.resourceListBlock | length %}
+		{% include '_article/pieces/resourceList' with { list: entry.resourceListBlock } %}
+	{% endif %}
+
+	{% if entry.relatedSeries | length and entry.relatedSeries.first.seriesDescription %}
+
+		<aside class="post-module special-reports-footer">
+			<div class="module-text">
+				<div class="container">
+					<div class="module-text__inner">
+						<div class="rte rte--small">{{ entry.relatedSeries.first.seriesDescription }}</div>
+					</div>
+				</div>
+			</div>
+		</aside>
+
+	{% endif %}
+</article>
+
+{% if not firstSlideout %}
+	<article id="Slider--article">
+		<div class="Slider--inner" data-footnote-counter-type="letters">
+			{% include 'includes/stream/loader' %}
+		</div>
+	</article>
+{% endif %}
+
+{% if includeCharts %}
+	{% include 'includes/snippets/chart_scripts' %}
+	{% includeJsFile '/dist/js/specialReportCampaign.js?v=0.2' %}
+{% endif %}

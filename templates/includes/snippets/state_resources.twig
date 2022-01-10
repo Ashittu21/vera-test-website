@@ -1,0 +1,102 @@
+{% set data = entry.stateResourceBuilder.level(1).find() %}
+{% set states = {} %}
+{% for item in data %}
+{% set states = states | merge({
+  (item.stateSelectTextValue.value): item
+}) %}
+{% endfor %}
+
+{% macro select(states) %}
+{% if states | length > 10 %}
+<select class="StateResourcesSelect ff-sans--bold bg--lightGray">
+  <option value="none">Select State</option>
+  {% for key,data in states %}
+  <option value={{ data.stateSelectTextValue.value }}>
+    {{ data.stateSelectTextValue.value }}
+  </option>
+  {% endfor %}
+</select>
+{% else %}
+{% for key,data in states %}
+  <button class="StateResourcesButton bg--lightGray ff-sans" data-value="{{ data.stateSelectTextValue.value }}">
+    {{ data.stateSelectTextValue.value }}
+  </button>
+  {% endfor %}
+{% endif %}
+{% endmacro %}
+
+
+{% macro stateArticle(stateData) %}
+<article 
+  class="StateResources-article" 
+  data-key="{{ stateData.stateSelectTextValue.value }}">
+  <h1 class="size--h2">{{ stateData.stateSelectTextValue.value }}</h1>
+  <div>
+    {% for block in stateData.children %}
+    {% switch block.type %}
+      {% case 'text' %}
+        <div class="StateResources-article-module size--body rte">{{ block.text | raw }}</div>
+      {% case 'embed' %}
+        <div class="StateResources-article-module StateResources-article-module--embed">{{ block.embedCode | raw }}</div>
+      {% case 'download' %}
+        <div class="StateResources-article-module">
+          <a class="btn" href={{ block.pdfDownload[0].url }}>
+            {{ block.pdfDownload[0].title }} <i class="icon-doc"></i>
+          </a>
+        </div>
+      {% default %}
+    {% endswitch %}
+    {% endfor %}
+  </div>
+</article>
+{% endmacro %}
+
+<div class="container post-content__single__container blog">
+  <div class="module-text--body">
+    <div class="State-Resources module-text__inner">
+      <div class="StateResources-overview">
+        <h1>{{ entry.title }}</h1>
+
+        <div class="size--body rte">{{ entry.overview | raw }}</div>
+      </div>
+
+      <div class="StateResources-main">
+        <div class="StateResources-controls">
+        {{ _self.select(states) }}
+        </div>
+        <div class="StateResources-articlecontainer">
+
+        {% for key,state in states %}
+        {{ _self.stateArticle(state) }}
+        {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% includejs %}
+$(function() {
+  var $select = $(".StateResourcesSelect");
+  var $buttons = $(".StateResourcesButton");
+  var $articles = $(".StateResources-article");
+
+  updateContent($select.find('option').first().attr('value'))
+  $select.on("change", function(e) {
+    const val = $(this).val()
+    updateContent(val)
+  })
+
+  $buttons.on("click", function() {
+    const val = this.dataset.value
+    $buttons.removeClass("active")
+    updateContent(val)
+    $(this).addClass("active")
+  })
+
+  function updateContent(key) {
+    $articles.hide()
+    $articles.filter("[data-key=" + key + "]").show()
+  }
+})
+{% endincludejs %}

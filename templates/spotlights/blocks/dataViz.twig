@@ -1,0 +1,10 @@
+{% set  viz = block.dataViz[0] %}
+
+{% if viz.type.handle == "endorsers" %}
+  {% include "/spotlights/blocks/viz/endorsers" %}
+{% elseif viz.type.handle == "iconList" %}
+<!--Icon LIst-->
+  {% include "/spotlights/blocks/viz/iconList" %}
+{% elseif viz.type.handle == "timelineMap" %}
+  {% include "/spotlights/blocks/viz/map" %}
+{% endif %}

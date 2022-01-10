@@ -1,0 +1,10 @@
+childBlocks:
+  - photo
+field: 4cc124d8-7ee1-43a4-9aa0-5b5b6fcfe1cc
+handle: sideBySideImages
+maxBlocks: 0
+maxChildBlocks: 2
+maxSiblingBlocks: 0
+name: 'Side by Side Images'
+sortOrder: 18
+topLevel: false

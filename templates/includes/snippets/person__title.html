@@ -1,0 +1,10 @@
+{{ person.jobTitle -}}
+
+{#- Related Centers uses relatedVeraStaff field, relatedCenters is deprecated for People entries -#}
+{#
+{%- set relatedCenters = craft.entries.section('centers').relatedTo(person) -%}
+{%- if relatedCenters | length -%}
+	{% if person.jobTitle %}, {% endif %}
+   {{ relatedCenters | join(', ') }}
+{%- endif -%}
+#}

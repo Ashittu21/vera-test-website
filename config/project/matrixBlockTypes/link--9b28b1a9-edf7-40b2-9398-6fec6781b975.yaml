@@ -1,0 +1,70 @@
+field: af7b75dc-b25c-4d36-9859-ebb30847c407
+fieldLayouts:
+  20f6ca93-b653-4e9c-9675-5abbf0e9a8e4:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 50b9cd46-ce00-48e0-b385-11639af6b258
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: b21f9821-7c46-459a-9f46-8d4178cf0197
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  50b9cd46-ce00-48e0-b385-11639af6b258:
+    contentColumnType: text
+    fieldGroup: null
+    handle: buttonText
+    instructions: ''
+    name: 'Button Text'
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  b21f9821-7c46-459a-9f46-8d4178cf0197:
+    contentColumnType: string
+    fieldGroup: null
+    handle: page
+    instructions: ''
+    name: Page
+    searchable: true
+    settings:
+      allowSelfRelations: false
+      limit: null
+      localizeRelations: false
+      selectionLabel: null
+      showSiteMenu: true
+      source: null
+      sources: '*'
+      targetSiteId: null
+      validateRelatedElements: false
+      viewMode: null
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Entries
+handle: link
+name: Link
+sortOrder: 1

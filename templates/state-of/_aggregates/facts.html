@@ -1,0 +1,27 @@
+{% includeJsFile "/dist/js/isotope.pkgd.min.js" %}
+{% includeJsFile "/dist/js/packery-mode.pkgd.min.js" %}
+
+{% cache %}
+{% set babies = entry.siblings.type('topic') %}
+{% set facts = craft.entries.section('factsFigures').relatedTo({
+	sourceElement: babies,
+	field: 'factsFigures'
+}) %}
+<ul class="fact-grid" data-isotope-basic>
+	{% for fact in facts %}
+	<li class="fact-item {% if loop.index is odd %}alt{% endif %}">
+	{% include 'facts/_/fact-card' with { entry: fact } %}
+	</li>
+	{% endfor %}
+</ul>
+{% endcache %}
+
+{% includeJs %}
+$(function() {
+	var iso = new Isotope('[data-isotope-basic]');
+	window.iso = iso;
+	window.addEventListener('factloaded', function() {
+		iso.layout();
+	})
+})
+{% endincludejs %}

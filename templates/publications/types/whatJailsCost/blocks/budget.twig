@@ -1,0 +1,60 @@
+{% set savingsId = "JailBudgetSavings" ~ now | date('U') %}
+<div class="JailBudgetSavingsContainer module-text">
+  {% include 'publications/_blocks/dataText' with {block: { text: block.text }} %}
+  <div class="container" id="{{ savingsId }}"></div>
+  {% if block.tableNotes %}<div class="container rte post-module">{{ block.tableNotes | shortcodes | raw }}</div>{% endif %}
+</div>
+
+{% set primaryDataItems = [] %}
+{% for group in block.primaryDataItems %}
+{% set thisGroup = [] %}
+{% for item in group.items %}
+{% set thisGroup = thisGroup | merge([{
+  key: item.key,
+  format: item.format,
+  label: item.label
+}]) %}
+{% endfor %}
+{% set primaryDataItems = primaryDataItems | merge([thisGroup]) %}
+{% endfor %}
+
+{% set detailDataColumns = [] %}
+{% for column in block.singleRowTableColumns %}
+  {% set detailDataColumns = detailDataColumns | merge([column.columnLabel]) %}
+{% endfor %}
+{% set detailDataItems = [] %}
+{% for row in block.singleRowTableRows %}
+  {% set items = [] %}
+  {% for item in row.variables %}
+  {% set items = items | merge([{
+    key: item.variable,
+    format: item.format
+  }]) %}
+  {% endfor %}
+  {% set detailDataItems = detailDataItems | merge([{
+    label: row.label,
+    items: items
+  }]) %}
+{% endfor %}
+
+{% set slugColumns = [] %}
+{% for column in block.slugColumns %}
+{% set slugColumns = slugColumns | merge([column.column]) %}
+{% endfor %}
+
+{% js %}
+$(function() {
+  VERA.jailBudgetSavings(
+    "#{{ savingsId }}", 
+    {{ (block.dataset | length ? block.dataset[0].url : budgetSavingsUrl) | json_encode | raw }}, 
+    {{ county | json_encode | raw }}, 
+    {{ state | json_encode | raw }}, 
+    {{ slugColumns | json_encode | raw }}, 
+    {{ primaryDataItems | json_encode | raw }}, 
+    {{ detailDataColumns | json_encode | raw }}, 
+    {{ detailDataItems | json_encode | raw }}
+  );
+})
+{% endjs %}
+
+{% includeJsFile '/dist/twigscripts/jailBudgetSavings.js' %}

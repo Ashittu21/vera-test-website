@@ -1,0 +1,11 @@
+{
+  "buttons": ["format", "link", "lists", "bold", "italic", "image"],
+  "plugins": ["scriptbuttons"],
+  "formatting": [],
+  "formattingAdd": {
+    "footnote": {
+      "title": "Footnote",
+      "args": ["p", "class", "footnote"]
+    }
+  }
+}

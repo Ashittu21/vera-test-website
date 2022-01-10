@@ -1,0 +1,15 @@
+contentColumnType: string
+fieldGroup: 1c2af07a-2699-4df8-8e5a-f2400541874b
+handle: endorsersViz
+instructions: ''
+name: 'Endorsers Viz'
+searchable: true
+settings:
+  maxBlocks: ''
+  maxTopBlocks: ''
+  minBlocks: ''
+  propagationMethod: all
+  wasModified: true
+translationKeyFormat: null
+translationMethod: site
+type: benf\neo\Field

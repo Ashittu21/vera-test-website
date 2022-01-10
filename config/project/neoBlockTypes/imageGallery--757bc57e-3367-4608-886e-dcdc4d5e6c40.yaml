@@ -1,0 +1,12 @@
+childBlocks:
+  - fullColumnImage
+  - sideBySideImages
+  - text
+field: 4cc124d8-7ee1-43a4-9aa0-5b5b6fcfe1cc
+handle: imageGallery
+maxBlocks: 0
+maxChildBlocks: 0
+maxSiblingBlocks: 0
+name: 'Image Gallery'
+sortOrder: 29
+topLevel: true

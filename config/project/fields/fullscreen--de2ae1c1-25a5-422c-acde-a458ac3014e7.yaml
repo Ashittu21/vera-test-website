@@ -1,0 +1,13 @@
+contentColumnType: boolean
+fieldGroup: 62eaf9ac-7045-45a4-b9c9-6db9b59feaac
+handle: fullscreen
+instructions: ''
+name: Fullscreen
+searchable: true
+settings:
+  default: false
+  offLabel: null
+  onLabel: null
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Lightswitch

@@ -1,0 +1,21 @@
+contentColumnType: string
+fieldGroup: e0a75969-a752-4082-a0b5-ebd250a4b5b6
+handle: featuredPost
+instructions: ''
+name: 'Featured Post'
+searchable: true
+settings:
+  allowSelfRelations: false
+  limit: '1'
+  localizeRelations: false
+  selectionLabel: ''
+  showSiteMenu: true
+  source: null
+  sources:
+    - 'section:2076decf-5547-47d8-9fba-9d8f1d52e7e3'
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Entries

@@ -1,0 +1,21 @@
+contentColumnType: string
+fieldGroup: 3ad6d151-958c-44f4-99b0-865c27d2922e
+handle: featuredKnowledgeBank
+instructions: ''
+name: 'Featured Knowledge Bank'
+searchable: true
+settings:
+  allowSelfRelations: false
+  limit: ''
+  localizeRelations: false
+  selectionLabel: ''
+  showSiteMenu: true
+  source: null
+  sources:
+    - 'section:b04b4329-db45-40d5-af36-a0aa6660ec8b'
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Entries

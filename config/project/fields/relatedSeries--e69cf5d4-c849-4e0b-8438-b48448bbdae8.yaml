@@ -1,0 +1,21 @@
+contentColumnType: string
+fieldGroup: 9ac19a4b-0c83-461c-a640-16cc99f406d1
+handle: relatedSeries
+instructions: ''
+name: 'Related Series'
+searchable: true
+settings:
+  allowSelfRelations: false
+  limit: ''
+  localizeRelations: false
+  selectionLabel: ''
+  showSiteMenu: true
+  source: null
+  sources:
+    - 'section:21e17b94-0d59-4cd9-a0aa-8a21ce9b5a35'
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Entries

@@ -1,0 +1,14 @@
+contentColumnType: string
+fieldGroup: 2fa9b2e1-1f3e-40b9-9de6-673b6be4a3f1
+handle: commitmentArticle
+instructions: ''
+name: 'Commitment Article'
+searchable: true
+settings:
+  contentTable: '{{%matrixcontent_commitmentarticle}}'
+  maxBlocks: ''
+  minBlocks: ''
+  propagationMethod: all
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

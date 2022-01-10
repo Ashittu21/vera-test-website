@@ -1,0 +1,127 @@
+{%- extends 'data-viz/topx' -%}
+
+{%- set defaultTable = {
+	select: 'fips as id, CONCAT(county, ", ", state, " (", CZLabel, ")") AS title, pretrialrate, pretrial, urbancode2013 as urbancode, pretrialrank as rank', 
+	limit: 10,
+	columns: [
+		{
+			name: 'rank',
+			label: 'Rank',
+			size: '4em',
+		},
+		{
+			name: 'title',
+			label: 'County',
+		},
+		{
+			name: 'pretrialrate',
+			label: 'Pretrial Rate',
+			round: 1,
+			size: '6em',
+		},
+		{
+			name: 'pretrial',
+			label: 'Pretrial Detainees',
+			round: 2,
+			size: '6em',
+		},
+	]
+} -%}
+
+{%- set id = "pretrial" -%}
+
+{%- set otherTable = {
+	select: 'fips as id, CONCAT(county, ", ", state, " (", CZLabel, ")") AS title, urbancode2013 as urbancode, CONCAT(`%holdforothers`, "%") AS holdforothers, federalagencies, stateprisons, otherlocaljails, otherrank as rank', 
+	limit: 10,
+	columns: [
+		{
+			name: 'rank',
+			label: 'Rank',
+			size: '4em',
+		},
+		{
+			name: 'title',
+			label: 'County',
+		},
+		{
+			name: 'holdforothers',
+			label: 'Jail Population Held for Other Authorities',
+			size: '6em',
+		},
+		{
+			name: 'federalagencies',
+			label: 'Number Held for Federal Agencies',
+			round: 2,
+			size: '6em',
+		},
+		{
+			name: 'stateprisons',
+			label: 'Number Held for State Prisons',
+			round: 2,
+			size: '6em',
+		},
+		{
+			name: 'otherlocaljails',
+			label: 'Number Held for Other Local Jails',
+			round: 2,
+			size: '6em',
+		},
+	]
+} -%}
+	
+{% block controls %}
+<fieldset class="query_wrap">
+	<div class="flex_wrap">
+		<button class="btn get_current_location"><span><i class="icon-location"></i>Add my county</span></button>
+		<span class="current_location hidden"></span>
+		
+		<div class="search_wrap">
+			<i class="icon-search"></i>
+			<input class="query" type="text" placeholder="Search counties">
+			<ol class="query_results"></ol>
+		</div>
+	</div>
+</fieldset>
+
+{#
+<fieldset id="{{ id }}__locale" data-selector='[name="locale_type"]'>
+	<input id="{{ id }}__locale_type__county" type="radio" name="locale_type" value="county" data-title='CONCAT(county, ", ", state, " (", CZLabel, ")") as title' checked><label for="{{ id }}__locale_type__county">County</label>
+<!-- 		<input id="{{ id }}__locale_type__commuting_zone" type="radio" name="locale_type" value="CZLabel"><label for="{{ id }}__locale_type__commuting_zone">Commuting Zone</label> -->
+	<input id="{{ id }}__locale_type__state" type="radio" name="locale_type" value="state" data-title="state as title"><label for="{{ id }}__locale_type__state">State</label>
+</fieldset>
+#}
+
+<fieldset class="radios" id="{{ id }}__size" data-selector='[name="size"]'>
+	<input id="{{ id }}__size__all" type="radio" name="size". value='' checked><label class="color-group-none" for="{{ id }}__size__all">All</label>
+	<input id="{{ id }}__size__urban" type="radio" name="size" value='urbancode2013 = "Urban"'><label class="color-group-4" for="{{ id }}__size__urban">Urban</label>
+	<input id="{{ id }}__size__suburban" type="radio" name="size" value='urbancode2013 = "Suburban"'><label class="color-group-3" for="{{ id }}__size__suburban">Suburban</label>
+	<input id="{{ id }}__size__semirural" type="radio" name="size" value='urbancode2013 = "Small and mid metros"'><label class="color-group-2" for="{{ id }}__size__semirural">Small and mid metros</label>
+	<input id="{{ id }}__size__rural" type="radio" name="size" value='urbancode2013 = "Rural"'><label class="color-group-1" for="{{ id }}__size__rural">Rural</label>
+
+</fieldset>
+
+{% endblock %}
+
+{% includeJs %}
+(function(window) {
+	$(function() {
+		VERA.tables = VERA.tables || [];
+		VERA.tables.push(new VERA.makeTopX( '#pretrial','#pretrial__size', {{ defaultTable | json_encode | raw }} ));
+		
+		var size = $('#pretrial__size');
+		$('[name="locale_type"]').on('change', function() {
+			if ($(this).val() !== "county") {
+				size.addClass('hidden');
+			} else {
+				size.removeClass('hidden');
+			}
+		});
+		
+		var other = new VERA.makeTopX( '#other',null, {{ otherTable | json_encode | raw }} );
+		VERA.tables.push(other);
+		
+	});
+	
+	window.VERA = VERA;
+})(window);
+{% endincludejs %}

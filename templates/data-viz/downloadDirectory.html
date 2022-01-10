@@ -1,0 +1,64 @@
+<article class="download-directory chart_container hide-on-print">
+	{% if explainer is defined and explainer %}
+		{% include '_article/pieces/sectionExplainer' with {block: {heading: explainer}} %}
+	{% endif %}
+	<div class="container">
+		<div class="body">
+			{% if entry.heading %}
+				<h2 class="heading h2">{{ entry.heading }}</h2>
+			{% endif %}
+
+			{% if entry.overview %}
+				<div class="description post-module__subheading">{{ entry.overview }}</div>
+			{% endif %}
+		</div>
+
+		{% set currentChar = null %}
+		{% set downloads = entry.downloads.order('title') %}
+		<ul class="directory-list">
+			{% for download in downloads %}
+				{% set firstChar = download.title[:1] %}
+				{% if firstChar != currentChar %}
+					{% if currentChar %}
+					</ul>
+				</li>
+			{% endif %}
+			<li>
+				<aside class="directory-section-heading">{{- firstChar | upper -}}</aside>
+				<ul class="directory-section">
+					{% set currentChar = firstChar %}
+				{% endif %}
+			</li>
+			<li class="directory-item">
+				<a href="{{ download.url }}" download>{{ download.title }}</a>
+			</li>
+		{% endfor %}
+	</ul>
+</li></ul><div class="directory-list-mobile">
+
+<select class="directory-list-mobile-select">
+	<option disabled selected>Select a county</option>
+	{% for download in downloads %}
+		<option value="{{ download.url }}">{{ download.title }}</option>
+	{% endfor %}
+</select>
+
+<a class="btn red directory-list-mobile-link" href="" target="_blank" download disabled>Download</a></div></div></article>{% includeJs %}$(function() {
+		$('.directory-list-mobile:not(.directory-list-mobile-initialized)').each(setupDirectoryListMobile);
+	})
+	
+	function setupDirectoryListMobile()
+	{
+		var $this = $(this);
+		$select = $this.find('.directory-list-mobile-select');
+		$link = $this.find('.directory-list-mobile-link');
+		
+		console.log($this,$select,$link);
+		$select.on("change", function(event) {
+			var link = $(event.target).val();
+			$link.attr("href", link);
+			$link.removeAttr("disabled");
+		});
+		
+		$this.addClass('directory-list-mobile-initialized');
+	}{% endincludejs %}

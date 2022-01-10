@@ -1,0 +1,1436 @@
+//Blue
+$group1_stroke: #0061b6;
+$group1_fill: #4e9cdd;
+$group1_fill__lt: #e5eff8;
+$group1_fill__dk: #004380;
+
+//Orange
+$group2_stroke: #fe7019;
+$group2_fill: #fe8e66;
+$group2_fill__lt: #fee7e2;
+$group2_fill__dk: #b34f10;
+
+//Green
+$group3_stroke: #0c7969;
+$group3_fill: #50a296;
+$group3_fill__lt: #d9ebe9;
+$group3_fill__dk: #095548;
+
+//Lime
+$group4_stroke: #b1c92e;
+$group4_fill: #c9d966;
+$group4_fill__lt: #f3f7de;
+$group4_fill__dk: #7b8d1f;
+
+//Purp
+$group5_stroke: #ed403a;
+$group5_fill: #f37a75;
+$group5_fill__lt: #fce3e1;
+$group5_fill__dk: #7548a2;
+
+//Red
+$group6_stroke: #a869e7;
+$group6_fill: #c296ee;
+$group6_fill__lt: #f5edfc;
+$group6_fill__dk: #a52e28;
+
+@mixin mapTheme(
+  $bg,
+  $color,
+  $hover,
+  $disabled,
+  $disabled__zoomed,
+  $active,
+  $active__hover,
+  $active__zoomed,
+  $marker,
+  $tooltip_bg,
+  $tooltip_text,
+  $hairline,
+  $legend__zoomed,
+  $select: null
+) {
+  background-color: $bg;
+  color: $color;
+
+  ::-webkit-scrollbar-thumb {
+    background-color: $med-gray;
+  }
+
+  .map__inner-container:after {
+    pointer-events: none;
+    background-image: linear-gradient(to top, $bg, rgba(255, 255, 255, 0));
+  }
+
+  .map__header {
+    @include hairline($hairline);
+  }
+
+  .map__title_wrap {
+    @media (max-width: $tablet-landscape) {
+      @include hairline($hairline);
+    }
+  }
+
+  .map__legend,
+  .stateOverview {
+    .title {
+      background-color: $bg;
+    }
+  }
+
+  .countryOverview {
+    @media (min-width: $tablet-landscape) {
+      &:before {
+        @include hairline($hairline);
+        content: "";
+        display: block;
+        margin-bottom: $padding-sm;
+      }
+      margin-top: $padding-med;
+    }
+
+    .content {
+      display: none;
+      @include font-size(2.2);
+      line-height: 1.5;
+
+      strong {
+        @extend .ff-sans;
+        font-weight: bold;
+      }
+    }
+  }
+
+  .map__content,
+  .lightswitch label > div,
+  .lightswitches,
+  .hairline--gray {
+    border-color: $hairline;
+  }
+
+  .map_select {
+    @if $select == "white" {
+      background-image: url(/dist/icons/select-down__white.svg);
+    } @else {
+      background-image: url(/dist/icons/select-down.svg);
+    }
+    color: $black;
+    &:focus,
+    .no-touch &:hover {
+      color: $hover;
+      background-image: url(/dist/icons/select-down__red.svg);
+    }
+
+    &.as-title {
+      color: $black;
+      background-image: url(/dist/icons/select-down.svg);
+    }
+  }
+
+  .map_select_wrap + .map_select_wrap {
+    border-top-color: $hairline;
+  }
+
+  .map_select_menu {
+    background-color: $black;
+  }
+  .map_select_button {
+    color: $white;
+
+    &:hover,
+    &:focus {
+      color: $red;
+    }
+  }
+
+  .states {
+    fill: $disabled;
+    stroke: white;
+  }
+  .tooltip {
+    background-color: $tooltip_bg;
+    color: $tooltip_text;
+
+    &:after {
+      border-top-color: $tooltip_bg;
+    }
+  }
+  .back {
+    svg {
+      stroke: $color;
+    }
+    &:focus svg,
+    .no-touch &:hover svg {
+      stroke: $hover;
+    }
+  }
+  .state__path {
+    stroke: $bg;
+    vector-effect: non-scaling-stroke;
+
+    &.state__is-active {
+      fill: $active;
+      .no-touch &:hover {
+        fill: $active__hover;
+      }
+
+      &.state__group1 {
+        fill: $group1_fill;
+        stroke: $group1_stroke;
+        .no-touch &:hover {
+          fill: $group1_stroke;
+        }
+      }
+      &.state__group2 {
+        fill: $group2_fill;
+        stroke: $group2_stroke;
+        .no-touch &:hover {
+          fill: $group2_stroke;
+        }
+      }
+      &.state__group3 {
+        fill: $group3_fill;
+        stroke: $group3_stroke;
+        .no-touch &:hover {
+          fill: $group3_stroke;
+        }
+      }
+      &.state__group4 {
+        fill: $group4_fill;
+        stroke: $group4_stroke;
+        .no-touch &:hover {
+          fill: $group4_stroke;
+        }
+      }
+      &.state__group5 {
+        fill: $group5_fill;
+        stroke: $group5_stroke;
+        .no-touch &:hover {
+          fill: $group5_stroke;
+        }
+      }
+      &.state__group6 {
+        fill: $group6_fill;
+        stroke: $group6_stroke;
+        .no-touch &:hover {
+          fill: $group6_stroke;
+        }
+      }
+    }
+  }
+  .marker {
+    stroke: $active;
+    fill: $marker;
+
+    .no-touch &:hover,
+    &.hovered,
+    &.active {
+      fill: $hover;
+    }
+
+    &.marker__group1 {
+      fill: $group1_stroke;
+      .no-touch &:hover,
+      &.hovered,
+      &.active {
+        fill: $group1_fill__dk;
+      }
+    }
+    &.marker__group2 {
+      fill: $group2_stroke;
+      .no-touch &:hover,
+      &.hovered,
+      &.active {
+        fill: $group2_fill__dk;
+      }
+    }
+    &.marker__group3 {
+      fill: $group3_stroke;
+      .no-touch &:hover,
+      &.hovered,
+      &.active {
+        fill: $group3_fill__dk;
+      }
+    }
+    &.marker__group4 {
+      fill: $group4_stroke;
+      .no-touch &:hover,
+      &.hovered,
+      &.active {
+        fill: $group4_fill__dk;
+      }
+    }
+    &.marker__group5 {
+      fill: $group5_stroke;
+      .no-touch &:hover,
+      &.hovered,
+      &.active {
+        fill: $group5_fill__dk;
+      }
+    }
+    &.marker__group6 {
+      fill: $group6_stroke;
+      .no-touch &:hover,
+      &.hovered,
+      &.active {
+        fill: $group6_fill__dk;
+      }
+    }
+  }
+
+  &.zooms.zoomed {
+    .map__legend {
+      background-color: $legend__zoomed;
+    }
+    .state__path.state__is-active {
+      fill: $active__zoomed;
+      .no-touch &:hover {
+        fill: $active__zoomed;
+      }
+      &.state__group1 {
+        fill: $group1_fill__lt;
+        stroke: $group1_stroke;
+        .no-touch &:hover {
+          fill: $group1_fill__lt;
+        }
+      }
+      &.state__group2 {
+        fill: $group2_fill__lt;
+        stroke: $group2_stroke;
+        .no-touch &:hover {
+          fill: $group2_fill__lt;
+        }
+      }
+      &.state__group3 {
+        fill: $group3_fill__lt;
+        stroke: $group3_stroke;
+        .no-touch &:hover {
+          fill: $group3_fill__lt;
+        }
+      }
+      &.state__group4 {
+        fill: $group4_fill__lt;
+        stroke: $group4_stroke;
+        .no-touch &:hover {
+          fill: $group4_fill__lt;
+        }
+      }
+      &.state__group5 {
+        fill: $group5_fill__lt;
+        stroke: $group5_stroke;
+        .no-touch &:hover {
+          fill: $group5_fill__lt;
+        }
+      }
+      &.state__group6 {
+        fill: $group6_fill__lt;
+        stroke: $group6_stroke;
+        .no-touch &:hover {
+          fill: $group6_fill__lt;
+        }
+      }
+    }
+
+    .state__path.state__is-not-active {
+      fill: $disabled__zoomed;
+    }
+  }
+}
+
+@mixin mapThemeLight {
+  $bg: $white;
+  $color: $black;
+  $hover: $red;
+  //$disabled: #E7E7E7;
+  $disabled: $lt-gray-bg;
+  $disabled__zoomed: $disabled;
+
+  //$active: $lt-gray-alt;
+  $active: $med-gray-bg;
+
+  $active__hover: $dk-gray;
+
+  $active__zoomed: $active;
+  $marker: $black;
+  $tooltip_bg: $black;
+  $tooltip_text: $white;
+  $hairline: $lt-gray;
+  $legend__zoomed: #f9f9f9;
+
+  @include mapTheme(
+    $bg,
+    $color,
+    $hover,
+    $disabled,
+    $disabled__zoomed,
+    $active,
+    $active__hover,
+    $active__zoomed,
+    $marker,
+    $tooltip_bg,
+    $tooltip_text,
+    $hairline,
+    $legend__zoomed
+  );
+}
+
+%map-tooltip {
+  position: absolute;
+  display: none;
+  transform: translate(-50%, -100%);
+  pointer-events: none;
+  width: 320px;
+  max-width: 90vw;
+  padding: $padding-lg $padding-xs;
+  text-align: center;
+  filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.25));
+
+  z-index: 999;
+
+  &:after {
+    $size: 0.75rem;
+    position: absolute;
+    bottom: 1px;
+    left: 50%;
+    content: "";
+    border-left: $size solid transparent;
+    border-right: $size solid transparent;
+    border-top-width: $size;
+    border-top-style: solid;
+    transform: translate(-50%, 100%);
+  }
+
+  &.show {
+    display: block;
+  }
+
+  .title {
+    @extend .ff-sans--bold;
+    @include font-size(1.3);
+    text-transform: uppercase;
+    letter-spacing: 0.2mm;
+  }
+
+  .subtitle {
+    p {
+      margin-bottom: $padding-xxs;
+
+      strong {
+        @extend .ff-serif--medium;
+      }
+    }
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    ul {
+      padding-left: 1em;
+      //list-style-type: none;
+      line-height: 1.1;
+
+      text-align: left;
+
+      li + li {
+        margin-top: 0.5em;
+      }
+    }
+
+    &:before {
+      content: "";
+      border-top: 1px solid $red;
+      display: block;
+      margin-top: $padding-xs;
+      margin-bottom: $padding-xs;
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 110px;
+    }
+
+    &.hide {
+      display: none;
+
+      &:before {
+        display: none;
+      }
+    }
+  }
+}
+
+.project-map {
+  $contentwidth: 400px;
+  $contentwidth__large: $contentwidth * 1.2;
+  $transition-time: 0.75s;
+  $pad: $padding-xs;
+
+  position: relative;
+  padding-top: $padding-lg;
+  padding-bottom: $padding-lg;
+
+  ::-webkit-scrollbar {
+    background: transparent;
+    width: 10px;
+  }
+
+  @include font-size(1.6);
+
+  .anchorLink {
+    position: absolute;
+    background-color: rgba($red, 0.1);
+    transform: translateY(-100%);
+  }
+
+  .container {
+    @media (max-width: $mobile-medium) {
+      padding: 0;
+
+      .map__content {
+        padding: 0 $padding-sm;
+      }
+      .map__legend {
+        padding-left: $padding-lg;
+      }
+    }
+  }
+
+  .map__inner-container {
+    position: relative;
+
+    &:after {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: $contentwidth;
+      content: "";
+      display: block;
+      height: 60px;
+
+      @media (min-width: $desktop-large) {
+        width: $contentwidth__large;
+      }
+    }
+  }
+
+  .map__overview_wrap {
+    margin-top: 1em;
+
+    @media (max-width: 480px) {
+      padding-left: 1em;
+      padding-right: 1em;
+    }
+  }
+
+  .map_inner_wrap {
+    position: relative;
+    height: 0;
+    //padding-top: $padding-sm;
+    //padding-bottom: calc(62.5% + #{$padding-sm});
+    padding-bottom: 60%;
+
+    @media (min-width: $tablet-landscape) and (max-width: $desktop-ml) {
+      //padding-top: $padding-lg*1.5;
+      //padding-bottom: calc(62.5% + #{$padding-lg*1.5});
+    }
+
+    @media (min-width: $mobile-large) and (max-width: $tablet-landscape) {
+      //padding-bottom: calc(55%);
+    }
+
+    /*
+		@media (min-width: $tablet-landscape) and (max-width: $tablet-landscape) {
+			padding-top: 0;
+			padding-bottom: 80%;
+		}
+    */
+
+    .project-map-svg {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .streamloader {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      margin: 0;
+    }
+  }
+
+  .map_wrap {
+    width: 100%;
+    position: relative;
+    margin-left: $contentwidth;
+    width: calc(100% - #{$contentwidth});
+  }
+
+  .map__legend {
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+    justify-content: flex-start;
+    padding: 1rem 1rem 0.5rem;
+
+    &[aria-hidden="true"] {
+      display: none;
+    }
+
+    li {
+      &:before {
+        content: "";
+        display: inline-block;
+        width: 1.25rem;
+        height: 1.25rem;
+        background-color: black;
+        margin-right: 0.5rem;
+      }
+      margin-right: 2rem;
+
+      &.group1:before {
+        background-color: $group1_stroke;
+      }
+      &.group2:before {
+        background-color: $group2_stroke;
+      }
+      &.group3:before {
+        background-color: $group3_stroke;
+      }
+      &.group4:before {
+        background-color: $group4_stroke;
+      }
+      &.group5:before {
+        background-color: $group5_stroke;
+      }
+      &.group6:before {
+        background-color: $group6_stroke;
+      }
+    }
+  }
+
+  .map__header {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding-bottom: $pad;
+    flex-wrap: wrap;
+  }
+
+  &.zoomed .map__title_wrap {
+    //visibility: hidden;
+  }
+
+  &.zoomed {
+    opacity: 1;
+  }
+
+  .map__title,
+  .as-title {
+    @extend .ff-sans--bold;
+  }
+
+  .map__title {
+    @include font-size(3);
+    margin-right: 1em;
+
+    @media (max-width: $tablet-landscape) {
+      margin-right: 0;
+    }
+  }
+
+  .map_select.as-title {
+    @include font-size(3);
+  }
+
+  .map__instructions {
+    margin-top: $padding-xxs;
+    margin-bottom: $padding-xxs;
+    @extend .ff-sans;
+
+    @media (max-width: $mobile-medium) {
+      padding-left: $padding-sm;
+    }
+  }
+
+  .map_controls {
+    margin-left: auto;
+    margin-top: auto;
+    //align-self: flex-end;
+    //max-width: calc(50% - #{$padding-lg});
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+
+    @media (max-width: $tablet-landscape) {
+      max-width: 100%;
+    }
+  }
+
+  .lightswitches.mobile {
+    display: none;
+    width: 100%;
+    padding-top: $padding-xs;
+    padding-bottom: $padding-xs;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+  }
+
+  @media (max-width: $tablet-landscape) {
+    .lightswitches.mobile {
+      display: flex;
+    }
+
+    .lightswitches.desktop {
+      display: none;
+    }
+  }
+
+  .lightswitches {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    .lightswitch {
+      @extend .ff-sans;
+      font-weight: bold;
+      @include font-size(1.6);
+      line-height: 1.1;
+      max-width: 200px;
+      width: 47.5%;
+      flex-wrap: wrap;
+
+      label {
+        justify-content: space-around;
+      }
+
+      .label {
+        width: 100%;
+        text-align: center;
+      }
+
+      @media (max-width: $mobile-large) {
+        @include font-size(1.4);
+      }
+    }
+
+    .switch-explainer {
+      margin-top: $padding-sm;
+    }
+
+    @media (max-width: $mobile-medium) {
+      padding: 0 $padding-sm;
+      flex-wrap: nowrap;
+    }
+  }
+
+  &.no-markers .map_controls {
+    width: auto;
+    @media (max-width: $tablet-landscape) {
+      width: 100%;
+    }
+  }
+
+  .map_select {
+    $size: 1.5rem;
+
+    line-height: 1.25;
+    text-transform: capitalize;
+    padding: 0.2rem $size * 3 0.2rem 0;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-position: calc(100% - 0.5em) center;
+    background-size: $size auto;
+    overflow: auto;
+    @extend .ff-sans--bold;
+    @include font-size(2);
+
+    &[disabled] {
+      opacity: 0.5;
+    }
+
+    &.map_select__temp {
+      display: none;
+    }
+
+    margin-bottom: 0;
+    @media (max-width: $tablet-landscape) {
+      margin-bottom: $padding-xs;
+    }
+    @media (max-width: $tablet-portrait) {
+      max-width: 100%;
+    }
+  }
+
+  .map_select_wrap {
+    & + .map_select_wrap {
+      margin-left: $padding-lg;
+      @media (max-width: $tablet-portrait) {
+        margin-left: 0;
+        border-top-style: solid;
+        border-top-width: 2px;
+      }
+    }
+
+    @media (max-width: $tablet-portrait) {
+      width: 100%;
+    }
+    @media (max-width: $mobile-medium) {
+      padding-right: $padding-xs;
+    }
+  }
+
+  .marker_select,
+  .marker_select_wrap {
+    display: none;
+  }
+
+  &.zoomed .marker_select,
+  &.zoomed .marker_select_wrap {
+    display: inline-block;
+
+    &.hide {
+      display: none;
+    }
+  }
+
+  .map_select_menu {
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    left: 0;
+    z-index: 999;
+    padding: $padding-med $padding-lg;
+    @extend .ff-sans;
+    column-count: 3;
+    display: none;
+
+    &.open {
+      display: block;
+    }
+  }
+
+  .map_select_button {
+    text-align: left;
+  }
+
+  .map_select_button_wrap {
+    padding: 5px 0;
+  }
+
+  .state_select_menu {
+    column-count: 5;
+    -moz-column-count: 5;
+
+    @media (max-width: $tablet-landscape) {
+      column-count: 4;
+      -moz-column-count: 4;
+    }
+
+    @media (max-width: $tablet-portrait) {
+      column-count: 2;
+      -moz-column-count: 2;
+    }
+  }
+
+  .marker_select_menu {
+    column-count: 3;
+    -moz-column-count: 3;
+
+    @media (max-width: $tablet-landscape) {
+      column-count: 2;
+      -moz-column-count: 2;
+    }
+
+    @media (max-width: $tablet-portrait) {
+      column-count: 1;
+      -moz-column-count: 1;
+    }
+  }
+
+  .map_select_button {
+    background-color: transparent;
+    border: 0;
+  }
+
+  .map__overview {
+    @extend .rte;
+    .dots {
+      margin-left: 0;
+    }
+
+    // p + .image-caption {
+    // 	 &:first-child {margin-bottom: 0;}
+    // }
+
+    .image-caption {
+      @extend .ff-serif--italic;
+      font-size: 1.3rem;
+      margin-top: 0;
+    }
+  }
+
+  .slideoutcta {
+    @extend .ff-sans;
+
+    .cta {
+      margin-top: $padding-xxs;
+    }
+  }
+
+  .stats {
+    @extend .ff-sans;
+  }
+
+  .stateOverview {
+    margin-top: $padding-med;
+
+    @media (max-width: $tablet-landscape) {
+      margin-top: 0;
+    }
+
+    .flex {
+      position: relative;
+
+      @media (max-width: $tablet-landscape) {
+        display: none;
+      }
+
+      .hairline--gray {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        width: 100%;
+      }
+    }
+    .title {
+      @extend .ff-sans;
+      font-weight: bold;
+      position: relative;
+      z-index: 1;
+      @extend %h3;
+      margin-bottom: 0;
+      padding-right: 0.5em;
+      background-color: inherit;
+    }
+  }
+
+  ul.big-stats {
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+    justify-content: space-between;
+
+    li {
+      width: 45%;
+      text-align: center;
+
+      & + li {
+        margin-top: 0;
+      }
+    }
+
+    .label {
+      line-height: 1.3;
+    }
+
+    .number {
+      @extend .ff-sans;
+      font-weight: bold;
+      @include font-size(5);
+      line-height: 1.25;
+      margin-top: $padding-sm;
+
+      @media (max-width: $mobile-large) {
+        @include font-size(3);
+      }
+    }
+  }
+
+  ul.small-stats {
+    margin-top: $padding-sm;
+    list-style-type: none;
+
+    li + li {
+      margin-top: $padding-xxs/2;
+    }
+
+    .number {
+      @extend .ff-sans;
+      font-weight: bold;
+    }
+  }
+
+  .project-map-svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  .state__path {
+    transition: fill $transition-time, opacity $transition-time;
+
+    &.state__is-active {
+      cursor: pointer;
+    }
+  }
+
+  .marker {
+    opacity: 0;
+    pointer-events: none;
+    cursor: pointer;
+    stroke-width: 1;
+    vector-effect: non-scaling-stroke;
+
+    &.marker__selectable {
+      opacity: 1;
+      pointer-events: auto;
+    }
+  }
+
+  .dots {
+    @extend .ff-serif--italic;
+    color: $med-gray;
+    list-style-type: none;
+    > li {
+      line-height: 1.2;
+    }
+    margin-bottom: $padding-xxs;
+  }
+
+  &.zooms.zoomed {
+    .state__path:not(.zoomed) {
+      opacity: 0.25;
+      pointer-events: none;
+    }
+  }
+
+  .marker-prevnext {
+    display: none;
+    margin-right: $padding-xs;
+    background-color: transparent;
+    border: 0;
+    text-decoration: underline;
+    @extend .ff-sans;
+    color: $dk-gray-alt;
+    @include font-size(2);
+  }
+
+  &[data-level="2"] .marker-prevnext {
+    display: inline-block;
+
+    @media (max-width: $tablet-landscape) {
+      display: none;
+    }
+  }
+
+  .back {
+    display: none;
+    align-items: center;
+    background-color: transparent;
+    border: 0;
+    padding: 0;
+    //position: absolute;
+    height: 30px;
+    width: auto;
+    margin-left: $padding-xxs;
+    margin-top: auto;
+    //margin-top: auto;
+    //top: 10px;
+    //right: 10px;
+
+    &.show {
+      display: inline-block;
+
+      @media (max-width: $tablet-landscape) {
+        display: none;
+      }
+    }
+
+    svg {
+      stroke-width: 0;
+      display: block;
+      height: 100%;
+      width: 40px;
+
+      &,
+      & * {
+        fill: $dk-gray-alt;
+      }
+    }
+
+    &:active {
+      transform: translateY(1px);
+    }
+  }
+  .tooltip {
+    @extend %map-tooltip;
+  }
+
+  .map__content {
+    width: $contentwidth;
+    height: 100%;
+    border-right: 2px solid;
+    position: absolute;
+    padding: $padding-lg $padding-sm $padding-lg 0;
+    overflow-y: auto;
+    line-height: 1.875;
+
+    @media (max-width: $tablet-landscape) {
+      border-right-style: none !important;
+    }
+  }
+
+  @media (min-width: $desktop-large) {
+    .map__content {
+      width: $contentwidth__large;
+    }
+    .map_wrap {
+      width: calc(100% - #{$contentwidth__large});
+      margin-left: $contentwidth__large;
+    }
+  }
+
+  &.light {
+    @include mapThemeLight;
+  }
+
+  &.medium {
+    $bg: $lt-gray-bg;
+    $color: $black;
+    $hover: $red;
+
+    $disabled: $lt-gray-alt;
+    //$disabled: $med-gray-bg;
+
+    $disabled__zoomed: $disabled;
+
+    //$active: $white;
+    $active: $med-gray-bg;
+
+    $active__hover: $dk-gray;
+
+    //$active__zoomed: $white;
+    $active__zoomed: $med-gray-bg;
+
+    $marker: $black;
+    //$marker: $white;
+
+    $tooltip_bg: $black;
+    $tooltip_text: $white;
+    $hairline: $lt-gray-alt;
+    $legend__zoomed: #e4e3e0;
+
+    @include mapTheme(
+      $bg,
+      $color,
+      $hover,
+      $disabled,
+      $disabled__zoomed,
+      $active,
+      $active__hover,
+      $active__zoomed,
+      $marker,
+      $tooltip_bg,
+      $tooltip_text,
+      $hairline,
+      $legend__zoomed
+    );
+
+    &.zoomed .state__path.state__is-active {
+      &.state__group1,
+      &.state__group2,
+      &.state__group3,
+      &.state__group4,
+      &.state__group5,
+      &.state__group6 {
+        fill: $active__zoomed !important;
+      }
+    }
+  }
+
+  &.dark {
+    $bg: $dk-gray;
+    $color: $white;
+    $hover: $red;
+    $disabled: $white;
+    $disabled__zoomed: $disabled;
+    $active: $med-gray-bg;
+    $active__hover: $black;
+    $active__zoomed: $white;
+    $marker: $black;
+    $tooltip_bg: $lt-gray-bg;
+    $tooltip_text: $black;
+    $hairline: $lt-gray;
+    $legend__zoomed: #f9f9f9;
+    $select: "white";
+
+    @include mapTheme(
+      $bg,
+      $color,
+      $hover,
+      $disabled,
+      $disabled__zoomed,
+      $active,
+      $active__hover,
+      $active__zoomed,
+      $marker,
+      $tooltip_bg,
+      $tooltip_text,
+      $hairline,
+      $legend__zoomed,
+      $select
+    );
+  }
+
+  &.red {
+    $bg: $red--lt;
+    $color: $black;
+    $hover: $red;
+    $disabled: $bg;
+    $disabled__zoomed: blue;
+    $active: $red;
+    $active__hover: $red;
+    $active__zoomed: blue;
+    $marker: blue;
+    $tooltip_bg: $white;
+    $tooltip_text: $black;
+    $hairline: transparent;
+    $legend__zoomed: #f9f9f9;
+
+    @include mapTheme(
+      $bg,
+      $color,
+      $hover,
+      $disabled,
+      $disabled__zoomed,
+      $active,
+      $active__hover,
+      $active__zoomed,
+      $marker,
+      $tooltip_bg,
+      $tooltip_text,
+      $hairline,
+      $legend__zoomed
+    );
+
+    .state__path {
+      stroke: $red;
+
+      &.state__is-active {
+        stroke: $red--lt;
+      }
+    }
+
+    &:not(.zoomed) .map__overview {
+      line-height: 1.25;
+      font-size: 1.5em;
+      color: $red;
+    }
+  }
+
+  @media (max-width: $tablet-landscape) {
+    &.zoomed .map__title_wrap {
+      border-bottom: 0 !important;
+    }
+    .map__inner-container,
+    .map__header {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .map__inner-container:after {
+      display: none;
+    }
+    .map_wrap {
+      margin-left: 0;
+      order: 1;
+      width: 100%;
+    }
+    .map__header {
+      padding-left: 0;
+      padding-right: 0;
+      padding-bottom: 0;
+    }
+    .map__title_wrap {
+      width: 100%;
+      //padding-bottom: $padding-sm;
+
+      .map__title {
+        display: block !important;
+      }
+    }
+
+    .map__content {
+      order: 2;
+      width: 100%;
+      position: static;
+      border-right-style: none;
+      padding: $padding-xxs 0;
+    }
+    .map_controls {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+    }
+    .map_select {
+      margin-top: $pad;
+      width: 100% !important;
+      @include font-size(1.8);
+      & + .map_select {
+        margin-left: 0;
+      }
+    }
+
+    .state_select {
+      order: 1;
+    }
+    .marker_select {
+      order: 2;
+    }
+  }
+
+  @media (max-width: $tablet-portrait) {
+    .map_controls {
+      flex-wrap: wrap;
+    }
+  }
+
+  @media (max-width: $mobile-large) {
+    .map_select {
+      @include font-size(1.4);
+    }
+  }
+
+  @media (max-width: $mobile-medium) {
+    .map__title {
+      @include font-size(2.2);
+      padding-bottom: $padding-xs;
+      padding-left: $padding-sm;
+    }
+
+    .map_select {
+      width: 100%;
+      padding-left: $padding-sm;
+    }
+  }
+}
+
+.map-list {
+  @extend .list-reset;
+}
+
+.map-list-item + .map-list-item {
+  margin-top: 2em;
+}
+
+.tooltip-chart {
+}
+.tooltip-chart-line {
+}
+.tooltip {
+  .tooltip-chart-line {
+    stroke: white;
+  }
+  .tooltip-chart-axis {
+    .tick line,
+    .domain {
+      stroke: white;
+    }
+    .tick text {
+      fill: white;
+    }
+  }
+}
+
+.map-dropdown {
+  border: 1px solid $dv-border;
+  text-transform: none;
+  @extend .ff-sans;
+  line-height: 1.5;
+  padding: 0.5em 1em;
+  background-image: url(/dist/icons/select-down.svg);
+  cursor: pointer;
+  background-repeat: no-repeat;
+  background-position: calc(100% - 0.5em) center;
+  background-size: 0.75rem auto;
+}
+
+.map-with-key {
+}
+
+.us-map {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: $padding-lg;
+  padding-bottom: $padding-lg;
+  @include mapThemeLight;
+  .tooltip {
+    @extend %map-tooltip;
+  }
+  .map_wrap {
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+  }
+  .map__header {
+    padding-bottom: 50px;
+  }
+  .map__inner-container {
+    padding-top: 50px;
+  }
+}
+
+// .split-map {
+//   @include mapThemeLight;
+//   .tooltip {
+//     @extend %map-tooltip;
+//   }
+//   .map__inner-container {
+//     display: flex;
+//     > * {
+//       width: 50%;
+//     }
+//   }
+// }
+.heatmap-key {
+  padding: 0 1em;
+  @media (min-width: $tablet-landscape) {
+    padding: 0 3em;
+  }
+  @extend .ff-sans;
+  svg {
+    margin-top: 0.25em;
+  }
+}
+.map__content {
+  .line-chart {
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+}
+.map-sidebar-stat {
+  @extend .ff-sans;
+  @include font-size(2);
+  line-height: 1.2;
+  margin-top: 1em;
+  margin-bottom: 1em;
+
+  .value {
+    color: $red;
+  }
+}
+
+.key-heading {
+  font-weight: bold;
+}
+
+.key-item {
+  display: flex;
+  align-items: center;
+  div + div {
+    margin-left: 0.5rem;
+  }
+}

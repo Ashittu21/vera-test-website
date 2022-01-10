@@ -1,0 +1,34 @@
+contentColumnType: string
+fieldGroup: 62eaf9ac-7045-45a4-b9c9-6db9b59feaac
+handle: blockTheme
+instructions: ''
+name: 'Block Theme'
+searchable: true
+settings:
+  optgroups: true
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - White
+        -
+          - value
+          - white
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Gray
+        -
+          - value
+          - gray
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

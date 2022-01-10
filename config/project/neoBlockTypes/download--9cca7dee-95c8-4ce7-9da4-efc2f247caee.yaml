@@ -1,0 +1,25 @@
+childBlocks: ''
+field: de346054-207d-432a-8e53-b591a50c8c67
+fieldLayouts:
+  3d79f415-9d99-40dd-ab39-cee489f1a872:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: eb6048a0-b2f0-4b3e-b771-bacf43dc8756
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: 'Tab 1'
+        sortOrder: 1
+handle: download
+maxBlocks: 0
+maxChildBlocks: 0
+maxSiblingBlocks: 0
+name: Download
+sortOrder: 3
+topLevel: false

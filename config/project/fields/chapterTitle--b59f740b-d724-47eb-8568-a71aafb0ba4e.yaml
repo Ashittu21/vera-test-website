@@ -1,0 +1,18 @@
+contentColumnType: text
+fieldGroup: f8591398-94a9-4e81-b07f-a60bb6e89d81
+handle: chapterTitle
+instructions: ''
+name: 'Chapter Title'
+searchable: true
+settings:
+  byteLimit: null
+  charLimit: null
+  code: false
+  columnType: text
+  initialRows: '4'
+  multiline: ''
+  placeholder: ''
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

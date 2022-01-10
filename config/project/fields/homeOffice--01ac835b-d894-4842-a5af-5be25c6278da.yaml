@@ -1,0 +1,23 @@
+contentColumnType: string
+fieldGroup: 19337e8c-5122-4476-a446-ea27d4740587
+handle: homeOffice
+instructions: 'This office will appear featured on the Contact page'
+name: 'Home Office'
+searchable: true
+settings:
+  allowLimit: false
+  allowMultipleSources: false
+  allowSelfRelations: false
+  branchLimit: '1'
+  limit: null
+  localizeRelations: false
+  selectionLabel: 'Select Office'
+  showSiteMenu: true
+  source: 'group:ee498376-0261-42fd-b4ac-444c5936449c'
+  sources: '*'
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Categories

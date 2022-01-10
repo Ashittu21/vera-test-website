@@ -1,0 +1,13 @@
+{% import 'state-of/_/macros' as macros %}
+{% cache %}
+{% set babies = entry.siblings.type('topic') %}
+<section class="spotlight-aggregate container">
+{% set spotlights = craft.entries.section('pieces').relatedTo({
+	sourceElement: babies,
+	field: 'spotlight'
+}) %}
+{% for spotlight in spotlights %}
+{{ macros.spotlight(spotlight) }}
+{% endfor %}
+</section>
+{% endcache %}

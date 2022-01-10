@@ -1,0 +1,25 @@
+childBlocks: ''
+field: dfc2b592-8211-4f4b-89d6-96a8edd88989
+fieldLayouts:
+  0a0561eb-b27b-43d7-b414-7fc0c3abe154:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: e0b21ca5-b820-418d-be29-9239f063f359
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: 'Tab 1'
+        sortOrder: 1
+handle: people
+maxBlocks: 0
+maxChildBlocks: 0
+maxSiblingBlocks: 0
+name: People
+sortOrder: 2
+topLevel: false

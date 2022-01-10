@@ -1,0 +1,32 @@
+{% set owner = entry.level == 1 ? entry : entry.ancestors.level(1).first %}
+{% set stateData = {} %}
+{% for state in owner.children %}
+{% if state.stateCode %}
+  {% set stateData = stateData | merge({
+    (state.stateCode): {
+      url: state.url,
+      pdfUrl: state.pdfDownload | length ? state.pdfDownload[0].url : null
+    }
+  }) %}
+  {% endif %}
+{% endfor %}
+
+{% set id = "UsStateTable-" ~ block.id %}
+<div class="container UsStateTable">
+  <div class="h3 UsStateTable-heading">{{ block.heading }}</div>
+  <div class="UsStateTable-table" id="{{ id }}"></div>
+</div>
+{% set dataUrl = block.dataset[0].url ?? null %}
+{% if dataUrl %}
+{% includeJs %}
+window.addEventListener("load", function() {
+  UsStateTable({
+    selector: "#{{ id }}",
+    {% if stateData is defined %}
+    cmsData: {{ stateData | json_encode | raw }},
+    {% endif %}
+    csvUrl: "{{ dataUrl }}"
+  })
+})
+{% endincludejs %}
+{% endif %}

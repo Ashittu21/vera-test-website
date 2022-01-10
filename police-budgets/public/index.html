@@ -1,0 +1,10 @@
+<% if (process.env.NODE_ENV === 'development') { %>
+	<link rel="stylesheet" href="https://vera.test/dist/css/main.combined.min.css?v=1.0.122"/>
+<% } %>
+<% if (process.env.NODE_ENV === 'production') { %>
+	<script>
+		window.PoliceBudgetCity = "{{ craft.request.lastSegment }}"
+	</script>
+<% } %>
+<noscript>You need to enable JavaScript in order to use the Police Budget Calculator.</noscript>
+<div id="PoliceBudgets"></div>

@@ -1,0 +1,49 @@
+field: 95bc127b-3520-49ff-803a-7352214068b1
+fieldLayouts:
+  d6b8536a-dc26-437c-b780-c045b4a3084c:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: ca9bc739-0700-4b52-b13e-707048bc03d2
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  ca9bc739-0700-4b52-b13e-707048bc03d2:
+    contentColumnType: text
+    fieldGroup: null
+    handle: copy
+    instructions: 'Make sure to place this block just before the copy block you want it to align with'
+    name: Copy
+    searchable: true
+    settings:
+      availableTransforms: '*'
+      availableVolumes: '*'
+      cleanupHtml: true
+      columnType: text
+      configSelectionMode: choose
+      defaultTransform: ''
+      manualConfig: ''
+      purifierConfig: ''
+      purifyHtml: '1'
+      redactorConfig: Callout.json
+      removeEmptyTags: '1'
+      removeInlineStyles: '1'
+      removeNbsp: '1'
+      showHtmlButtonForNonAdmins: '1'
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: true
+      uiMode: enlarged
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\redactor\Field
+handle: calloutModule
+name: 'Callout Module'
+sortOrder: 12

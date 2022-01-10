@@ -1,0 +1,13 @@
+contentColumnType: string
+fieldGroup: 3ad6d151-958c-44f4-99b0-865c27d2922e
+handle: relatedProjectVideos
+instructions: ''
+name: 'Related Project Videos'
+searchable: true
+settings:
+  errorMessage: 'Unable to find component class ''ManyToMany_ManyToMany''.'
+  expectedType: ManyToMany_ManyToMany
+  settings: '{"source":{"value":"23","type":"section"},"singleField":"74"}'
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\MissingField

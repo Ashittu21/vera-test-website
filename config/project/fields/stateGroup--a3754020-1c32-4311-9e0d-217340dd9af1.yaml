@@ -1,0 +1,89 @@
+contentColumnType: string
+fieldGroup: db841c2f-86aa-4387-8c3e-51fefc8f5945
+handle: stateGroup
+instructions: ''
+name: 'State Group'
+searchable: true
+settings:
+  optgroups: true
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - None
+        -
+          - value
+          - none
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - 'Group 1'
+        -
+          - value
+          - group1
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - 'Group 2'
+        -
+          - value
+          - group2
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - 'Group 3'
+        -
+          - value
+          - group3
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - 'Group 4'
+        -
+          - value
+          - group4
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - 'Group 5'
+        -
+          - value
+          - group5
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - 'Group 6'
+        -
+          - value
+          - group6
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

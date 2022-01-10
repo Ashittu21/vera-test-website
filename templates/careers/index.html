@@ -1,0 +1,166 @@
+{% extends '_layout' %}
+{% set title = entry.title %}
+{% block content %}
+	{# {%
+									set data =
+									craft.apiAccess.get("https://api.resumatorapi.com/v1/jobs/status/open?apikey=hsH36JzBxRo7j3Lq7PQqSZrFGI7rXuhd")
+								  %} #}
+	{% include 'includes/_blocks/stickyCta' %}
+	{% include 'careers/careersBuilder' %}
+
+{# <div class="container">
+	  <aside class="hr"></aside>
+	</div>
+	
+	{% include 'includes/snippets/banner__image_right' %} {% set videoModule =
+	entry.largeVideoModule.first %} {% if videoModule and videoModule.video %} {%
+	set video = videoModule.video %}
+	<section class="post-module banner-video">
+	  <div class="video_wrap">
+	    <div id="VideoPlayer"></div>
+	  </div>
+	  <div id="VideoPlayerCover">
+	    {% set videoModule = entry.largeVideoModule.first %}
+	    <div class="banner-video__text banner-video__text--mobile">
+	      <h2>{{ videoModule.videoTitle }}</h2>
+	      <h5>{{ videoModule.callToAction }}</h5>
+	    </div>
+	
+	    <div class="banner-video__video">
+	      <div class="img-outer video-outer">
+	        <img src="{{ videoModule.image.first.url }}" alt="" />
+	      </div>
+	
+	      <div class="banner-video__text banner-video__text--desktop">
+	        <div class="banner-video__text-inner">
+	          <h2>{{ videoModule.videoTitle }}</h2>
+	          <h5>{{ videoModule.callToAction }}</h5>
+	        </div>
+	      </div>
+	    </div>
+	  </div>
+	</section>
+	
+	<script>
+	  var tag = document.createElement("script");
+	
+	  tag.src = "https://www.youtube.com/iframe_api";
+	  var firstScriptTag = document.getElementsByTagName("script")[0];
+	  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+	
+	  var player;
+	  function onYouTubeIframeAPIReady() {
+	    var $a = document.getElementById("VideoPlayerCover");
+	    $a.addEventListener("click", playVideo);
+	  }
+	
+	  function playVideo() {
+	    player = new YT.Player("VideoPlayer", {
+	      height: "390",
+	      width: "640",
+	      videoId: "{{ video.id }}",
+	      showInfo: false,
+	      modestbranding: true,
+	      playerVars: {
+	        autoplay: 1,
+	      },
+	    });
+	    var height = $("#VideoPlayerCover").innerHeight();
+	    $("#VideoPlayer").addClass("loaded");
+	    $("#VideoPlayer")
+	      .parent()
+	      .parent()
+	      .css("height", height + "px");
+	
+	    $("#VideoPlayerCover").fadeOut(500);
+	
+	    player.playVideo();
+	  }
+	
+	  function stopVideo() {
+	    player.stopVideo();
+	  }
+	</script> #}
+	{# 
+									{% set videoCss %} #VideoPlayerCover { position: relative; z-index:1; }
+									.video_wrap { position:absolute; top:0; left:0; z-index:0; height:0; width:80%;
+									margin:0 10%; padding-bottom:45%; overflow:hidden; } #VideoPlayer {
+									position:absolute; z-index:0; top:0; left:0; height:100%; width: 100%;
+									opacity:0; transition: opacity .3s; } #VideoPlayer.loaded { z-index:1;
+									opacity:1; } {% endset %} {% includeCss videoCss %} {% endif %} {% if
+									entry.twoInfoCards | length >= 2 %}
+									<section class="post-module about__2up careers__2up">
+									  <div class="container">
+									    <ul class="blocks blocks--2up">
+									      {% for info in entry.twoInfoCards %}
+									      <li>
+									        <h4>{{ info.heading }}</h4>
+									        <p>{{ info.explainer }}</p>
+									      </li>
+									      {% endfor %}
+									    </ul>
+									  </div>
+									</section>
+									{% endif %} {% if entry.testimonials | length %}
+									<section class="post-module module-quote-carousel">
+									  <div class="container">
+									    <div class="quote-carousel">
+									      {% for slide in entry.testimonials %}
+									      <div class="slide">
+									        <div class="slide-inner">
+									          <div class="quote-outer">
+									            <div class="quote">{{ slide.quote }}</div>
+									            <ul class="people-list">
+									              {% include 'includes/snippets/people' with {people: slide.author}
+									              %}
+									            </ul>
+									          </div>
+									        </div>
+									      </div>
+									      {% endfor %}
+									    </div>
+									  </div>
+									</section>
+									{% endif %} #}
+
+	{# <section class="post-module module-3up-blocks">
+									  <div class="container col-outer">
+									    {% for image in entry.threeSquareImages %}
+									    <div class="img-outer one-third">
+									      <img src="{{ image.url }}" />
+									    </div>
+									    {% endfor %}
+									  </div>
+									</section>
+									<section class="container">
+									  <h3>Current Openings</h3>
+									  <iframe name="resumator-job-frame" id="resumator-job-frame" class="resumator-advanced-widget" src="//vera.applytojob.com/apply/jobs/" width="100%" scrolling="no" frameborder="0" allowTransparency="true"></iframe><script>function resizeResumatorIframe(height,nojump){if(nojump== 0){window.scrollTo(0,0);}document.getElementById("resumator-job-frame").height = parseInt(height)+20;}</script>
+									</section> #}
+
+	{#
+									<section class="post-module module-job-listings" id="JobListings">
+									  <div class="container">
+									    <h3>Current Openings</h3>
+									
+									    <ul id="job-listings" class="job-listings">
+									      {% for job in data %}
+									      <li>
+									        <span class="job-location">{{ job.city }}, {{ job.state }}</span>
+									        <span class="job-category">{{ job.department }}</span>
+									        <h4>
+									          <a href="{{ siteUrl }}careers/job?id={{ job.id }}">{{ job.title }}</a>
+									        </h4>
+									      </li>
+									      {% endfor %}
+									
+									      <li class="empty"></li>
+									      <li class="empty"></li>
+									      <li class="empty"></li>
+									      <li class="empty"></li>
+									      <li class="empty"></li>
+									    </ul>
+									  </div>
+									</section>
+									#}
+
+{% endblock %}

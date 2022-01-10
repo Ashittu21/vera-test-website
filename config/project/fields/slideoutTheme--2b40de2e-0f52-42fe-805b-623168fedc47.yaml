@@ -1,0 +1,34 @@
+contentColumnType: string
+fieldGroup: ff6bca1c-2054-4260-a21f-2d7007b1c024
+handle: slideoutTheme
+instructions: ''
+name: 'Slideout Theme'
+searchable: true
+settings:
+  optgroups: true
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - Informational
+        -
+          - value
+          - informational
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Editorial
+        -
+          - value
+          - editorial
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

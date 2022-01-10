@@ -1,0 +1,56 @@
+fieldLayouts:
+  e974b581-bf09-46a6-8e92-f61158713806:
+    tabs:
+      -
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\EntryTitleField
+            warning: null
+            width: 100
+          -
+            fieldUid: ad9b90f1-ab3e-4da4-b693-9f04c0ee68a5
+            instructions: null
+            label: null
+            required: '0'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: dd8dd5d2-45af-4a61-9d94-1b6679897c54
+            instructions: null
+            label: null
+            required: '0'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Acknowledgments
+        sortOrder: 1
+handle: acknowledgements
+hasTitleField: false
+name: Acknowledgements
+section: 4b7c3d23-1010-47d7-9813-9b5a7707aa63
+sortOrder: 7
+titleFormat: '{{object.parent.title | raw}} - Acknowledgments'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

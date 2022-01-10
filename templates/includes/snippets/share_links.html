@@ -1,0 +1,67 @@
+{% import '_macros/social' as social %}
+{% if entry is defined and entry %}
+	{% if horizontal is not defined %}
+		{% set horizontal = entry.type.handle in ['event', 'project','center'] %}
+	{% endif %}
+
+	{% set summary = entry.customShareCopy | default(entry.title) | striptags[:130] %}
+
+	{% set socialpreview = '' %}
+	{% if entry.overview %}
+		{% set socialpreview = entry.overview %}
+	{% elseif entry.article or entry.publicationArticle or entry.specialReportsArticle %}
+		{% set article = entry.article | default(entry.publicationArticle) | default(entry.specialReportsArticle) %}
+		{% set continue = true %}
+		{% for block in article if continue %}
+			{% if block['text'] is defined %}
+				{% set socialpreview = block.text %}
+			{% endif %}
+		{% endfor %}
+	{% endif %}
+
+	{% set previewlength = 350 %}
+	{% set description = socialpreview|striptags[:previewlength] %}
+
+	{% if shareimage is not defined %}
+		{% if entry.streamImageSquare | length %}
+			{% set imageset = entry.streamImageSquare %}
+		{% elseif entry.streamImageRectangle | length %}
+			{% set imageset = entry.streamImageRectangle %}
+		{% elseif entry.heroImage | length %}
+			{% set imageset = entry.heroImage %}
+		{% elseif entry.commitmentImageSquare | length %}
+			{% set imageset = entry.commitmentImageSquare %}
+		{% endif %}
+		{% set shareimage = imageset[0].url ?? siteUrl('dist/img/social-fallback.jpg') %}
+	{% endif %}
+
+	{% set socialChannels = [
+		{
+			link: "https://www.twitter.com/intent/tweet?url=" ~ (entry.url | url_encode) ~ "&amp;text=" ~ summary ~ (' @verainstitute' | url_encode),
+			title: "Twitter"
+		},
+		{
+			link: "https://www.facebook.com/sharer/sharer.php?u=" ~ (entry.url | url_encode) ~ "&caption=" ~ (summary | url_encode) ~ "&picture=" ~ shareimage ~ "&description=" ~ description,
+			title: "Facebook"
+		},
+		{
+			link: "mailto:?subject=" ~ (summary | url_encode) ~ "&amp;body=" ~ (entry.url | url_encode),
+			title: "mail"
+		}
+	] %}
+
+	<aside class="{{ horizontal ? 'share-outer' : 'fixed-share'}}">
+		<ul class="share receives-border-color {% if not horizontal %}module-intro__share{% endif %}">
+			{% for channel in socialChannels %}
+				<li class="share-item social-share-item receives-border-color">
+					{{ social.socialShareLink(channel.link,channel.title) }}
+				</li>
+			{% endfor %}
+			{% if printable is defined and printable and showPrint is defined and showPrint %}
+				<li>
+					{{ social.socialShareLink("?print=1","Print") }}
+				</li>
+			{% endif %}
+		</ul>
+	</aside>
+{% endif %}

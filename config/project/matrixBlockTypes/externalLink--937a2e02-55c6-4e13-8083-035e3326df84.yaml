@@ -1,0 +1,68 @@
+field: 7b2863bc-9b95-419a-a226-4be78dca30e2
+fieldLayouts:
+  0a1243d4-ebf0-4c1c-b863-528b57140038:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: fc1320fa-e573-4380-b2b9-8660594ee81f
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: d24f24db-5442-4eea-9cdf-fae817b08d3d
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  d24f24db-5442-4eea-9cdf-fae817b08d3d:
+    contentColumnType: text
+    fieldGroup: null
+    handle: linkUrl
+    instructions: ''
+    name: 'Link Url'
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  fc1320fa-e573-4380-b2b9-8660594ee81f:
+    contentColumnType: text
+    fieldGroup: null
+    handle: publicationTitle
+    instructions: ''
+    name: Title
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+handle: externalLink
+name: 'External Link'
+sortOrder: 4

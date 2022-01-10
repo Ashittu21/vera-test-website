@@ -1,0 +1,32 @@
+{% set mapType = mapType ?? 'projects' %}
+<div class="col-outer stream-module-outer">
+	<div class="two-thirds">
+		{% include 'includes/snippets/datamaps' %}
+	</div>
+	<div class="one-third" id="map-stream">	
+		<h4>Select a State</h4>
+		{% include 'includes/stream/loader' with {loaderid: 'map_content_loader'} %}
+		<div class="map-stream__load-more hidden">
+			<svg width="15px" height="9px" viewBox="-1 -1 15 9" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+				 <polyline id="Path-20-Copy" stroke="#231F20" stroke-width="2" fill="none" points="0.128764284 0.01953125 6.21443537 6.10520233 12.7398435 0.0195312805"></polyline>
+			</svg>
+		</div>
+		</div>
+	</div>
+	<article class="stream-module stream-module--uc stream-module--uc--secondary template">
+		<a class="stream-module__inner" href="">
+			<div class="stream-module__content">
+				<div class="stream-module__content-inner">
+					<span class="stream-module__label">
+						{{ mapType|capitalize|trim('s') }}
+					</span>
+					<h3 class="stream-module__heading"></h3>
+					<div class="stream-module__meta">
+						<span class="stream-module__meta__author"></span>
+					</div>
+				</div>
+			</div>
+		</a>
+	</article>
+</div>
+

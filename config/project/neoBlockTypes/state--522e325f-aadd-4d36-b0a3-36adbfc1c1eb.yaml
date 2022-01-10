@@ -1,0 +1,28 @@
+childBlocks:
+  - embed
+  - download
+  - text
+field: de346054-207d-432a-8e53-b591a50c8c67
+fieldLayouts:
+  89214c1f-dcfc-4a9a-8977-267b3010015c:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 5e0c8315-80b9-4d71-bc51-23011dcab78f
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: 'Tab 1'
+        sortOrder: 1
+handle: state
+maxBlocks: 0
+maxChildBlocks: 0
+maxSiblingBlocks: 0
+name: State
+sortOrder: 1
+topLevel: true

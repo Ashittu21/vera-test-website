@@ -1,0 +1,23 @@
+{
+  "buttons": [
+    "format",
+    "bold",
+    "italic",
+    "lists",
+    "link",
+    "html"
+  ],
+  "plugins": ["scriptbuttons", "fullscreen"],
+  "formatting": ["p", "blockquote"],
+  "formattingAdd": {
+    "underline": {
+      "title": "Underline",
+      "args": ["span", "class", "underline"]
+    },
+    "underline2": {
+      "title": "Underline 2",
+      "args": ["h5", "class", "underline2"]
+    }
+
+  }
+}

@@ -1,0 +1,20 @@
+<section class="post-module module-quote-carousel module-quote-carousel--facts">
+		<div class="container">
+			<h3>Key Facts</h3>
+			<div class="quote-carousel">
+				{% for fact in entry.keyFacts %}
+				<div class="slide">
+					<div class="slide-inner">
+						<div class="quote-outer">
+							<div class="quote">
+								{% include 'includes/snippets/key_fact' %}
+							</div>
+						</div>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+
+			{# include 'includes/snippets/share_links' #}
+		</div>
+	</section>

@@ -1,0 +1,34 @@
+contentColumnType: string
+fieldGroup: eff14877-7ff6-48ae-81eb-2919ff7fdfd9
+handle: percentageStyle
+instructions: ''
+name: 'Percentage Role'
+searchable: true
+settings:
+  optgroups: true
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - 'Static Measurement'
+        -
+          - value
+          - default
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Change
+        -
+          - value
+          - change
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

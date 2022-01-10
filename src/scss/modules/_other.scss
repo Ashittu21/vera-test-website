@@ -1,0 +1,242 @@
+.hairline {
+  @include hairline;
+}
+
+.hairline--gray {
+  @include hairline($lt-gray);
+  width: 100%;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex--align-center {
+  align-items: center;
+}
+
+.column-nobreak {
+  @include column-nobreak;
+}
+
+#edit_entry {
+  position: fixed;
+  bottom: 1em;
+  right: 1em;
+  padding: 0.5em;
+  background: $red;
+  @extend .ff-sans--thin;
+  z-index: 10000;
+  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2);
+  color: white;
+  opacity: 0.5;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.fadein {
+  &:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    transition: opacity 1s;
+  }
+  &.loaded:before {
+    opacity: 0;
+  }
+}
+
+.img-maxheight {
+  display: contents;
+  min-height: 400px;
+
+  @media (orientation: landscape) {
+    // display: flex;
+    // flex-direction: column;
+    // position: relative;
+    display: block;
+    position: relative;
+
+    .img-inner {
+      height: 100%;
+      position: relative;
+    }
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
+      object-position: top center;
+    }
+  }
+}
+.img-inner {
+  position: relative;
+}
+
+.image-attribution {
+  position: absolute;
+  z-index: 10;
+  left: 100%;
+  width: 60%;
+  bottom: 0;
+  transform: rotate(-90deg);
+  padding: 10px;
+  transform-origin: left bottom;
+  @extend .ff-sans;
+  font-size: 8px;
+  text-align: left;
+
+  @media (min-width: $mobile-large) {
+    font-size: 12px;
+  }
+
+  .attribution-wrap {
+    display: inline-block;
+    color: $white;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 0 0.5em;
+  }
+
+  .illustrative {
+    font-style: italic;
+  }
+}
+
+// this is to ensure nav arrows are clickable
+.featured-banner--carousel .image-attribution {
+  pointer-events: none;
+}
+
+.btn__show-more-experts {
+  background-color: transparent;
+  border: 0;
+
+  &:hover {
+    color: $red;
+  }
+}
+
+.leftover_people_list {
+  &.is-hidden {
+    display: none;
+  }
+}
+
+.btn--nostyle {
+  background-color: transparent;
+  padding: 0;
+  border: 0;
+}
+
+.lightswitch {
+  $height: 30px;
+  $width: 75px;
+
+  label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+
+    > div {
+      border: 1px solid $lt-gray;
+      border-radius: 500px;
+      width: $width;
+      height: $height;
+      position: relative;
+    }
+  }
+
+  .label {
+    margin-top: $padding-xxs;
+  }
+
+  input[type="checkbox"] {
+    display: none;
+
+    &:checked + label {
+      .on {
+        svg {
+          stroke: $white;
+        }
+      }
+      .off {
+        svg {
+          stroke: $black;
+        }
+      }
+    }
+
+    ~ .label {
+      .label-up {
+        display: none;
+      }
+      .label-down {
+        display: initial;
+      }
+    }
+
+    &:checked ~ .label {
+      .label-up {
+        display: initial;
+      }
+      .label-down {
+        display: none;
+      }
+    }
+  }
+
+  &--default {
+    input:checked + label .on {
+      background-color: $red;
+      svg {
+        stroke: $white;
+      }
+    }
+
+    input:not(:checked) + label .off {
+      background-color: $red;
+      svg {
+        stroke: $white;
+      }
+    }
+  }
+
+  .toggle-side {
+    border-radius: 100%;
+    width: calc(#{$height} - 2px);
+    height: calc(#{$height} - 2px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+
+    svg {
+      stroke-width: 2px;
+    }
+
+    &.on {
+      right: 0;
+
+      svg {
+        transform: rotate(180deg);
+        stroke: $black;
+      }
+    }
+
+    &.off {
+      left: 0;
+
+      svg {
+        stroke: $white;
+      }
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{% if section == 'customTab' %}
+	{{ entry.customTabName }}
+{% elseif section == 'knowledgeBank' %}
+	Knowledge Bank
+{% elseif section == '' %}
+	Overview
+{% else %}
+	{{ section | replace('-',' ') | capitalize }}
+{% endif %}

@@ -1,0 +1,76 @@
+{%- set abort = false -%}
+
+{%- if entry is defined and entry.type.handle in ['donate','search','contact','footerPage','newsroom'] %}
+	{% set abort = true %}
+{% endif -%}
+
+{%- if entry is not defined and category is defined %}
+	{% set entry = category %}
+{% elseif entry is not defined and category is not defined %}
+	{% set abort = true %}
+{% endif -%}
+
+{%- if not abort -%}
+
+	{%- set formAction = "//vera.us8.list-manage.com/subscribe/post-json?u=6542df2be696ba0ea2f17b66a&amp;id="~mc_list_id~"&c=?" -%}
+	{%- set modalID = "PopupEmailSignup" -%}
+
+	{% set popup = administrative.currentNewsletterPopup[0] | default(craft.entries.section('newsletterPopup').slug('default').first()) %}
+	<aside class="signup-modal-outer" id="{{ modalID }}" aria-hidden="true">
+		<div class="signup-popup-outer">
+			<div class="poup-inner">
+				<div class="popup-inner-heading js-remove">
+					{% if popup.heading %}
+						<h3>{{ popup.heading }}</h3>
+					{% endif %}
+					{% if popup.subheading %}
+						<p>{{ popup.subheading }}</p>
+					{% endif %}
+				</div>
+
+				{% set message %}
+				{% if popup.emailCtaLink | length %}
+					<div class="signup-popup-cta">
+						<div>{{ popup.emailThankYou }}</div>
+						<a class="btn red" href="{{ popup.emailCtaLink[0].url }}">{{ popup.emailCtaText }}</a>
+					</div>
+				{% else %}
+					{{ popup.emailThankYou }}
+				{% endif %}
+				{% endset %}
+				{% includeJs %}
+				VERA.popupEmailThankYou =
+				{{ message | json_encode | raw }};
+				{% endincludejs %}
+
+				{% set signup_from = entry.title ?? category.title %}
+				{% set signup_from = 'Vera - '~signup_from~' - popup' %}
+				{%- set signup_type = 'Popup' -%}
+				<form class="newsletter_form" target="_blank" id="PopupSubscribe" action="{{ formAction }}&amp;SIGNUP={{ signup_from | url_encode }}&amp;FORMTYPE={{ signup_type | url_encode }}" method="POST">
+					<div class="newsletter_wrap js-remove">
+						<div class="newsletter_input_wrap">
+							<input id="popup_email_input" type="email" class="email_input newsletter_input popup__newsletter__input" name="EMAIL" required>
+							<label class="newsletter_label" for="popup_email_input">E-mail address</label>
+						</div>
+						<div class="newsletter_input_wrap half">
+							<input id="popup_fname_input" type="text" class="fname_input newsletter_input popup__newsletter__input half" name="FNAME" required>
+							<label class="newsletter_label" for="popup_fname_input">First Name</label>
+						</div>
+						<div class="newsletter_input_wrap half">
+							<input id="popup_lname_input" type="text" class="lname_input newsletter_input popup__newsletter__input half" name="LNAME" required>
+							<label class="newsletter_label" for="popup_lname_input">Last Name</label>
+						</div>
+						<button type="submit" class="newsletter_submit popup__newsletter__submit">&rsaquo;</button>
+					</div>
+
+					<div class="newsletter_subscribe_result"></div>
+				</form>
+
+				<button type="button" class="plain-text-button popup__small-btn js-remove never-show-signup">Don't show this again</button>
+
+			</div>
+			<span class="popup-close" role="button"></span>
+		</div>
+	</aside>
+
+{%- endif -%}

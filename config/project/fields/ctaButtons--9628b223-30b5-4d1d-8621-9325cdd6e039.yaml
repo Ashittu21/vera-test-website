@@ -1,0 +1,14 @@
+contentColumnType: string
+fieldGroup: 62eaf9ac-7045-45a4-b9c9-6db9b59feaac
+handle: ctaButtons
+instructions: ''
+name: 'CTA Buttons'
+searchable: true
+settings:
+  contentTable: '{{%matrixcontent_ctabuttons}}'
+  maxBlocks: null
+  minBlocks: null
+  propagationMethod: all
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

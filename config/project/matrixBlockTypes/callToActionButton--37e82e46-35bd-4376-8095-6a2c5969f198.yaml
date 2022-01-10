@@ -1,0 +1,91 @@
+field: 95bc127b-3520-49ff-803a-7352214068b1
+fieldLayouts:
+  bc8dcbb0-ca07-4857-b809-7b96ddca7c4e:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: d2b8f697-442c-4579-a838-3d542bb6f48b
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 90fe4273-c594-4873-8814-dd57a975fe2b
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: a2852d76-ab2a-4a02-8c7e-8ef47b68b833
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  90fe4273-c594-4873-8814-dd57a975fe2b:
+    contentColumnType: text
+    fieldGroup: null
+    handle: buttonLink
+    instructions: ''
+    name: 'Button Link'
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  a2852d76-ab2a-4a02-8c7e-8ef47b68b833:
+    contentColumnType: boolean
+    fieldGroup: null
+    handle: openInNewWindow
+    instructions: ''
+    name: 'Open in New Window?'
+    searchable: true
+    settings:
+      default: false
+      offLabel: null
+      onLabel: null
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Lightswitch
+  d2b8f697-442c-4579-a838-3d542bb6f48b:
+    contentColumnType: text
+    fieldGroup: null
+    handle: buttonText
+    instructions: ''
+    name: 'Button Text'
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+handle: callToActionButton
+name: 'Call to Action Button'
+sortOrder: 20

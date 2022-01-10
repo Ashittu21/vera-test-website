@@ -1,0 +1,10 @@
+{% include 'data-viz/sortableTable' with {
+  entry: {
+    dataset: [
+      { url: countyDataUrl }
+    ],
+    sortableTableColumns: block.sortableTableColumns,
+    title: "TODO: table title"
+  },
+  filterState: state
+} %}

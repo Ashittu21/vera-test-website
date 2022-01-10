@@ -1,0 +1,44 @@
+{
+    "name": "sgtpenguin/special-relations",
+    "description": "A set of entries fields with special characteristics",
+    "type": "craft-plugin",
+    "version": "1.0.0",
+    "keywords": [
+        "craft",
+        "cms",
+        "craftcms",
+        "craft-plugin",
+        "special relations"
+    ],
+    "support": {
+        "docs": "???",
+        "issues": "???"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "sgtpenguin",
+            "homepage": "https://hyperakt.com"
+        }
+    ],
+    "require": {
+        "craftcms/cms": "^3.0.0"
+    },
+    "autoload": {
+        "psr-4": {
+          "sgtpenguin\\specialrelations\\": "src/"
+        }
+    },
+    "extra": {
+        "name": "Special Relations",
+        "handle": "special-relations",
+        "developer": "sgtpenguin",
+        "developerUrl": "https://hyperakt.com",
+        "documentationUrl": "???",
+        "changelogUrl": "???",
+        "components": {
+            "helpers": "sgtpenguin\\specialrelations\\services\\Helpers"
+        },
+        "class": "sgtpenguin\\specialrelations\\SpecialRelations"
+    }
+}

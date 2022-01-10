@@ -1,0 +1,23 @@
+enableVersioning: true
+handle: publications
+name: Publications
+previewTargets:
+  -
+    __assoc__:
+      -
+        - label
+        - 'Primary entry page'
+      -
+        - urlFormat
+        - '{url}'
+propagationMethod: all
+siteSettings:
+  8ed9f980-84ac-470d-94d7-89a2cdb64916:
+    enabledByDefault: true
+    hasUrls: true
+    template: publications/_entry
+    uriFormat: '{% if object.level == 1 %}publications/{slug}{% else %}{parent.uri}/{slug}{% endif %}'
+structure:
+  maxLevels: 3
+  uid: ce56ada5-6c7d-47a3-915f-1d26e4df1737
+type: structure

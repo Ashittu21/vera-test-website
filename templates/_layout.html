@@ -1,0 +1,54 @@
+{#
+ # Layout template
+ # ---------------
+ #
+ # This template defines your site’s global layout. It can be
+ # “extended” by other templates to fill in the gaps.
+ #
+ # See Twig’s Template Inheritance documentation for more details:
+ # http://twig.sensiolabs.org/doc/templates.html#template-inheritance
+ #}
+
+{% extends '_meta' %}
+
+{% set mc_list_id = 'e0468627fa' %}
+{% set mc_subscribe_link = 'http://eepurl.com/b9IGNH' %}
+
+{% block body %}
+	{% block nav %}
+		{% if entry is not defined or entry is not null and (entry.type.handle not in ['donate','donateAppeal'] or entry.donateNavToggle == true) %}
+			{# cache globally #}
+			{% include 'includes/snippets/header' %}
+			{# endcache #}
+		{% else %}
+			{% include 'includes/snippets/header-no-nav' %}
+		{% endif %}
+	{% endblock %}
+
+	<main id="content" role="main" {% if entry is defined and entry and entry.type == 'publicationOverview' %} class="content--pubs" {% endif %}>
+		{% block banner %}{% endblock %}
+		{% block ajax_wrap_open %}{% endblock %}
+		{% block content %}{% endblock %}
+		{% block ajax_wrap_close %}{% endblock %}
+
+		<!-- Modals -->
+
+		{% set currentDonateCta = craft.entries.section('donateCta').first %}
+		{% if entry is defined and entry and entry.section.handle not in ['donate','donateAppeal','careersLanding'] and not entry.suppressDonatePopup %}
+			{% if currentDonateCta %}
+				{% include 'includes/snippets/donate_popup' with {cta: currentDonateCta} %}
+			{% elseif administrative.showNewsletterPopup %}
+				{% include 'includes/snippets/newsletter_popup' %}
+			{% endif %}
+		{% endif %}
+	</main>
+
+	{% block footer %}
+		{# include 'includes/snippets/footer' #}
+		{% include 'v2/global/footer' %}
+	{% endblock %}
+
+	{% block overlay %}
+		{% include 'includes/snippets/share_overlay' %}
+	{% endblock %}
+{% endblock %}

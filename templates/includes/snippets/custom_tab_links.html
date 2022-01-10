@@ -1,0 +1,18 @@
+{% if parent.hasDescendants %}
+	{% for child in parent.descendants %}
+		{% if child.type.handle == "linkTab" %}
+			<li>
+				<a class="link-out" href="{{ child.linkTo.url }}" {% if child.linkTo.type == "url" %}target="_blank" rel="noopener noreferrer"{% endif %}>{{ child.linkTo.text ?? child.linkTo.title }}</a>
+			</li>
+		{% else %}
+			{% set tabTitle = (child.type.handle in ['knowledgeBank', 'partners', 'stateResources']) ?  child.type.name : child.customTabName %}
+			{% set active = false %}
+			{% if entry.type.handle in ['knowledgeBank', 'partners'] and child.type.handle == entry.type.handle or tabTitle  == entry.customTabName %}
+				{% set active = true %}
+			{% endif %}
+			<li>
+				<a href="{{ child.url }}" class="{{ active ? 'active' }}">{{ tabTitle }}</a>
+			</li>
+		{% endif %}
+	{% endfor %}
+{% endif %}

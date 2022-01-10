@@ -1,0 +1,21 @@
+contentColumnType: string
+fieldGroup: 62eaf9ac-7045-45a4-b9c9-6db9b59feaac
+handle: dataViz
+instructions: ''
+name: 'Data Viz'
+searchable: true
+settings:
+  allowSelfRelations: false
+  limit: '1'
+  localizeRelations: false
+  selectionLabel: 'Add a visualization'
+  showSiteMenu: true
+  source: null
+  sources:
+    - 'section:f7ebe9e2-b9cc-411d-8d01-9010f0f97e50'
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Entries

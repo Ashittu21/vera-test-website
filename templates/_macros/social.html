@@ -1,0 +1,17 @@
+{% macro socialChannelLink(link,title) %}
+	{% import _self as self %}
+	{{ self.socialLink(link,title,"Social Channel") }}
+{% endmacro %}
+
+{% macro socialShareLink(link,title) %}
+	{% import _self as self %}
+	{{ self.socialLink(link,title,"Social Share") }}
+{% endmacro %}
+
+{% macro socialLink(link,title,category) %}
+	{% set escapedCategory = category | escape("html_attr") %}
+	{% set escapedTitle = title | escape("html_attr") %}
+	<a href="{{ link }}" class="share-link social-share-link receives-color" data-analytics-event='["{{ escapedCategory }}","{{ escapedTitle }}"]' target="_blank">
+		<span class="icon-{{ title | lower }}"></span>
+	</a>
+{% endmacro %}

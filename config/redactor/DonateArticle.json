@@ -1,0 +1,27 @@
+{
+  "buttons": ["format", "link", "bold", "italic", "lists", "line"],
+  "plugins": ["scriptbuttons", "fullscreen", "alignment"],
+  "formatting": ["p"],
+  "formattingAdd": {
+    "intro-p": {
+      "title": "Intro Paragraph",
+      "args": ["p", "class", "intro"]
+    },
+    "header": {
+      "title": "Header",
+      "args": ["h2", "class", "sub-headline"]
+    },
+    "subhead": {
+      "title": "Sub-Header",
+      "args": ["h5", "class", "intext-subhead"]
+    },
+    "footnote": {
+      "title": "Footnote",
+      "args": ["p", "class", "footnote"]
+    },
+    "dropcap": {
+      "title": "Dropcap",
+      "args": ["p", "class", "dropcap", "toggle"]
+    }
+  }
+}

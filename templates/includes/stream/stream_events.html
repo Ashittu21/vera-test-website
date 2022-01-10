@@ -1,0 +1,159 @@
+<section id="events-container" class="events-landing">
+    <div class="container col-outer">
+        <div id="stream-content" class="event-landing stream-module-outer col-outer two-thirds two-thirds-lg">
+            <nav class="events-landing__filter">
+                <ul>
+                    <li>
+                        <a id="upcoming_btn" class="event_btn active" aria-pressed="true">Upcoming</a>
+                    </li>
+                    <li>
+                        <a id="past_btn" class="event_btn">Past</a>
+                    </li>
+                </ul>
+            </nav>
+            {% set streamEmpty = events|length ? false : true %}
+            
+			{% for event in events %}
+				{% include 'includes/stream/stream_event' %}
+			{% endfor %}
+			
+			{% include 'includes/stream/loader' with {loaderid: 'eventloader'} %}
+			
+			{% include 'includes/stream/noresults' %}
+        </div>
+
+        <div class="one-third one-third--sm post-sidebar">
+            <h5 class="sidebar__label event-sidebar__heading">Event Series</h5>
+			
+			{% if entry.section.handle == 'events' %}
+				{% set seriesList = craft.entries.section('eventSeries') %}
+			{% elseif entry.section.handle == 'eventSeries' %}
+				{% set seriesList = entry.siblings %}
+			{% endif %}
+			
+            {% include 'includes/snippets/sidebar__series' with {seriesList: seriesList} %}
+            
+        </div>
+    </div>
+</section>
+
+{% set eventJs %}
+	
+	var Stream = {
+		loader: document.getElementById('eventloader'),
+		noresults: $('#stream-content .no_results')[0],
+		offset: 1,
+		tense: 1,
+		loading: false,
+		tapped: false,
+		init: function() {
+			Stream.buttons = document.querySelectorAll('.event_btn');
+			Stream.container = document.getElementById('stream-content');
+			Stream.selected = document.getElementById('upcoming_btn');
+			
+			$(Stream.buttons).each(function() {
+				$(this).on('click', function() {
+					Stream.offset = 0;
+					Stream.load(this);
+				});
+			});
+			
+			//Lazy Load
+			window.addEventListener("scroll", function() {
+				Stream.checkIfMoreNeeded();
+			});
+		},
+		load: function(button) {
+			
+			if (button) {
+				Stream.tapped = false;
+				Stream.selected.classList.remove('active');
+				Stream.noresults.classList.add('hidden');
+				button.classList.add('active');
+				Stream.selected = button;
+				Stream.remove();
+				switch (button.id) {
+					case 'upcoming_btn':
+						Stream.tense = 1;
+						break;
+						
+					default:
+						Stream.tense = 0;
+				}
+			}
+			
+			Stream.loading = true;
+			
+			Stream.loader.classList.remove('hidden');
+			
+			if (Stream.currentRequest) {
+				Stream.currentRequest.abort();
+			}
+			
+			var params = {tense: Stream.tense, limit: Stream.limit, offset: Stream.offset};
+			
+			if ("undefined" !== typeof Stream.primaryRelation) {
+				params.primaryRelation = Stream.primaryRelation;
+			}
+			
+			Stream.currentRequest = $.post('/includes/stream/ajax_events', params, function(data) {
+				
+				Stream.loader.classList.add('hidden');
+				Stream.container.classList.remove('loading');
+				Stream.loading = false;
+				$(data).insertBefore($(Stream.container).find('.streamloader')[0]);
+				if (data.trim() == '') {
+					if (Stream.offset == 0) {
+						Stream.noresults.classList.remove('hidden');
+					}
+					Stream.tapped = true;
+				}
+				if ($(Stream.container).find('.stream-thing').length%Stream.limit != 0) {
+					Stream.tapped = true;
+				}
+				
+				Stream.offset++;
+				
+				Site.scrollTo();
+				
+			});
+		},
+		remove: function() {
+			$(Stream.container).find('.stream-thing').each(function() {
+				$(this).remove();
+			});
+		},
+		lazyLoad: function() {
+
+			var lazyOffset = 100;
+			var lazylimit = 5;
+			
+			var scroll = window.scrollY + window.innerWidth;
+			var bottom = $(Stream.container).offset().top + $(Stream.container).height();
+			
+			if (scroll >= (bottom - lazyOffset) && Stream.offset < lazylimit && !Stream.loading && !Stream.tapped) {
+				Stream.load();
+			}
+		},
+		checkIfMoreNeeded: function() {
+			
+			var modules = $(Stream.container).find('.stream-thing').length;
+			//Check if the stream is full before loading more content to avoid duplicates
+			if (modules >= Stream.limit) {
+				Stream.lazyLoad();
+			}
+		},
+
+	}
+	
+	$(function() {
+		Stream.limit = {{ limit }}
+		{% if entry.type == 'eventSeries' %}
+			Stream.primaryRelation = {id: {{ entry.id }}, type: 'entries'};
+		{% endif %}
+		Stream.init();
+	});
+	
+{% endset %}
+
+{% includeJs eventJs %}

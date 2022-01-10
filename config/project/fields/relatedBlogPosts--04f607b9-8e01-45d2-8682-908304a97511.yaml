@@ -1,0 +1,13 @@
+contentColumnType: string
+fieldGroup: e0a75969-a752-4082-a0b5-ebd250a4b5b6
+handle: relatedBlogPosts
+instructions: ''
+name: 'Related Blog Posts'
+searchable: true
+settings:
+  errorMessage: 'Unable to find component class ''ManyToMany_ManyToMany''.'
+  expectedType: ManyToMany_ManyToMany
+  settings: '{"source":{"value":"13","type":"section"},"singleField":"42"}'
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\MissingField

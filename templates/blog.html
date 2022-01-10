@@ -1,0 +1,103 @@
+{% extends '_layout' %}
+
+{% set title = entry.title %}
+
+{% block content %}
+
+	{% if entry is defined and (entry.featuredContent or entry.featuredProjects or entry.featuredResearch or entry.featuredPost) %}
+		{% set featureids = entry.featuredContent ? entry.featuredContent.ids() : entry.featuredProjects ? entry.featuredProjects.ids() : entry.featuredResearch ? entry.featuredResearch.ids() : entry.featuredPost ? entry.featuredPost.ids() : [] %}
+		{% set exclude = ['and'] %}
+		{% for id in featureids %}
+			{% set exclude = exclude|merge(['not '~id]) %}
+		{% endfor %}
+	{% endif %}
+
+	<section id="stream" class="post-content">
+		<div class="container col-outer">
+			<header class="post-header">
+				<h1>{{ entry.title }}</h1>
+
+				<a class="btn" href="https://vera.org/blog.xml" target="_blank">Subscribe</a>
+
+			</header>
+			<div class="post-landing stream-module-outer col-outer two-thirds">
+				{% set module = entry.featuredPost[0] ?? null %}
+
+				{% cache %}
+				{% include 'includes/stream/stream_module.html' with {size: 'full'} %}
+				{% endcache %}
+
+				{% cache %}
+				<aside class="series-mobile blog-landing">
+					{% include 'includes/snippets/sidebar__series' with {seriesList: craft.entries.section('blogSeries')} %}
+				</aside>
+				{% endcache %}
+
+
+				{% set streamOptions = {
+				title: 'All Posts',
+				news: false,
+				filterAltLayout: 'stacked', 
+				sections: [
+					['Blog Post', 'blogPosts'],
+				],
+				moduleType: 'post',
+				filterRelations: [{type: 'categories', relations: craft.categories.group('ourWork').level(2), title: craft.entries.section('ourWork').relatedTo(craft.categories.group('ourWork').level(2).first).first.type.name~'s'}],
+				streamType: 'content',
+				nopack: true
+			} %}
+
+				{% set contentlimit, newslimit = stream.loadQuantityDefault, stream.loadQuantityDefault*1.5|round %}
+				{% set start_year, end_year = stream.filterStartYear,"now"|date('Y') %}
+
+				{% set firstStream %}{% include 'includes/stream/stream' %}{% endset %}
+				{% set streamEmpty = {streamEmpty: firstStream|trim == ''} %}
+
+				<h4>All Posts</h4>
+
+				{% include 'includes/stream/stream_filter' with {hideGridList: true} %}
+
+				<div id="stream-content">
+
+					{{ firstStream }}
+
+					{% include 'includes/stream/noresults' with streamEmpty %}
+
+					{% include 'includes/stream/nomore' %}
+
+				</div>
+
+				{% include 'includes/stream/loader' with {loaderid: 'content_loader'} %}
+
+			</div>
+			<div class="one-third one-third--sm post-sidebar">
+				{% set subscribe = entry.subscribe[0] ?? null %}
+				{% if subscribe %}
+					<div class="desktop-only">
+
+						<div class="post-sidebar__module-intro">
+							{{ entry.subscribe.first.callToAction }}
+						</div>
+
+						<div class="post-sidebar__btn">
+							<a href="https://vera.org/blog.xml" class="btn" target="_blank">{{ entry.subscribe.first.buttonText }}
+								<i class="icon-rss"></i>
+							</a>
+						</div>
+					</div>
+				{% endif %}
+				{% cache %}
+				{% include 'includes/snippets/sidebar__series' with {seriesList: craft.entries.section('blogSeries')} %}
+				{% endcache %}
+			</div>
+			<div id="load-more-container"></div>
+		</section>
+	{% endblock %}
+
+	{% set tempCss %}
+	#load-more-container {
+										width:100%;
+									}
+	{% endset %}
+
+	{% includeCss tempCss %}

@@ -1,0 +1,8 @@
+{% for viz in block.map %}
+  {% switch viz.section.handle %}
+    {% case  'maps' %}
+      {% include 'vera-maps/_maptypes' with {entry: viz, owner: entry, mapTheme: entry.mapTheme ?? null, baseUrl: entry.url} %}
+    {% case 'dataViz' %}
+      {% include 'data-viz/' ~ viz.type.handle with {entry: viz, baseUrl: entry.url} %}
+  {% endswitch %}
+{% endfor %}

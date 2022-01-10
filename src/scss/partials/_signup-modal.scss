@@ -1,0 +1,35 @@
+.signup-modal-outer {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  transform: translateX(100%);
+  background-color: $black;
+  color: $white;
+  z-index: 1000;
+  max-width: 550px;
+  display: none;
+
+  &.triggered {
+    animation: modal-slide-in 1s forwards;
+  }
+}
+
+@include keyframes(modal-slide-in) {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+.signup-popup-outer {
+  .newsletter_form {
+    margin-top: 1.5rem;
+  }
+}
+
+.signup-popup-cta {
+  margin-top: 1.5rem;
+}

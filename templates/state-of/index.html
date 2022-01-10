@@ -1,0 +1,46 @@
+{% redirect craft.entries.section('stateOf').first().url %}
+
+{% extends '_layout' %}
+
+{% block bodyClass %}state-of state-of-landing{% endblock %}
+
+{% block nav %}{% include 'includes/snippets/header' with { hideDonate: true } %}{% endblock %}
+
+{% block content %}
+{% embed 'includes/snippets/banner__featured' %}
+	{% block heroInner %}
+	{% if entry.heroOverlayOpacity %}
+	{% includeCss %}
+	.featured-banner .screen {
+		opacity: {{ entry.heroOverlayOpacity }};
+	}
+	{% endincludecss %}
+	{% endif %}
+		<div class="screen"></div>
+		<div class="title_wrap">
+			{% if entry.superheading %}
+			<aside class="superheading">{{ entry.superheading }}</aside>
+			{% endif %}
+			<h1 class="heading">{{ entry.heading ?: entry.title }}</h1>
+			{% if entry.subheading %}
+			<aside class="subheading">{{ entry.subheading }}</aside>
+			{% endif %}
+		</div>
+	{% endblock %}
+{% endembed %}
+
+<div class="state-of-article">
+	<div class="container">
+		<div class="intro">{{ entry.overview | shortcodes }}</div>
+	</div>
+</div>
+
+{% set aggregate = entry.aggregateStream.value %}
+{% if aggregate != 'none' %}
+{% include 'state-of/_aggregates/' ~ aggregate %}
+{% endif %}
+{% endblock %}
+
+{% block footer %}
+{% include 'includes/_footer/footer__state-of' %}
+{% endblock %}

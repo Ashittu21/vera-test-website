@@ -1,0 +1,13 @@
+contentColumnType: boolean
+fieldGroup: 6c478341-da6f-434d-b58e-1f381004c510
+handle: hideTimes
+instructions: 'For all day events, only date portion will show.'
+name: 'Hide Times'
+searchable: true
+settings:
+  default: false
+  offLabel: null
+  onLabel: null
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Lightswitch

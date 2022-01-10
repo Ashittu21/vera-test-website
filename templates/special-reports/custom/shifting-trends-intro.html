@@ -1,0 +1,205 @@
+{% extends '_ajax_layout' %}
+
+{% includeJs %}
+$(function() {
+	"use strict";
+
+	var VERA = window.VERA || {};
+
+	VERA.sm = VERA.sm || new ScrollMagic.Controller();
+
+	var $container = $('.nys');
+
+	var $intro = $container.find('.intro');
+
+	var rectTween = TweenLite.to('#nys svg rect', 1, {
+		x: function(i,t) {
+			return t.getAttribute('data-x');
+		},
+		y: function(i,t) {
+			return t.getAttribute('data-y');
+		}
+	});
+
+	var rectScene = new ScrollMagic.Scene({
+		triggerElement: 'main',
+		triggerHook: 0
+	})
+	.setTween(rectTween)
+	.tweenChanges(true)
+	.setPin('#nys svg', {
+	})
+	.addTo(VERA.sm)
+	;
+
+	var fadeScene = new ScrollMagic.Scene({
+		triggerElement: 'main',
+		triggerHook: 0,
+		offset: 100
+	})
+	.setTween('#nys svg rect', 1, {autoAlpha: 1})
+	.addTo(VERA.sm)
+	;
+
+	rectScene.duration(determineRectDuration());
+	window.addEventListener("resize", function() {
+		rectScene.duration(determineRectDuration());
+	});
+
+	var stateScene = new ScrollMagic.Scene({
+		triggerElement: 'main',
+		triggerHook: 0,
+		offset: 100
+	})
+	.setTween('#nys', .5, { autoAlpha: 1 } )
+	.addTo(VERA.sm)
+	;
+
+
+	var scalerScene = new ScrollMagic.Scene({
+		triggerElement: '.scaler-container',
+		triggerHook: .25
+	})
+	.on('enter', function(event) {
+		event.target.triggerElement().classList.add('scaler--active');
+		scalerScene.destroy();
+	})
+	.addTo(VERA.sm)
+
+
+	function determineRectDuration()
+	{
+		var value = Math.max($intro.outerHeight(true) - window.innerHeight*1.3,0);
+		return value + "px";
+	}
+
+	window.VERA = VERA;
+
+
+});
+{% endincludejs %}
+
+{% block content %}
+<div class="scroll-section">
+<div
+	data-background-scroll
+	class="no-transform background-scroll-trigger"
+	data-color-combo="black-white">
+	</div>
+<article class="nys bg-color--black color--white landing-header" data-anchor-link="{{ entry.parent.url }}">
+	<div class="intro-logo-wrap container">
+		<a href="/"><img class="intro-logo" src="/dist/img/logo_med.svg"></a>
+		<h1>{{ entry.parent.title }}</h1>
+		<a href="#" class="icon-share trigger-modal" data-modal="ShareOverlay" title="Share" aria-label="Toggle Share Menu">{{ craft.inlin.er("/dist/icons/share.svg",true) | raw }}</a>
+	</div>
+
+	{% include 'includes/snippets/scroll-to-continue' %}
+
+	{#
+	<!-- Ambient -->
+	<section class="intro-ambient article-hero bg--black scaler-container ">
+		<div class="ambient-video-wrap">
+		    <video class="ambient-video" autoplay="" loop="">
+			    <source src="/dist/img/059172407-orbiting-lincoln-correctional-.mp4">
+		    </video>
+	    </div>
+
+		<div class="scaler" style="background-image: url({{ entry.parent.heroImage[0].url ?? null }})"></div>
+
+		<div class="screen"></div>
+
+		<div class="inner container">
+			<p></p>
+		</div>
+	</section>
+	#}
+
+	<!-- NY Map -->
+	<div id="nys">{% include 'special-reports/custom/nys.svg' %}</div>
+
+	<!-- Scroll phrases over map -->
+	<section class="intro container">
+		<div class="intro-phrases">
+		{% set introPhrases = [
+			{
+				copy: "For decades, the story of jail incarceration in New York was considered a big city problem.",
+				alignment: "left"
+			},
+			{
+				copy: "The Tombs.",
+				alignment: "left"
+			},
+			{
+				copy: "The Boat.",
+				alignment: "left"
+			},
+			{
+				copy: "Rikers Island.",
+				alignment: "left"
+			},
+			{
+				copy: "Yet today, New York City’s jail numbers have dropped by more than half, while jails in the rest of the state have grown.",
+				alignment: "right"
+			},
+			{
+				copy: "Three out of five New Yorkers in jail on any given day are held in facilities in the 57 counties outside New York City.",
+				alignment: "right"
+			},
+			{
+				copy: "The trend is clear: New York City is no longer the driver of jail incarceration in our state.",
+				alignment: "right"
+			}
+		] %}
+			{% for phrase in introPhrases %}
+			<div class="phrase {{ phrase.alignment }}">{{ phrase.copy }}</div>
+			{% endfor %}
+
+		</div>
+
+		<h1 class="title">{{ entry.parent.title }}</h1>
+
+		<aside class="subtitle">{{ entry.parent.subtitle }}</aside>
+	</section>
+
+	<section class="hero-statement article-hero scaler-container ">
+		<div class="ambient-video-wrap">
+		    <video class="ambient-video" autoplay="" loop="">
+			    <source src="/dist/img/nys_banner.mp4">
+		    </video>
+	    </div>
+
+		<div class="scaler"></div>
+
+		<div class="screen"></div>
+
+		<div class="inner container">
+			<p>{{ "New York is in the midst of considering important criminal justice reforms – including bail, due process, and speedy trial – to reduce the overuse of jail." | shortcodes | raw }}</p>
+		</div>
+	</section>
+
+	<section class="secondary-statement container">
+		<div class="inner">
+			<p>We’re at a moment of growing consensus that incarceration should be a last resort, and not the default option, in our criminal justice system. Understanding the extent of the problem and exploring solutions is critical to enacting reforms that will succeed.</p>
+		</div>
+	</section>
+</article>
+</div>
+
+<article class="article article-theme--white nys-second-intro" style="background-color: white">
+	<div class="container">
+		<h2 class="article-section-explainer container fade-in-animation-initialized">
+			<div class="inner">
+				<div class="text">Before we begin, here’s a quick overview of bail, due process, and speedy trial.</div>
+				<div class="bar-wrap" ><div class="bar"></div></div>
+			</div>
+		</h2>
+		{% set video = craft.videos.getVideoByUrl('https://www.youtube.com/watch?v=YSDF4lCpirc') %}
+
+		{% include 'includes/snippets/video' with { video: video, playOnScroll: true } %}
+	</div>
+</article>
+{# include 'includes/ajax-page-loader' #}
+
+{% endblock %}
+
+{% block footer %}{% endblock %}

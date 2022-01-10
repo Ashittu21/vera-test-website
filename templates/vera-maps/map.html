@@ -1,0 +1,425 @@
+{% spaceless %}
+
+	{% set mapTitle = mapTitle ?? map.title ?? null %}
+	{% set mapInstructions = mapInstructions ?? map.mapInstructions ?? null %}
+	{% set anchorUrl = entry is defined and map is defined ? entry.url ~ '#' ~ (mapTitle | camel) ~ "?selectmap=STATE_NUMBER:MARKER_ID" : null %}
+	{% set mapid = mapid ?? 'map_' ~ map.id ?? null %}
+	{% set entry = map ?? null %}
+	{% set hasMarkers = false %}
+	{% set mapTheme = mapTheme ?? entry.mapTheme ?? null %}
+
+	{% set mapType = mapType ?? map.type.handle %}
+
+	{% switch mapType %}
+		{% case 'map' %}
+			{% set states = map.children.order('title asc') %}
+
+			{% set data = [] %}
+			{% set activeStates = [] %}
+
+			{% set totalMarkerCount,totalLocCount = 0,0 %}
+
+			{% for state in states %}
+				{% set loccount = 0 %}
+				{% set markers = state.children %}
+				{% set markerData = [] %}
+				{% if markers | length %}
+					{% set totalMarkerCount = totalMarkerCount + markers | length %}
+					{% set hasMarkers = true %}
+					{% for marker in markers %}
+						{% set dotdata = [] %}
+						{% set dotbody = "" %}
+						{% set dots = marker.locations %}
+						{% if dots | length %}
+							{% set loccount = loccount + dots | length %}
+							{% set totalLocCount = totalLocCount + loccount %}
+
+							{% for dot in dots %}
+								{% set subtitle = dot.overrideSubtitle  | replace('%locations%', (dots | length)) | raw %}
+								{% set dotdata = dotdata | merge([{
+									subtitle: subtitle,
+									coords: dot.coordinates.coords
+								}]) %}
+								{% if subtitle %}
+								{% set dotbody = dotbody ~ "<li>" ~ subtitle ~ "</li>" %}
+								{% endif %}
+							{% endfor %}
+						{% endif %}
+
+						{% if dotbody %}
+							{% set dotbody = '<ul class="dots">' ~ dotbody ~ '</ul>' %}
+						{% endif %}
+
+
+						{% set markerData = markerData | merge([{
+							id: "marker_"~marker.id,
+							title: marker.title,
+							subtitle: marker.subtitle | replace('%locations%', (dots | length)),
+							body: dotbody ? dotbody ~ marker.body : marker.body,
+							dots: dotdata,
+							level: 2,
+							group: marker.markerGroup.value
+						}]) %}
+					{% endfor %}
+				{% endif %}
+
+				{% set activeStates = activeStates | merge([{
+					stateid: "state_"~state.stateSelect.value,
+					title: state.stateSelect.label,
+					subtitle: state.stateSubtitle ? state.stateSubtitle  | raw : map.stateSubtitle | replace('%markers%', markers | length) | replace('%locations%',loccount)  | raw ,
+					entryid: "state_"~state.id,
+					body: state.overview,
+					markers: markerData,
+					group: state.stateGroup.value,
+					level: 1
+				}]) %}
+
+			{% endfor %}
+
+			{% set mapOverview = map.overview | replace('%markers%',totalMarkerCount) | replace('%locations%',totalLocCount) %}
+
+			{% set data = {
+				country: {
+					entryid: "country_"~map.id,
+					title: map.title,
+					body: mapOverview,
+					level: 0
+				},
+				states: activeStates
+			} %}
+
+			{% set zoomable = true %}
+
+		{% case 'dataMapToggle' %}
+			{% set zoomable = false %}
+			{% set toggles = [
+				{
+					class: 'populationToggle',
+				},
+				{
+					class: 'spendingToggle'
+				}
+			] %}
+
+			{% set mapAttributes = 'data-toggle-group=1' %}
+			{% set toggleGroups = 4 %}
+
+			{% set queryData = map.mapQuery[0] %}
+			{% set selectStatement = [
+				queryData.fipsColumn ~ ' as stateid',
+				queryData.titleColumn ~ ' as title',
+				queryData.toggleGroupColumn ~ ' as toggle_group',
+				queryData.toggleVariables[0].column ~ ' as var1_delta',
+				queryData.toggleVariables[1].column ~ ' as var2_delta'
+			] %}
+			{% for col in queryData.additionalVariables %}
+				{% set selectStatement = selectStatement | merge([col.column]) %}
+			{% endfor %}
+
+			{% set rawdata = {
+				states: craft.queryTable.select({
+					select: selectStatement | join(', '),
+					from: queryData.from,
+				})
+			} %}
+
+			{% set activeStates = [] %}
+
+			{% for state in rawdata.states %}
+				{% set toggleVariables = [] %}
+				{% for col in queryData.toggleVariables %}
+				{% set value = attribute(state, 'var' ~ loop.index ~ '_delta') %}
+					{% if col.percentage %}
+						{% set value = (value*100 >= 0.5 ? '+') ~ (value*100) | round(1) %}
+						{% set value = value == '-0' ? 0 : value %}
+						{% set value = value ~ '%' %}
+					{% else %}
+						{% set value = value | number_format %}
+					{% endif %}
+
+					{% set toggleVariables = toggleVariables | merge([{
+						column: col.column,
+						label: col.label,
+						value: value
+					}]) %}
+
+				{% endfor %}
+
+				{% set additional = [] %}
+				{% for col in queryData.additionalVariables %}
+					{% set additional = additional | merge([{
+						column: col.column,
+						value: attribute(state,col.column) | number_format,
+						label: col.label
+					}]) %}
+				{% endfor %}
+
+				{% set data = {
+					toggles: toggleVariables,
+					additional: additional
+				} %}
+
+				{% set activeStates = activeStates | merge([{
+					stateid: "state_"~state.stateid,
+					title: state.title,
+					data: data,
+					toggleGroup: state[queryData.toggleGroupColumn],
+					markers: [],
+					level: 1
+				}]) %}
+			{% endfor %}
+
+			{% set data = {
+				country: {
+					entryid: "country_"~map.id,
+					title: map.title,
+					body: 'Country body',
+					level: 0
+				},
+				states: activeStates
+			} %}
+
+			{% set fills = [
+				"#e17e43",
+				"#67b3d9",
+				"#A05EB5",
+				"#bed933"
+			] %}
+
+			{% set overview = [] %}
+			{% for group in map.toggleGroupContent %}
+			{% set overview = overview | merge([group.overview]) %}
+			{% endfor %}
+
+			{% include 'vera-maps/_partials/data-map-toggle__styles' %}
+		{% default %}
+	{% endswitch %}
+{% endspaceless %}
+{% block content %}
+<a id="{{ mapTitle | camel }}" class="anchor"></a>
+<article class="project-map {{ mapTheme }} {{ not hasMarkers ? 'no-markers' }} {{ zoomable ? 'zooms' : 'does-not-zoom' }}" id="{{ mapid }}" data-level="0" {{ mapAttributes ?? null }} data-analytics-event='["Map","Click","{{ mapTitle | escape("html_attr") }}"]'>
+	<div class="container">
+	{# {% if currentUser %}
+	<span class="anchorLink">{{ anchorUrl }}</span>
+	{% endif %} #}
+	<div class="map__header">
+		<div class="map__title_wrap">
+			<h1 class="map__title">{{ mapTitle }}</h1>
+			{% if mapInstructions %}
+			<p class="map__instructions">{{ mapInstructions }}</p>
+			{% endif %}
+		</div>
+
+		{% if mapType == 'dataMapToggle' %}
+		<div class="lightswitches mobile">
+			{% for toggle in toggles %}
+			<div class="lightswitch">
+				<input type="checkbox" class="{{ toggle.class }}" id="{{ toggle.class ~ "__mobile" }}">
+				<label for="{{ toggle.class ~ "__mobile" }}">
+					<div>
+						<div class="toggle-side off">{% include 'includes/icons/arrow.svg' %}</div>
+						<div class="toggle-side on">{% include 'includes/icons/arrow.svg' %}</div>
+					</div>
+				</label>
+				<div class="label">
+					<div class="label-down">{{ queryData.toggleVariables[loop.index0].labelDown }}</div>
+					<div class="label-up">{{ queryData.toggleVariables[loop.index0].labelUp }}</div>
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+		{% endif %}
+
+		{% if data.states | length %}
+		<div class="map_controls">
+			{% if hasMarkers %}
+			<div class="map_select_wrap marker_select_wrap">
+				<select class="map_select marker_select">
+					<option value="none">Select Marker</option>
+				</select>
+			</div>
+			{#<button class="marker-prevnext js-marker-prev">prev</button>#}
+			<button class="marker-prevnext js-marker-next">Next</button>
+			{% endif %}
+			<div class="map_select_wrap">
+				<select class="map_select state_select">
+					<option value="{{ data.country.entryid }}">Select State</option>
+					{% for state in data.states %}
+					<option value="{{ state.stateid }}">{{ state.title }}</option>
+					{% endfor %}
+				</select>
+			</div>
+			<select class="map_select map_select__temp" aria-hidden="true" disabled></select>
+			<button class="back">{% include 'vera-maps/_icons/usa.svg' %}</button>
+		</div>
+		<div class="map_select_menu state_select_menu">
+			{#<div class="map_select_button_wrap"><button class="map_select_button" data-option="{{ data.country.entryid }}">USA</button></div>#}
+			{% for state in data.states %}
+			<div class="map_select_button_wrap"><button class="map_select_button" data-option="{{ state.stateid }}">{{ state.title }}</button></div>
+			{% endfor %}
+		</div>
+		{% if hasMarkers %}
+		<div class="map_select_menu marker_select_menu">
+			{#<div class="map_select_button_wrap"><button class="map_select_button" data-option="none">Whole State</button></div>#}
+		</div>
+		{% endif %}
+
+		{% endif %}
+	</div>
+	<div class="map__inner-container">
+		<div class="map__content{% if mapType in ['dataMapToggle'] %} stats{% endif %}">
+			{% if mapType == 'dataMapToggle' %}
+				{% include 'vera-maps/_partials/data-map-toggle' %}
+			{% else %}
+			<div class="map__overview">{{ (mapOverview ?? null) | raw }}</div>
+			{% endif %}
+		</div>
+
+		<div class="map_wrap">
+			{% if map.stateGroupLabels is defined and map.stateGroupLabels | length %}
+			<ul class="map__legend map__legend--state" aria-hidden="false">
+				{% for group in map.stateGroupLabels %}
+				<li class="group{{ loop.index }}">{{ group.label}}</li>
+				{% endfor %}
+			</ul>
+			{% endif %}
+			{% if map.markerGroupLabels is defined and map.markerGroupLabels | length %}
+			<ul class="map__legend map__legend--marker" aria-hidden="true">
+				{% for group in map.markerGroupLabels %}
+				<li class="group{{ loop.index }}">{{ group.label }}</li>
+				{% endfor %}
+			</ul>
+			{% endif %}
+			<div class="map_inner_wrap">
+				<svg class="project-map-svg" fill="none" stroke="#000" stroke-linejoin="round" stroke-linecap="round"></svg>
+				<div class="tooltip">
+					<div class="title"></div>
+					<div class="subtitle"></div>
+					<div class="data"></div>
+				</div>
+				{% include 'includes/stream/loader' %}
+			</div>
+
+		</div>
+	</div>
+
+	</div>
+
+	{% set mapJs %}
+		(function(window) {
+			{% if mapType == 'dataMapToggle' %}
+				var mapOptions = {
+					zoom: false,
+					populateData: function(datum) {
+						if (datum.level == 0) {
+							this.container.find('.countryOverview').removeClass('hidden');
+							this.container.find('.stateOverview').addClass('hidden');
+						} else {
+							var self = this;
+							this.container.find('.title').text(datum.title);
+
+							datum.data.additional.concat(datum.data.toggles).forEach(function(d) {
+								var selector = '[data-point="' + d.column + '"] .number';
+								self.container.find(selector).text(d.value);
+							})
+
+							this.container.find('.stateOverview').removeClass('hidden');
+							this.container.find('.countryOverview').addClass('hidden');
+						}
+
+						this.container.attr('data-toggle-group', datum.toggleGroup);
+
+						switch (datum.toggleGroup) {
+							case "1":
+								$('.spendingToggle').prop('checked', false);
+								$('.populationToggle').prop('checked', false);
+								break;
+
+							case "2":
+								$('.spendingToggle').prop('checked', false);
+								$('.populationToggle').prop('checked', true);
+								break;
+
+							case "3":
+								$('.spendingToggle').prop('checked', true);
+								$('.populationToggle').prop('checked', false);
+								break;
+
+							case "4":
+								$('.spendingToggle').prop('checked', true);
+								$('.populationToggle').prop('checked', true);
+								break;
+
+							default:
+								console.log('wtf');
+						}
+
+					},
+					callback: function() {
+						var $switches = this.container.find('.lightswitch input[type="checkbox"]');
+						var self = this;
+
+						self.surfaceStates(1);
+
+						(function(self) {
+							$switches.on('change', function() {
+
+								console.log(self);
+								self.firstInteraction();
+
+								var spending = $(this).parent().parent().find('.spendingToggle:checked').length;
+								var pop = $(this).parent().parent().find('.populationToggle:checked').length;
+
+								$('.spendingToggle').prop('checked', spending);
+								$('.populationToggle').prop('checked', pop);
+
+								var group;
+
+								if (!spending && !pop) {
+									group = 1;
+								} else if (!spending && pop) {
+									group = 2;
+								} else if (spending && !pop) {
+									group = 3;
+								} else {
+									group = 4
+								}
+
+								//self.surfaceStates(group);
+
+								console.log('asdf',self);
+
+								setTimeout(function() {
+									self.container.attr('data-toggle-group', group);
+									self.goBack();
+								}, 100);
+							});
+						})(self);
+					}
+				};
+			{% else %}
+				var mapOptions = {{ (mapOptions ?? null) | json_encode | raw }};
+			{% endif %}
+
+
+			VERA = window.VERA || {};
+			VERA.mapdata = VERA.mapdata || {};
+			VERA.mapdata.data = {{ data | json_encode | raw }};
+			VERA.mapdata.mapid = {{ mapid | json_encode | raw }};
+			VERA.mapdata.hasMarkers = {{ hasMarkers | json_encode | raw }};
+
+			$(function() {
+				VERA.maps = VERA.maps || [];
+				VERA.maps.push(new VERA.mapInit(mapOptions));
+			});
+
+			window.VERA = VERA;
+		})(window);
+
+	{% endset %}
+
+	{% includeJs mapJs %}
+
+</article>
+
+{% endblock %}

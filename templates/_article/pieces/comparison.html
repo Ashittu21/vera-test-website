@@ -1,0 +1,36 @@
+{% set items = block.children().type('item') %}
+<section class="container">
+	<ul class="comparison-list">
+		<li>
+			<ul class="comparison-item-headers comparison-row">
+				{% for item in items %}
+				<li class="comparison-item-header comparison-pad">
+					<div class="image-wrap image-zoom">
+						<img src="{{ item.photo[0].url ?? "https://placehold.it/300x300" }}">
+					</div>
+					<aside class="comparison-item-label">{{ block.itemLabel }}</aside>
+					<h3 class="comparison-item-heading">{{ item.heading }}</h3>
+				</li>
+				{% endfor %}
+			</ul>
+		</li>
+		
+		{% for row in block.pointLabels %}	
+		{% set pointIndex = loop.index0 %}
+		<li class="comparison-point">
+			<ul class="comparison-row">
+				{% for item in items %}
+				<li class="comparison-item comparison-pad">
+					{% if row.label %}
+					<h4 class="comparison-point-heading">{{ row.label }}</h4>
+					{% endif %}
+					{% if item.heading %}
+					<h3 class="comparison-item-heading">{{ item.heading }}</h3>{{ item.points[pointIndex].point }}
+					{% endif %}
+				</li>
+				{% endfor %}
+			</ul>
+		</li>
+		{% endfor %}
+	</ul>
+</section>

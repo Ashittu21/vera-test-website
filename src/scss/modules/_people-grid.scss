@@ -1,0 +1,62 @@
+.people-grid {
+    padding: $padding-lg 0 0;
+    margin: 0 auto;
+
+    @media (min-width: $tablet-landscape) {
+        padding: $padding-lg*2 0 0;
+    }
+}
+
+.people-grid__list {
+    list-style: none;
+    @include justify;
+    padding: $padding-sm 0 $padding-lg;
+
+    li {
+        width: $one-half;
+
+        @media (min-width: $mobile-medium) {
+            width: 200px; // photos are 140px, 30px padding
+        }
+    }
+
+    .img-outer {
+        padding: 0 $padding-med;
+        overflow: hidden;
+        margin-bottom: $padding-sm;
+    }
+
+    img {
+        @include border-radius(100%);
+    }
+
+    .text-outer {
+        text-align: center;
+        @extend .ff-sans;
+        margin-bottom: $padding-lg;
+
+        .person-name {
+            @include font-size(1.8);
+            @extend .ff-serif--medium;
+        }
+
+        .person-info {
+            @include font-size(1.4);
+            color: $dk-gray;
+        }
+    }
+
+    a {
+        color: $black;
+    }
+
+    // &:after {
+    //     content: "";
+    //     // flex: auto;
+    //     display: inline-flex;
+    // }
+}
+
+.people-grid--highlight {
+    background: $lt-gray;
+}

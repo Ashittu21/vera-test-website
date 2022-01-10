@@ -1,0 +1,25 @@
+childBlocks: ''
+field: f169c5fc-b73a-407b-a234-05171b57ee74
+fieldLayouts:
+  174c97a2-851e-4f22-8a15-6d343340827f:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 8f1c51f5-7d5c-4d4f-b647-05200114c7fd
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: 'Tab 1'
+        sortOrder: 1
+handle: percentage
+maxBlocks: 0
+maxChildBlocks: 0
+maxSiblingBlocks: 0
+name: Percentage
+sortOrder: 4
+topLevel: false

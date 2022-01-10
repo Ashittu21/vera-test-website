@@ -1,0 +1,13 @@
+{% extends 'donate/index' %}
+
+{% block afterForm %}
+<div class="donate-outer">
+	<div class="container">
+		<div class="module-text">
+		{% if entry.overview %}
+			{{ entry.overview}}
+		{% endif %}
+		</div>
+	</div>
+</div>
+{% endblock %}

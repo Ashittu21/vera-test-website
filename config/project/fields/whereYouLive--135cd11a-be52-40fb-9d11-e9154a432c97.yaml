@@ -1,0 +1,45 @@
+contentColumnType: string
+fieldGroup: 0be095f0-44b5-40a2-963b-4650c6f05ef4
+handle: whereYouLive
+instructions: '(please choose from the following)'
+name: 'Where do you live?'
+searchable: true
+settings:
+  optgroups: true
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - 'Small rural town'
+        -
+          - value
+          - smallRuralTown
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - 'Midsize metropolitan area'
+        -
+          - value
+          - midsizeMetropolitanArea
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - 'Major urban center'
+        -
+          - value
+          - majorUrbanCenter
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

@@ -1,0 +1,14 @@
+contentColumnType: string
+fieldGroup: 0e888966-1cd8-469f-8514-1089849aa260
+handle: spotlightContent
+instructions: ''
+name: 'Spotlight Content'
+searchable: true
+settings:
+  contentTable: '{{%matrixcontent_spotlightcontent}}'
+  maxBlocks: ''
+  minBlocks: ''
+  propagationMethod: all
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

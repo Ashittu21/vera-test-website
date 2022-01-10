@@ -1,0 +1,14 @@
+contentColumnType: string
+fieldGroup: 1c2af07a-2699-4df8-8e5a-f2400541874b
+handle: iconList
+instructions: ''
+name: 'Icon List'
+searchable: true
+settings:
+  contentTable: '{{%matrixcontent_iconlist}}'
+  maxBlocks: null
+  minBlocks: null
+  propagationMethod: all
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

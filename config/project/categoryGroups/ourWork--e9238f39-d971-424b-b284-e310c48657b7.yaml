@@ -1,0 +1,49 @@
+fieldLayouts:
+  1a66fcb3-ef0c-439d-b165-f97a5acf7c98:
+    tabs:
+      -
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\TitleField
+            warning: null
+            width: 100
+          -
+            fieldUid: 9fa99b1c-e608-4322-b355-46038c0cf168
+            instructions: null
+            label: null
+            required: '0'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: 'Tab 1'
+        sortOrder: 1
+handle: ourWork
+name: 'Our Work'
+siteSettings:
+  8ed9f980-84ac-470d-94d7-89a2cdb64916:
+    hasUrls: false
+    template: null
+    uriFormat: null
+structure:
+  maxLevels: 3
+  uid: 55d698e8-1f7e-4728-bf50-8627ead9b1e3

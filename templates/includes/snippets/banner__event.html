@@ -1,0 +1,34 @@
+{% set bannerImg = entry.heroImage[0] ?? null %}
+{% if image is not defined %}
+	{% set image = bannerImg %}
+{% endif %}
+
+{% set registrationClosedCopy = entry.registrationClosedCopy | length ? entry.registrationClosedCopy : "* Registration Closed. Watch livestream below *" %}
+
+<section class="text-banner text-banner--event">
+	<div class="text-banner__bg-image{% if bannerImg %} fadein{% endif %}" style="background-image: url({% if bannerImg %}{{ bannerImg.url}}{% endif %});">
+		{% if image and (image.attribution or image.illustrativePurposes) %}
+			{% include 'includes/snippets/attribution' %}
+		{% endif %}
+	</div>
+
+	<div class="text-banner__content">
+		<span class="text-banner__breadcrumb">
+			<a href="{{ siteUrl('events') }}">Events</a>
+			{% if entry.relatedEventSeries.first %}
+				/
+				<a href="{{ entry.relatedEventSeries.first.url }}">{{ entry.relatedEventSeries.first }}</a>
+			{% endif %}
+		</span>
+
+		<h3 class="text-banner__heading">
+			{{ entry }}
+		</h3>
+		{% if entry.subtitle %}
+			<p class="text-banner__subheading">{{ entry.subtitle | nl2br }}</p>
+		{% endif %}
+		{% if entry.registrationClosed %}
+			<p class="text-banner__subheading bold">{{ registrationClosedCopy }}</p>
+		{% endif %}
+	</div>
+</section>

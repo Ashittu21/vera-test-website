@@ -1,0 +1,43 @@
+{% extends '_layout' %}
+
+{% set title = 'About' %}
+
+{% block banner %}
+	{% include 'includes/snippets/banner' %}
+
+	<!-- begin nav -->
+	<nav class="mobile-dropdown br-toggle">
+		<div class="container">
+			<span
+				class="mobile-dropdown__mobile-active">
+				<!-- active page -->
+				{% if section == '' or section == 'about-us' %}
+					About Us
+				{% else %}
+					{{ section | replace('-',' ') | title }}
+				{% endif %}
+			</span>
+
+			<ul>
+				<li><a href="/{{ entry.uri }}"class="{{ (section == '' or section == 'about-us') ? 'active' }}">About&nbsp;Us</a></li>
+				<li><a href="/{{ entry.uri }}/presidents-message"class="{{ (section == 'presidents-message') ? 'active' }}">President's <br>Message</a></li>
+				<li><a href="{{siteUrl('strategic-priorities')}}" class="link-out {{ (section == 'strategic-priorities') ? 'active' }}">Strategic <br>Priorities</a></li>
+				<li><a href="/{{ entry.uri }}/people"class="{{ (section == 'people') ? 'active' }}">People</a></li>
+				<li><a href="/{{ entry.uri }}/board-of-trustees"class="{{ ( section == 'board-of-trustees') ? 'active' }}">Board of <br>Trustees</a></li>
+				<li><a href="{{ entry.url }}/reform-leadership-council"class="{{ ( section == 'reform-leadership-council') ? 'active' }}">Reform <br>Leadership <br>Council</a></li>
+				<li><a href="{{ entry.url }}/centers"class="{{ (section == 'centers') ? 'active' }}">Centers &amp; <br>Programs</a></li>
+				<li><a href="{{ entry.url }}/financials"class="{{ (section == 'financials') ? 'active' }}">Financials</a></li>
+			</ul>
+		</div>
+	</nav>
+	<aside class="mobile-dropdown-spacer"></aside>
+	<!-- end nav -->
+{% endblock %}
+
+{% block ajax_wrap_open %}
+	{% include 'includes/snippets/ajax_wrap_open' %}
+{% endblock %}
+
+{% block ajax_wrap_close %}
+	{% include 'includes/snippets/ajax_wrap_close' %}
+{% endblock %}

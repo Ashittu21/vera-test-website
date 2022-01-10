@@ -1,0 +1,22 @@
+{% if block.ctaButtons | length %}
+<div class="article-block-cta-buttons article-block-max-column container inner">
+  {% for button in block.ctaButtons %}
+    {% switch button.type %}
+      {% case "internalLink" %}
+        {% set href = button.entry[0].url %}
+        {% set ext = false %}
+
+      {% case "externalLink" %}
+        {% set href = button.linkUrl %}
+        {% set ext = true %}
+
+      {% case "file" %}
+        {% set href = button.file[0].url %}
+        {% set ext = true %}
+
+      {% default %}
+    {% endswitch %}
+    <a class="btn" href="{{ href }}" {% if ext %}target="_blank"{% endif %}>{{ button.text }}</a>
+  {% endfor %}
+</div>
+{% endif %}

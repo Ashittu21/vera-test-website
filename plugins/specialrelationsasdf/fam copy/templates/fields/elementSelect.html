@@ -1,0 +1,21 @@
+{% import "_includes/forms" as forms %}
+
+{{ forms.elementSelect({
+	id: id,
+	name: name,
+	elementType: elementType,
+	elements: elements,
+	limit: limit,
+	jsClass: jsClass,
+	criteria: criteria,
+	sources: sources
+})}}
+
+{% includeCss %}
+	
+	.btn.add.is-disabled {
+		pointer-events: none;
+		opacity: .5;
+	}
+
+{% endincludecss %}

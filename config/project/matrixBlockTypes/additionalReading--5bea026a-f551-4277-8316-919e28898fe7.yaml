@@ -1,0 +1,110 @@
+field: 95bc127b-3520-49ff-803a-7352214068b1
+fieldLayouts:
+  8cf8c142-03bb-4bcf-aeb8-f720b6d9d32d:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 356bab13-f801-438e-b2dc-70a887c1cf84
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 5d9d2371-62c1-4ade-ab2c-a023d7474528
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 986401fd-1ecc-4e22-a5de-df1f0750cc32
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  356bab13-f801-438e-b2dc-70a887c1cf84:
+    contentColumnType: text
+    fieldGroup: null
+    handle: entry
+    instructions: 'Make sure to place this block just before the copy block you want it to align with'
+    name: Entry
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  5d9d2371-62c1-4ade-ab2c-a023d7474528:
+    contentColumnType: text
+    fieldGroup: null
+    handle: callToAction
+    instructions: ''
+    name: 'Call to Action'
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  986401fd-1ecc-4e22-a5de-df1f0750cc32:
+    contentColumnType: string
+    fieldGroup: null
+    handle: image
+    instructions: 'At least 800px wide'
+    name: Image
+    searchable: true
+    settings:
+      allowSelfRelations: false
+      allowUploads: true
+      allowedKinds:
+        - image
+      defaultUploadLocationSource: 'volume:a48d5d4c-e94e-40ca-b140-801253b0f802'
+      defaultUploadLocationSubpath: ''
+      limit: '1'
+      localizeRelations: false
+      previewMode: full
+      restrictFiles: '1'
+      selectionLabel: 'Add an image'
+      showSiteMenu: true
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: true
+      singleUploadLocationSource: 'volume:a48d5d4c-e94e-40ca-b140-801253b0f802'
+      singleUploadLocationSubpath: '{owner.section}{% if owner.parent %}/{owner.parent.slug}{% endif %}/{owner.slug}/additional_reading/'
+      source: null
+      sources: '*'
+      targetSiteId: null
+      useSingleFolder: true
+      validateRelatedElements: false
+      viewMode: large
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+handle: additionalReading
+name: 'Additional Reading'
+sortOrder: 14

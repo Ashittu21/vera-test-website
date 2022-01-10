@@ -1,0 +1,18 @@
+contentColumnType: text
+fieldGroup: 2fa9b2e1-1f3e-40b9-9de6-673b6be4a3f1
+handle: shortTitle
+instructions: 'Reset to 30!'
+name: 'Short Title'
+searchable: true
+settings:
+  byteLimit: null
+  charLimit: null
+  code: false
+  columnType: text
+  initialRows: '4'
+  multiline: ''
+  placeholder: ''
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

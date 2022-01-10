@@ -1,0 +1,6 @@
+<section class="article-block-video article-block--full container js-video-playlist" data-analytics-event='["Video","Play"]'>
+	{% if block.heading %}
+	<h4 class="heading">{{ block.heading }}</h4>
+	{% endif %}
+  {% include 'includes/snippets/videoPlaylist' with { video: block, id: 'playlist', playOnScroll: block.playOnScroll, videoCover: block.photo[0].url ?? null } %}
+</section>

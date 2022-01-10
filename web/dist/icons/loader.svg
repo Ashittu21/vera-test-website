@@ -1,0 +1,8 @@
+<svg version="1.1"xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="130px" height="130px" viewBox="0 0 130 130" enable-background="new 0 0 130 130" xml:space="preserve">
+	<title>Loading</title>
+	<path fill="none" class="box straight" d="M24.183,24.183h81.635v81.635H24.183V24.183L24.183,24.183z"/>
+	<path fill="none" class="box tilt" d="M24.183,24.183h81.635v81.635H24.183V24.183L24.183,24.183z"/>
+  <path d="M61.177,84.232L49.298,49.337l-3.116-0.689l0.277-2.88h16.342l0.274,2.88l-3.478,0.689l8.474,25.698l8.44-25.698
+    l-3.868-0.689l0.27-2.88h10.63l0.275,2.88l-2.854,0.689L69.159,82.594L61.177,84.232z"/>
+</svg>

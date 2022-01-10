@@ -1,0 +1,319 @@
+// ======================================================
+// GRID STYLING: used in headers and other modules
+// ======================================================
+
+// .grid-tiles {
+//   min-height: 250px;
+// }
+
+.container .grid-tiles {
+  margin-left: -$padding-sm;
+  width: 100vw;
+
+  @media (min-width: $mobile-large)    { margin-left: -$padding-med*2; }
+  @media (min-width: $tablet-portrait) { margin-left: -$padding-lg; }
+  @media (min-width: $desktop-ml)      { margin-left: -$padding-lg*2 };
+  @media (min-width: $desktop-large)   { margin-left: -$padding-sm*5; }
+}
+
+.tile-list {
+  background-color: $black;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: auto;
+  width: 100%;
+
+  > li {
+    flex: 1;
+    list-style-type: none;
+    min-height: 10em;
+    overflow: hidden;
+    width: 100%;
+
+    .is-hidden {
+      display: none;
+      visibility: hidden;
+    }
+
+    > a {
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      transition: filter 0.3s;
+
+      &:hover {
+        color: inherit;
+        filter: brightness(1.5);
+        .tile-list-item-image { transform: scale(1.1); }
+      }
+    }
+
+    .heading {
+      @include font-size(2.0);
+      text-align: center;
+    }
+
+    .heading,
+    .subheading,
+    .label {
+      position: relative;
+      z-index: 4;
+    }
+
+    .subheading {
+      @extend .ff-sans--thin;
+      font-size: 0.75em;
+      margin: 0;
+      max-width: 300px;
+      padding: 10px 10px 5px;
+      text-align: center;
+    }
+  }
+
+  @media (min-width: $tablet-portrait) {
+    flex-direction: row;
+
+    li {
+      height: 100%;
+      width: 100%;
+
+      a .heading { @include font-size(2.6); }
+      .subheading { font-size: 1em; }
+    }
+  }
+}
+
+.tile-list-item {
+  position: relative;
+
+  .label {
+    margin-top: 0.5em;
+  }
+
+  &[disabled] {
+    pointer-events: none;
+
+    .tile-list-item-image {
+      filter: grayscale(.1);
+    }
+
+    .heading,
+    .subheading,
+    .label {
+      //@extend .faded;
+    }
+  }
+}
+
+.tile-list-item-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 2rem;
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
+}
+.tile-list-item-image {
+  @include screen;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: transform 1s ease-in-out;
+}
+
+// $colorCombos: (
+//   ("red", $red, "white", $white),
+//   ("white", $white, "red", $red),
+//   ("black", $black, "white", $white),
+//   ("white", $white, "black", $black),
+//   ("gray", $lt-gray-bg, "black", $black)
+// );
+
+// @each $o in $colorCombos{
+//   .color-combo--#{nth($o,1)}-#{nth($o,3)} .tile-list li {
+//     &:nth-of-type(odd) {
+//       background-color: #{nth($o,2)};
+//       transition: all 0.2s;
+//       a { color: #{nth($o,4)}; }
+//     }
+
+//     &:nth-of-type(even) {
+//       background-color: #{nth($o,4)};
+//       transition: all 0.2s;
+//       a { color: #{nth($o,2)}; }
+//     }
+//   }
+// }
+
+$colors: (
+  ("red", $red),
+  ("black", $black),
+  ("white", $white),
+  ("gray", $dk-gray)
+);
+
+@each $o in $colors {
+  .tile-list li {
+    a.bg-color--#{nth($o,1)} {
+      background-color: #{nth($o,2)};
+      transition: all 0.4s;
+    }
+
+    &:hover {
+      a.link--no-image.bg-color--#{nth($o,1)} {
+        color: #{nth($o,2)} !important;
+        opacity: 1;
+      }
+
+      a.link--no-image.link-color--#{nth($o,1)} {
+        background-color: #{nth($o,2)};
+        opacity: 1;
+      }
+    }
+  }
+
+  .tile-list li {
+    a.link-color--#{nth($o,1)} {
+      color: #{nth($o,2)} !important;
+      transition: all 0.4s;
+    }
+
+
+    &:hover {
+      a.link--no-image.bg-color--#{nth($o,1)} {
+        color: #{nth($o,2)} !important;
+        opacity: 1;
+      }
+
+      a.link--no-image.link-color--#{nth($o,1)} {
+        background-color: #{nth($o,2)};
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.tile-count--2  li a .heading {
+  @include font-size(2.6);
+  @media (min-width: $tablet-portrait) {
+    @include font-size(3.6);
+  }
+}
+
+.tile-count--4 {
+  flex-wrap: wrap;
+
+  li {
+    width: 50%;
+    height: 50%;
+    flex: none;
+  }
+}
+
+.tile-count--5 {
+  flex-wrap: wrap;
+  flex-direction: row;
+
+  .heading {
+    @include font-size(2.2);
+    @media (min-width: $tablet-portrait) {
+      @include font-size(3);
+    }
+  }
+
+  li {
+    height: 50%;
+    flex: none;
+  }
+
+  li:nth-of-type(1),
+  li:nth-of-type(2),
+  li:nth-of-type(3) { width: 33.3333%;}
+
+  li:nth-of-type(4),
+  li:nth-of-type(5) { width: 50%; }
+}
+
+.tile-count--6 {
+  flex-wrap: wrap;
+
+  li {
+    flex: none;
+    height: 33.33333%;
+    width: 50%;
+  }
+
+  // mobile landscape catch
+  @media (max-width: $tablet-portrait) and (orientation: landscape){
+    width: 33.33333%;
+    height: 50%;
+  }
+}
+
+@media (min-width: $tablet-portrait) {
+  .tile-count--4 {
+    flex-wrap: wrap;
+
+    li {
+      width: 50%;
+      height: 50%;
+      flex: none;
+    }
+  }
+
+  .tile-count--5 {
+    flex-wrap: wrap;
+
+    .heading {
+      @include font-size(2.2);
+
+        @media (min-width: $tablet-portrait) {
+          @include font-size(3);
+        }
+      }
+
+    li {
+      height: 50%;
+      flex: none;
+    }
+
+    li:nth-of-type(1),
+    li:nth-of-type(2),
+    li:nth-of-type(3) { width: 33.3333%; }
+
+    li:nth-of-type(4),
+    li:nth-of-type(5) { width: 50%; }
+  }
+
+  .tile-count--6 {
+    flex-wrap: wrap;
+    li {
+      height: 33.33333%;
+      width: 50%;
+    }
+  }
+}
+
+
+.grid-tiles.vertical {
+  height: 100%;
+
+  .tile-list {
+    flex-direction: column;
+    height: 100%;
+
+    li {
+      width: 100%;
+    }
+  }
+}

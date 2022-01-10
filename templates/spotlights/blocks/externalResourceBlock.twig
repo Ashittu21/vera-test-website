@@ -1,0 +1,9 @@
+{% set heading = block.heading %}
+{% set subheading = block.subheading %}
+{% set layout = block.layout.value %}
+{% set linkTo = block.linkUrl %}
+{% set ctaText = block.buttonText ?: null %}
+{% set ext = true %}
+{% set image = block.image.first %}
+
+{% include 'spotlights/blocks/resourceCard' %}

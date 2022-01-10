@@ -1,0 +1,10 @@
+{% import "_includes/forms" as forms %}
+
+{{ forms.selectField({
+	label: "Relation Field"|t,
+	instructions: "Which field creates the relationship to this element"|t({ type: type|lower }),
+	options: fields,
+	id: 'relationField',
+	name: 'relationField',
+	value: value
+})}}

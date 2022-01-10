@@ -1,0 +1,27 @@
+fieldLayouts:
+  f7e319bd-f916-497b-b8aa-b25635910563:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 4b043ed0-39a4-40ea-9cea-dbaa0c0caf07
+            instructions: null
+            label: null
+            required: '0'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 03c3e0f7-bbdd-45e9-b7be-cf3c37fee989
+            instructions: null
+            label: null
+            required: '0'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+handle: stream
+name: Stream

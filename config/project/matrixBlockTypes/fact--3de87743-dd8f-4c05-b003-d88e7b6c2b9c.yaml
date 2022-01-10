@@ -1,0 +1,97 @@
+field: f38b9032-04e5-43c6-9a75-57decde319c8
+fieldLayouts:
+  adadc205-0db4-4e75-bd3a-db9eb9147278:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 23b21659-dd04-42be-ab37-0ea23b907168
+            instructions: null
+            label: null
+            required: '0'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 4e65c5f5-03c1-4b76-8a24-b7d36ef23a34
+            instructions: null
+            label: null
+            required: '0'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 56421696-7521-42a6-8248-df83b4f5d10d
+            instructions: null
+            label: null
+            required: '0'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  23b21659-dd04-42be-ab37-0ea23b907168:
+    contentColumnType: 'decimal(14,4)'
+    fieldGroup: null
+    handle: number
+    instructions: ''
+    name: Number
+    searchable: true
+    settings:
+      decimals: '4'
+      defaultValue: null
+      max: null
+      min: '0'
+      prefix: null
+      previewCurrency: null
+      previewFormat: decimal
+      size: null
+      suffix: null
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Number
+  4e65c5f5-03c1-4b76-8a24-b7d36ef23a34:
+    contentColumnType: text
+    fieldGroup: null
+    handle: numberFormat
+    instructions: ''
+    name: 'Number Format'
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: false
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  56421696-7521-42a6-8248-df83b4f5d10d:
+    contentColumnType: text
+    fieldGroup: null
+    handle: text
+    instructions: ''
+    name: Text
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: false
+      columnType: text
+      initialRows: '2'
+      multiline: '1'
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+handle: fact
+name: Fact
+sortOrder: 1

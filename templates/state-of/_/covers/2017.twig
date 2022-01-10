@@ -1,0 +1,95 @@
+<div class="cover state-of-2017-cover">
+	{% set images = landing.heroImage %}
+	<div class="tile-intro">
+	
+		<h1>
+			<div class="sentence1 will-fade-in will-slide-up">The<br>State<br>of </div>
+			<div></div>
+			<div class="image">
+				<div class="image-inner" ></div>
+			</div>
+			<div class="year will-fade-in will-slide-right">
+				<span>2017</span>
+				{#<div class="arrow"></div>#}
+			</div>
+			<div class="sentence2 will-fade-in will-slide-up">Justice<br>Reform</div>
+		</h1>
+		
+		<div class="enter-bar"></div>
+		
+		{% for image in images | reverse %}
+		<div class="tile" style="background-image: url({{ craft.imager.transformImage(image, { width: 2880, jpegQuality: 75, ratio: 8/5, position: image.focalPoint.x ~ '% ' ~ image.focalPoint.y ~ '%' }) }})"></div>
+		{% endfor %}
+	</div>
+	<div class="loader">
+		{% include 'includes/stream/loader' with { isHidden: false } %}
+	</div>
+</div>
+
+{% includeJs %}
+$(function() {
+	
+	var time = 1,
+	ease = Power3.easeInOut,
+	headerHeight = $('header').height(),
+	$enterBar = $('.cover .enter-bar')
+	
+	const tiles = $('.cover .tile');
+	TweenLite.set( tiles[4], { x: "-100%" })
+	TweenLite.set( tiles[3], { y: "-100%" })
+	TweenLite.set( tiles[2], { x: "100%" })
+	TweenLite.set( tiles[1], { y: "100%" })
+	TweenLite.set( tiles[1], { y: "100%" })
+	
+	var coverTween = new TimelineMax({ paused: true })
+
+	coverTween
+		.to('.cover .loader', time, { y: "-100%", onComplete: function() {
+			$('.cover .loader').hide();
+		 }})
+		.to( tiles[5], time, { x: "100%", ease: ease }, time)
+		.to( tiles[4], time, { x: "0%", ease: ease}, "-=" + time)
+		
+		.set( tiles[5], { visibility: "hidden" })
+		
+		.to( tiles[4], time, { y: "100%", ease: ease})
+		.to( tiles[3], time, { y: "0%", ease: ease}, "-=" + time)
+		
+		.set( tiles[4], { visibility: "hidden" })
+		
+		.to( tiles[3], time, { x: "-100%", ease: ease})
+		.to( tiles[2], time, { x: "0%", ease: ease}, "-=" + time)
+		
+		.set( tiles[3], { visibility: "hidden" })
+		
+		.to( tiles[2], time, { y: "-100%", ease: ease})
+		.to( tiles[1], time, { y: "0%", ease: ease}, "-=" + time)
+		
+		.set( tiles[2], { visibility: "hidden" })
+		
+		.to( tiles[1], time, { x: "-100%", ease: ease})
+		
+		.set( tiles[1], { visibility: "hidden" })
+		
+		.to( tiles[0], time, { width: "50%", height: "50%", ease: ease})
+		
+		.add("revealText", "-=" + time/2)
+		.to( '.tile-intro', time, { width: window.innerWidth - $enterBar.width() }, "revealText")
+		.to( $enterBar[0], time, { x: 0 }, "revealText" )
+		.to( '.sentence1', time, { autoAlpha: 1, y: 0, ease: ease}, "revealText" )
+		.to( '.year', time, { autoAlpha: 1, x: 0 }, "revealText" )
+		.to( '.sentence2', time, { autoAlpha: 1, y: 0, ease: ease}, "revealText" )
+		.to( 'header', time, { autoAlpha: 1 })
+		.set( '.tile-intro', { width: "calc(100vw - " + $enterBar.width() + "px)" })
+		
+		
+	window.coverTween = coverTween;
+	{% if landing.id == entry.id %}	
+	tiles.imagesLoaded({ background: true}, function() {
+		coverTween.play();
+	})
+	{% else %}
+	coverTween.seek(coverTween.duration());
+	{% endif %}	
+})
+{% endincludejs %}

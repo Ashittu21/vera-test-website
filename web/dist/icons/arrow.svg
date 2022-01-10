@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="17px" height="18px" viewBox="0 0 17 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>Arrow down</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Map" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Pop-up-spending-up-numbers-alt" transform="translate(-237.000000, -196.000000)" stroke-width="2" stroke="#4D4E56">
+            <g id="Arrow-down" transform="translate(245.597345, 204.000000) scale(-1, 1) translate(-245.597345, -204.000000) translate(237.597345, 195.000000)">
+                <polyline id="Stroke-1" points="15.2963867 9.32092834 8.04365255 16.7405094 0.791285356 9.32092834"></polyline>
+                <g id="Group-5" transform="translate(8.000000, 0.414200)">
+                    <path d="M1.77635684e-15,16.3261968 L1.77635684e-15,0.934432812" id="Stroke-3"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

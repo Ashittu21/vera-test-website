@@ -1,0 +1,14 @@
+<div class="media post-module module-text hide-on-print">
+      <div class="container">
+    <div class="rte attribution container audio-container">
+      {% if block.heading %}
+        <h5 class="intext-subhead">{{ block.heading }}</h5>
+      {% endif %}
+      {% if block.plaintext %}
+        <p class="module-text">{{ block.plaintext }}</p>
+      {% endif %}
+    </div>
+
+    {% include 'includes/snippets/audio' with {audio: block.audioClip} %}
+      </div>
+</div>

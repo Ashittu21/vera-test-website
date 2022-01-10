@@ -1,0 +1,21 @@
+contentColumnType: string
+fieldGroup: 6c478341-da6f-434d-b58e-1f381004c510
+handle: relatedEventSeries
+instructions: 'If this event is part of a series, associate it here'
+name: 'Related Event Series'
+searchable: true
+settings:
+  allowSelfRelations: false
+  limit: '1'
+  localizeRelations: false
+  selectionLabel: 'Select the series'
+  showSiteMenu: true
+  source: null
+  sources:
+    - 'section:0acc649c-b6df-4ba6-8363-68f519a0c27f'
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Entries

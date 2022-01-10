@@ -1,0 +1,10 @@
+{% if entry.stickyCta | length %}
+<div class="StickyCta">
+{% for block in entry.stickyCta %}
+{% switch block.type.handle %}
+  {% case 'anchor' %}
+  <a class="StickyCta-link btn" href="#{{ block.anchor }}">{{ block.cta}}</a>
+{% endswitch %}
+{% endfor %}
+</div>
+{% endif %}

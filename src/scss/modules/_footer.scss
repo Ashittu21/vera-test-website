@@ -1,0 +1,336 @@
+.footer {
+
+  background-color: $lt-gray-alt;
+  padding: $padding-lg 0;
+  color: $black;
+  position: relative;
+  z-index: 1;
+
+  &.color-combo--trueblack-white {
+    background-color: $black;
+  }
+
+  .col-outer {
+    display: block;
+
+    @media (min-width: $tablet-portrait) {
+      display: flex;
+    }
+  }
+
+  .award-badge {
+    width: 100%;
+    margin-top: auto;
+    padding: 20px 0;
+    img {
+      width: 100px;
+    }
+  }
+
+  &.footer--state-of {
+    > .container {
+      display: flex;
+    }
+
+    .footer__address,
+    .footer__right {
+      @media (min-width: $tablet-portrait) {
+        width: 50%;
+      }
+    }
+
+    .footer__right {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .footer__social {
+      border-top: 0;
+    }
+
+    .share.share--social {
+      &,
+      li {
+        border-color: $white;
+      }
+      a {
+        color: $white;
+      }
+    }
+
+    .newsletter_link {
+      color: $white;
+    }
+
+    .footer__newsletter {
+      max-width: 400px;
+    }
+
+    .footer__newsletter__submit {
+      background-color: $white;
+
+      &:before {
+        border-color: $black;
+      }
+    }
+
+    .footer__newsletter__input {
+      border-color: $white;
+    }
+  }
+}
+
+.footer__logo {
+  display: block;
+  width: 78px;
+  height: 26px;
+  text-indent: -9999em;
+  background: url(../img/logo_med.svg) top left no-repeat transparent;
+  background-size: cover;
+  margin-bottom: $padding-sm;
+}
+
+.footer__address {
+  display: none;
+  @include font-size(1.4);
+  @extend .ff-serif--medium;
+
+  @media (min-width: $tablet-portrait) {
+    display: inline-flex;
+    flex-direction: column;
+  }
+}
+
+.footer__right {
+  @include font-size(1.6);
+  width: 100%;
+
+  @media (min-width: $tablet-portrait) {
+    @include justify(flex-start);
+    width: 70%;
+    @include calc("max-width", #{$dec-one-half} * #{$desktop-medium});
+  }
+
+  @media (min-width: $tablet-landscape) {
+    width: 50%;
+  }
+}
+
+.footer__links {
+  padding: 0 0 $padding-lg;
+  width: auto;
+  display: inline-block;
+  overflow: hidden;
+
+  @media (min-width: $tablet-portrait) {
+    padding: 0 $padding-med * 2 $padding-xxs $padding-xxs;
+    width: 50%;
+  }
+
+  ul {
+    list-style: none;
+    line-height: 2;
+    @include columns;
+  }
+
+  a {
+    color: inherit;
+
+    .no-touch &:hover {
+      color: $red;
+    }
+  }
+}
+
+.footer__social {
+  width: 100%;
+  border-top: 1px solid $med-gray;
+  padding-top: $padding-lg;
+
+  @media (min-width: $tablet-portrait) {
+    border: 0;
+    padding: 0;
+    width: 50%;
+  }
+
+  .share--social {
+    margin-bottom: $padding-sm;
+  }
+}
+
+.footer__social__subheading {
+  display: block;
+  @extend .ff-serif--italic;
+  margin-bottom: $padding-sm;
+}
+
+.footer__newsletter,
+.popup__newsletter {
+  width: 100%;
+  position: relative;
+}
+
+.footer__newsletter__input,
+.popup__newsletter__input {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  width: 100%;
+  padding: $padding-xs;
+  //padding-right: $padding-lg;
+  @extend .ff-serif--italic;
+  @include font-size(1.6);
+
+  &::-webkit-input-placeholder {
+    color: $black;
+  }
+
+  &:-moz-placeholder {
+    /* Firefox 18- */
+    color: $black;
+  }
+
+  &::-moz-placeholder {
+    /* Firefox 19+ */
+    color: $black;
+  }
+
+  &:-ms-input-placeholder {
+    color: $black;
+  }
+}
+
+.footer__newsletter__input {
+  border-color: $black;
+}
+
+/*
+.footer__newsletter {
+	.newsletter_input_wrap.half {
+		width: calc(50% - #{$padding-lg/2 - .5px});
+	}
+}
+*/
+
+.footer__newsletter__submit,
+.popup__newsletter__submit {
+  border: 0;
+  border-radius: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: $black;
+  padding: 0;
+  color: $black;
+  @include font-size(2.6);
+  line-height: 1;
+  width: $padding-lg;
+  text-indent: -9999em;
+  @include transition(background 0.15s ease-in);
+
+  &:before {
+    $arrow_size: 12px;
+
+    content: "";
+    display: block;
+    width: $arrow_size;
+    height: $arrow_size;
+    border: 2px solid $lt-gray-alt;
+    @include transform(rotate(45deg));
+    border-left: 0;
+    border-bottom: 0;
+    position: absolute;
+    top: calc(50% - #{$arrow_size/2});
+    right: 16px;
+  }
+
+  &:hover {
+    background: $red;
+  }
+}
+
+.footer__bottom {
+  flex-basis: 100%;
+  margin-top: $padding-sm;
+
+  @media (min-width: $tablet-landscape) {
+    margin-top: 0;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: underline;
+  }
+}
+
+.footer__social {
+  @media (min-width: $tablet-landscape) {
+    padding-bottom: 2em;
+    position: relative; // hmm
+  }
+}
+
+#footer-result {
+  padding: $padding-xxs 0;
+
+  @media (min-width: $tablet-landscape) {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+}
+
+#content {
+  //overflow: hidden; // um... gap problem?
+
+  &.content--pubs {
+    overflow: visible;
+  }
+}
+
+.footer-ea-newsletter .at-inner {
+  background: transparent;
+}
+.footer-ea-newsletter .ngp-form {
+  margin: 0;
+  margin-bottom: 2em;
+  max-width: 440px;
+}
+.footer-ea-newsletter header.at-title {
+  padding: 6px 12px;
+  text-align: left;
+  font-family: "GT Book", georgia, serif;
+  font-size: 17px;
+  font-style: italic;
+  font-weight: 400;
+  color: #231f20;
+}
+.footer-ea-newsletter .at-legend,
+.footer-ea-newsletter .at-text.PersonalUrl {
+  display: none;
+}
+.footer-ea-newsletter .at .btn-at-primary {
+  background-color: #231F20 !important;
+}
+.footer-ea-newsletter .at .btn-at-primary:hover {
+  background-color: #EF4136 !important;
+}
+.footer-ea-newsletter .at label {
+  font-size: 14px;
+}
+.footer-ea-newsletter .at input[type="text"],
+.footer-ea-newsletter .at input[type="email"],
+.footer-ea-newsletter .at input[type="number"],
+.footer-ea-newsletter .at input[type="search"],
+.footer-ea-newsletter .at input[type="tel"],
+.footer-ea-newsletter .at textarea,
+.footer-ea-newsletter .at select,
+.footer-ea-newsletter .vgs-input-container iframe {
+  font-size: 14px;
+  height: 1.875em;
+}
+.footer-ea-newsletter .at-form-submit {
+  padding:0;
+}

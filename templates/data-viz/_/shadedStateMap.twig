@@ -1,0 +1,59 @@
+<div class="data-viz-fact-wrapper shaded-state-map" data-shaded-states='{{ block.states | json_encode | e("html_attr") }}'></div>
+{% includeJs %}
+  $(function() {
+    $('.shaded-state-map:not(.shaded-state-map-initlialized)').each(function(i,elem) {
+      initShadedStateMap(elem)
+    });
+  })
+
+  function initShadedStateMap(elem) {
+    elem.classList.add('shaded-state-map-initialized')
+
+    var
+      width = 960,
+      height = 600,
+      states = JSON.parse(elem.dataset.shadedStates).map(d=>+d)
+
+    var svg = d3.select(elem).append('svg')
+      .attr("width",width).attr("height",height)
+      .attr("viewBox","0 0 "+width+" "+height)
+
+    var projection = d3.geoAlbersUsa()
+      .translate([width/2, height/2])
+      .scale([1250])
+
+    var path = d3.geoPath().projection(projection);
+
+    d3.json("/dist/map/us.json", function(error, us) {
+      if (error) throw error;
+      //States
+      svg.append("g")
+        .attr("class", "states")
+        .selectAll("path")
+        .data(topojson.feature(us, us.objects.states).features)
+        .enter()
+        .append("g")
+        .attr("class","state")
+        .append("path")
+        .attr("class", function(d) {
+          return "receives-stroke-color" + (states.includes(+d.id) ? ' will-fill-in' : '')
+        })
+        .attr("fill","none")
+        .attr("d", path)
+        .attr("stroke", "black")
+        .attr("vector-effect", "non-scaling-stroke")
+
+      var VERA = window.VERA || {};
+      VERA.sm = VERA.sm || new ScrollMagic.Controller();
+      window.VERA = VERA;
+      var tween = TweenLite.from(svg.selectAll('path').nodes(), 2, { drawSVG: 0, onUpdate: function() {
+        svg.selectAll('path.will-fill-in').classed('receives-fill-highlight pulse-fill', tween.progress() === 1)
+      }})
+      new ScrollMagic.Scene({
+        triggerElement: elem
+      })
+      .setTween(tween)
+      .addTo(VERA.sm)
+    })
+  }
+{% endincludejs %}

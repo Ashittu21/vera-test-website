@@ -1,0 +1,23 @@
+<!-- Centers -->
+<article class="about-centers">
+  <div class="post-module module-text container">
+    <div class="module-text__inner">
+      <p>{{ entry.centersExplainer }}</p>
+    </div>
+  </div>
+</article>
+
+<article class="post-module about__2up">
+  <div class="container">
+    <ul class="blocks blocks--2up">
+      {% for center in craft.entries.section('centers').level(1) %}
+        <li>
+          <h4>
+            <a href="{{ center.url }}">{{ center }}</a>
+          </h4>
+          <p>{{ center.subtitle }}</p>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</article>

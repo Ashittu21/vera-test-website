@@ -1,0 +1,172 @@
+{% set layout = 'centers/_layout' %}
+{% set is404 = false %}
+
+{% if craft.request.isAjax %}
+	{% set layout = '_ajax_layout' %}
+{% endif %}
+
+{% if craft.request.segment(3) in ['overview','learn-more','projects','team','partners', ''] %}
+	{% set section = craft.request.segment(3) %}
+	{% set entry = craft.entries.section('centers').slug(craft.request.segment(2)).first %}
+{% elseif entry is defined and entry.type.handle in ['knowledgeBank', 'customTab'] %}
+	{# custom tabs #}
+	{% set section = entry.type.handle %}
+{% elseif entry.type.handle == 'donate' %}
+	{% set layout = '_layout' %}
+	{% set section = entry.type.handle %}
+{% else %}
+	{% set layout = '_layout' %}
+	{% set is404 = true %}
+{% endif %}
+{% extends layout %}
+
+{% block content %}
+	{% if is404 %}
+		{% include 'includes/snippets/404_content' %}
+	{% elseif section == 'knowledgeBank' %}
+		{% include 'includes/snippets/knowledge_bank' %}
+	{% elseif section == 'customTab' %}
+
+		{% set article = entry.tabArticle %}
+		{% include 'includes/snippets/article' %}
+
+	{% elseif section == 'overview' or section == '' %}
+		{% include 'includes/snippets/intro__group_content' %}
+
+		{% set streamOptions = {
+		title: 'Related Work',
+		news: true,
+		filterAltLayout: 'unstacked',
+		sections: [
+			['Projects', 'projects'],
+			['Blog Posts', 'blogPosts'],
+			['Spotlights', 'spotlights'],
+			['Publications', 'publications'],
+			['Audio', 'audio'],
+			['Video', 'video'],
+			['Resource Sites', 'resourceSite'],
+			['Special Reports', 'specialReports']
+		],
+		primaryRelation: {type: 'entries', relations: [entry]},
+		fieldRelations: [
+			['Active Projects', 'archived:0'],
+			['Archived Projects', 'archived:1']
+		]
+} %}
+
+		{% if entry.featuredContent | length >= 3 %}
+			<section class="featured-stream-modules">
+				<div class="container">
+					<h4>Featured</h4>
+					{% include 'includes/stream/feature_module' with {features: entry.featuredContent} %}
+				</div>
+			</section>
+		{% endif %}
+
+		<div class="centers-filter">
+			{% include 'includes/stream/stream_full' with {isPageRequest: true} %}
+		</div>
+
+	{% elseif section == 'learn-more' %}
+		{% set article = entry.article %}
+		{% include 'includes/snippets/article' %}
+	{% elseif section == 'projects' %}
+		<section>
+			<div class="centers-filter centers-filter-projects">
+				{% set streamOptions = {
+			title: '',
+			news: false,
+			filterAltLayout: 'unstacked',
+			sections: [
+				['Project', 'projects'],
+			],
+			primaryRelation: {type: 'entries', relations: [entry]},
+			fieldRelations: [
+				['Active Projects', 'archived:0'],
+				['Archived Projects', 'archived:1']
+			],
+			showKeyResources: false,
+			dontExcludeFeatured: true
+		} %}
+
+				{% include 'includes/stream/stream_full' with {isPageRequest: true} %}
+			</div>
+		</section>
+	{% elseif section == 'team' %}
+		{% set excludes = ['and'] %}
+		{% for set in entry.peopleGrids %}
+			{% include 'includes/snippets/people-grid' with { label: set.label, people: set.people } %}
+			{% set excludes = excludes | merge(set.people.ids) %}
+		{% endfor %}
+		{% cache using key 'staff' %}
+		{% set director = entry.director %}
+
+
+		{% set staff = entry.relatedVeraStaff
+			.alumnus('not 1')
+			.with('headshot')
+			.id(excludes | join(', not ')) %}
+		{% set people = not director.alumnus ? director|merge(staff) : staff %}
+		{% include 'includes/snippets/people-grid' with { label: "Staff", people: people } %}
+		{% endcache %}
+		<article class="people-grid">
+			{% cache using key 'board' %}
+			{% set people = entry.advisoryBoard %}
+			{% if people|length %}
+				<div class="container">
+					<h3>Advisory Board</h3>
+
+					{% include 'includes/snippets/people' with { grid: 1, large: true } %}
+				</div>
+			</article>
+		{% endif %}
+		{% endcache %}
+	{% elseif section == 'partners' %}
+		<section>
+			{% set partners = entry.partners %}
+			{% include 'includes/snippets/partners.html' %}
+		</section>
+	{% elseif section == 'donate' %}
+
+		<section class="donate-intro">
+			<div class="module-text container">
+				<div class="module-text__inner">
+					<h1 class="text-banner__heading--alt">
+						{{ entry.title }}
+					</h1>
+					{% if entry.donateCallToAction %}
+						{{ entry.donateCallToAction }}
+					{% endif %}
+				</div>
+			</div>
+		</section>
+
+		{% set embed = entry.donateEmbed %}
+
+		{% include 'includes/snippets/donate-form' with {embed: embed} %}
+
+		<section class="donate-module">
+			{% set prioritiesPage = craft.entries.section('strategicPriorities').first %}
+			{% if prioritiesPage %}
+				<div class="post-module module-3up">
+					<div class="module-3up__inner">
+						<h3>{{ prioritiesPage.title }}</h3>
+
+						{% if prioritiesPage.priorities | length %}
+							<div class="col-outer">
+								{% for priority in prioritiesPage.priorities %}
+									<div class="one-third">
+										{{ priority.header }}
+									</div>
+								{% endfor %}
+							</div>
+						{% endif %}
+
+						<a href="{{ prioritiesPage.url }}" class="btn">Learn More</a>
+					</div>
+				</div>
+			{% endif %}
+		</section>
+
+	{% endif %}
+{% endblock %}

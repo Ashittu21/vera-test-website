@@ -1,0 +1,21 @@
+contentColumnType: string
+fieldGroup: 532961b6-a69f-4934-914a-9c266d7a2eb6
+handle: bestOf
+instructions: ''
+name: 'Best of'
+searchable: true
+settings:
+  allowSelfRelations: false
+  limit: ''
+  localizeRelations: false
+  selectionLabel: ''
+  showSiteMenu: true
+  source: null
+  sources:
+    - 'section:73f9a81a-7f8d-489d-9d47-df948573ee38'
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Entries

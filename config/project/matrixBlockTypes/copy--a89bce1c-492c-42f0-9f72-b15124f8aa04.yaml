@@ -1,0 +1,49 @@
+field: ad6cffcd-5f05-4947-8dfa-92c4679f4943
+fieldLayouts:
+  226964a0-7499-4539-a6e1-95aa4794f447:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 93d11c7f-4b38-4f81-ba6c-bc09b622133e
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  93d11c7f-4b38-4f81-ba6c-bc09b622133e:
+    contentColumnType: text
+    fieldGroup: null
+    handle: text
+    instructions: ''
+    name: Text
+    searchable: true
+    settings:
+      availableTransforms: '*'
+      availableVolumes: ''
+      cleanupHtml: true
+      columnType: text
+      configSelectionMode: choose
+      defaultTransform: ''
+      manualConfig: ''
+      purifierConfig: ''
+      purifyHtml: ''
+      redactorConfig: SpecialReport.json
+      removeEmptyTags: '1'
+      removeInlineStyles: '1'
+      removeNbsp: '1'
+      showHtmlButtonForNonAdmins: '1'
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: true
+      uiMode: enlarged
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\redactor\Field
+handle: copy
+name: Copy
+sortOrder: 1

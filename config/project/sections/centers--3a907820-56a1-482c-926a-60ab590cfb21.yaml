@@ -1,0 +1,23 @@
+enableVersioning: true
+handle: centers
+name: 'Centers & Programs'
+previewTargets:
+  -
+    __assoc__:
+      -
+        - label
+        - 'Primary entry page'
+      -
+        - urlFormat
+        - '{url}'
+propagationMethod: all
+siteSettings:
+  8ed9f980-84ac-470d-94d7-89a2cdb64916:
+    enabledByDefault: true
+    hasUrls: true
+    template: centers/_entry
+    uriFormat: '{% if object.level == 1 %}centers/{slug}{% else %}{parent.uri}/{slug}{% endif %}'
+structure:
+  maxLevels: 2
+  uid: fa6ce9ba-3a60-499f-ae50-ecd87d670f9e
+type: structure

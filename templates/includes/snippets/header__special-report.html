@@ -1,0 +1,132 @@
+{% set publicationChildren = ['fromTheDirector','aboutThisReport','acknowledgements','endnotes','chapter'] %}
+{% set onepage = onepage ?? false %}
+{% set entry = entry ?? null %}
+{% set root = entry %}
+{% if entry.type in ['publicationDocument'] %}
+	{% set root = entry %}
+{% else %}
+	{% if entry.level == 3 and entry.section.handle == 'specialReports' %}
+		{% set root = entry.parent.parent %}
+	{% else %}
+		{% set root = entry.parent ?? root %}
+	{% endif %}
+{% endif %}
+<header class="lazy-load header header--special" id="Header">
+	<div class="container">
+		<div class="col-outer">
+			<h1>
+				<a class="logo--name" href="/">
+					Vera Institute of Justice
+				</a>
+			</h1>
+
+			<span class="header__breadcrumb">
+				{% if entry.parent %}
+					{% if entry.type.handle in publicationChildren and entry.parent.parent %}
+						<a href="{{ entry.parent.parent.url }}">{{ entry.parent.parent.title }}</a>
+					{% else %}
+						<a href="{{ entry.parent.url }}">{{ entry.parent.title }}</a>
+					{% endif %}
+				{% endif %}
+			</span>
+		</div>
+
+		<div class="col-outer">
+			{% if entry %}
+				{%- spaceless %}
+					{% set stories = root.children.excludeFromNav("not 1") %}
+					{% if root.menuLabel is defined and root.menuLabel %}
+						{% set dropdownDefault = root.menuLabel %}
+					{% elseif root.type.handle in publicationChildren | merge(['publicationDocument','statePublications']) %}
+						{% set dropdownDefault = "Table of Contents" -%}
+					{% elseif root.type.handle in ['specialReportChaptered','specialReportCampaign'] %}
+						{% set dropdownDefault = "Chapters" %}
+					{% else %}
+						{% set dropdownDefault = "Stories" -%}
+					{% endif %}
+
+				{% endspaceless -%}
+
+
+				{% if not entry.separatePage %}
+					<aside class="special-reports-dropdown dropdown-outer">
+						<span class="dropdown-active">{{ dropdownDefault }}</span>
+
+						<ol class="dropdown">
+							{% set blocks = root.articleBuilder ? clone(root.articleBuilder).type("article").anchorToMainNav(1) %}
+							{% for block in blocks %}
+								<li>
+									<a href="{{ '#' ~ block.chapterTitle | kebab }}" class="anchor-link" data-chapter="{{ block.chapterTitle }}">
+										{{ block.chapterTitle }}
+									</a>
+								</li>
+							{% endfor %}
+							{% set chapterCount = 1 %}
+							{% for story in clone(stories).excludeFromNav(false).all() %}
+								{%- spaceless %}
+									{%- if story.type.handle in publicationChildren -%}
+										{%- set thistitle = story.chapterTitle ?? story.type.name -%}
+									{%- else -%}
+										{%- set thistitle = story.title -%}
+									{%- endif -%}
+
+									{%- if root.singlePage and loop.first -%}
+										{% set menuTitle = dropdownDefault %}
+									{%- else -%}
+										<!-- {% set menuTitle = "Chapter " ~ chapterCount %} -->
+										{% set menuTitle = story.title %}
+										{% set chapterCount = chapterCount + 1 %}
+									{%- endif -%}
+								{% endspaceless -%}
+
+								<li>
+									<a href="{{ onepage and not story.separatePage ? '#' ~ story.title | kebab : story.url }}" class="{% if onepage and not story.separatePage %}anchor-link{% endif %}{% if story.id == entry.id %} active{% endif %}" data-chapter="{{ menuTitle }}">
+										{{ thistitle }}
+									</a>
+								</li>
+
+								{% if entry.parent['showSubchaptersInNav'] is defined and entry.parent.showSubchaptersInNav %}
+									{% set subchapters = story.publicationArticle.type('partHeading') %}
+									{% if subchapters | length %}
+										<ul class="subchapters">
+											{% for subchapter in subchapters %}
+												<li>
+													<a href="{{ story.url }}#{{ subchapter.text | kebab }}">{{ subchapter.text }}</a>
+												</li>
+											{% endfor %}
+										</ul>
+									{% endif %}
+								{% endif %}
+
+							{% endfor %}
+
+						</ol>
+					</aside>
+				{% endif %}
+
+			{% endif %}
+			{# if entry #}
+			<nav class="main-nav-outer">
+				{% if root.pdfDownload | length %}
+					<a class="hide-on-mobile header-download-link" download target="_blank" href="{{ root.pdfDownload[0].url }}">
+						Download PDF
+					</a>
+				{% endif %}
+
+				<a href="#" class="icon-share trigger-modal" data-modal="ShareOverlay">
+					{{ craft.inlin.er("/dist/icons/share.svg",true) | raw }}
+				</a>
+			</nav>
+
+			<div
+				class="header__right--mobile">
+				<!-- no search on mobile, only share -->
+				<a href="#" class="icon-share trigger-modal" data-modal="ShareOverlay">
+					{{ craft.inlin.er("/dist/icons/share.svg",true) | raw }}
+				</a>
+
+				<span class="header__menu-toggle" id="HeaderMenuToggle">Menu</span>
+			</div>
+		</div>
+	</div>
+</header>

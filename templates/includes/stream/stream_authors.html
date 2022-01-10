@@ -1,0 +1,56 @@
+{% set module_class_prefix = module_class_prefix | default('stream-module') %}
+
+{% set director = module.director[0] ?? null %}
+
+{% set people = director ? null : (module.authors ?? null) %}
+
+{% set newsSource = module.newsSource[0] ?? null %}
+
+{% set reportAuthor = module.reportAuthor ?? null %}
+
+<ul class="{{ module_class_prefix }}__meta__author">
+	{# blog posts show 2 authors #}
+
+	{# others show multiple #}
+	{% if module.type == 'post' or module.type == 'project' %}
+
+		{% if director %}
+			{{ _self.output_person(director) }}
+		{% else %}
+			{% for person in people | slice(0,2) %}
+				{{ _self.output_person(person) }}
+			{% endfor %}
+		{% endif %}
+	{% else %}
+		<li>
+			<div class="text-outer">
+				<h5 class="person-name">
+					{%- if newsSource -%}
+						{{ newsSource }}
+					{%- elseif reportAuthor -%}
+						{{ reportAuthor }}
+					{%- else -%}
+						{% for person in people %}
+							{{ person }}{% if not loop.last %},{% endif %} 
+						{% endfor %}
+					{%- endif -%}
+				</h5>
+			</div>
+		</li>
+	{% endif %}
+	
+</ul>
+
+{% macro output_person(person) %}
+    {% set headshot = person.headshot[0] ?? null %}
+	<li>
+		{% if headshot %}
+		<div class="img-outer">
+			<img src="{{ headshot.getUrl('square130') }}" width="40" height="40" alt="{{ person }}">
+		</div>
+		{%- endif %}
+		<div class="text-outer">
+			<h5 class="person-name">{{ person }}</h5>
+		</div>
+	</li>
+{% endmacro %}

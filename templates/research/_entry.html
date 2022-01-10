@@ -1,0 +1,130 @@
+{% extends '_layout' %}
+
+{% set title = entry.title %}
+
+{% block content %}
+
+<div class="container"><aside class="hr"></aside></div>
+
+{% set video = entry.video %}
+{% if video | length %}
+
+	{% include 'includes/snippets/video' with {video: entry.video} %}
+
+{% elseif entry.playlistEmbed %}
+
+	{% include 'includes/snippets/video' with {playlistEmbed: entry.playlistEmbed, id: 'playlist'} %}
+
+{% endif %}
+
+<section class="post-module module-intro module-intro--{{ entry.type }} module-intro--border">
+    <div class="container col-outer">
+        <div class="two-thirds module-intro__content inline-audio-player">
+            <span class="module-intro__breadcrumbs">
+                <span class="label">{{ entry.type.name | title }}</span>
+            </span>
+
+            <h1 class="module-intro__title">
+                {% if entry.type == 'audio' %}
+                    <span class="btn-play"></span>
+                    <span class="btn-pause hidden"></span>
+                {% endif %}
+                {{ entry.title }}
+
+                {% if entry.subtitle %}
+                <span class="module-intro__subtitle">{{ entry.subtitle }}</span>
+                {% endif %}
+            </h1>
+
+            
+            {% set people = entry.authors %}
+
+            {% if people | length %}
+            <ul class="post-content__author people-list">
+            {% for person in people %}
+                {% set personinfo %}{{ person.jobTitle }}{% if person.relatedCenters.first %}, {{ person.relatedCenters.first }}{% endif %}{% if person.relatedOffices.first %}, {{ person.relatedOffices.first }}{% endif %}{% endset %}
+                {% set alt %}{{ person ~' - '~ personinfo }}{% endset %}
+          
+                <li>
+                     <a href="{{ person.url }}">
+                            {% if person.headshot.first %}
+                            <div class="img-outer">
+                                <img src="{{ person.headshot.first.getUrl('square130') }}" width="65" height="65" title="{{ alt }}" alt="{{ alt }}">
+                            </div>
+                            {% endif %}
+                            <div class="text-outer">
+                                <h5 class="person-name">{{ person }}</h5>
+                                <div class="person-info">{{ personinfo }}</div>
+                            </div>
+                     </a>
+                </li>
+            {% endfor %}
+            </ul>
+            {% endif %}
+
+            {% set audioFile = entry.audioClip %}
+            {% if audioFile | length %}
+            <audio id="AudioFile_{{ audioFile[0].id }}" class="audio_player">
+                <source src="{{ audioFile[0].url }}" type="audio/mpeg"></source>
+            </audio>
+
+            <span class="audio-loading hidden">Loading...</span>
+
+            <aside id="AudioPlayer" class="audio-player hidden">
+                <span class="audio__start">0:00</span>
+
+                <div class="audio__track-outer" id="AudioTrackOuter">
+                    <span class="audio__marker ui-slider-handle"></span>
+                </div>
+
+                <span class="audio__end">0:00</span>
+            </aside>
+
+            <aside class="module-intro__download">
+                <a href="{{ audioFile[0].url }}" download><i class="icon-download"></i> Download</a>
+            </aside>
+            {% endif %}
+
+            {% if entry.overview %}
+
+            {% include 'includes/snippets/share_links' %}
+            
+            <div class="module-intro__text rte">
+                <p>{{ entry.overview }}</p>
+            </div>
+            {% endif %}
+        </div>
+
+        <div class="one-third module-intro__sidebar">
+            {% include 'includes/snippets/sidebar__relatives' %}
+			
+			{#
+			
+            {% if entry.relatedCenters | length %}
+                {% include 'includes/snippets/sidebar__type' with {relatives: entry.relatedCenters, relativeTitle: 'Related Centers', relativeType: 'centers', sidebar_class: 'sidebar__grid'} %}
+            {% endif %}
+
+            {% if entry.relatedLocations | length %}
+                {% include 'includes/snippets/sidebar__type' with {relatives: entry.relatedLocations, relativeTitle: 'Related Locations', relativeType: 'locations', sidebar_class: 'sidebar__grid'} %}
+            {% endif %}
+
+            {% if entry.relatedProjects | length %}
+                {% include 'includes/snippets/sidebar__type' with {relatives: entry.relatedProjects, relativeTitle: 'Related Projects', relativeType: 'projects', sidebar_class: 'sidebar__grid'} %}
+            {% endif %}
+
+            {% if entry.relatedOffices | length %}
+                {% include 'includes/snippets/sidebar__type' with {relatives: entry.relatedOffices, relativeTitle: 'Related Offices', relativeType: 'offices', sidebar_class: 'sidebar__grid'} %}
+            {% endif %}
+
+            {% if entry.relatedVeraStaff | length %}
+                {% include 'includes/snippets/sidebar__type' with {relatives: entry.relatedVeraStaff, relativeTitle: 'Related Vera Staff', relativeType: 'people', sidebar_class: 'sidebar__grid'} %}
+            {% endif %}
+            
+            #}
+        </div>
+    </div>
+</section>
+
+{% include 'includes/stream/module_related-content' %}
+
+{% endblock %}

@@ -1,0 +1,127 @@
+<header class="post-content__single__header post-content__single__header--{{ entry.type }}">
+	<div class="container">
+		{# TODO: make generic breadcrumb partial #}
+		{% if entry.type == 'post' %}
+
+		{% set level1 = bloghome %}
+		{% set level2 = entry.relatedSeries.first %}
+
+		<div class="post-content__meta module-intro__breadcrumbs">
+			<span class="breadcrumb-outer"><a href="{{ bloghome.url }}">{{ bloghome }}</a>
+			{% if entry.relatedSeries.first %} / <a href="{{ entry.relatedSeries.first.url }}">{{ level2 }}</a>{% endif %}</span>
+
+			<span class="post-content__meta__date">{{ entry.postDate | date('F d, Y') }}</span>
+		</div>
+
+		{% elseif entry.type.handle in ['pressRelease','statement'] %}
+		<div class="post-content__meta module-intro__breadcrumbs">
+			<span class="breadcrumb-outer"><a href="{{ siteUrl('newsroom') }}">Newsroom</a>
+			/ {{ entry.type.name }}</span>
+
+			<span class="post-content__meta__date">{{ entry.postDate | date('F d, Y') }}</span>
+		</div>
+
+		{% elseif entry.type in ['staff'] %}
+		<div class="post-content__meta module-intro__breadcrumbs">
+			<span class="breadcrumb-outer">
+				{% if entry.expert %}
+				<a href="{{ siteUrl('experts') }}">Experts</a>
+				{% else %}
+				<a href="{{ siteUrl('about') }}">About</a> / <a href="{{ siteUrl('about/people') }}">People</a>
+				{% endif %}
+			</span>
+		</div>
+		{% endif %}
+
+		{% if entry.type == 'about' %}
+			<h2 class="post-content__title">{{ entry.presidentsMessageHeader }}</h2>
+		{% else %}
+			<h2 class="post-content__title">{{ entry.title }}
+			 {% if entry.subtitle %}<span class="post-content__subtitle ff-serif--italic size--h3">{{ entry.subtitle}}</span>{% endif %}</h2>
+		{% endif %}
+
+		{# Resolve with people snippet #}
+		{% set isPerson = entry.type.handle in ['staff','guestAuthor'] %}
+		{% if isPerson %}
+			{% set person = entry %}
+			{% set personinfo %}{% include 'includes/snippets/person__title' %}{% endset %}
+			{% set alt %}{{ person ~' - '~ personinfo }}{% endset %}
+			{% if person.headshot.first or personinfo |length or person.email or person.telephone or person.social | length %}
+			<ul class="post-content__author">
+	            <li>
+	            	{% if person.headshot.first %}
+
+						<div class="img-outer">
+							<img src="{{ person.headshot.first.getUrl('square300') }}" width="180" height="180" title="{{ alt }}" alt="{{ alt }}">
+						</div>
+
+	                {% endif %}
+	                <div class="text-outer">
+	                	{% if isPerson %}
+	                	<h2 class="post-content__title">{{ entry.title }}</h2>
+	                	{% endif %}
+		                {% if personinfo | length %}
+	                    <h4 class="post-content__author__title">{{ personinfo }}</h4>
+	                    {% endif %}
+						{% if person.email or person.telephone or person.social | length %}
+		                    <ul class="post-content__author__social">
+			                    {% if person.email %}
+		                        <li><a href="mailto:{{ person.email }}"><i class="icon-mail"></i> {{ person.email }}</a></li>
+		                        {% endif %}
+		                        {% if person.telephone %}
+		                        <li><a href="tel:{{ person.telephone }}"><i class="icon-phone"></i> {{ person.telephone }}</a></li>
+		                        {% endif %}
+		                        {% if person.social | length %}
+			                        {% for social in person.social %}
+			                        	{% if social.type == 'twitter' %}
+			                        		<li><a href="https://twitter.com/{{ social.twitterHandle }}" target="_blank"><i class="icon-twitter"></i>{{ social.twitterHandle }}</a></li>
+			                        	{% elseif social.type == 'linkedIn' %}
+			                        		<li><a href="{{ social.profileLink }}" target="_blank"><i class="icon-linkedin"></i>LinkedIn Profile</a></li>
+			                        	{% endif %}
+			                        {% endfor %}
+								{% endif %}
+		                    </ul>
+	                    {% endif %}
+	                </div>
+	            </li>
+	        </ul>
+	        {% endif %}
+		{% else %}
+			{% if entry.type == 'about' %}
+				{% set people = entry.president %}
+			{% else %}
+				{% set people = entry.authors %}
+			{% endif %}
+
+			{% if people|length %}
+			<ul class="post-content__author people-list">
+			{% for person in people %}
+				{% set personinfo %}{% include 'includes/snippets/person__title' %}{% endset %}
+				{% set alt %}{{ person ~' - '~ personinfo }}{% endset %}
+
+				<li>
+					{% if person.bio %}
+					 <a href="{{ person.url }}">
+					{% endif %}
+							{% if person.headshot | length %}
+							<div class="img-outer">
+								<img src="{{ person.headshot.first.getUrl('square130') }}" width="65" height="65" title="{{ alt }}" alt="{{ alt }}">
+							</div>
+							{% endif %}
+						  <div class="text-outer">
+								<h5 class="person-name">{{ person }}</h5>
+								<div class="person-info">{{ personinfo }}</div>
+						  </div>
+					{% if person.bio %}
+					</a>
+					{% endif %}
+				</li>
+			{% endfor %}
+			</ul>
+			{% endif %}
+		{% endif %}
+		{% if isPerson and entry.bio %}
+		<aside class="hr"></aside>
+		{% endif %}
+	</div>
+</header>

@@ -1,0 +1,13 @@
+contentColumnType: boolean
+fieldGroup: 6c478341-da6f-434d-b58e-1f381004c510
+handle: hideContactPhoneNumber
+instructions: 'This person''s phone number will be hidden and only their email will show.'
+name: 'Hide Contact Phone Number'
+searchable: true
+settings:
+  default: false
+  offLabel: null
+  onLabel: null
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Lightswitch

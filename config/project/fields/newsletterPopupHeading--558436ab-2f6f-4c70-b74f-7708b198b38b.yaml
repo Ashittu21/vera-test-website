@@ -1,0 +1,18 @@
+contentColumnType: text
+fieldGroup: 803767f3-acaf-40ec-8e8b-d82f8902de43
+handle: newsletterPopupHeading
+instructions: ''
+name: 'Newsletter Popup Heading'
+searchable: true
+settings:
+  byteLimit: null
+  charLimit: null
+  code: false
+  columnType: text
+  initialRows: '4'
+  multiline: ''
+  placeholder: ''
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

@@ -1,0 +1,19 @@
+contentColumnType: text
+fieldGroup: a1574b52-b575-41d9-9fdd-13f2294a57f2
+handle: parentUnpublished
+instructions: ''
+name: 'Parent Unpublished'
+searchable: true
+settings:
+  allowSelect: ''
+  columnType: text
+  decimals: '0'
+  displayType: hidden
+  fieldTwig: '{{ entry.ancestors.unpublished(''1'') | length > 0 ? ''1'' : ''0'' }}'
+  parseBeforeSave: ''
+  parseOnMove: ''
+  showField: '1'
+  textareaRows: 5
+translationKeyFormat: null
+translationMethod: none
+type: besteadfast\preparsefield\fields\PreparseFieldType

@@ -1,0 +1,14 @@
+contentColumnType: string
+fieldGroup: f8591398-94a9-4e81-b07f-a60bb6e89d81
+handle: keyFacts
+instructions: ''
+name: 'Key Facts'
+searchable: true
+settings:
+  contentTable: '{{%matrixcontent_keyfacts}}'
+  maxBlocks: null
+  minBlocks: null
+  propagationMethod: all
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

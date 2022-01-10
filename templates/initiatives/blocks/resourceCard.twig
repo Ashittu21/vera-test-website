@@ -1,0 +1,38 @@
+{# {% if layout in ["featuredLeft","featuredRight"] %} #}
+  {# {% set image = streamImageSquare ?? heroImage ?? streamImageRectangle %} #}
+  {% set settings = layout in ["featuredLeft","featuredRight"] ? { ratio: 5/4 } 
+    : layout in ["fullBleedImage"] ? { ratio: 16/9} 
+    : { ratio: 3/2} 
+  %}
+  {% set transformedImage = craft.imager.transformImage(image, settings) %}  
+{# {% endif %} #}
+
+<section class="ResourceCard ResourceCard--{{ layout }} receives-accent-border fadeup">
+  <a href="{{ linkTo }}" 
+    {% if ext %}target="_blank" rel="noopener noreferrer"{% endif %}
+    {% if layout == "fullBleedImage" %}
+      {% if transformedImage %}style="color: #fff; background-image: linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)), url({{ transformedImage.url }})"
+      {% else %}
+      {% endif %}
+    {% endif %}>
+    {% if image and layout != "fullBleedImage" %}
+    <div class="ResourceCard-image">
+      <img src="{{ transformedImage.url }}" alt="{{ image.alt ?? image.title }}" />
+    </div>
+    {% endif %}
+    <div class="ResourceCard-meta">
+      <div class="ResourceCard-meta-label receives-accent-color">{{ label }}</div>
+      <div class="ResourceCard-meta-heading">{{ heading }}</div>
+      <div class="ResourceCard-meta-subheading">{{ subheading }}</div>
+      {% if layout in ["featuredLeft","featuredRight","fullBleedImage"] %}
+      <div class="ResourceCard-meta-cta">{{ ctaText | default("Explore") }}</div>
+      {% endif %}
+      {% if layout in ["defaultLeft","defaultRight"] %}
+      <div class="ResourceCard-meta-tags">
+        <div class="ResourceCard-meta-tags-author">{{ authors }}</div>
+        <div class="ResourceCard-meta-tags-date">{{ date }}</div>
+      </div>
+      {% endif %}
+    </div>
+  </a>
+</section>

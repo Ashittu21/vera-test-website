@@ -1,0 +1,67 @@
+<section class="inline-audio-player">
+	<div class="btn-wrap">
+		<span class="btn-play"></span>
+		<span class="btn-pause hidden"></span>
+	</div>
+	
+	{% set audioFile = audio %}
+	{% if audioFile | length %}
+	<audio id="AudioFile_{{ audioFile[0].id }}" class="audio_player">
+	    <source src="{{ audioFile[0].url }}" type="audio/mpeg"></source>
+	</audio>
+	
+	<span class="audio-loading hidden">Loading...</span>
+	
+	<aside id="AudioPlayer" class="audio-player hidden">
+	    <span class="audio__start">0:00</span>
+	
+	    <div class="audio__track-outer" id="AudioTrackOuter">
+	        <span class="audio__marker ui-slider-handle"></span>
+	    </div>
+	
+	    <span class="audio__end">0:00</span>
+	</aside>
+	
+<!--
+	<aside class="module-intro__download">
+	    <a href="{{ audioFile[0].url }}" download><i class="icon-download"></i> Download</a>
+	</aside>
+-->
+	{% endif %}
+</section>
+{% set audioCss %}
+	.inline-audio-player {
+		position: relative;
+		max-width: 800px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 0 20px 20px;
+		margin: 0 auto;
+	}
+	
+	.inline-audio-player .btn-wrap {
+		position: relative;
+		height: 40px;
+		width: 40px;
+	}
+	
+	@media (min-width: 768px) {
+		.inline-audio-player .btn-wrap {
+			height: 70px;
+			width: 70px;
+		}
+	}	
+	.inline-audio-player .btn-wrap .btn-play, .inline-audio-player .btn-pause {
+		top:0;
+	}
+	
+	.inline-audio-player .audio-player {
+		width: calc(100% - 40px);
+		margin-left: 40px;
+		margin-bottom: 0;
+	}
+	
+{% endset %}
+
+{% includeCss audioCss %}

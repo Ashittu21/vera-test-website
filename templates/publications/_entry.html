@@ -1,0 +1,14 @@
+{% if entry.requireLogin or entry.unpublished or entry.parentUnpublished == 1 or entry.ancestors.unpublished('1') | length %}
+	{% requireLogin %}
+	{% header "X-Robots-Tag: noindex, nofollow;" %}
+{% endif %}
+
+{% set publicationChildren = ['fromTheDirector','aboutThisReport','acknowledgements','endnotes','chapter'] %}
+
+{% if entry.type.handle in publicationChildren %}
+	{% include 'publications/types/chapter' %}
+{% elseif entry.type.handle in ['whatJailsCostLanding','whatJailsCostPage'] %}
+	{% include 'publications/types/whatJailsCost' %}
+{% else %}
+	{% include 'publications/types/'~entry.type %}
+{% endif %}

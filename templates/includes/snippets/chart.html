@@ -1,0 +1,14 @@
+{% set chartJs %}
+	window.addEventListener("load", function() {
+
+		{% if type == 'bar' %}
+			bar('{{ chartid }}','{{ dataurl }}',{{ axisTitles | json_encode | raw }},{{ barGroups }});
+		{% elseif type == 'line' %}
+			line('{{ chartid }}','{{ dataurl }}',{{ axisTitles | json_encode | raw }});
+		{% endif %}
+	
+	});
+
+{% endset %}
+
+{% includeJs chartJs %}

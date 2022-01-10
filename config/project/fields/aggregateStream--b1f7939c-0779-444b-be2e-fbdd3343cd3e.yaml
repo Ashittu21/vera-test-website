@@ -1,0 +1,78 @@
+contentColumnType: string
+fieldGroup: 532961b6-a69f-4934-914a-9c266d7a2eb6
+handle: aggregateStream
+instructions: ''
+name: 'Aggregate Content'
+searchable: true
+settings:
+  optgroups: true
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - None
+        -
+          - value
+          - none
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - 'Best Of'
+        -
+          - value
+          - bestOf
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Facts
+        -
+          - value
+          - facts
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Spotlights
+        -
+          - value
+          - spotlights
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Map
+        -
+          - value
+          - map
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Contributors
+        -
+          - value
+          - contributors
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

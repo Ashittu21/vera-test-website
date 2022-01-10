@@ -1,0 +1,27 @@
+{% if fact.line1 %}
+	{% if fact.line1Style == 'large' %}
+		<span class="fact-text fact-text--huge">{{ fact.line1 }}</span>
+	{% elseif fact.line1Style == 'medium' %}
+		<span class="fact-text fact-text--large">{{ fact.line1 }}</span>
+	{% else %}
+		{{ fact.line1 }}
+	{% endif %}
+{% endif %}
+{% if fact.line2 %}
+	{% if fact.line2Style == 'large' %}
+		<span class="fact-text fact-text--huge">{{ fact.line2 }}</span>
+	{% elseif fact.line2Style == 'medium' %}
+		<span class="fact-text fact-text--large">{{ fact.line2 }}</span>
+	{% else %}
+		{{ fact.line2 }}
+	{% endif %}
+{% endif %}
+{% if fact.line3 %}
+	{% if fact.line3Style == 'large' %}
+		<span class="fact-text fact-text--huge">{{ fact.line3 }}</span>
+	{% elseif fact.line3Style == 'medium' %}
+		<span class="fact-text fact-text--large">{{ fact.line3 }}</span>
+	{% else %}
+		{{ fact.line3 }}
+	{% endif %}
+{% endif %}

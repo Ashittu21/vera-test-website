@@ -1,0 +1,34 @@
+contentColumnType: string
+fieldGroup: 532961b6-a69f-4934-914a-9c266d7a2eb6
+handle: pageType
+instructions: ''
+name: 'Page Type'
+searchable: true
+settings:
+  optgroups: true
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - Topic
+        -
+          - value
+          - topic
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Lense
+        -
+          - value
+          - lense
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

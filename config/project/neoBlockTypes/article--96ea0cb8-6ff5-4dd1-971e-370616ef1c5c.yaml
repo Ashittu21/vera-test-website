@@ -1,0 +1,86 @@
+childBlocks:
+  - standardBlock
+  - video
+  - audio
+  - sectionExplainer
+  - partHeading
+  - heatmap
+  - ctaButtons
+  - image
+  - quote
+  - comparison
+  - fact
+  - slideout
+  - customList
+  - resourceList
+  - itemCarousel
+  - logos
+field: 4cc124d8-7ee1-43a4-9aa0-5b5b6fcfe1cc
+fieldLayouts:
+  481b1f64-6968-4bac-b8c8-c074e657c3f6:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: f234fdc2-518d-448c-91e2-837da74630b1
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: de2ae1c1-25a5-422c-acde-a458ac3014e7
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: c13aee29-113d-4fa0-8307-9ca2107f95ab
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: d3c699b6-9d33-45de-a296-4c143fdeb97b
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: c4e6e6bf-0cfa-49ed-b879-edeac63da346
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: b59f740b-d724-47eb-8568-a71aafb0ba4e
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: 'Tab 1'
+        sortOrder: 1
+handle: article
+maxBlocks: 0
+maxChildBlocks: 0
+maxSiblingBlocks: 0
+name: Article
+sortOrder: 1
+topLevel: true

@@ -1,0 +1,10 @@
+{
+  "buttons": ["format", "bold", "italic", "link"],
+  "formatting": ["p"],
+  "formattingAdd": {
+    "subhead": {
+      "title": "Sub-Heading",
+      "args": ["h5", "class", "intext-subhead"]
+    }
+  }
+}

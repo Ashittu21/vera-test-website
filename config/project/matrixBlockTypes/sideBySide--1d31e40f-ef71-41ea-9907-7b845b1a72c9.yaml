@@ -1,0 +1,54 @@
+field: 95bc127b-3520-49ff-803a-7352214068b1
+fieldLayouts:
+  f5585471-46e0-44a3-891e-d93f8e167075:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 11d157c2-67fc-4647-9a65-0fcb0b67539f
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  11d157c2-67fc-4647-9a65-0fcb0b67539f:
+    contentColumnType: string
+    fieldGroup: null
+    handle: images
+    instructions: '-Each image should have a width of 1225px'
+    name: Images
+    searchable: true
+    settings:
+      allowSelfRelations: false
+      allowUploads: true
+      allowedKinds:
+        - image
+      defaultUploadLocationSource: 'volume:a48d5d4c-e94e-40ca-b140-801253b0f802'
+      defaultUploadLocationSubpath: '{owner.section}/{owner.slug}/side_by_side_images/'
+      limit: '2'
+      localizeRelations: false
+      previewMode: full
+      restrictFiles: '1'
+      selectionLabel: 'Add an image'
+      showSiteMenu: true
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: true
+      singleUploadLocationSource: 'volume:a48d5d4c-e94e-40ca-b140-801253b0f802'
+      singleUploadLocationSubpath: '{owner.section}/{owner.slug}/side_by_side_images/'
+      source: null
+      sources: '*'
+      targetSiteId: null
+      useSingleFolder: true
+      validateRelatedElements: false
+      viewMode: large
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+handle: sideBySide
+name: 'Side by Side Images'
+sortOrder: 4

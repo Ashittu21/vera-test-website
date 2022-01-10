@@ -1,0 +1,14 @@
+{% extends '_layout' %}
+
+{% set title = entry.title %}
+
+{% block content %}
+{% include 'includes/snippets/approach_top.html' %}
+<section>
+	{% set streamOptions = {
+		fieldValues: [{expert: 1}],
+		filterRelations: [{type: 'categories', relations: craft.categories.group('ourWork').level(2), title: craft.entries.section('ourWork').relatedTo(craft.categories.group('ourWork').level(2).first).first.type.name~'s'}]
+	} %}
+	{% include 'includes/stream/stream_people' %}
+</section>
+{% endblock %}

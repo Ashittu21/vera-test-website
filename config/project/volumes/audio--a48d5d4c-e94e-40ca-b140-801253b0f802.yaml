@@ -1,0 +1,43 @@
+fieldLayouts:
+  9132913e-d0fb-4a86-87b0-17356ef795ba:
+    tabs:
+      -
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\TitleField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+handle: audio
+hasUrls: true
+name: Audio
+settings:
+  bucket: vera-web-assets
+  bucketSelectionMode: choose
+  expires: ''
+  keyFileContents: '{   "type": "service_account",   "project_id": "vera-website",   "private_key_id": "828697d64e6a6c368f1eae7804a193f73cf58692",   "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDasfv9yj8Ehbuo\nKW1SYrPGaz8EdZ6kgxi5onxfgkbZMWJRYuVdEJHlLAJFyw+FfIrRdJuVeGuCPOWS\nuDr9xU2dg6CiUWTS+ZhSYV4GNVHWFc5ulkRcJA2C8KUnGewrlrBIsu3kR5q3UBhc\nzftgfcbFnupW73NJairetAuatmvh6HpsDyboFh7hL0G3mW9bNTotG8Lh1WpXaYPr\nkrZ5Mm688pBZmXA49/GOUwZYQvy+ntMpPzuU0/QAF1APcErnnQUiJEhFjhEzSne+\ncHV9yuW4DWbNwCXOstZ830Rj/TaSL6UIxHVUhvPbMCGMtFpsgycv24H6mI0UyYD6\nKpoc/aEzAgMBAAECggEABNlJSsdv1/ne58MTAzRgkhwOV6x4HNfshzAJNixY9D1e\nj+gFA5DO/AOPAYXGFjBZkk2+a7UaeRydiSjUbxfeBM9vKl0NtyytygedzgQRzmJg\nwF3viuP9j8qDGcwQSu3XgndO8oArA352cOitgkN9dN4jz7ByyN6BUunppwtDMM0P\nG05QB3B1aFYYeTecuwKrQLYvndhpvB/OQsHMpWu+R1I+Y+ucuhxbNTAx2+urvfAU\n5rxvWMdeHttq/V1OYxb03Vi15Id5Pn7opikXqCZRDn1JuhCI6qcG4QfIzGCH2nt9\n2yRU1owLsUkuOnd7OGnQ3QAosr+cf2SMsr9uorIt9QKBgQDu08LiGCTQof9bEFzk\nlhsw0swwwHocfc/Z7pd+VkepBqDnTstd8/xxijG6MdqJv7+nObznfQrjoKdfj6MA\nmdXWENByjvVmkZN4vFfGNY+trNyq8ICxCaR49ZT9MUwRimZnQB/kdGYasp3qbE4+\nQjijr73lhTMIw6DWfvUJHO+VXQKBgQDqa6RfaU+ZDE1VM0D4yjBLDK55lFeO4OWJ\n2yTSvry6z0C1qIkBlsnCvbj9VBTzUyZUTifQA9z1TB1UR8m/Dv0kv2ntcIYMFu/S\nPOHusF4M7/lBK/JtkcHVN8Ns2TKhLh3s1Cptb7RwNTj4AvShzz8uabqJukDJpNAU\nHSc+gjKXzwKBgQDEx+jIgBo9aW1MrCPOGLxYsyeZd85lkWhkacmbSB4NcC+9xtec\nFz/GkZY9k3w8iaixccprdkU1nxapj2FASoC9u+b0rUQX+hTno1AzOcij0k2T70wq\nEwbYv4i+QhMqVL3hjx14EExc7RVepVSmyct/W3t9FQ4ix4XLlpnxo0zo5QKBgHRg\n7EHR7op06Q+bWm4pMsCPky8Yzj9It6ww958Iwnmb2uxUt2/qhFACEIzz6VLDvQut\noWZMBK5jE0x8N1R7BIHx5YzTiDkIShd90kzFkmup13zbbIepDSnlfUfUrKYIVyL0\nUfvysQnj4lx+WyTZ1uwb4Vfu96sj/4l8z7bgvG1RAoGALvyxz1BkrlgUHpPkRN27\nZp++1glT4fvGWbI87NLZjE7CWkd5YQIDh9DLILCZ4DpvlCGUcwM/mPc+adJBbY4+\nnN8xRQge5HzwT19MMc7yY5veFde2oo5ftUbxdSwPddzTTMt0N2iRt+6F+yeb/6ja\nf3U1uEJPXlbg9HR+iPi6hS0=\n-----END PRIVATE KEY-----\n",   "client_email": "vera-website@vera-website.iam.gserviceaccount.com",   "client_id": "103222810563079928313",   "auth_uri": "https://accounts.google.com/o/oauth2/auth",   "token_uri": "https://oauth2.googleapis.com/token",   "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",   "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/vera-website%40vera-website.iam.gserviceaccount.com" }'
+  projectId: $GOOGLE_CLOUD_ID
+  subfolder: audio
+sortOrder: 1
+type: craft\googlecloud\Volume
+url: $GOOGLE_CLOUD_URL

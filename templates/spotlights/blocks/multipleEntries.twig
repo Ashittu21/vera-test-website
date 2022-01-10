@@ -1,0 +1,15 @@
+<section class="spotlight-entry-list">
+	<div class="stream-outer receives-color">
+    <div class="stream-module-outer col-outer" data-view="grid">
+      <h4>{{ block.heading }}</h4>
+
+      <!-- Stream Content Goes Here -->
+      <div id="stream-content">
+        {% for module in block.entries %}
+          {% include 'includes/stream/stream_module' with {size: 'half'} %}
+        {% endfor %}
+        <article class="stream-module stream-module--uc stream-module--uc--half stream-thing empty"></article>
+      </div>
+    </div>
+	</div>
+</section>

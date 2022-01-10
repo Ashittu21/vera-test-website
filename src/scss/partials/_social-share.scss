@@ -1,0 +1,95 @@
+.share {
+  list-style: none;
+  display: inline-block;
+  border: 1px solid $black;
+  overflow: hidden;
+  line-height: 1;
+  @include font-size(1);
+
+  span {
+    display: block;
+
+    &:before {
+      @include font-size(2);
+    }
+
+    &.icon-mail:before {
+      line-height: 1.15;
+      @include font-size(1.8);
+    }
+  }
+
+  &.module-intro__share {
+    li {
+      margin-top: 0 !important;
+    }
+
+    @media (min-width: $tablet-landscape) {
+      margin: 0 0 0 $padding-xxs/2;
+      float: left;
+      font-size: inherit; // ugh
+
+      .share-item {
+        float: none;
+        display: block;
+        border: 0;
+        border-bottom-width: 1px;
+        border-bottom-style: solid;
+        border-color: inherit;
+
+        &:last-child {
+          border: 0;
+        }
+      }
+
+      a {
+        padding: 0;
+        line-height: 38px;
+        vertical-align: middle;
+      }
+    }
+  }
+
+  &.share--social {
+    border-color: $black;
+  }
+}
+
+.share-item {
+  text-align: center;
+  border-right-width: 1px;
+  border-right-style: solid;
+  border-color: $red;
+  float: left;
+
+  &:last-child {
+    border: 0;
+  }
+}
+
+.social-share-item {
+  border-color: $black;
+}
+
+.share-link {
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+
+  .no-touch &:hover {
+    background: $red;
+    color: $white;
+  }
+}
+.social-share-link {
+  color: $black;
+
+  .no-touch &:hover,
+  &:focus {
+    background: $red;
+    color: $white;
+  }
+}

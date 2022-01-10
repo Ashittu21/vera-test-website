@@ -1,0 +1,21 @@
+contentColumnType: string
+fieldGroup: 19337e8c-5122-4476-a446-ea27d4740587
+handle: pressContact
+instructions: 'This person will appear on the NewsRoom page and on each press release as a point of contact for Vera'
+name: 'Press Contact'
+searchable: true
+settings:
+  allowSelfRelations: false
+  limit: ''
+  localizeRelations: false
+  selectionLabel: ''
+  showSiteMenu: true
+  source: null
+  sources:
+    - 'section:8639923c-05e0-4fb4-a45a-9a2a79a690ec'
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Entries

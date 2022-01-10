@@ -1,0 +1,1686 @@
+.split-stream {
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: $tablet-portrait) {
+    flex-direction: row;
+
+    .refine {
+      width: $one-third;
+    }
+
+    .list {
+      padding-left:$padding-xl;
+      width: $two-thirds;
+    }
+  }
+}
+
+.stream-outer {
+  background: $lt-gray;
+  padding: $padding-lg 0;
+
+  @media (min-width: $mobile-large) {
+    padding: $padding-lg * 2 0;
+  }
+
+  .col-outer {
+    display: block;
+
+    @media (min-width: $tablet-portrait) {
+      display: flex;
+
+      > h4 {
+        margin-bottom: $padding-lg;
+      }
+
+      > .one-third,
+      > .two-thirds {
+        > h4 {
+          padding-top: $padding-lg;
+          margin-bottom: $padding-lg;
+        }
+      }
+    }
+  }
+
+  &.related-work .col-outer {
+    @media (min-width: $tablet-landscape) {
+      padding-top: $padding-sm;
+    }
+
+    .stream-module--uc--secondary {
+      align-self: stretch;
+    }
+  }
+
+  .one-third {
+    padding-top: $padding-lg;
+
+    @media (min-width: $tablet-portrait) {
+      padding-top: 0;
+    }
+  }
+
+  .one-third .stream-module:first-of-type {
+    @media (min-width: $tablet-portrait) {
+      border-top: 1px solid $black;
+    }
+  }
+}
+
+.stream-module {
+  width: 100%;
+  background-color: $white;
+  position: relative;
+  border-bottom: 1px solid $red;
+  margin: 0 auto 2.62%;
+
+  @media (min-width: $mobile-large) {
+    margin-left: 0;
+    margin-right: 0;
+    max-width: 100%; // will be overridden depending on stream-module type
+  }
+
+  &.empty {
+    // temporary
+    border: none !important;
+    background: transparent !important;
+    height: 0 !important;
+
+    .stream-module__inner {
+      &:before,
+      &:after {
+        content: none;
+        border: none !important;
+      }
+    }
+  }
+
+  a,
+  a:hover {
+    color: $black;
+
+    // TODO: will this become global later?
+  }
+
+  .author__inner,
+  .stream-module__meta__author li {
+    margin-right: $padding-xxs;
+  }
+
+  .person-info {
+    display: none; // person snippet may show info by default; hide for streams
+  }
+
+  &.stream-module--alt {
+    background-color: $lt-gray;
+  }
+
+  &.stream-module--gc.stream-module--featured.stream-module--border-alt
+    .stream-module__content {
+    border-color: $lt-gray;
+  }
+
+  &.stream-module--additional_reading {
+    width: 350px;
+    background-color: $lt-gray;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 !important;
+
+    .stream-module__inner {
+      min-height: 0;
+    }
+    .stream-module__content {
+      padding-top: $padding-xxs;
+    }
+    .stream-module__img-outer {
+      background-position: center center;
+
+      & + .stream-module__content {
+        padding-top: $padding-xs;
+      }
+    }
+    .stream-module__heading {
+      margin-bottom: 0;
+    }
+    .stream-module__content-inner {
+      padding: 0 $padding-xxs;
+    }
+  }
+}
+
+.stream-module__inner {
+  display: flex;
+  flex-flow: column nowrap;
+  height: 100%;
+
+  @media (max-width: $tablet-landscape - 1) {
+    @include calc("min-height", 44vw);
+  }
+
+  @media (max-width: $tablet-portrait - 1) {
+    // README: force square ratio
+    @include calc("min-height", 65vw); // not 100% precise, but close?
+  }
+
+  @media (max-width: $mobile-large - 1) {
+    // README: force square ratio
+    @include calc(
+      "min-height",
+      (0.3 * 1520px) * 0.91
+    ); // not 100% precise, but close?
+  }
+
+  @media (max-width: $mobile-medium - 1) {
+    @include calc("min-height", 82vw);
+  }
+
+  @media (min-width: $tablet-portrait) {
+    display: flex;
+  }
+
+  @media (min-width: $tablet-landscape) {
+    @include calc("min-height", 28vw);
+  }
+
+  @media (min-width: $desktop-large) {
+    @include calc("min-height", $dec-one-third * #{$desktop-large});
+  }
+
+  &:before {
+    content: "";
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    border: 1px solid $red;
+    border-right: none;
+    border-bottom: none;
+    opacity: 0;
+    pointer-events: none;
+    @include hardware-acc;
+    @include transition(opacity 0.2s ease-in);
+    @include keyframe(border-2-out 0.4s ease-in forwards);
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    z-index: 10;
+    bottom: 0;
+    right: 0;
+    width: 0;
+    height: 100%;
+    opacity: 0;
+    border-right: 1px solid $red;
+    @include hardware-acc;
+    @include transition(opacity 0.17s ease-in);
+    @include keyframe(border-1-out 0.17s 0.34s ease-in forwards);
+  }
+}
+
+.stream-module__content {
+  // height: 100%; breaks safari?
+  display: flex;
+  // flex-flow: column nowrap;
+  position: relative;
+  align-content: stretch;
+  align-self: stretch;
+  z-index: 2;
+
+  flex: 1; // firefox!
+  -webkit-flex: 1; // fix for safari (doesn't affect Chrome, admittedly don't know why)
+
+  @media (min-width: $tablet-landscape) {
+    flex: auto; // otherwise image-left modules are weird
+    -webkit-flex: 1;
+  }
+}
+
+.stream-module__content-inner {
+  width: 100%;
+  padding: $padding-xxs;
+  padding-bottom: 0;
+}
+
+.stream-module__blogSeries,
+.post-module__blogSeries {
+  @extend .ff-sans--bold;
+  @include font-size(1.1);
+  letter-spacing: 0.2mm;
+}
+
+.stream-module__heading {
+  line-height: 1.25;
+
+  @media (min-width: $tablet-landscape) {
+    line-height: 1.3;
+  }
+}
+
+.stream-module__tag-list {
+  @extend .list-reset;
+  display: none;
+  flex-wrap: wrap;
+
+  [data-view="list"] & {
+    display: flex;
+  }
+}
+
+.stream-module__tag {
+  @extend .stream-module__label;
+
+  .stream-module-outer[data-view="list"] .stream-module &,
+  & {
+    background-color: $med-gray;
+    color: $lt-gray;
+    padding: $padding-xxs/2 $padding-xxs;
+  }
+
+  & + .stream-module__tag {
+    margin-left: $padding-xxs;
+  }
+}
+
+.stream-module__subheading {
+  color: $dk-gray;
+  padding-bottom: $padding-sm;
+  .color-combo--black-white &{
+    color: white;
+  }
+}
+
+.stream-module__superheading {
+  color: $dk-gray;
+}
+
+.stream-module__event-time {
+  @extend .ff-sans;
+  font-weight: bold;
+}
+
+.stream-module__previewtext {
+  @include body-font;
+  @include font-size(1.5);
+  line-height: 1.5;
+  max-height: 9rem;
+  max-width: 32em;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 0;
+  display: none;
+
+  &.show,
+  [data-view="list"] & {
+    display: block;
+  }
+
+  &.small {
+    max-height: 6.5rem;
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 9rem;
+    z-index: 1;
+    @include preview-shadow(rgba(255, 255, 255, 0.75));
+  }
+}
+
+.stream-module__label {
+  position: absolute;
+  @extend %label;
+}
+
+.stream-module__label.list-label {
+  display: none;
+}
+
+[data-view="list"] {
+  .stream-module__label.list-label {
+    display: initial;
+  }
+  .stream-module__label.grid-label {
+    display: none;
+  }
+}
+
+.stream-module__meta {
+  @extend %h6;
+  margin-top: auto;
+  margin-bottom: 0;
+  // @include justify(center);
+  display: flex;
+  align-items: center;
+
+  .stream-module__meta__date {
+    flex-shrink: 0;
+  }
+
+  .stream-module--gc--full &,
+  .stream-module--gc--half & {
+    display: inline-block;
+  }
+}
+
+.stream-module__meta__date,
+.stream-module__series {
+  @extend .ff-sans;
+}
+
+.stream-module__meta__date {
+  color: $dk-gray;
+}
+
+.stream-module__meta__author,
+.post-module__meta__author {
+  list-style: none;
+
+  li {
+    display: inline-block; // TODO: elsewhere this is display: table; would that work w/in streams?
+    list-style: none;
+  }
+
+  .img-outer,
+  .text-outer {
+    display: inline-block;
+  }
+
+  .person-name {
+    @extend %h6;
+    margin: 0;
+  }
+
+  img {
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: $padding-xxs/2;
+    @include border-radius(100%);
+  }
+}
+
+.stream-module__meta > * {
+  display: block;
+  margin: $padding-xxs 0;
+}
+
+.zoom_wrap {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.stream-module__img-outer {
+  position: relative;
+  @include hardware-acc;
+  @include image-bg(100%, 100%);
+}
+
+.stream-module__video-outer,
+.video-outer,
+.article-video-tile {
+  position: relative;
+
+  &:before {
+    content: "";
+    display: block;
+    width: 70px;
+    height: 70px;
+    background-image: url(../img/btn-play.svg);
+    background-repeat: no-repeat;
+    background-position: top left;
+    background-size: cover;
+    cursor: pointer;
+    transition: opacity 0.15s ease-in;
+    opacity: 0.5;
+
+    //in article template a la
+    .article & {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin: -20px 0 0 -20px;
+      z-index: 3;
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  @media (max-width: $mobile-large - 1) {
+    &:before {
+      height: 50px;
+      width: 50px;
+    }
+  }
+
+  &.loaded,
+  &.modal-initialized {
+    &:before {
+      opacity: 1;
+    }
+  }
+
+  &:hover:before,
+  a:hover &:before {
+    .article & {
+      width: 46px;
+      height: 46px;
+      margin: -23px 0 0 -23px;
+    }
+  }
+}
+
+.stream-module__video-outer,
+.video-outer {
+  &:before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+//no loaded state, so make it always full opacity
+.stream-module__video-outer:before {
+  opacity: 1;
+}
+
+// @media (min-width: $tablet-portrait) {
+//     .video-outer {
+// 	    &:before {
+// 	        width: 70px;
+// 	        height: 70px;
+// 	        margin: -35px 0 0 -35px;
+//         }
+
+//         &:hover:before,
+
+// 	    a:hover &:before {
+// 	        width: 82px;
+// 	        height: 82px;
+// 	        margin: -40px 0 0 -40px;
+// 	    }
+//     }
+// }
+
+// hovers on non-touch devices only
+
+.no-touch {
+  .stream-module__inner {
+    &:hover:before {
+      opacity: 1;
+      @include keyframe(border-2-in 0.34s 0.17s ease-in forwards);
+    }
+
+    &:hover:after {
+      opacity: 1;
+      @include keyframe(border-1-in 0.17s ease-in forwards);
+    }
+  }
+}
+
+// non link - no hover state
+.no-hover {
+  background: transparent;
+  border: none;
+  &:hover {
+    cursor: normal;
+  }
+  .stream-module__inner:hover:before,
+  .stream-module__inner:hover:after {
+    border: none;
+  }
+}
+
+// Grouped Content
+
+.stream-module--gc {
+  &:not(.has-image) .stream-module__inner {
+    background-color: $black;
+  }
+
+  .stream-module__img-outer {
+    @include overlay-img;
+  }
+
+  .stream-module__heading {
+    @extend %h2;
+
+    @media (max-width: $mobile-large - 1) {
+      @include font-size(2.8);
+    }
+  }
+
+  .stream-module__subheading {
+    color: $white;
+    @extend .ff-serif;
+    padding-bottom: $padding-sm;
+    line-height: 1.5;
+
+    @media (max-width: $mobile-large - 1) {
+      @include font-size(1.8);
+    }
+  }
+
+  .stream-module__meta {
+    padding-top: $padding-xxs/2;
+    border-top: 1px solid $red;
+
+    // @media (min-width: $tablet-portrait) {
+    //     padding-top: $padding-xs;
+    // }
+  }
+
+  .stream-module__meta__date {
+    color: $white;
+  }
+
+  .stream-module__content {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    color: $white;
+    @include vertical-align-bottom;
+  }
+
+  .stream-module__content-inner {
+    @media (min-width: $mobile-medium) {
+      // padding-bottom: $padding-xxs;
+    }
+  }
+
+  &.stream-module--featured {
+    padding: 0;
+    overflow: hidden;
+
+    @media (min-width: $tablet-landscape) {
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .stream-module__content {
+      border-width: $padding-xxs;
+      border-style: solid;
+      border-color: $white;
+    }
+  }
+
+  .stream-module__meta__author li {
+    margin-right: 0; // override
+  }
+
+  .stream-module__label {
+    background: $red;
+  }
+}
+
+.stream-module--gc--full {
+  // padding: $padding-xxs;
+  @include stream-module-two-up-med;
+  @include stream-module-two-up-columns;
+  overflow: hidden;
+
+  .stream-module__inner {
+    overflow: hidden;
+  }
+
+  .stream-module__content {
+    padding: $padding-xxs;
+  }
+
+  .stream-module__label {
+    background: $red;
+  }
+
+  .stream-module__content-inner {
+    padding: $padding-xs;
+    padding-bottom: 0;
+    max-width: 90rem;
+  }
+
+  .stream-module__subheading {
+    @extend .ff-sans;
+    @extend .size--h4;
+  }
+
+  @media (min-width: $mobile-large) {
+    .stream-module__img-outer {
+      @include image-bg(100%, 48.75%); // based on design
+    }
+
+    .stream-module__subheading {
+      padding-bottom: $padding-sm; // used to be $padding-lg
+    }
+  }
+
+  @media (min-width: $mobile-large) and (max-width: $tablet-landscape - 1) {
+    .two-thirds & {
+      .stream-module__img-outer .spacer {
+        padding-top: 100%;
+      }
+    }
+  }
+
+  @media (min-width: $tablet-landscape) {
+    .stream-module__img-outer {
+      @include image-bg(100%, 35.74%); // based on design
+    }
+
+    .two-thirds & {
+      .stream-module__img-outer .spacer {
+        padding-top: 50%;
+      }
+    }
+  }
+}
+
+@media (min-width: $mobile-large) and (max-width: $tablet-landscape - 1) {
+  .two-thirds .stream-module--uc--full {
+    a.stream-module__inner {
+      display: block;
+    }
+  }
+}
+
+.stream-module--gc--half {
+  .stream-module__heading {
+    @extend %h3;
+  }
+
+  .stream-module__subheading {
+    //@extend %h5;
+    padding-bottom: $padding-sm; // used to be padding-lg
+    line-height: 1.5;
+  }
+
+  @media (min-width: $tablet-portrait) {
+    width: $one-half;
+    @include max-width($dec-one-half);
+
+    .stream-module__heading {
+      // report only???
+      @include font-size(2.6);
+    }
+  }
+
+  @media (min-width: $tablet-landscape) {
+    width: $one-third;
+    @include max-width($dec-one-third);
+  }
+}
+
+.special-reports-chapter .stream-module__carousel {
+  align-items: normal;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  margin: 0 auto;
+  padding-bottom: 20px;
+  width: 95%;
+  z-index: 1;
+
+  @media (min-width: $tablet-portrait) {
+    width: 100%;
+  }
+  @media (min-width: $tablet-landscape) {
+    padding-bottom: 0;
+  }
+}
+
+.stream-module__carousel {
+  position: relative;
+}
+
+.stream-module__carousel__title {
+  left: unset;
+  padding: 20px;
+  position: relative;
+  top: unset;
+  transform: none;
+  width: 100%;
+
+  .title,
+  .subtitle {
+    font-family: $ff-gt-sectra;
+  }
+
+  .line {
+    display: block;
+    position: absolute;
+    height: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    border-left: none;
+    border-top: 2px solid #ef4136;
+    width: 30%;
+    left: 20px;
+  }
+
+  @media (min-width: $tablet-landscape) {
+    // left: 50px;
+    // position: absolute;
+    // top: 50%;
+    // transform: translateY(-50%);
+    width: 25%;
+
+    .title {
+      @include font-size(6);
+    }
+
+    .subtitle {
+      margin-top: 30px;
+    }
+    .line {
+      border-left: 2px solid #ef4136;
+      left: 0;
+      border-top: none;
+    }
+  }
+}
+
+// we put this content somewhere else in the banners
+.special-reports-chapter .featured-banner .stream-module__carousel__title {
+  display: none !important;
+}
+
+.stream-module--placeholder {
+  border: 1px solid transparent;
+  background-color: $black;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  @media (min-width: $tablet-landscape) {
+    background-color: transparent;
+  }
+}
+
+.stream-module--placeholder__inner {
+  background-color: transparent !important;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  padding: 40px;
+
+  @media (max-width: $tablet-landscape - 1) {
+    @include calc("min-height", 44vw);
+  }
+
+  @media (max-width: $tablet-portrait - 1) {
+    // README: force square ratio
+    @include calc("min-height", 65vw); // not 100% precise, but close?
+  }
+
+  @media (max-width: $mobile-large - 1) {
+    // README: force square ratio
+    @include calc(
+      "min-height",
+      (0.3 * 1520px) * 0.91
+    ); // not 100% precise, but close?
+  }
+
+  @media (max-width: $mobile-medium - 1) {
+    @include calc("min-height", 82vw);
+  }
+
+  @media (min-width: $tablet-landscape) {
+    @include calc("min-height", 28vw);
+  }
+
+  @media (min-width: $desktop-large) {
+    @include calc("min-height", $dec-one-third * #{$desktop-large});
+  }
+}
+
+.stream-module--placeholder__title {
+  @include font-size(6);
+  filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.5));
+  @extend .ff-serif--medium;
+}
+
+.stream-module--placeholder__subtitle {
+  display: block;
+  filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.5));
+  padding-top: 50px;
+  position: relative;
+
+  &:before {
+    background-color: $red;
+    content: "";
+    height: 1px;
+    left: 0;
+    position: absolute;
+    top: 22px;
+    width: 70px;
+  }
+}
+
+// Project
+
+.stream-module--uc {
+  @include stream-module-two-up-sm;
+
+  // .stream-module__subheading {
+  //     @extend .ff-serif--italic;
+  // }
+
+  .stream-module__content-inner {
+    padding: $padding-sm $padding-xs 0; // bottom padding used to be $padding-xxs;
+    // padding: $padding-xxs 0;
+  }
+
+  .stream-module__content {
+    padding-top: $padding-sm;
+  }
+
+  .img-outer + .stream-module__content {
+    padding-top: 0;
+  }
+}
+
+.stream-module--uc--full {
+  @include stream-module-two-up-med;
+  @include stream-module-two-up-columns;
+
+  // .stream-module__subheading {
+  //     @extend .ff-serif--italic;
+  // }
+
+  .stream-module__meta {
+    min-height: 60px;
+  }
+
+  .stream-module__meta__date {
+    // gross code about to commence...
+    height: 12px; // close enough to inspector
+    margin: 24px 0 !important; // well, the container has a min height of 60px...
+  }
+
+  /*
+    @media (min-width: $mobile-large) {
+        .stream-module__heading {
+            padding-right: $padding-lg;
+        }
+    }
+*/
+
+  @media (min-width: $mobile-large) and (max-width: $tablet-landscape - 1) {
+    .two-thirds & {
+      .stream-module__img-outer {
+        @include image-bg(100%, 47.06%); // based on design
+        width: 100%;
+      }
+
+      .stream-module__content-inner {
+        padding: $padding-sm $padding-xxs 0;
+      }
+
+      .stream-module__meta {
+        display: flex;
+      }
+
+      // .stream-module__subheading {
+      //     @extend .ff-serif--italic;
+      // }
+
+      .stream-module__content {
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+}
+
+.stream-module--uc--half {
+  .stream-module__heading {
+    @include font-size(2.4);
+  }
+
+  @media (min-width: $tablet-portrait) {
+    width: $one-half;
+    @include max-width($dec-one-half);
+  }
+
+  @media (min-width: $tablet-landscape) {
+    width: $one-third;
+    @include max-width($dec-one-third);
+  }
+
+  @media (min-width: $mobile-large) and (max-width: $tablet-landscape) {
+    // ipad landscape-specific
+    .two-thirds & {
+      .stream-module__content-inner {
+        padding: $padding-xxs;
+        padding-bottom: 0;
+      }
+    }
+  }
+
+  .stream-module__meta {
+    min-height: 60px;
+  }
+
+  .stream-module__meta__date {
+    // gross code about to commence...
+    height: 12px; // close enough to inspector
+    margin: 24px 0 !important; // well, the container has a min height of 60px...
+    margin-left: auto !important;
+  }
+}
+
+.stream-module--uc--full.frame {
+  @include stream-module-two-up-sm;
+  @include stream-module-two-up-med;
+  @include stream-module-two-up-columns;
+
+  .stream-module__inner {
+    padding: $padding-xxs;
+
+    @media (min-width: $tablet-landscape) {
+      padding: 0;
+
+      .frame_wrap {
+        width: 50%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        position: relative;
+
+        .stream-module__img-outer {
+          width: 100%;
+          overflow: hidden;
+          .spacer {
+            position: relative;
+            height: auto;
+            padding: 0;
+            padding-top: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  .stream-module__meta {
+    // @include justify(center);
+  }
+
+  @media (min-width: $tablet-portrait) {
+    .stream-module__img-outer {
+      @include image-bg(100%, 97.1%);
+      width: calc(50% - #{$padding-lg});
+      // height: calc(100% - #{$padding-lg});
+      // margin: $padding-lg/2;
+
+      .spacer {
+        padding: 0;
+        height: 100%;
+        background: url(../img/border-publication.png) right center no-repeat
+          transparent;
+        background-size: cover;
+        overflow: hidden;
+      }
+    }
+
+    .stream-module__inner {
+      flex-direction: row-reverse;
+    }
+
+    .stream-module__content-inner {
+      padding: $padding-lg;
+      padding-right: 0;
+      padding-bottom: 0;
+    }
+
+    .stream-module__meta {
+      display: block;
+      padding-bottom: $padding-xxs;
+    }
+
+    .stream-module__meta__author {
+      display: block;
+      margin-bottom: $padding-sm;
+    }
+
+    .two-thirds & {
+      .stream-module__img-outer .spacer {
+        position: absolute;
+        height: 100%;
+        padding: 0;
+      }
+    }
+  }
+
+  @media (min-width: $mobile-large) and (max-width: $tablet-landscape - 1) {
+    .two-thirds & {
+      // undo fancy image border
+      .stream-module__img-outer {
+        width: 100%;
+        border: 0;
+        @include image-bg(100%, 47.06%);
+
+        .spacer {
+          background: none;
+        }
+      }
+
+      .stream-module__inner {
+        flex-flow: column nowrap;
+      }
+
+      .stream-module__meta {
+        // @include justify(center);
+      }
+
+      .stream-module__meta__author {
+        margin-bottom: 0;
+      }
+
+      .stream-module__content {
+        display: flex;
+        width: 100%;
+        position: relative;
+      }
+
+      .stream-module__content-inner {
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: stretch;
+        padding: ($padding-sm - 3) $padding-sm 0; // bottom used to be $padding-xxs;
+      }
+    }
+  }
+}
+
+.stream-module--uc--secondary {
+  background: transparent;
+  padding: $padding-med 0;
+  border-bottom: 1px solid $lt-gray-alt;
+  align-self: flex-start;
+  @include transition(border 0.15s ease-in);
+  margin: 0;
+
+  .no-touch &:hover {
+    border-color: $red;
+  }
+
+  .stream-module__inner {
+    &:before,
+    &:after {
+      border: none;
+    }
+  }
+
+  .stream-module__label {
+    top: 0;
+    left: 0;
+    z-index: 5;
+    background: transparent;
+    color: $med-gray;
+    padding: 0;
+    @include font-size(1);
+    display: none; // NEW
+  }
+
+  .stream-module__heading {
+    @extend .ff-serif--medium;
+    @include font-size(1.8);
+    margin-bottom: $padding-sm;
+  }
+
+  .stream-module__meta {
+    @include justify(center);
+  }
+
+  .stream-module__meta > * {
+    margin: 0;
+  }
+
+  @media (min-width: $tablet-portrait) {
+    width: $one-half;
+    @include max-width($dec-one-half);
+  }
+
+  @media (min-width: $tablet-landscape) {
+    width: $one-third;
+    @include max-width($dec-one-third);
+  }
+}
+
+.js .no-touch .stream-module--uc--secondary {
+  @include transition(
+    (border 0.15s ease-in, opacity 0.5s ease-in)
+  ); // extra transitions b/c of lazyload effect
+}
+
+.stream-module--uc--secondary--event {
+  background: transparent;
+  border: 0;
+  align-self: flex-start;
+
+  &:hover .event__details {
+    color: $red;
+
+    &:after {
+      border-color: $red;
+      left: 110%;
+    }
+  }
+
+  .stream-module__heading {
+    @extend .ff-serif--medium;
+    @include font-size(1.8);
+    margin-bottom: 1em;
+  }
+
+  img {
+    @include border-radius(100%);
+    width: auto;
+    height: auto;
+    max-width: 40px;
+
+    @media (min-width: $mobile-large) {
+      max-width: 87px;
+    }
+  }
+
+  .event__author {
+    width: 55px;
+
+    @media (min-width: $mobile-large) {
+      width: 107px;
+    }
+  }
+
+  .stream-module__inner {
+    &:before,
+    &:after {
+      border: none;
+    }
+  }
+
+  .stream-module__content-inner {
+    width: 100%;
+    display: table;
+  }
+
+  .event__date,
+  .event__content,
+  .event__author {
+    display: table-cell;
+    vertical-align: top;
+    padding: $padding-xxs;
+  }
+
+  .event__author {
+    padding-right: 0;
+  }
+
+  .event__date {
+    text-align: center;
+    @extend .ff-sans;
+    @include font-size(2.2);
+    padding-right: $padding-sm * 1.5;
+    position: relative;
+    width: 28%; // used to be 23%...??
+
+    &:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: $padding-xxs;
+      bottom: 0;
+      border-right: 1px solid $red;
+    }
+  }
+
+  .event__num {
+    @include font-size(4.5);
+    display: block;
+  }
+
+  .event__details {
+    display: inline-block;
+    @extend .ff-sans--bold;
+    @include font-size(1.2);
+    text-transform: uppercase;
+    position: relative;
+    padding-right: $padding-xxs;
+    letter-spacing: 0.1mm;
+    @include transition(color 0.15s ease-in);
+
+    &:after {
+      content: "";
+      position: absolute;
+      top: 3px;
+      left: 100%;
+      width: 10px;
+      height: 10px;
+      @include transform(rotate(45deg));
+      border: 2px solid $black;
+      border-left: 0;
+      border-bottom: 0;
+
+      @include transition((border-color 0.15s ease-in, left 0.15s ease-in));
+    }
+  }
+
+  .event__meta__series {
+    @extend %h6;
+    @extend .ff-sans;
+    display: block;
+  }
+
+  @media (min-width: $tablet-portrait) {
+    width: $one-half;
+    @include max-width($dec-one-half);
+  }
+
+  @media (min-width: $mobile-large) and (max-width: $tablet-landscape - 1) {
+    .one-third & {
+      .event__author {
+        display: none;
+      }
+    }
+  }
+
+  @media (min-width: $tablet-landscape) {
+    width: $one-third;
+    @include max-width($dec-one-third);
+
+    .one-third & {
+      img {
+        max-width: 40px;
+      }
+    }
+  }
+}
+
+.stream-module--secondary--desc {
+  background: transparent;
+  border: none;
+  border-top: 1px solid $med-gray-alt;
+  padding-top: $padding-med;
+  @include font-size(2);
+  line-height: 1.75;
+
+  &:before,
+  &:after {
+    content: none;
+  }
+
+  @media (min-width: $tablet-landscape) {
+    width: $one-third;
+    @include max-width($dec-one-third);
+  }
+}
+
+// small stream-modules
+
+.stream-module--uc--secondary--event,
+.stream-module--uc--secondary,
+.stream-module--secondary--desc {
+  .stream-module__content-inner,
+  .stream-module__content,
+  .stream-module__inner {
+    padding: 0;
+  }
+
+  .stream-module__inner {
+    min-height: 0 !important;
+  }
+
+  &:before {
+    padding: 0 !important;
+  }
+}
+
+// one-up stream-modules
+
+// .stream-module--gc--medium--a,
+// .stream-module--project--b,
+// .stream-module--report--b,
+// .stream-module--uc--medium--a,
+// .stream-module--uc--medium--b,
+// .stream-module--uc--medium--c, TODO: changed! review?
+.stream-module--gc--half,
+.stream-module--uc--half,
+.stream-module--uc--secondary,
+.stream-module--uc--secondary--event,
+.stream-module--secondary--desc {
+  .one-third &,
+  .one-half & {
+    width: 100%;
+  }
+
+  @media (min-width: $mobile-large) {
+    .two-thirds &,
+    .one-half & {
+      width: 100%;
+    }
+  }
+
+  @media (min-width: $mobile-large) and (max-width: $tablet-landscape) {
+    .two-thirds &,
+    .one-half & {
+      max-width: 100%;
+    }
+  }
+
+  @media (min-width: $tablet-landscape) {
+    .one-half & {
+      width: 100%;
+    }
+  }
+}
+
+.stream-module--gc--half,
+.stream-module--uc--half,
+:not(.newsroom-landing) .stream-module--uc--secondary,
+.stream-module--secondary--desc {
+  @media (min-width: $tablet-landscape) {
+    .two-thirds & {
+      width: $one-half;
+    }
+  }
+}
+
+.newsroom-landing {
+  .stream-module {
+    width: 100% !important;
+  }
+}
+
+.stream-module--gc {
+  // overflow: hidden;
+
+  .img-outer {
+    height: 100%;
+    @include transition(transform 0.5s $ease-nice);
+  }
+
+  &:hover {
+    .img-outer {
+      @include transform(scale(1.05));
+    }
+  }
+
+  @include stream-module-full-bleed;
+
+  @media (min-width: $tablet-landscape) {
+    .stream-module__img-outer {
+      height: 100%;
+      @include calc("min-height", 28vw);
+    }
+  }
+}
+
+// SMALL full-bleed modules
+.stream-module--gc--medium--a,
+.stream-module--report--b {
+}
+
+// featured stream-modules
+
+.featured-stream-modules {
+  background: $black;
+  color: $white;
+  padding: $padding-sm 0;
+
+  @media (min-width: $mobile-large) {
+    padding: ($padding-lg + $padding-sm) 0 $padding-lg;
+  }
+
+  h4 {
+    color: $red;
+  }
+
+  p,
+  .stream-module__subheading,
+  .stream-module__heading,
+  .stream-module__meta__author,
+  .stream-module__meta__date {
+    color: $white;
+  }
+
+  .stream-module__previewtext:after {
+    @include preview-shadow(rgba(35, 31, 32, 0.75));
+  }
+
+  .stream-module {
+    background-color: transparent;
+    max-width: 100vw;
+
+    .stream-module__inner {
+      background-color: transparent;
+    }
+  }
+  
+  .stream-module-related-list {
+    margin-left: 2rem;
+  }
+
+  .stream-module__label {
+    background: $red;
+  }
+
+  .stream-module__content-inner {
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+  }
+
+  @media (min-width: $mobile-large) {
+    .stream-module--project--a,
+    .stream-module--uc--large--a,
+    .stream-module--uc--full.frame {
+      .stream-module__content-inner {
+        padding: $padding-med;
+        padding-bottom: 0;
+      }
+    }
+
+    .stream-module--uc--full.frame .stream-module__content-inner {
+      padding-top: $padding-lg;
+    }
+  }
+}
+
+.featured-stream-modules__alt {
+  background-color: $lt-gray-bg;
+  color: $black;
+
+  .container > h4 {
+    color: $black;
+  }
+
+  .stream-module.stream-module--uc {
+    background-color: $white;
+
+    p,
+    .stream-module__subheading,
+    .stream-module__heading,
+    .stream-module__meta__author,
+    .stream-module__meta__date {
+      color: $black;
+    }
+
+    .stream-module__label {
+      background: $black;
+    }
+  }
+}
+
+.stream-module--uc--half,
+.stream-module--gc--half {
+  .two-thirds & {
+    width: 100%;
+
+    @media (min-width: $tablet-landscape) {
+      width: $one-half;
+      @include max-width($dec-one-half);
+    }
+  }
+}
+
+.stream-module--gc--half,
+.stream-module--gc--full {
+  .stream-module__subheading {
+    line-height: 1.25;
+    margin-bottom: 10px;
+    padding-bottom: 0;
+  }
+
+  .stream-module__heading {
+    line-height: 1;
+    margin-bottom: 7px;
+    padding-bottom: 0;
+  }
+
+  .stream-module__heading,
+  .stream-module__subheading {
+    @media (max-width: $tablet-portrait - 1) {
+      text-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+    }
+  }
+}
+
+//Other
+.stream_message {
+  flex-basis: 100%;
+  width: 100%;
+  align-self: flex-end;
+  @extend .ff-sans;
+  font-size: 2.1rem;
+  font-size: 21px;
+  margin: 1em 0;
+}
+
+#content_no_more {
+  color: $med-gray;
+}
+
+#load_more_btn {
+  display: block;
+  align-self: flex-end;
+  margin: 4em auto;
+}
+
+.grid-sizer {
+  width: 100%;
+}
+
+.gutter-sizer {
+  width: 2.62%;
+}
+
+@media (min-width: $tablet-portrait) {
+  .grid-sizer {
+    width: $one-half;
+  }
+
+  .gutter-sizer {
+    width: 2.62%;
+  }
+}
+
+@media (min-width: $tablet-landscape) {
+  .grid-sizer {
+    /* track width of stream-module blocks */
+    width: $one-third;
+  }
+
+  .gutter-sizer {
+    /* calc width of 100% - (moduleblockwidth*columns)/columns-1 */
+    width: 1.91%;
+  }
+}
+
+.two-thirds .grid-sizer {
+  /* track width of stream-module blocks */
+  width: 100%;
+}
+
+.two-thirds .gutter-sizer {
+  /* calc width of 100% - moduleblockwidth*columns */
+  width: 2.62%;
+}
+
+@media (min-width: 768px) {
+  .two-thirds .grid-sizer {
+    width: $one-half;
+  }
+
+  .two-thirds .gutter-sizer {
+    /* calc width of 100% - moduleblockwidth*columns */
+    width: 2.62%;
+  }
+}
+
+/* .stream-module-outer seems to collapse to 2 col in certain 3 column situations after loading.
+	100% seems to fix...mason-box needs explicit width or it collapses to 0 and I cry
+*/
+
+.stream-module-outer {
+  width: 100%;
+}
+
+.stream-module-outer.two-thirds {
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .stream-module-outer.two-thirds {
+    width: $two-thirds;
+  }
+}
+/*
+
+#stream-content {
+	min-height:6em;
+}
+*/
+
+#stream-content:not(.event-landing) {
+  /* prevent collapse */
+  width: 100%;
+
+  /* apply same styles as .stream-module-outer to prevent flicker before packery inits */
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-content: stretch;
+  align-items: stretch;
+}
+
+/* Packery is adding gutters */
+[data-view="grid"] .mason-box.packed .stream-module.stream-thing {
+  margin-bottom: 0;
+}
+
+[data-view="list"] .mason-box .stream-module.stream-thing {
+  margin-bottom: 40px;
+}
+
+#load-more-container {
+  width: 100%;
+}

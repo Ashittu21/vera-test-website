@@ -1,0 +1,61 @@
+{% import '_macros/social' as social %}
+
+<article class="fact {{ class ?? null }}">
+	{% set description = entry.factSeo.seoDescription %}
+	{% set relation = craft.entries.relatedTo(entry).first %}
+	{% set shareTo = relation ? relation.url : null %}
+	{% set socialChannels = [
+		{
+			link: "https://www.twitter.com/intent/tweet?text=" ~ (description | url_encode) ~ "&url=" ~ (shareTo | url_encode),
+			title: "Twitter"
+		}
+  ] %}
+	{% if shareTo %}
+		<div class="share">
+			{% for channel in socialChannels %}
+				{{ social.socialShareLink(channel.link,channel.title) }}
+			{% endfor %}
+		</div>
+	{% endif %}
+	<div class="inner">
+		{%- for fact in entry.factBuilder.level(1).all() -%}
+			{%- switch fact.type -%}
+				{%- case 'basic' -%}
+					{%- for block in fact.children -%}
+						{%- switch block.type -%}
+							{%- case 'text' -%}
+								<div class="text">{{ block.text | shortcodes | raw }}</div>
+							{%- case 'number' -%}
+								<div class="viz number">{{ block.plaintext }}</div>
+							{%- case 'percentage' -%}
+								{%- set hideNumber = block.percentagePresentation.value in ['pie'] -%}
+								{%- set showViz = block.percentagePresentation.value in ['pie'] -%}
+								<div class="viz number percentage {{ block.percentagePresentation.value }} {{ block.percentageStyle }} {{ block.percentageChangeDirection }}">
+									{% if showViz %}
+										<div class="viz-canvas" data-percentage-pie='{"value": "{{ block.percentage }}"}'></div>
+									{% endif %}
+									<div {% if hideNumber %} class="hide-number" {% endif %}>{{ block.percentage }}%</div>
+								</div>
+							{% case 'ratio' %}
+								{% set ratio = block.ratio[0] %}
+								<div class="viz ratio">
+									<div class="viz-canvas" data-ratio='{"value": {{ ratio | json_encode | raw }} }'></div>
+									<div class="viz-text">{{ ratio.antecedant }}
+										in
+										{{ ratio.consequent }}
+										{{ ratio.unit }}</div>
+								</div>
+							{% case 'time' %}
+								<div class="viz time">
+									<div class="viz-canvas" data-time='{"value": "{{ block.timeCount }}", "unit": "{{ block.timeUnit}}" }'></div>
+									<div class="viz-text small">{{ block.timeCount }}
+										{{ block.timeUnit }}</div>
+								</div>
+							{%- default -%}
+						{%- endswitch -%}
+					{%- endfor -%}
+				{%- default -%}
+			{%- endswitch -%}
+		{%- endfor -%}
+	</div>
+</article>

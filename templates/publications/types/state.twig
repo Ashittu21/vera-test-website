@@ -1,0 +1,38 @@
+{% extends '_layout' %}
+{% set parent = entry.parent %}
+{% block content %}
+  {% set stateData = {} %}
+  {% for state in parent.children %}
+    {% set stateData = stateData | merge({
+      (state.stateCode): {
+        url: state.url,
+        pdfUrl: state.pdfDownload | length ? state.pdfDownload[0].url : null
+      }
+    }) %}
+  {% endfor %}
+
+  {% set superheading %}
+  <a href="{{ parent.url }}">{{ parent.title }}</a>
+  {% endset %}
+  {% include 'publications/_blocks/stateHero' with {
+    block: {
+      superheading: superheading,
+      heading: entry.title,
+      explainer: entry.explainer,
+      download: {
+        label: "Get fact sheet",
+        url: entry.pdfDownload | length ? entry.pdfDownload[0].url : null
+      }
+    }
+  } %}
+
+  {% include 'includes/snippets/keyfacts' %}
+
+  {% set mapBlock = parent.statePublicationsBuilder.type('usStateMap').first() %}
+  {% if mapBlock %}
+    {% include 'publications/_blocks/usStateMap' with { block: mapBlock, highlight: entry.stateCode } %}
+  {% endif %}
+
+  {% include 'includes/stream/module_related-content' %}
+  
+{% endblock %}

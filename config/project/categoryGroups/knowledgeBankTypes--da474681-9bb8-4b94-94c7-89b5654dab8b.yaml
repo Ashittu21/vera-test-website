@@ -1,0 +1,40 @@
+fieldLayouts:
+  c1c6df07-c6fd-4b03-8c84-5df119681835:
+    tabs:
+      -
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\TitleField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+handle: knowledgeBankTypes
+name: 'Knowledge Bank Types'
+siteSettings:
+  8ed9f980-84ac-470d-94d7-89a2cdb64916:
+    hasUrls: true
+    template: null
+    uriFormat: '{% if object.level == 1 %}knowledge-bank-types/{slug}{% else %}{parent.uri}/{slug}{% endif %}'
+structure:
+  maxLevels: 2
+  uid: 2b52b56e-e7b9-487f-9c3b-5e450d9bc8e1

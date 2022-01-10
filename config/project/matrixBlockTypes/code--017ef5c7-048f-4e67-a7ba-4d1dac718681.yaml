@@ -1,0 +1,40 @@
+field: ad6cffcd-5f05-4947-8dfa-92c4679f4943
+fieldLayouts:
+  6101e945-9d5b-48f8-84c2-b8538aa7f7d7:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: f8a6a458-e8d3-43e7-a674-3d2c216abbf9
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  f8a6a458-e8d3-43e7-a674-3d2c216abbf9:
+    contentColumnType: text
+    fieldGroup: null
+    handle: code
+    instructions: ''
+    name: Code
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+handle: code
+name: Code
+sortOrder: 9

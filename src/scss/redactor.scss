@@ -1,0 +1,11 @@
+body .redactor-box,
+body .redactor-box:not(.redactor-box-fullscreen) {
+  @import "base/variables.scss";
+  @import "base/mixins.scss";
+  @import "base/fonts.scss";
+	@import "base/type.scss";
+
+	p {
+		@extend .type--body;
+	}
+}

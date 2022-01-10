@@ -1,0 +1,60 @@
+field: 95bc127b-3520-49ff-803a-7352214068b1
+fieldLayouts:
+  8e982e64-3628-4ec4-8f1e-2524be3c86ca:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 0d5bf0b8-a406-4afc-a646-e20d2efa6ad1
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  0d5bf0b8-a406-4afc-a646-e20d2efa6ad1:
+    contentColumnType: text
+    fieldGroup: null
+    handle: hashtags
+    instructions: 'For twitter feed.  e.g. #ReimaginePrison'
+    name: Hashtags
+    searchable: true
+    settings:
+      addRowLabel: 'Add a row'
+      columnType: text
+      columns:
+        __assoc__:
+          -
+            - col1
+            -
+              __assoc__:
+                -
+                  - heading
+                  - Hashtag
+                -
+                  - handle
+                  - hashtag
+                -
+                  - width
+                  - ''
+                -
+                  - type
+                  - singleline
+      defaults:
+        -
+          __assoc__:
+            -
+              - col1
+              - ''
+      maxRows: ''
+      minRows: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Table
+handle: socialFeed
+name: 'Social Feed'
+sortOrder: 15

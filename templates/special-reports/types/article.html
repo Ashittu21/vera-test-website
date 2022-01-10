@@ -1,0 +1,53 @@
+{# override seomaticMeta with custom fields because seoMatic fieldtype is buggy with this big neo layout #}
+{% set title = entry.seoTitle ?? entry.title %}
+{% set description = entry.seoDescription ?? seomatic.meta.seoDescription %}
+{% set image = entry.seoImage | length ? entry.seoImage[0].url : 'https://storage.googleapis.com/vera-web-assets/audio/Vera_seo_fb.jpg' %}
+{% do seomatic.meta
+    .seoTitle(title)
+    .seoDescription(description)
+    .seoImage(image) %}
+{# ------- #}
+
+{% set fromOnePage = fromOnePage ?? false %}
+{% set topEntry = entry.ancestors.level(1).first() ?? entry %}
+{% set withScrollTrigger = topEntry.navSlidesInAfterIntro is defined and topEntry.navSlidesInAfterIntro ?? false %}
+{% if entry.parent and entry.parent.singlePage and not fromOnePage and not (craft.app.config.env == 'dev') %}
+	{% redirect entry.parent.url ~ "?goTo=" ~ entry.url %}
+{% endif %}
+
+{% extends craft.request.isAjax or fromOnePage ? '_ajax_layout' : '_layout' %}
+
+{% block nav %}
+	{% if not craft.request.isAjax %}
+		{% include 'includes/_header/header' with { entry: topEntry, withScrollTrigger: withScrollTrigger } %}
+	{% endif %}
+{% endblock %}
+
+{% block bodyClass %}
+	{{ parent() }}
+	{% if (entry['navTheme'] is defined and entry.navTheme.value in ['visualTiles']) or withScrollTrigger %}no-pad
+	{% endif %}
+{% endblock %}
+
+{% block content %}
+	{% set animateBackgroundChanges = entry.backgroundChangeStyle.value in ['fullScreenAnimated'] %}
+	{% set colorWrap = not animateBackgroundChanges and entry.colorCombo.value != "inherit" %}
+	{% if colorWrap %}
+		<div class="color-combo--{{ entry.colorCombo.value }}">
+		{% endif %}
+		{% include '_article/articleBuilder' with { withScrollTrigger: not craft.request.isAjax ? withScrollTrigger : false } %}
+		{% if entry.singlePage and entry.children | length %}
+			{% for entry in entry.children %}
+				{% include '_article/articleBuilder' %}
+			{% endfor %}
+		{% endif %}
+		{% if colorWrap %}
+		</div>
+	{% endif %}
+{% endblock %}
+
+{% block footer %}
+	{% if not entry.getNextSibling() %}
+		{{ parent() }}
+	{% endif %}
+{% endblock %}

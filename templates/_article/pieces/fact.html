@@ -1,0 +1,15 @@
+<section class="article-block-fact article-block-max-column container">
+	<div class="article-block-fact-text">
+		<h4 class="heading article-data-heading">{{ block.heading }}</h4>
+
+		<div class="explainer article-data-explainer">{{ block.text }}</div>
+
+		{% if block.tableNotes %}
+		<div class="notes">{{ block.tableNotes }}</div>
+		{% endif %}
+	</div>
+
+	<div class="article-block-fact-viz">
+		<img src="{{ block.photo[0].url ?? '//placehold.it/1000x666' }}">
+	</div>
+</section>

@@ -1,0 +1,67 @@
+contentColumnType: string
+fieldGroup: b7c07949-c4d1-4af6-a996-017773fd0ef5
+handle: endorserIsA
+instructions: ''
+name: 'Endorser is a:'
+searchable: true
+settings:
+  optgroups: true
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - ''
+        -
+          - value
+          - ''
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - 'Elected Official'
+        -
+          - value
+          - electedOfficial
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - 'Government Office'
+        -
+          - value
+          - governmentOffice
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - 'Nonprofit/Advocacy Organization'
+        -
+          - value
+          - nonprofitAdvocacyOrganization
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - 'Other Entity'
+        -
+          - value
+          - otherEntity
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

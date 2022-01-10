@@ -1,0 +1,14 @@
+tabs:
+  -
+    elements:
+      -
+        fieldUid: 96f5080d-c6f1-4ec2-9317-5bdfff6152fb
+        instructions: null
+        label: null
+        required: '0'
+        tip: null
+        type: craft\fieldlayoutelements\CustomField
+        warning: null
+        width: 100
+    name: 'Knowledge Bank Access'
+    sortOrder: 1

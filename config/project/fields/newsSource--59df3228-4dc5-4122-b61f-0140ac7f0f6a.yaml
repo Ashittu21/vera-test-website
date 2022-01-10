@@ -1,0 +1,23 @@
+contentColumnType: string
+fieldGroup: 40643364-5bf7-45f5-81d8-44125bf92fc4
+handle: newsSource
+instructions: ''
+name: 'News Source'
+searchable: true
+settings:
+  allowLimit: false
+  allowMultipleSources: false
+  allowSelfRelations: false
+  branchLimit: '1'
+  limit: null
+  localizeRelations: false
+  selectionLabel: 'News Source'
+  showSiteMenu: true
+  source: 'group:cb6b3134-4e24-4189-b7fe-d5fdb5eff2ea'
+  sources: '*'
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Categories

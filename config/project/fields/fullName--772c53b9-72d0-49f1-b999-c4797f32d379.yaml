@@ -1,0 +1,18 @@
+contentColumnType: text
+fieldGroup: 4c3c9461-c4a3-47fe-b50e-ba259550f504
+handle: fullName
+instructions: ''
+name: 'Full name'
+searchable: true
+settings:
+  byteLimit: null
+  charLimit: null
+  code: false
+  columnType: text
+  initialRows: '4'
+  multiline: ''
+  placeholder: ''
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

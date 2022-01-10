@@ -1,0 +1,84 @@
+{% set list = block.resourceList ?? list %}
+{% if list | length %}
+<ul class="article-block-resource-list article-block-max-column container inner best-of-list">
+{% for resource in list %}
+  {% if block is defined %}
+    {% switch resource.type %}
+      {% case "internalLink" %}
+        {% set entry = resource.entry.one() %}
+        {% set href = entry ? entry.url %}
+        {% set ext = false %}
+        {% set icon = 'desktop' %}
+
+      {% case "externalLink" %}
+        {% set href = resource.linkUrl %}
+        {% set ext = true %}
+        {% set icon = 'desktop' %}
+
+      {% case "file" %}
+        {% set href = resource.file[0].url %}
+        {% set ext = true %}
+        {% set icon = 'doc' %}
+
+      {% case "video" %}
+        {% set href = resource.video.url %}
+        {% set ext = true %}
+        {% set icon = 'video' %}
+
+      {% default %}
+    {% endswitch %}
+    <li class="article-block-resource-list-item best-of-item">
+      <a class="article-block-resource-list-item-link" href="{{ href }}" {% if ext %}target="_blank"{% endif %}>
+        <i class="icon-{{ icon }}" style="float: left; margin-right: .5em"></i>
+        {% if resource['thumbnail'] is defined and resource.thumbnail.first %}
+        <img src="{{ craft.imager.transformImage(resource.thumbnail.first,{ width: 200, height: 200 }).url }}">
+        {% endif %}
+        <div class="inner">
+          <div class="heading">{{ resource.heading }}</div>
+          <div class="body">{{ resource.description }}</div>
+        </div>
+      </a>
+    </li>
+  {% else %}
+    {% for resource in resource.resourceList %}
+      {% switch resource.type %}
+        {% case "internalLink" %}
+          {% set href = resource.entry.one().url %}
+          {% set ext = false %}
+          {% set icon = 'desktop' %}
+          {% set heading = resource.heading | length ? resource.heading : resource.entry[0].title %}
+
+        {% case "externalLink" %}
+          {% set href = resource.linkUrl %}
+          {% set ext = true %}
+          {% set icon = 'desktop' %}
+
+        {% case "file" %}
+          {% set href = resource.file[0].url %}
+          {% set ext = true %}
+          {% set icon = 'doc' %}
+
+        {% case "video" %}
+          {% set href = resource.video.url %}
+          {% set ext = true %}
+          {% set icon = 'video' %}
+
+        {% default %}
+      {% endswitch %}
+      <li class="article-block-resource-list-item best-of-item">
+        <a class="article-block-resource-list-item-link" href="{{ href }}" {% if ext %}target="_blank"{% endif %}>
+          <i class="icon-{{ icon }}" style="float: left; margin-right: .5em"></i>
+          {% if resource['thumbnail'] is defined and resource.thumbnail.first %}
+          <img src="{{ craft.imager.transformImage(resource.thumbnail.first,{ width: 200, height: 200 }).url }}">
+          {% endif %}
+          <div class="inner">
+            <div class="heading">{{ heading }}</div>
+            <div class="body">{{ resource.description }}</div>
+          </div>
+        </a>
+      </li>
+    {% endfor %}
+  {% endif %}
+{% endfor %}
+</ul>
+{% endif %}

@@ -1,0 +1,5 @@
+{%- extends '_layout' -%}
+
+{% block content %}
+	{%- embed 'data-viz/' ~ entry.type.handle with {viz: entry, baseUrl: baseUrl ?? null } -%}{% endembed %}
+{% endblock %}

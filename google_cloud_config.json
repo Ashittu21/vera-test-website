@@ -1,0 +1,21 @@
+[
+  {
+    "maxAgeSeconds": 60,
+    "method": ["GET", "HEAD", "DELETE"],
+    "origin": [
+      "https://vera.loc",
+      "https://www.vera.org",
+      "http://vera.craft.dev",
+      "https://vera-local.test",
+      "https://staging.vera.org",
+      "https://vera.dev",
+      "https://vera.test",
+      "https://dylans-mbp.home:5757",
+      "https://vera.local",
+      "https://verac3.test",
+      "https://vera.hyperakt.com",
+      "https://craft2.vera.org"
+    ],
+    "responseHeader": ["Content-Type"]
+  }
+]

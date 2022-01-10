@@ -1,0 +1,34 @@
+childBlocks: ''
+field: 8beb1641-c6da-43b5-8033-8b0f0001149a
+fieldLayouts:
+  68125d46-4e67-4a53-849a-759ca6977453:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 042ab8f0-cbe4-451d-87a1-86511084b456
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 28eda735-1bde-404e-b238-b5dab5f7ef57
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+handle: video
+maxBlocks: 0
+maxChildBlocks: 0
+maxSiblingBlocks: 0
+name: Video
+sortOrder: 4
+topLevel: false

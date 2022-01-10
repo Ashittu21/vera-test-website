@@ -1,0 +1,32 @@
+contentColumnType: string
+fieldGroup: 2fa9b2e1-1f3e-40b9-9de6-673b6be4a3f1
+handle: recommendedContent
+instructions: ''
+name: 'Recommended Content'
+searchable: true
+settings:
+  allowSelfRelations: false
+  limit: ''
+  localizeRelations: false
+  selectionLabel: ''
+  showSiteMenu: true
+  source: null
+  sources:
+    - 'section:abd4843a-d96f-4c91-8d77-5628cfabd622'
+    - 'section:2076decf-5547-47d8-9fba-9d8f1d52e7e3'
+    - 'section:b04b4329-db45-40d5-af36-a0aa6660ec8b'
+    - 'section:a3a7829e-21fa-4e92-b2a9-533a264d176e'
+    - 'section:8753af07-1f2f-4ef8-8fbb-a94f2fd2330b'
+    - 'section:38aa58cd-ad86-413c-a4d5-6fb79ce7e7e3'
+    - 'section:4b7c3d23-1010-47d7-9813-9b5a7707aa63'
+    - 'section:de58574e-6015-4303-8825-6fc4fec23327'
+    - 'section:2763633d-aa2e-4ea8-ba85-d9643faecc13'
+    - 'section:cce065ab-4801-487f-ad16-459f0c429f5d'
+    - 'section:3b26894b-140e-447a-a0d8-d7a4ab147aaa'
+    - 'section:11a5943b-22d1-4871-8aac-84c7de4dec8e'
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Entries

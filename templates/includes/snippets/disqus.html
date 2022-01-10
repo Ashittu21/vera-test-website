@@ -1,0 +1,21 @@
+<script>
+(function() {
+	var disqus_config = function () {
+	    this.page.url = '{{ craft.request.url }}';  // Replace PAGE_URL with your page's canonical URL variable
+	    this.page.identifier = '{{ entry.section ~ "-" ~ entry.id }}'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+	};
+	var src = "//verainstitute.disqus.com/embed.js"
+    if (typeof DISQUS === "undefined" && !document.querySelector('script[src="' + src + '"]')) {
+		var d = document, s = d.createElement('script');
+		s.src = src;
+		s.setAttribute('data-timestamp', +new Date());
+		(d.head || d.body).appendChild(s);
+    } else {
+	    DISQUS.reset({
+			reload: true,
+			config: disqus_config
+		});
+    }
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>

@@ -1,0 +1,50 @@
+{% extends 'state-of/_layout_internal' %}
+{% set showHero = entry.slug == 'about' %}
+{% set showRelated = entry.slug == 'about' %}
+{% set aggregate = entry.aggregateStream.value %}
+
+{% block articleInner %}
+<article class="default">
+	<section class="overview">
+		<div class="container">
+			{% if aggregate != 'map' %}
+			{% embed'state-of/_/copy' %}
+			{% if showHero %}
+			{% block beforeBody %}
+			{% set image = entry.heroImage[0] ?? null %}
+			{% if image %}
+			<div class="intro">
+					{% set transformedImages = craft.imager.transformImage( image, [
+						{ width: 4000 },
+						{ width: 2000 },
+						{ width: 1000 },
+						{ width: 600, jpegQuality: 65 },
+						{ width: 200, jpegQuality: 65 }
+					],{
+						ratio: 3/2,
+						position: image.focusPctX ~ '% ' ~ image.focusPctY ~ '%'
+					}, {
+						fillTransforms: false
+					}) %}
+					<img src="{{ transformedImages[1].url }}" srcset="{{ craft.imager.srcset(transformedImages) }}">
+			</div>
+			{% endif %}
+			{% endblock %}
+			{% endif %}
+			{% endembed %}
+			{% endif %}
+		</div>
+	</section>
+
+	{% if aggregate != 'none' %}
+	{% include 'state-of/_aggregates/' ~ aggregate %}
+	{% endif %}
+
+	{% if showRelated %}
+	{% set things = entry.siblings.pageType('topic').limit(3) %}
+	{% include 'state-of/_/related' with {entries: things, heading: 'Topics'} %}
+	{% endif %}
+
+	{% include 'includes/_footer/footer__state-of' %}
+</article>
+{% endblock %}

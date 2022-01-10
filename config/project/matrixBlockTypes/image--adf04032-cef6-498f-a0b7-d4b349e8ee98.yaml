@@ -1,0 +1,82 @@
+field: 7ab39b56-4296-4f7e-92a0-0266581fe1a6
+fieldLayouts:
+  c0abaccb-02c5-4636-b8ae-aa83dccfa550:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: ae5639f8-19dd-49ed-9d8b-fca76b7204f7
+            instructions: null
+            label: null
+            required: '1'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: c3cc51d9-2ee1-4d96-8ce7-2a2095d5f717
+            instructions: null
+            label: null
+            required: '0'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  ae5639f8-19dd-49ed-9d8b-fca76b7204f7:
+    contentColumnType: string
+    fieldGroup: null
+    handle: heroImage
+    instructions: 'Dimensions: 2880px width, 1340px height'
+    name: 'Hero Image'
+    searchable: true
+    settings:
+      allowSelfRelations: false
+      allowUploads: true
+      allowedKinds:
+        - image
+      defaultUploadLocationSource: 'volume:c3679b2c-c8a9-497f-a727-b1b62f2da07a'
+      defaultUploadLocationSubpath: 'donate/{slug}/'
+      limit: '1'
+      localizeRelations: false
+      previewMode: full
+      restrictFiles: '1'
+      selectionLabel: 'Add an image'
+      showSiteMenu: true
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: true
+      singleUploadLocationSource: 'volume:c3679b2c-c8a9-497f-a727-b1b62f2da07a'
+      singleUploadLocationSubpath: 'donate/{owner.slug}/'
+      source: null
+      sources: '*'
+      targetSiteId: null
+      useSingleFolder: true
+      validateRelatedElements: false
+      viewMode: large
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+  c3cc51d9-2ee1-4d96-8ce7-2a2095d5f717:
+    contentColumnType: text
+    fieldGroup: null
+    handle: heading
+    instructions: ''
+    name: Heading
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: false
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+handle: image
+name: Image
+sortOrder: 1

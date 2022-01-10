@@ -1,0 +1,19 @@
+{% extends '_meta' %}
+
+{% block body %}
+		{% set print = true %}
+		{% if entry.level == 1 %}
+
+		{% for chapter in entry.children %}
+			{% include 'special-reports/types/' ~ chapter.type with { entry: chapter, fromOnePage: true } %}
+		{% endfor %}
+		{% else %}
+			{% include 'special-reports/types/' ~ entry.type.handle with { entry: entry, fromOnePage: true } %}
+		{% endif %}
+
+		{% includeJs %}
+			window.addEventListener("load", function() {
+				window.print();
+			});
+		{% endincludejs %}
+{% endblock %}

@@ -1,0 +1,76 @@
+{% macro vizSelector(params) %}
+{% set name = (params.name ?? 'columnSelector__') ~ (now | date('U')) ~ random() %}
+<fieldset class="viz-selector viz-selector--primary radios no-color multi-chart-selector" data-name="{{ name }}">
+	{% if params.columnSelectLabel is defined %}<legend>{{ params.columnSelectLabel }}</legend>{% endif %}
+	<div>
+		{% for option in params.options %}
+		{% if option.groupLabel is defined %}
+		<radiogroup>
+			<legend>{{ option.groupLabel }}</legend>
+			{% for option in option.options %}
+			{{ _self.radio(option,name) }}
+			{% endfor %}	
+		</radiogroup>
+		{% else %}
+		{{ _self.radio(option,name) }}
+		{% endif %}
+		{% endfor %}
+	</div>
+</fieldset>
+{% endmacro %}
+
+{% macro radio(option,name) %}
+{% set value = (option.label | camel) %}
+{% set id = value ~ "__" ~ random()  %}
+<div>
+	<input id="{{ id }}" value="{{ value }}" type="radio" data-options='{{ option | json_encode | escape("html_attr") }}' name="{{ name }}"
+		{%- if option.checked is defined and option.checked %} checked{% endif -%}
+	>
+	<label for="{{ id }}">{{ option.label }}</label>
+</div>
+{% endmacro %}
+
+{% macro option(option,name) %}
+{% set id = option.label | camel  %}
+<option id="{{ id }}" value="{{ id }}"{%- if option.checked is defined and option.checked %} selected{% endif -%}>{{ option.label }}</option>
+{% endmacro %}
+
+{% macro vizSelectorMobile(params) %}
+{% set name = (params.name ?? 'columnSelector__') ~ (now | date('U')) ~ random() %}
+<fieldset class="viz-selector viz-selector--secondary select" data-name="{{ name }}">
+	{% if params.columnSelectLabel is defined %}<legend>{{ params.columnSelectLabel }}</legend>{% endif %}
+	<select class="basic">
+		{% for option in params.options %}
+		{% if option.groupLabel is defined %}
+			<optgroup label="{{ option.groupLabel }}">
+				{% for option in option.options %}
+				{{ _self.option(option,name) }}
+				{% endfor %}
+			</optgroup>
+		{% else %}
+			{{ _self.option(option,name) }}
+		{% endif %}
+		{% endfor %}
+	</select>
+</fieldset>
+{% endmacro %}
+
+{% macro baselineToggle(params) %}
+<fieldset class="baseline-toggle">
+	<div class="fieldset-inner">
+		<label for="baselineToggle" class="checkbox-plain">
+			<input class="plain" type="checkbox" id="baselineToggle" name="baseline-toggle" checked data-column="{{ params.column }}" data-value="{{ params.value }}">{{ params.label }}
+		</label>
+	</div>
+</fieldset>
+{% endmacro %}
+
+{% macro filterSelector(params) %}
+<fieldset class="multi-filter-selector">
+	<legend>{{ params.filterSelectLabel }}</legend>
+	<div class="fieldset-inner">
+		<div class="select-wrap"></div>
+		<button class="js-add-filter btn" title="Add County">Add County</button>
+	</div>
+</fieldset>
+{% endmacro %}

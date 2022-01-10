@@ -1,0 +1,140 @@
+field: 44e41860-df4d-48fa-a45a-d5f8c4b4fc1f
+fieldLayouts:
+  3926132f-1b47-4290-8aeb-ec05eca0132b:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 82f1a551-7554-484a-8ca4-8cc939dba09a
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: de38aab5-11b0-4760-8e73-9b31974208ca
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 79ab484b-1d55-4bd3-9558-129388ad1a07
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: fc0eba69-60fc-4a56-8810-08de390eb5fc
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  79ab484b-1d55-4bd3-9558-129388ad1a07:
+    contentColumnType: text
+    fieldGroup: null
+    handle: overrideTitle
+    instructions: ''
+    name: 'Override TItle'
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  82f1a551-7554-484a-8ca4-8cc939dba09a:
+    contentColumnType: string
+    fieldGroup: null
+    handle: featuredContent
+    instructions: ''
+    name: 'Featured Content'
+    searchable: true
+    settings:
+      allowSelfRelations: false
+      limit: ''
+      localizeRelations: false
+      selectionLabel: ''
+      showSiteMenu: true
+      source: null
+      sources: '*'
+      targetSiteId: null
+      validateRelatedElements: false
+      viewMode: null
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Entries
+  de38aab5-11b0-4760-8e73-9b31974208ca:
+    contentColumnType: string
+    fieldGroup: null
+    handle: heroImage
+    instructions: "This will override the hero image of the featured content, if one is set.  This should be used on pieces of content that do not already have a hero image.\r\n\r\nDimensions: 2880px width, 1340px height"
+    name: 'Hero Image'
+    searchable: true
+    settings:
+      allowSelfRelations: false
+      allowUploads: true
+      allowedKinds:
+        - image
+      defaultUploadLocationSource: 'volume:a48d5d4c-e94e-40ca-b140-801253b0f802'
+      defaultUploadLocationSubpath: ''
+      limit: '1'
+      localizeRelations: false
+      previewMode: full
+      restrictFiles: '1'
+      selectionLabel: 'Add an image'
+      showSiteMenu: true
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: true
+      singleUploadLocationSource: 'volume:a48d5d4c-e94e-40ca-b140-801253b0f802'
+      singleUploadLocationSubpath: '{featuredContent.first.section.handle}/{featuredContent.first.slug}/hero/'
+      source: null
+      sources: '*'
+      targetSiteId: null
+      useSingleFolder: true
+      validateRelatedElements: false
+      viewMode: large
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+  fc0eba69-60fc-4a56-8810-08de390eb5fc:
+    contentColumnType: text
+    fieldGroup: null
+    handle: overrideSubtitle
+    instructions: ''
+    name: 'Override Subtitle'
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+handle: internalContent
+name: 'Internal Content'
+sortOrder: 1

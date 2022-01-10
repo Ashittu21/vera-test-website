@@ -1,0 +1,13 @@
+.DataText {
+}
+
+.DataText-loading {
+  opacity: 0;
+}
+
+.DataText-loaded {
+  display: contents;
+  .footnote {
+    display: contents;
+  }
+}

@@ -1,0 +1,26 @@
+{# @var craft \craft\web\twig\variables\CraftVariable #}
+{#
+/**
+ * Special Relations plugin for Craft CMS
+ *
+ * RelatedToMe Field Settings
+ *
+ * @author    sgtpenguin
+ * @copyright Copyright (c) 2020 sgtpenguin
+ * @link      https://hyperakt.com
+ * @package   SpecialRelations
+ * @since     1.0.0
+ */
+#}
+
+{% import "_includes/forms" as forms %}
+
+{% do view.registerAssetBundle("sgtpenguin\\specialrelations\\assetbundles\\specialrelations\\SpecialRelationsAsset") %}
+
+{{ forms.textField({
+    label: 'Some Attribute',
+    instructions: 'Enter some attribute here.',
+    id: 'someAttribute',
+    name: 'someAttribute',
+    value: field['someAttribute']})
+}}

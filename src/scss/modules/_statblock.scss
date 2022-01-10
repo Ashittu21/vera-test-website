@@ -1,0 +1,29 @@
+.Stats {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  //height: 100%;
+}
+.StatBlock {
+  text-align: center;
+  @extend .ff-sans;
+
+  & + .StatBlock {
+    margin-top: $padding-lg;
+  }
+}
+
+.StatBlock-text {
+  @extend .size--body;
+}
+
+.StatBlock-callout {
+  color: $red;
+  @extend .size--h2;
+  line-height: 1;
+  font-weight: bold;
+}
+
+.module-intro__sidebar .StatBlock:last-child {
+  padding-bottom: $padding-lg;
+}

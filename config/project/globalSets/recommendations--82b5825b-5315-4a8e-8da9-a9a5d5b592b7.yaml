@@ -1,0 +1,18 @@
+fieldLayouts:
+  0a93a543-28ce-48fe-99d2-ef517f0b5cf8:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 4c2bd17c-f787-4fbf-a626-2c7432e7188c
+            instructions: null
+            label: null
+            required: '0'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+handle: recommendations
+name: Recommendations

@@ -1,0 +1,25 @@
+childBlocks: ''
+field: f169c5fc-b73a-407b-a234-05171b57ee74
+fieldLayouts:
+  2602c142-eae0-4dc5-b5f3-fc5ccf9a741d:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 57e2d361-3c1b-4d5b-91b3-86d7f2f96570
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: 'Tab 1'
+        sortOrder: 1
+handle: shadedStateMap
+maxBlocks: 0
+maxChildBlocks: 0
+maxSiblingBlocks: 0
+name: 'Shaded State Map'
+sortOrder: 3
+topLevel: false

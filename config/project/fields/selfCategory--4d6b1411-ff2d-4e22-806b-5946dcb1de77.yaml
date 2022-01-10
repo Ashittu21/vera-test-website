@@ -1,0 +1,23 @@
+contentColumnType: string
+fieldGroup: 2fa9b2e1-1f3e-40b9-9de6-673b6be4a3f1
+handle: selfCategory
+instructions: ''
+name: 'Self Category'
+searchable: true
+settings:
+  allowLimit: false
+  allowMultipleSources: false
+  allowSelfRelations: false
+  branchLimit: '3'
+  limit: null
+  localizeRelations: false
+  selectionLabel: ''
+  showSiteMenu: true
+  source: 'group:e9238f39-d971-424b-b284-e310c48657b7'
+  sources: '*'
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Categories

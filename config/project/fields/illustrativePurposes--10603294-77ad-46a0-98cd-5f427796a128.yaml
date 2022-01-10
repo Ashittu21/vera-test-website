@@ -1,0 +1,13 @@
+contentColumnType: boolean
+fieldGroup: af54816f-3515-4a9a-80c0-4a6de1779a83
+handle: illustrativePurposes
+instructions: ''
+name: 'Illustrative Purposes'
+searchable: true
+settings:
+  default: false
+  offLabel: null
+  onLabel: null
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Lightswitch

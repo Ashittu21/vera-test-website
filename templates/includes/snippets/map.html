@@ -1,0 +1,79 @@
+<a href="https://www.google.com/maps/search/{{ address|url_encode }}" target="_blank"><div id="map"></div></a>
+
+<script>
+
+	var mapwrap = document.getElementById('map');
+	
+	var map = {};
+	
+	var mapstyles =  [{
+        "stylers": [
+            {
+                "saturation": -100
+            },
+            {
+                "gamma": 0.8
+            },
+            {
+                "lightness": 4
+            },
+            {
+                "visibility": "on"
+            }
+        ]
+    }];
+	
+	var geocoder;
+
+	function initMap() {
+		
+		geocoder = new google.maps.Geocoder();
+		
+		var address = '{{ address }}';
+		
+		geocoder.geocode({'address': address}, function(results, status) {
+			
+			if (status == google.maps.GeocoderStatus.OK) {
+				
+				makeMap(results[0].geometry.location);
+			
+			} else {
+				
+				console.warn("Geocode failed:" + status);
+			
+			}
+			
+		});	
+		
+	
+	}
+	
+	function makeMap(coords) {
+	
+		map.map = new google.maps.Map(mapwrap, {
+			center: coords,
+			zoom: 16,
+			styles: mapstyles,
+			disableDefaultUI: true,
+			clickableIcons: false,
+			disableDoubleClickZoom: true,
+			scrollwheel: false,
+			draggable: false,
+		});
+		
+		map.coords = coords;
+		
+		var marker = new google.maps.Marker({
+			map: map.map,
+			position: map.coords
+		});
+		
+	}
+	
+	window.addEventListener("resize", function() {
+		map.map.setCenter(map.coords);
+	});
+
+</script>
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCUEbplmckN40d3iGssxm7TX4bjW5vZ3fs&callback=initMap"></script>

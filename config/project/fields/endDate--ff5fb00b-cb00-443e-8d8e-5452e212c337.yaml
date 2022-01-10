@@ -1,0 +1,15 @@
+contentColumnType: datetime
+fieldGroup: 3ad6d151-958c-44f4-99b0-865c27d2922e
+handle: endDate
+instructions: ''
+name: 'End Date'
+searchable: true
+settings:
+  max: null
+  min: null
+  minuteIncrement: '30'
+  showDate: 1
+  showTime: 0
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Date

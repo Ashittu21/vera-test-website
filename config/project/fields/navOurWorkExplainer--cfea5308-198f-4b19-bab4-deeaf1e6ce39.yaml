@@ -1,0 +1,18 @@
+contentColumnType: text
+fieldGroup: eb8d5aaa-67b6-434f-a45a-07397e67aa3a
+handle: navOurWorkExplainer
+instructions: ''
+name: 'Nav Our Work Explainer'
+searchable: true
+settings:
+  byteLimit: null
+  charLimit: null
+  code: false
+  columnType: text
+  initialRows: '4'
+  multiline: ''
+  placeholder: ''
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

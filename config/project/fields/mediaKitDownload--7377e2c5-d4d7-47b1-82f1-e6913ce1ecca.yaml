@@ -1,0 +1,33 @@
+contentColumnType: string
+fieldGroup: 72dc75d0-00df-43ca-8e65-29ebf5aec99f
+handle: mediaKitDownload
+instructions: 'This file is available for download on the Newsroom landing page'
+name: 'Media Kit Download'
+searchable: true
+settings:
+  allowSelfRelations: false
+  allowUploads: true
+  allowedKinds:
+    - compressed
+    - pdf
+  defaultUploadLocationSource: 'volume:a48d5d4c-e94e-40ca-b140-801253b0f802'
+  defaultUploadLocationSubpath: ''
+  limit: '1'
+  localizeRelations: false
+  previewMode: full
+  restrictFiles: '1'
+  selectionLabel: 'Select Media Kit'
+  showSiteMenu: true
+  showUnpermittedFiles: false
+  showUnpermittedVolumes: true
+  singleUploadLocationSource: 'volume:f268e466-b078-41f2-a13d-e38afcce3b27'
+  singleUploadLocationSubpath: media-kit/
+  source: null
+  sources: '*'
+  targetSiteId: null
+  useSingleFolder: true
+  validateRelatedElements: false
+  viewMode: large
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Assets

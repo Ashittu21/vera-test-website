@@ -1,0 +1,187 @@
+/* .CitiesMapWithLinks {
+  display: flex;
+}
+
+.CitiesMapWithLinks .project-map {
+  width: 100%;
+  height: 100%;
+} */
+
+.CitiesMapWithLinks.project-map .map__header {
+  max-width: 1000px;
+  border-bottom: 0;
+  @media (min-width: $tablet-landscape) {
+    border-bottom: 2px solid #f3f3f2;
+  }
+}
+.CitiesMapWithLinks.project-map .map_wrap {
+  display: none;
+  @media (min-width: $tablet-landscape) {
+    display: block;
+  }
+}
+
+.CitiesMapWithLinks-sidebar {
+  padding-top: 0 !important;
+  max-width: 400px;
+  margin: 0 auto;
+
+  ul {
+    @extend .ff-sans;
+    list-style-type: none;
+  }
+}
+.CitiesMapWithLinks-search {
+  @extend %nav-link;
+  position: sticky;
+  top: 0;
+  display: block;
+  background-color: $white;
+  padding-top: $padding-lg;
+  padding-bottom: 0.5em;
+  max-width: 400px;
+
+  input {
+    border-radius: 0;
+    border: 1px solid $black;
+    display: block;
+    width: 100%;
+    @extend .size--body;
+  }
+}
+.CitiesMapWithLinks-vis .tooltip {
+  padding: 1.5em;
+
+  @media (min-width: 400px) {
+    width: 400px;
+    .CitiesMapWithLinks-tooltip-item-label {
+      width: 15em;
+    }
+  }
+}
+.CitiesMapWithLinks-tooltip-items {
+  list-style-type: none;
+  padding: 0;
+  padding-left: 0 !important;
+  text-align: left;
+  margin-top: 2em;
+}
+.CitiesMapWithLinks-tooltip-item {
+  border-top: 1px solid;
+  display: flex;
+  align-items: center;
+  padding: 0.5em 0;
+
+  & + .CitiesMapWithLinks-tooltip-item {
+    margin-top: 1em;
+  }
+}
+.CitiesMapWithLinks-tooltip-item-label {
+  @extend .type--label;
+  padding: 0;
+  padding-right: 2em;
+  width: 12em;
+}
+.CitiesMapWithLinks-tooltip-item-value {
+  @extend .ff-sans;
+  @extend .size--h3;
+}
+
+.CitiesMapWithLinks {
+  .markers .marker {
+    stroke: none;
+    &.active {
+      color: $red;
+    }
+  }
+  .post-module:last-child {
+    padding-bottom: 0;
+  }
+}
+
+.CitiesMapWithLinks-detail {
+  background-color: $black;
+  color: $white;
+  padding: $padding-sm;
+  margin-top: $padding-lg;
+
+  .btn {
+    background-color: $red;
+    color: $white;
+    margin-top: 1em;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+  .secondary-btn {
+    text-align: center;
+    margin-top: 1em;
+    width: 100%;
+  }
+  .CityHero-stats-list-item-label {
+    @include font-size(1);
+    width: 50%;
+
+    @media (min-width: $tablet-portrait) {
+      @include font-size(1.2);
+    }
+  }
+  .CityHero-stats-list-item-value {
+    @include font-size(2);
+    @media (min-width: $tablet-portrait) {
+      @include font-size(2.4);
+    }
+  }
+}
+.CitiesMapWithLinks-detail-heading {
+  @extend .ff-sans;
+  @extend .size--h3;
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+.CitiesMapWithLinks.project-map {
+  $contentwidth: 100%;
+  $contentwidth-desktop: 300px;
+
+  .map__inner-container:after,
+  .map__content {
+    width: $contentwidth;
+
+    @media (min-width: $tablet-landscape) {
+      width: $contentwidth-desktop;
+    }
+  }
+
+  .StateHeatmapWithLinks-key {
+    padding-left: $padding-xl;
+    padding-right: $padding-xl;
+    visibility: hidden;
+    height: 0;
+  }
+  .StateHeatmapWithLinks-legend {
+    text-align: center;
+    justify-content: center;
+  }
+
+  @media (min-width: $tablet-landscape) {
+    .map_wrap,
+    .StateHeatmapWithLinks-key {
+      width: calc(100% - #{$contentwidth-desktop});
+      margin-left: auto;
+    }
+    .StateHeatmapWithLinks-key {
+      visibility: visible;
+      height: auto;
+    }
+  }
+}
+
+.CitiesMapWithLinks-sidebar-list-item {
+  padding-left: 0.25em;
+  padding-right: 0.25em;
+  &:hover {
+    color: $white;
+    background-color: $black;
+  }
+}

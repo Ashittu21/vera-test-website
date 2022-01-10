@@ -1,0 +1,24 @@
+
+@import "base/_clicky-menu.scss";
+@import "base/_fonts.scss";
+@import "base/_fontStyles.scss";
+@import "base/_global.scss";
+@import "base/_hamburguer-settings.scss";
+@import "base/_page404.scss";
+@import "base/_ui.scss";
+@import "base/_variables.scss";
+
+/* Common Blocks */
+@import "common/headTitle.scss";
+@import "common/heroType2.scss";
+@import "common/heroType3.scss";
+@import "common/latestNews.scss";
+@import "common/map.scss";
+
+
+@import "global/header.scss";
+@import "global/header-mobile.scss";
+@import "global/footer.scss";
+
+
+@import "pages/home.scss"

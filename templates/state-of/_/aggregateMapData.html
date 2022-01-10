@@ -1,0 +1,41 @@
+{# PREPARSE template for aggregateMapData #}
+
+{% spaceless %}
+{% import 'state-of/_/macros' as macros %}
+{% set parent = entry.parent %}
+{% set children = parent.children.type('topic') %}
+{% set allPieces = craft.entries.section('pieces').relatedTo(children).limit(null) %}
+{% set statesField = craft.fields.getFieldByHandle('states') %}
+{% set states = ('[' ~ statesField['settings']['json'] ~ ']') | json_decode() %}
+{% set mapData = [] %}
+
+{% for state in states %}
+
+{% set pieces = allPieces.search('states:' ~ state.value).find() %}
+	{% if pieces | length %}
+	{% set body %}
+	<ul>
+		{% for piece in pieces %}
+		<li>
+			{{ macros.cta(piece) }}
+		</li>
+		{% endfor %}
+	</ul>
+	{% endset %}
+	
+	{% set datum = {
+		stateid: "state_" ~ (state.value * 1),
+		title: state.label,
+		subtitle: null,
+		entryid: null,
+		body: body,
+		markers: [],
+		level: 1,
+		group: null
+	} %}
+	
+	{% set mapData = mapData | merge([datum]) %}
+	{% endif %}
+{% endfor %}
+{% endspaceless %}
+{{ mapData | json_encode | raw }}

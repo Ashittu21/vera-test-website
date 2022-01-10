@@ -1,0 +1,24 @@
+<section class="banner-image-right banner-image-right--rotated-square {% if entry.type == 'experts' or entry.type == 'research' %}square-red{% endif %}">
+	<div class="container col-outer">
+		<header class="banner-image-right__header"> 
+			<h1 class="banner-image-right__heading">
+				{{ entry.title }}
+			</h1>
+
+			<p class="banner-image-right__subheading">
+				{{ entry.overview }}
+			</p>
+		</header>
+
+		<div class="banner-image-right__img-outer rotated-square--banner">
+			<div class="rotated-square-cta">
+				<div class="rotated-square-cta__inner">
+					<div class="rotated-square-cta__content">
+						<h4>{{ entry.linkTile.first.callToAction }}</h4>
+						<a href="{{ entry.linkTile.first.page.first.url }}" class="btn">{{ entry.linkTile.first.linkText }}</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

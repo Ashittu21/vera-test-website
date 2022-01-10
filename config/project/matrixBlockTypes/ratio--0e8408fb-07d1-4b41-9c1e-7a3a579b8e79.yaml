@@ -1,0 +1,70 @@
+field: 2eb8ad2e-759e-4578-9a9c-33d7731bebbe
+fieldLayouts:
+  bcb377db-9255-4e21-99cf-23438a0a7bd1:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 5b5a1b63-a67b-4d87-88e7-9ef83d4e55f6
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: c8ba3466-e36a-4dd2-acf0-f8069e3dca26
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  5b5a1b63-a67b-4d87-88e7-9ef83d4e55f6:
+    contentColumnType: 'decimal(11,1)'
+    fieldGroup: null
+    handle: antecedant
+    instructions: ''
+    name: Antecedant
+    searchable: true
+    settings:
+      decimals: '1'
+      defaultValue: null
+      max: null
+      min: '0'
+      prefix: ''
+      previewCurrency: ''
+      previewFormat: decimal
+      size: null
+      suffix: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Number
+  c8ba3466-e36a-4dd2-acf0-f8069e3dca26:
+    contentColumnType: 'decimal(11,1)'
+    fieldGroup: null
+    handle: consequent
+    instructions: ''
+    name: Consequent
+    searchable: true
+    settings:
+      decimals: '1'
+      defaultValue: null
+      max: null
+      min: '0'
+      prefix: ''
+      previewCurrency: ''
+      previewFormat: decimal
+      size: null
+      suffix: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Number
+handle: ratio
+name: Ratio
+sortOrder: 1

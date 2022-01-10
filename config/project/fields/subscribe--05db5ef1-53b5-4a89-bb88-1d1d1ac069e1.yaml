@@ -1,0 +1,14 @@
+contentColumnType: string
+fieldGroup: e0a75969-a752-4082-a0b5-ebd250a4b5b6
+handle: subscribe
+instructions: ''
+name: Subscribe
+searchable: true
+settings:
+  contentTable: '{{%matrixcontent_subscribe}}'
+  maxBlocks: '1'
+  minBlocks: ''
+  propagationMethod: all
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

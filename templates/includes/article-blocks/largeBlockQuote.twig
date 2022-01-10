@@ -1,0 +1,32 @@
+<div class="post-module module-text">
+  <div class="container">
+    <blockquote class="blockquote--fancy color--red">
+      {% if block['context'] is defined and block.context %}
+      <h5 class="intext-subhead">{{ block.context }}</h5>
+      {% endif %}
+      <div class="blockquote--fancy__outer">
+        <div class="blockquote--fancy__inner">
+          {{ block.copy }}
+        </div>
+      </div>
+    </blockquote>
+    {% if block['author'] is defined and block.author %}
+    <div class="attribution">
+      {% if block['headshot'][0] is defined %}
+        <img class="person-headshot" src="{{ block.headshot.first.getUrl('square174') }}">
+      {% endif %}
+      {% set hasSlideout = block['slideout'] is defined and block.slideout | length %}
+        {% if hasSlideout %}
+        <div class="slideoutcta slideoutcta--link" data-url="{{ block.slideout[0].url }}">
+          <div class="cta_wrap">
+        {% endif %}
+            <h5 class="person-name">{{ block.author }}</h5>
+        {% if hasSlideout %}
+          </div>
+        </div>
+        {% endif %}
+      <div class="person-info">{{ block.authorTitle }}</div>
+    </div>
+    {% endif %}
+  </div>
+</div>

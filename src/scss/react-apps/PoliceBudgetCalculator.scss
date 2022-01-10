@@ -1,0 +1,86 @@
+.PoliceBudget {
+  @extend .container;
+  font-family: $ff-gt-walsheim;
+}
+.PoliceBudget-title h1 {
+  font-family: $ff-gt-walsheim;
+  font-weight: 700;
+}
+.PoliceBudget-lineitem {
+  h2,
+  h3,
+  h4,
+  h5 {
+    font-weight: 400;
+    font-family: $ff-gt-walsheim;
+  }
+  h2 {
+    @include font-size(1.8);
+  }
+  h3 {
+    @include font-size(1.6);
+  }
+  h4 {
+    @include font-size(1.5);
+  }
+  h5 {
+    @include font-size(1.4);
+  }
+  h6 {
+    @include font-size(1.2);
+  }
+  @media (min-width: 600px) {
+    h2 {
+      @include font-size(2.1);
+    }
+    h3 {
+      @include font-size(1.8);
+    }
+    h4 {
+      @include font-size(1.6);
+    }
+    h5 {
+      @include font-size(1.4);
+    }
+    h6 {
+      @include font-size(1.2);
+    }
+  }
+}
+$vizheight: 106px;
+.PoliceBudget-visualization {
+  top: $mobile-header-height !important;
+  height: $vizheight;
+
+  @media (min-width: 800px) {
+    top: $header-height !important;
+  }
+}
+
+.PoliceBudget-header {
+  top: $mobile-header-height + $vizheight !important;
+  background-color: white;
+  z-index: 1;
+  @media (min-width: 800px) {
+    top: $header-height !important;
+  }
+}
+
+.PoliceBudget-header,
+.PoliceBudget-total-label {
+  @extend .ff-sans--bold;
+  @include font-size(1.2);
+  text-transform: uppercase;
+}
+.PoliceBudget-total {
+  @extend .ff-sans;
+}
+.PoliceBudget-total--top {
+  > .PoliceBudget-total-value {
+    @include font-size(2);
+
+    @media (min-width: 400px) {
+      @include font-size(2.4);
+    }
+  }
+}

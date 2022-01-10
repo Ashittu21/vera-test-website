@@ -1,0 +1,65 @@
+{% set mapTitle = entry.heading ?? entry.title %}
+{% set baseUrl = baseUrl ?? entry.url %}
+{% set anchorUrl = entry is defined ? entry.url ~ '#' ~ (mapTitle | camel) ~ "?selectmap=STATE_NUMBER:MARKER_ID" : null %}
+
+<article id="{{ "map__" ~entry.id }}"  class="CitiesMapWithLinks project-map light" data-analytics-event='["Map","Click","{{ mapTitle | escape("html_attr") }}"]'>
+	<div class="container">
+	{# {% if currentUser %}
+	<span class="anchorLink">{{ anchorUrl }}</span>
+	{% endif %} #}
+	<div class="map__header">
+    <div class="map__title_wrap">
+      <h1 class="map__title">{{ mapTitle }}</h1>
+    </div>
+    {% if entry.overview %}
+    <div class="map__overview_wrap size--body ff-serif">
+      {{ entry.overview }}
+    </div>
+    {% endif %}
+	</div>
+	<div class="map__inner-container">
+		<div class="map__content CitiesMapWithLinks-sidebar"></div>
+		<div class="map_wrap">
+			<div class="map_inner_wrap">
+				<svg class="project-map-svg" fill="none" stroke="#000" stroke-linejoin="round" stroke-linecap="round"></svg>
+				<div class="tooltip">
+					<div class="title"></div>
+					<div class="subtitle"></div>
+					<div class="data"></div>
+				</div>
+				{% include 'includes/stream/loader' %}
+			</div>
+
+		</div>
+	</div>
+	</div>
+</article>
+{% set tooltipColumns = [] %}
+{% for column in entry.tooltipColumns %}
+{% set tooltipColumns = tooltipColumns | merge([
+  {
+    column: column.column,
+    label: column.label ?: column.column
+  }
+]) %}
+{% endfor %}
+{% set slugColumns = [] %}
+{% for column in entry.slugColumns %}
+{% set slugColumns = slugColumns | merge([
+	column.column
+]) %}
+{% endfor %}
+
+{% includeJs %}
+$(function() {
+  VERA.citiesMapWithLinks("#{{ "map__" ~ entry.id }}", 
+    {{- entry.dataset[0].url | json_encode | raw -}}, 
+    {{- baseUrl | json_encode | raw -}}, 
+    {{- tooltipColumns | json_encode | raw -}},
+		{{- slugColumns | json_encode | raw -}},
+		{{- entry.tooltipHeadingColumns | json_encode | raw -}},
+		{{- entry.tooltipSubheadingColumns | json_encode | raw -}}
+  );
+})
+{% includeJsFile '/dist/twigscripts/citiesMapWithLinks.js' %}
+{% endincludejs %}

@@ -1,0 +1,557 @@
+.spotlight-stream {
+  //background-color: unset;
+  //color: inherit;
+
+  > .container:first-child {
+  }
+
+  .container[class*="color-combo"] {
+    padding-top: $padding-lg;
+    padding-bottom: $padding-lg;
+  }
+}
+.spotlight-stream--nopad {
+  padding-top: 0;
+}
+.spotlight-block--resource:first-child,
+.spotlight-block--externalContent:first-child {
+  padding-top: $padding-lg;
+}
+.spotlight-block--text .module-text, 
+.spotlight-block--dataViz .module-text
+             {
+  padding-top: $padding-lg * 2;
+}
+.spotlight-stream:last-child {
+  padding-bottom: 0;
+}
+.spotlight-fact-list {
+  position: relative;
+
+  padding: 0 3em;
+  margin-bottom: $padding-lg * 2 !important;
+  margin-top: $padding-lg;
+
+  @media (min-width: $tablet-portrait) {
+    padding: 0 5em;
+  }
+
+  .flickity-prev-next-button.next,
+  .flickity-prev-next-button.previous {
+    transform: translateY(-50%);
+  }
+  .flickity-prev-next-button {
+    background-color: inherit;
+  }
+}
+
+.spotlight-entry-list {
+  // overrides default card style to "blend in" with the bg, also removes the hover border
+  .stream-outer {
+    background-color: inherit;
+  }
+  .stream-module {
+    background-color: unset;
+    border-bottom: unset;
+    border-top-color: $red;
+    border-top-style: solid;
+    border-top-width: 1px;
+
+    .stream-module__content-inner {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .stream-module__previewtext {
+      &:after {
+        box-shadow: none;
+      }
+    }
+
+    .stream-module__inner:before,
+    .stream-module__inner:after {
+      content: unset;
+    }
+
+    a {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    a {
+      color: inherit;
+    }
+    a:hover,
+    a:focus {
+      color: var(--accent);
+    }
+
+    &:not(.stream-module--gc--half) .stream-module__label {
+      order: -1;
+      position: static;
+      align-self: start;
+      padding-left: 0;
+      padding-right: 0;
+      background-color: unset;
+      color: inherit;
+      @extend .receives-accent-color;
+    }
+    .stream-module__meta__date {
+      color: inherit;
+    }
+  }
+}
+
+.SpotlightResource {
+  margin: $padding-lg 0;
+}
+@media (min-width: $tablet-portrait) {
+  .SpotlightResource {
+    display: flex;
+    width: 100%;
+  }
+  .SpotlightResource--left {
+    article.stream-module {
+      order: 2;
+    }
+    .SpotlightResource-explainer {
+      margin-right: $padding-lg;
+      order: 1;
+    }
+  }
+  .SpotlightResource--right .SpotlightResource-explainer {
+    margin-left: $padding-lg;
+  }
+}
+
+.SpotlightResource-explainer {
+  .btn {
+    margin-top: $padding-lg;
+  }
+}
+
+
+/* Initiatives */
+
+.initiatives{
+  &.home .text-banner{
+    height: 100vh;
+    max-height: 1000px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    .text-banner__content{
+      margin-bottom: 100px;
+    }
+  }
+  .header-minimal .js-anchor-link.active{
+    color: $red;
+  }
+  .banner-cta__content{
+    padding-top: 6vh;
+  }
+  .banner-cta .btn{
+    justify-content: center;
+  }
+  .header__menu-toggle{
+    color: white;
+  }
+  .header-minimal{
+    background-color: $black;
+    h1{
+      font-weight: 700;
+      font-size: 1.8rem;
+    }
+    .anchor-nav a{
+      text-transform: none;
+      font-weight: 400;
+      font-size: 1.7rem;
+      letter-spacing: initial;
+    }
+    a{
+      color: white;
+      &:hover{
+        color: $red;
+      }
+    }
+  }
+  .location-hover{
+    background-color: $black;
+    color: $red;
+  }
+  .location-hover h5{
+    color: $red;
+    margin: 0;
+    padding: 0;
+    &:after{
+      display: none;
+    }
+  }
+  .stream-outer{
+    padding-top: 0;
+  }
+  .text-banner__label{
+    display: none;
+  }
+  .text-banner__heading{
+    font-family: $ff-gt-walsheim;
+  }
+  .text-banner
+  .text-banner__subheading{
+   @extend .ff-serif;
+  }
+  h1,h2,h3{
+    &.ff-serif--medium{
+      font-family: $ff-gt-walsheim;
+    }
+  }
+  .spotlight-block--form{
+    background-color: $lt-gray-bg;
+  }
+   
+  .spotlight-block--video{
+    padding-top: $padding-lg;
+    padding-bottom: $padding-lg;
+    background-color: $black;
+  }
+                        
+  .spotlight-block--multipleEntries{
+    // background: $black;
+    // color: white;
+    h4{
+      font-size: 2.8rem;
+    }
+
+    padding-top: 80px;
+  }
+
+  .slideout{
+    transition: 0.5s;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30vw;
+    min-width: 400px;
+    max-width: 500px;
+    height: 100%;
+    color: white;
+    font-family: $ff-gt-walsheim;
+    background-color: $black;
+    padding: 1rem;
+    font-size: 1.6rem;
+    transform: translate(100%, 0);
+
+
+    @media (max-width: 767px) {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 10001;
+      width: 100%;
+      min-width: 0;
+      box-sizing: border-box;
+    }
+
+    .slideout__content{
+      padding: 2rem;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    h2{
+      font-size: 2rem;
+      margin: 0 0 2rem;
+    }
+    .close{
+      cursor: pointer
+    }
+    .label{
+      font-weight: 700;
+    }
+    .row.hide{
+      display: none;
+    }
+    .row.funding2021,
+    .row.legalServiceProviders, 
+    .row.communityPartners,
+    .row.moreInfo{
+      margin-top: 2rem;
+      .label{
+        display: block;
+      }
+      margin-top: 2rem;
+    }
+    .value{
+        ul{
+          margin-left: 2rem;
+        }
+      }
+  }
+  #slideout-launch:checked + .slideout{
+    transform: translate(0,0);
+  }
+  #slideout-launch{
+    display: none;
+  }
+  .social-feeds{
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .social-feeds .social-feed{
+    padding-left: 0;
+    padding-right: 0;
+    width: 100%;
+    .icon-twitter{
+      font-size: 3rem;
+    }
+    ul{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      margin-top: 2rem;
+      li{
+        width: 30%;
+        font-size: 1.8rem;
+        border-top: 2px solid $red;
+        border-bottom: none;
+      }
+    }
+    @media(max-width: 767px){
+      .timestamp{
+        flex-direction: column;
+      }
+      ul{
+        flex-direction: column;
+        li{
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+.spotlight-block--socialFeed
+{
+  background: white;
+}
+.spotlight-block--dataViz{
+  position: relative;
+  overflow: hidden;
+
+}
+.spotlight-block--relatedStaff{
+    .col-outer{
+      padding-top: $padding-lg;
+      padding-bottom: $padding-lg;
+    }
+}
+
+.filter-row{
+  display: flex;
+  flex-direction: row;
+  & + .filter-row{
+    margin-top: 1rem;
+  }
+  input{
+    display: none;
+  }
+  label{
+    padding-left: 3rem;
+    position: relative;
+    cursor: pointer;
+    font-size: 1.6rem;
+  }
+  input:checked + label:before{
+    content: "";
+    background-image: url("/dist/icons/check.svg");
+    background-repeat: no-repeat;
+    width: 19px;
+    height: 15px;
+    transform: translate(0,50%);
+    position: absolute;
+    top: -2px;
+    left: 0;
+  }
+}
+#us-map svg{
+  @media(min-width: 768px){
+    transform: scale(1.25);
+  }
+}
+strong{
+  font-family: $ff-gt-walsheim;
+}
+.map-filter-column{
+  z-index: 10;
+  @media (min-width: $mobile-breakpoint) {
+    border-right: 1px solid #949494;
+  }
+  
+  padding-right: 2rem;
+  h2.sub-headline{
+    font-size: 2.4rem;
+    color: $red;
+  }
+  h4{
+    font-size: 20px;
+    margin-bottom: 20px !important;
+  }
+  p{
+    font-size: 1.8rem;
+    line-height: 1.667;
+    margin: 1.5rem 0;
+  }
+  .year{
+    font-size: 1.4rem;
+  }
+  .year-value{
+    font-family: $ff-gt-walsheim;
+  }
+  .slider{
+    -webkit-appearance: none;  /* Override default CSS styles */
+    appearance: none;
+    width: 100%; /* Full-width */
+    height: 2px; /* Specified height */
+    background: $black; /* Grey background */
+    outline: none; /* Remove outline */
+    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    transition: opacity .2s;
+    &::-webkit-slider-thumb
+    {
+      -webkit-appearance: none; /* Override default look */
+      appearance: none;
+      border-radius: 50%;
+      height: 15px;
+      width: 15px;
+      background: $red; 
+      cursor: pointer; /* Cursor on hover */
+
+    }
+  }
+  
+}
+.endorsers-module{
+  padding-top: $padding-lg;
+  padding-bottom: $padding-lg;
+  height: 600px;
+
+  background: $black;
+  color: white;
+  display: flex;
+
+  .endorsers-nav{
+    width: 30%;
+    font-size: 2rem;
+    order: 1;
+    border-right: 1px solid white;
+    position: relative;
+    label, .asterisk{
+      font-size: 1.6rem;
+    }
+    .asterisk{
+      position: absolute;
+      bottom: 2rem;
+      font-family: $ff-gt-walsheim;
+    }
+  }
+  .endorsers-view{
+    order: 2;
+    width: 60%;
+    font-family: $ff-gt-walsheim;
+    
+    padding-left: 4rem;
+    overflow-y: auto;
+  }
+  ul{
+    list-style-type: none;
+  }
+  li{
+    margin-bottom: 2rem;
+  }
+  .endorsers-sect{
+    display: none;
+    ul{
+      columns: 2;
+      li{
+        -webkit-column-break-inside: avoid;
+            page-break-inside: avoid;
+                 break-inside: avoid;
+       }
+    }
+  }
+  .endorsers-select{
+    display: none;
+  }
+  .endorsers-select:checked + .endorsers-sect{
+    display: block
+  }
+  label{
+    cursor: pointer;
+    &.active{
+      color: $red;
+      border-bottom: 1px solid $red;
+    }
+  }
+  .endorser__name{
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+  }
+  @media (max-width: 767px){
+    flex-direction: column;
+    padding-bottom: 6rem;
+    height: 100vh;
+    .endorsers-nav{
+      width: 100%;
+      position: initial;
+      border-right:0;
+      border-bottom: 1px solid white;
+      ul{
+        // display: flex;
+        li{
+          margin-bottom: 1rem;
+        }
+        label{
+          font-size: 1.3rem;
+        }
+      }
+      .asterisk{
+        font-size: 1.3rem;
+      }
+    }
+    .endorsers-view{
+      width: 100%;
+      padding-left: 0;
+      padding: 2rem 0;
+      border-bottom: 1px solid white;
+    }
+    
+  }
+}
+.dataViz--endorsers{
+  background: $black;
+  h3{
+    color: $red;
+  }
+}
+.dataViz--iconList{
+  padding-top: 80px;
+  padding-bottom: 80px;
+  background: $lt-gray-bg;
+  .col-outer{
+    margin: 4rem 0;
+  }
+  .subtitle{
+    font-size: 1.8rem;
+  }
+  h3, p, .one-third{
+    text-align: center;
+  }
+  .image-wrap{
+    width: 33%;
+    min-width: 30px;
+    max-width: 90px;
+
+    margin: 0 auto 2rem;
+  }
+
+}

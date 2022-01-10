@@ -1,0 +1,6 @@
+{% if entry.singlePage %}
+	{% include 'special-reports/onepage' %}
+	{% includeJsFile '/dist/js/specialReportCampaign.js?v=0.1' %}
+{% else %}
+	{% redirect entry.children.first.url %}
+{% endif %}

@@ -1,0 +1,52 @@
+.carousel-slideshow {
+  position: relative;
+  padding-top: $header-height;
+
+  &.active .carousel-slideshow-item-media {
+    position: fixed;
+  }
+}
+
+.carousel-slideshow-item {
+  height: 100vh;
+  width: 66%;
+  padding: $padding-sm;
+
+  .carousel-slideshow-item-media {
+    max-height: calc(100vh - #{$header-height});
+    height: 100%;
+  }
+
+  .carousel-slideshow-item-caption {
+    @extend .h4;
+    z-index: 1;
+    text-align: center;
+  }
+
+  .carousel-slideshow-item-caption-inner {
+    padding: $padding-sm;
+  }
+
+  &--photoCaption,
+  &--videoCaption {
+    img,
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+    }
+  }
+
+  &--photoCaption {
+    img {
+      display: block;
+    }
+  }
+
+  &--videoCaption {
+    video {
+      border: 0;
+    }
+  }
+}

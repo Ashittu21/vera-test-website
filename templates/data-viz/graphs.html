@@ -1,0 +1,15 @@
+{% extends '/data-viz/_/multi-viz' %}
+
+{% set params = entry.dataVizJson | json_decode %}
+
+{% block jsInit %}
+	new VERA.graph({
+		container: ".{{ selector }}",
+		data:
+	{{ entry.dataset.first.url | json_encode | raw }},
+		filterData:
+	{{ (entry.filterData.first.url ?? null) | json_encode | raw }}
+	});
+{% endblock %}
+
+{% includeJsFile '/dist/twigscripts/graphs.js' %}

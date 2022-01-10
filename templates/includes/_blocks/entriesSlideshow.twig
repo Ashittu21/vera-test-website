@@ -1,0 +1,13 @@
+{% set linkOut = linkOut ?? true %}
+<div class="stream-module__carousel">
+  {% if block.heading %}
+    <div class="stream-module__carousel__title js-fade-out">
+      <div class="line"></div>
+      <h2 class="title">{{ block.heading }}</h2>
+      {% if block.subheading %}
+        <h3 class="subtitle">{{ block.subheading }}</h3>
+      {% endif %}
+    </div>
+  {% endif %}
+  {% include 'includes/stream/stream_module-carousel' with { entries: block.entries, linkOut: linkOut } %}
+</div>

@@ -1,0 +1,40 @@
+{% set entry = craft.entries.section('about').one() %}
+<!-- People -->
+<div class="people-grid">
+  <div class="container">
+    <h3>Leadership Team</h3>
+    {% cache %}
+    {% set category = craft.categories.group('departments').title('Leadership Team') %}
+    {% set people = craft.entries.section('people').type('staff').relatedTo(category).with(['headshot']) %}
+    {% include 'includes/snippets/people' with {grid: true, large: true} %}
+    {% endcache %}
+  </div>
+</div>
+
+{% set excludecategory = craft.categories.group('departments').title(['Board of Trustees','Honorary Trustees','Reform Leadership Council']) %}
+{% set excludepeople = craft.entries.section('people').type('staff').relatedTo(excludecategory) %}
+
+{% set exclude = ['and'] %}
+{% for id in excludepeople.ids() %}
+  {% set exclude = exclude|merge(['not '~id]) %}
+{% endfor %}
+
+{% set excludeCategories = ['and'] %}
+{% for id in excludecategory.ids() %}
+  {% set excludeCategories = excludeCategories | merge(['not ' ~ id]) %}
+{% endfor %}
+
+{% set streamOptions = {
+filterRelations: [{
+  title: 'Department',
+  type: 'categories',
+  relations: craft.categories.group('departments').id(excludeCategories)
+}, {
+  title: 'Center or Program',
+  type: 'entries',
+  relations: craft.entries.section('centers').level(1)
+}],
+relatedTo: excludeCategories
+} %}
+
+{% include 'includes/stream/stream_people' with {isPageRequest : true} %}

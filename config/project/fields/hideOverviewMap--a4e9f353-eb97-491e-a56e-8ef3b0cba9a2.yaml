@@ -1,0 +1,13 @@
+contentColumnType: boolean
+fieldGroup: 3ad6d151-958c-44f4-99b0-865c27d2922e
+handle: hideOverviewMap
+instructions: ''
+name: 'Hide Overview Map'
+searchable: true
+settings:
+  default: false
+  offLabel: null
+  onLabel: null
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Lightswitch

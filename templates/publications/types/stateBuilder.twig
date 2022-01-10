@@ -1,0 +1,35 @@
+{% extends '_layout' %}
+{% set parent = entry.parent %}
+
+{% block nav %}
+	{% include 'includes/_header/header__burger' %}
+{% endblock %}
+{% block content %}
+  {% set superheading %}
+      <a href="{{ parent.url }}">{{ parent.title }}</a>
+      {% endset %}
+      {% set mapBlock =parent.publicationsFooter.type('mapViz').first %}
+      {% include 'publications/_blocks/cityHero' with {
+        block: {
+          superheading: superheading,
+          heading: entry.title,
+          explainer: entry.overview,
+          download: {
+            label: "Get fact sheet",
+            url: entry.pdfDownload | length ? entry.pdfDownload[0].url : null
+          },
+          map: mapBlock.map[0]
+        }
+      } %}
+
+  {% for block in entry.stateBuilder %}
+  {% switch block.type.handle %}
+    {% case 'mapViz' %}
+      {% include 'publications/_blocks/map' %}
+    {% default -%}
+  {% endswitch %}
+  {%- endfor %}  
+
+  {% include 'publications/_blocks' with { blocks: entry.ancestors.level(1).first.publicationsFooter.level(1).all() } %}
+
+{% endblock %}

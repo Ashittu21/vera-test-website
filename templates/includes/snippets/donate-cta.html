@@ -1,0 +1,19 @@
+{% set heading = cta.donateCallToActionHeading | default(cta.heading) %}
+
+<section class="donate-cta" data-cta-id="{{ cta.id }}" data-cta-title="{{ cta.title }}" data-states="{{ cta.states | join(',') }}">
+	<div class="cta-container">
+		<div class="corners-outer">
+			<div class="donate-cta__inner">
+				{%- if heading -%}
+					<h3 class="heading red">{{ heading | nl2br | raw }}</h3>
+				{%- endif -%}
+
+				{%- if cta.callToActionSubheading | length -%}
+					<p class="subheading">{{ cta.callToActionSubheading | nl2br | raw }}</p>
+				{%- endif -%}
+				<a class="btn large red donate-cta-button" href="{{ cta.donateAppeal | length ? cta.donateAppeal.first.url : '/donate' }}">Donate Now</a>
+			</div>
+		</div>
+	</div>
+	<span class="popup-close black"></span>
+</section>

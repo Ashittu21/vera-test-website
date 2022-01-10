@@ -1,0 +1,21 @@
+contentColumnType: string
+fieldGroup: 6c478341-da6f-434d-b58e-1f381004c510
+handle: featuredSpeakers
+instructions: 'If the event has a featured speaker, add the person here'
+name: 'Featured Speakers'
+searchable: true
+settings:
+  allowSelfRelations: false
+  limit: ''
+  localizeRelations: false
+  selectionLabel: 'Add a Featured Speaker'
+  showSiteMenu: true
+  source: null
+  sources:
+    - 'section:8639923c-05e0-4fb4-a45a-9a2a79a690ec'
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Entries

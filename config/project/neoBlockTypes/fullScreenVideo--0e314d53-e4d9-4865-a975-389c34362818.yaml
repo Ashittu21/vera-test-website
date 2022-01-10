@@ -1,0 +1,25 @@
+childBlocks: ''
+field: 4cc124d8-7ee1-43a4-9aa0-5b5b6fcfe1cc
+fieldLayouts:
+  bb4b1126-c590-4418-b1a2-ebd31bc914de:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 28eda735-1bde-404e-b238-b5dab5f7ef57
+            instructions: null
+            label: null
+            required: '1'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: 'Tab 1'
+        sortOrder: 1
+handle: fullScreenVideo
+maxBlocks: 0
+maxChildBlocks: 0
+maxSiblingBlocks: 0
+name: 'Full Screen Video'
+sortOrder: 28
+topLevel: true

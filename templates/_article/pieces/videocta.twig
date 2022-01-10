@@ -1,0 +1,10 @@
+<div class="VideoCta">
+  <button class="cta--link">
+    <img src="/dist/icons/video-cta-play.svg" alt="play video" />
+    {{ block.cta }}
+  </button>
+  <div class="VideoCta-modal">
+    {% include 'includes/snippets/video' with { video: block.video, playOnScroll: block.playOnScroll, videoCover: block.photo[0].url ?? null } %}
+    <button class="VideoCta-close"><span class="modal-close"></span></button>
+  </div>
+</div>

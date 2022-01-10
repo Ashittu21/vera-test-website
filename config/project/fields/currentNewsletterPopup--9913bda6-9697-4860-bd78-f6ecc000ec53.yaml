@@ -1,0 +1,21 @@
+contentColumnType: string
+fieldGroup: 19337e8c-5122-4476-a446-ea27d4740587
+handle: currentNewsletterPopup
+instructions: ''
+name: 'Current Newsletter Popup'
+searchable: true
+settings:
+  allowSelfRelations: false
+  limit: '1'
+  localizeRelations: false
+  selectionLabel: ''
+  showSiteMenu: true
+  source: null
+  sources:
+    - 'section:a105ef88-4f0c-4569-850c-1b3d0d891564'
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Entries

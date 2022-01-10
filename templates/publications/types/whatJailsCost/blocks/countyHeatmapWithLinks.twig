@@ -1,0 +1,110 @@
+
+
+{% set mapTitle = entry.heading ?? entry.title %}
+{% set baseUrl = baseUrl ?? entry.url %}
+{% set anchorUrl = entry is defined ? entry.url ~ '#' ~ (mapTitle | camel) ~ "?selectmap=STATE_NUMBER:MARKER_ID" : null %}
+{% set stateCode = entry.stateCode %}
+{% set id = "map__" ~entry.id ~ now | date('U') %}
+<article id="{{ id }}"  class="CitiesMapWithLinks" data-analytics-event='["Map","Click","{{ mapTitle | escape("html_attr") }}"]'>
+	<div class="container">
+    {% if currentUser %}
+    <span class="anchorLink">{{ anchorUrl }}</span>
+    {% endif %}
+    {#
+    <div class="map__header">
+      {% if entry.overview %}
+      <div class="map__overview_wrap size--body ff-serif">
+        {{ entry.overview }}
+      </div>
+      {% endif %}
+    </div>
+    #}
+    {% if block.mapInstructions %}
+    <div class="map__header">
+      <div class="map__overview_wrap size--body ff-serif italic">
+        {% include 'publications/_blocks/dataText' with { block: { text: block.mapInstructions } } %}
+      </div>
+    </div>
+    {% endif %}
+    <div class=" project-map light">
+      <div class="CitiesMapWithLinks-main">
+        <div class="map__inner-container">
+          <div class="CitiesMapWithLinks-sidebar sidebar map__content">
+
+          </div>
+          <div class="CitiesMapWithLinks-vis map_wrap">
+            <div class="map_inner_wrap">
+              <svg class="project-map-svg" fill="none" stroke="#000" stroke-linejoin="round" stroke-linecap="round"></svg>
+              <div class="heatmap-tooltip tooltip">
+                <div class="title"></div>
+                <div class="subtitle"></div>
+              </div>
+              {% include 'includes/stream/loader' %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+	</div>
+</article>
+
+{% set dataStatements = [] %}
+{% for statement in entry.heatmapDataStatements %}
+{% set dataStatements = dataStatements | merge([
+  {
+    text: statement.text,
+    column: statement.column
+  }
+]) %}
+{% endfor %}
+
+{% set tooltipColumns = [] %}
+{% for item in block.tooltipColumns %}
+{% set tooltipColumns = tooltipColumns | merge([
+  {
+    label: item.label ?? item.column,
+    column: item.column
+  }
+]) %}
+{% endfor %}
+
+{# {% set entry = {
+  dataset: [
+    {
+      url: countyDataUrl,
+    }
+  ],
+  stateCode: "TN",
+  title: "TODO: title",
+  url: baseUrl,
+  id: entry.id,
+  overview: "TODO: Overview",
+  tooltipColumns: [],
+  heatmapThresholds: [],
+  tooltipHeadingColumn: "TODO: ttheaidngcolumn",
+  tooltipYear: 2018,
+  heatmapColumn: "Percent of County Funds Spent on Jail 2019",
+  heatmapColumnLabel: null,
+  heatmapYear: null,
+  heatmapLineChartColumns: [],
+  heatmapDataStatements: []
+} %} #}
+
+{% set heatmapColumn = "Percent of County Funds Spent on Jail 2019" %}
+
+{% includeJs %}
+$(function() {
+  VERA.countyHeatmapWithLinks(
+    "#{{ id }}",
+    {{ state | title | json_encode | raw }},
+    {{ countyDataUrl | json_encode | raw }},
+    {{ heatmapColumn | json_encode | raw }},
+    {{ (entry.heatmapColumnLabel ?? heatmapColumn)| json_encode | raw }},
+    {{ tooltipColumns | json_encode | raw }},
+    {{ null | json_encode | raw }},
+    {{ dataStatements | json_encode | raw }},
+    {{ (craft.request.url) | json_encode | raw }}
+  );
+})
+{% endincludejs %}
+{% includeJsFile '/dist/twigscripts/countyHeatmapWithLinks.js' %}

@@ -1,0 +1,130 @@
+{% set fromOnePage = fromOnePage ?? false %}
+{% set printable = true %}
+{% set layout =  craft.request.getParam('print') and not fromOnePage ? 'special-reports/print' : fromOnePage ? 'special-reports/_onepagelayout' : '_layout' %}
+
+{% extends layout %}
+
+{% set isEditorial = entry.heroType.value in [
+	'editorialIntroduction',
+	'editorialChapter',
+	'campaignIntroduction',
+	'campaignSlide'
+] %}
+{% set heroClass = (isEditorial ? 'editorial ' : null) ~ (entry.heroType is defined ? entry.heroType.value : null) %}
+
+{% block bodyClass %}
+	{% if isEditorial %}special-report-editorial{% endif %}{% if entry.heroType.value == 'campaignIntroduction' %} special-report-campaign{% endif %}
+{% endblock %}
+
+{% set title = entry.title %}
+
+{% block nav %}
+
+	{% include 'includes/snippets/header__special-report' %}
+
+{% endblock %}
+
+
+{% block content %}
+	{% if entry.heroType.value == "campaignIntroduction" %}
+		{% include 'includes/snippets/banner__campaign' %}
+	{% else%}
+		{% include 'includes/snippets/banner__featured' %}
+	{% endif %}
+
+	{% if not isEditorial %}
+	<header class="special-reports__post-header{% if entry.level == 3 %} additional-reading{% endif %}">
+	    <div class="special-reports__post-header-inner">
+        <h1>{{ entry.title }}</h1>
+
+        {% if entry.subtitle %}
+        <div class="special-reports__subheading">{{ entry.subtitle }}</div>
+        {% endif %}
+
+				{% if entry.authors | length or entry.photographers | length or entry.illustrators | length  %}
+        <aside class="special-reports__post-byline size--h3">
+	        <p>
+				    {% if entry.authors|length %}
+		        	{% set names = '' %}
+		        	{% for author in entry.authors %}
+		        		{% set names = names ~ author %}
+		        		{% if not loop.last %}
+		        			{% set names = names ~ ((loop.index + 1 == entry.authors | length) ? (entry.authors | length == 2) ? ' and ' : ', and ' : ', ') %}
+		        		{% endif %}
+		        	{% endfor %}
+							By {{ names }}<br/>
+            {% endif %}
+            {% if entry.photographers|length %}
+            	{% set names = '' %}
+            	{% for author in entry.photographers %}
+		        		{% if not loop.first and not loop.last %}
+		        			{% set names = names~', ' %}
+		        		{% endif %}
+		        		{% set names = names~author %}
+	        		{% endfor %}
+						Photography by {{ names }}<br/>
+						{% endif %}
+						{% if entry.illustrators|length %}
+							{% set names = '' %}
+			            	{% for author in entry.illustrators %}
+				        		{% if not loop.first and not loop.last %}
+				        			{% set names = names~', ' %}
+				        		{% endif %}
+				        		{% set names = names~author %}
+				        	{% endfor %}
+							Illustrated by {{ names }}<br/>
+						{% endif %}
+            </p>
+        </aside>
+	    	{% endif %}
+
+	    	<div class="special-reports__post-date">{{ entry.postDate | date("F d, Y") }}</div>
+
+	    	<div class="special-reports__post-share">
+	    		{% include 'includes/snippets/share_links' with {horizontal: true } %}
+				</div>
+
+	    </div>
+	</header>
+
+	{% elseif entry.heroType.value == 'campaignIntroduction' %}
+		<div class="post-article {{ entry.chapterTheme.value ?? 'light' }} specialReport-share">
+			<div class="container" >
+				{% include 'includes/snippets/share_links' with {horizontal: true } %}
+			</div>
+		</div>
+	{% endif %}
+
+	{% if entry.storiesSubtitle and entry.heroType.value != 'campaignSlide' and not isEditorial %}
+	<div class="post-module module-text center">
+	    <div class="container">
+	        <div class="module-text__inner">
+	            <p class="special-reports__subheading">{{ entry.storiesSubtitle }}</p>
+	        </div>
+	    </div>
+	</div>
+	{% endif %}
+
+	{% if entry.heroType.value != 'campaignSlide' %}
+		{% include 'includes/snippets/article' with { article: entry.specialReportsArticle, theme: entry.chapterTheme.value, title: entry.title } %}
+	{% endif %}
+
+	{% if not fromOnePage %}
+		{% include 'includes/snippets/nav__stories' %}
+	{% endif %}
+
+	{% if entry.heroType.value == 'campaignSlide' and entry.children|length %}
+		<div class="child-posts">
+		{% for child in entry.children %}
+			{% include 'special-reports/types/' ~ child.type with {entry : child } %}
+		{% endfor %}
+		</div>
+	{% endif %}
+{% endblock %}
+
+{% block overlay %}
+
+    {% include 'includes/snippets/share_overlay' %}
+
+{% endblock %}
+

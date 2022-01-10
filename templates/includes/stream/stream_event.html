@@ -1,0 +1,37 @@
+<section class="stream-module stream-module--uc--secondary--event stream-thing">
+    <a class="stream-module__inner" href="{{ event.url }}">
+        <div class="stream-module__content">
+            <div class="stream-module__content-inner">
+                <div class="event__date">
+                    {{ event.eventStartTime|date('M') }}<span class="event__num">{{ event.eventStartTime|date('j') }}</span>
+                </div>
+                
+                {% if event.featuredSpeakers|length and event.featuredSpeakers.first.headshot.first %}
+                	{% set image = event.featuredSpeakers.first.headshot.first %}
+                {% elseif event.heroImage|length %}
+                	{% set image = event.heroImage.first %}
+                {% endif %}
+                {% if image is defined %}
+                	<div class="event__author">
+	                    <img src="{{ image.getUrl('square174') }}" width="87" height="87" alt="{{ image.caption ?: image.title }}"/>
+	                </div>
+                {% endif %}
+
+                <div class="event__content">
+	                
+	                {% if event.relatedEventSeries|length %}
+	               	 <span class="event__meta__series">{{ event.relatedEventSeries.first }}</span>
+	                {% endif %}
+	                
+                    <h3 class="stream-module__heading">
+                    	{{ event }}
+                    </h3>
+
+                    <span class="event__details">
+                        Details
+                    </span>
+                </div>
+            </div>
+        </div>
+    </a>
+</section>

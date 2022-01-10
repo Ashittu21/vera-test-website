@@ -1,0 +1,59 @@
+field: 7ab39b56-4296-4f7e-92a0-0266581fe1a6
+fieldLayouts:
+  eb2ed8de-ab22-4b5c-992e-be0b23bc749f:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 2019a6c0-9a44-43b0-8a1c-f4e3e75f6d40
+            instructions: null
+            label: null
+            required: '1'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 83e9d595-b17d-412d-9524-c3aa6e77cc63
+            instructions: null
+            label: null
+            required: '0'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  2019a6c0-9a44-43b0-8a1c-f4e3e75f6d40:
+    contentColumnType: string
+    fieldGroup: null
+    handle: video
+    instructions: ''
+    name: Video
+    searchable: true
+    translationKeyFormat: null
+    translationMethod: none
+    type: dukt\videos\fields\Video
+  83e9d595-b17d-412d-9524-c3aa6e77cc63:
+    contentColumnType: text
+    fieldGroup: null
+    handle: heading
+    instructions: ''
+    name: Heading
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: false
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+handle: video
+name: Video
+sortOrder: 2

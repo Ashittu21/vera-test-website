@@ -1,0 +1,68 @@
+field: 4138af33-90b9-490f-9cad-431fde5e213f
+fieldLayouts:
+  5966c59e-62e2-4a98-a816-f8d15cd2270f:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 4909555a-f788-44bc-bf56-8d5a62a8cb59
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 6501fdc0-729d-46cd-aba7-5e3c15f7cfb2
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  4909555a-f788-44bc-bf56-8d5a62a8cb59:
+    contentColumnType: text
+    fieldGroup: null
+    handle: heading
+    instructions: ''
+    name: Heading
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  6501fdc0-729d-46cd-aba7-5e3c15f7cfb2:
+    contentColumnType: text
+    fieldGroup: null
+    handle: explainer
+    instructions: ''
+    name: Explainer
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+handle: infoCard
+name: 'Info Card'
+sortOrder: 1

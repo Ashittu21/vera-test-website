@@ -1,0 +1,8 @@
+{% set blocks = entry.factVisualizationBuilder.level(1) %}
+<article class="data-viz-fact container">
+  <div class="container">
+  {% for block in blocks %}
+  {% include 'data-viz/_/' ~ block.type %}
+  {% endfor %}
+  </div>
+</article>

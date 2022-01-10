@@ -1,0 +1,54 @@
+field: 70d22f15-dbc1-44a0-8d3f-6f227779972a
+fieldLayouts:
+  2aa926b7-3f7b-4a67-9e1e-7830408ed03f:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: ed97488e-05b2-452e-b45f-e30d66393589
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  ed97488e-05b2-452e-b45f-e30d66393589:
+    contentColumnType: string
+    fieldGroup: null
+    handle: audioClip
+    instructions: ''
+    name: 'Audio Clip'
+    searchable: true
+    settings:
+      allowSelfRelations: false
+      allowUploads: true
+      allowedKinds:
+        - audio
+      defaultUploadLocationSource: 'volume:a48d5d4c-e94e-40ca-b140-801253b0f802'
+      defaultUploadLocationSubpath: ''
+      limit: '1'
+      localizeRelations: false
+      previewMode: full
+      restrictFiles: '1'
+      selectionLabel: ''
+      showSiteMenu: true
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: true
+      singleUploadLocationSource: 'volume:a48d5d4c-e94e-40ca-b140-801253b0f802'
+      singleUploadLocationSubpath: ''
+      source: null
+      sources: '*'
+      targetSiteId: null
+      useSingleFolder: false
+      validateRelatedElements: false
+      viewMode: list
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+handle: audio
+name: Audio
+sortOrder: 2

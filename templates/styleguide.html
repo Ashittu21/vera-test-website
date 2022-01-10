@@ -1,0 +1,1062 @@
+{% macro font(settings) %}
+	<li>
+		<div class="{{ settings.class }}">{{ settings.label }}</div>
+		{% if settings.description is defined %}
+			<span class="grid--label">
+				{{ settings.description }}
+			</span>
+		{% endif %}
+		<span class="grid--label-dk">.{{ settings.class | replace(' ','.') }}</span>
+	</li>
+{% endmacro %}
+
+{% import _self as items %}
+
+{% extends '_meta' %}
+
+{% set title = 'Style Guide' %}
+{% set checked = craft.request.getParam('tab') ?? null %}
+
+{% block body %}
+	<article class="container styleguide">
+		<h1 class="type--center">Vera Style Guide</h1>
+
+		<div class="tabs">
+			<input id="tab-colors" type="radio" name="pct" {{ not checked or checked == 'colors' ? 'checked="checked"' }}/>
+			<input id="tab-type" type="radio" name="pct" {{ checked == 'type' ? 'checked="checked"' }}/>
+			<input id="tab-viz" type="radio" name="pct" {{ checked == 'viz' ? 'check="checked"' }}/>
+			<nav>
+				<ul class="tabs__nav list-reset">
+					<li class="tab-colors">
+						<label class="type--center" for="tab-colors">Colors</label>
+					</li>
+					<li class="tab-type">
+						<label class="type--center" for="tab-type">Typography</label>
+					</li>
+					<li class="tab-viz">
+						<label class="type--center" for="tab-viz">Icons & Data Viz Elements</label>
+					</li>
+				</ul>
+			</nav>
+
+			<section class="tab tab-colors">
+				<h2>Colors</h2>
+
+				<ul class="grid block-grid">
+					<li>
+						<div class="block-grid__block" style="background-color: #F3F3F2;"></div>
+						<span>light gray</span>
+						<span class="grid--label">#F3F3F2</span>
+						<span class="grid--label-dk">$lt-gray</span>
+					</li>
+					<li>
+						<div class="block-grid__block" style="background-color: #DAD9D5;"></div>
+						<span>light gray (alternative)</span>
+						<span class="grid--label">#DAD9D5</span>
+						<span class="grid--label-dk">$lt-gray-alt</span>
+					</li>
+					<li>
+						<div class="block-grid__block" style="background-color: #E7E6E3;"></div>
+						<span>light gray (bg color)</span>
+						<span class="grid--label">#E7E6E3</span>
+						<span class="grid--label-dk">$lt-gray-bg</span>
+					</li>
+					<li>
+						<div class="block-grid__block" style="background-color: #A3A3A3;"></div>
+						<span>medium gray</span>
+						<span class="grid--label">#A3A3A3</span>
+						<span class="grid--label-dk">$med-gray</span>
+					</li>
+					<li>
+						<div class="block-grid__block" style="background-color: #BCBDBC;"></div>
+						<span>medium gray (bg color)</span>
+						<span class="grid--label">#BCBDBC</span>
+						<span class="grid--label-dk">$med-gray-bg</span>
+					</li>
+					<li>
+						<div class="block-grid__block" style="background-color: #C4C4C4;"></div>
+						<span>medium gray (alternative)</span>
+						<span class="grid--label">#C4C4C4</span>
+						<span class="grid--label-dk">$med-gray-alt</span>
+					</li>
+					<li>
+						<div class="block-grid__block" style="background-color: #4D4E56;"></div>
+						<span>dark gray</span>
+						<span class="grid--label">#4D4E56</span>
+						<span class="grid--label-dk">$dk-gray</span>
+					</li>
+					<li>
+						<div class="block-grid__block" style="background-color: #6F6D6E;"></div>
+						<span>dark gray (alternative)</span>
+						<span class="grid--label">#6F6D6E</span>
+						<span class="grid--label-dk">$dk-gray-alt</span>
+					</li>
+					<li>
+						<div class="block-grid__block" style="background-color: #EF4136;"></div>
+						<span>red</span>
+						<span class="grid--label">#EF4136</span>
+						<span class="grid--label-dk">$red</span>
+					</li>
+					<li>
+						<div class="block-grid__block" style="background-color: #fde3e1;"></div>
+						<span>light red</span>
+						<span class="grid--label">#fde3e1</span>
+						<span class="grid--label-dk">$red--lt</span>
+					</li>
+					<li>
+						<div class="block-grid__block" style="background-color: #231F20;"></div>
+						<span>black</span>
+						<span class="grid--label">#231F20</span>
+						<span class="grid--label-dk">$black</span>
+					</li>
+					<li></li>
+				</ul>
+
+				<h3 class="list--label">Table Colors</h3>
+				<ul class="grid block-grid">
+					<li>
+						<div class="block-grid__block" style="background-color: #e5eff8;"></div>
+						<span class="grid--label">#e5eff8</span>
+						<span class="grid--label-dk">$table-row--bg-color1</span>
+					</li>
+					<li>
+						<div class="block-grid__block" style="background-color: #fee7e2;"></div>
+						<span class="grid--label">#fee7e2</span>
+						<span class="grid--label-dk">$table-row--bg-color2</span>
+					</li>
+					<li>
+						<div class="block-grid__block" style="background-color: #d9ebe9;"></div>
+						<span class="grid--label">#d9ebe9</span>
+						<span class="grid--label-dk">$table-row--bg-color3</span>
+					</li>
+					<li>
+						<div class="block-grid__block" style="background-color: #f3f7de;"></div>
+						<span class="grid--label">#f3f7de</span>
+						<span class="grid--label-dk">$table-row--bg-color4</span>
+					</li>
+				</ul>
+
+				<h3 class="list--label">Data Viz Colors</h3>
+				<ul class="grid">
+
+					<li>
+						<div class="block-grid__block" style="background-color: #67b3d9;"></div>
+						<span class="grid--label">#67b3d9</span>
+						<span class="grid--label-dk">$dv-blue</span>
+					</li>
+					<li>
+						<div class="block-grid__block" style="background-color: #e17e43;"></div>
+						<span class="grid--label">#e17e43</span>
+						<span class="grid--label-dk">$dv-orange</span>
+					</li>
+					<li>
+						<div class="block-grid__block" style="background-color: #A05EB5;"></div>
+						<span class="grid--label">#A05EB5</span>
+						<span class="grid--label-dk">$dv-purple</span>
+					</li>
+					<li>
+						<div class="block-grid__block" style="background-color: #bed933;"></div>
+						<span class="grid--label">#bed933</span>
+						<span class="grid--label-dk">$dv-green</span>
+					</li>
+					<li>
+						<div class="block-grid__block" style="background-color: rgb(255, 190, 157);"></div>
+						<span class="grid--label">rgb(255, 190, 157)</span>
+						<span class="grid--label-dk">$orange-lt</span>
+					</li>
+					<li>
+						<div class="block-grid__block" style="background-color: rgb(255, 156, 131);"></div>
+						<span class="grid--label">rgb(255, 156, 131)</span>
+						<span class="grid--label-dk">$orange-md</span>
+					</li>
+					<li>
+						<div class="block-grid__block" style="background-color: rgb(255, 124, 104);"></div>
+						<span class="grid--label">rgb(255, 124, 104)</span>
+						<span class="grid--label-dk">$orange</span>
+					</li>
+					<li>
+						<div class="block-grid__block" style="background-color: rgb(255, 94, 79);"></div>
+						<span class="grid--label">rgb(255, 94, 79)</span>
+						<span class="grid--label-dk">$orange-dk</span>
+					</li>
+				</ul>
+			</section>
+
+			<section class="tab tab-type">
+				<h2>Type</h2>
+
+				<h3>Faces/Weights/Styles</h3>
+
+				<h4>Serif</h4>
+				<ul class="grid">
+					{{ items.font({
+            class: 'ff-serif',
+            description: 'serif',
+            label: 'Serif'
+          })}}
+					{{ items.font({
+            class: 'ff-serif--italic',
+            description: 'serif, italic',
+            label: 'Serif, Italic'
+          })}}
+					{{ items.font({
+            class: 'ff-serif--medium',
+            description: 'serif, medium',
+            label: 'Serif, Medium'
+          })}}
+					{{ items.font({
+            class: 'ff-serif--medium--italic',
+            description: 'serif, medium, italic',
+            label: 'Serif, Medium, Italic'
+          })}}
+				</ul>
+
+				<h4>Sans Serif</h4>
+				<ul class="grid">
+					{{ items.font({
+            class: 'ff-sans',
+            description: 'sans-serif',
+            label: 'Sans Serif'
+          })}}
+					{{ items.font({
+            class: 'ff-sans--oblique',
+            description: 'sans-serif, oblique',
+            label: 'Sans Serif, Oblique'
+          })}}
+					{{ items.font({
+            class: 'ff-sans--bold',
+            description: 'sans-serif, bold',
+            label: 'Sans Serif, Bold'
+          })}}
+					{{ items.font({
+            class: 'ff-sans--bold--oblique',
+            description: 'sans-serif, bold, oblique',
+            label: 'Sans Serif, Bold, Oblique'
+          })}}
+					{{ items.font({
+            class: 'ff-sans--thin',
+            description: 'sans-serif, thin',
+            label: 'Sans Serif, Thin'
+          })}}
+					{{ items.font({
+            class: 'ff-sans--thin--oblique',
+            description: 'sans-serif, thin, oblique',
+            label: 'Sans Serif, Thin, Oblique'
+          })}}
+
+				</ul>
+
+				<h3 class="list--label">Sizes</h3>
+
+				<ul class="grid">
+					{{ items.font({
+            class: 'size--h1',
+            label: 'H1'
+          })}}
+					{{ items.font({
+            class: 'size--h2',
+            label: 'H2'
+          })}}
+					{{ items.font({
+            class: 'size--h3--large',
+            label: 'H3 Large'
+          })}}
+					{{ items.font({
+            class: 'size--h3',
+            label: 'H3'
+          })}}
+					{{ items.font({
+            class: 'size--h4',
+            label: 'H4'
+          })}}
+					{{ items.font({
+            class: 'size--body',
+            label: 'Body'
+          })}}
+					{{ items.font({
+            class: 'size--headerxl',
+            label: 'Hero Header'
+          })}}
+				</ul>
+
+				<h3 class="list--label">Headers</h3>
+
+				<ul class="grid">
+
+					<li>
+						<div class="header--lg blockquote--fancy">
+							<div class="blockquote--fancy__outer">
+								<div class="blockquote--fancy__inner">
+									<h1>Header 1</h1>
+								</div>
+							</div>
+						</div>
+
+						<span class="grid--label">
+							serif, title case, padding, margin, fancy border treatment
+						</span>
+
+						<span class="grid--label-dk">.header--lg.blockquote--fancy .blockquote--fancy__inner</span>
+					</li>
+
+					{{ items.font({
+            class: 'header--lg ff-sans--bold',
+            description: 'sans-serif, bold',
+            label: 'Header 1'
+          })}}
+
+					{{ items.font({
+            class: 'h3 ff-sans--bold color--red header--border-btm--full',
+            description: 'h3 bold, sans-serif, red, bottom border full',
+            label: 'Slider header'
+          })}}
+
+					{{ items.font({
+            class: 'h2 header--border-btm ff-serif--medium',
+            description: 'h2 serif, medium, border after',
+            label: 'Header 2'
+          })}}
+
+					{{ items.font({
+            class: 'h3',
+            description: 'h3',
+            label: 'Header 3'
+          })}}
+
+					{{ items.font({
+            class: 'h1 header--xl ff-sans',
+            description: 'header xl, sans',
+            label: 'Article Hero'
+          })}}
+				</ul>
+
+				<h3 class="list--label">Quotes</h3>
+				<ul class="grid">
+					<li>
+						<blockquote class="blockquote--fancy color--red">
+							<div class="blockquote--fancy__outer">
+								<div class="blockquote--fancy__inner">
+									Block quote fancy
+								</div>
+							</div>
+						</blockquote>
+
+
+						<span class="grid--label">
+							serif, red, padding, margin, border treatment
+						</span>
+					</li>
+
+					<li>
+						<blockquote class="blockquote--standard">
+							Blockquote standard
+						</blockquote>
+
+						<span class="grid--label">
+							italics, border-left, medium gray
+						</span>
+					</li>
+				</ul>
+
+				<h3 class="list--label">Copy</h3>
+				<ul class="grid">
+					<li>
+						<p class="type--body">Body copy</p>
+						<span class="grid--label">
+							serif, color inherit
+						</span>
+						<span class="grid--label-dk">.type--body</span>
+					</li>
+
+					<li>
+						<div class="type--body-lg">
+							<p>Body copy large</p>
+						</div>
+
+						<span class="grid--label">
+							serif, color inherit
+						</span>
+						<span class="grid--label-dk">.type--body-lg</span>
+					</li>
+
+
+					<li>
+						<div class="type--body-lg italic">
+							<p>Intro copy</p>
+						</div>
+
+						<span class="grid--label">
+							italics, serif, color inherit
+						</span>
+						<span class="grid--label-dk">.type--body-lg.italic</span>
+					</li>
+
+					<li>
+						<div class="rte">
+							<p class="dropcap">Drop cap</p>
+						</div>
+
+						<span class="grid--label">
+							caps, sans-serif, red
+						</span>
+						<span class="grid--label-dk">.dropcap</span>
+					</li>
+
+					<li>
+						<p class="ff-walsheim">
+							Accent copy
+						</p>
+						<span class="grid--label">sans-serif, color inherit</span>
+						<span class="grid--label-dk">.ff-walsheim</span>
+					</li>
+
+					<li>
+						<p class="ff-sans--bold">
+							Accent copy bold
+						</p>
+						<span class="grid--label">sans-serif, bold, color inherit</span>
+						<span class="grid--label-dk">.ff-sans--bold</span>
+					</li>
+				</ul>
+
+				<h3 class="list--label">Links & Buttons</h3>
+				<ul class="grid">
+					<li>
+						<a class="link--black" href="#">Body link</a>
+						<span class="grid--label">
+							serif, black, underline, red-hover
+						</span>
+						<span class="grid--label-dk">.link--black</span>
+					</li>
+					<li>
+						<a href="#" class="italic link--lg link--red">Link large</a>
+						<span class="grid--label">
+							italics, serif, red, underline
+						</span>
+						<span class="grid--label-dk">.italic.link--lg.link--red</span>
+					</li>
+					<li>
+						<div class="term">Tool tip link</div>
+						<span class="grid--label">
+							red, block after
+						</span>
+						<span class="grid--label-dk">.term</span>
+					</li>
+
+					<li>
+						<span class="cta--link link--sm">Slide out link</span>
+						<span class="grid--label">
+							caps, sans-serif, red, extra-kerning, no hover
+						</span>
+						<span class="grid--label-dk">.cta--link</span>
+					</li>
+
+					<li>
+						<a href="#" class="ff-sans--bold link--red link--sm">Breadcrumbs link</a>
+
+						<span class="grid--label">
+							bold, sans-serif, title case, underline, red
+						</span>
+						<span class="grid--label-dk">.ff-sans--bold.link--red.link--sm</span>
+					</li>
+
+					<li>
+						<a href="#" class="link--more titlecase">More link</a>
+
+						<span class="grid--label">
+							sans-serif, title case, black, red hover, icon animation
+						</span>
+						<span class="grid--label-dk">.link--more.titlecase</span>
+					</li>
+
+					<li>
+						<ul class="main-nav">
+							<li>
+								<a href="#" data-subnav="work">Issues</a>
+							</li>
+						</ul>
+
+						<span class="grid--label">
+							nav link
+						</span>
+						<span class="grid--label-dk"></span>
+					</li>
+					<li>
+						<div class="header--default mainnav-open">
+							<ul class="main-nav">
+								<li>
+									<a href="#" data-subnav="work" class="active">Issues</a>
+								</li>
+							</ul>
+						</div>
+
+						<span class="grid--label">
+							nav link active
+						</span>
+						<span class="grid--label-dk">.active</span>
+					</li>
+
+					<li>
+						<a href="#" class="btn">Standard Button</a>
+						<span class="grid--label">
+							caps, san-serif, black & white, border, red hover
+						</span>
+
+						<span class="grid--label-dk">.btn</span>
+					</li>
+					<li>
+						<a href="#" class="btn white">Standard Button (b&w)</a>
+
+						<span class="grid--label">
+							caps, san-serif, solid red, no border, gray hover
+						</span>
+						<span class="grid--label-dk">.btn.white</span>
+					</li>
+					<li>
+						<a href="#" class="btn red">Red Button</a>
+
+						<span class="grid--label">
+							caps, san-serif, solid red, no border, inverted hover
+						</span>
+						<span class="grid--label-dk">.btn.red</span>
+					</li>
+					<li>
+						<a href="#" class="btn red red--hover-black">CTA Link</a>
+						<span class="grid--label">
+							caps, san-serif, solid red, no border, black hover
+						</span>
+						<span class="grid--label-dk">.btn.red.red--hover-black</span>
+					</li>
+					<li>
+						<a href="#" class="btn large">Large Button</a>
+						<span class="grid--label">
+							caps, san-serif, black & white, border, red hover
+						</span>
+						<span class="grid--label-dk">.btn.large</span>
+					</li>
+					<li>
+						<a class="btn white resource-item-link resource-item-link--primary" href="#">
+							<span class="dropdown-title">Resource Button</span>
+							<div class="resource-item-link-icon">
+								<i class="icon-doc"></i>
+							</div>
+						</a>
+
+						<span class="grid--label">
+							standard button with icon right justified
+						</span>
+						<span class="grid--label-dk">.btn.white.resource-item-link.resource-item-link--primary</span>
+					</li>
+					<li class="">
+						<button class="next-slide black">Next slide button</button>
+
+						<span class="grid--label">round button with opacity hover state and down arrow</span>
+						<span class="grid--label-dk">.next-slide.black</span>
+					</li>
+				</ul>
+
+				<h3 class="list--label">Image Captions & Labels</h3>
+				<ul class="grid">
+					<li>
+						<span class="img-caption">Image Caption</span>
+						<span class="grid--label">sans-serif, red, red border, padding</span>
+
+						<span class="grid--label-dk">.img-caption</span>
+					</li>
+					<li>
+						<div class="bg--black type--label">Label black</div>
+						<span class="grid--label">caps, bold, back bg, white</span>
+						<span class="grid--label-dk">.type--label.bg--black</span>
+					</li>
+					<li>
+						<div class="bg--red type--label">Label red</div>
+						<span class="grid--label">caps, bold, red bg, white</span>
+						<span class="grid--label-dk">.type--label.bg--red</span>
+					</li>
+
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+			</section>
+
+			<section class="tab tab-viz">
+				<h2>Icons & Data Viz Elements</h2>
+
+				<h3 class="list--label">Icons</h3>
+				<ul class="grid">
+					<li>
+						<i class="icon-search"></i>
+						<span class="grid--label">search icon</span>
+						<span class="grid--label-dk">.icon-search</span>
+					</li>
+					<li>
+						<i class="icon-download"></i>
+						<span class="grid--label">download icon</span>
+						<span class="grid--label-dk">.icon-download</span>
+					</li>
+					<li>
+						<i class="icon-share">
+							{{ craft.inlin.er("/dist/icons/share.svg",true) | raw }}
+						</i>
+						<span class="grid--label">share icon (svg)</span>
+						<span class="grid--label-dk">.icon-share</span>
+					</li>
+					<li>
+						<i class="icon-filter"></i>
+						<span class="grid--label">filter icon</span>
+						<span class="grid--label-dk">.icon-filter</span>
+					</li>
+					<li>
+						<i class="icon-right-big"></i>
+						<span class="grid--label">Fontello right icon</span>
+						<span class="grid--label-dk">.icon-right-big</span>
+					</li>
+					<li>
+						<i class="icon-video"></i>
+						<span class="grid--label">Fontello video icon</span>
+						<span class="grid--label-dk">.icon-video</span>
+					</li>
+					<li>
+						<i class="icon-globe"></i>
+						<span class="grid--label">Fontello globe icon</span>
+						<span class="grid--label-dk">.icon-globe</span>
+					</li>
+					<li>
+						<i class="icon-cancel"></i>
+						<span class="grid--label">Fontello cancel icon</span>
+						<span class="grid--label-dk">.icon-cancel</span>
+					</li>
+					<li>
+						<i class="icon-book-open"></i>
+						<span class="grid--label">Fontello open book icon</span>
+						<span class="grid--label-dk">.icon-book-open</span>
+					</li>
+					<li>
+						<i class="icon-tumblr"></i>
+						<span class="grid--label">Fontello tumblr icon</span>
+						<span class="grid--label-dk">.icon-tumblr</span>
+					</li>
+					<li>
+						<i class="icon-mail"></i>
+						<span class="grid--label">Fontello mail icon</span>
+						<span class="grid--label-dk">.icon-mail</span>
+					</li>
+					<li>
+						<i class="icon-youtube"></i>
+						<span class="grid--label">Fontello youtube icon</span>
+						<span class="grid--label-dk">.icon-youtube</span>
+					</li>
+					<li>
+						<i class="icon-phone"></i>
+						<span class="grid--label">Fontello phone icon</span>
+						<span class="grid--label-dk">.icon-phone</span>
+					</li>
+					<li>
+						<i class="icon-print"></i>
+						<span class="grid--label">Fontello print icon</span>
+						<span class="grid--label-dk">.icon-print</span>
+					</li>
+					<li>
+						<i class="icon-desktop"></i>
+						<span class="grid--label">Fontello desktop icon</span>
+						<span class="grid--label-dk">.icon-desktop</span>
+					</li>
+					<li>
+						<i class="icon-doc"></i>
+						<span class="grid--label">Fontello doc icon</span>
+						<span class="grid--label-dk">.icon-doc</span>
+					</li>
+					<li>
+						<i class="icon-linkedin-squared"></i>
+						<span class="grid--label">Fontello linkedin icon</span>
+						<span class="grid--label-dk">.icon-linkedin-squared</span>
+					</li>
+					<li>
+						<i class="icon-ok"></i>
+						<span class="grid--label">Fontello ok icon</span>
+						<span class="grid--label-dk">.icon-ok</span>
+					</li>
+					<li>
+						<i class="icon-graph"></i>
+						<span class="grid--label">Fontello graph icon</span>
+						<span class="grid--label-dk">.icon-graph</span>
+					</li>
+					<li>
+						<i class="icon-grid"></i>
+						<span class="grid--label">Fontello grid icon</span>
+						<span class="grid--label-dk">.icon-grid</span>
+					</li>
+					<li>
+						<i class="icon-location"></i>
+						<span class="grid--label">Fontello location icon</span>
+						<span class="grid--label-dk">.icon-location</span>
+					</li>
+					<li>
+						<i class="icon-audio"></i>
+						<span class="grid--label">Fontello audio icon</span>
+						<span class="grid--label-dk">.icon-audio</span>
+					</li>
+					<li>
+						<i class="icon-documentaries"></i>
+						<span class="grid--label">Fontello documentaries icon</span>
+						<span class="grid--label-dk">.icon-documentaries</span>
+					</li>
+					<li>
+						<i class="icon-twitter"></i>
+						<span class="grid--label">Fontello twitter icon</span>
+						<span class="grid--label-dk">.icon-twitter</span>
+					</li>
+					<li>
+						<i class="icon-facebook"></i>
+						<span class="grid--label">Fontello facebook icon</span>
+						<span class="grid--label-dk">.icon-facebook</span>
+					</li>
+					<li>
+						<i class="icon-rss"></i>
+						<span class="grid--label">Fontello rss icon</span>
+						<span class="grid--label-dk">.icon-rss</span>
+					</li>
+					<li>
+						<i class="icon-mic"></i>
+						<span class="grid--label">Fontello mic icon</span>
+						<span class="grid--label-dk">.icon-mic</span>
+					</li>
+					<li>
+						<i class="icon-instagram"></i>
+						<span class="grid--label">Fontello instagram icon</span>
+						<span class="grid--label-dk">.icon-instagram</span>
+					</li>
+					<li>
+						<i class="icon-map"></i>
+						<span class="grid--label">Fontello map icon</span>
+						<span class="grid--label-dk">.icon-map</span>
+					</li>
+					<li>
+						<i class="icon-vimeo"></i>
+						<span class="grid--label">Fontello vimeo icon</span>
+						<span class="grid--label-dk">.icon-vimeo</span>
+					</li>
+					<li>
+						<i class="icon-snapchat-ghost"></i>
+						<span class="grid--label">Fontello snapchat ghost icon</span>
+						<span class="grid--label-dk">.icon-snapchat-ghost</span>
+					</li>
+				</ul>
+
+				<h3 class="list--label">Tool tips</h3>
+				<ul class="grid">
+					<li class="grid--33">
+						<div class="tooltipster-base tooltipster-sidetip tooltipster-noir tooltipster-noir-customized tooltipster-top tooltipster-fade tooltipster-show" id="tooltipster-378556">
+							<div class="tooltipster-box">
+								<div class="tooltipster-content">
+									<div id="tooltip-template" class="tooltip-template statement">
+										<div class="title">On a given day in
+											<span class="value" style="color:#EF4136">2013</span>,
+											<span class="value" style="color:#EF4136">27%</span>
+											of
+											<span class="value" style="color:#EF4136">St. Lawrence</span>'s jail population was held on misdemeanor charges.</div>
+									</div>
+								</div>
+							</div>
+							<div class="tooltipster-arrow" style="left: 182px;">
+								<div class="tooltipster-arrow-uncropped">
+									<div class="tooltipster-arrow-border"></div>
+									<div class="tooltipster-arrow-background"></div>
+								</div>
+							</div>
+						</div>
+
+						<span class="grid--label">black tooltip, bold, sans-serif (data visualizations)</span>
+						<span class="grid--label-dk">tooltipster generated</span>
+					</li>
+
+					<li class="grid--33">
+						<div class="tooltipster-base tooltipster-sidetip tooltipster-borderless tooltipster-fade tooltipster-show tooltipster-bottom" id="tooltipster-523223">
+							<div class="tooltipster-box">
+								<div class="tooltipster-content">
+									<span id="tt-5c1930bc9096e">See for example Maya Wiley, “Power of the Prosecutor,”
+										<em>New Republic,
+										</em>May 24, 2018, https://perma.cc/KXJ6-M357.</span>
+								</div>
+							</div>
+							<div class="tooltipster-arrow" style="left: 200px;">
+								<div class="tooltipster-arrow-uncropped">
+									<div class="tooltipster-arrow-border"></div>
+									<div class="tooltipster-arrow-background"></div>
+								</div>
+							</div>
+						</div>
+
+						<span class="grid--label">black tooltip, serif (articles)</span>
+						<span class="grid--label-dk">tooltipster generated</span>
+					</li>
+
+					<li class="grid--33">
+						<div class="tooltipster-base tooltipster-sidetip tooltipster-borderless tooltipster-term tooltipster-top tooltipster-fade tooltipster-show" id="tooltipster-163357">
+							<div class="tooltipster-box">
+								<div class="tooltipster-content">
+									<div>
+										<p>Case processing is the series of touch-points between the time charges are filed and the case is completed.</p>
+									</div>
+								</div>
+							</div>
+							<div class="tooltipster-arrow" style="left: 200px;">
+								<div class="tooltipster-arrow-uncropped">
+									<div class="tooltipster-arrow-border"></div>
+									<div class="tooltipster-arrow-background"></div>
+								</div>
+							</div>
+						</div>
+
+						<span class="grid--label">red tooltip, sans-serif (articles)</span>
+						<span class="grid--label-dk">tooltipster generated</span>
+					</li>
+				</ul>
+
+				<h3 class="list--label">Share Lists</h3>
+				<ul class="list-reset">
+					<li>
+						<ul class="share module-intro__share">
+							<li>
+								<a href="#">
+									<span class="icon-twitter"></span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<span class="icon-facebook"></span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<span class="icon-mail"></span>
+								</a>
+							</li>
+						</ul>
+					</li>
+
+					<li>
+						<ul class="share share--social">
+							<li>
+								<a href="#">
+									<span class="icon-mail"></span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<span class="icon-twitter"></span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<span class="icon-facebook"></span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<span class="icon-youtube"></span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<span class="icon-instagram"></span>
+								</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+
+				<h3 class="list--label">Visual Elements</h3>
+				<ul class="grid">
+					<li>
+						<div class="img-outer fancy-frame">
+							<img src="https://storage.googleapis.com/vera-web-assets/images/publications/out-of-sight-growth-of-jails-rural-america/stream/_square800/out-of-site-square-v2.jpg" alt="">
+						</div>
+						<span class="grid--label">Image with fancy border</span>
+						<span class="grid--label-dk">.img-outer.fancy-frame</span>
+					</li>
+
+					<li>
+						<div id="loader" class="streamloader">{{ craft.inlin.er('dist/icons/loader.svg',true)|raw }}</div>
+
+						<span class="grid--label">Loader (with svg)</span>
+						<span class="grid--label-dk">.streamloader</span>
+					</li>
+				</ul>
+
+				<h3 class="list--label">Form Elements</h3>
+				<ul class="grid">
+					<li>
+						<div class="fill-in-the-blanks">
+							<select>
+								<option>Select</option>
+							</select>
+						</div>
+
+						<span class="grid--label">Select dropdown</span>
+						<span class="grid--label-dk"></span>
+					</li>
+
+					<li>
+						<div class="contact-email-form">
+							<div class="form-row">
+								<label for="test-text" class="">Label</label>
+								<input id="test-text" type="text" class="" placeholder="Lorem ipsum">
+							</div>
+						</div>
+
+						<span class="grid--label">Text input</span>
+						<span class="grid--label-dk"></span>
+					</li>
+
+					<!-- <li>
+					            <div class="formbuilder2">
+					              <label for="test-radio" class="">Label</label>
+					              <input id="test-radio" type="radio" class="" value="">
+					            </div>
+					
+					            <span class="grid--label">Radio input</span>
+					            <span class="grid--label-dk"></span>
+					          </li>
+					          <li>
+					            <div class="formbuilder2">
+					              <label for="test-checkbox" class="">Label</label>
+					              <input id="test-checkbox" type="checkbox" class="" value="">
+					            </div>
+					
+					            <span class="grid--label">Checkbox input</span>
+					            <span class="grid--label-dk"></span>
+					          </li>
+					 -->
+					<li>
+						<div class="contact-email-form">
+							<label for="" class="">Label</label>
+							<textarea></textarea>
+						</div>
+
+						<span class="grid--label">Text area</span>
+						<span class="grid--label-dk"></span>
+					</li>
+
+					<li>
+						<div class="search-results-form">
+							<div class="search-results-form__inner">
+								<input id="search" class="search-results-input" value="Lorem ipsum">
+								<div class="search-results-submit">
+									<i class="icon-search no-hover"></i>
+								</div>
+							</div>
+						</div>
+
+						<span class="grid--label">Search input</span>
+						<span class="grid--label-dk"></span>
+					</li>
+
+					<li>
+						<form class="newsletter_form" target="_blank" id="">
+							<div class="newsletter_wrap js-remove">
+								<div class="newsletter_input_wrap">
+									<input id="footer_email_input" type="email" class="email_input newsletter_input footer__newsletter__input" name="EMAIL" required="">
+									<label class="newsletter_label" for="footer_email_input">Full width field</label>
+								</div>
+								<div class="newsletter_input_wrap half">
+									<input id="footer_fname_input" type="text" class="fname_input newsletter_input footer__newsletter__input half" name="FNAME" required="">
+									<label class="newsletter_label" for="footer_fname_input">Half width field</label>
+								</div>
+								<div class="newsletter_input_wrap half">
+									<input id="footer_lname_input" type="text" class="lname_input newsletter_input footer__newsletter__input half" name="LNAME" required="">
+									<label class="newsletter_label" for="footer_lname_input">Half width field</label>
+								</div>
+								<button type="submit" class="newsletter_submit footer__newsletter__submit"></button>
+							</div>
+						</form>
+
+						<span class="grid--label">newsletter form</span>
+						<span class="grid--label-dk"></span>
+					</li>
+				</ul>
+
+				<h3 class="list--label">Data Viz Elements</h3>
+				<ul class="grid">
+					<li>
+						<table class="table__topx">
+							<thead>
+								<tr class="heading">
+									<th>Heading</th>
+									<th>Heading</th>
+									<th>Heading</th>
+									<th>Heading</th>
+								</tr>
+							</thead>
+
+							<tbody>
+								<tr class="color-group-1">
+									<td class="">1</td>
+									<td class="">Color group 1</td>
+									<td class="">Lorem</td>
+									<td class="">Ipsum</td>
+								</tr>
+								<tr class="color-group-2">
+									<td class="">2</td>
+									<td class="">Color group 2</td>
+									<td class="">Lorem</td>
+									<td class="">Ipsum</td>
+								</tr>
+								<tr class="color-group-2 highlight">
+									<td class="">3</td>
+									<td class="">Color group 2 with highlight</td>
+									<td class="">Lorem</td>
+									<td class="">Ipsum</td>
+								</tr>
+								<tr class="color-group-3">
+									<td class="">4</td>
+									<td class="">Color group 3</td>
+									<td class="">Lorem</td>
+									<td class="">Ipsum</td>
+								</tr>
+								<tr class="color-group-4">
+									<td class="">5</td>
+									<td class="">Color group 4</td>
+									<td class="">Lorem</td>
+									<td class="">Ipsum</td>
+								</tr>
+							</tbody>
+						</table>
+						<span class="grid--label">table</span>
+						<span class="grid--label-dk">.table__topx > .heading & .color-group-1 .color-group-2 .color-group-3 .color-group-4</span>
+					</li>
+					<li>
+						<div class="lightswitch lightswitch--default">
+							<input type="checkbox" id="lightswitch__toggle">
+							<label for="lightswitch__toggle">
+								<div>
+									<div class="toggle-side off">
+										<svg width="17" height="18" viewbox="0 0 17 18" xmlns="http://www.w3.org/2000/svg" stroke="#FFFFFF" fill="none">
+											<path d="M1.301 8.32l7.253 7.42 7.252-7.42M8.597 15.74V.35"></path>
+										</svg>
+									</div>
+									<div class="toggle-side on">
+										<svg width="17" height="18" viewbox="0 0 17 18" xmlns="http://www.w3.org/2000/svg" stroke="#FFFFFF" fill="none">
+											<path d="M1.301 8.32l7.253 7.42 7.252-7.42M8.597 15.74V.35"></path>
+										</svg>
+									</div>
+								</div>
+							</label>
+							<div class="label">
+								<div class="label-down">Decrease</div>
+								<div class="label-up">Increase</div>
+							</div>
+						</div>
+
+						<span class="grid--label">lightswitch toggle with default colors</span>
+						<span class="grid--label-dk"></span>
+					</li>
+				</ul>
+			</section>
+		</div>
+	</article>
+{% endblock %}

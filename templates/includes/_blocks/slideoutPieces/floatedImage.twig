@@ -1,0 +1,6 @@
+{% set image = piece.image | length ? piece.image[0] : null %}
+{% if image %}
+<div class=" slideout-floatedimage">
+  {% include 'includes/snippets/image' %}
+</div>
+{% endif %}

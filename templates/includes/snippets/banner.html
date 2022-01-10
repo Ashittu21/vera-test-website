@@ -1,0 +1,66 @@
+{% set blogSeries = entry.type == 'blogSeries' %}
+{% set aboutPage = entry.type == 'about' %}
+<section class="text-banner {% if blogSeries %}text-banner--left-bottom{% endif %} {% if aboutPage %}text-banner--left-center{% endif %}">
+	{% if blogSeries %}
+		<div class="container">
+		{% endif %}
+
+		{% set image = entry.heroImage[0] ?? null %}
+		{% set video = entry.heroVideoAmbient[0] ?? null %}
+		{% if video %}
+
+			<div class="ambient-video-wrap hide-on-print">
+				<video class="ambient-video" autoplay loop muted>
+					<source src="{{ entry.heroVideoAmbient.first.url }}">
+				</video>
+			</div>
+			<div class="screen"></div>
+		{% else %}
+			<div class="text-banner__bg-image fadein" style="background-image: url({% if image %}{{ image.url}}{% endif %});">
+				{% include 'includes/snippets/attribution' %}
+			</div>
+		{% endif %}
+
+		<div class="text-banner__content">
+			{% if aboutPage %}
+				<h3 class="text-banner__heading">
+					{{ entry.heroImageText }}
+				</h3>
+			{% else %}
+				{% if blogSeries %}
+					<span class="text-banner__breadcrumb">
+					{% else %}
+						<span class="text-banner__label">
+						{% endif %}
+
+						{% switch entry.type %}
+							{% case 'blogSeries' %}
+								{% set crumb = craft.entries.section('blog').first %}
+
+							{% case 'eventSeries' %}
+								{% set crumb = craft.entries.section('events').first %}
+
+							{% case 'spotlight' %}
+								{% set crumb = craft.entries.section('spotlightsLanding').first %}
+						{% endswitch %}
+
+						{% if crumb is defined and crumb %}
+							<a href="{{ crumb.url }}">{{ crumb.title }}</a>
+						{% else %}
+							{{ entry.type.name }}
+						{% endif %}
+					</span>
+
+					<h3 class="text-banner__heading">
+						{{ entry.title }}
+					</h3>
+					{% if entry.subtitle %}
+						<p class="text-banner__subheading">{{ entry.subtitle }}</p>
+					{% endif %}
+				{% endif %}
+			</div>
+
+			{% if blogSeries %}
+			</div>
+		{% endif %}
+	</section>

@@ -1,0 +1,43 @@
+@import "base/variables.scss";
+@import "base/mixins.scss";
+@import "base/fonts.scss";
+@import "base/type.scss";
+
+//@import "base/global.scss";
+
+@import "modules/post.scss";
+
+html {
+	font-size: 50%;
+}
+
+html,body {
+	margin: 0;
+	padding: 0;
+}
+
+@page {
+    margin: 0px;
+}
+
+#cover {
+	
+}
+
+#contents {
+	background-color: $dk-gray;
+	padding:0;
+	margin:0;
+}
+
+article.post-content__single__container {
+	margin: 30px 100px;
+}
+
+h1,h2,h3,h4,h5,h6,ul,ol {
+	page-break-inside: avoid
+	
+	&,p {
+		line-height: 1.1;
+	}
+}

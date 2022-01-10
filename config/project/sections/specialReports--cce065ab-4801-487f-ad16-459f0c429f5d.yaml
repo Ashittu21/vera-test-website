@@ -1,0 +1,14 @@
+enableVersioning: true
+handle: specialReports
+name: 'Special Reports'
+propagationMethod: all
+siteSettings:
+  8ed9f980-84ac-470d-94d7-89a2cdb64916:
+    enabledByDefault: true
+    hasUrls: true
+    template: special-reports/_entry
+    uriFormat: '{% if object.level == 1 %}{slug}{% else %}{parent.uri}/{slug}{% endif %}'
+structure:
+  maxLevels: null
+  uid: c719ea58-a87d-4ade-98b5-9f3e7cc0740d
+type: structure

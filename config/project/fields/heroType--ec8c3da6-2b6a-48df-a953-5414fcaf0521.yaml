@@ -1,0 +1,67 @@
+contentColumnType: string
+fieldGroup: ff6bca1c-2054-4260-a21f-2d7007b1c024
+handle: heroType
+instructions: ''
+name: 'Hero Type'
+searchable: true
+settings:
+  optgroups: true
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - 'Editorial Chapter'
+        -
+          - value
+          - editorialChapter
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - 'Editorial Introduction'
+        -
+          - value
+          - editorialIntroduction
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Regular
+        -
+          - value
+          - regular
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - 'Campaign Introduction'
+        -
+          - value
+          - campaignIntroduction
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - 'Campaign Slide'
+        -
+          - value
+          - campaignSlide
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

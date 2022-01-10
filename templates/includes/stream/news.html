@@ -1,0 +1,95 @@
+{% spaceless %}
+	{% if craft.request.isAjax and isPageRequest is not defined %}
+		{% set relation = craft.request.getParam('relation')|default(craft.request.getParam('relations')) %}
+	
+		{% if relation is defined and relation != null %}
+			{% if relation.type == 'entries' %}
+				{% set relation = craft.entries.id(relation.id) %}
+			{% elseif relation.type == 'categories' %}
+				{% set relation = craft.categories.id(relation.id) %}
+			{% elseif relation.type == 'none' %}
+				{% set relation = '' %}
+			{% endif %}
+		{% endif %}
+		
+		{% set limit = craft.request.getParam('limit') %}
+		{% set offset = craft.request.getParam('offset') %}
+		
+		{% if craft.request.getParam('streamType') == 'newsroom' %}
+		
+			{% set startyear = craft.request.getParam('startYear') %}
+			{% set endyear = craft.request.getParam('endYear') + 1 %}
+			{% if startyear != 'NaN' and endyear != 'NaN' %}
+				{% set daterange = ['and', '<= '~endyear, '>= '~startyear] %}
+			{% else %}
+				{% set daterange = null %}
+			{% endif %}
+			
+		{% endif %}
+		
+		{% if craft.request.getParam('query') %}
+			{% set query = craft.request.getParam('query') %}
+		{% endif %}
+		
+		{% if craft.request.getParam('newsSection') %}
+			{% set newsSection = craft.request.getParam('newsSection') %}
+		{% endif %}
+		
+		{% if craft.request.getParam('notype') %}
+			{% set notype = craft.request.getParam('notype') %}
+		{% endif %}
+		
+	{% else %}
+		{% if streamOptions.primaryRelation is defined %}
+			{% set relation = streamOptions.primaryRelation.relations[0] %}
+		{% else %}
+			{% set relation = null %}
+		{% endif %}
+		
+		{% if newslimit is defined %}
+			{% set limit = newslimit %}
+		{% else %}
+			{% set limit = contentlimit %}
+		{% endif %}
+		{% if streamOptions.query is defined %}
+			{% set query = streamOptions.query %}
+		{% endif %}
+		
+		{% set offset = 0 %}
+	{% endif %}
+	
+	{% if newsSection is not defined %}
+		{% set newsSection = ['news','pressReleases'] %}
+		{% set mixed = true %}
+	{% endif %}
+	
+	{% set params = {
+		relatedTo: relation,
+		section: newsSection,
+		order: 'postDate desc',
+		limit: limit,
+		offset: offset*limit
+	} %}
+
+	{% if daterange is defined %}
+		{% set params = params|merge({postDate: daterange}) %}
+	{% endif %}
+	
+	{% if query is defined and query != "null" %}
+		{% set params = params|merge({search: query}) %}
+	{% endif %}
+	
+	{% set news = craft.entries(params).find() %}
+
+	{% set content %}
+		{% if news|length == 0 %}
+		null
+		{% else %}
+			{% for module in news %}
+				{% include 'includes/stream/stream_module-news' %}
+			{% endfor %}
+		{% endif %}
+	{% endset %}
+	
+{% endspaceless %}
+{{ content }}

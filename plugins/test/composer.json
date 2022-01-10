@@ -1,0 +1,41 @@
+{
+    "name": "me/test",
+    "description": "test",
+    "type": "craft-plugin",
+    "version": "1.0.0",
+    "keywords": [
+        "craft",
+        "cms",
+        "craftcms",
+        "craft-plugin",
+        "test"
+    ],
+    "support": {
+        "docs": "???",
+        "issues": "???"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "asdf",
+            "homepage": "https://hyperakt.com"
+        }
+    ],
+    "require": {
+        "craftcms/cms": "^3.0.0"
+    },
+    "autoload": {
+        "psr-4": {
+          "me\\test\\": "src/"
+        }
+    },
+    "extra": {
+        "name": "test",
+        "handle": "test",
+        "developer": "asdf",
+        "developerUrl": "https://hyperakt.com",
+        "documentationUrl": "???",
+        "changelogUrl": "???",
+        "class": "me\\test\\Test"
+    }
+}

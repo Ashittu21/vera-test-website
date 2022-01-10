@@ -1,0 +1,40 @@
+{% set onepage = entry.parent ? entry.parent.singlePage : entry.singlePage %}
+{% set withScrollTrigger = withScrollTrigger ?? false %}
+{% set headerClass = withScrollTrigger ? 'header-will-toggle will-fade-in will-slide-down' : '' %}
+
+{% switch entry.navTheme ?? null %}
+{% case 'minimal' %}
+{% include 'includes/_header/header__minimal' with {headerClass: headerClass} %}
+{% case 'visualTiles' %}
+{% include 'includes/_header/header__visualTiles' with {headerClass: headerClass} %}
+{% case 'burger' %}
+{% include 'includes/_header/header__burger' with {headerClass: headerClass} %}
+{% case 'none' %}
+{% default %}
+{% include 'includes/snippets/header__special-report'  with {
+  entry: entry.children | length ? entry.children.first : entry,
+  onepage: onepage,
+  headerClass: headerClass
+} %}
+{% endswitch %}
+
+{% if withScrollTrigger %}
+{% includeJs %}
+  $(function() {
+    toggleNav()
+  })
+  function toggleNav() {
+
+    if ($('.js-show-header-trigger').length) {
+      var showNav = TweenLite.to('.header', .3, { autoAlpha: 1, y: 0 });
+      var scene = new ScrollMagic.Scene({
+        triggerElement: '.js-show-header-trigger',
+        triggerHook: 0
+      })
+      .addTo(VERA.sm)
+      .setTween(showNav)
+      ;
+    }
+  }
+{% endincludejs %}
+{% endif %}

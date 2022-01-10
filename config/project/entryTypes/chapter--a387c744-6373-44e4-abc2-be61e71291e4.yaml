@@ -1,0 +1,74 @@
+fieldLayouts:
+  0c42f345-d3c2-4aa2-854d-91ee404ba5a9:
+    tabs:
+      -
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\EntryTitleField
+            warning: null
+            width: 100
+          -
+            fieldUid: b59f740b-d724-47eb-8568-a71aafb0ba4e
+            instructions: null
+            label: null
+            required: '1'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: f234fdc2-518d-448c-91e2-837da74630b1
+            instructions: null
+            label: null
+            required: '0'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 67d554af-c9d3-41db-b557-176303bc9bd1
+            instructions: null
+            label: null
+            required: '0'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: ad9b90f1-ab3e-4da4-b693-9f04c0ee68a5
+            instructions: null
+            label: null
+            required: '1'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Chapter
+        sortOrder: 1
+handle: chapter
+hasTitleField: false
+name: Chapter
+section: 4b7c3d23-1010-47d7-9813-9b5a7707aa63
+sortOrder: 5
+titleFormat: '{{object.parent.title | raw}} - {chapterTitle}'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

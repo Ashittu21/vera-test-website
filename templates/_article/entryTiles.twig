@@ -1,0 +1,47 @@
+{% set headingStyle = headingStyle ?? "normal" %}
+{% set class = class ?? null %}
+<section class="stream-module-outer {{ class }}">
+  {% set class = null %}
+  {% if headingStyle == "normal" %}
+  {% include '_article/pieces/sectionExplainer' %}
+  <div class="chart_container">
+    <div class="body">
+      <div class="description post-module__subheading" style="margin-bottom: 80px">
+        <p>{{ block.subheading }}</p>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+  <div class="container">
+    {% if headingStyle == "stories" %}
+    <h2>{{ block.heading }}</h2>
+    <div class="post-module__subheading">{{ block.subheading }}</div>
+    {% endif %}
+
+    <div class="col-outer">
+      {% for item in block.children %}
+        {% set image = null %}
+        {% switch item.type.handle %}
+        {% case 'internalEntry' %}
+        {% set image = null %}
+        {% include 'includes/stream/stream_module' with {module: item.singleEntry[0], link: item.isAnchor ? '#' ~ (item.singleEntry[0].title | kebab) : null,noTypeLabel: true, noDate: item.hideDate } %}
+        {% case 'externalEntry' %}
+        {% include 'includes/stream/stream_module' with {
+          linkOut: true, 
+            module: {
+            title: item.heading,
+            streamImageSquare: item.streamImageSquare,
+            url: item.linkUrl,
+            type: { handle: 'article' }
+          }, 
+          noTypeLabel: true 
+        } %}
+        {% default %}
+        Unknown module {{ item.type.handle }}
+        {% endswitch %}
+      {% endfor %}
+      <article class="stream-module stream-module--gc--half empty"></article>
+      <article class="stream-module stream-module--gc--half empty"></article>
+    </div>
+  </div>
+</section>

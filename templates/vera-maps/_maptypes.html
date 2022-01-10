@@ -1,0 +1,16 @@
+{% switch entry.type.handle %}
+	{% case 'citiesMapWithLinks' %}
+		{% include 'vera-maps/types/citiesMapWithLinks' with {baseUrl: baseUrl ?? entry.url} %}
+	{% case 'stateHeatmapWithLinks' %}
+		{% include 'vera-maps/types/stateHeatmapWithLinks' with {baseUrl: baseUrl ?? entry.url} %}
+	{% case 'countyHeatmapWithLineCharts' %}
+		{% include 'vera-maps/types/countyHeatmapWithLineCharts' with {baseUrl: baseUrl ?? entry.url} %}
+	{% default %}
+		{% if entry.level > 1 %}
+			{% set parent = entry.ancestors.first %}
+			{% redirect parent.url 301 %}
+		{% else %}
+			{% set map = entry %}
+		{% endif %}
+		{% include 'vera-maps/map' with {map: map, mapTheme: mapTheme ?? null} %}
+{% endswitch %}

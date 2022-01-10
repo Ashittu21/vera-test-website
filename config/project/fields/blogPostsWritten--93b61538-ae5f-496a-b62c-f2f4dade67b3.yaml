@@ -1,0 +1,19 @@
+contentColumnType: string
+fieldGroup: 9e8c11c6-0d09-4e83-9ae3-8e977b222014
+handle: blogPostsWritten
+instructions: ''
+name: 'Blog Posts Written'
+searchable: true
+settings:
+  singleField: '65'
+  source:
+    __assoc__:
+      -
+        - value
+        - '13'
+      -
+        - type
+        - section
+translationKeyFormat: null
+translationMethod: none
+type: Page8\ManyToMany\fields\ManyToManyField

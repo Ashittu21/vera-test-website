@@ -1,0 +1,61 @@
+childBlocks: ''
+field: 810d49e8-da69-46a8-abae-c210803fc32e
+fieldLayouts:
+  99c25e04-b66d-4900-9db8-5418edd03ed6:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 9d3075c5-4efa-4a03-93a8-153c1accfaf3
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: cccacce4-35d6-4f9b-82c9-2f754798f7b7
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: c7eb0320-c6dd-48da-9806-56c5b9594e3d
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: e39d03da-f4f1-4b57-9183-a9ece55f53c8
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 8c9d33f4-d033-456f-b0e9-2517d3f89ae7
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+handle: percentage
+maxBlocks: 0
+maxChildBlocks: 0
+maxSiblingBlocks: 0
+name: Percentage
+sortOrder: 4
+topLevel: false

@@ -1,0 +1,92 @@
+{% set title = entry.title %}
+
+<section class="text-banner text-banner--center text-banner--center--small">
+	<div class="container">
+		<div class="text-banner__content">
+			<p class="text-banner__subheading">{{ entry.subtitle }}</p>
+		</div>
+	</div>
+</section>
+<section class="post-module module-columns-3up">
+	<div class="container">
+		<div class="col-outer">
+			<h5 class="label">Our Commitments</h5>
+			{% cache %}
+			{% for commitment in craft.entries.section('ourWork').type('commitment') %}
+				{% set image = commitment.commitmentImageSquare[0] ?? null %}
+				<div class="col">
+					<a href="{{ commitment.url }}">
+						<div class="img-outer">
+							<img src="{{image.url}}" alt="{{ image.title }}" title="{{ image.title }}">
+						</div>
+
+						<h2>
+							{{ commitment.title }}
+						</h2>
+					</a>
+
+					<div class="text-outer">
+						{{ commitment.subtitle }}
+					</div>
+
+					<h5 class="mobile-toggle">Action Areas</h5>
+
+					<ul class="action-areas">
+						{% for aa in commitment.children %}
+							<li>
+								<a href="{{ aa.url }}">
+									<div class="img-outer">
+										{% set icon = aa.selfCategory.last.actionAreaIcon[0] ?? null %}
+										{% if icon %}
+											{{ craft.inlin.er(icon.url, true)|raw }}
+										{% endif %}
+									</div>
+								</a>
+								<div>
+									<a href="{{ aa.url }}">
+										<div class="text-outer">
+											{{ aa.title }}
+										</div>
+									</a>
+									{% if aa.children %}
+										<ul class="issues">
+											{% for issue in aa.children %}
+												<li class="issue">
+													<a href="{{ issue.url }}">{{ issue }}</a>
+												</li>
+											{% endfor %}
+										</ul>
+									{% endif %}
+								</div>
+							</li>
+						{% endfor %}
+					</ul>
+				</div>
+			{% endfor %}
+			{% endcache %}
+		</div>
+
+		<aside class="hr"></aside>
+	</div>
+</section>
+{% set spotlights = craft.entries.section('spotlights').level(1).order('postDate DESC') %}
+{% if spotlights | length >= 3 %}
+	{% set spotlightHeading = entry.spotlightHeading[0] ?? null %}
+	{% if spotlightHeading %}
+		<section class="post-module module-text module-text--small">
+			<div class="container">
+				<h3>{{ spotlightHeading.spotlightTitle }}</h3>
+				{{ spotlightHeading.spotlightExplainer }}
+
+			</div>
+		</section>
+	{% endif %}
+	<section class="module-spotlight-grid" data-view="grid">
+		<div class="container col-outer">
+
+			{% for module in spotlights %}
+				{% include 'includes/stream/stream_module' with {size: 'half'} %}
+			{% endfor %}
+		</div>
+	</section>
+{% endif %}

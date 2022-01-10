@@ -1,0 +1,82 @@
+{% extends '_layout' %}
+
+{% set title = entry.title %}
+
+{% block content %}
+	<section class="post-content">
+		<div class="container col-outer">
+			<header class="post-header">
+				<h1>{{ entry.title }}</h1>
+			</header>
+
+			{% include 'includes/stream/stream_newsroom' %}
+
+			<div class="one-third one-third--sm post-sidebar post-sidebar__newsroom">
+				<h6 class="post-sidebar__subheading">Media Contact</h6>
+				{% for contact in administrative.pressContact %}
+					{% set headshot = contact.headshot[0] ?? null %}
+					<div class="post-sidebar__people">
+						<ul class="stream-module__meta__author">
+							<li>
+								<div class="img-outer">
+									<img src="{{ headshot ? headshot.getUrl('square130') : 'http://placehold.it/300x300' }}">
+								</div>
+								<div class="text-outer">
+									<h5 class="person-name">{{ contact }}</h5>
+									<div class="person-info">
+										{{ contact.telephone | default('') }}
+										{{ contact.telephone ? '<br>' }}
+										{{ contact.email | default('') }}
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+					{% endfor%}
+
+					<div class="post-sidebar__btn">
+						{% if entry.mediaKitDownload.first %}
+							<a download class="btn" href="{{ entry.mediaKitDownload.first.url }}">{{ entry.mediaKitButtonText }}</a>
+						{% endif %}
+
+						{#
+																																																															{% set newsletters = craft.apiaccess.get('https://anystring:1e2ee22380c6ef89e5e1cac709a17aeb-us8@us8.api.mailchimp.com/3.0/campaigns?status=sent&list_id=' ~ entry.recentNewsletterListId ~ '&count=1') %}
+
+																																																															{% set offset = newsletters.total_items - 1 %}
+
+																																																															{% set newsletters = craft.apiaccess.get('https://anystring:1e2ee22380c6ef89e5e1cac709a17aeb-us8@us8.api.mailchimp.com/3.0/campaigns?status=sent&list_id=' ~ entry.recentNewsletterListId ~ '&fields=campaigns.archive_url&count=1&offset=' ~ offset) %}
+
+																																																															{% set recentUrl = newsletters.campaigns[0].archive_url %}
+																																																															#}
+
+						{% set recentUrl = entry.recentNewsletterUrl %}
+						{% if recentUrl %}
+							<a class="btn" href="{{ recentUrl }}" target="_blank">{{ entry.readNewsletterButtonText }}</a>
+						{% endif %}
+					</div>
+					<!-- <div class="post-sidebar__newsletter-signup">
+					</div> -->
+
+					{# {% set response = craft.twitter.get('statuses/user_timeline',{ screen_name :'verainstitute', count: 3}) %}
+										{% if response.success %}
+											<div class="post-sidebar__twitter-feed social-feed">
+												<h5>
+													<i class="icon-twitter"></i>
+													@verainstitute</h5>
+
+												<ul>
+													{% for tweet in response.data | slice(0,3) %}
+														<li>
+															{{ tweet.text }}
+
+															<span class="timestamp">{{ tweet.created_at  | time_ago }}
+																ago</span>
+														</li>
+													{% endfor %}
+												</ul>
+											</div>
+										{% endif %} #}
+				</div>
+			</section>
+
+		{% endblock %}

@@ -1,0 +1,99 @@
+{% set isIntro = isIntro and loop.index == 1 %}
+{% set hasSidebar = block.children | length %}
+{% set hasSubNav = block.headingStyle == 'numberedWithShape' %}
+{% set padClass = '' %}
+{% for child in block.parent.children %}
+	{% set padClass = child.type == 'resourceList' ? 'article-block-max-column--pad-sm' : '' %}
+{% endfor %}
+
+<section class="article-block-standard {{- hasSidebar ? ' has-sidebar' }} {{- hasSubNav ? ' js-subnav-anchor' }} article-block-padding-top--{{ block.articleBlockPaddingTop }}" {% if block.heading %} id="{{ block.heading | kebab}}" {% endif %}>
+	{% if block.heading %}
+		<div class="heading-wrap heading-style--{{ block.headingStyle }} {% if not hasSidebar %}article-block-max-column{% endif %} container {{ padClass }}">
+			{% if block.photo | length %}
+				<img class="heading-photo" width="100" height="100" src="{{ craft.imager.transformImage(block.photo[0], { width: 200, height: 200 }).url }}">
+			{% endif %}
+
+			<div class="heading-wrap-text">
+				{% if block.headingLabel %}
+					<aside class="heading-label">
+						<div>{{ block.headingLabel }}</div>
+						{% if hasSubNav %}
+							<span class="heading-index">{{ subnavIndex ? (subnavIndex < 10 ? '0' ~ subnavIndex : subnavIndex) : null }}</span>
+							<span class="heading-shape"></span>
+						{% endif %}
+					</aside>
+				{% endif %}
+
+				{% if isIntro %}
+					<h1 class="heading">
+						<div class="">
+							<span class="{% if block.headingStyle == 'redStripe' %}receives-background-color{% endif %}">
+								{{- block.heading | shortcodes | raw -}}
+							</span>
+						</div>
+					</h1>
+				{% else %}
+					<h3 class="heading">
+						<div class="">
+							<span class="{% if block.headingStyle == 'redStripe' %}receives-background-color{% endif %}">
+								{{- block.heading | shortcodes | raw -}}
+							</span>
+						</div>
+					</h3>
+				{% endif %}
+			</div>
+		</div>
+	{% endif %}
+
+	<div class="{% if not hasSidebar %}article-block-max-column{% endif %} container inner {{ padClass }}">
+		<div class="article-main article-column">
+			<div class="article-body rte" data-highlight-share>
+				{{ block.text | shortcodes | raw }}
+			</div>
+		</div>
+
+		{% if hasSidebar %}
+			<aside class="article-sidebar article-column">
+				{% for block in block.children %}
+					{% switch block.type %}
+					{% case 'video' %}
+					{% if block.video %}
+					{% set mediaId = "media__" ~ block.id ~ random() %}
+					<div class="article-video-tile article-sidebar-block video-play-trigger {{ block.video.gatewayHandle }}" data-media-id="{{ mediaId }}" data-analytics-event='["Video","Play"]'>
+						<div class="inner">
+							{# include '_article/pieces/playButton' #}
+							<div class="image-wrap image-zoom">
+								<img src="{{ block.photo[0].url ?? '//placehold.it/500x550' }}" width="500" height="550">
+							</div>
+
+							{% if block.heading %}
+							<h4 class="heading">{{ block.heading }}</h4>
+							{% endif %}
+						</div>
+
+						<div class="media modal-video" id="{{ mediaId }}">
+							{% set class = "full" %}
+							{% include 'includes/snippets/video' with {video: block.video} %}
+						</div>
+					</div>
+					{% else %}
+					<div class="content-error">No Video Selected</div>
+					{% endif %}
+					{% case 'heatmap' %}
+						<div class="article-heatmap article-sidebar-block">
+							{% include 'data-viz/heatmap' with {
+								entry: block,
+								heading: block.heading
+							} %}
+						</div>
+					{% case 'photo' %}
+						{% include '_article/pieces/photo' %}
+					{% default %}
+						TODO:
+						{{ block.type }}
+					{% endswitch %}
+				{% endfor %}
+			</aside>
+			{% endif %}
+		</div>
+	</section>

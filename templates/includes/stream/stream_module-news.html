@@ -1,0 +1,36 @@
+{% spaceless %}
+	{% if module.type.handle in ['news', 'resourceSite'] %}
+		{% set link = module.linkUrl %}
+		{% set ext = true %}
+	{% else %}
+		{% set link = module.url %}
+	{% endif %}
+{% endspaceless %}
+<article class="stream-module stream-module--uc stream-module--uc--secondary stream-thing">
+	<a class="stream-module__inner" href="{{ link }}" {% if ext is defined and ext %} target="_blank" {% endif %}>
+		<div class="stream-module__content">
+			<div class="stream-module__content-inner">
+
+				{% if showType is defined and showType %}
+					<span class="stream-module__label">{{ module.type.name }}&nbsp;&ndash;&nbsp;{{ module.postDate|date('M d, Y') }}</span>
+				{% endif %}
+
+				<h3 class="stream-module__heading">
+					{{ module }}
+				</h3>
+
+				<div class="stream-module__meta">
+					<span class="stream-module__meta__author">
+						{%- if module.type.handle in ['pressRelease'] and notype is not defined or (notype is defined and not notype) -%}
+							Vera Press Release
+						{%- else -%}
+							{{ module.newsSource.one() ?? null }}
+						{%- endif -%}
+					</span>
+
+					<span class="stream-module__meta__date">{{ module.postDate | date('F d, Y') }}</span>
+				</div>
+			</div>
+		</div>
+	</a>
+</article>

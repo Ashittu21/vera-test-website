@@ -1,0 +1,19 @@
+contentColumnType: text
+fieldGroup: 532961b6-a69f-4934-914a-9c266d7a2eb6
+handle: lenseHeroPreparse
+instructions: ''
+name: 'Lense Hero Preparse'
+searchable: true
+settings:
+  allowSelect: ''
+  columnType: text
+  decimals: '0'
+  displayType: hidden
+  fieldTwig: "{% set image = element.heroImage.first ?? null %}\r\n\t\t{% if image %}\r\n\t\t{% set transformedImages = craft.imager.transformImage( image, [\r\n\t\t\t{ width: 4000 },\r\n\t\t\t{ width: 600, jpegQuality: 65 },\r\n\t\t\t{ width: 200, jpegQuality: 65 }\r\n\t\t], {\r\n\t\t\tratio: 3/1,\r\n\t\t\tposition: image.focusPctX ~ '% ' ~ image.focusPctY ~ '%'\r\n\t\t}, {\r\n\t\t\tfillTransforms: true,\r\n\t\t\tfillInterval: 400\r\n\t\t}) %}{% endif %}"
+  parseBeforeSave: ''
+  parseOnMove: ''
+  showField: '1'
+  textareaRows: 5
+translationKeyFormat: null
+translationMethod: none
+type: besteadfast\preparsefield\fields\PreparseFieldType

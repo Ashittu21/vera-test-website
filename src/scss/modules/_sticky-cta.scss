@@ -1,0 +1,10 @@
+.StickyCta {
+  display: flex;
+  justify-content: center;
+  background-color: $lt-gray;
+  padding: $padding-xs;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 1;
+}

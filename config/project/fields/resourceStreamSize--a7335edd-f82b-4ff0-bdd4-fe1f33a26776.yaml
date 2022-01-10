@@ -1,0 +1,13 @@
+contentColumnType: boolean
+fieldGroup: f5cc6d53-05fa-4b40-92c6-71d8eb435d5f
+handle: resourceStreamSize
+instructions: 'Enabling this switch will make this entry''s stream module a large rectangle.'
+name: 'Resource Stream Size'
+searchable: true
+settings:
+  default: false
+  offLabel: null
+  onLabel: null
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Lightswitch

@@ -1,0 +1,20 @@
+{% set images = piece.slideoutImages %}
+<div class="module-text">
+	{% if images.count > 1 %}
+	    <div class="img-outer--2up">
+		    {% for image in images %}
+	        <div class="img-outer">
+	            {% include 'includes/snippets/image' with {image: image} %}
+	        </div> 
+			{% endfor %}
+	    </div>
+	{% else %}
+
+	<div class="img-outer">
+		{% set image = images.first() %}
+		<div class="module-text__inner">
+			{% include 'includes/snippets/image' %}
+		</div>
+	</div>
+	{% endif %}
+</div>

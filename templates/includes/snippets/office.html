@@ -1,0 +1,37 @@
+<div class="one-third contact-location">
+	{% set image = office.heroImage[0] ?? null %}
+	{% if image %}
+    <div class="img-outer"> 
+        <img src="{{ image.url }}" alt=""/>
+    </div>
+    {% endif %}
+
+    <h3>{{ office }}</h3>
+
+    <p>{{ office.streetAddress }}<br/>
+    {{ office.city }}, {{ office.state }} {{ office.zipCode }}</p>
+
+    <ul>
+        <li><span class="label">T</span>   {{ office.telephone }}</li>
+        {% if office.fax %}
+        <li><span class="label">F</span>   {{ office.fax }}</li>
+        {% endif %}
+        <li><span class="label">E</span>   <a href="mailto:{{ office.email }}">{{ office.email }}</a></li>
+    </ul>
+
+	{% if office.relatedCenters | length %}
+    <p><a class="more" href="{{ office.relatedCenters[0].url }}">Go to Center</a></p>
+    {% endif %}
+
+    {% if office.subwayDirections|length %}
+	        <div class="col contact-directions">
+	            <h5>Subway Directions</h5>
+	
+	            <ul>
+		            {% for line in office.subwayDirections %}
+	                	<li><span class="label">{{ line.line }}</span>     {{ line.stop }}</li>
+					{% endfor %}
+	            </ul>
+	        </div>
+    {% endif %}
+</div>

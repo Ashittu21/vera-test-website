@@ -1,0 +1,10 @@
+description: null
+handle: meisterImages
+name: Meister_Images
+permissions:
+  - accesscp
+  - 'saveassetinvolume:c3679b2c-c8a9-497f-a727-b1b62f2da07a'
+  - 'createfoldersinvolume:c3679b2c-c8a9-497f-a727-b1b62f2da07a'
+  - 'deletefilesandfoldersinvolume:c3679b2c-c8a9-497f-a727-b1b62f2da07a'
+  - 'viewvolume:c3679b2c-c8a9-497f-a727-b1b62f2da07a'
+  - 'editimagesinvolume:c3679b2c-c8a9-497f-a727-b1b62f2da07a'

@@ -1,0 +1,13 @@
+contentColumnType: string
+fieldGroup: 5687d1c5-4c55-44f7-84b2-ab2ecc6443fd
+handle: relatedLocationVideos
+instructions: ''
+name: 'Related Location Videos'
+searchable: true
+settings:
+  errorMessage: 'Unable to find component class ''ManyToMany_ManyToMany''.'
+  expectedType: ManyToMany_ManyToMany
+  settings: '{"source":{"value":"23","type":"section"},"singleField":"75"}'
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\MissingField

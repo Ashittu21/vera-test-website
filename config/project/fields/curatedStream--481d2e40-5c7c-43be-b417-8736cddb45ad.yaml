@@ -1,0 +1,20 @@
+contentColumnType: string
+fieldGroup: 2c0ca1a3-ae52-4971-a689-fd84d8b7ba7d
+handle: curatedStream
+instructions: ''
+name: 'Curated Stream'
+searchable: true
+settings:
+  allowSelfRelations: false
+  limit: ''
+  localizeRelations: false
+  selectionLabel: ''
+  showSiteMenu: true
+  source: null
+  sources: '*'
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Entries

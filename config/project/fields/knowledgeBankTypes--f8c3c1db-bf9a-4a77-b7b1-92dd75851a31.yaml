@@ -1,0 +1,19 @@
+contentColumnType: text
+fieldGroup: 3ad6d151-958c-44f4-99b0-865c27d2922e
+handle: knowledgeBankTypes
+instructions: ''
+name: 'Knowledge Bank Types'
+searchable: true
+settings:
+  allowSelect: ''
+  columnType: text
+  decimals: '0'
+  displayType: hidden
+  fieldTwig: "{% set entryTypes = [] %}\r\n{% set results = [] %}\r\n{% for item in craft.entries.section(['blogPosts','video','news','publications','knowledgeBank']).relatedTo(entry).limit(null) %}\r\n{% if item.type.handle not in entryTypes %}\r\n{% set entryTypes = entryTypes | merge([item.type.handle]) %}\r\n{% set results = results | merge([{\r\n\thandle: item.type.handle,\r\n\ttype: 'type',\r\n\tname: item.type.name\r\n\t}]) %}\r\n{% endif %}\r\n{% endfor %}\r\n{{ results | json_encode | raw }}"
+  parseBeforeSave: ''
+  parseOnMove: ''
+  showField: ''
+  textareaRows: 5
+translationKeyFormat: null
+translationMethod: none
+type: besteadfast\preparsefield\fields\PreparseFieldType

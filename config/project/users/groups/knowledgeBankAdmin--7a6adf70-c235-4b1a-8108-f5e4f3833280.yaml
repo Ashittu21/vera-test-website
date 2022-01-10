@@ -1,0 +1,32 @@
+description: null
+handle: knowledgeBankAdmin
+name: 'Knowledge Bank Admin'
+permissions:
+  - registerusers
+  - editusers
+  - accesscp
+  - assignuserpermissions
+  - administrateusers
+  - moderateusers
+  - accesssitewhensystemisoff
+  - 'editcategories:35d54ba2-608f-41d4-80dc-2243114c6d92'
+  - assignusergroups
+  - 'assignusergroup:a6d1aea7-3ebd-454d-86f0-035f4b397efa'
+  - 'createentries:70990db3-ed33-47b7-bc89-088f14a55750'
+  - 'publishentries:70990db3-ed33-47b7-bc89-088f14a55750'
+  - 'deleteentries:70990db3-ed33-47b7-bc89-088f14a55750'
+  - 'publishpeerentries:70990db3-ed33-47b7-bc89-088f14a55750'
+  - 'deletepeerentries:70990db3-ed33-47b7-bc89-088f14a55750'
+  - 'editpeerentries:70990db3-ed33-47b7-bc89-088f14a55750'
+  - 'publishpeerentrydrafts:70990db3-ed33-47b7-bc89-088f14a55750'
+  - 'deletepeerentrydrafts:70990db3-ed33-47b7-bc89-088f14a55750'
+  - 'editpeerentrydrafts:70990db3-ed33-47b7-bc89-088f14a55750'
+  - 'editentries:70990db3-ed33-47b7-bc89-088f14a55750'
+  - 'editcategories:ea6d7925-66d5-4a9b-9469-584c08d70d9a'
+  - 'editcategories:da474681-9bb8-4b94-94c7-89b5654dab8b'
+  - 'saveassetinvolume:7225a1ea-d635-42e3-b07e-ebd4acbe3745'
+  - 'createfoldersinvolume:7225a1ea-d635-42e3-b07e-ebd4acbe3745'
+  - 'deletefilesandfoldersinvolume:7225a1ea-d635-42e3-b07e-ebd4acbe3745'
+  - 'viewvolume:7225a1ea-d635-42e3-b07e-ebd4acbe3745'
+  - 'assignusergroup:7a6adf70-c235-4b1a-8108-f5e4f3833280'
+  - 'editimagesinvolume:7225a1ea-d635-42e3-b07e-ebd4acbe3745'

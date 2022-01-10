@@ -1,0 +1,47 @@
+fieldLayouts:
+  3ae28e62-3f3d-4cbd-a95c-a3ba76af9e3e:
+    tabs:
+      -
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\EntryTitleField
+            warning: null
+            width: 100
+          -
+            fieldUid: baf69bbb-26eb-4c0d-bef7-27326567c075
+            instructions: null
+            label: null
+            required: '0'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: 'Tab 1'
+        sortOrder: 1
+handle: policeBudgetCalculator
+hasTitleField: true
+name: 'Police Budget Calculator'
+section: f7ebe9e2-b9cc-411d-8d01-9010f0f97e50
+sortOrder: 8
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

@@ -1,0 +1,1 @@
+export const anchorize = anchor => anchor.replace(/ /g,"").toLowerCase();

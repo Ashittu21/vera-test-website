@@ -1,0 +1,23 @@
+contentColumnType: string
+fieldGroup: 9e8c11c6-0d09-4e83-9ae3-8e977b222014
+handle: department
+instructions: ''
+name: Department
+searchable: true
+settings:
+  allowLimit: false
+  allowMultipleSources: false
+  allowSelfRelations: false
+  branchLimit: ''
+  limit: null
+  localizeRelations: false
+  selectionLabel: ''
+  showSiteMenu: true
+  source: 'group:31f4ec46-9c38-4eb6-bcc3-b9cf6cf82339'
+  sources: '*'
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Categories

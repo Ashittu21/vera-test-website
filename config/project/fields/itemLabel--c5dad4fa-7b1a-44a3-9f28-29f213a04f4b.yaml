@@ -1,0 +1,18 @@
+contentColumnType: text
+fieldGroup: 62eaf9ac-7045-45a4-b9c9-6db9b59feaac
+handle: itemLabel
+instructions: ''
+name: 'Item Label'
+searchable: true
+settings:
+  byteLimit: null
+  charLimit: null
+  code: false
+  columnType: text
+  initialRows: '4'
+  multiline: ''
+  placeholder: ''
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

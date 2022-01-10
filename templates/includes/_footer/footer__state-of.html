@@ -1,0 +1,53 @@
+{# TODO set this as a global and fix it in _layout #}
+{% set mc_list_id = 'e0468627fa' %}
+{% set mc_subscribe_link = 'http://eepurl.com/b9IGNH' %}
+{# #}
+
+{% set signup_from = entry.title ?? category.title -%}
+{%- set signup_from = 'Vera - '~signup_from -%}
+{%- set signup_type = 'Footer' -%}
+
+<footer class="footer footer--state-of" role="navigation">
+    <div class="container">
+        <div class="footer__address">
+            <span class="footer__logo">Vera</span>
+            <span>233 Broadway<br></span>
+            <span>12th Floor<br></span>
+            <span>New York, NY 10279<br></span>
+            <span>T: (212) 334-1300</span>
+        </div>
+
+        <div class="footer__right">
+            <div class="footer__social">
+                <span class="footer__social__subheading">Follow Us</span>
+
+                {% include 'includes/snippets/social_links' %}
+                
+            </div>
+               
+			<div class="footer__newsletter">
+                <form class="newsletter_form" target="_blank" id="FooterSubscribe" action="//vera.us8.list-manage.com/subscribe/post-json?u=6542df2be696ba0ea2f17b66a&amp;id={{ mc_list_id }}&c=?&amp;SIGNUP={{ signup_from | url_encode }}&amp;FORMTYPE={{ signup_type | url_encode }}" method="POST">
+                    <div class="newsletter_wrap js-remove">
+                        <div class="newsletter_input_wrap">
+	                        <input id="footer_email_input" type="email" class="email_input newsletter_input footer__newsletter__input"  name="EMAIL" required>
+	                        <label class="newsletter_label" for="footer_email_input">Email address</label>
+	                    </div>
+	                    <div class="newsletter_input_wrap half">
+                        	<input id="footer_fname_input" type="text" class="fname_input newsletter_input footer__newsletter__input half" name="FNAME" required>
+                        	<label class="newsletter_label" for="footer_fname_input">First Name</label>
+	                    </div>
+	                    <div class="newsletter_input_wrap half">
+                        	<input id="footer_lname_input" type="text" class="lname_input newsletter_input footer__newsletter__input half" name="LNAME" required>
+                        	<label class="newsletter_label" for="footer_lname_input">Last Name</label>
+	                    </div>
+                        <button type="submit" class="newsletter_submit footer__newsletter__submit">&rsaquo;</button>
+                    </div>
+                    
+                    <a class="newsletter_link js-remove" href="{{ mc_subscribe_link }}" target="_blank">Subscribe Options</a>
+                    
+                    <div class="newsletter_subscribe_result"></div>
+                </form>
+			</div>
+        </div>
+    </div>
+</footer>

@@ -1,0 +1,17 @@
+{% if background is not defined %}
+	{% set background = false %}
+{% endif %}
+
+<div class="img-inner{% if background %} background{% endif %}" {% if background %}style="background-image: url({{ image.url }})"{% endif %}>
+
+	{% if not background %}<img src="{{ image.url }}" alt="{{ image.title }}">{% endif %}
+
+	{% include 'includes/snippets/attribution' with {image: image} %}
+
+</div>
+
+{% if image.caption %}
+	<span class="img-caption {{ image.captionStyle and image.captionStyle.value != 'default' ? image.captionStyle.value }}">
+		{{ image.caption }}
+	</span>
+{% endif %}

@@ -1,0 +1,18 @@
+{% extends '_layout' %}
+
+{% block content %}
+{% set entry = entry.children.one() %}
+{% if entry %}
+{% set dataUrl = (entry.dataTextData | length and entry.dataTextData[0].data | length) ? entry.dataTextData[0].data[0].url %}
+{% set filterColumns = [] %}
+{% if entry.dataTextData | length %}
+{% for column in entry.dataTextData[0].filterColumns %}
+{% set filterColumns = filterColumns | merge([column.column]) %}
+{% endfor %}
+{% set filterValues = [state,county] %}
+{% endif %}
+{% include 'publications/types/whatJailsCost/whatJailsCostPageBuilder' %}
+{% else %}
+No entry
+{% endif %}
+{% endblock %}

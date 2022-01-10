@@ -1,0 +1,82 @@
+{% import '/_macros/dataViz' as dataViz %}
+
+{% if not params %}<p class="content-error">Data-viz not set up</p>{% else %}
+
+{% set class = class is defined ? class ~ ' ' : '' %}
+{% set selector = params.type ~ "_" ~ (now | date('U')) ~ random() %}
+{% set class = class ~ selector %}
+{% set hasKey = hasKey ?? (params.baseline is defined) %}
+{% set hasHeader = hasHeader ?? true %}
+{% set heading = heading ?? null %}
+{% set explainer = explainer ?? null %}
+
+<article class="chart_container multi-chart hide-on-print {{ params.type }} {{ class }} {{ hasKey ? 'has-key' : 'no-key' }} {% if params.options | length == 1 %}static{% endif %}" data-analytics-event='["Data Viz","Click"]'>
+	{% if explainer %}
+	{% include '_article/pieces/sectionExplainer' with {block: {heading: explainer}} %}
+	{% endif %}
+	<div class="inner container">
+		<div class="body">
+			{% if hasHeader or hasKey %}
+			<div class="graph-header">
+				{% if hasHeader %}
+				<div class="graph-header-inner">
+					{% if entry.geographyKeySvgText %}
+					<div class="geography-key">
+						{{ entry.geographyKeySvgText | raw }}
+					</div>
+					{% endif %}
+
+					<div class="graph-header-inner-text">
+						<h4 class="heading"></h4>
+
+						<p class="description post-module__subheading receives-color"></p>
+					</div>
+				</div>
+				{% endif %}
+
+				{% if hasKey %}
+				<div class="legend flex">
+					<aside class="key"></aside>
+					{% if params.baseline is defined %}
+					{{ dataViz.baselineToggle(params.baseline) }}
+					{% endif %}
+				</div>
+				{% endif %}
+			</div>
+			{% endif %}
+
+			<div class="map-wrap">
+				<div class="chart loading">
+					<div class="viz-notes"></div>
+				</div>
+
+				{#<button class="table__notes__toggle">Notes</button>
+				<div class="table__notes">
+					these are the footnotes and stuff
+				</div>#}
+
+			</div>
+		</div>
+
+		<div class="controls">
+			{% if params.filterSelectLabel is defined %}
+			{{ dataViz.filterSelector(params) }}
+			{% endif %}
+
+			{{ dataViz.vizSelector(params) }}
+
+			{{ dataViz.vizSelectorMobile(params) }}
+		</div>
+
+		{% include '/data-viz/_/tooltip_template' with {class: class} %}
+	</div>
+</article>
+
+
+{% includeJs %}
+	$(function() {
+		{% block jsInit %}{% endblock %}
+	});
+{% endincludejs %}
+
+{% endif %}

@@ -1,0 +1,24 @@
+{% if people is not defined %}
+	{% if  entry.getSection().handle == 'ourWork' %}
+		{% set cat = entry.selfCategory.last %}
+		{% set people = craft.entries({
+		section: 'people',
+		relatedTo: entry.selfCategory.last,
+		limit: 6,
+		expert: 1
+	}) %}
+	{% elseif entry.type == 'spotlight' %}
+		{% set people = entry.spotlightExperts %}
+	{% endif %}
+{% endif %}
+
+{% if showMore is not defined %}
+	{% set showMore = entry.type.handle in ['spotlight','publicationOverview'] %}
+{% endif %}
+
+{% if people is defined and people|length %}
+<article class="sidebar__experts sidebar__people sidebar_module">
+	<h5 class="sidebar__label">{{ heading | default('Experts') }}</h5>
+	{% include 'includes/snippets/people' with {showMore: showMore} %}
+</article>
+{% endif %}

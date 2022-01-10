@@ -1,0 +1,30 @@
+{% extends '_layout' %}
+
+{% set title = entry.title %}
+
+{% block content %}
+	{% include 'includes/snippets/banner' %}
+
+	{% include 'includes/snippets/intro__group_content' %}
+	
+	
+	<div class="stream-outer">
+		<div class="container col-outer">
+			<div class="post-landing stream-module-outer col-outer two-thirds">
+				<aside class="series-mobile">
+					{% include 'includes/snippets/sidebar__series' with {seriesList: entry.siblings} %}
+				</aside>
+				
+				<h3 class="desktop-only">All Posts</h3>
+				{% set stream = craft.entries.section('blogPosts').relatedTo(entry).order('postDate desc').with(['authors', 'authors.headshot', 'relatedIssues', 'relatedIssues.actionAreaIcon', 'streamImageSquare', 'streamImageRectangle', 'heroImage']) %}
+				{% for module in stream %}
+					{% include 'includes/stream/stream_post' %}
+				{% endfor %}
+			</div>
+	
+			<div class="one-third one-third--sm post-sidebar">
+				{% include 'includes/snippets/sidebar__series' with {seriesList: entry.siblings} %}
+			</div>
+		</div>
+	</div>
+{% endblock %}

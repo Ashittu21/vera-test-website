@@ -1,0 +1,15 @@
+{
+  "buttons": ["format", "bold", "italic", "lists", "link"],
+  "plugins": ["fullscreen", "scriptbuttons"],
+  "formatting": ["p", "blockquote"],
+  "formattingAdd": {
+    "subhead": {
+      "title": "Sub-Header",
+      "args": ["h5", "class", "intext-subhead"]
+    },
+    "footnote": {
+      "title": "Footnote",
+      "args": ["p", "class", "footnote"]
+    }
+  }
+}

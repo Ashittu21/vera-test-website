@@ -1,0 +1,14 @@
+enableVersioning: true
+handle: bestOf
+name: 'Best Of'
+propagationMethod: all
+siteSettings:
+  8ed9f980-84ac-470d-94d7-89a2cdb64916:
+    enabledByDefault: true
+    hasUrls: false
+    template: null
+    uriFormat: null
+structure:
+  maxLevels: 1
+  uid: 8786bd63-a41d-4801-8a5b-433e0673640f
+type: structure

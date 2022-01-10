@@ -1,0 +1,21 @@
+contentColumnType: string
+fieldGroup: 6c478341-da6f-434d-b58e-1f381004c510
+handle: eventMoreInfoContact
+instructions: 'This person''s name and email will appear alongside the map on the event page.'
+name: 'Event More Info Contact'
+searchable: true
+settings:
+  allowSelfRelations: false
+  limit: '1'
+  localizeRelations: false
+  selectionLabel: 'Add a Vera contact'
+  showSiteMenu: true
+  source: null
+  sources:
+    - 'section:8639923c-05e0-4fb4-a45a-9a2a79a690ec'
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Entries

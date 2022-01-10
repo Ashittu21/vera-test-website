@@ -1,0 +1,18 @@
+contentColumnType: text
+fieldGroup: ff6bca1c-2054-4260-a21f-2d7007b1c024
+handle: storiesSubtitle
+instructions: ''
+name: 'Stories Subtitle'
+searchable: true
+settings:
+  byteLimit: null
+  charLimit: null
+  code: false
+  columnType: text
+  initialRows: '4'
+  multiline: ''
+  placeholder: ''
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

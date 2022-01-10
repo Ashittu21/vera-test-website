@@ -1,0 +1,18 @@
+contentColumnType: text
+fieldGroup: 72dc75d0-00df-43ca-8e65-29ebf5aec99f
+handle: newsletterSignupCallToAction
+instructions: ''
+name: 'Mailing List Signup Call To Action'
+searchable: true
+settings:
+  byteLimit: null
+  charLimit: null
+  code: false
+  columnType: text
+  initialRows: '4'
+  multiline: ''
+  placeholder: 'Sign up for our Newsletter'
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

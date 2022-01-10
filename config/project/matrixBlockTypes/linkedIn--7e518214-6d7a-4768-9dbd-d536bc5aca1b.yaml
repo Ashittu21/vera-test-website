@@ -1,0 +1,40 @@
+field: 489cffbd-0018-4a29-bc1c-71dfdf3a8b33
+fieldLayouts:
+  e86fbe42-6505-4fff-a1a0-91c53eb78a2e:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 1a7f7125-2724-4bbe-ae02-b134d2dce2c3
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  1a7f7125-2724-4bbe-ae02-b134d2dce2c3:
+    contentColumnType: text
+    fieldGroup: null
+    handle: profileLink
+    instructions: ''
+    name: 'Profile Link'
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+handle: linkedIn
+name: 'Linked In'
+sortOrder: 2

@@ -1,0 +1,186 @@
+{% set layout = 'projects/_layout' %}
+{% set is404 = false %}
+{% set parent = null %}
+{% set excludeSubnav = false %}
+
+{% if craft.request.isAjax %}
+	{% set layout = '_ajax_layout' %}
+{% endif %}
+
+{% if entry is defined and entry.type.handle == 'knowledgeBank' %}
+	{% set section = 'knowledgeBank' %}
+	{% set excludeSubnav = true %}
+{% elseif craft.request.segment(3) in ['overview','learn-more','team','related-work','knowledge-bank','form',''] %}
+	{% if craft.request.segment(3) in ['learn-more'] and not craft.entries.section('projects').slug(craft.request.segment(2)).first.article | length %}
+		{% set is404 = true %}
+	{% else %}
+		{% set section = craft.request.segment(3) %}
+		{% set entry = craft.entries.section('projects').slug(craft.request.segment(2)).first %}
+
+		{# This is a requested thing for the case when a project is ONLY knowledge bank 
+																															and someone tries to access it through the 3 segment structure #}
+		{% if entry and entry.type.handle == 'knowledgeBank' %}
+			{% redirect entry.url %}
+		{% endif %}
+
+		{% if not entry %}
+			{% set is404 = true %}
+		{% endif %}
+
+	{% endif %}
+{% elseif entry is defined and entry.type.handle in ['customTab', 'partners', 'stateResources'] %}
+	{# custom tabs #}
+	{% set section = entry.type.handle %}
+{% else %}
+	{% set is404 = true %}
+{% endif %}
+
+{% if is404 %}
+	{% set layout = '_layout' %}
+	{% set entry = craft.entries.uri('404').first() %}
+
+
+{% endif %}
+
+{% extends layout %}
+
+{% block content %}
+	{% if is404 %}
+		{% include 'includes/snippets/404_content' %}
+	{% elseif section == 'stateResources' %}
+		{% include 'includes/snippets/state_resources' %}
+	{% elseif section == 'knowledgeBank' %}
+		{% include 'includes/snippets/knowledge_bank' %}
+	{% elseif section == 'customTab' %}
+		{% set article = entry.tabArticle %}
+		{% include 'includes/snippets/article' %}
+	{% elseif section == 'partners' %}
+		{% set partners = entry.partners %}
+		{% include 'includes/snippets/partners' %}
+	{% elseif section == 'overview' or section == '' %}
+		{% set css %}
+		.project-key-facts + #stream .stream-outer {
+						      padding-top: 0;
+						    }
+		{% endset %}
+
+		{% includeCss css %}
+
+		{% include 'includes/snippets/intro__group_content' %}
+
+		{% set module = entry.keyResource[0] ?? null %}
+		{% set fact = entry.keyFact[0] ?? null %}
+
+		{% if not module and not fact %}
+			{% include 'includes/snippets/highlights' with {showHairline: true} %}
+		{% else %}
+			{% include 'includes/snippets/highlights' %}
+		{% endif %}
+
+		{% if fact or module %}
+			<article class="post-module project-key-facts">
+				<div class="container">
+					{% if fact and module %}
+						{% set title = 'Key Fact & Resource' %}
+					{% elseif fact %}
+						{% set title = 'Key Fact' %}
+					{% elseif module %}
+						{% set title = 'Key Resource' %}
+					{% endif %}
+					<h3>{{ title }}</h3>
+					<div class="border-2up col-outer">
+						{% if module %}
+							<div class="col one-half {% if not fact %}only{% endif %}">
+								{% include 'includes/stream/stream_module' with {size: 'half', notStream: true} %}
+							</div>
+						{% endif %}
+						{% if fact %}
+							<div class="col one-half {% if not module %}only{% endif %}">
+								{% include 'includes/snippets/key_fact' %}
+							</div>
+						{% endif %}
+					</div>
+				</div>
+			</article>
+		{% endif %}
+
+		{% if entry.map | length %}
+			{% include 'vera-maps/map' with {map: entry.map.first} %}
+		{% endif %}
+
+	{% elseif section == 'learn-more' %}
+		<section>
+			{% set article = entry.article %}
+			{% include 'includes/snippets/article' %}
+		</section>
+	{% elseif section == 'form' %}
+		<div class="post-article">
+			<div class="module-text">
+				<div class="container">
+					<div class="module-text__inner ">
+						<div class="rte">
+							<h2>{{ entry.heading }}</h2>
+							<p>{{ entry.formIntro }}</p>
+						</div>
+					</div>
+					<div class="form-wrap">
+						{% include 'includes/forms/_form' with {form: entry.form} %}
+					</div>
+				</div>
+			</div>
+		</div>
+	{% elseif section == 'team' %}
+		<article class="people-grid">
+			<div class="container">
+				<h3>Staff</h3>
+				{% set director = entry.director %}
+				{% set people = director | merge(entry.relatedVeraStaff.alumnus('not 1').with('headshot') ) %}
+				{% include 'includes/snippets/people' with {grid: true, large: true} %}
+			</div>
+		</article>
+
+		{% set people = entry.advisoryBoard %}
+		{% if people | length %}
+			<article class="people-grid">
+				<div class="container">
+					<h3>Advisory Board</h3>
+					{% include 'includes/snippets/people' with {grid: true, large: true} %}
+				</div>
+			</article>
+		{% endif %}
+	{% elseif section == 'related-work' %}
+		{% if entry.featuredProjectRelatedWork | length > 0 %}
+			<section class="featured-stream-modules featured-stream-modules__alt">
+				<div class="container">
+					<h4>Featured</h4>
+					{% include 'includes/stream/feature_module' with {features: entry.featuredProjectRelatedWork} %}
+				</div>
+			</section>
+		{% endif %}
+
+		<section class="filter-project-related">
+			{% set streamOptions = {
+			title: 'Related Work',
+			news: true,
+			filterAltLayout: 'unstacked', 
+			sections: [
+				['Blog Post', 'blogPosts'],
+				['Spotlights', 'spotlights'],
+				['Publications', 'publications'],
+				['Audio', 'audio'],
+				['Video', 'video'],
+				['Resource Site', 'resourceSite'],
+				['Special Report', 'specialReports']
+			],
+			primaryRelation: {type: 'entries', relations: [entry]}
+		} %}
+			{% include 'includes/stream/stream_full' with {isPageRequest: true} %}
+		</section>
+
+	{% elseif section == 'knowledge-bank' %}
+		{% include 'includes/snippets/knowledge_bank'  %}
+	{% else %}
+		{{ section }}
+		{{ entry.type.handle }}
+	{% endif %}
+{% endblock %}

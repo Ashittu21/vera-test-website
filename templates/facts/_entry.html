@@ -1,0 +1,11 @@
+{% set agent = craft.request.getUserAgent() %}
+{% if "Twitterbot" not in agent and "Facebot" not in agent and not craft.request.isAjax %}
+{% set shareTo = craft.entries.relatedTo(entry).first %}
+{% redirect shareTo.url %}
+{% endif %}
+
+{% extends craft.request.isAjax ? '' : '_meta' %}
+
+{% block body %}
+{% include 'facts/_/fact-card' %}
+{% endblock %}

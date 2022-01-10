@@ -1,0 +1,13 @@
+{% extends '_layout' %}
+
+{% set title = entry.title %}
+
+{% block content %}
+
+{% include 'includes/snippets/banner__image_right' %}
+
+{% set limit = 30 %}
+
+{% include 'includes/stream/stream_events' with {events: craft.entries.section('eventPosts').limit(limit).eventStartTime('>= ' ~ now|date('c')).order('eventStartTime asc')} %}
+
+{% endblock %}

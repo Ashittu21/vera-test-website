@@ -1,0 +1,39 @@
+{% set streamOptions = {
+	streamType: 'newsroom',
+	sections: null,
+    filterAltLayout: 'unstacked', 
+	nopack: true,
+	query: (craft.request.getParam("query") ?? null) | json_encode
+} %}
+
+{% set contentlimit = stream.loadQuantityDefault*1.5|round %}
+
+<div class="post-landing newsroom-landing stream-module-outer col-outer two-thirds">
+
+	{% set module = entry.featuredNews[0] ?? null %}
+	{% include 'includes/stream/stream_module' with {size: 'full', notStream: true} %}
+
+    {% include 'includes/stream/stream_filter' with {contentPartial: '/includes/stream/stream_newsroom-content'} %}
+    
+    <div id="stream-content">
+
+		{% include 'includes/stream/stream_newsroom-content' %}
+	       
+    </div>
+    
+    {% include 'includes/stream/loader' with {loaderid: 'content_loader'} %}
+    
+    <div id="load-more-container"></div>
+    
+</div>
+
+{% set fixCss %}
+	#stream-content {
+		width: 100%;
+	    display: flex;
+	    justify-content: space-between;
+	    flex-wrap: wrap;
+	}
+{% endset %}
+
+{% includeCss fixCss %}

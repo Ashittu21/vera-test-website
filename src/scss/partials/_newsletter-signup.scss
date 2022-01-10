@@ -1,0 +1,85 @@
+.newsletter_form {
+  transition: opacity 0.5s;
+  &.loading {
+    pointer-events: none;
+    opacity: 0.5;
+  }
+}
+
+.newsletter_wrap {
+  position: relative;
+  @include justify(null, flex-start);
+}
+
+.newsletter_label {
+  position: absolute;
+  padding: $padding-xs;
+  background-color: transparent;
+  transition: padding 0.5s, font-size 0.5s;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  @extend .ff-serif--italic;
+  @include font-size(1.6);
+  pointer-events: none;
+}
+
+.newsletter_input_wrap {
+  position: relative;
+  width: calc(100% - #{$padding-lg});
+
+  &:not(:first-of-type) .newsletter_input {
+    border-top-width: 0;
+  }
+
+  &.half {
+    width: calc(50% - #{$padding-lg/2});
+
+    & + .half input {
+      border-left: 0;
+    }
+  }
+}
+
+.newsletter_input {
+  border-width: 1px;
+  border-style: solid;
+
+  &:focus,
+  &.filled {
+    padding-top: 20px;
+    padding-bottom: 10px;
+
+    & + label {
+      padding-top: 0.2em;
+      padding-left: 0.4em;
+      opacity: 0.5;
+      transform: translateY(-80%);
+      @include font-size(1.1);
+    }
+  }
+
+  &.error {
+    /*
+		outline: 2px solid $red !important;
+		outline-offset: -2px;
+*/
+    background: #ef4136;
+  }
+}
+
+.newsletter_subscribe_result {
+  padding-right: $padding-lg;
+}
+
+.newsletter_subscribe_result .btn {
+  margin-top: 2rem;
+}
+
+.newsletter_link {
+  display: block;
+  color: inherit;
+  margin-top: $padding-xs;
+  @extend .ff-serif--italic;
+  @include font-size(1.4);
+}

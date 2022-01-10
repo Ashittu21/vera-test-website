@@ -1,0 +1,179 @@
+.SortableTable {
+  margin-top: 0;
+  //table-layout: fixed;
+  line-height: 1.1;
+
+  @media (max-width: $tablet-portrait) {
+    th:not(:first-child),
+    td:not(:first-child) {
+      width: 50% !important;
+    }
+    td:first-child,
+    th:first-child {
+      white-space: nowrap;
+    }
+    td.figure {
+      white-space: nowrap;
+    }
+  }
+
+  th {
+    // padding: 0.5rem;
+    // @media (min-width: $tablet-portrait) {
+    //   padding: 1rem 2rem;
+    // }
+    > button {
+      padding: 0;
+    }
+  }
+  td:first-child,
+  th:first-child {
+    width: 1%;
+  }
+  td.figure {
+    font-variant-numeric: tabular-nums;
+  }
+}
+.SortableTable-container {
+  //overflow: auto;
+  margin-top: $padding-lg;
+  margin-bottom: $padding-lg;
+  overflow-x: auto;
+
+  @media (min-width: $tablet-portrait) {
+    overflow-x: unset;
+  }
+}
+.SortableTableToggles {
+  background-color: $white;
+  padding-bottom: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+
+  @media (min-width: $tablet-portrait) {
+    top: $header-height;
+  }
+}
+.SortableTableToggle {
+  @extend .ff-sans--bold;
+  @include font-size(1);
+  text-transform: uppercase;
+  border-radius: 0;
+  border: 0;
+  margin-bottom: 0.5em;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background-color: $lt-gray-alt;
+  color: $black;
+
+  @media (min-width: 500px) {
+    width: auto;
+    margin-right: 0.5em;
+  }
+
+  .SortableTable-header-column-button {
+    justify-content: space-between;
+    padding: 0.5em;
+    border: 1px solid $black;
+    text-align: left;
+    //background-color: black;
+    //color: $white;
+
+    svg {
+      margin-left: 1em;
+    }
+  }
+
+  svg {
+    margin-top: 0;
+  }
+}
+
+.SortableTableShowAll {
+  @extend .btn;
+  margin-top: 1em;
+}
+
+.SortableTable-header-column {
+  @extend .ff-sans--bold;
+  @include font-size(1.2);
+  text-transform: uppercase;
+
+  @media (min-width: $tablet-portrait) {
+    position: sticky;
+    top: $header-height;
+  }
+
+  @media (min-width: 400px) {
+    @include font-size(1.3);
+  }
+}
+button.SortableTable-header-column-button {
+  background-color: transparent;
+  border: 0;
+  color: inherit;
+  font-size: inherit;
+  text-transform: uppercase;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+
+  svg {
+    box-sizing: content-box;
+    width: 2rem;
+    flex-shrink: 0;
+    fill: currentColor;
+    margin-left: auto;
+  }
+
+  @media (min-width: $tablet-portrait) {
+    flex-direction: column;
+
+    svg {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  @media (min-width: $desktop-medium) {
+    flex-direction: row;
+    text-align: left;
+    div {
+      margin-right: 1em;
+    }
+    svg {
+      margin-right: 0;
+    }
+  }
+  &.ascending svg {
+    transform: rotate(180deg);
+  }
+}
+.SortableTable thead tr {
+  border-color: $lt-gray-alt;
+}
+.SortableTable th {
+  background-color: $lt-gray-alt;
+  color: $black;
+  text-align: left !important;
+  &.active {
+    background-color: black;
+    color: $white;
+  }
+}
+// .SortableTable thead th {
+//   position: sticky;
+//   top: $mobile-header-height;
+
+//   @media (min-width: $tablet-portrait) {
+//     top: $header-height;
+//   }
+// }
+
+.SortableTable td.align--left {
+  text-align: left;
+}

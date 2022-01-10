@@ -1,0 +1,7 @@
+{% if block.logos | length %}
+<div class="Hero-Split-Screen-panel-logos">
+  {% for logo in block.logos %}
+  <div class="Hero-Split-Screen-panel-logo" data-lazy-svg="{{ logo.url }}"></div>
+  {% endfor %}
+</div>
+{% endif %}

@@ -1,0 +1,140 @@
+field: 91d891dc-1fee-45bd-9011-10cd107659d1
+fieldLayouts:
+  2145f86b-7f01-4035-8e08-588212981d8f:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: ec378ac1-7f50-4ecf-99c8-236df35d064c
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 135b49d6-e000-4b3c-9721-eed1a57620f9
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 1971f437-4afc-48fe-b112-80ac661b3a37
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 51467d1b-7c5e-4884-9591-52527874cf0b
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  135b49d6-e000-4b3c-9721-eed1a57620f9:
+    contentColumnType: text
+    fieldGroup: null
+    handle: explainer
+    instructions: 'This copy will appear on the spotlight landing page along with a link to the resource.'
+    name: Explainer
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: '1'
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  1971f437-4afc-48fe-b112-80ac661b3a37:
+    contentColumnType: string
+    fieldGroup: null
+    handle: alignText
+    instructions: ''
+    name: 'Align Text'
+    searchable: true
+    settings:
+      optgroups: true
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - Right
+            -
+              - value
+              - right
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Left
+            -
+              - value
+              - left
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+  51467d1b-7c5e-4884-9591-52527874cf0b:
+    contentColumnType: text
+    fieldGroup: null
+    handle: buttonText
+    instructions: ''
+    name: 'Button Text'
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  ec378ac1-7f50-4ecf-99c8-236df35d064c:
+    contentColumnType: text
+    fieldGroup: null
+    handle: resource
+    instructions: ''
+    name: Content
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+handle: resource
+name: Content
+sortOrder: 1

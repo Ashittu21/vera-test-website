@@ -1,0 +1,20 @@
+{% set color = color ?? "red" %}
+<div class="state-of-article"> {% block preHeading %}{% endblock %}
+	<h1 class="ff-serif color--{{ color }} heading">{{ entry.heading ?: entry.title }}</h1>
+
+	{% block image %}{% endblock %}
+
+	{% block overview %}
+		{% if entry.overview | length %}
+			<div class="intro size--h3--large color--{{ color }}">{{ entry.overview | shortcodes | raw }}</div>
+		{% endif %}
+	{% endblock %}
+
+	{% block beforeBody %}{% endblock %}
+
+	{% block body %}
+		{% if entry.text %}
+			<div class="body">{{ entry.text | shortcodes | raw}}</div>
+		{% endif %}
+	{% endblock %}
+</div>

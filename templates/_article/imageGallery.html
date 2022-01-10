@@ -1,0 +1,5 @@
+<section class="article-image-gallery container">
+{% for block in block.children %}
+	{% include '_article/pieces/' ~ block.type %}
+{% endfor %}
+</section>

@@ -1,0 +1,65 @@
+.CopySection {
+  // padding-top: 2 * $padding-lg;
+  // padding-bottom: 2 * $padding-lg;
+
+  > .container {
+    @media (min-width: $tablet-portrait) {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      grid-gap: 1em;
+
+      .CopySection-text {
+        margin-top: 0;
+      }
+    }
+    @media (min-width: $tablet-landscape) {
+      grid-template-columns: 300px 1fr;
+    }
+    @media (min-width: $desktop-mlarge) {
+      grid-template-columns: 400px 1fr;
+    }
+  }
+}
+.CopySection--adjacent {
+  padding-bottom: 0;
+}
+
+.CopySection-heading {
+  @extend %h3;
+  padding-right: $padding-lg;
+
+  &:before {
+    content: "";
+    width: 82px;
+    border-top: 1px solid $red;
+    display: block;
+    margin-bottom: $padding-xs;
+
+    @media (min-width: $tablet-portrait) {
+      margin-bottom: $padding-sm;
+    }
+  }
+}
+
+.CopySection-text {
+  @extend %body;
+  margin-top: 2em;
+
+  p:first-child {
+    margin-top: 0;
+  }
+  p:last-child {
+    margin-bottom: 0;
+  }
+
+  h2 {
+    margin-bottom: 1em;
+  }
+
+  ul {
+    font-size: 85%;
+  }
+}
+.CopySection-cta {
+  margin-top: $padding-lg;
+}

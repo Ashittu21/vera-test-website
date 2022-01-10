@@ -1,0 +1,15 @@
+contentColumnType: datetime
+fieldGroup: 6c478341-da6f-434d-b58e-1f381004c510
+handle: eventStartTime
+instructions: ''
+name: 'Event Start Time'
+searchable: true
+settings:
+  max: null
+  min: null
+  minuteIncrement: '30'
+  showDate: 1
+  showTime: 1
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Date

@@ -1,0 +1,13 @@
+contentColumnType: boolean
+fieldGroup: ff6bca1c-2054-4260-a21f-2d7007b1c024
+handle: donateNavToggle
+instructions: 'Default value hides nav on donate pages, turn on to show nav'
+name: 'Show Nav'
+searchable: true
+settings:
+  default: false
+  offLabel: null
+  onLabel: null
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Lightswitch

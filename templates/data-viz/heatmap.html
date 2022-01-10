@@ -1,0 +1,16 @@
+{% extends '/data-viz/_/multi-viz' %}
+
+{% set mapUrl = entry.heatmapSvg[0].url %}
+
+{% set params = entry.dataVizJson | json_decode %}
+
+{% includeJsFile '/dist/twigscripts/heatmap.js' %}
+{% block jsInit %}
+	new VERA.heatmap({
+					mapUrl:
+	{{ mapUrl | json_encode | raw }},
+					container: ".{{ selector }}",
+					data:
+	{{ entry.dataset.first.url | json_encode | raw }}
+	});
+{% endblock %}

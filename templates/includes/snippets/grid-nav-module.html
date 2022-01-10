@@ -1,0 +1,9 @@
+{% set pages = pages is defined ? pages : entry.children().excludeFromNav("not 1") %}
+
+<section class="grid-tiles {{ className ?? null }}" role="navigation">
+  {% include 'includes/snippets/tile_grid' with { pages: pages, singlePage: false } %}
+</section>
+
+{% includeJs %}
+  var goTo = {{ (craft.request.getParam('goTo') ?? null) | json_encode | raw }};
+{% endincludejs %}

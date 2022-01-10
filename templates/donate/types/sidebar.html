@@ -1,0 +1,145 @@
+{% extends '_layout' %}
+
+{% set title = entry.title %}
+
+{% set theme = (entry.donateTheme ?? 'noSidebar') %}
+{% block bodyClass %} donate-theme--{{ theme }}{% endblock %}
+
+{% block content %}
+
+
+{% set heroImage = entry.heroImage.first %}
+{%- set bg = entry.fullHeightBackground.first -%}
+
+{% if heroImage and bg is null %}
+<section class="text-banner text-banner--cta donate-intro">
+    <div class="text-banner__bg-image" style="background-image: url({% if heroImage %}{{ heroImage.url }}{% endif %});"></div>
+
+    <div class="text-banner__content container module-text">
+        <div class="module-text__inner">
+	        <h1 class="text-banner__heading--alt">
+	            {{ entry.donateCallToActionHeading ?? entry.title }}
+	        </h1>
+	        {% if entry.donateCallToAction %}
+	            {{ entry.donateCallToAction }}
+	        {% endif %}
+        </div>
+    </div>
+</section>
+{% elseif bg %}
+<section class="donate-intro">
+    <div class="module-text container">
+        <div class="module-text__inner">
+			<h1 class="text-banner__heading--alt">
+	            {{ entry.donateCallToActionHeading ?? entry.title }}
+	        </h1>
+            {% if entry.donateCallToAction %}
+				{{ entry.donateCallToAction }}
+            {% endif %}
+        </div>
+    </div>
+</section>
+{% elseif entry.hero | length %}
+	{% set hero = entry.hero.first %}
+	{% if hero.type.handle == 'video' %}
+		<section class="donate-module video">
+			{%- include 'includes/snippets/video' with {video: hero.video} -%}
+			{%- if hero.heading -%}
+				<div class="container video-heading-copy video-container banner-image-left__subheading">{{ hero.heading }}</div>
+			{%- endif -%}
+		</section>
+
+		{%- set video = hero.video -%}
+	{% elseif hero.type.handle == 'image' %}
+		{% set heroImage = hero.heroImage.first %}
+		<section class="text-banner text-banner--cta donate-intro">
+			<div class="text-banner__bg-image" style="background-image: url({% if heroImage %}{{ heroImage.url }}{% endif %});"></div>
+			<div class="text-banner__content container module-text">
+				<div class="module-text__inner">
+					<h1 class="text-banner__heading--alt">
+					    {{ hero.heading | length ? hero.heading : entry.donateCallToActionHeading | length ? entry.donateCallToActionHeading : entry.title }}
+					</h1>
+					{% if entry.donateCallToAction %}
+						{{ entry.donateCallToAction }}
+		            {% endif %}
+				</div>
+			</div>
+		</section>
+	{% endif %}
+{% endif %}
+
+{% if entry.donateArticleBuilder | length %}
+	{% include 'includes/snippets/article' with {article: entry.donateArticleBuilder} %}
+{% endif %}
+
+{% set embed = entry.donateEmbedCode ?? null %}
+
+{% set mainDonate = craft.entries.section('donate').first %}
+{% set entry = entry.otherWaysText and entry.donateOtherWays | length ? entry : mainDonate %}
+
+<section class="post-module module-intro module-intro--border donate-form-container">
+    <div class="container col-outer">
+
+        <div class="two-thirds module-intro__content iframe-contain">{% set embed = embed ? embed : administrative.donateEmbed %}{{ embed | raw }}</div>
+
+        <div class="one-third module-intro__sidebar">
+            <aside class="donate-info">
+                <h4>{{ entry.otherWaysText }}</h4>
+
+                {% set waysToDonate = entry.donateOtherWays %}
+                {% if waysToDonate | length %}
+                <ul>
+                    {% for donateMethod in waysToDonate %}
+                    <li>
+                        <h5>{{ donateMethod.explainer }}</h5>
+
+                        <p>
+                        {{ donateMethod.info }}
+                        </p>
+                    </li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+
+				{% set entry = entry.donateLegalText | length ? entry : mainDonate %}
+                <div class="footnote">
+                    {{ entry.donateLegalText }}
+                </div>
+
+                <div class="rotated-square-cta">
+                    <div class="rotated-square-cta__inner">
+                        <div class="rotated-square-cta__content">
+	                        {% set entry = entry.donateFrameText | length ? entry : mainDonate %}
+                            <h3>{{ entry.donateFrameText }}</h3>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+</section>
+
+<section class="donate-module">
+    {% set prioritiesPage = craft.entries.section('strategicPriorities').first %}
+    {% if prioritiesPage %}
+    <div class="post-module module-3up">
+        <div class="module-3up__inner">
+            <h3>{{ prioritiesPage.title }}</h3>
+
+            {% if prioritiesPage.priorities | length %}
+            <div class="col-outer">
+                {% for priority in prioritiesPage.priorities %}
+                <div class="one-third">
+                    {{ priority.header }}
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+
+            <a href="{{ prioritiesPage.url }}" class="btn">Learn More</a>
+        </div>
+    </div>
+    {% endif %}
+</section>
+
+{% endblock %}

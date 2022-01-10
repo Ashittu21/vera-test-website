@@ -1,0 +1,30 @@
+{% extends '_layout' %}
+{% set parent = entry.parent %}
+
+{% block nav %}
+	{% include 'includes/_header/header__burger' %}
+{% endblock %}
+
+{% block content %}
+  {% set superheading %}
+  {% set heroBlock = clone(parent.statePublicationsBuilder).type("policeBudget").one() %}
+  {% set text = heroBlock ? heroBlock.heading : parent.title %}
+  <a href="{{ parent.url }}">{{ text }}</a>
+  {% endset %}
+  {% set mapBlock = clone(parent.statePublicationsBuilder).type("mapViz").one() %}
+  {% include 'publications/_blocks/cityHero' with {
+    block: {
+      superheading: superheading,
+      heading: entry.title,
+      explainer: entry.explainer,
+      download: {
+        label: "Get fact sheet",
+        url: entry.pdfDownload[0].url ?? null
+      },
+      map: mapBlock ? mapBlock.map[0] : null
+    }
+  } %}
+
+  {% include 'includes/snippets/article' with { article: entry.specialReportsArticle } %}
+
+{% endblock %}

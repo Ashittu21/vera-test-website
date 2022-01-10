@@ -1,0 +1,100 @@
+.main-nav-outer {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: $black;
+  color: $white;
+  text-align: center;
+  max-height: inherit !important;
+  display: none;
+
+  @media (min-width: #{$tablet-landscape + $nav-offset}) {
+    display: flex;
+    align-items: center;
+    position: static;
+    background: transparent;
+    color: $black;
+  }
+
+  .mainnav-open & {
+    display: block;
+
+    @media (max-width: #{$tablet-landscape + $nav-offset}) {
+      .toggle-search {
+        display: none;
+      }
+    }
+  }
+
+  .hr {
+    top: 0;
+    visibility: hidden;
+  }
+
+  &.subnav-open {
+    .hr {
+      visibility: visible;
+    }
+  }
+
+  .header__btn-donate,
+  .mainnav-open & .header__btn-donate {
+    display: none;
+
+    @media (min-width: #{$tablet-landscape + $nav-offset}) {
+      display: inline-flex;
+    }
+  }
+
+  .share {
+    vertical-align: middle;
+    margin-left: $padding-xs;
+  }
+}
+
+.main-nav {
+  list-style: none;
+  display: inline-block;
+  @include container;
+  @include justify(center);
+
+  @media (min-width: #{$tablet-landscape + $nav-offset}) {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    max-width: 100%;
+  }
+
+  > li {
+    @media (min-width: #{$tablet-landscape + $nav-offset}) {
+      display: inline-block;
+      margin: 0 $padding-sm;
+    }
+  }
+
+  > li > a {
+    @extend .ff-sans--bold;
+    @include font-size(1.3);
+    text-transform: uppercase;
+    letter-spacing: 0.2mm;
+
+    color: $white;
+    display: inline-block;
+    border-top: 3px solid transparent;
+    border-bottom: 3px solid transparent;
+    height: $header-height;
+    line-height: $header-height - 6;
+    vertical-align: middle;
+    @include transition(all 0.15s ease-in);
+
+    @media (min-width: #{$tablet-landscape + $nav-offset}) {
+      color: $black;
+
+      .no-touch &:hover,
+      &:focus {
+        color: $red;
+      }
+    }
+  }
+}

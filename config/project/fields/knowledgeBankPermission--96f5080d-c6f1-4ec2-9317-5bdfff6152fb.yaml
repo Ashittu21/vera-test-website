@@ -1,0 +1,23 @@
+contentColumnType: string
+fieldGroup: 19837e8c-c89c-4572-8569-fa8556eb36ce
+handle: knowledgeBankPermission
+instructions: 'This limits public access to the file'
+name: 'Knowledge Bank Permission'
+searchable: true
+settings:
+  allowLimit: false
+  allowMultipleSources: false
+  allowSelfRelations: false
+  branchLimit: ''
+  limit: null
+  localizeRelations: false
+  selectionLabel: 'Add access levels'
+  showSiteMenu: true
+  source: 'group:ea6d7925-66d5-4a9b-9469-584c08d70d9a'
+  sources: '*'
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Categories

@@ -1,0 +1,143 @@
+{% set top = entry.level == 1 ? entry : entry.ancestors.level(1).first %}
+{% set onepage = entry.singlePage ?? false %}
+
+<header class="lazy-load header header--special header--burger {{ headerClass ?? null }}" id="Header">
+    <div class="flex">
+        <div class="col-outer">
+            <h1>
+                <a class="logo--name" href="/">
+                    Vera Institute of Justice
+                </a>
+            </h1>
+
+            <span class="header__breadcrumb">
+              <a href="{{ top.url }}">{{ top.title }}</a>
+            </span>
+        </div>
+
+        <div class="col-outer">
+          {# <nav class="main-nav-outer">
+            <ul class="main-nav">
+              <li><a href="#" data-subnav="work">Work</a></li>
+              <li><a href="#" data-subnav="resources">Resources</a></li>
+              <li><a href="{{ siteUrl('blog') }}">Blog</a></li>
+              <li><a href="{{ siteUrl('about') }}">About</a></li>
+            </ul>
+
+            <div class="container"><aside class="hr"></aside></div>
+          </nav> #}
+          {% if entry.pdfDownload | length %}
+          <a class="header--burger-item hide-on-mobile header-download-link" download target="_blank" href="{{ entry.pdfDownload[0].url }}">Download PDF</a>
+          {% endif %}
+          <a href="#" class="header--burger-item icon-share trigger-modal hide-on-mobile" data-modal="ShareOverlay">{{ craft.inlin.er("/dist/icons/share.svg",true) | raw }}</a>
+          <button class="header--burger-item header__menu-toggle">Menu</button>
+
+          <nav class="full-nav">
+             <div class="navgroup-wrap">
+              <a
+                class="full-nav-top-link"
+                href="{{ top.url }}"
+                data-nav-carousel-link data-theme="default"
+                data-title="{{ top.title }}"
+                data-id="{{ top.id }}">
+                {{ top.title }}
+              </a>
+              {% set stories = entry.parent ? entry.parent.children : (entry.children | length) ? entry.children : null %}
+              {% if stories is null %}
+                {# do anchor nav #}
+                <div class="full-nav-chapter">
+                {% set subchapters = entry.articleBuilder.type("article").anchorToMainNav(1) %}
+                  <ul class="navgroup collapsed reset-list">
+                  {% for subchapter in subchapters %}
+                    {% set href = ('#' ~ (subchapter.chapterTitle | kebab)) %}
+                    <li>
+                      <a 
+                        href="{{ href }}" 
+                        data-nav-carousel-link 
+                        data-theme="default" 
+                        data-title="{{ subchapter.chapterTitle }}" 
+                        data-id="{{ subchapter.id }}">
+                        {{ subchapter.chapterTitle }}
+                      </a>
+                    </li>
+                  {% endfor %}
+                  </ul>
+                </div>
+              {% else %}
+                {% set stories = stories.excludeFromNav('not 1') %}
+                {% for story in stories %}
+                <div class="full-nav-chapter">
+                {% set subchapters = story.children.excludeFromNav('not 1') %}
+
+                {% if subchapters | length > 6 %}
+                <button class="navgroup-toggle">{{ story.chapterTitle ?: story.title }}</button>
+                  <ul class="navgroup reset-list">
+                  {% for subchapter in subchapters %}
+                    {% set href = story.singlePage ? (story.url ~ '#' ~ (subchapter.title | kebab)) : subchapter.url %}
+                    <li><a href="{{ href }}" data-nav-carousel-link data-theme="default" data-title="{{ subchapter.title }}" data-id="{{ subchapter.id }}">{{ subchapter.title }}</a></li>
+                  {% endfor %}
+                  </ul>
+                {% elseif subchapters | length <= 6 and subchapters | length > 0 %}
+                  <a href="{{ story.url }}" data-nav-carousel-link data-theme="default" data-title="{{ story.title }}" data-id="{{ story.id }}">{{ story.title }}</a>
+                  <ul class="navgroup collapsed reset-list">
+                  {% for subchapter in subchapters %}
+                    {% set href = story.singlePage ? (story.url ~ '#' ~ (subchapter.title | kebab)) : subchapter.url %}
+                    <li><a href="{{ href }}" data-nav-carousel-link data-theme="default" data-title="{{ subchapter.title }}" data-id="{{ subchapter.id }}">{{ subchapter.chapterTitle ?: subchapter.title }}</a></li>
+                  {% endfor %}
+                  </ul>
+                {% else %}
+                  {# onepage conditional needed to use anchors in case where report chapters are all on one page. #}
+                  <a href="{{ onepage ? (top.url ~ '#' ~ (story.title | kebab)) : story.url }}" data-nav-carousel-link data-theme="default" data-title="{{ story.title }}" data-id="{{ story.id }}">{{ story.chapterTitle ?: story.title }}</a>
+                {% endif %}
+                </div>
+                {% endfor %}
+              {% endif %}
+            </div>
+          </nav>
+        </div>
+    </div>
+</header>
+
+
+{% includeJs %}
+$(function() {
+
+  var $header = $('header.header--special'),headerIsOpen=false;
+  var $toggle = $header.find('.header__menu-toggle');
+  var $fullNav = $header.find('.full-nav');
+
+  var tween = TweenLite.to($fullNav, .25, { x: 0, paused: true });
+
+  $toggle.on("click", function() {
+    headerIsOpen = !headerIsOpen;
+    if (headerIsOpen) {
+      open()
+    } else {
+      close()
+    }
+  });
+
+  $('.navgroup-toggle').on("click", function() {
+    $(this).toggleClass('show');
+  });
+
+  $fullNav.find('a').on("click", function(event) {
+    headerIsOpen = false;
+    close();
+  })
+
+  function open()
+  {
+    $header.addClass('menu-open');
+    tween.play();
+  }
+
+  function close()
+  {
+    $header.removeClass('menu-open');
+    tween.reverse();
+  }
+
+  var goTo = {{ (craft.request.getParam('goTo') ?? null) | json_encode | raw }};
+})
+{% endincludejs %}

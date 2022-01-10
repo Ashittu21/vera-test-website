@@ -1,0 +1,382 @@
+{% spaceless %}
+
+{% set publicationChildren = ['fromTheDirector','aboutThisReport','acknowledgements','endnotes','chapter'] %}
+{% set projectTabs = ['customTab','partners','knowledgeBank'] %}
+
+{% set start_year = stream.filterStartYear %}
+{% set end_year = "now"|date('Y') %}
+
+{% set queryString = craft.request.getParam('query') %}
+{% set query = queryString | default("") %}
+
+{% if not craft.request.isAjax and craft.request.queryStringWithoutPath %}
+
+	{% set streamType = streamOptions.streamType %}
+
+	{% if craft.request.getParam('relations') %}
+		{% set relationObjsQuery = craft.request.getParam('relations') | split('},') %}
+
+		{% set relationObjs = [] %}
+
+		{% for relation in relationObjsQuery %}
+			{% if not loop.last %}
+				{% set relation = relation~'}' %}
+			{% endif %}
+			{% set thisrelation = relation | json_decode %}
+			{% set relationObjs = relationObjs | merge([thisrelation]) %}
+		{% endfor %}
+	{% elseif streamOptions.primaryRelation is defined %}
+		{% set relationObjs = [{
+			type: streamOptions.primaryRelation.type,
+			id: streamOptions.primaryRelation.relations[0].id
+		}] %}
+	{% endif %}
+
+	{% set fields = craft.request.getParam('fields') | split(',') %}
+
+	{% if craft.request.getParam('sections') %}
+		{% set searchSections = craft.request.getParam('sections') | split(',') %}
+	{% elseif streamOptions.sections is defined %}
+		{% set searchSections = [] %}
+		{% for section in streamOptions.sections %}
+			{% set searchSections = searchSections|merge([section[1]]) %}
+		{% endfor %}
+		{% if streamOptions.hiddenSections is defined %}
+			{% set searchSections = searchSections|merge(streamOptions.hiddenSections) %}
+		{% endif %}
+	{% else %}
+		{% set searchSections = [] %}
+	{% endif %}
+
+	{% set offset = craft.request.getParam('offset') | default(0) %}
+
+	{% set limit = contentlimit %}
+
+	{% set startyear = craft.request.getParam('startYear') %}
+	{% set endyear = craft.request.getParam('endYear') + 1 %}
+
+	{% if startyear not in ['NaN',NULL] and endyear not in ['NaN',NULL,1] %}
+		{% set daterange = ['and', '<= '~endyear, '>= '~startyear] %}
+	{% else %}
+		{% set startyear, endyear = start_year, end_year %}
+		{% set daterange = ['and', '<= '~endyear, '>= '~startyear] %}
+	{% endif %}
+
+{# 	{% set query =  queryString | default('') %} #}
+
+	{# ??? #}
+	{% if streamOptions.fieldSearch is defined %}
+		{% set query = query~' '~streamOptions.fieldSearch %}
+	{% endif %}
+
+	{% if craft.request.getParam('type') %}
+		{% set entryTypes = craft.request.getParam('type') | split(',') %}
+	{% else %}
+		{% set entryTypes = streamOptions.entryType | default(null) %}
+	{% endif %}
+
+	{% set moduleType = streamOptions.moduleType | default(null) %}
+
+	{% if streamOptions.fieldValues is defined %}
+		{% set fieldValues = streamOptions.fieldValues %}
+	{% endif %}
+
+	{% if (streamOptions.showArchived is defined and streamOptions.showArchived) or craft.request.getParam('showArchived') %}
+		{% set showArchived = true %}
+	{% else %}
+		{% set showArchived = false %}
+	{% endif %}
+
+	{% if craft.request.getParam('keyResources') %}
+		{% set keyResources = entry.keyResources.ids() %}
+	{% endif %}
+
+	{% set fillFilter %}
+
+		$(function() {
+			Stream.filter.callback = function() {
+				var filterfill = {
+					sections: JSON.parse('{{ searchSections | json_encode | raw }}'),
+					fields: JSON.parse('{{ fields | json_encode | raw }}'),
+					types: JSON.parse('{{ entryTypes | json_encode | raw }}'),
+					query: '{{ craft.request.getParam('query') }}'
+				};
+
+				{% if relationObjs is defined %}
+					filterfill.relations = JSON.parse('{{ relationObjs | json_encode | raw }}');
+				{% endif %}
+				{% if startyear not in ['NaN',NULL] and endyear not in ['NaN',NULL,1] %}
+					filterfill.date = {
+						from: {{ craft.request.getParam('startYear') | default(null) | json_encode }},
+						to: {{ craft.request.getParam('endYear') | default(null) | json_encode }}
+					}
+				{% endif %}
+
+				Stream.filter.fillOut(filterfill);
+			}
+		});
+
+	{% endset %}
+
+	{% includeJs fillFilter %}
+
+{% elseif craft.request.isAjax and isPageRequest is not defined %}
+
+	{% set relationObjs = craft.request.getParam('relations') %}
+	{% set searchSections = craft.request.getPost('sections') %}
+	{% set offset = craft.request.getParam('offset') %}
+	{% set limit = craft.request.getParam('limit') %}
+	{% set startyear = craft.request.getParam('startYear') %}
+	{% set endyear = craft.request.getParam('endYear') + 1 %}
+	{% if startyear and endyear and startyear != 'NaN' and endyear != 'NaN' %}
+		{% set start = startyear %}
+		{% set daterange = ['and', '>= '~startyear, '<= ' ~endyear] %}
+	{% else %}
+		{% set daterange = null %}
+	{% endif %}
+	{% if streamOptions.fieldSearch is defined %}
+		{% set query = query ~ ' ' ~streamOptions.fieldSearch %}
+	{% endif %}
+	{% set entryTypes = craft.request.getParam('type') %}
+	{% set moduleType = craft.request.getParam('moduleType') %}
+	{% set streamType = craft.request.getParam('streamType') %}
+	{% set keyResources = craft.request.getParam('keyResources') %}
+	{% set fields = craft.request.getParam('fields') %}
+	{% set fieldValues = craft.request.getParam('fieldValues') %}
+	{% if craft.request.getParam('exclude') %}
+		{% set exclude = craft.request.getParam('exclude') %}
+	{% endif %}
+	{% if craft.request.getParam('showArchived') %}
+		{% set showArchived = craft.request.getParam('showArchived') %}
+	{% else %}
+		{% set showArchived = false %}
+	{% endif %}
+
+{% else %}
+
+	{% set streamType = streamOptions.streamType %}
+
+	{% if streamOptions.primaryRelation is defined %}
+		{% set relations = streamOptions.primaryRelation.relations[0] %}
+	{% else %}
+		{% set relations = null %}
+	{% endif %}
+
+	{% set searchSections = [] %}
+	{% for section in streamOptions.sections %}
+		{% set searchSections = searchSections|merge([section[1]]) %}
+	{% endfor %}
+
+	{% if streamOptions.hiddenSections is defined %}
+		{% set searchSections = searchSections|merge(streamOptions.hiddenSections) %}
+	{% endif %}
+
+	{% set offset = 0 %}
+	{% set limit = contentlimit %}
+	{% if streamType == 'people' %}
+		{% set daterange = null %}
+	{% else %}
+		{% set startyear, endyear = start_year, end_year + 1 %}
+		{% set daterange = ['and', '<= '~endyear, '>= '~startyear] %}
+	{% endif %}
+
+	{% if streamOptions.fieldSearch is defined %}
+		{% set query = query~' '~streamOptions.fieldSearch %}
+	{% endif %}
+
+	{% set entryTypes = streamOptions.entryType|default(null) %}
+	{% set moduleType = streamOptions.moduleType|default(null) %}
+
+	{% if streamOptions.fieldValues is defined %}
+		{% set fieldValues = streamOptions.fieldValues %}
+	{% endif %}
+
+	{% if streamOptions.showArchived is defined and streamOptions.showArchived %}
+		{% set showArchived = true %}
+	{% else %}
+		{% set showArchived = false %}
+	{% endif %}
+
+{% endif %}
+
+{% if relations is not defined and relationObjs is defined and relationObjs|length > 0 %}
+	{% set relations = [] %}
+	{% for relation in relationObjs %}
+		{% if relation.type == 'entries' %}
+
+			{% if(streamType == 'people') %}
+				{# When searching relatedToVeraStaff/center field use sourceElement #}
+				{% set relations = relations|merge([{sourceElement: craft.entries.id(relation.id).first}]) %}
+			{% else %}
+				{% set relations = relations|merge([{targetElement: craft.entries.id(relation.id).first}]) %}
+			{% endif%}
+
+			{% set relatedPeopleInCenter =  craft.entries.section('people').relatedTo(craft.entries.id(relation.id).first) %}
+
+		{% elseif relation.type == 'categories' %}
+			{% set relations = relations|merge([{targetElement: craft.categories.id(relation.id).first}]) %}
+		{% endif %}
+	{% endfor %}
+{% elseif relationObjs is not defined and relations is not defined %}
+	{% set relations = null %}
+{% endif %}
+
+{% set ids = [0] %}
+
+{% if relations is not defined %}
+	{% set relations = null %}
+{% endif %}
+
+{% if query == '' %}
+	{% set order = 'postDate desc' %}
+{% else %}
+	{% set order = 'score' %}
+{% endif %}
+
+{% if fields is defined %}
+	{% if fields is iterable %}
+		{% for field in fields %}
+			{% if not loop.first %}
+				{% set query = query~' OR' %}
+			{% endif %}
+			{% set query = query~' '~field %}
+		{% endfor %}
+	{% else %}
+		{% set query = query~' '~fields %}
+	{% endif %}
+{% endif %}
+
+{% if streamType == 'people' %}{% set order = 'lastName' %}{% endif %}
+
+{% if streamType == 'search' and excludeTypes is defined and excludeTypes | length %}
+	{% set sections = craft.sections.getAllSections() %}
+
+	{% set entryTypes = [] %}
+
+	{% set excludeTypes = ['guestAuthor']|merge(publicationChildren)|merge(projectTabs) %}
+
+	{% for section in sections %}
+	    {# exclude the entry type you don't want, add the others to 'entryTypes' variable
+	       you could, of course, replace handle by ID or whatever you like #}
+	    {% for entryType in section.getEntryTypes() if entryType.handle not in excludeTypes %}
+	        {% set entryTypes = entryTypes | merge([entryType.handle]) %}
+	    {% endfor %}
+	{% endfor %}
+{% endif %}
+
+{% if 'specialReports' in searchSections %}
+	{% set searchSections = searchSections | merge(['mediaExhibit','stateOf']) %}
+{% endif %}
+
+{% set queryObj = {
+		relatedTo: relations,
+		section: searchSections,
+		type: entryTypes,
+		postDate: daterange
+	}
+%}
+
+{% if fieldValues is defined %}
+	{% for field in fieldValues %}
+		{% set queryObj = queryObj | merge(field) %}
+	{% endfor %}
+{% endif %}
+
+{% if streamType != 'search' %}
+	{% set queryObj = queryObj|merge({
+		level: ['or',null,1],
+	}) %}
+{% endif %}
+
+{% if query | trim != '' %}
+	{% set queryObj = queryObj|merge({
+		search: {
+			query: query,
+			subLeft: true,
+			subRight: true
+		}
+	}) %}
+{% endif %}
+
+{# Eager loads #}
+{% if streamType == 'people'%}
+	{% set queryObj = queryObj|merge({with: ['headshot']}) %}
+{% else %}
+	{% set queryObj = queryObj | merge({
+		with: ['authors', ['authors.headshot', {withTransforms:['square130']}], 'relatedIssues', 'relatedIssues.actionAreaIcon', 'streamImageSquare', 'streamImageRectangle', 'heroImage','director', 'director.headshot']
+	}) %}
+{% endif %}
+
+{# Filter with ids #}
+{% set ids = [] %}
+{% if keyResources is defined and keyResources | length %}
+	{% set ids = ids | merge(keyResources) %}
+{% endif %}
+{% if exclude is defined %}
+	{% set ids = ids | merge(exclude) %}
+{% endif %}
+{% if ids | length %}
+	{% set queryObj = queryObj|merge({id: ids}) %}
+{% endif %}
+
+{# filter on Archived field #}
+{% if not showArchived %}
+	{% set queryObj = queryObj|merge({isArchived: false}) %}
+{% endif %}
+
+
+{% set queryObj = queryObj|merge({
+	order: order,
+	requireLogin: 'not 1',
+	unpublished: 'not 1',
+	parentUnpublished: [':empty:',0]
+}) %}
+
+{% if streamType == 'search' %}
+	{% set stream = craft.entries(queryObj).all() %}
+	{% set sortedStream = [] %}
+	{% set queryStringNorm = queryString | lower %}
+	{% for item in stream %}
+		{% set additionalScore = 0 %}
+		{% if queryStringNorm is not empty %}
+		{% for term in item.searchTerms %}
+			{% if queryStringNorm == term %}
+			{% set additionalScore = additionalScore + 100 %}
+			{% endif %}
+		{% endfor %}
+		{% endif %}
+		{% set sortedStream = sortedStream | merge([{
+			entry: item,
+			weightedScore: (item.searchScore + additionalScore)
+		}]) %}
+	{% endfor %}
+
+	{% set stream = sortedStream | supersort('sortAs', '{weightedScore}') | reverse | slice(offset*limit,limit) %}
+	{% if stream | length %}
+	{% for item in stream %}
+		{% set module = item.entry %}
+		{% include 'includes/stream/stream_module-search' with { searchScore: item.weightedScore } %}
+	{% endfor %}
+	{% else %}
+	No Results
+	{% endif %}
+{% else %}
+	{% set queryObj = queryObj | merge({
+		limit: limit,
+		offset: offset*limit,
+ 	}) %}
+ 	{% set stream = craft.entries(queryObj).find() %}
+	{%- if stream | length -%}
+	{% if streamType == 'people'%}
+		{% include 'includes/snippets/people' with { people: stream, isstream: true, grid: true, large: true } %}
+	{% else %}
+		{% for module in stream %}
+			{% include moduleType == 'post' ? 'includes/stream/stream_post' : 'includes/stream/stream_module' %}
+		{% endfor %}
+	{% endif %}
+	{% else %}
+	No results
+	{%- endif -%}
+{% endif %}
+
+{% endspaceless %}

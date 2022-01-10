@@ -1,0 +1,21 @@
+description: null
+handle: meisterProjects
+name: Meister_Projects
+permissions:
+  - accessplugin-workflow
+  - accesscp
+  - 'createentries:38aa58cd-ad86-413c-a4d5-6fb79ce7e7e3'
+  - 'publishentries:38aa58cd-ad86-413c-a4d5-6fb79ce7e7e3'
+  - 'deleteentries:38aa58cd-ad86-413c-a4d5-6fb79ce7e7e3'
+  - 'publishpeerentries:38aa58cd-ad86-413c-a4d5-6fb79ce7e7e3'
+  - 'deletepeerentries:38aa58cd-ad86-413c-a4d5-6fb79ce7e7e3'
+  - 'editpeerentries:38aa58cd-ad86-413c-a4d5-6fb79ce7e7e3'
+  - 'publishpeerentrydrafts:38aa58cd-ad86-413c-a4d5-6fb79ce7e7e3'
+  - 'deletepeerentrydrafts:38aa58cd-ad86-413c-a4d5-6fb79ce7e7e3'
+  - 'editpeerentrydrafts:38aa58cd-ad86-413c-a4d5-6fb79ce7e7e3'
+  - 'editentries:38aa58cd-ad86-413c-a4d5-6fb79ce7e7e3'
+  - 'publishentries:1422c807-e48c-4b6d-b047-34e7591f43ff'
+  - 'publishpeerentrydrafts:1422c807-e48c-4b6d-b047-34e7591f43ff'
+  - 'deletepeerentrydrafts:1422c807-e48c-4b6d-b047-34e7591f43ff'
+  - 'editpeerentrydrafts:1422c807-e48c-4b6d-b047-34e7591f43ff'
+  - 'editentries:1422c807-e48c-4b6d-b047-34e7591f43ff'

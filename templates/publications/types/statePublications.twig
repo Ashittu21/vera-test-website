@@ -1,0 +1,15 @@
+{% extends '_layout' %}
+{% set segments = craft.request.segments %}
+
+{% block nav %}
+  {% include 'includes/_header/header__burger' %}
+{% endblock %}
+
+{% block content %}
+
+{% include 'publications/_blocks' with { blocks: entry.statePublicationsBuilder.level(1).all() } %}
+
+{% include 'publications/_blocks' with { blocks: entry.publicationsFooter.level(1).all() } %}
+
+{% include 'includes/stream/module_related-content' %}
+{% endblock %}

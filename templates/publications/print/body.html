@@ -1,0 +1,29 @@
+{% extends '_pdf_layout' %}
+
+{% block content %}
+
+	{% for child in chapters %}
+
+		{% set entry = child %}
+
+		{% set title = entry.chapterTitle ?? entry.type.name %}
+
+		{% set parentEntry = entry.parent %}
+		<a id="{{ entry.id }}{{ entry.slug }}">&nbsp;</a>
+		<article class="post-content__single__container">
+		    <div class="post-module module-text module-text--heading">
+		        <div class="container">
+		            <div class="module-text__inner rte">
+		                <h2>{{ title }}</h2>
+		            </div>
+		        </div>
+		    </div>
+
+		    {% set article = entry.publicationArticle %}
+		    {% include 'includes/snippets/article' %}
+
+		</article>
+
+	{% endfor %}
+
+{% endblock %}

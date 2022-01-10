@@ -1,0 +1,339 @@
+{% set specialReportTypes = [
+  'specialReport',
+  'specialReportSingle',
+  'story',
+  'specialReportChaptered',
+  'specialReportCampaign',
+  'article',
+  'gallery',
+  'stateOf'
+] %}
+{% set serialTypes = [
+	'topic',
+	'page',
+	'stateOf'
+] %}
+{% set publicationTypes = [
+	'statePublications'
+] %}
+{% set gc_types = specialReportTypes | merge(['spotlight', 'event','gala', 'stateOf','initiatives']) %}
+
+{% set module_class_prefix = 'stream-module' %}
+{% set module_class = '' %}
+{% set module_size = '' %}
+{% set module_featured = '' %}
+{% set imageset = null %}
+{% set link = link ?? module.url %}
+{% set ext = false %}
+{% set hasRelated = module.relatedKnowledgeBankItems is defined and module.relatedKnowledgeBankItems | length or module.relatedItacItems is defined and module.relatedItacItems | length%}
+{% set isArchived = module.isArchived ?? false %}
+{% set type = module.type ?? { handle: null, name: null } %}
+{% set resourceStreamSize = module.resourceStreamSize ? "full" : "half" %}
+{% set sectionHandle = module.section.handle ?? null %}
+{% set title = moduleTitle ?? module.chapterTitle ?: module.title %}
+{% set subtitle = moduleSubtitle ?? module.subtitle ?? null %}
+{% if type.handle in serialTypes and module.level > 1 %}
+	{% set supertitle = module.getAncestors().level(1).first().title %}
+{% endif %}
+
+{% set typeLabel -%}
+{% if entry is defined and entry.type.handle == "blog" %}
+	Featured Post
+{% elseif type.handle == "itacKnowledgeBank" %}
+	{% for typeType in module.itacType %}
+		{{typeType}}
+	{% endfor %}
+{% elseif type.handle in specialReportTypes %}
+	Special Report
+{% elseif type.handle in serialTypes %}
+	Serial
+{% elseif type.handle in publicationTypes %}
+	Publication
+{% else %}
+	{% if isArchived %}Archived
+	{% endif %}
+	{{ type.name }}
+{% endif %}
+{%- endset %}
+
+{% set size = size ?? resourceStreamSize | default('half') %}
+
+{% set streamImageSquare = module.streamImageSquare is defined and module.streamImageSquare | length ? module.streamImageSquare : null %}
+{% set streamImageRectangle = module.streamImageRectangle is defined and module.streamImageRectangle | length ? module.streamImageRectangle : null %}
+{% set heroImage = module.heroImage is defined and module.heroImage | length ? module.heroImage : null %}
+
+{% set image = image ?? null %}
+{% if image is null and type.handle in serialTypes %}
+	{% set image = heroImage[0] ?? null %}
+{% endif %}
+
+{% if image is null %}
+
+	{% if streamImageSquare %}
+		{% set imageset = streamImageSquare[0] %}
+	{% elseif streamImageRectangle  %}
+		{% set imageset = streamImageRectangle[0] %}
+	{% elseif heroImage %}
+		{% set imageset = heroImage[0] %}
+	{% endif %}
+
+	{% set image = imageset %}
+{% endif %}
+
+{% set en = entry ?? null %}
+
+{% if isFeatured is not defined %}
+	{% set isFeatured = false %}
+{% endif %}
+
+{% if (isFeatured is defined and isFeatured == true) or (type.handle in gc_types) %}
+	{% set module_class = module_class_prefix ~ '--gc' %}
+	{% if image is null %}
+		{% if size == 'half' %}
+			{% if streamImageSquare | length %}
+				{% set imageset = streamImageSquare[0] %}
+			{% elseif streamImageRectangle | length %}
+				{% set imageset = streamImageRectangle[0] %}
+			{% elseif heroImage | length %}
+				{% set imageset = heroImage[0] %}
+			{% endif %}
+			{% set image = imageset %}
+		{% else %}
+			{% if streamImageRectangle %}
+				{% set imageset = streamImageRectangle[0] %}
+			{% elseif heroImage %}
+				{% set imageset = heroImage[0] %}
+			{% elseif streamImageSquare %}
+				{% set imageset = streamImageSquare[0] %}
+			{% endif %}
+			{% set image = imageset %}
+		{% endif %}
+	{% endif %}
+{% else %}
+	{% set module_class = module_class_prefix ~ '--uc' %}
+
+	{% if size == 'half' %}
+		{% if streamImageRectangle %}
+			{% set imageset = streamImageRectangle[0] %}
+		{% elseif heroImage %}
+			{% set imageset = heroImage[0] %}
+		{% elseif streamImageSquare %}
+			{% set imageset = streamImageSquare[0] %}
+		{% endif %}
+		{% set image = imageset %}
+	{% else %}
+		{% if streamImageSquare | length %}
+			{% set imageset = streamImageSquare[0] %}
+		{% elseif streamImageRectangle | length %}
+			{% set imageset = streamImageRectangle[0] %}
+		{% elseif heroImage | length %}
+			{% set imageset = heroImage[0] %}
+		{% endif %}
+		{% set image = imageset %}
+	{% endif %}
+{% endif %}
+
+{% set module_size = module_class ~ '--' ~ size %}
+
+{% if type.handle in ['news', 'resourceSite'] or sectionHandle == 'knowledgeBank' %}
+	{% if module.document is defined and module.document | length %}
+		{% set link = module.document.first.url %}
+	{% else %}
+		{% set link = type.handle in ['webinar'] ? module.video.url : module.linkUrl %}
+	{% endif %}
+	{% set ext = true %}
+{% elseif type.handle == "itacKnowledgeBank" %}
+	{% set ext = true %}
+	{% if module.knowledgeBankFileType == "upload" %}
+		{% set link = module.knowledgeBankFile and module.knowledgeBankFile|length ? module.knowledgeBankFile.first.url : module.knowledgeBankLink %}
+	{% else %}
+		{% set link = module.knowledgeBankLink %}
+	{% endif %}
+{% endif %}
+
+
+{% if linkOut is defined and linkOut %}
+	{% set ext = true %}
+{% endif %}
+
+{% if isFeatured is defined and isFeatured == true %}
+	{% set module_featured = 'stream-module--featured' %}
+{% endif %}
+
+{% set tags = [] %}
+{% if module.knowledgeBankTags is defined and module.knowledgeBankTags | length and type.handle != "itacKnowledgeBank" %}
+	{% for theTag in module.knowledgeBankTags %}
+		{% set tags = tags | merge([theTag.title]) %}
+	{% endfor %}
+{% endif %}
+
+<article class="{{ module_class_prefix }} {{ module_class }} {{ module_size }} {{ module_featured }} {% if notStream is not defined or not notStream %} stream-thing mason-block{% endif %} {{ type == 'publicationOverview' ? 'frame' }} {{ class ?? null }} {% if image %} has-image{% endif %} {% if hasRelated %} has-related{% endif %}">
+	{% if hasRelated %}
+		<div class="{{ module_class_prefix }}__inner">
+		{% endif %}
+		<a href="{{ link }}" {{ ext ? 'target="_blank"' }} {% if not hasRelated %} class="{{ module_class_prefix }}__inner" {% endif %}>
+			{% spaceless %}
+				{% if image %}
+					{% if isFeatured or type.handle in gc_types %}
+						<div class="zoom_wrap">
+						{% endif %}
+						{% if type.handle == 'publicationOverview' %}
+							<div class="frame_wrap">
+							{% endif %}
+							<div class="{{ module_class_prefix }}__img-outer {% if type == 'video' %}stream-module__video-outer{% endif %} img-outer" style="background-image: url({{ image.url }})">
+								<div class="spacer"></div>
+								{% include 'includes/snippets/attribution' with {noLink: true} %}
+							</div>
+							{% if type.handle == 'publicationOverview' %}
+							</div>
+						{% endif %}
+						{% if isFeatured or type.handle in gc_types %}
+						</div>
+					{% endif %}
+				{% endif %}
+			{% endspaceless %}
+
+			{% set previewtext = null %}
+
+			{% if
+				type.handle not in gc_types and
+				(isFeatured is not defined or not isFeatured)
+			%}
+				{% set showPreviewText =
+					(not image and subtitle == '') or
+					(size == 'half' and subtitle == '' and module.title|length < 30) or
+					(size == 'half' and not image and subtitle|length < 60 and module.title|length < 30) or
+					(size == 'half' and image and subtitle|length < 30 and module.title| length < 30) or
+					(size == 'full' and subtitle|length < 80 and module.title|length < 30)
+				 %}
+				{% set previewheight = image ? 'small' : null %}
+				{% set preview = '' %}
+				{% if module.overview is defined and module.overview | length %}
+					{% set preview = module.overview %}
+				{% elseif (module['article'] is defined and module.article)
+                  or (module.publicationArticle is defined and module.publicationArticle)
+                  or (module.specialReportsArticle is defined and module.specialReportsArticle) %}
+					{% set article = module.article | default(module.publicationArticle) | default(module.specialReportsArticle) %}
+					{% set continue = true %}
+					{% for block in article if continue %}
+						{% if block['text'] is defined %}
+							{% set preview = block.text %}
+						{% endif %}
+					{% endfor %}
+				{% endif %}
+
+				{% set previewlength = 350 %}
+				{% set previewtext = preview|striptags %}
+			{% endif %}
+
+			<div class="{{ module_class_prefix }}__content">
+				<div class="{{ module_class_prefix }}__content-inner">
+					<div class="stream-module__title-outer">
+						{% if type.handle == 'post' and module.relatedSeries | length %}
+							<p class="{{ module_class_prefix }}__blogSeries">{{ 'Series: '~module.relatedSeries.first.title }}</p>
+						{% elseif type.handle == 'spotlight' and module.level > 1 %}
+							<p class="{{ module_class_prefix }}__blogSeries">{{ 'Series: '~module.ancestors.level(1).first.title }}</p>
+						{% endif %}
+						<div class="{{ module_class_prefix }}__heading-wrap">
+							{% if supertitle is defined and supertitle %}
+								<div class="{{ module_class_prefix }}__superheading">{{ supertitle }}</div>
+							{% endif %}
+							<h3 class="{{ module_class_prefix }}__heading">{{ title }}</h3>
+							{# {% if tags | length and type.handle != "itacKnowledgeBank"%} #}
+							{% if tags | length %}
+								<ul class="{{ module_class_prefix }}__tag-list">
+									{% for tag in tags %}
+										<li class="{{ module_class_prefix }}__tag">{{ tag }}</li>
+									{% endfor %}
+								</ul>
+							{% endif %}
+						</div>
+						{% if subtitle %}
+							<p class="{{ module_class_prefix }}__subheading">
+								{{ subtitle | raw | nl2br }}
+							</p>
+						{% endif %}
+						{% if type.handle == 'knowledgeEvent' and module.eventStartTime %}
+							<p class="{{ module_class_prefix }}__event-time">
+								{{ module.eventStartTime | date('F d, Y') }}
+								{{ module.eventStartTime | date('g:i A') }}
+							</p>
+						{% endif %}
+						{% if previewtext is defined and previewtext %}
+							<p class="{{ module_class_prefix }}__previewtext{% if previewheight == 'small' %} small{% endif %}{% if showPreviewText %} show{% endif %}">
+								{{ previewtext[:previewlength] }}
+								{% if previewtext|length > previewlength %}...
+								{% endif %}
+							</p>
+						{% endif %}
+
+						{% if sectionHandle in ['knowledgeBank','itacKnowledgeBank'] %}
+							<p class="{{ module_class_prefix }}__description ff-sans">{{ module.shortOverview }}</p>
+						{% endif %}
+					</div>
+					<div class="{{ module_class_prefix }}__meta">
+						{% if noTypeLabel is not defined or not noTypeLabel %}
+							<span class="{{ module_class_prefix }}__label list-label">
+								{{ typeLabel }}
+							</span>
+						{% endif %}
+						{% set has_author = (module.authors[0] is defined or module.director[0] is defined or module.newsSource[0] is defined or module.reportAuthor[0] is defined) and type.handle != 'specialReportSingle' %}
+						{% if has_author %}
+							<div class="{{ module_class_prefix }}__meta__author">{% include 'includes/stream/stream_authors' %}</div>
+						{% endif %}
+						{% if type.handle not in ['story','project','website','knowledgeEvent','chapter'] and (noDate is not defined or not noDate) %}
+							{% if module.postDate is defined %}
+								<div class="{{ module_class_prefix }}__meta__date">
+									{% if type.handle in ['event'] %}
+										{{ module.eventStartTime | date('F d, Y') }}
+									{% else %}
+										{{ module.postDate | date('F d, Y') }}
+									{% endif %}
+								</div>
+							{% endif %}
+						{% endif %}
+					</div>
+				</div>
+			</div>
+			{% if noTypeLabel is not defined or not noTypeLabel %}
+				<span class="{{ module_class_prefix }}__label grid-label">
+					{{ typeLabel }}
+				</span>
+			{% endif %}
+		</a>
+		{% if hasRelated %}
+			<div class="stream-module-related">
+				<aside class="stream-module-related-heading">Related Items</aside>
+				<ul class="stream-module-related-list">
+					{% for item in module.relatedKnowledgeBankItems %}
+						{# TODO: move this logic to preparse.  Let's just have a canonical link whether in craft or ext #}
+						{% if type.handle in ['news', 'resourceSite'] or sectionHandle == 'knowledgeBank' %}
+							{% if module.document | length %}
+								{% set link = module.document.first.url %}
+							{% else %}
+								{% set link = type.handle in ['webinar'] ? module.video.url : module.linkUrl %}
+							{% endif %}
+							{% set ext = true %}
+						{% else %}
+							{% set link = module.url %}
+						{% endif %}
+						<li class="stream-module-related-list-item">
+							<a href="{{ link }}" target="_blank">{{ item.title }}</a>
+						</li>
+					{% endfor %}
+					{% for item in module.relatedItacItems %}
+						{% if item.knowledgeBankFileType == "upload" and item.knowledgeBankFile.first %}
+							{% set link = item.knowledgeBankFile.first.url %}
+						{% else %}
+							{% set link = item.knowledgeBankLink %}
+						{% endif %}
+						<li class="stream-module-related-list-item">
+							<a href="{{ link }}" target="_blank">{{ item.title }}</a>
+						</li>
+					{% endfor %}
+				</ul>
+			</div>
+		</div>
+		{# close of wrapper for hasRelated #}
+	{% endif %}
+</article>

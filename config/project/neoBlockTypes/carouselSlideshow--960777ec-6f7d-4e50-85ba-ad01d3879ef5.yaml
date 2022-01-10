@@ -1,0 +1,11 @@
+childBlocks:
+  - photoCaption
+  - videoCaption
+field: 17b4c95d-2e3f-4114-bdd8-590ce3a76508
+handle: carouselSlideshow
+maxBlocks: 1
+maxChildBlocks: 0
+maxSiblingBlocks: 0
+name: 'Carousel Slideshow'
+sortOrder: 8
+topLevel: true

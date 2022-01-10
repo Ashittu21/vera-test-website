@@ -1,0 +1,121 @@
+{# @var craft \craft\web\twig\variables\CraftVariable #}
+{#
+/**
+ * Geocode plugin for Craft CMS 3.x
+ *
+ * Address Field Input
+ *
+ * @author    Dylan
+ * @copyright Copyright (c) 2020 Dylan
+ * @link      https://hyperakt.com
+ * @package   Geocode
+ * @since     1.0.0
+ */
+#}
+
+{% import "_includes/forms" as forms %}
+
+<div class="field_wrap" id="{{ id }}">
+<fieldset>
+  <label for="{{ id ~ "address_query" }}" class="instructions">Type your address here</label>
+  {{ forms.text({
+    id: id ~ "address_query",
+    name: name~'[address_query]',
+    placeholder: 'address',
+    value: value.address_query ?? '',
+  }) }}
+  
+  <aside class="results_message"></aside>
+  <button type="button" id="{{ id ~ 'geocode_button' }}">Get Coordinates</button>
+</fieldset>
+
+<fieldset id="fieldset_address_results" class="results">
+  <legend for="fieldset_address_results}" class="instructions">These fields are populated with results from the Google Maps Geocoding Api.  Only modify them if necessary.</legend>
+  {{ forms.text({
+    id: id ~ "address1",
+    name: name~'[address1]',
+    placeholder: 'Address',
+    value: value.address1 ?? '',
+  }) }}
+  <div class="flex">
+  {{ forms.text({
+    id: id ~ "address2",
+    name: name~'[address2]',
+    placeholder: 'Suite/Apt',
+    value: value.address2 ?? '',
+    size: 10,
+    class: 'grow'
+  }) }}
+  
+  {{ forms.text({
+    id: id ~ "neighborhood",
+    name: name~'[neighborhood]',
+    placeholder: 'Neighborhood',
+    value: value.neighborhood ?? '',
+    size: 20,
+  }) }}
+  
+  {{ forms.text({
+    id: id ~ "city",
+    name: name~'[city]',
+    placeholder: 'City',
+    size: 15,
+    value: value.city ?? '',
+  }) }}
+  
+  {{ forms.text({
+    id: id ~ "state",
+    name: name~'[state]',
+    placeholder: 'State',
+    size: 5,
+    maxlength: 2,
+    value: value.state ?? '',
+  }) }}
+  
+  {{ forms.text({
+    id: id ~ "zip",
+    name: name~'[zip]',
+    placeholder: 'Zip',
+    size: 5,
+    maxlength: 5,
+    value: value.zip ?? '',
+  }) }}
+  
+  {{ forms.text({
+    id: id ~ "country",
+    name: name~'[country]',
+    placeholder: 'Country',
+    value: value.country ?? '',
+    size: 15,
+    class: 'grow'
+  }) }}
+  </div>
+</fieldset>
+
+<fieldset class="results">
+  <legend>Coordinates</legend>
+  <div class="">
+    {{ forms.text({
+      id: id ~ "coordinates_field_lat",
+      type: 'number',
+      name: name~'[coords][lat]',
+      placeholder: 'Latitude',
+      value: value.coords.lat ?? '',
+      size: 12,
+      step: 'any'
+    }) }}
+    ,
+    {{ forms.text({
+      id: id ~ "coordinates_field_lng",
+      type: 'number',
+      name: name~'[coords][lng]',
+      placeholder: 'Longitude',
+      value: value.coords.lng ?? '',
+      size: 12,
+      step: 'any'
+    }) }}
+  </div>
+</fieldset>
+</div>
+
+<div id="{{ id ~ 'map_container' }}" class="map_wrap"></div>

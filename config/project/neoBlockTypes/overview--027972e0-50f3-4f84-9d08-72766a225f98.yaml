@@ -1,0 +1,26 @@
+childBlocks:
+  - stats
+field: fa227eda-364c-43db-abf1-8275ea9334d4
+fieldLayouts:
+  197fdae1-9430-463c-a68e-fff02a91d4ec:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: bf3bef7d-8819-40d0-8dac-c3de71b958c1
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: 'Tab 1'
+        sortOrder: 1
+handle: overview
+maxBlocks: 0
+maxChildBlocks: 0
+maxSiblingBlocks: 0
+name: Overview
+sortOrder: 3
+topLevel: true

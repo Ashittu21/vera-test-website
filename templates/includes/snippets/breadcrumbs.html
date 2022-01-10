@@ -1,0 +1,12 @@
+<span class="module-intro__breadcrumbs">
+	{% if entry.type == 'actionArea' %}
+		<div class="module-intro__breadcrumbs__icon img-outer">
+			{{ craft.inlin.er(entry.selfCategory.last.actionAreaIcon.first.url, true)|raw }}
+		</div>
+	{% endif %}
+	{%- for parent in entry.getAncestors() -%}
+		{% if parent.id != entry.getAncestors().first.id %}/&nbsp;
+		{% endif %}
+		<a href="{{ parent.url }}">{{ parent }}</a>
+	{% endfor -%}
+</span>

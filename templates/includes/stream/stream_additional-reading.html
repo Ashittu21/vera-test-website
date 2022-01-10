@@ -1,0 +1,34 @@
+{% spaceless %}
+	{% set module = {
+		title: block.callToAction | length ?: block.entry.first.title,
+		linkUrl: block.entry.first.url ?? null
+	} %}
+	{% set image = null %}
+	
+	{% if block.image |length %}
+		{% set image = block.image.first %}
+	{% elseif block.entry.first and block.entry.first.heroImage | length %}
+		{% set image = block.entry.first.heroImage.first %}
+	{% endif %}
+					
+	{% set module_class_prefix = 'stream-module' %}
+{% endspaceless %}
+{% if module.title and module.linkUrl %}
+<article class="stream-module stream-module--uc stream-module--uc--half stream-module--additional_reading">
+	<a class="stream-module__inner" href="{{ module.linkUrl }}">
+		{% if image %}
+			<div class="{{ module_class_prefix }}__img-outer img-outer" style="background-image: url({{ image.url }});">
+				<div class="spacer"></div>
+			</div>
+		{% endif %}
+
+		<div class="{{ module_class_prefix }}__content">
+			<div class="{{ module_class_prefix }}__content-inner">
+				<div class="stream-module__title-outer">
+					<h3 class="{{ module_class_prefix }}__heading">{{ module.title }}</h3>
+				</div>
+			</div>
+		</div>
+	</a>
+</article>
+{% endif %}

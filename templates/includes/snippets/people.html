@@ -1,0 +1,135 @@
+{% if people|length %}
+	{% if showMore is defined and showMore %}
+		{% set leftoverPeople = people[4:] %}
+		{% set people = people[:4] %}
+	{% endif %}
+
+	{% set grid = grid ?? false %}
+
+	{% if personEvent is defined %}
+		{% set large = true %}
+		<ul class="post-content__author {% if isstream is defined and isstream %}stream-thing{% endif %}">
+		{% elseif offset is not defined or offset == 0 %}
+			<ul class="{{ grid ? 'people-grid__list' : 'people-list'}} {% if isstream is defined and isstream %}stream-thing{% endif %} {{ peopleClass ?? null }}">
+			{% endif %}
+			{% for person in people %}
+				{% set link = (person.type.handle == "staff" and person.bio) ? person.url : person.website ?: null %}
+				{% set linkExt = person.type.handle == "guestAuthor" %}
+				{% set personinfo %}{% include 'includes/snippets/person__title' %}{% endset %}
+				{% set alt %}{{ person ~' - '~ personinfo }}{% endset %}
+
+				{% set headshot = person.headshot[0] ?? null %}
+				<li class="{% if isstream is defined and isstream %}stream-thing{% endif %}">
+					{% if link %}
+						<a href="{{ link }}" {% if linkExt %} target="_blank" rel="noreferrer noopener" {% endif %}>
+						{% endif %}
+						{% set size = 'square130' %}
+						{% if large is defined and large == true %}
+							{% set size = 'square300' %}
+						{% endif %}
+						<div class="img-outer">
+							<img src="{{ headshot ? headshot.getUrl(size) : siteUrl('dist/img/person-placeholder.gif') }}" alt="{{ alt }}">
+						</div>
+						<div class="text-outer">
+							<h5 class="person-name">{{ person }}</h5>
+							{% if peopleClass is defined and peopleClass != 'small' %}
+								<div class="person-info">{{ personinfo }}</div>
+							{% endif %}
+						</div>
+						{% if link %}
+						</a>
+					{% endif %}
+				</li>
+			{% endfor %}
+			{% if grid %}
+				<!-- a great (ugly) way to keep justified spacing -->
+				<li class="empty"></li>
+				<li class="empty"></li>
+				<li class="empty"></li>
+				<li class="empty"></li>
+				<li class="empty"></li>
+				<li class="empty"></li>
+			{% endif %}
+			{% if offset is not defined or offset == 0 %}
+
+			</ul>
+		{% endif %}
+
+		{% if showMore is defined and showMore and leftoverPeople is defined and leftoverPeople | length %}
+			{% set people = leftoverPeople %}
+
+			{% if personEvent is defined %}
+				{% set large = true %}
+				<ul class="js-leftover_people_list leftover_people_list post-content__author {% if isstream is defined and isstream %}stream-thing{% endif %} is-hidden">
+				{% elseif offset is not defined or offset == 0 %}
+					<ul class="js-leftover_people_list leftover_people_list {{ grid ? 'people-grid__list' : 'people-list'}} {% if isstream is defined and isstream %}stream-thing{% endif %} is-hidden">
+					{% endif %}
+					{% for person in people %}
+						{% set personinfo %}{% include 'includes/snippets/person__title' %}{% endset %}
+						{% set alt %}{{ person ~' - '~ personinfo }}{% endset %}
+
+						{% set headshot = person.headshot[0] ?? null %}
+						<li class="{% if isstream is defined and isstream %}stream-thing{% endif %}">
+							{% if person.bio %}
+								<a href="{{ person.url }}">
+								{% endif %}
+								{% set size = 'square130' %}
+								{% if large is defined and large == true %}
+									{% set size = 'square300' %}
+								{% endif %}
+								<div class="img-outer">
+									<img src="{{ headshot ? headshot.getUrl(size) : siteUrl('dist/img/person-placeholder.gif') }}" alt="{{ alt }}">
+								</div>
+								<div class="text-outer">
+									<h5 class="person-name">{{ person }}</h5>
+									<div class="person-info">{{ personinfo }}</div>
+								</div>
+								{% if person.bio %}
+								</a>
+							{% endif %}
+						</li>
+					{% endfor %}
+					{% if grid %}
+						<!-- a great (ugly) way to keep justified spacing -->
+						<li class="empty"></li>
+						<li class="empty"></li>
+						<li class="empty"></li>
+						<li class="empty"></li>
+						<li class="empty"></li>
+						<li class="empty"></li>
+					{% endif %}
+					{% if offset is not defined or offset == 0 %}
+
+					</ul>
+				{% endif %}
+
+				<button class="js-show_more_experts btn__show-more-experts" data-open="false">Show More</button>
+
+				{% set showMoreJs %}
+
+				$(function() {
+																$('.js-leftover_people_list').hide();
+																$('.js-show_more_experts').show();
+																$('.js-show_more_experts').each(function() {
+																	$list = $(this).siblings('.js-leftover_people_list');
+																	$(this).click(function() {
+																		if ($(this).attr('data-open') == 'false') {
+																			$list.slideDown();
+																			$(this).attr('data-open', 'true');
+																			$(this).text('Show Less');
+																		} else {
+																			$list.slideUp();
+																			$(this).attr('data-open', 'false');
+																			$(this).text('Show More');
+																		}
+																	});
+																});
+															});
+
+				{% endset %}
+
+				{% includeJs showMoreJs %}
+
+			{% endif %}
+
+		{% endif %}

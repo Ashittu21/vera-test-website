@@ -1,0 +1,31 @@
+{% set hasImage = block.heroImage | length %}
+{% set nextBlock = entry.articleBuilder.positionedAfter(block).order('lft asc').first() %}
+{% set nextBlockHasImage = nextBlock and nextBlock.heroImage | length %}
+{% set spaceOut = (
+  (block.fullscreen == false and hasImage and (nextBlock and nextBlock.type != 'nav')) or
+  (nextBlock and nextBlock.fullscreen) or
+  (block.fullscreen == false and nextBlockHasImage)
+) %}
+{% set animateBackgroundChanges = entry.backgroundChangeStyle.value in ['fullScreenAnimated'] %}
+{% set colorComboValue = block.colorCombo.value != 'inherit' ? block.colorCombo.value : block.owner.colorCombo.value %}
+<div class="
+		scroll-section
+		{% if spaceOut %} scroll-section-background-shift{% endif %}
+		{% if hasImage %} scroll-section-has-image{% endif %}
+		{% if not animateBackgroundChanges %} local-color-combo--{{ colorComboValue }}{% endif %}
+	" id="{{ block.chapterTitle ? block.chapterTitle | kebab : block.id }}">
+	{% include '_article/backgroundShift' with { index: loop.index } %}
+	{% if block.fullscreen %}
+		<div class="article-block-wrapper fullscreen no-transform">
+			<div class="fullscreen-inner color-combo--{{ colorComboValue }}">
+			{% endif %}
+			{% set isIntro = loop.index == 1 %}
+			{% for block in block.children %}
+				{% if block.type == 'standardBlock' and not (isIntro and loop.index == 1) %}{% endif %}
+				{% include ('_article/pieces/' ~ block.type) with { index: loop.index, subnavIndex: index } %}
+			{% endfor %}
+			{% if block.fullscreen %}
+			</div>
+		</div>
+	{% endif %}
+</div>

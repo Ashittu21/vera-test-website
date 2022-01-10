@@ -1,0 +1,46 @@
+{% extends '_ajax_layout' %}
+
+{% includeJsFile '/dist/js/three.min.js' %}
+{% includeJsFile '/dist/js/OrbitControls.js' %}
+
+{% block nav %}{% endblock %}
+
+{% set entry = entry.customHero[0] %}
+
+{% block content %}
+<article class="article-theme--white black-box-content"
+  data-anchor-link="{{ entry.url }}"
+  data-article-theme="white">
+
+  <div id="black-box" class=""></div>
+
+  {% if entry.textSlides %}
+    {% include '_article/textSlideshow' with { block: entry } %}
+  {% endif %}
+
+  <div class="black-box-header-wrapper">
+    <section class="black-box-header">
+      <h3 class="black-box-superheading">{{ entry.superheading }}</h3>
+      <h2 class="black-box-heading">&nbsp;{{ entry.heading }}</h2>
+      <h3 class="black-box-subheading">{{ entry.subheading }}</h3>
+    </section>
+
+    <section class="black-box-copy">
+      {{ entry.text | shortcodes | raw }}
+    </section>
+  </div>
+
+  {% include 'includes/snippets/scroll-to-continue' %}
+</article>
+
+
+<div class="js-show-header-trigger"></div>
+{# include 'includes/ajax-page-loader' #}
+
+{% endblock %}
+
+{% block footer %}{% endblock %}
+
+{% includeJs %}
+  {% include 'special-reports/custom/black-box.js' %}
+{% endincludejs %}

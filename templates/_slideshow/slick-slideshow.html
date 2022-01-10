@@ -1,0 +1,13 @@
+{# 'slide' or 'fade' #}
+{% set transition = transition ?? 'fade' %}
+{% set autoplay = autoplay ?? true %}
+{% set arrows = arrows ?? 'true' %}
+<div class="module-carousel" data-transition="{{ transition }}"{% if autoplay %} data-autoplay="true"{% endif %} data-arrows="{{ arrows }}">
+	{% for image in images %}
+        <div class="slide">
+            <div class="img-outer">
+                {% include 'includes/snippets/image' with { image: image } %}
+            </div>
+        </div>
+	{% endfor %}
+</div>

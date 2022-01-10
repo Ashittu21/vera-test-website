@@ -1,0 +1,334 @@
+field: c0cc3e4f-adf4-4cf5-871a-ccb4e44da29f
+fieldLayouts:
+  2efd3349-05b5-4233-8f5a-8837f64a8c64:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 5905ea25-ee32-4d6a-84f7-71a19b523a0c
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: e1c8a8cf-4c5c-4f4b-99ad-dc633b11856c
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 4740cd15-8595-476d-83fe-50b9be21db4c
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 2a4a6518-27af-4f38-9246-ec481344e5f5
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: f27537ed-3ede-4a87-b218-65bff91ba9a9
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 3a94c319-6ab6-4c39-add5-d1445d12b982
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  2a4a6518-27af-4f38-9246-ec481344e5f5:
+    contentColumnType: text
+    fieldGroup: null
+    handle: toggleGroupColumn
+    instructions: ''
+    name: 'Toggle Group Column'
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  3a94c319-6ab6-4c39-add5-d1445d12b982:
+    contentColumnType: text
+    fieldGroup: null
+    handle: additionalVariables
+    instructions: ''
+    name: 'Additional Variables'
+    searchable: true
+    settings:
+      addRowLabel: 'Add a row'
+      columnType: text
+      columns:
+        __assoc__:
+          -
+            - col1
+            -
+              __assoc__:
+                -
+                  - heading
+                  - Column
+                -
+                  - handle
+                  - column
+                -
+                  - width
+                  - ''
+                -
+                  - type
+                  - singleline
+          -
+            - col2
+            -
+              __assoc__:
+                -
+                  - heading
+                  - Percentage
+                -
+                  - handle
+                  - percentage
+                -
+                  - width
+                  - ''
+                -
+                  - type
+                  - checkbox
+          -
+            - col3
+            -
+              __assoc__:
+                -
+                  - heading
+                  - Label
+                -
+                  - handle
+                  - label
+                -
+                  - width
+                  - ''
+                -
+                  - type
+                  - singleline
+      defaults:
+        -
+          __assoc__:
+            -
+              - col1
+              - ''
+            -
+              - col2
+              - ''
+            -
+              - col3
+              - ''
+      maxRows: ''
+      minRows: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Table
+  4740cd15-8595-476d-83fe-50b9be21db4c:
+    contentColumnType: text
+    fieldGroup: null
+    handle: titleColumn
+    instructions: ''
+    name: 'Title Column'
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  5905ea25-ee32-4d6a-84f7-71a19b523a0c:
+    contentColumnType: text
+    fieldGroup: null
+    handle: from
+    instructions: ''
+    name: From
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  e1c8a8cf-4c5c-4f4b-99ad-dc633b11856c:
+    contentColumnType: text
+    fieldGroup: null
+    handle: fipsColumn
+    instructions: ''
+    name: 'Fips Column'
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  f27537ed-3ede-4a87-b218-65bff91ba9a9:
+    contentColumnType: text
+    fieldGroup: null
+    handle: toggleVariables
+    instructions: ''
+    name: 'Toggle Variables'
+    searchable: true
+    settings:
+      addRowLabel: 'Add a row'
+      columnType: text
+      columns:
+        __assoc__:
+          -
+            - col1
+            -
+              __assoc__:
+                -
+                  - heading
+                  - Column
+                -
+                  - handle
+                  - column
+                -
+                  - width
+                  - ''
+                -
+                  - type
+                  - singleline
+          -
+            - col2
+            -
+              __assoc__:
+                -
+                  - heading
+                  - Percentage
+                -
+                  - handle
+                  - percentage
+                -
+                  - width
+                  - ''
+                -
+                  - type
+                  - checkbox
+          -
+            - col3
+            -
+              __assoc__:
+                -
+                  - heading
+                  - 'Label Unit'
+                -
+                  - handle
+                  - label
+                -
+                  - width
+                  - ''
+                -
+                  - type
+                  - singleline
+          -
+            - col4
+            -
+              __assoc__:
+                -
+                  - heading
+                  - 'Label Up'
+                -
+                  - handle
+                  - labelUp
+                -
+                  - width
+                  - ''
+                -
+                  - type
+                  - singleline
+          -
+            - col5
+            -
+              __assoc__:
+                -
+                  - heading
+                  - 'Label Down'
+                -
+                  - handle
+                  - labelDown
+                -
+                  - width
+                  - ''
+                -
+                  - type
+                  - singleline
+      defaults:
+        -
+          __assoc__:
+            -
+              - col1
+              - ''
+            -
+              - col2
+              - ''
+            -
+              - col3
+              - ''
+            -
+              - col4
+              - ''
+            -
+              - col5
+              - ''
+      maxRows: ''
+      minRows: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Table
+handle: toggleMap
+name: 'Toggle Map'
+sortOrder: 1

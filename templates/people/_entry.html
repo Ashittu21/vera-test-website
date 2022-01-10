@@ -1,0 +1,92 @@
+{% extends '_layout' %}
+
+{% set title = entry.title %}
+
+{% block content %}
+
+<div class="container"><aside class="hr"></aside></div>
+
+<article class="post-content__single__container">
+    {% include 'includes/snippets/post_header' %}
+	{% if entry.bio %}
+    <section class="post-module module-text module-text--quick-links">
+        <div class="container">
+            <div class="module-text__inner module-intro post-content__single__main-col">
+                <div class="module-intro__text rte">
+                    {{ entry.bio }}
+                </div>
+
+                <div class="post-content__sidebar module-intro__sidebar">
+                    {% include 'includes/snippets/sidebar__relatives' %}
+
+                    {%- set relatedCenters = craft.entries.section('centers').relatedTo(entry) -%}
+                    {% if relatedCenters | length %}
+                        {% include 'includes/snippets/sidebar__type' with {relatives: relatedCenters, relativeTitle: 'Related Center', relativeType: 'centers', sidebar_class: 'sidebar__grid'} %}
+                    {% endif %}
+
+
+                    {% if entry.relatedLocations | length %}
+                        {% include 'includes/snippets/sidebar__type' with {relatives: entry.relatedLocations, relativeTitle: 'Related Location', relativeType: 'locations', sidebar_class: 'sidebar__grid'} %}
+                    {% endif %}
+
+                    {% if entry.relatedOffices | length %}
+                        {% include 'includes/snippets/sidebar__type' with {relatives: entry.relatedOffices, relativeTitle: 'Vera Office', relativeType: 'offices', sidebar_class: 'sidebar__grid'} %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </section>
+    {% endif %}
+</article>
+
+{% set work = craft.entries({
+	section: ['blogPosts',
+		'spotlights',
+		'publications',
+		'audio',
+		'video',
+		'resourceSite',
+		'projects',
+		'specialReports',
+        'stateOf'
+	],
+	relatedTo: entry,
+	order: 'postDate desc'
+}) %}
+{% if work | length %}
+<aside class="stream-outer related-work">
+    <div class="container">
+        <h3>All Work by {{ entry.firstName }}</h3>
+
+        <div class="col-outer">
+
+        {% for module in work %}
+
+        	{% include 'includes/stream/stream_module' with {size: 'half'} %}
+
+        {% endfor %}
+
+    	<!-- a great (ugly) way to keep justified spacing -->
+
+    	<div class="stream-module--uc--secondary empty"></div>
+    	<div class="stream-module--uc--secondary empty"></div>
+
+        </div>
+    </div>
+</aside>
+{% endif %}
+
+<!-- fix the module type label class -->
+
+{% set moduleCss %}
+
+	.stream-module--uc--secondary .stream-module__label  {
+		display:block;
+		position: static;
+	}
+
+{% endset %}
+
+{% includeCss moduleCss %}
+
+{% endblock %}

@@ -1,0 +1,18 @@
+{% set entries = craft.entries.uri(craft.request.getPath | replace('/pdf','')) %}
+
+{% set entry = entries.first %}
+
+{% set type = craft.request.getParam('type') ?? null %}
+
+{% if craft.request.getParam('phantom') %}
+	{% if type in ['aboutThisReport','body','contents','cover','fromTheDirector'] %}
+		{% include 'publications/print/'~type %}
+	{% else %}
+		{% include 'publications/print/body' %}
+	{% endif %}
+{% else %}
+	{% include 'publications/print/cover'  %}
+	{% include 'publications/print/fromTheDirector'  %}
+	{% include 'publications/print/contents' %}
+	{% include 'publications/print/body' %}
+{% endif %}

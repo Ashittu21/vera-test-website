@@ -1,0 +1,33 @@
+contentColumnType: string
+fieldGroup: f8591398-94a9-4e81-b07f-a60bb6e89d81
+handle: overrideAutomaticPdf
+instructions: ''
+name: 'Override Automatic PDF'
+searchable: true
+settings:
+  allowSelfRelations: false
+  allowUploads: true
+  allowedKinds:
+    - pdf
+  defaultUploadLocationSource: 'volume:f268e466-b078-41f2-a13d-e38afcce3b27'
+  defaultUploadLocationSubpath: ''
+  limit: '1'
+  localizeRelations: false
+  previewMode: full
+  restrictFiles: '1'
+  selectionLabel: 'Add a pdf'
+  showSiteMenu: true
+  showUnpermittedFiles: false
+  showUnpermittedVolumes: true
+  singleUploadLocationSource: 'volume:f268e466-b078-41f2-a13d-e38afcce3b27'
+  singleUploadLocationSubpath: '{section.handle}/{parent.slug}/legacy_downloads/'
+  source: null
+  sources:
+    - 'volume:f268e466-b078-41f2-a13d-e38afcce3b27'
+  targetSiteId: null
+  useSingleFolder: true
+  validateRelatedElements: false
+  viewMode: large
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Assets

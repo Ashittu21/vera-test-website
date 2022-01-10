@@ -1,0 +1,47 @@
+fieldLayouts:
+  571fe84c-d3b6-478f-be78-95775f983664:
+    tabs:
+      -
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\EntryTitleField
+            warning: null
+            width: 100
+          -
+            fieldUid: 4cc124d8-7ee1-43a4-9aa0-5b5b6fcfe1cc
+            instructions: null
+            label: null
+            required: '0'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: 'Tab 1'
+        sortOrder: 1
+handle: test
+hasTitleField: true
+name: TEST
+section: cce065ab-4801-487f-ad16-459f0c429f5d
+sortOrder: 11
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

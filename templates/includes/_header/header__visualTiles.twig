@@ -1,0 +1,28 @@
+{% set pages = pages ?? entry.children() %}
+<header class="header header-tiles {{ headerClass ?? '' }}" id="Header" role="navigation">
+	 <div class="container">
+		<div class="upper">
+			<a class="logo--name {{ logoClass ?? null }}" href="/">Vera Institute of Justice</a>
+			<h1><a href="{{ entry.url }}">{{ entry.title }}</a></h1>
+		</div>
+
+		{% if pages | length %}
+		<div class="right">
+				{#<a href="#" class="icon-share trigger-modal" data-modal="ShareOverlay" title="Share">{{ craft.inlin.er("/dist/icons/share.svg",true) | raw }}</a>#}
+				<button class="header__menu-radial is-intro" id="HeaderMenuToggle" role="button" tabindex="0">
+					{{ craft.inlin.er("/dist/icons/circle-nav.svg",true) | raw }}
+					<span class="current-chapter">1</span>
+					<span class="button-close">/</span>
+					<span>{{ pages.excludeFromNav('not 1') | length }}</span>
+				</button>
+		</div>
+
+		{% include 'includes/snippets/tile_grid' with { pages: pages, singlePage: true } %}
+	{% endif %}
+	</div>
+	<div class="header-blur-container receives-background-color"></div>
+</header>
+
+{% includeJs %}
+var goTo = {{ (craft.request.getParam('goTo') ?? null) | json_encode | raw }};
+{% endincludejs %}

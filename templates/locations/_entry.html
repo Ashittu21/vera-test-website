@@ -1,0 +1,50 @@
+{% extends '_layout' %}
+
+{% set title = category.title %}
+
+{% block content %}
+
+<section class="post-module module-intro module-intro--location module-intro--border">
+    <div class="container col-outer">
+        <div class="two-thirds module-intro__content">
+            <h1 class="module-intro__title">
+                {{ category.title }}
+            </h1>
+
+            <div class="module-intro__text">
+                <p>{{ category.overview }}</p>
+            </div>
+        </div>
+
+        <div class="one-third module-intro__sidebar">
+            {% set relatedContent = craft.entries({
+	            section: ['blogPosts', 'spotlights', 'publications', 'audio', 'video', 'resourceSite', 'projects', 'specialReports'],
+	            relatedTo: category,
+	            with: ['relatedIssues']
+            }) %}
+            {% set actionAreas = [] %}
+            {% for content in relatedContent %}
+            	{% for issue in content.relatedIssues %}
+            		{% if issue.level == 2 and issue not in actionAreas %}
+            			{% set actionAreas = actionAreas|merge([issue]) %}
+            		{% endif %}
+            	{% endfor %}
+            {% endfor %}
+           {% include 'includes/snippets/sidebar__relatives' with {relatives: actionAreas, relativeType: 'actionAreas', relativeTitle: 'Action Area', entryType: 'location' } %}
+        </div>
+    </div>
+</section>
+
+{% set streamOptions = {
+	title: 'Related Work',
+	primaryRelation: {type: 'categories', relations: [category]},
+	news: true,
+    filterAltLayout: 'unstacked', 
+	filterRelations: [
+		{type: 'categories', relations: craft.categories.section('ourWork').level(2), title: 'Action Areas'}
+	]
+} %}
+
+{% include 'includes/stream/stream_full' %}
+
+{% endblock %}

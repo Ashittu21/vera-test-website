@@ -1,0 +1,33 @@
+contentColumnType: string
+fieldGroup: b7c07949-c4d1-4af6-a996-017773fd0ef5
+handle: pdfDownload
+instructions: ''
+name: 'PDF Download'
+searchable: true
+settings:
+  allowSelfRelations: false
+  allowUploads: true
+  allowedKinds:
+    - pdf
+  defaultUploadLocationSource: 'volume:f268e466-b078-41f2-a13d-e38afcce3b27'
+  defaultUploadLocationSubpath: '{slug}'
+  limit: '1'
+  localizeRelations: false
+  previewMode: full
+  restrictFiles: '1'
+  selectionLabel: ''
+  showSiteMenu: true
+  showUnpermittedFiles: false
+  showUnpermittedVolumes: true
+  singleUploadLocationSource: 'volume:f268e466-b078-41f2-a13d-e38afcce3b27'
+  singleUploadLocationSubpath: pdfdownloads
+  source: null
+  sources:
+    - 'volume:f268e466-b078-41f2-a13d-e38afcce3b27'
+  targetSiteId: null
+  useSingleFolder: true
+  validateRelatedElements: false
+  viewMode: list
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Assets

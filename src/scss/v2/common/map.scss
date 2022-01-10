@@ -1,0 +1,203 @@
+.project-map.light {
+  ::-webkit-scrollbar-thumb{
+    background-color: #CEC0BC !important;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: transparent;
+    background-image: url("../img/v2/srollbar-track.png");
+    background-repeat: repeat-y;
+    background-position-x: center;
+  }
+}
+
+.mapContainer {
+
+  .project-map .map_select_menu{
+    right: 0 !important;
+    left: auto;
+  }
+
+  .project-map.light {
+    background-color: transparent;
+
+
+    ::-webkit-scrollbar-thumb{
+      background-color: #CEC0BC !important;
+    }
+
+    ::-webkit-scrollbar-track {
+      background-color: transparent;
+      background-image: url("../img/v2/srollbar-track.png");
+      background-repeat: repeat-y;
+      background-position-x: center;
+    }
+
+
+    .map__inner-container:after {
+      pointer-events: none;
+      background-image: linear-gradient(0deg, #fff7f0, hsla(0, 0%, 100%, 0));
+    }
+
+    .map_select_menu {
+      background-color: #160643;
+    }
+
+    .map_select_button_wrap {
+      &:hover {
+        background-color: #3E2BB1;
+      }
+
+      .map_select_button:hover {
+        text-decoration: underline;
+        color: #FFF;
+      }
+
+      .states {
+        fill: #97DFD1;
+        stroke: #fff7f0;
+      }
+
+      .state__path.state__is-not-active {
+        fill: #97DFD1;
+      }
+
+      .state__path.state__is-active {
+        fill: #2E1D97;
+
+        &:hover {
+          fill: #160643;
+        }
+      }
+
+    }
+  }
+
+
+
+  .no-touch .project-map.light .state__path.state__is-not-active {
+    fill: #97DFD1;
+  }
+
+  .no-touch .project-map.light .state__path.state__is-active {
+    fill: #2E1D97;
+  }
+
+  .no-touch .project-map.light .state__path.state__is-active:hover {
+    fill: #160643;
+  }
+
+
+  .map_select_menu {
+    width: calc(100% - 480px);
+    right: 0 !important;
+  }
+
+
+  /* ADD**/
+
+  .project-map.light .marker {
+    stroke: #97DFD1;
+    fill: #97DFD1;
+  }
+
+
+  .no-touch .project-map.light .state__path.state__is-not-active {
+    fill: #97DFD1 !important;
+  }
+
+  .no-touch .project-map.light .state__path.state__is-active {
+    fill: #2E1D97 !important;
+  }
+
+  .no-touch .project-map.light .state__path.state__is-active:hover {
+    fill: #DA392F !important;
+  }
+
+  .project-map .tooltip .subtitle:before,
+  .us-map .tooltip .subtitle:before {
+    border-top: 1px solid #FFF7F0;
+  }
+
+  .project-map.light .state__path {
+    stroke: #fff7f0;
+  }
+
+  .project-map.light .tooltip:after {
+    border-top-color: #DA392F;
+  }
+
+  .project-map.light .tooltip {
+    background-color: #DA392F;
+  }
+
+
+
+
+
+
+  .project-map {
+
+    .container{
+      .map__header{
+        border-bottom: 2px solid #cec0bc;
+        margin-bottom: 2rem;
+      }
+      .map__inner-container{
+        .map__content{
+          border-color: transparent;
+          .map__overview{
+            ::-webkit-scrollbar-thumb{
+              background-color: #CEC0BC;
+            }
+        
+            ::-webkit-scrollbar-track {
+              background-color: transparent;
+              background-image: url("../img/v2/srollbar-track.png");
+              background-repeat: repeat-y;
+              background-position-x: center;
+            }
+        
+          }
+        }
+      }
+    }
+
+    &.CitiesMapWithLinks {
+      .container {
+        .map__inner-container {
+          .CitiesMapWithLinks-sidebar {
+            .CitiesMapWithLinks-search {
+              background-color: #fff7f0;
+            }
+
+            .CitiesMapWithLinks-sidebar-list-item {
+              padding-left: 1em;
+              text-decoration: underline;
+              text-decoration-color: #DA392F;
+
+              &:hover {
+                background-color: #160643;
+                text-decoration: underline;
+              }
+            }
+          }
+
+          .map_wrap {
+            .map_inner_wrap {
+              .states {
+                fill: #97dfd1;
+                stroke: #fff7f0;
+              }
+
+              .marker {
+                stroke: #2E1D97;
+                fill: #2E1D97;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

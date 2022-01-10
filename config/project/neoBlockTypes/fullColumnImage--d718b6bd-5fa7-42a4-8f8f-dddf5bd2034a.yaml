@@ -1,0 +1,10 @@
+childBlocks:
+  - photo
+field: 4cc124d8-7ee1-43a4-9aa0-5b5b6fcfe1cc
+handle: fullColumnImage
+maxBlocks: 0
+maxChildBlocks: 1
+maxSiblingBlocks: 0
+name: 'Full Column Image'
+sortOrder: 17
+topLevel: false

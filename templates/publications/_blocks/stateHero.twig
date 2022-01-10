@@ -1,0 +1,29 @@
+{% set imageUrl = block.heroImage[0].url ?? "https://placehold.it/1440x720" %}
+<header class="StateHero">
+  <div class="StateHero-inner container">
+    <div class="StateHero-superheading ff-sans size--body color--black">Incarceration Trends in</div>
+    <h1 class="StateHero-heading ff-sans--thin size--headerxl">
+      <div>{{ block.heading }}</div>
+    </h1>
+    {% if entry.parent %}
+    <div class="StateHero-parent">
+      <a href="{{ entry.parent.url }}">
+        <div class="StateHero-parent-label ff-sans size--body">
+          <div>{{ entry.parent.title }}</div>
+        </div>
+      </a>
+    </div>
+    {% endif %}
+    {%- if block['explainer'] is defined -%}
+    <p class="StateHero-explainer ff-sans size--body">{{ block.explainer }}</p>
+    {%- endif -%}
+    {%- if block['download'] is defined and block.download.url -%}
+    <a class="StateHero-download btn" 
+      href="{{ block.download.url}}" 
+      target="_blank" 
+      rel="noopener noreferer">
+      {{ block.download.label }}
+    </a>
+    {%- endif -%}
+  </div>
+</header>

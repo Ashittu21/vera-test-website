@@ -1,0 +1,42 @@
+{% if streamOptions.sections is not defined %}
+    {% set streamOptions = streamOptions|merge({sections: [
+    ['Blog Posts', 'blogPosts'],
+    ['Spotlights', 'spotlights'],
+    ['Publications', 'publications'],
+    ['Audio', 'audio'],
+    ['Video', 'video'],
+    ['Resource Sites', 'resourceSite'],
+    ['Projects', 'projects'],
+    ['Special Reports', 'specialReports'],
+    ['Our Work', 'ourWork']
+    ]}) %}
+{% endif %}
+{% set firstStream %}{% include 'includes/stream/stream' %}{% endset %}
+{% set streamEmpty = {streamEmpty: firstStream|trim == ''} %}
+{% set query = craft.request.getParam('query') %}
+<section id="stream" class="search-stream">
+	<div class="container">
+    <aside class="hr"></aside>
+    <header class="search-results-header">
+      <h1>{{ streamOptions.title }}</h1>
+      <div class="search-results-form">
+        <div class="search-results-form__inner">
+          <input
+          	id="search"
+          	class="search-results-input"
+          	value="{{ query }}">
+          <div class="search-results-submit"><i class="icon-search no-hover"></i></div>
+        </div>
+      </div>
+    </header>
+    {% include 'includes/stream/stream_filter' with {hideGridList: true} %}
+
+		<!-- Stream Content Goes Here -->
+		<div id="stream-content">
+		{{ firstStream }}
+		{% include 'includes/stream/noresults' with streamEmpty %}
+		{% include 'includes/stream/nomore' %}
+		</div>
+		{% include 'includes/stream/loader' with {loaderid: 'content_loader'} %}
+	</div>
+</section>

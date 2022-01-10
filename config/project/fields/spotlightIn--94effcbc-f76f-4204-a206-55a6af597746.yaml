@@ -1,0 +1,19 @@
+contentColumnType: string
+fieldGroup: 532961b6-a69f-4934-914a-9c266d7a2eb6
+handle: spotlightIn
+instructions: ''
+name: 'Spotlight in'
+searchable: true
+settings:
+  singleField: '637'
+  source:
+    __assoc__:
+      -
+        - value
+        - '49'
+      -
+        - type
+        - section
+translationKeyFormat: null
+translationMethod: none
+type: Page8\ManyToMany\fields\ManyToManyField

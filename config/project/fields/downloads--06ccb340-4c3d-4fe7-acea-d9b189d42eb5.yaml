@@ -1,0 +1,32 @@
+contentColumnType: string
+fieldGroup: 1c2af07a-2699-4df8-8e5a-f2400541874b
+handle: downloads
+instructions: ''
+name: Downloads
+searchable: true
+settings:
+  allowSelfRelations: false
+  allowUploads: true
+  allowedKinds: null
+  defaultUploadLocationSource: 'volume:f268e466-b078-41f2-a13d-e38afcce3b27'
+  defaultUploadLocationSubpath: '{slug}'
+  limit: ''
+  localizeRelations: false
+  previewMode: full
+  restrictFiles: ''
+  selectionLabel: 'Add a download'
+  showSiteMenu: true
+  showUnpermittedFiles: false
+  showUnpermittedVolumes: true
+  singleUploadLocationSource: 'volume:f268e466-b078-41f2-a13d-e38afcce3b27'
+  singleUploadLocationSubpath: '{slug}'
+  source: null
+  sources:
+    - 'volume:f268e466-b078-41f2-a13d-e38afcce3b27'
+  targetSiteId: null
+  useSingleFolder: true
+  validateRelatedElements: false
+  viewMode: list
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Assets

@@ -1,0 +1,14 @@
+{%- macro combine_code(id) %}
+  $(function(){ 
+    const obj = $("#{{ id }}");
+    const prev = obj.prev();
+    console.log(prev);
+    if(prev){
+      const chart = prev.find(" > div ");
+      if(chart){
+        obj.find('.stream-module-outer').append(chart);
+        //prev.remove();
+      }
+    }
+  });
+{%- endmacro -%}

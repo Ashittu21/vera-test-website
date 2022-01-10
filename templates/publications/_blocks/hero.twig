@@ -1,0 +1,21 @@
+{% set imageUrl = block.heroImage[0].url ?? "https://placehold.it/1440x720" %}
+<header class="SimpleHeader {{ class ?? "" }}" style="background-image: url({{ imageUrl }})">
+  <div class="SimpleHeader-inner">
+    {%- if block['superheading'] is defined -%}
+    <div class="SimpleHeader-superheading">{{ block.superheading }}</div>
+    {%- endif -%}
+    <h1 class="SimpleHeader-heading ff-serif--medium bold size--h1">{{ block.heading }}</h1>
+    {%- if block['explainer'] is defined -%}
+    <p class="SimpleHeader-explainer ff-sans size--body">{{ block.explainer }}</p>
+    {%- endif -%}
+    {%- if block['download'] is defined -%}
+    <a class="SimpleHeader-download btn" 
+      href="{{ block.download.url}}" 
+      download 
+      target="_blank" 
+      rel="noopener noreferer">
+      {{ block.download.label }}
+    </a>
+    {%- endif -%}
+  </div>
+</header>

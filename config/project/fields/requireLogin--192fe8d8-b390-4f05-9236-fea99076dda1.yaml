@@ -1,0 +1,13 @@
+contentColumnType: boolean
+fieldGroup: a1574b52-b575-41d9-9fdd-13f2294a57f2
+handle: requireLogin
+instructions: ''
+name: 'Require Login'
+searchable: true
+settings:
+  default: false
+  offLabel: null
+  onLabel: null
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Lightswitch

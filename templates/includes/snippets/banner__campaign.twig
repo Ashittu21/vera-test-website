@@ -1,0 +1,55 @@
+{% set bannerEntry = bannerEntry ?? entry.parent %}
+{% set heroClass = heroClass ?? null %}
+
+<section class="homepage-banner fullPage {{ heroClass }}">
+	<div class="homepage-banner__wrap">
+		<div class="homepage-banner__img-outer img-outer fadein" style="background-image: url({{ bannerEntry.heroImage[0].url ?? null }});">
+
+			{% if bannerEntry.heroVideoAmbient | length %}
+			<div class="homepage-banner__hero-video-wrap">
+				<div class="screen"></div>
+				<video class="homepage-banner__hero-video" muted autoplay loop playsinline>
+					<source src="{{ bannerEntry.heroVideoAmbient.first.url }}">
+				</video>
+			</div>
+			{% endif %}
+			{% if bannerEntry.heroImage | length %}
+			{% include 'includes/snippets/attribution' with {image: bannerEntry.heroImage[0]} %}
+			{% endif %}
+		</div>
+
+		<div class="homepage-banner__content post-module">
+			<div class="container">
+				<div class="homepage-banner__content-inner">
+
+					<h1 class="homepage-banner__heading">
+						{{ bannerEntry.title }}
+					</h1>
+
+					{% if bannerEntry.subtitle %}
+					<p class="homepage-banner__subheading">{{ bannerEntry.subtitle }}</p>
+					{% endif %}
+
+					{% if bannerEntry.introParagraph %}
+					<p class="intro-para">{{ bannerEntry.introParagraph }}</p>
+					{% endif %}
+
+					{% if bannerEntry.campaignCtas | length %}
+					<div class="cta-buttons">
+						{% for cta in bannerEntry.campaignCtas %}
+							{% if cta.linkUrl matches '/https|http/' %}
+							  {% set ext = true %}
+							{% else %}
+							  {% set ext = false %}
+							{% endif %}
+							<a href="{{ cta.linkUrl }}" class="btn" {% if ext %}target="_blank"{% endif %}>{{ cta.linkText }}</a>
+						{% endfor %}
+						</div>
+					</div>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+	</div>
+	{% include 'includes/snippets/scroll-to-continue' %}
+</section>

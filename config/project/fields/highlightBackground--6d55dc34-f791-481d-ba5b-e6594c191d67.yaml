@@ -1,0 +1,45 @@
+contentColumnType: string
+fieldGroup: 62eaf9ac-7045-45a4-b9c9-6db9b59feaac
+handle: highlightBackground
+instructions: ''
+name: 'Highlight Background'
+searchable: true
+settings:
+  optgroups: true
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - None
+        -
+          - value
+          - none
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Darken
+        -
+          - value
+          - darken
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Lighten
+        -
+          - value
+          - lighten
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

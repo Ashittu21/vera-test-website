@@ -1,0 +1,65 @@
+{% if resourceDLs is defined or resourcesHTML is defined %}
+
+{#
+	{% set dlLen = resourceDLs|length %}
+	{% set htmlLen = resourcesHTML|length %}
+
+	{% if dlLen > htmlLen %}
+		{% set resources = resourceDLs %}
+		{% set alt = resourcesHTML %}
+		{% set resourceType = 'DL' %}
+	{% else %}
+		{% set resources = resourcesHTML %}
+		{% set alt = resourceDLs %}
+		{% set resourceType = 'HTML' %}
+	{% endif %}
+#}
+
+{% set resources = [] %}
+
+{% for resource in resourcesHTML %}
+
+	{% set resources = resources | merge([{
+		resource: resource,
+		type: 'HTML'
+	}]) %}
+
+{% endfor %}
+
+{% for resource in resourceDLs %}
+
+	{% set resources = resources | merge([{
+		resource: resource,
+		type: 'DL'
+	}]) %}
+
+{% endfor %}
+
+{% set resourcesLength = resources | length %}
+
+{% set initialResources = 6 %}
+
+<aside class="resource-grid {% if resourcesLength < 3 %}one-row{% endif %}">
+	<h5>Explore Resources</h5>
+
+	<ul>
+		{% for resourceObj in resources | slice(0, initialResources) %}
+		{% set resource = resourceObj.resource %}
+			{% include 'includes/snippets/resource_dropdown_item' %}
+		{% endfor %}
+	</ul>
+
+	{% if resourcesLength > initialResources %}
+		{% set offset = initialResources %}
+		<ul class="resources--toggled">
+			{% for i in offset..resourcesLength - 1 %}
+				{% set resourceObj = resources[i] %}
+				{% set resource = resourceObj.resource %}
+				{% include 'includes/snippets/resource_dropdown_item' %}
+			{% endfor %}
+		</ul>
+
+		<span class="resource__see-more">See More</span>
+	{% endif %}
+</aside>
+{% endif %}

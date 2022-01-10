@@ -1,0 +1,17 @@
+{% set noLink = noLink ?? false %}
+{% if image and (image.attribution or image.illustrativePurposes) %}
+	<div class="image-attribution">
+		<div class="attribution-wrap">
+			{%- if image.attribution -%}
+				{%- if image.attributionLink and not noLink -%}
+					<a href="{{ image.attributionLink }}" target="_blank">{{ image.attribution }}</a>
+				{%- else -%}
+					{{- image.attribution -}}
+				{%- endif -%}
+			{%- endif -%}
+			{%- if image.illustrativePurposes -%}
+				<span class="illustrative">For illustrative purposes only.</span>
+			{%- endif -%}
+		</div>
+	</div>
+{% endif %}

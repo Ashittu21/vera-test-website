@@ -1,0 +1,39 @@
+{% set head = head ?? null %}
+{% set body = body ?? null %}
+{% set foot = foot ?? null %}
+{% set alignment = alignment ?? null %}
+<table class="table__topx {% if alignment %}table-alignment--{{ alignment }}{% endif %}">
+	{% if head %}
+	<thead>
+		<tr class="heading">
+			{%- for column in head -%}
+			<th>{{ column }}</th>
+			{%- endfor -%}
+		</tr>
+	</thead>
+	{% endif %}
+
+	{% if body %}
+	<tbody>
+		{% for datum in body %}
+		<tr>
+			{% for value in datum %}
+			<td class="{{ column.class ?? null }}">{{ value | shortcodes | raw }}</td>
+			{% endfor %}
+		</tr>
+		{% endfor %}
+	</tbody>
+	{% endif %}
+
+	{% if foot %}
+	<tfoot>
+		{% for datum in foot %}
+		<tr>
+			{% for value in datum %}
+			<td class="{{ column.class ?? null }}">{{ value | shortcodes | raw }}</td>
+			{% endfor %}
+		</tr>
+		{% endfor %}
+	</tfoot>
+	{% endif %}
+</table>

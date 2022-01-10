@@ -1,0 +1,23 @@
+enableVersioning: true
+handle: blogSeries
+name: 'Blog Series'
+previewTargets:
+  -
+    __assoc__:
+      -
+        - label
+        - 'Primary entry page'
+      -
+        - urlFormat
+        - '{url}'
+propagationMethod: all
+siteSettings:
+  8ed9f980-84ac-470d-94d7-89a2cdb64916:
+    enabledByDefault: true
+    hasUrls: true
+    template: blog-series/_entry
+    uriFormat: 'blog/{slug}'
+structure:
+  maxLevels: 1
+  uid: 7ec8566c-5670-4c9a-b0b4-a45db0476f13
+type: structure

@@ -1,0 +1,101 @@
+field: 80a8ce78-d445-4672-872a-054903e74082
+fieldLayouts:
+  28884ce6-d4e0-46da-9300-387b1b7b3066:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 8b8a85fa-9319-4ba4-a6ae-67d1260f148c
+            instructions: null
+            label: null
+            required: '0'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 633ac2fc-86e4-45b7-8cc4-260e9092a7a4
+            instructions: null
+            label: null
+            required: '0'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: c06d4fca-f987-4443-8f19-636136466148
+            instructions: null
+            label: null
+            required: '0'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  633ac2fc-86e4-45b7-8cc4-260e9092a7a4:
+    contentColumnType: text
+    fieldGroup: null
+    handle: location
+    instructions: ''
+    name: Location
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: false
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  8b8a85fa-9319-4ba4-a6ae-67d1260f148c:
+    contentColumnType: text
+    fieldGroup: null
+    handle: endorserName
+    instructions: ''
+    name: 'Endorser Name'
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: false
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  c06d4fca-f987-4443-8f19-636136466148:
+    contentColumnType: string
+    fieldGroup: null
+    handle: asterisk
+    instructions: ''
+    name: Asterisk
+    searchable: true
+    settings:
+      multi: true
+      options:
+        -
+          __assoc__:
+            -
+              - default
+              - ''
+            -
+              - label
+              - Asterisk
+            -
+              - value
+              - asterisk
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Checkboxes
+handle: endorser
+name: Endorser
+sortOrder: 1

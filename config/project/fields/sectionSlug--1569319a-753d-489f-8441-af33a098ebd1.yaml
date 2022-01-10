@@ -1,0 +1,18 @@
+contentColumnType: text
+fieldGroup: 532961b6-a69f-4934-914a-9c266d7a2eb6
+handle: sectionSlug
+instructions: ''
+name: 'Section Slug'
+searchable: true
+settings:
+  byteLimit: null
+  charLimit: null
+  code: false
+  columnType: text
+  initialRows: '4'
+  multiline: ''
+  placeholder: ''
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

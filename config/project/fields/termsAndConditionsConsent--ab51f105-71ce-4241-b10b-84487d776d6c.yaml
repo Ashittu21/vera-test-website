@@ -1,0 +1,23 @@
+contentColumnType: string
+fieldGroup: 0be095f0-44b5-40a2-963b-4650c6f05ef4
+handle: termsAndConditionsConsent
+instructions: ''
+name: 'Terms and Conditions Consent'
+searchable: true
+settings:
+  multi: true
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - 'Yes, I agree to the <a href="/terms-and-conditions" target="_blank">terms and conditions</a>'
+        -
+          - value
+          - 'yes'
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Checkboxes

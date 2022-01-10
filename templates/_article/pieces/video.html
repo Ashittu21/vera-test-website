@@ -1,0 +1,16 @@
+<section
+  class="
+    article-block-video
+    article-block--full
+    container
+    {% if block.playOnScroll is defined and block.playOnScroll %}play-on-scroll{% endif %}
+  "
+  {% if index is defined and index == 1 %}
+  style="margin-top: 100vh"
+  {% endif %}
+  data-analytics-event='["Video","Play"]'>
+	{% if block.heading is defined and block.heading %}
+	<h4 class="heading">{{ block.heading }}</h4>
+	{% endif %}
+	{% include 'includes/snippets/video' with { video: block.video, playOnScroll: block.playOnScroll, videoCover: block.photo[0].url ?? null } %}
+</section>

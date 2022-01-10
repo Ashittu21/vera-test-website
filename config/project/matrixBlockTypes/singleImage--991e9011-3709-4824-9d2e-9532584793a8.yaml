@@ -1,0 +1,279 @@
+field: 95bc127b-3520-49ff-803a-7352214068b1
+fieldLayouts:
+  69ca600b-9ce9-428c-b895-5aeb80d23c69:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: d67209f0-199a-4db0-b5c6-20cb90682972
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 37ce3f58-b653-40b1-9a34-4b26788dbdf9
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: d0e44a53-77fb-4457-8c48-83cd42362851
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: e059f0a8-5dad-432a-9b6e-17a1050d640b
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: c545c50c-d769-4708-85a6-e56fc6119a38
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: ed58700b-b3eb-43f7-9ec0-d22521a5e844
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: df0229f1-d1e1-4139-8fac-d464325d5ad2
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: b7b8441a-2f9d-468b-a887-03436e1ca28a
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  37ce3f58-b653-40b1-9a34-4b26788dbdf9:
+    contentColumnType: string
+    fieldGroup: null
+    handle: position
+    instructions: ''
+    name: Position
+    searchable: true
+    settings:
+      optgroups: true
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - Center
+            -
+              - value
+              - center
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Full
+            -
+              - value
+              - full
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+  b7b8441a-2f9d-468b-a887-03436e1ca28a:
+    contentColumnType: 'decimal(3,2)'
+    fieldGroup: null
+    handle: overlayOpacity
+    instructions: ''
+    name: 'Overlay Opacity'
+    searchable: true
+    settings:
+      decimals: '2'
+      defaultValue: null
+      max: '1'
+      min: '0'
+      prefix: ''
+      previewCurrency: ''
+      previewFormat: decimal
+      size: null
+      suffix: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Number
+  c545c50c-d769-4708-85a6-e56fc6119a38:
+    contentColumnType: text
+    fieldGroup: null
+    handle: overlayText
+    instructions: ''
+    name: 'Overlay Text'
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  d0e44a53-77fb-4457-8c48-83cd42362851:
+    contentColumnType: boolean
+    fieldGroup: null
+    handle: fullBleed
+    instructions: 'This will override the position select.'
+    name: 'Full Bleed'
+    searchable: true
+    settings:
+      default: false
+      offLabel: null
+      onLabel: null
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Lightswitch
+  d67209f0-199a-4db0-b5c6-20cb90682972:
+    contentColumnType: string
+    fieldGroup: null
+    handle: image
+    instructions: '-A full page image should have a width of 2450px'
+    name: Image
+    searchable: true
+    settings:
+      allowSelfRelations: false
+      allowUploads: true
+      allowedKinds:
+        - image
+      defaultUploadLocationSource: 'volume:a48d5d4c-e94e-40ca-b140-801253b0f802'
+      defaultUploadLocationSubpath: '{owner.section}/{owner.slug}/single_images/'
+      limit: '1'
+      localizeRelations: false
+      previewMode: full
+      restrictFiles: '1'
+      selectionLabel: 'Add an Image'
+      showSiteMenu: true
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: true
+      singleUploadLocationSource: 'volume:a48d5d4c-e94e-40ca-b140-801253b0f802'
+      singleUploadLocationSubpath: '{owner.section}/{owner.slug}/single_images/'
+      source: null
+      sources: '*'
+      targetSiteId: null
+      useSingleFolder: true
+      validateRelatedElements: false
+      viewMode: large
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+  df0229f1-d1e1-4139-8fac-d464325d5ad2:
+    contentColumnType: string
+    fieldGroup: null
+    handle: overlayColorCombo
+    instructions: ''
+    name: 'Overlay Color Combo'
+    searchable: true
+    settings:
+      optgroups: true
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - Black/White
+            -
+              - value
+              - black-white
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Red/White
+            -
+              - value
+              - red-white
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+  e059f0a8-5dad-432a-9b6e-17a1050d640b:
+    contentColumnType: smallint(3)
+    fieldGroup: null
+    handle: maxHeight
+    instructions: 'Sets the max height of the image as a percentage of the viewport height only when the viewport is landscape.  The minimum height for the image is hardcoded at 400px.'
+    name: 'Max Height'
+    searchable: true
+    settings:
+      decimals: 0
+      defaultValue: null
+      max: '100'
+      min: '0'
+      prefix: ''
+      previewCurrency: ''
+      previewFormat: decimal
+      size: null
+      suffix: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Number
+  ed58700b-b3eb-43f7-9ec0-d22521a5e844:
+    contentColumnType: text
+    fieldGroup: null
+    handle: overlayTextAttribution
+    instructions: ''
+    name: 'Overlay Text Attribution'
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+handle: singleImage
+name: 'Single Image'
+sortOrder: 2

@@ -1,0 +1,22 @@
+<section class="banner-image-right {% if entry.type == 'careersLanding' or entry.type == 'careers' %}banner-image-right--careers{% endif %}">
+	<div class="container col-outer">
+		<header class="banner-image-right__header">
+			<h1 class="banner-image-right__heading">
+				{{ entry }}
+			</h1>
+
+			<div class="banner-image-right__subheading rte">
+				{{ entry.overview }}
+			</div>
+
+
+		</header>
+
+		<div class="banner-image-right__img-outer img-outer">
+			<img src="{{ entry.squareHeaderImage.first.url }}">
+			{% if entry.type == 'careersLanding' %}
+				<a href="#" class="btn scroll-to" data-scroll-to="JobListings">Current Openings</a>
+			{% endif %}
+		</div>
+	</div>
+</section>

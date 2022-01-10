@@ -1,0 +1,12 @@
+{% set linkOut = linkOut ?? true %}
+<div class="js-carousel">
+  {% for module in entries %}
+    {% include 'includes/stream/stream_module' with { size: 'half', linkOut: linkOut } %}
+  {% endfor %}
+</div>
+
+{% includeJs %}
+  $(function() {
+    window.VERA.initCarousel()
+  })
+{% endincludejs %}

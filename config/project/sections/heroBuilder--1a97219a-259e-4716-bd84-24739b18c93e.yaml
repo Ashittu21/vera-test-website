@@ -1,0 +1,14 @@
+enableVersioning: true
+handle: heroBuilder
+name: 'Hero Builder'
+propagationMethod: all
+siteSettings:
+  8ed9f980-84ac-470d-94d7-89a2cdb64916:
+    enabledByDefault: true
+    hasUrls: false
+    template: null
+    uriFormat: null
+structure:
+  maxLevels: null
+  uid: 19efe05d-a211-4030-a0fa-73fa4e6ea091
+type: structure

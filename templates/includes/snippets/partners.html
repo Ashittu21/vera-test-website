@@ -1,0 +1,18 @@
+<section class="post-module module-partners rte">
+	<div class="container">
+		{% for block in partners %}
+			{% switch block.type %}
+				{% case 'heading' %}
+					<h5 class="intext-subhead">{{ block.heading }}</h5>
+				{% case 'subheading' %}
+					<h5>{{ block.subheading }}</h5>
+				{% case 'organizations' %}
+					<ul>
+					{% for org in block.organizations %}
+					 <a href="{{ org.website }}" target="_blank"><li>{{ org.name }}</li></a>
+					{% endfor %}
+					</ul>
+			{% endswitch %}
+		{% endfor %}
+	</div>
+</section>

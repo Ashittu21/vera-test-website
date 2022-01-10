@@ -1,0 +1,211 @@
+field: 95bc127b-3520-49ff-803a-7352214068b1
+fieldLayouts:
+  513eac34-9a7f-49d2-b9f3-f6e86b0fdaee:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: fae1a049-e219-41ef-8326-27ffd9a3a98a
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 975d4bd7-0208-4dbe-ad33-2176bb62de2b
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 4f06033d-6aab-4465-b942-6f553015423d
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: f93ba75a-1207-403f-ba66-1b50724c0d8e
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 126d5532-8477-49fe-9c54-c23c43e025d9
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: b51a4a1a-be6d-42f0-b6c6-523ce9686191
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 32a27dff-4811-4989-88c3-1488c42bf534
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  126d5532-8477-49fe-9c54-c23c43e025d9:
+    contentColumnType: boolean
+    fieldGroup: null
+    handle: fillContainer
+    instructions: 'Set to on for wider video features that fills the container width'
+    name: 'Fill Container'
+    searchable: true
+    settings:
+      default: false
+      offLabel: null
+      onLabel: null
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Lightswitch
+  32a27dff-4811-4989-88c3-1488c42bf534:
+    contentColumnType: string
+    fieldGroup: null
+    handle: photo
+    instructions: ''
+    name: 'Video Cover Photo'
+    searchable: true
+    settings:
+      allowSelfRelations: false
+      allowUploads: true
+      allowedKinds: null
+      defaultUploadLocationSource: 'volume:a48d5d4c-e94e-40ca-b140-801253b0f802'
+      defaultUploadLocationSubpath: ''
+      limit: ''
+      localizeRelations: false
+      previewMode: full
+      restrictFiles: ''
+      selectionLabel: ''
+      showSiteMenu: true
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: true
+      singleUploadLocationSource: 'volume:a48d5d4c-e94e-40ca-b140-801253b0f802'
+      singleUploadLocationSubpath: ''
+      source: null
+      sources: '*'
+      targetSiteId: null
+      useSingleFolder: false
+      validateRelatedElements: false
+      viewMode: list
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+  4f06033d-6aab-4465-b942-6f553015423d:
+    contentColumnType: text
+    fieldGroup: null
+    handle: subtitle
+    instructions: ''
+    name: Subtitle
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  975d4bd7-0208-4dbe-ad33-2176bb62de2b:
+    contentColumnType: text
+    fieldGroup: null
+    handle: videoTitle
+    instructions: ''
+    name: Title
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  b51a4a1a-be6d-42f0-b6c6-523ce9686191:
+    contentColumnType: boolean
+    fieldGroup: null
+    handle: playOnScroll
+    instructions: ''
+    name: 'Play on Scroll'
+    searchable: true
+    settings:
+      default: false
+      offLabel: null
+      onLabel: null
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Lightswitch
+  f93ba75a-1207-403f-ba66-1b50724c0d8e:
+    contentColumnType: text
+    fieldGroup: null
+    handle: caption
+    instructions: ''
+    name: Caption
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  fae1a049-e219-41ef-8326-27ffd9a3a98a:
+    contentColumnType: text
+    fieldGroup: null
+    handle: playlistEmbed
+    instructions: 'Add a Youtube Video Playlist URL in the following format https://www.youtube.com/embed/videoseries?list=PLAYLISTID'
+    name: 'Video Playlist'
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+handle: videoPlaylist
+name: 'Video Playlist'
+sortOrder: 10

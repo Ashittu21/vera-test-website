@@ -1,0 +1,2 @@
+{% set isHidden = isHidden ?? true %}
+<div id="{{ loaderid ?? 'loader' }}" class="streamloader {{ isHidden ? 'hidden' : '' }}">{{ craft.inlin.er('dist/icons/loader.svg',true)|raw }}</div>

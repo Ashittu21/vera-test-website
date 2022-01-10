@@ -1,0 +1,15 @@
+{%- set data = [
+	{
+		title: 'Projects by State - Simple',
+		url: siteUrl('data/projects-by-state_simple.csv')
+	},
+	{
+		title: 'Projects by State - Full',
+		url: siteUrl('data/projects-by-state_full.csv')
+	}
+] -%}
+<ul>
+{% for datum in data %}
+	<li><a href="{{ datum.url }}" download="{{ 'Vera '~datum.title~' '~now | date('m-d-y') }}">{{ datum.title }}</a></li>
+{% endfor -%}
+</ul>

@@ -1,0 +1,81 @@
+{% import 'state-of/_/macros' as macros %}
+{% extends 'state-of/_layout_internal' %}
+{% set newsDigest = entry.newsDigest %}
+
+{% block articleInner %}
+
+  {{ not('covid' in craft.request.segment(1)) ? macros.hero(entry.heroImage[0] ?? null,'article') }}
+
+  <div class="state-of-article {{ newsDigest ? "container" : ""}}">
+    {% if ('covid' in craft.request.segment(1)) %}
+    <div class="covid-article-heading">
+      {# <div class="icon"></div> #}
+      <div>
+        
+        <div class="short-title">{{ entry.shortTitle }}</div>
+      </div>
+    </div>
+    {% else %}
+    <div class="short-title">{{ entry.shortTitle }}</div>
+    <h1 class="ff-serif color--red heading">{{ entry.heading }}</h1>
+    {% endif %}
+
+    {% if entry.overview | length %}
+    <div class="intro size--h3--large color--red">{{ entry.overview | shortcodes | raw }}</div>
+    {% endif %}
+  
+    
+    {% if newsDigest|length %}
+      {% set block = newsDigest[0] %}
+      <div class="col-outer">
+        <div class="two-thirds">
+          {% include 'includes/snippets/article' with { article: entry.specialReportsArticle } %}
+        </div>
+        <div class="one-third" id="news-list">
+            <div class="news-list__heading stream-module--uc--secondary">
+              <h4>{{ block.heading | default('News Digest') }}</h4>
+              <div class="search-wrap">
+                <input type="text" class="search" placeholder="Search">
+                <i class="icon-search" tabindex="-1">Search</i>
+              </div>
+            </div>
+            {% set jsonList = block.jsonList|json_decode %}
+            <div class="list">
+            {% for k, row in jsonList %} 
+             <article class="stream-module stream-module--uc stream-module--uc--secondary stream-thing triggered"><a href="{{ row.Link }}" target="_blank" rel="noreferrer noopener"> 
+              <div class="stream-module__content">
+                <div class="stream-module__content-inner">
+                  <h3 class="stream-module__heading name">{{ row.Title }}</h3>
+                      <div class="stream-module__meta">
+                      <span class="stream-module__meta__author">{{ row.Publication }}</span>
+
+                      <span class="stream-module__meta__date">{{ row.Date|date('m d, Y') }}</span>
+                    </div>
+                  </div>
+                </div>
+               </a>
+             </article>
+             {% endfor %}
+          </div>
+        </div>
+        {% set listJs %}
+
+        console.info('start')
+        var options = {
+            valueNames: [ 'name' ]
+        };
+
+        var newsList = new List('news-list', options);
+
+        {% endset %}
+      {% includeJs listJs %}    
+    {% else %}
+      {% include 'includes/snippets/article' with { article: entry.specialReportsArticle } %}
+    {% endif %}
+
+    {% set things = entry.parent.serialLayout.value == "grid" ? entry.parent.serialGridItems : entry.siblings.type(['article','page']) %}
+		{% if things | length %}
+			{% include 'state-of/_/related' with {entries: things, heading: 'Articles' } %}
+		{% endif %}
+  </div>
+{% endblock %}

@@ -1,0 +1,46 @@
+.StateResources-overview {
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+}
+.StateResources-controls {
+  margin: 2rem 0;
+}
+.StateResourcesSelect {
+  text-transform: unset;
+  background-image: url(/dist/icons/select-down.svg);
+  background-repeat: no-repeat;
+  background-size: 1em auto;
+  background-position: calc(100% - 0.5em) center;
+  cursor: pointer;
+  font-size: 1.5em;
+  padding: 0.5em 2em 0.5em 0.5em;
+  line-height: 1.5;
+}
+.StateResourcesButton {
+  border: 0;
+  padding: 1em 2em;
+  margin: 0.25em;
+
+  &:hover {
+    background-color: $med-gray-bg;
+  }
+}
+.StateResourcesButton.active {
+  background-color: $black;
+  color: $white;
+}
+.StateResources-article-module {
+  margin: 2rem 0;
+}
+
+.StateResources-main {
+}
+.StateResources-controls {
+  max-width: 400px;
+  flex-shrink: 0;
+  margin: $padding-lg * 2 0;
+}
+
+.StateResources-article {
+  margin-top: $padding-lg * 2.25;
+}

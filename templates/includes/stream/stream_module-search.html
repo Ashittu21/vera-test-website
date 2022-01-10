@@ -1,0 +1,81 @@
+{% if image is not defined %}
+	{% if module.streamImageSquare | length %}
+		{% set imageset = module.streamImageSquare %}
+	{% elseif module.streamImageRectangle | length %}
+		{% set imageset = module.streamImageRectangle %}
+	{% elseif module.heroImage | length %}
+		{% set imageset = module.heroImage %}
+	{% elseif module.commitmentImageSquare | length %}
+		{% set imageset = module.commitmentImageSquare %}
+	{% elseif module.headshot | length %}
+		{% set imageset = module.headshot %}
+	{% endif %}
+	{% set image = imageset[0] ?? null %}
+{% endif %}
+
+{% if module.type.handle in ['news', 'resourceSite'] %}
+	{% set link = module.linkUrl %}
+	{% set ext = true %}
+{% else %}
+	{% set link = module.url %}
+	{% set ext = false %}
+{% endif %}
+
+{% if module.type.handle in ['staff'] %}
+	{% set subtitle %}{% include 'includes/snippets/person__title' with {person: module} %}{% endset %}
+{% else %}
+	{% set subtitle = module.subtitle %}
+{% endif %}
+
+{% set specialReportTypes = ['specialReport', 'specialReportSingle','story','specialReportChaptered', 'specialReportCampaign','article'] %}
+
+<section class="search-module stream-thing">
+    <a class="search-module__inner" href="{{ link }}" {% if ext %}target="_blank"{% endif %}>
+        <div class="img-outer" style="background-image: url({{ image.url ?? null }});"></div>
+        <div class="text-outer">
+        	{% if currentUser %}
+			<div>Search Score: {{ searchScore | round(3) }}</div>
+			{% endif %}
+            <span class="search-module__label">
+            {% if module.type.handle == 'specialReportSingle' %}
+				Special Report
+			{% elseif module.type.handle == 'staff' and module.department.first and module.department.first.title | lower == 'board of trustees' %}
+				Board of Trustees
+			{% elseif module.type.handle in specialReportTypes %}
+				Special Report
+			{% else %}
+            	{{ module.type.name }}
+            {% endif %}
+        		&nbsp;&ndash;&nbsp; {{ module.postDate|date('M d, Y') }}
+            </span>
+
+            {% if module.type.handle == 'post' and module.relatedSeries | length %}
+				<p class="stream-module__blogSeries">{{ 'Series: '~module.relatedSeries.first.title }}</p>
+			{% endif %}
+
+			<h3>
+				{{ module.title | raw }}{% if subtitle %}<span class="sub"> &mdash; {{ subtitle }}</span>{% endif %}
+			</h3>
+
+			<p>
+				{% set preview = '' %}
+        {% if module.overview or module.bio %}
+        	{% set preview = module.overview | default(module.bio) %}
+        {% elseif module.article or module.publicationArticle or module.specialReportsArticle %}
+        	{% set article = module.article | default(module.publicationArticle) | default(module.specialReportsArticle) %}
+
+        	{% set continue = true %}
+        	{% for block in article if continue %}
+        		{% if block['text'] is defined %}
+        			{% set preview = block.text %}
+        		{% endif %}
+        	{% endfor %}
+        {% endif %}
+
+        {% set previewlength = 260 %}
+        {% set previewtext = preview|shortcodes|striptags %}
+          {{ previewtext[:previewlength] }}{% if previewtext|length > previewlength %}...{% endif %}
+			</p>
+        </div>
+    </a>
+</section>

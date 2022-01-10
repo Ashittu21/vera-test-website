@@ -1,0 +1,401 @@
+$sizes--h1: (
+  "base": 30px,
+  "small": 36px,
+  "medium": 41px,
+  "large": 55px,
+);
+$sizes--h2: (
+  "base": 32px,
+  "small": 40px,
+  "medium": 42px,
+  "large": 44px,
+);
+$sizes--h3: (
+  "base": 18px,
+  "small": 22px,
+  "medium": 24px,
+  "large": 26px,
+);
+$sizes--h3alt: (
+  "base": 24px,
+  "small": 28px,
+  "medium": 30px,
+  "large": 32px,
+);
+$sizes--h4: (
+  "base": 20px,
+  "small": 21px,
+  "medium": 22px,
+  "large": 22px,
+);
+
+$sizes--body: (
+  "base": 18px,
+  "medium": 22px,
+);
+
+$sizes--intro: (
+  "base": 20px,
+  "medium": 24px,
+  "large": 30px,
+);
+
+$sizes--headerxl: (
+  "base": 40px,
+  "small": 50px,
+  "medium": 100px,
+  "large": 100px,
+);
+
+$sizes--headerlg: (
+  "base": 30px,
+  "small": 40px,
+  "medium": 75px,
+  "large": 75px,
+);
+
+$sizes: (
+  "h1": $sizes--h1,
+  "h2": $sizes--h2,
+  "h3": $sizes--h3,
+  "h3--large": $sizes--h3alt,
+  "h4": $sizes--h4,
+  "body": $sizes--body,
+  "body--large": $sizes--intro,
+  "headerlg": $sizes--headerlg,
+  "headerxl": $sizes--headerxl,
+);
+
+@each $key, $size in $sizes {
+  .size--#{$key} {
+    @include responsiveProperty("font-size", $size, $breakpoints--type);
+  }
+}
+
+%h1 {
+  @extend .size--h1;
+  letter-spacing: 0.1mm;
+}
+
+%h2 {
+  @extend .size--h2;
+  letter-spacing: 0.1mm;
+}
+
+%h3 {
+  @extend .size--h3;
+  letter-spacing: 0.1mm;
+  margin-bottom: 0.5em;
+}
+
+%h3-alt {
+  @extend .size--h3--large;
+  margin-bottom: 0.5em;
+}
+
+%h4 {
+  @extend .size--h4;
+  margin-bottom: 0.75em;
+}
+
+%h5 {
+  @include font-size(1.6);
+  margin-bottom: 0.5em;
+}
+
+%h5-alt {
+  @include font-size(2.1);
+  @extend .ff-sans--bold;
+}
+
+%h6 {
+  @include font-size(1.1);
+  margin-bottom: 0.5em;
+}
+
+%h1 {
+  @extend .ff-serif--medium;
+  line-height: 1.25;
+}
+
+%h2,
+%h3,
+%h4,
+%h5,
+%h6 {
+  @extend .ff-sans--bold;
+  line-height: 1.1;
+}
+
+%nav-link {
+  font-family: $ff-gt-walsheim;
+  font-weight: 700;
+  font-size: 1.2rem;
+  letter-spacing: 0.2mm;
+  text-transform: uppercase;
+}
+
+%body {
+  @extend .ff-serif;
+  @extend .size--body;
+}
+
+h1,
+.h1 {
+  @extend %h1;
+}
+
+.h1--alt {
+  @extend .ff-serif;
+  @extend .size--h2;
+  letter-spacing: 0.1mm;
+}
+
+h2,
+.h2 {
+  @extend %h2;
+}
+
+h3,
+.h3 {
+  @extend %h3;
+}
+
+h4,
+.h4 {
+  @extend %h4;
+}
+
+h5,
+.h5 {
+  @extend %h5;
+}
+
+h6,
+.h6 {
+  @extend %h6;
+}
+
+.type--body {
+  @extend %body;
+}
+
+.intro, //Deprecated, but is saved in redactor fields
+.type--body--large, {
+  // use this one!
+  @extend .ff-serif;
+  @extend .size--body--large;
+  line-height: 1.5;
+}
+
+@mixin font-btn {
+  text-transform: uppercase;
+  @extend .ff-sans--bold;
+  @include font-size(1.2);
+  letter-spacing: 0.2mm;
+}
+
+.font--btn {
+  @include font-btn;
+}
+
+.header--lg {
+  @extend .h1--alt;
+}
+
+.header--xl {
+  @extend .ff-sans;
+  @extend .size--headerxl;
+}
+
+.header--border-btm {
+  padding: 0 0 $padding-med 0;
+  position: relative;
+
+  @media (min-width: $tablet-landscape) {
+    padding-right: $padding-lg * 2;
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: $padding-lg * 3;
+    border-bottom: 1px solid $red;
+  }
+}
+
+.header--border-btm--full {
+  position: relative;
+
+  &:after {
+    content: "";
+    display: block;
+    border-bottom: 1px solid $red;
+    margin: $padding-med 0;
+  }
+}
+
+// .type--body {
+//     @include body-font;
+// }
+
+// .type--body-lg {
+//     @include body-font;
+//     @include body-size--large(1);
+// }
+
+.link--lg {
+  //@include body-size;
+  @extend .size--body;
+  line-height: 1.75;
+  line-height: inherit;
+}
+
+.blockquote--standard {
+  border-left: 1px solid $red;
+  color: inherit;
+  @extend .ff-serif--italic;
+  line-height: 1.5;
+  margin-left: 2em;
+  padding-left: $padding-sm;
+  @include font-size(2.2);
+
+  &:not(:first-child) {
+    margin-top: 2em;
+  }
+  &:not(:last-child) {
+    margin-bottom: 2em;
+  }
+
+  @media (min-width: $tablet-landscape) {
+    @include font-size(2.8);
+  }
+}
+
+.dropcap:first-letter {
+  @include big-letter;
+  float: left;
+  margin-right: 5px;
+}
+
+.footnote {
+  color: $dk-gray;
+  @include font-size(1.6);
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.italic {
+  font-style: italic;
+}
+
+@include colors($colors);
+
+.link--black {
+  @extend .color--black;
+  @extend .hover-color--red;
+  border-bottom: 1px solid;
+}
+
+.link--red {
+  @extend .color--red;
+  @extend .hover-color--darkRed;
+  border-bottom: 1px solid;
+}
+
+.link--sm {
+  font-size: 1.4rem;
+}
+
+.cta--link {
+  @extend .uppercase;
+  @extend .ff-sans--bold;
+  @extend .color--red;
+  @extend .type--spaced;
+}
+
+.type--underline {
+  border-bottom: 1px solid;
+}
+
+.type--spaced {
+  letter-spacing: 2px;
+}
+
+.type--label {
+  @include font-size(0.9);
+  @extend .color--white;
+  @extend .ff-sans--bold;
+  @extend .uppercase;
+
+  letter-spacing: 0.2mm;
+  line-height: 1.4;
+  padding: 5px 12px 4px;
+}
+
+.link--more {
+  @include see-more;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.titlecase {
+  text-transform: capitalize;
+}
+
+.faded {
+  opacity: 0.7;
+}
+
+.type--center {
+  text-align: center;
+}
+
+//Font Weights/Styles
+.ff-serif {
+  font-family: $ff-gt-sectra, georgia, serif;
+  font-weight: normal;
+}
+.ff-serif--italic {
+  @extend .ff-serif;
+  font-style: italic;
+}
+.ff-serif--medium {
+  @extend .ff-serif;
+  font-weight: 500;
+}
+.ff-serif--medium--italic {
+  @extend .ff-serif--medium;
+  font-style: italic;
+}
+
+.ff-sans {
+  font-family: $ff-gt-walsheim, helvetica, arial, sans-serif;
+  font-weight: normal; //This is because of h1,h2,h3 it needs to be "unset"
+}
+.ff-sans--oblique {
+  @extend .ff-sans;
+  font-style: oblique;
+}
+.ff-sans--bold {
+  @extend .ff-sans;
+  font-weight: bold;
+}
+.ff-sans--bold--oblique {
+  @extend .ff-sans--bold;
+  font-style: oblique;
+}
+.ff-sans--thin {
+  @extend .ff-sans;
+  font-weight: 100;
+}
+.ff-sans--thin--oblique {
+  @extend .ff-sans--thin;
+  font-style: oblique;
+}

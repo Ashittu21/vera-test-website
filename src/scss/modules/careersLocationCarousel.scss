@@ -1,0 +1,94 @@
+.CareersLocationCarousel {
+  position: relative;
+
+  padding-left: $padding-sm;
+  padding-right: $padding-sm;
+
+  .flickity-prev-next-button {
+    display: none;
+  }
+  @media (min-width: $tablet-portrait) {
+    padding-left: $padding-xl * 2;
+    padding-right: $padding-xl * 2;
+
+    .flickity-prev-next-button {
+      display: block;
+      border: 1px solid $red;
+      border-radius: 0;
+      padding-top: $padding-lg;
+      padding-bottom: $padding-lg;
+    }
+  }
+
+  /* icon color */
+  .flickity-button-icon {
+    fill: $red;
+  }
+  .flickity-page-dots {
+    //width: calc(100% - #{$padding-xl * 4});
+    bottom: $padding-sm;
+    position: static;
+    padding-top: 1em;
+  }
+  .flickity-page-dots .dot {
+    border: 1px solid $red;
+    background-color: transparent;
+    opacity: 1;
+
+    &.is-selected {
+      background-color: $red;
+    }
+  }
+}
+
+.CareersLocationCarousel-item {
+  border: 1px solid $red;
+  padding: $padding-sm;
+  display: flex;
+  align-items: stretch;
+  min-height: 100%;
+  width: 100%;
+
+  @media (min-width: $tablet-portrait) {
+    width: calc(50% - #{$padding-lg/2});
+    padding: $padding-lg;
+
+    & + .CareersLocationCarousel-item {
+      margin-left: $padding-lg;
+    }
+  }
+
+  @media (min-width: 1500px) {
+    width: calc(33.33% - #{2 * $padding-lg/3});
+  }
+}
+.CareersLocationCarousel-item-inner {
+  display: flex;
+  flex-direction: column;
+}
+.CareersLocationCarousel-item-heading {
+  @extend %h4;
+}
+.CareersLocationCarousel-item-text {
+  @extend %body;
+  font-family: $ff-gt-walsheim;
+}
+.CareersLocationCarousel-item-attribution {
+  display: flex;
+  margin-top: auto;
+  align-items: center;
+  padding-top: $padding-lg;
+  img {
+    width: 60px;
+    height: auto;
+    margin-right: 1em;
+  }
+}
+.CareersLocationsCarousel-item-attribution-name,
+.CareersLocationsCarousel-item-attribution-title {
+  font-family: $ff-gt-walsheim;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 18px;
+}

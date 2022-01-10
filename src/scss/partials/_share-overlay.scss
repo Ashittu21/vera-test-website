@@ -1,0 +1,89 @@
+.share-overlay { 
+    position: fixed; 
+    z-index: 99999; 
+    background: $black; 
+    background: rgba(64,64,64,0.95); 
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    bottom: 0; 
+    text-align: center; 
+
+    display: none; 
+    flex-flow: column nowrap; 
+    justify-content: center; 
+    align-content: center; 
+    align-items: center; 
+
+    color: $white; 
+
+    &.visible { 
+        display: flex; 
+    }
+
+    a { 
+        color: $white;
+        
+        &.icon-print {
+	        margin-left: 0;
+	        line-height: 1 !important;
+        }
+
+        @media (min-width: $tablet-landscape) { 
+            width: 48px; 
+            height: 48px; 
+
+            span,&.icon-print { 
+                line-height: 50px; 
+                
+                &:before { 
+                    @include font-size(3); 
+                }
+            }
+
+
+            span.icon-mail { 
+                line-height: 46px; 
+
+                &:before { 
+                    @include font-size(2.6); 
+                }
+            }
+        }
+
+        @media (min-width: $desktop-mlarge) { 
+            width: 58px; 
+            height: 58px; 
+
+            span,&.icon-print { 
+                line-height: 60px; 
+            }
+
+            span.icon-mail { 
+                line-height: 56px; 
+            }
+        }
+    }
+
+    ul, 
+    li { 
+        border-color: $white; 
+    }
+
+    h4 { 
+        margin-bottom: $padding-sm; 
+    }
+
+    .modal-close { 
+        &:before, 
+        &:after { 
+            background: $white; 
+            @include transition(background 0.15s ease-in); 
+        }
+
+        &:hover:before, 
+        &:hover:after { 
+            background: $red; 
+        }
+    }
+}

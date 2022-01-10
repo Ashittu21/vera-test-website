@@ -1,0 +1,5 @@
+{% set people = block.relatedVeraStaff.alumnus('not 1').with('headshot') %}
+<div class="col-outer">
+  <h3>{{ block.heading }}</h3>
+  {% include 'includes/snippets/people' with {grid: true, large: true} %}
+</div>

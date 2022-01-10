@@ -1,0 +1,13 @@
+{% extends '_layout' %}
+
+{% block content %}
+
+<div class="container">
+	<ul>
+	{% for map in craft.entries.section('maps').level(1).type(['map','dataMapToggle']) %}
+		<li><a href="{{ map.url }}">{{ map }}</a></li>
+	{% endfor %}
+	</ul>
+</div>
+
+{% endblock %}

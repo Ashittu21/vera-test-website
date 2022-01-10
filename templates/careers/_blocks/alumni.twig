@@ -1,0 +1,22 @@
+<section class="Alumni CopySection  color-combo--{{ block.colorCombo }} careersBuilder-block-{{ block.colorCombo and block.colorCombo != "inherit" ? "padding" : "margin"}}">
+  <div class="container">
+    <div class="Alumni-heading CopySection-heading">{{ block.heading }}</div>
+    <div class="CopySection-text">
+      <div class="Alumni-text">{{ block.plaintext }}</div>
+      <div class="Alumni-list">
+        {% for item in block.children.all() %}
+        <div class="Alumni-list-item">
+          {% set img = item.headshot[0] %}
+          <div class="Alumni-list-item-image"><img style="border-radius:100%" src="{{ img.getUrl("square300") }}" width="{{ img.getWidth("square300") }}" height="{{ img.getHeight("square300") }}" /></div>
+          <div>
+            <div class="Alumni-list-item-name">{{ item.fullName }}</div>
+            <div><div class="Alumni-list-item-label">Previously: </div>{{ item.previously }}</div>
+            <div><div class="Alumni-list-item-label">Now: </div>{{ item.now }}</div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  
+</section>

@@ -1,0 +1,42 @@
+{% extends '_layout' %}
+
+{% set title = entry.title %}
+
+{% block content %}
+
+	{% include 'includes/snippets/approach_top.html' %}
+
+	{% set features = entry.featuredResearch %}
+
+	{% if features | length %}
+		<section class="featured-stream-modules">
+				<div class="container">
+					<h4>Featured</h4>
+
+					{% include 'includes/stream/feature_module.html' %}
+
+				</div>
+		</section>
+	{% endif %}
+
+	{% set streamOptions = {
+		title: 'All Research & Analysis',
+		news: false,
+		filterAltLayout: 'unstacked',
+		sections: [
+			['Publications', 'publications'],
+			['Audio', 'audio'],
+			['Video', 'video'],
+			['Resource Sites', 'resourceSite'],
+			['Special Reports', 'specialReports']
+		],
+		filterRelations: [{type: 'categories',
+						relations: craft.categories.group('ourWork').level(2),
+						title: 'Action Areas'}]
+	} %}
+
+	<div class="filter-projects">
+		{% include 'includes/stream/stream_full' with {hasMap : true, mapType: 'publications'} %}
+	</div>
+
+{% endblock %}

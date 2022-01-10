@@ -1,0 +1,28 @@
+{% set signup_from = entry.title ?? category.title -%}
+{%- set signup_from = 'Vera - '~signup_from -%}
+{%- set signup_type = 'In Page' %}
+
+<h5>{{ entry.newsletterSignupCallToAction }}</h5>
+
+<form class="newsletter_form" target="_blank" id="SidebarSubscribe" action="//vera.us8.list-manage.com/subscribe/post-json?u=6542df2be696ba0ea2f17b66a&amp;id={{ mc_list_id }}&c=?&amp;SIGNUP={{ signup_from | url_encode }}&amp;FORMTYPE={{ signup_type | url_encode }}" method="POST">
+	<div class="form-row js-remove">
+		<label for="SidebarNewsletterEmail">Email Address</label>
+		<input class="email_input" type="email" id="SidebarNewsletterEmail" name="EMAIL">
+	</div>
+	<div class="form-row js-remove">
+		<label for="SidebarNewsletterFname">First Name</label>
+		<input class="fname_input" type="text" id="SidebarNewsletterFname" name="FNAME">
+	</div>
+	<div class="form-row js-remove">
+		<label for="SidebarNewsletterLname">Last Name</label>
+		<input class="lname_input" type="text" id="SidebarNewsletterLname" name="LNAME">
+	</div>
+
+	<div class="form-row center js-remove">
+		<button type="submit" class="btn newsletter_submit">
+			Submit
+		</button>
+	</div>
+
+	<div class="form-row newsletter_subscribe_result"></div>
+</form>

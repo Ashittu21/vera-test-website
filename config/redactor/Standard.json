@@ -1,0 +1,12 @@
+{
+  "buttons": [
+    "format",
+    "bold",
+    "italic",
+    "lists",
+    "link",
+    "file",
+    "line"
+  ],
+  "plugins": ["fullscreen"]
+}

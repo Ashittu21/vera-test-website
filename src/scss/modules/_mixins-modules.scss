@@ -1,0 +1,199 @@
+@mixin stream-module-two-up-sm {
+    .stream-module__inner {
+        padding: $padding-xxs;
+    }
+
+    .stream-module__heading {
+        @extend .ff-serif--medium;
+        @extend %h3-alt;
+    }
+
+    .stream-module__subheading,
+    .stream-module__superheading {
+        @extend .ff-serif--italic;
+        margin-bottom: 0;
+        line-height: 1.5;
+    }
+
+    .stream-module__img-outer {
+        @include image-bg(100%, 47.06%); // based on design
+    }
+
+    .stream-module__content-inner {
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: stretch;
+        padding: ($padding-sm - 3) $padding-sm 0; // used to be $padding-sm;
+    }
+}
+
+@mixin stream-module-two-up-med {
+
+    @media (min-width: $tablet-portrait + 1) {
+        .stream-module__inner { // two-up goes side by side!
+            @include justify;
+        }
+
+        // originally in $mobile-large above? ^^^
+        .stream-module__img-outer,
+        .stream-module__content {
+            width: 50%;
+            //padding: 0;
+        }
+
+        .stream-module__content-inner {
+            padding: $padding-sm $padding-sm 0; // bottom used to be $padding-xxs;
+        }
+
+        .stream-module__meta {
+            // padding-bottom: $padding-xxs; NO MORE
+        }
+    }
+
+    @media (min-width: $tablet-landscape) {
+        width: $two-thirds;
+        @include max-width($dec-two-thirds);
+    }
+
+    @media (min-width: $desktop-mlarge) {
+        .stream-module__content-inner {
+            padding: $padding-lg $padding-lg 0; // bottom used to be ($padding-lg - $padding-xxs);
+        }
+    }
+}
+
+@mixin stream-module-two-up-columns {
+    @media (min-width: $mobile-large) {
+        .two-thirds & {
+            width: 100%;
+            max-width: 100%;
+
+            .stream-module__img-outer {
+                @include image-bg(100%, 100%); // based on design
+            }
+        }
+    }
+}
+
+%label {
+    top: $padding-xxs;
+    left: $padding-xxs;
+    z-index: 5;
+    background: $black;
+    // color: $white;
+    line-height: 1;
+    // padding: 5px 12px 4px;
+    @extend %h6;
+    @include font-size(0.9);
+    @extend .type--label;
+    // letter-spacing: 0.2mm;
+    // text-transform: uppercase;
+}
+
+@mixin stream-module-full-bleed {
+    .stream-module__img-outer {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        z-index: 1;
+        @include overlay-img;
+    }
+
+    .stream-module__content {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        text-align: center;
+        color: $white;
+        @include vertical-align-bottom;
+
+        padding: $padding-xs;
+        padding-top: 25%;
+    }
+
+    @-moz-document url-prefix() {
+        .stream-module__content {
+            padding-top: $padding-sm*5;
+        }
+    }
+}
+
+@mixin fancy-corners($borderColor: $red, $sizeMult: 1) {
+    position: relative;
+
+    &:before {
+        display: block;
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: #{$sizeMult*45px};
+        height: #{$sizeMult*45px};
+        border: 1px solid $borderColor;
+        border-right: 0;
+        border-bottom: 0;
+    }
+
+    &:after {
+        display: block;
+        content: '';
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: #{$sizeMult*45px};
+        height: #{$sizeMult*45px};
+        border: 1px solid $borderColor;
+        border-left: 0;
+        border-top: 0;
+    }
+}
+
+@mixin fancy-corners-inner($borderColor: $red, $sizeMult: 1) {
+	&:before,&:after {
+		content: '';
+        display: block;
+        width: #{$sizeMult*60px};
+        height: #{$sizeMult*60px};
+
+        @include transform(rotate(45deg));
+        position: absolute;
+	}
+    &:before {
+	    border-left: 1px $borderColor solid;
+        top: 0;
+        left: 0;
+    }
+
+    &:after {
+	    border-right: 1px $borderColor solid;
+        bottom: 0;
+        right: 0;
+    }
+}
+
+@mixin block-bullet($color: $red, $size: $padding-xxs, $align: 'top') {
+	padding-left: $size*2.5;
+	position: relative;
+	&:before {
+        content: '';
+        position: absolute;
+        z-index: 1;
+
+        @if $align == 'middle' {
+        	top: 50%;
+			transform: translateY(-50%);
+        } @else {
+	        top: $size/3;
+        }
+
+        left: 0;
+        display: block;
+        width: $size;
+        height: $size;
+        background: $color;
+    }
+
+}

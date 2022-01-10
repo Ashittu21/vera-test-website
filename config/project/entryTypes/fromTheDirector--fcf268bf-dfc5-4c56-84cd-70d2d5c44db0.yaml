@@ -1,0 +1,47 @@
+fieldLayouts:
+  3ca48865-5f89-4b3d-b9ec-284f0766fd45:
+    tabs:
+      -
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\EntryTitleField
+            warning: null
+            width: 100
+          -
+            fieldUid: ad9b90f1-ab3e-4da4-b693-9f04c0ee68a5
+            instructions: null
+            label: null
+            required: '0'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: 'From the Director'
+        sortOrder: 1
+handle: fromTheDirector
+hasTitleField: false
+name: 'From the Director'
+section: 4b7c3d23-1010-47d7-9813-9b5a7707aa63
+sortOrder: 3
+titleFormat: '{{object.parent.title | raw }} - From the Director'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

@@ -1,0 +1,18 @@
+contentColumnType: string
+fieldGroup: a1574b52-b575-41d9-9fdd-13f2294a57f2
+handle: customShareCopy
+instructions: ''
+name: 'Custom Share Copy'
+searchable: true
+settings:
+  byteLimit: null
+  charLimit: '140'
+  code: false
+  columnType: string
+  initialRows: '4'
+  multiline: ''
+  placeholder: ''
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

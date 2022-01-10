@@ -1,0 +1,99 @@
+field: 1939feef-c58e-4469-b2c9-6bf076c07fe5
+fieldLayouts:
+  a32393ac-0014-490c-a836-d23850be7a4e:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: d014a765-67e0-4b2f-825f-17419d55cbc8
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: faba9f94-4333-4755-9ace-a8f8042a2a72
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 93c9d70a-aead-4690-a95c-1f1b64dc10f3
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  93c9d70a-aead-4690-a95c-1f1b64dc10f3:
+    contentColumnType: string
+    fieldGroup: null
+    handle: approachLink
+    instructions: ''
+    name: 'Approach Link'
+    searchable: true
+    settings:
+      allowSelfRelations: false
+      limit: '1'
+      localizeRelations: false
+      selectionLabel: 'Select Page'
+      showSiteMenu: true
+      source: null
+      sources:
+        - singles
+      targetSiteId: null
+      validateRelatedElements: false
+      viewMode: null
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Entries
+  d014a765-67e0-4b2f-825f-17419d55cbc8:
+    contentColumnType: text
+    fieldGroup: null
+    handle: heading
+    instructions: ''
+    name: Heading
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  faba9f94-4333-4755-9ace-a8f8042a2a72:
+    contentColumnType: text
+    fieldGroup: null
+    handle: explainer
+    instructions: ''
+    name: Explainer
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+handle: approach
+name: Approach
+sortOrder: 1

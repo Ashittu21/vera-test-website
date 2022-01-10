@@ -1,0 +1,23 @@
+contentColumnType: string
+fieldGroup: 19837e8c-c89c-4572-8569-fa8556eb36ce
+handle: itacType
+instructions: ''
+name: 'Knowledge Bank Type'
+searchable: true
+settings:
+  allowLimit: false
+  allowMultipleSources: false
+  allowSelfRelations: false
+  branchLimit: '1'
+  limit: null
+  localizeRelations: false
+  selectionLabel: 'Add a type'
+  showSiteMenu: true
+  source: 'group:da474681-9bb8-4b94-94c7-89b5654dab8b'
+  sources: '*'
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Categories

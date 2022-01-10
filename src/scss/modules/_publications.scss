@@ -1,0 +1,725 @@
+.header-publication {
+  position: relative;
+  z-index: 7;
+  max-width: 100%;
+  padding-bottom: $padding-lg * 2;
+
+  @media (min-width: $tablet-landscape) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .post-content__title {
+    @extend %h1;
+    margin-bottom: $padding-lg;
+  }
+
+  .post-content__subtitle {
+    padding-top: $padding-sm;
+  }
+
+  .module-image-right__text {
+    margin-bottom: $padding-lg;
+
+    @media (min-width: $tablet-landscape) {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.module-intro--publications {
+  background: $lt-gray;
+}
+
+.module-intro--publication {
+  // ?
+  background: $lt-gray;
+  margin: 0;
+  padding: $padding-lg 0;
+
+  @media (min-width: $tablet-landscape) {
+    padding: $padding-lg * 2 0;
+  }
+
+  .sidebar__label {
+    display: none;
+  }
+
+  .sidebar__people {
+    margin-bottom: 0;
+  }
+
+  .module-intro__content {
+    @media (max-width: $tablet-portrait - 1) {
+      border: 0;
+      padding: 0;
+      margin: 0;
+    }
+  }
+
+  .module-intro__sidebar {
+    @media (max-width: $tablet-portrait - 1) {
+      padding: 0;
+    }
+  }
+}
+
+.publication-intro-wrap {
+  @media (min-width: $tablet-landscape) {
+    width: 80%;
+  }
+
+  @media (min-width: $desktop-medium) {
+    width: 77.25%;
+  }
+}
+
+.publication-overview--heading {
+  @extend .ff-sans--bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: $padding-lg * 2;
+}
+
+.updated-publication {
+  display: flex;
+  align-items: center;
+  background-color: $lt-gray;
+  color: $black;
+  padding: $padding-xxs;
+  margin-top: $padding-sm;
+  @include font-size(2);
+  @extend .ff-sans;
+
+  .title {
+    @extend .ff-sans;
+    font-weight: bold;
+  }
+
+  img {
+    width: $padding-lg * 1.5;
+    height: $padding-lg * 1.5;
+    display: block;
+    margin-right: $padding-xxs;
+  }
+}
+
+.module-quote-carousel--facts {
+  background: $white;
+  text-align: center;
+  padding-bottom: $padding-lg * 2;
+
+  .quote-carousel {
+    margin-top: $padding-lg;
+  }
+
+  .quote {
+    @include font-size(1.8);
+
+    @media (min-width: $tablet-landscape) {
+      @include font-size(2.2);
+    }
+  }
+
+  .quote-outer {
+    width: 100%;
+
+    @media (min-width: $tablet-landscape) {
+      padding: $padding-lg;
+    }
+  }
+
+  .slide-inner {
+    @media (min-width: $tablet-landscape) {
+      margin: auto;
+      max-width: 50vw;
+    }
+
+    @media (min-width: $desktop-medium) {
+      @include style-by-columns("max-width", 6);
+    }
+  }
+
+  .fact-text--huge {
+    @media (min-width: $tablet-landscape) {
+      @include font-size(13);
+    }
+  }
+
+  .fact-text--large {
+    @media (min-width: $tablet-landscape) {
+      @include font-size(3.2);
+    }
+  }
+
+  .slick-arrow {
+    border: 0;
+    width: 40px;
+    height: 60px;
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    margin-top: -30px;
+    text-indent: -9999em;
+    opacity: 1;
+    background: $lt-gray;
+    @include transition(background 0.15s ease-in);
+
+    &:before {
+      content: "";
+      display: block;
+      width: 8px;
+      height: 8px;
+      border: 2px solid $black;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin: -4px 0 0 -4px;
+      @include transform(rotate(45deg));
+    }
+  }
+
+  .slick-prev {
+    left: -$padding-lg;
+
+    &:before {
+      border-top: 0;
+      border-right: 0;
+    }
+  }
+
+  .slick-next {
+    right: -$padding-lg;
+
+    &:before {
+      border-bottom: 0;
+      border-left: 0;
+    }
+  }
+}
+
+.module-download {
+  text-align: center;
+  background: $lt-gray;
+  padding-top: $padding-lg * 2;
+  @include font-size(1.5);
+
+  .dropdown-outer {
+    background: $lt-gray;
+    margin: auto;
+  }
+
+  .dropdown {
+    background: $lt-gray;
+  }
+}
+
+.module-download__links {
+  padding: $padding-med;
+
+  a {
+    @extend .ff-sans--bold;
+
+    color: $black;
+    display: inline-block;
+    padding: $padding-xxs;
+  }
+
+  .icon-print {
+    margin-right: 5px;
+  }
+}
+
+// single
+
+.signature {
+  padding: $padding-lg 0;
+  max-width: 200px;
+
+  .text-outer {
+    margin-top: $padding-sm;
+  }
+
+  .person-info {
+    @extend .ff-sans;
+    @include font-size(1.2);
+    line-height: 1.25;
+  }
+}
+
+.UsMap,
+.UsStateTable {
+  padding: $padding-lg 0;
+}
+.UsMap-heading,
+.UsStateTable-heading {
+  margin-bottom: 1em;
+  text-align: center;
+}
+
+.UsStateTable-table {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  table {
+    margin: 0 1em;
+  }
+}
+
+.UsMap-map {
+  max-width: 1000px;
+  height: 70vmin;
+  margin: 0 auto;
+  position: relative;
+
+  svg {
+    max-height: 100%;
+  }
+}
+.UsMap .state.tooltipstered {
+  cursor: pointer;
+}
+
+.UsMap-explainer {
+  @extend .size--body;
+  text-align: center;
+}
+
+.UsMap .state {
+  transition: fill 0.1s;
+}
+
+@mixin skewedBox {
+  position: relative;
+  color: $white;
+  font-weight: unset;
+  padding: 1em;
+
+  > div {
+    position: relative;
+  }
+
+  &:before {
+    @extend .bg--black;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: rotate(-3deg);
+    z-index: 0;
+  }
+}
+
+.StatePublicationsHero {
+  position: relative;
+}
+.StatePublicationsHero-image {
+  background-size: cover;
+  background-position: center center;
+  position: absolute;
+  height: 15vmax;
+  width: 100%;
+  border-bottom: 2px solid $white;
+}
+.StatePublicationsHero-inner {
+  @extend .bg--red;
+  @extend .color--white;
+  padding-bottom: $padding-lg * 2;
+  padding-top: $padding-lg * 2;
+
+  text-align: center;
+}
+.StatePublicationsHero-inner-text {
+  > * {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+}
+.StatePublicationsHero-heading {
+  // @extend .bg--black;
+  max-width: 14em;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2em;
+  margin-top: 1em;
+  text-align: center;
+
+  @include skewedBox;
+}
+
+.PoliceBudgetsHero {
+  position: relative;
+}
+.PoliceBudgetsHero-image {
+  position: relative;
+  background-size: cover;
+  background-position: center center;
+  height: 15vmax;
+  width: 100%;
+  border-bottom: 2px solid $white;
+}
+.PoliceBudgetsHero-inner {
+  @extend .bg--trueblack;
+  @extend .color--white;
+  padding-top: $padding-lg * 1.5;
+  text-align: center;
+
+  &:after {
+    content: "";
+    display: block;
+    height: 2em;
+    width: 100%;
+    background-color: $red;
+    margin-top: $padding-lg * 1.5;
+  }
+}
+.PoliceBudgetsHero-inner-text {
+  > * {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+}
+.PoliceBudgetsHero-heading {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1em;
+  text-align: center;
+}
+
+.StateHero {
+  @extend .bg--red;
+  @extend .color--white;
+  padding-top: $padding-lg * 2;
+  padding-bottom: $padding-lg * 2;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  text-align: center;
+
+  a {
+    color: inherit;
+  }
+}
+.StateHero-inner {
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.StateHero-heading {
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.StateHero-parent {
+  position: relative;
+  margin-top: $padding-lg;
+  margin-bottom: $padding-lg;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    border-top: 1px solid;
+    width: 80%;
+  }
+}
+.StateHero-parent-label {
+  max-width: 14em;
+  margin-left: auto;
+  margin-right: auto;
+  @include skewedBox;
+}
+
+.btn.StateHero-download {
+  border-color: $white;
+  margin-top: 4em;
+  &:hover {
+    background-color: $white;
+    color: $red;
+  }
+}
+
+.CityHero {
+  @extend .bg--trueblack;
+  @extend .color--white;
+  padding-top: $padding-lg * 2;
+
+  &:after {
+    content: "";
+    display: block;
+    height: 2em;
+    width: 100%;
+    background-color: $red;
+    margin-top: $padding-lg * 1.5;
+  }
+
+  a {
+    color: inherit;
+  }
+}
+.CityHero-inner {
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  .CityHero-explainer {
+    max-width: 800px;
+  }
+
+  .footnote {
+    color: $white;
+    a {
+      border-bottom: 0;
+    }
+  }
+
+  @media (min-width: 800px) {
+    flex-direction: row;
+    align-items: center;
+    .CityHero-stats {
+      margin-left: auto;
+      margin-top: 0;
+      padding-left: 3em;
+      //padding-right: 3em;
+      min-width: 450px;
+    }
+  }
+}
+
+.CityHero-superheading {
+  margin-bottom: 0.75em;
+  border-bottom: 1px solid;
+  display: inline-block;
+  padding-bottom: 0.5rem;
+}
+.CityHero-heading {
+  line-height: 1;
+  @include font-size(3.6);
+
+  @media (min-width: 600px) {
+    @include font-size(5.4);
+  }
+  font-weight: bold;
+}
+
+.CityHero-parent {
+  position: relative;
+  margin-top: $padding-lg;
+  max-width: 18em;
+  margin-left: auto;
+  margin-right: auto;
+}
+.CityHero-parent-label {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.CityHero-stats {
+  margin-top: 4em;
+  display: inline-flex;
+}
+.CityHero-stats-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+.CityHero-stats-list-item {
+  border-top: 1px solid;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+
+  @media (min-width: 360px) {
+    display: flex;
+    align-items: center;
+  }
+  & + .CityHero-stats-list-item {
+    margin-top: 1em;
+  }
+}
+.CityHero-stats-list-item-label {
+  @extend .ff-sans--bold;
+  @include font-size(1.2);
+  text-transform: uppercase;
+
+  @media (min-width: 360px) {
+    width: 12em;
+    margin-right: 2em;
+  }
+}
+.CityHero-stats-list-item-value {
+  @extend .ff-sans;
+  @include font-size(2.4);
+}
+
+.btn.CityHero-download {
+  border-color: $white;
+  margin-top: 4em;
+  &:hover {
+    background-color: $white;
+    color: $red;
+  }
+}
+
+.PublicationsEntries {
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: $padding-med;
+
+  > * {
+    width: 100%;
+  }
+
+  @media (min-width: $tablet-portrait) {
+    > * {
+      width: calc(50% - 0.5em);
+      &:not(:nth-child(2n)) {
+        margin-right: 1em;
+      }
+    }
+  }
+  @media (min-width: $tablet-landscape) {
+    > * {
+      width: calc(33.33% - 0.67em);
+
+      &:not(:nth-child(3n)) {
+        margin-right: 1em;
+      }
+      &:nth-child(3n) {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+.StateHeatmapWithLinks {
+  .map__title {
+    @extend .size--h2;
+    @extend .ff-serif;
+  }
+  .map__title_wrap {
+    margin-bottom: $padding-lg;
+    margin-top: $padding-lg;
+  }
+}
+
+.StateHeatmapWithLinks-main {
+  @media (min-width: $tablet-landscape) {
+    display: flex;
+    gap: $padding-lg;
+    //align-items: center;
+  }
+
+  .map_inner_wrap {
+    position: relative;
+  }
+  .tooltip {
+    position: absolute;
+    background-color: $black;
+    padding: 5px $padding-xxs;
+    @extend %label;
+    font-size: 14px;
+    color: $white;
+    pointer-events: none;
+    transform: translate(-50%, -100%);
+    display: none;
+  }
+}
+.StateHeatmapWithLinks-key {
+}
+.StateHeatmapWithLinks-trends {
+  display: flex;
+  flex-wrap: wrap;
+  .line-chart-container {
+    width: 50%;
+  }
+}
+.line-chart-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.StateHeatmapWithLinks-trends-heading {
+  text-align: center;
+  width: 100%;
+  margin-bottom: $padding-med;
+}
+.StateHeatmapWithLinks-trends-key {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: $padding-med;
+}
+.StateHeatmapWithLinks-trends-chart {
+  width: 50%;
+}
+.StateHeatmapWithLinks-heatmap {
+  width: 100%;
+}
+.StateHeatmapWithLinks-heatmap-key {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  @extend .ff-sans;
+  margin-bottom: $padding-sm;
+  margin-top: $padding-sm;
+}
+.StateHeatmapWithLinks-heatmap-key-heading {
+  @extend .ff-sans;
+  @extend .size--h3;
+  text-align: center;
+  margin-bottom: $padding-xs;
+}
+.StateHeatmapWithLinks-legend {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: $padding-sm;
+  font-family: $ff-gt-walsheim;
+}
+.StateHeatmapWithLinks-sidebar {
+  margin-top: 2em;
+  width: 100%;
+  margin: 0 auto;
+  @media (min-width: $tablet-landscape) {
+    height: calc(100vh - #{$header-height});
+    position: sticky;
+    top: $header-height;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 350px;
+  }
+
+  // & + .map_wrap {
+  //   width: calc(100% - 300px) !important;
+  //   margin-left: auto !important;
+  // }
+}
+.StateHeatmapWithLinks-vis {
+  width: 100%;
+}
+.StateHeatmapWithLinks-select {
+  margin-top: $padding-xl;
+  margin-bottom: $padding-xl;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.StateHeatmapWithLinks-select-label {
+  @extend .ff-sans;
+  font-style: italic;
+  margin-bottom: 1em;
+}
+
+.StateHeatmapWithLinks-heatmap,
+.StateHeatmapWithLinks-trends,
+.StateHeatmapWithLinks-demographics {
+  margin-top: $padding-xl;
+}

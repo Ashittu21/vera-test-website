@@ -1,0 +1,33 @@
+contentColumnType: string
+fieldGroup: a1574b52-b575-41d9-9fdd-13f2294a57f2
+handle: videoFile
+instructions: 'MP4.  Compress the crap out of it.'
+name: 'Video File'
+searchable: true
+settings:
+  allowSelfRelations: false
+  allowUploads: true
+  allowedKinds:
+    - video
+  defaultUploadLocationSource: 'volume:c3679b2c-c8a9-497f-a727-b1b62f2da07a'
+  defaultUploadLocationSubpath: '{owner.slug}'
+  limit: ''
+  localizeRelations: false
+  previewMode: full
+  restrictFiles: '1'
+  selectionLabel: 'Add a video'
+  showSiteMenu: true
+  showUnpermittedFiles: false
+  showUnpermittedVolumes: true
+  singleUploadLocationSource: 'volume:a48d5d4c-e94e-40ca-b140-801253b0f802'
+  singleUploadLocationSubpath: ''
+  source: null
+  sources:
+    - 'volume:c3679b2c-c8a9-497f-a727-b1b62f2da07a'
+  targetSiteId: null
+  useSingleFolder: false
+  validateRelatedElements: false
+  viewMode: large
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Assets

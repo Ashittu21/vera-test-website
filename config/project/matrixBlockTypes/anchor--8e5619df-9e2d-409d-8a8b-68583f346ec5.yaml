@@ -1,0 +1,40 @@
+field: 68c4d7e2-c537-4394-990f-c1735c44f48c
+fieldLayouts:
+  4400ae5d-6e25-43bc-bc58-9b976158f9f3:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 8f6e96a1-70b3-4acb-8248-15d9a1ac962f
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  8f6e96a1-70b3-4acb-8248-15d9a1ac962f:
+    contentColumnType: text
+    fieldGroup: null
+    handle: anchorName
+    instructions: ''
+    name: 'Anchor Name'
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+handle: anchor
+name: Anchor
+sortOrder: 10

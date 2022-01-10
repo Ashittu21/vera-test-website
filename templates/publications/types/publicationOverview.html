@@ -1,0 +1,123 @@
+{% extends '_layout' %}
+
+{% set title = entry.title %}
+
+{% block content %}
+	{% if entry.streamImageSquare|length %}
+		{% set imagefield = entry.streamImageSquare %}
+	{% elseif entry.streamImageRectangle|length %}
+		{% set imagefield = entry.streamImageRectangle %}
+	{% elseif entry.heroImage|length %}
+		{% set imagefield = entry.heroImage %}
+	{% endif %}
+	<div class="container">
+		<aside class="hr"></aside>
+	</div>
+
+	<header class="post-content__single__header header-publication">
+		<div class="container col-outer">
+			<div class="module-image-right__text one-half">
+				<div class="post-content__meta module-intro__breadcrumbs">
+					<span class="breadcrumb-outer">
+						<p class="label">Publication</p>
+					</span>
+
+					{% if not entry.hideDate %}
+						<span class="post-content__meta__date">{{ entry.postDate | date('F Y')}}</span>
+					{% endif %}
+				</div>
+
+				<h2 class="post-content__title">
+					{{ entry.title }}
+
+					<span class="post-content__subtitle ff-serif--italic size--h3">
+						{{ entry.subtitle }}
+					</span>
+				</h2>
+
+				{% set resourceDLs = entry.legacyDownloads ?? null %}
+				{% set resourcesHTML = entry.children ?? null %}
+				{% include 'includes/snippets/resource_dropdown' %}
+
+				{% if entry.updatedPublication | length %}
+					{% set pub = entry.updatedPublication.first %}
+					<h5 class="publication-overview--heading">Updated Publication</h5>
+
+					<a href="{{ pub.url }}" class="updated-publication">
+						<img src="{{ pub.streamImageSquare.first.url }}">
+						<div>
+							<span class="title">{{ pub.title }}</span>
+							{% if pub.subtitle %}
+								<span class="subtitle">
+									&mdash;
+									{{ pub.subtitle }}</span>
+							{% endif %}
+						</div>
+					</a>
+				{% endif %}
+			</div>
+			{% set img = imagefield[0] ?? null %}
+			{% if img %}
+				<div class="module-image-right__img">
+					<div class="img-outer fancy-frame">
+						<img src="{{ img.getUrl('square800') }}" alt="{{ img.title }}">
+					</div>
+					{% if img.attribution %}
+						<div class="module-image-right__img-attribution">{{ img.attribution }}</div>
+					{% endif %}
+				</div>
+			</div>
+		{% endif %}
+	</header>
+
+	{% if not entry.highlights | length and not entry.keyTakeaway | length and not entry.keyFacts | length %}
+		{% set noMarginBottom = true %}
+	{% endif %}
+
+	{% include 'publications/_blocks/overview' with {
+		overview: entry.overview,
+		authors: entry.authors,
+		actionAreas: entry.relatedIssues.level(2).with('actionAreaIcon')
+	} %}
+
+	{% if entry.map | length %}
+		{% for viz in entry.map %}
+			{% switch viz.section.handle %}
+				{% case  'maps' %}
+					{% include 'vera-maps/map' with {map: viz, mapTheme: entry.mapTheme ?? null} %}
+				{% case 'dataViz' %}
+					{% include 'data-viz/' ~ viz.type.handle with {entry: viz} %}
+			{% endswitch %}
+		{% endfor %}
+	{% endif %}
+
+	{% if entry.keyTakeaway | length %}
+		<section class="post-module module-key-takeaway">
+			<div class="container">
+				<h3>Key Takeaway</h3>
+				<div class="module-pullquote">
+					<div class="module-pullquote__inner">
+						{{ entry.keyTakeaway }}
+					</div>
+				</div>
+			</div>
+		</section>
+	{% endif %}
+
+	{% include 'includes/snippets/highlights' %}
+
+	{% if entry.keyFacts | length %}
+		{% include 'includes/snippets/keyfacts' %}
+	{% endif %}
+
+	{% include 'includes/stream/module_related-content' %}
+
+	<!--
+			<section class="post-module module-download">
+				<div class="container">
+					{% include 'includes/snippets/resource_dropdown' %}
+				</div>
+			</section>
+		-->
+
+{% endblock %}

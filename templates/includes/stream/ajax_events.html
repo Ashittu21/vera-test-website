@@ -1,0 +1,24 @@
+{% set limit = craft.request.getParam('limit') %}
+{% set offset = craft.request.getParam('offset') %}
+
+{% set tense = craft.request.getParam('tense') %}
+
+{% set time = (tense == 1) ? '>= ' ~ now|date('c') : '< ' ~ now|date('c') %}
+{% set order = (tense == 1) ? 'eventStartTime asc' : 'eventStartTime desc' %}
+
+{% set params = {
+	section: 'eventPosts',
+	eventStartTime: time,
+	order: order,
+	limit: limit,
+	offset: offset*limit
+} %}
+
+{% if craft.request.getParam('primaryRelation') %}
+	{% set params = params|merge({relatedTo: craft.entries.id(craft.request.getParam('primaryRelation').id)}) %}
+{% endif %}
+
+{% set events = craft.entries(params) %}
+{% for event in events %}
+	{% include 'includes/stream/stream_event' %}
+{% endfor %}

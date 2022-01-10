@@ -1,0 +1,18 @@
+contentColumnType: text
+fieldGroup: 3ad6d151-958c-44f4-99b0-865c27d2922e
+handle: customTabName
+instructions: ''
+name: 'Custom Tab Name'
+searchable: true
+settings:
+  byteLimit: null
+  charLimit: null
+  code: false
+  columnType: text
+  initialRows: '4'
+  multiline: ''
+  placeholder: ''
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

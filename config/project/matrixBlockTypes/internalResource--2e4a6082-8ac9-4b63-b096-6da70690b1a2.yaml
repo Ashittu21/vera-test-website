@@ -1,0 +1,68 @@
+field: 7b2863bc-9b95-419a-a226-4be78dca30e2
+fieldLayouts:
+  01490a8d-0886-44ab-8d5d-5f1f02264f13:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 3f03b303-7be3-483b-ae50-a50bdc16c2f9
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: f029ee8b-7a71-4c0f-b104-1e85b9493c50
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  3f03b303-7be3-483b-ae50-a50bdc16c2f9:
+    contentColumnType: text
+    fieldGroup: null
+    handle: entry
+    instructions: ''
+    name: Entry
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  f029ee8b-7a71-4c0f-b104-1e85b9493c50:
+    contentColumnType: text
+    fieldGroup: null
+    handle: overrideTitle
+    instructions: ''
+    name: 'Override Title'
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+handle: internalResource
+name: 'Internal Resource'
+sortOrder: 2

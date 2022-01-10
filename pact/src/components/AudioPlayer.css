@@ -1,0 +1,29 @@
+.AudioPlayer {
+  align-items: center;
+  display: flex;
+  padding: 1em 2em;
+}
+.AudioPlayer-pp {
+  background-color: unset;
+  border: unset;
+  padding: unset;
+}
+.AudioPlayer--loading .AudioPlayer-duration {
+  opacity: 0;
+}
+
+.AudioPlayer-progress {
+  padding: 0 1em;
+  flex-shrink: 0;
+}
+
+.AudioPlayer .rc-slider-rail {
+  background-color: white;
+}
+.AudioPlayer .rc-slider-handle {
+  border: unset;
+}
+
+.AudioPlayer .rc-slider-track {
+  background-color: white;
+}

@@ -1,0 +1,34 @@
+contentColumnType: string
+fieldGroup: db841c2f-86aa-4387-8c3e-51fefc8f5945
+handle: mapTheme
+instructions: ''
+name: 'Map Theme'
+searchable: true
+settings:
+  optgroups: true
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - Light
+        -
+          - value
+          - light
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Medium
+        -
+          - value
+          - medium
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

@@ -1,0 +1,13 @@
+contentColumnType: boolean
+fieldGroup: 19337e8c-5122-4476-a446-ea27d4740587
+handle: showNewsletterPopup
+instructions: ''
+name: 'Show Newsletter Popup'
+searchable: true
+settings:
+  default: false
+  offLabel: null
+  onLabel: null
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Lightswitch

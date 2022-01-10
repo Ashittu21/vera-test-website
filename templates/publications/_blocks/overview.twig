@@ -1,0 +1,31 @@
+<section class="post-module module-intro module-intro--publications module-intro--border{% if noMarginBottom is defined and noMarginBottom %} no-margin-bottom{% endif %}">
+    <div class="container col-outer">
+        <div class="two-thirds module-intro__content">
+            {% include 'includes/snippets/share_links' %}
+            {% if overview is defined %}
+            <div class="module-intro__text">
+                <h3>Overview</h3>
+                {{ overview | shortcodes | raw }}
+            </div>
+            {% endif %}
+        </div>
+        <div class="one-third module-intro__sidebar">
+            {% if authors is defined %}
+                {% include 'includes/snippets/sidebar__experts' with {people: authors, heading: 'Authors'} %}
+            {% endif %}
+            {% if actionAreas is defined %}
+                {% include 'includes/snippets/sidebar__relatives' with {
+                    relatives: actionAreas, 
+                    relativeType: 'actionAreas', 
+                    relativeTitle: 'Action Areas' 
+                } %}
+            {% endif %}
+
+            {% if block is defined and block.children %}
+            {% for block in block.children %}
+            {% include 'publications/_blocks/' ~ block.type.handle %}
+            {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+</section>

@@ -1,0 +1,342 @@
+{% includeJsFile "https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js" %}
+{% includeJsFile "//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js" %}
+{% includeJsFile "/datamaps/datamaps.usa.min.js" %}
+
+{% set  mapType = (mapType ?? 'all')%}
+{% set statesData = "" %}
+{% set data = {} %}
+{% set showOffices = (showOffices is defined and showOffices) ? true : false %}
+{% set showCount = (showCount is defined and showCount) ? true : false %}
+	
+	{% set states_hash =
+		{
+			'Alabama': 'AL',
+			'Alaska': 'AK',
+			'American Samoa': 'AS',
+			'Arizona': 'AZ',
+			'Arkansas': 'AR',
+			'California': 'CA',
+			'Colorado': 'CO',
+			'Connecticut': 'CT',
+			'Delaware': 'DE',
+			'District Of Columbia': 'DC',
+			'Federated States Of Micronesia': 'FM',
+			'Florida': 'FL',
+			'Georgia': 'GA',
+			'Guam': 'GU',
+			'Hawaii': 'HI',
+			'Idaho': 'ID',
+			'Illinois': 'IL',
+			'Indiana': 'IN',
+			'Iowa': 'IA',
+			'Kansas': 'KS',
+			'Kentucky': 'KY',
+			'Louisiana': 'LA',
+			'Maine': 'ME',
+			'Marshall Islands': 'MH',
+			'Maryland': 'MD',
+			'Massachusetts': 'MA',
+			'Michigan': 'MI',
+			'Minnesota': 'MN',
+			'Mississippi': 'MS',
+			'Missouri': 'MO',
+			'Montana': 'MT',
+			'Nebraska': 'NE',
+			'Nevada': 'NV',
+			'New Hampshire': 'NH',
+			'New Jersey': 'NJ',
+			'New Mexico': 'NM',
+			'New York': 'NY',
+			'North Carolina': 'NC',
+			'North Dakota': 'ND',
+			'Northern Mariana Islands': 'MP',
+			'Ohio': 'OH',
+			'Oklahoma': 'OK',
+			'Oregon': 'OR',
+			'Palau': 'PW',
+			'Pennsylvania': 'PA',
+			'Puerto Rico': 'PR',
+			'Rhode Island': 'RI',
+			'South Carolina': 'SC',
+			'South Dakota': 'SD',
+			'Tennessee': 'TN',
+			'Texas': 'TX',
+			'Utah': 'UT',
+			'Vermont': 'VT',
+			'Virgin Islands': 'VI',
+			'Virginia': 'VA',
+			'Washington': 'WA',
+			'West Virginia': 'WV',
+			'Wisconsin': 'WI',
+			'Wyoming': 'WY'
+		 }
+	%}
+
+	{% if showOffices -%}
+		{% set officeData -%}
+		{%- for office in craft.categories.group('offices').find() -%}
+			{% set coords = office.coordinates | split(',') %}
+			{ name: '{{ office.title }}', 
+			desc: "{{ office.overview|striptags }}", 
+			longitude: "{{coords[1]}}", 
+			latitude:"{{coords[0]}}", 
+			fillKey: 'office',
+			url: "{{  (office.title in ['New York','Los Angeles']) ? siteUrl('contact') :  ((office.title == 'New Orleans') ?  siteUrl('centers/new-orleans') : siteUrl('centers/washington-dc-and-government-affairs')) }}"
+			}, {# STUB: Should this use relatedLocations on Center or add a field to categories or just hardcode? #}
+		{%- endfor -%}
+		{%- endset %}
+	{% endif %}
+
+	{% set mapJs %}
+	$(function() {
+			win_w = $(window).width();
+		var radius = (win_w > 720) ? 15 : 10;
+		var map = null;
+
+		var markerSettings = {
+			popupTemplate: function(geo, data){
+				if(data.popupOnHover !== false && win_w > 767){
+				return ['<div class="location-hover ', data.fillKey , '"><h5>', data.name, '</h5>', data.desc ,'</div>'].join('');
+				}
+			},
+			strokeOpacity: 0,
+			borderWidth: 0,
+			animate: true,
+			highlightOnHover: true,
+			highlightFillColor: '#231F20',
+			highlightBorderColor: 'rgba(255, 255, 255, 0)',
+			highlightBorderWidth: 5,
+			highlightFillOpacity: 1,
+			exitDelay: 100
+		};
+
+		var mapData = {
+			scope: 'usa',
+			element: document.getElementById('us-map'),
+			geographyConfig: {
+				popupOnHover: {{ showCount ? 'true' : 'false' }},
+				highlightOnHover: false,
+				highlightFillColor: '#231F20',
+				highlightBorderColor: '#FFFFFF',
+				popupTemplate: function(geo, data){
+					if(data.popupOnHover !== false){
+						$('.map--active').removeClass('map--active');
+						$('.' + geo.id).addClass('map--active');
+
+						$output = '<div class="location-hover ' + data.fillKey + '"><h5>' + data.name + '</h5>';
+
+						if(data.projects){
+							$output += "<div>" + data.projects + " Project" + ((data.projects > 1) ? 's' : '') + "</div>"
+						}
+						if(data.publications){
+							$output += "<div>" + data.publications + " Publication" + ((data.publications > 1) ? 's' : '') +"</div>"
+						}
+						$output += '</div>';
+
+						return [$output].join('');
+					}
+				},
+			 },
+			 
+			responsive:true,
+			bubblesConfig:{
+				highlightFillOpacity: 1,
+				animate: true,
+				fillOpacity: 1,
+				radius: radius,
+			},
+			fills: {
+				"project": '#4D4E56',
+				"office" : '#EF4136',
+				"inactive" : '#86878C',
+				"defaultFill": '#86878C'
+			},
+			data: {
+				{% cache %}
+				{% for name, abbr in states_hash %}
+					{% set relatedProjCount = 0 %}
+					{% set relatedPubCount = 0 %}
+
+					{# cache using key abbr for 2 mins #}
+					{% set slug = name | replace(' ','-') | replace('.','') %}
+
+					{%- set state = craft.categories.group('locations').slug(slug).first() -%}
+					
+					{% if mapType == 'all' or mapType == 'projects' %}
+						{%- set relatedProjCount = craft.entries.section('projects').relatedTo(state).isArchived('not 1').limit(null).total() -%}
+					{% endif %}
+
+					{% if mapType == 'all' or mapType == 'publications' %}
+						{%- set relatedPubCount = craft.entries.section('publications').relatedTo(state).isArchived('not 1').limit(null).total() -%}
+					{% endif %}
+
+					{% switch(mapType) %}
+						{% case 'all' %}
+							{% if (relatedPubCount or relatedProjCount) %}
+								{{ abbr }} : { name : "{{ name }}", publications : {{ relatedPubCount}}, projects : {{relatedProjCount}}, fillKey: "project", stream: []},
+							{% endif %}
+						{% case 'projects' %}
+							{% if relatedProjCount %}
+								{{ abbr }} : { name : "{{ name }}", projects : {{ relatedProjCount }}, fillKey: "project", stream: []},
+							{% endif %}
+						{% case 'publications' %}
+							{% if relatedPubCount %}
+								{{ abbr }} : { name : "{{ name }}", publications : {{ relatedPubCount }}, fillKey: "project", stream: []},
+							{% endif %}
+					{% endswitch %}
+					{# endcache #}
+				{% endfor %}
+				{% endcache %}
+			},
+			done: function(datamap) {
+					datamap.svg.selectAll('.datamaps-subunit')
+						.each(function(){
+							$th = $(this);
+							if($th.data('info')){
+								$th.addClass('map--active');
+							}
+						})
+						.on('click', function(geography, data) {
+						{% if entry is defined and entry.slug == 'about' %}
+							window.location = '/' +  geography.properties.name.toLowerCase().replace(/\s/g,'-').replace(/\./g,'');
+						{% else %}
+							$th = $(this);
+							if($th.data('info')){
+								$('#map_content_loader').removeClass('hidden');
+								$('.map-stream__load-more').addClass('hidden');
+
+								$data = JSON.parse($th.attr('data-info'));
+								$streamdata = $data.stream;
+
+								$('#map-stream h4').html($data.name);
+								$('.map--active-on').removeClass('map--active-on');
+								$th.addClass('map--active-on');
+
+								slug = geography.properties.name.toLowerCase().replace(/\s/g,'-').replace(/\./g,'') ;
+								$streamdata = JSON.parse($th.attr('data-info')).stream;
+								if($streamdata.length)
+								{
+									outputStream($streamdata);
+								}
+								else{
+									/*if($xhr !== undefined){
+										$xhr.abort();
+									}*/
+									$xhr = $.get('map-data/' + '{{ mapType }}' + '/' + slug, { abbr : geography.id}, function(data){
+										data = JSON.parse(data.toString());
+										var mapUpdate = {};
+										var state = data.state;	
+										
+										mapUpdate[state.abbr] = {
+											name : state.name,
+											fillKey : "project",
+											projects : data.count,
+											stream: data.entries,
+										}
+										map.updateChoropleth(mapUpdate);
+										
+										if(data.count){
+											$('.' + state.abbr).addClass('map--active');
+										}
+
+										outputStream(data.entries);
+									}).fail(function(){
+										console.log('FAIL');
+									});
+								}
+							}
+					
+		
+					{% endif %}
+				});
+			}
+		 };
+
+		 function outputStream(stream){
+			
+			$('#map-stream .stream-module').not("h4").remove();
+			
+			for(var i = 0; i < stream.length; i++)
+			{
+				var en = stream[i];
+				var item = $('#stream-map .template').clone();
+				item.find('.stream-module__heading').html(en.title);
+				item.find('.stream-module__meta').html(en.authors);
+				item.find('.stream-module__inner').attr('href', en.url);
+				item.removeClass('template').removeClass('triggered');
+				$('#map-stream').append(item);
+
+			}
+
+			var mapTimeout = window.setTimeout(function(){ 
+				$('#map_content_loader').addClass('hidden');
+				$('#map-stream > .stream-module:lt(4)').addClass('triggered');
+				if($('#map-stream > .stream-module').length > 4){
+				  $('.map-stream__load-more').removeClass('hidden');
+				}
+			}, 500);
+		}
+
+		 /* Ready */
+		$(function(){
+			map = new Datamap(mapData);
+
+			$('.map-stream__load-more').on('click', function(){
+				$('#map-stream > .stream-module').addClass('triggered');
+				$(this).addClass('hidden');
+			})
+
+			{% if showOffices %}
+				var offices = [{{ officeData|raw }}];
+				map.bubbles(offices, markerSettings);
+				d3.selectAll(".datamaps-bubble").on('click', function(bubble) {
+					window.location = bubble.url;
+				});
+
+				//convert bubbles to icon
+				$(".datamaps-bubble").each(function(bbble, obj){
+					$th = $(this);
+					var x = $th.attr('cx');
+					var y = $th.attr('cy');
+					var width = radius * 2;
+					var half = width/2;
+
+					d3.select(".bubbles").append("rect")
+						.attr('class', 'datamaps-bubble--replace')
+						.attr("x",x - half)
+						.attr("y", y - half)
+						.attr("width", width)
+						.attr("height",width)
+						.attr("fill", "#EF4136")
+						.attr("pointer-events","none");
+
+					d3.select(".bubbles")
+						.append("text")
+							.style("text-anchor", "middle")
+							.attr("x", x)
+							.attr("y", y)
+							.attr("dy", ".3em")
+							.attr("fill", "#fff")
+							.text('V')
+							.attr("pointer-events","none")
+							.attr('class', 'datamaps-bubble--replace-v');
+				});
+
+				window.addEventListener('resize', function(event) { map.resize(); });
+					var mapTimeout = window.setTimeout(function(){ 
+					  map.resize();
+					  map.bubbles(offices, markerSettings);
+					}, 1000);
+				{% else %}
+					window.addEventListener('resize', function(event) { map.resize(); });
+						var mapTimeout = window.setTimeout(function(){ 
+						  map.resize();
+						}, 1000);
+				{% endif %}
+
+			});
+	});
+  {% endset %}
+	{% includeJs mapJs %}
+
+	<div id="us-map"></div>

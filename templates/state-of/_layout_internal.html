@@ -1,0 +1,18 @@
+{% extends craft.request.isAjax ? 'state-of/_ajax_layout' : 'state-of/_layout' %}
+
+{% set openArticle = true %}
+
+{% block article %}
+{% block articleInner %}
+{% endblock %}
+{% includeJs %}
+	$(function() {
+		$('.fact-list').flickity({
+			groupCells: true
+		})
+		{% if craft.request.isAjax %}
+		NavCarousel.initArticle();
+		{% endif %}
+	})
+{% endincludejs %}
+{% endblock %}

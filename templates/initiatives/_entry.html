@@ -1,0 +1,49 @@
+{% extends '_layout' %}
+{% set title = entry.title %}
+{% set navClass = 'color-combo--' ~ entry.colorCombo %} {% block nav %}
+  {% include 'includes/_header/header__minimal' with { class: navClass, initiatives: true } %}
+{% endblock %} 
+
+{% block bodyClass -%}initiatives{% endblock %}
+
+{% block content %}
+<div class="color-combo--{{ entry.colorCombo }} initiatives {{ entry.level == 1 ? "home" }}">
+  {% include 'includes/snippets/banner' with { crumb: entry.level > 1 ?
+  entry.parent : null } %} 
+
+
+  
+
+  {% set noPad = entry.spotlightContent.first ? entry.spotlightContent.first.type.handle in
+  ["resourceBlock"] : null %}
+
+  <div
+    class="spotlight-stream stream-outer receives-background-color receives-color {% if noPad %}spotlight-stream--nopad{% endif %}"
+  >
+    {% for block in entry.spotlightContent %} {% set fullBleed =
+    block.type.handle in ["resourceBlock","externalResourceBlock"] and
+    block.layout == "fullBleedImage" %}
+    <div
+      class="
+      {% if block['colorCombo'] is defined %}color-combo--{{ block.colorCombo }}{% endif %}
+      {% if not fullBleed %}
+       spotlight-block--{{ block.type.handle }}
+      {% endif %}
+      {% if block.type.handle == 'dataViz' %}
+       dataViz--{{block.dataViz[0].type.handle}}
+      {% endif %}
+      "
+    >
+    {% set noContainers = ["bannerCta"] %}
+    {% if block.type.handle not in noContainers %}<div class="container">{% endif %}
+      {% include 'spotlights/blocks/' ~ block.type.handle %}
+    {% if block.type.handle not in noContainers %}</div>{% endif %}
+    </div>
+    {% endfor %}
+  </div>
+</div>
+  
+{% endblock %} 
+{% block footer %}
+  {% include 'includes/snippets/footer' with { class: "color-combo--black-on-gray" } %}
+{% endblock %}

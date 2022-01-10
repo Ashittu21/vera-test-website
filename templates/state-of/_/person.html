@@ -1,0 +1,58 @@
+{% set heading = entry.title %}
+
+{% set departments = entry.department ? entry.department.all() : [] %}
+{% set depNames = [] %}
+{% for dep in departments %}
+{% set depNames = depNames | merge([dep.title]) %}
+{% endfor %}
+{% set centers = craft.entries.section('centers').relatedTo(entry).all() %}
+{% set centerNames = [] %}
+{% for center in centers %}
+{% set centerNames = centerNames | merge([center.title]) %}
+{% endfor %}
+
+{% set subheading %}
+<div>{{ entry.jobTitle ?? null }}</div>
+<div>{{ depNames | merge(centerNames) | join(', ')}}</div>
+{% endset %}
+
+{% set org = entry.type is defined and entry.type.handle == 'staff' ? 'Vera Institute' : entry.organization ?? null %}
+{# set imageUrl = entry.headshot[0].url ?? null #}
+{% set twitterHandles  = [] -%}
+{%- for handle in entry.social.type('twitter') -%}
+{% set twitterHandles = twitterHandles | merge([(handle.twitterHandle[:1] != '@' ? '@' : '') ~ (handle.twitterHandle | trim)]) %}
+{%- endfor -%}
+{% if twitterHandles | length %}
+{% set body %}
+{% for handle in twitterHandles %}
+<a href="https://twitter.com/{{ handle }}" target="_blank">{{ handle }}</a>{% if not loop.last %}, {% endif %}
+{% endfor %}
+{% endset %}
+{% else %}
+{% set body = null %}
+{% endif %}
+{% set link = entry.type.handle == 'staff' ? entry.url : entry.website ?: null %}
+<li class="person-item">
+{#
+	{% if imageUrl %}
+	<img src="{{ imageUrl }}">
+	{% else %}
+	<div class="img-placeholder"></div>
+	{% endif %}
+#}
+	<div class="inner">
+		<div class="heading">{% if link %}<a href="{{ link }}" target="_blank">{% endif %}{{ heading }}{% if link %}</a>{% endif %}</div>
+
+		{% if subheading %}
+		<aside class="subheading">{{ subheading }}</aside>
+		{% endif %}
+
+		{% if org %}
+		<aside class="subheading">{{ org }}</aside>
+		{% endif %}
+
+		{% if body %}
+		<div class="body">{{ body }}</div>
+		{% endif %}
+	</div>
+</li>

@@ -1,0 +1,103 @@
+{% set columns = [] %}
+{% for column in viz.columns %}
+	{% set thisColumn = {
+		name: column.name,
+		label: column.label,
+		size: column.size,
+	} %}
+	{% if column.round > 0 %}
+		{% set thisColumn = thisColumn | merge({
+			round: column.round
+		}) %}
+	{% endif %}
+	{% set columns = columns | merge([thisColumn]) %}
+{% endfor %}
+
+{%- set defaultTable = {
+	select: viz.select,
+	limit: viz.limit,
+	columns: columns
+} -%}
+
+{%- set id = "topx_" ~ viz.id -%}
+{% set anchorUrl = entry.url ~ '#' ~ viz.title | camel %}
+
+{% block content %}
+<a id="{{ viz.title | camel }}" class="anchor"></a>
+<article class="topx container" id="{{ id }}">
+	{% if currentUser %}
+	<span class="anchorLink">{{ anchorUrl }}</span>
+	{% endif %}
+
+	<h2 class="h2">{{ viz.title }}</h2>
+	
+	{{ viz.overview }}
+	
+	{% block controls %}
+	<fieldset class="query_wrap">
+		<div class="flex_wrap">
+			<button class="btn get_current_location"><span><i class="icon-location"></i>Add my county</span></button>
+			<span class="current_location hidden"></span>
+			
+			<div class="search_wrap">
+				<i class="icon-search"></i>
+				<input class="query" type="text" placeholder="Search counties">
+				<ol class="query_results"></ol>
+			</div>
+		</div>
+	</fieldset>
+	
+	{#
+	<fieldset id="{{ id }}__locale" data-selector='[name="locale_type"]'>
+		<input id="{{ id }}__locale_type__county" type="radio" name="locale_type" value="county" data-title='CONCAT(county, ", ", state, " (", CZLabel, ")") as title' checked><label for="{{ id }}__locale_type__county">County</label>
+<!-- 		<input id="{{ id }}__locale_type__commuting_zone" type="radio" name="locale_type" value="CZLabel"><label for="{{ id }}__locale_type__commuting_zone">Commuting Zone</label> -->
+		<input id="{{ id }}__locale_type__state" type="radio" name="locale_type" value="state" data-title="state as title"><label for="{{ id }}__locale_type__state">State</label>
+	</fieldset>
+	#}
+	
+	<fieldset class="radios" id="{{ id }}__size" data-selector='[name="size"]'>
+		<input id="{{ id }}__size__all" type="radio" name="size". value='' checked><label class="color-group-none" for="{{ id }}__size__all">All</label>
+		<input id="{{ id }}__size__urban" type="radio" name="size" value='urbancode2013 = "Urban"'><label class="color-group-4" for="{{ id }}__size__urban">Urban</label>
+		<input id="{{ id }}__size__suburban" type="radio" name="size" value='urbancode2013 = "Suburban"'><label class="color-group-3" for="{{ id }}__size__suburban">Suburban</label>
+		<input id="{{ id }}__size__semirural" type="radio" name="size" value='urbancode2013 = "Small and mid metros"'><label class="color-group-2" for="{{ id }}__size__semirural">Small and mid metros</label>
+		<input id="{{ id }}__size__rural" type="radio" name="size" value='urbancode2013 = "Rural"'><label class="color-group-1" for="{{ id }}__size__rural">Rural</label>
+
+	</fieldset>
+	{% endblock %}
+
+	{% set table = craft.topX.getTable(defaultTable) %}
+	<div class="table_wrap">
+		{{ table | raw }}
+		{% include 'includes/stream/loader' %}
+	</div>
+	
+	{% if viz.tableNotes %}
+	<button class="table__notes__toggle">Notes</button>
+	<div class="table__notes">
+		{{ viz.tableNotes }}
+	</div>
+	{% endif %}
+
+</article>
+
+{% endblock %}
+
+{% includeJs %}
+(function(window) {
+	$(function() {
+		VERA.tables = VERA.tables || [];
+		VERA.tables.push(new VERA.makeTopX( '#{{ id }}', '#{{ id }}__size', {{ defaultTable | json_encode | raw }} ));
+		
+		var size = $('#{{ id }}__size');
+		$('[name="locale_type"]').on('change', function() {
+			if ($(this).val() !== "county") {
+				size.addClass('hidden');
+			} else {
+				size.removeClass('hidden');
+			}
+		});
+	});
+	
+	window.VERA = VERA;
+})(window);
+{% endincludejs %}

@@ -1,0 +1,136 @@
+field: 91d891dc-1fee-45bd-9011-10cd107659d1
+fieldLayouts:
+  9da9a64b-fa9b-4f06-9abf-1b3dbc0f5a97:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: cf95ed43-7954-4b86-ad5b-d635f8bc0a90
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: f453ae05-13fe-4eed-ab67-99a1c11152cc
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 599252f1-e152-4920-98ea-8794d9d4eee2
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  599252f1-e152-4920-98ea-8794d9d4eee2:
+    contentColumnType: string
+    fieldGroup: null
+    handle: colorCombo
+    instructions: ''
+    name: 'Color Combo'
+    searchable: true
+    settings:
+      optgroups: true
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - inherit
+            -
+              - value
+              - inherit
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - White/Black
+            -
+              - value
+              - white-black
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Black/White
+            -
+              - value
+              - black-white
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - 'Light Gray/Black'
+            -
+              - value
+              - lightGray-black
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+  cf95ed43-7954-4b86-ad5b-d635f8bc0a90:
+    contentColumnType: text
+    fieldGroup: null
+    handle: heading
+    instructions: ''
+    name: Heading
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  f453ae05-13fe-4eed-ab67-99a1c11152cc:
+    contentColumnType: string
+    fieldGroup: null
+    handle: entries
+    instructions: ''
+    name: Entries
+    searchable: true
+    settings:
+      allowSelfRelations: false
+      limit: ''
+      localizeRelations: false
+      selectionLabel: ''
+      showSiteMenu: true
+      source: null
+      sources: '*'
+      targetSiteId: null
+      validateRelatedElements: false
+      viewMode: null
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Entries
+handle: multipleEntries
+name: 'Multiple Entries'
+sortOrder: 3

@@ -1,0 +1,46 @@
+{% includeCss %}
+	{% for i in 1..toggleGroups %}
+		#map_{{ map.id }}.project-map[data-toggle-group="{{ i }}"] .state__path.state__is-active[data-toggle-group="{{ i }}"]
+		{
+			fill: {{ fills[i-1] }};
+			stroke: {{ fills[i-1] | darken(15) }};
+		}
+		
+		
+		.no-touch .project-map .state__path.state__is-active[data-toggle-group="{{ i }}"]:hover,
+		.no-touch .project-map.zoomed .state__path.state__is-active[data-toggle-group="{{ i }}"]:hover,
+		#map_{{ map.id }}.project-map[data-toggle-group="{{ i }}"] .back svg *
+		{
+			fill: {{ fills[i-1] }};
+		}
+		
+		
+		#map_{{ map.id }}.project-map[data-toggle-group="{{ i }}"] .state__path.state__is-active[data-toggle-group="{{ i }}"]:hover,
+		#map_{{ map.id }}.project-map[data-toggle-group="{{ i }}"] .state__path.state__is-active[data-toggle-group="{{ i }}"].zoomed
+		{
+			fill: {{ fills[i-1] | darken(15) }};
+		}
+		
+		{% switch i %}
+		{% case 1 %}
+		#map_{{ map.id }}.project-map[data-toggle-group="{{ i }}"] input.spendingToggle + label .off,
+		#map_{{ map.id }}.project-map[data-toggle-group="{{ i }}"] input.populationToggle + label .off
+		{% case 2 %}
+		#map_{{ map.id }}.project-map[data-toggle-group="{{ i }}"] input.spendingToggle + label .off,
+		#map_{{ map.id }}.project-map[data-toggle-group="{{ i }}"] input.populationToggle + label .on
+		{% case 3 %}
+		#map_{{ map.id }}.project-map[data-toggle-group="{{ i }}"] input.spendingToggle + label .on,
+		#map_{{ map.id }}.project-map[data-toggle-group="{{ i }}"] input.populationToggle + label .off
+		{% case 4 %}
+		#map_{{ map.id }}.project-map[data-toggle-group="{{ i }}"] input.spendingToggle + label .on,
+		#map_{{ map.id }}.project-map[data-toggle-group="{{ i }}"] input.populationToggle + label .on
+		{% endswitch %}
+		{
+			background-color: {{ fills[i-1] }};
+		}
+		
+		#map_{{ map.id }}.project-map[data-toggle-group="{{ i }}"] .countryOverview .content[data-toggle-group="{{ i }}"] {
+			display: block;
+		}				
+	{% endfor %}
+{% endincludecss %}

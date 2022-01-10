@@ -1,0 +1,123 @@
+field: 7b2863bc-9b95-419a-a226-4be78dca30e2
+fieldLayouts:
+  4c22973a-cfdf-4436-8814-42ec41ee28b2:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 20ff373f-da90-4d9c-ad28-a4c927105d7c
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: c563f949-f00e-4b4e-9bb6-092ca8edb98e
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 50de325e-697a-4c0f-95f6-304456ba7fae
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  20ff373f-da90-4d9c-ad28-a4c927105d7c:
+    contentColumnType: text
+    fieldGroup: null
+    handle: publicationTitle
+    instructions: ''
+    name: Title
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  50de325e-697a-4c0f-95f6-304456ba7fae:
+    contentColumnType: string
+    fieldGroup: null
+    handle: icon
+    instructions: ''
+    name: Icon
+    searchable: true
+    settings:
+      optgroups: true
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - Map
+            -
+              - value
+              - location
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Graph
+            -
+              - value
+              - graph
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Table
+            -
+              - value
+              - grid
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+  c563f949-f00e-4b4e-9bb6-092ca8edb98e:
+    contentColumnType: text
+    fieldGroup: null
+    handle: anchor
+    instructions: ''
+    name: Anchor
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+handle: anchor
+name: Anchor
+sortOrder: 3

@@ -1,0 +1,87 @@
+field: ad9b90f1-ab3e-4da4-b693-9f04c0ee68a5
+fieldLayouts:
+  eabf7d89-8658-4813-8e48-f564a5d0b30f:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: f7096352-a07c-49b2-92ac-a6ab75b2d3aa
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 35518a4e-9833-4438-8c7d-33c5a2b3b8d0
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  35518a4e-9833-4438-8c7d-33c5a2b3b8d0:
+    contentColumnType: string
+    fieldGroup: null
+    handle: mapTheme
+    instructions: ''
+    name: 'Map Theme'
+    searchable: true
+    settings:
+      optgroups: true
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - Light
+            -
+              - value
+              - light
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Medium
+            -
+              - value
+              - medium
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+  f7096352-a07c-49b2-92ac-a6ab75b2d3aa:
+    contentColumnType: string
+    fieldGroup: null
+    handle: map
+    instructions: ''
+    name: Map
+    searchable: true
+    settings:
+      allowSelfRelations: false
+      limit: ''
+      localizeRelations: false
+      selectionLabel: ''
+      showSiteMenu: true
+      source: null
+      sources:
+        - 'section:5ecd8130-6ef0-405f-a72f-9c663ddbdf84'
+      targetSiteId: null
+      validateRelatedElements: false
+      viewMode: null
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Entries
+handle: map
+name: Map
+sortOrder: 12

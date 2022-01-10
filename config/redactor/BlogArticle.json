@@ -1,0 +1,46 @@
+{
+  "buttons": [
+    "format",
+    "bold",
+    "italic",
+    "lists",
+    "link",
+    "file",
+    "image",
+    "line"
+  ],
+  "plugins": ["scriptbuttons", "fullscreen"],
+  "formatting": ["p", "blockquote"],
+  "formattingAdd": {
+    "intro-p": {
+      "title": "Intro Paragraph",
+      "api": "module.block.format",
+      "args": {"tag": "p", "class": "intro", "type": "toggle"}
+    },
+    "header": {
+      "title": "Header",
+      "api": "module.block.format",
+      "args": {"tag": "h2", "class": "sub-headline", "type": "toggle"}
+    },
+    "subhead": {
+      "title": "Sub-Header",
+      "api": "module.block.format",
+      "args": {"tag": "h5", "class": "intext-subhead", "type": "toggle"}
+    },
+    "dropcap": {
+      "title": "Dropcap",
+      "api": "module.block.format",
+      "args": {"tag": "p", "class": "dropcap", "type": "toggle"}
+    },
+    "footnote": {
+      "title": "Footnote",
+      "api": "module.block.format",
+      "args": {"tag": "p", "class": "footnote", "type": "toggle"}
+    },
+    "imagecaption": {
+      "title": "Image Caption",
+      "api": "module.block.format",
+      "args": {"tag": "p", "class": "image-caption", "type": "toggle"}
+    }
+  }
+}

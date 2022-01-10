@@ -1,0 +1,10 @@
+<div class="CareersLocationCarousel careersBuilder-block-margin" data-flickity='{"cellAlign":"left","contain":true}'>
+{% for item in block.children.all() %}
+<div class="CareersLocationCarousel-item">
+  <div class="CareersLocationCarousel-item-inner">
+  <div class="CareersLocationCarousel-item-heading">{{ item.heading }}</div>
+  <div class="CareersLocationCarousel-item-text">{{ item.plaintext }}</div>
+  </div>
+</div>
+{% endfor %}
+</div>

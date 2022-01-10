@@ -1,0 +1,4 @@
+{
+  "buttons": ["link", "bold", "italic"],
+  "plugins": ["scriptbuttons"]
+}

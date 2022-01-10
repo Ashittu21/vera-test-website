@@ -1,0 +1,104 @@
+<aside class="filter-outer filter-tall filter-red">
+	<div class="filter">
+		<span class="filter__dropdown-outer filter-label">
+			<a class="active">
+				<i class="icon-filter"></i>
+				Refine
+			</a>
+		</span>
+	</div>
+
+	<div class="filter__dropdown dropped">
+		<div class="filter__dropdown-inner">
+
+			{% for relation in permissions %}
+				<input type="checkbox" style="display: none;" checked id="{{ relation.id }}" value="{{ relation.id }}" class="filter-listen permission_checkbox" data-type="categories"/>
+			{% endfor %}
+
+			<input type="hidden" checked id="itacKnowledgeBank" value="itacKnowledgeBank" class="section_checkbox"/>
+
+			{% if streamOptions.filterRelations is defined %}
+				{% for relationBlock in streamOptions.filterRelations %}
+					<div class="filter__section filter__section--select">
+						<span class="filter__section-label">{{ relationBlock.title }}</span>
+						<ul>
+							{% for relation in relationBlock.relations %}
+								{% set relation_id = relation.id %}
+								{% set relation_type = 'relation' %}
+
+								<li class="filter__parent-wrapper">
+									<input type="checkbox" id="{{ relation_id }}" class="filter-listen {{ relation_type }}_checkbox" value="{{ relation_id }}" data-type="{{ relationBlock.type }}" data-category="{{ relationBlock.category }}"/>
+									<label for="{{ relation_id }}" class="filter__parent">
+										{% if relationBlock.type == 'type' %}
+											{{ relation.name }}
+										{% else %}
+											{{ relation }}
+										{% endif %}
+									</label>
+
+									{% if relation.children | length %}
+										<button class="filter__dropdown-child-outer">+</button>
+										<ul class="filter__dropdown-child">
+											{% for rel in relation.children %}
+												<li>
+													<input type="checkbox" id="{{ rel.id }}" class="filter-listen relation_checkbox" value="{{ rel.id }}" data-type="{{ relationBlock.type }}" data-category="{{ relationBlock.category }}"/>
+													<label for="{{ rel.id }}" class="filter__child">
+														{% if relationBlock.type == 'type' %}
+															{{ rel.name }}
+														{% else %}
+															{{ rel }}
+														{% endif %}
+													</label>
+												</li>
+											{% endfor %}
+										</ul>
+									{% endif %}
+								</li>
+							{% endfor %}
+						</ul>
+					</div>
+				{% endfor %}
+			{% endif %}
+		</div>
+	</div>
+</aside>
+
+
+{% includeJsFile "/dist/js/isotope.pkgd.min.js" %}
+{% includeJsFile "/dist/js/packery-mode.pkgd.min.js" %}
+
+{% includeJsFile '/dist/twigscripts/stream.js' %}
+
+{% set streamTwig %}
+Stream.primaryRelation = null;
+
+{% if streamOptions.fieldSearch is defined %}
+	Stream.fieldSearch = '{{ streamOptions.fieldSearch }}';
+{% endif %}
+
+{% if contentlimit is defined %}
+	Stream.content.limit =
+	{{ contentlimit }};
+{% endif %}
+
+Stream.content.partial = '/knowledge-bank/entry';
+
+  $(function() {
+
+    Stream.init({{ streamOptions | json_encode | raw }});
+
+{# console.log(Stream.options, Stream.content) #}
+
+if (Stream.options.streamType == 'content' &&
+      typeof Stream.options.nopack === "undefined" &&
+      Stream.content.isgrid == false) {
+      
+      $(Stream.loadmorebtn).show();
+      Stream.content.repack();
+    }
+  });
+
+
+{% endset %}
+
+{% includeJs streamTwig %}

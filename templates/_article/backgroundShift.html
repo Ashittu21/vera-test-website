@@ -1,0 +1,26 @@
+{% set hasImage = block['heroImage'] is defined and block.heroImage | length %}
+{% set prevBlock = entry['articleBuilder'] is defined and entry.articleBuilder.positionedBefore(block).level(1).order('lft desc').first() %}
+{% set prevBlockHasImage = prevBlock['heroImage'] is defined ? prevBlock.heroImage | length : false %}
+{% set defaultCombo = entry.colorCombo.value ?? 'inherit' %}
+<div
+	data-background-scroll
+	class="
+		no-transform
+		background-scroll-trigger
+		background-scroll-trigger-screen
+		{% if index is defined and index == 1 %} background-scroll-trigger--first{% endif %}
+		{% if hasImage %} background-scroll-trigger-image{% endif %}
+		{% if prevBlockHasImage %} has-screen-backward{% endif %}
+	"
+	data-color-combo="{{ block.colorCombo is not defined or block.colorCombo.value == 'inherit' ? defaultCombo : block.colorCombo.value }}"
+	{% if hasImage %}
+		{% set image = craft.imager.transformImage( block.heroImage[0], [
+			{ width: 2000 }
+		],
+		{ ratio: 8/5 },
+		{ fillTransforms: false }) %}
+		data-src="{{ craft.imager.base64Pixel(8,5) }}"
+		data-srcset="{{ craft.imager.srcset( image ) }}"
+		data-bg-src="{{ image[0].url }}"
+	{% endif %}
+></div>

@@ -1,0 +1,44 @@
+{% extends '_layout' %}
+
+{% set title = entry.title %}
+
+{% block content %}
+	{% include 'includes/snippets/banner__featured' %}
+	<section class="post-module special-reports-landing">
+    <div class="special-reports-landing__inner">
+      <header class="special-reports__header">
+        <div class="container">
+          <h1>{{ entry.title }}</h1>
+          <h3>{{ entry.subtitle }}</h3>
+          {% include 'includes/snippets/share_links' with {horizontal: true } %}
+          <span class="label">Special Report</span>
+        </div>
+      </header>
+
+      <article class="special-reports__intro rte">
+        <div class="container">
+          {{ entry.overview }}
+        </div>
+      </article>
+    <div>
+  </section>
+  {% set items = [] %}
+  {% for story in entry.children %}
+  {% set items = items | merge([{
+    type: {
+      handle: 'internalEntry'
+    },
+    singleEntry: [story]
+  }]) %}
+  {% endfor %}
+  
+  {% include '_article/entryTiles' with { 
+    headingStyle: "stories",
+    class: "stream-module-outer--special-reports",
+    block: {
+      heading: "The Stories", 
+      subheading: entry.storiesSubtitle, 
+      children: items
+    }
+  } %}
+{% endblock %}

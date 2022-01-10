@@ -1,0 +1,64 @@
+{% extends "_layout" %}
+
+{% set title = entry.title %}
+
+{% block content %}
+{% if entry.type.handle == 'ourWork' %}
+	{% include 'issues/index' %}
+{% else %}
+	{% if entry.type.handle != 'issue' %}
+	
+	{% set heroImage = entry.heroImage[0] ?? null %}
+	{% if entry.type == 'commitment' %}
+		{% set heroImage = entry.commitmentImageHero[0] ?? null %}
+	{% endif %}
+	
+	<section class="featured-banner i-parallax parallax fadein" style="background-image: url({{ heroImage ? heroImage.url : 'http://placehold.it/2880x1340' }})">
+		
+		{% include 'includes/snippets/attribution' with {image: heroImage} %}
+		
+	</section>
+		
+	{% endif %}
+
+	{% include 'includes/snippets/intro__group_content' %}
+
+	{% if entry.type == 'commitment' %}
+	{% set article = entry.commitmentArticle %}
+		{% if article | length %}
+	<section class="post-content">
+			{% include 'includes/snippets/article' %}
+	</section>
+		{% endif %}
+	{% endif %}
+
+	{% set feature_entry_types = ['commitment', 'actionArea', 'issue'] %}
+	{% if entry.type.handle in feature_entry_types %}
+
+	{% set features = entry.featuredContent.with(['streamImageRectangle']) %}
+		{% if features | length %}
+	<section class="featured-stream-modules">
+		<div class="container">
+			<h4>Featured</h4>
+			{% include 'includes/stream/feature_module' %}
+		</div>
+	</section>
+		{% endif %}
+
+	{% endif %}
+		{% set streamOptions = {
+			title: 'Related Work',
+			news: true,
+			filterAltLayout: 'unstacked', 
+			primaryRelation: {type: 'categories', relations: [entry.selfCategory.last]},
+		} %}
+		{% if entry.selfCategory.last.hasDescendants %}
+			{% set streamOptions = streamOptions|merge({
+				filterRelations: [{type: 'categories', 
+								relations: entry.selfCategory.last.children, 
+								title: craft.entries.section('ourWork').relatedTo(entry.selfCategory.last.children.first).first.type.name~'s'}]
+			}) %}
+		{% endif %}
+		{% include 'includes/stream/stream_full' %}
+{% endif %}	
+{% endblock %}

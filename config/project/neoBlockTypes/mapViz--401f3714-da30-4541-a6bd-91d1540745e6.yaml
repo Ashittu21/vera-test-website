@@ -1,0 +1,25 @@
+childBlocks: ''
+field: b009bfa4-4978-4c4c-853d-f7a65f417a6d
+fieldLayouts:
+  ec3a9028-bbc2-42d4-8769-baba4dac4ee2:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 6c5ecbb4-1985-4387-98db-642ba73dc9c3
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: 'Tab 1'
+        sortOrder: 1
+handle: mapViz
+maxBlocks: 0
+maxChildBlocks: 0
+maxSiblingBlocks: 0
+name: Map/Viz
+sortOrder: 2
+topLevel: true

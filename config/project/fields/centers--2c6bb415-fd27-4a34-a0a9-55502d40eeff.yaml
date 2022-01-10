@@ -1,0 +1,19 @@
+contentColumnType: string
+fieldGroup: 9e8c11c6-0d09-4e83-9ae3-8e977b222014
+handle: centers
+instructions: ''
+name: Centers
+searchable: true
+settings:
+  singleField: '85'
+  source:
+    __assoc__:
+      -
+        - value
+        - '21'
+      -
+        - type
+        - section
+translationKeyFormat: null
+translationMethod: none
+type: Page8\ManyToMany\fields\ManyToManyField

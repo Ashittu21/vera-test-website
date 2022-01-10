@@ -1,0 +1,10 @@
+{% if entry.requireLogin or entry.unpublished or entry.parentUnpublished == 1 or entry.ancestors.unpublished('1') | length %}
+{% requireLogin %}
+{% header "X-Robots-Tag: noindex, nofollow;" %}
+{% endif %}
+
+{% if entry.type == 'gala' %}
+	{% include 'special-reports/types/specialReportSingle' %}
+{% else %}
+	{% include 'special-reports/types/'~entry.type %}
+{% endif %}

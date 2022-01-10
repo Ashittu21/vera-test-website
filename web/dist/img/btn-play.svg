@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="39px" height="39px" viewBox="0 0 39 39" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 3.7.2 (28276) - http://www.bohemiancoding.com/sketch -->
+    <title>Play Button</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Module-Library" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Unique-Content-Modules" transform="translate(-280.000000, -1308.000000)">
+            <g id="Play-Button" transform="translate(279.148438, 1306.234375)">
+                <circle id="Oval-10" fill="#EF4136" cx="20.5" cy="21" r="19.0629883"></circle>
+                <polygon id="Triangle-1" fill="#FFFFFF" points="16.4532222 25.6248889 16.4532222 15.2188888 26.8592223 20.4218889"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

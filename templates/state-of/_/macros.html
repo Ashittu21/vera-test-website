@@ -1,0 +1,133 @@
+{% macro cta(thing,count,image) %}
+	<div class="slideoutcta" data-url="{{ thing.url }}" data-class="informational" data-analytics-event="['Slideout','Open','{{ thing.title | escape('html_attr') }}']">
+		<div class="cta_wrap">
+			<div class="content">
+				{% if count is defined and count %}
+					<aside class="counter">{{ count }}</aside>
+				{% endif %}
+				<div class="heading color--alt">{{ thing.title }}</div>
+				<div class="cta font--btn">Read More</div>
+			</div>
+			{% if image %}
+				<div class="image">
+					<img src="{{ image.url }}">
+				</div>
+			{% endif %}
+		</div>
+	</div>
+{% endmacro %}
+
+{% macro spotlight(thing) %}
+	{% set image = thing.heroImage[0] ?? "//placehold.it/536x536" %}
+	{% set transformedImage = craft.imager.transformImage(image, {
+	width: 600
+}, {
+	ratio: 1/1
+}) %}
+	<div class="slideoutcta spotlight" data-url="{{ thing.url }}" data-class="informational">
+		<div class="cta_wrap">
+			<div class="image fade-in" style="background-image: url({{ transformedImage.url }})"></div>
+			<div class="info">
+				<aside class="type font--btn">Spotlight</aside>
+				<div class="heading">{{ thing.title }}</div>
+			</div>
+		</div>
+	</div>
+{% endmacro %}
+
+{% macro navItem(item,index=null,class='') %}
+	<div class="item {{ class }}{% if item.comingSoon %} item--coming-soon{% endif %}">
+		<a href="{{ item.url }}" data-title="{{ item.title }}" data-theme="{{ item.pageType == 'lense' ? 'alt' : 'default' }}" data-id="{{ item.id }}">
+			<div class="state-of-article">
+				{% if item.pageType in ['topic'] or item.type.handle in ['article'] %}
+					<div class="short-title ff-sans">{{ item.shortTitle ?: item.title | replace('The State of ','')}}</div>
+				{% endif %}
+				{% set image = item.heroImage.first ?? null %}
+				{% if image %}
+					{% set transformedImages = craft.imager.transformImage( image, [
+				{ width: 2000 },
+				{ width: 1000 },
+				{ width: 600, jpegQuality: 65 },
+				{ width: 200, jpegQuality: 65 }
+			], {
+				ratio: 2/1,
+				position: image.focalPoint.x ~ '% ' ~ image.focalPoint.y ~ '%'
+			}, {
+				fillTransforms: false,
+				fillInterval: 400
+			}) %}
+					<div class="image-wrap">
+						<img src="{{ transformedImages[0].url }}" srcset="{{ craft.imager.srcset(transformedImages) }}">
+					</div>
+				{% endif %}
+				<h1 class="ff-serif color--red heading">{{ item.heading ?: item.title }}</h1>
+				<div class="intro">{{ item.explainer ?: item.overview }}</div>
+
+				<div class="button-wrap">
+					{% if item.comingSoon %}
+						<div class="color--white size--h3">Coming Soon</div>
+					{% else %}
+						<img src="/dist/img/arrow_down.svg" alt="">
+					{% endif %}
+				</div>
+
+			</div>
+		</a>
+	</div>
+{% endmacro %}
+
+
+{% macro hero(image,type) %}
+	{% set isLense = type == "lense" %}
+	{% set isTopic = type == 'topic' %}
+	{% set isCovid = type == 'covid' %}
+
+	{% set transformedImages = craft.imager.transformImage( image, [
+    { width: 3000 },
+    { width: 2000 },
+    { width: 600, jpegQuality: 65 }
+  ], {
+    ratio: 3/1,
+    position: image.focalPoint.x ~ '% ' ~ image.focalPoint.y ~ '%'
+  }, {
+    fillTransforms: false,
+    fillInterval: 400
+  }) %}
+
+	{% if isLense %}
+		<div class="container hero-container">
+		{% endif %}
+		{% if transformedImages is defined and transformedImages[1] is defined %}
+			<div class=" {% if isTopic %}show-on-tablet{% endif %} state-of-article-hero">
+				<img src="{{ transformedImages[1].url }}" srcset="{{ craft.imager.srcset(transformedImages) }}" class="hero-image {% if isTopic %}show-on-tablet{% endif %} fade-in">
+				{% if image.caption %}
+					<div class="img-caption simple">{{ image.caption }}</div>
+				{% endif %}
+			</div>
+		{% endif %}
+		{% if isLense %}
+		</div>
+	{% endif %}
+{% endmacro %}
+
+{% macro gridItem(item) %}
+	{% set image = item.heroImage.first ?? '//placehold.it/1000x1000' %}
+	{% if image %}
+		{% set transformedImages = craft.imager.transformImage( image, [
+        { width: 1000 },
+        { width: 600, jpegQuality: 65 },
+      ], {
+      ratio: 5/4,
+      position: image.focalPoint.x ~ '% ' ~ image.focalPoint.y ~ '%'
+    }, {
+      fillTransforms: false,
+      fillInterval: 400
+    }) %}
+	{% endif %}
+	<div class="grid-item">
+		<a href="{{ item.url }}" data-nav-carousel-link data-title="{{ item.title }}" data-theme="{{ item.pageType == 'lense' ? 'alt' : 'default' }}" data-id="{{ item.id }}">
+			<img src="{{ transformedImages[1].url }}" srcset="{{ craft.imager.srcset(transformedImages) }}"/>
+			<div class="grid-item-title">{{ item.shortTitle ?: item.title }}</div>
+		</a>
+	</div>
+{% endmacro %}

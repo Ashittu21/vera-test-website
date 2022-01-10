@@ -1,0 +1,414 @@
+{#
+ # Layout template
+ # ---------------
+ #
+ # This template defines your site’s global layout. It can be
+ # “extended” by other templates to fill in the gaps.
+ #
+ # See Twig’s Template Inheritance documentation for more details:
+ # http://twig.sensiolabs.org/doc/templates.html#template-inheritance
+ #}
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+	<head>
+		<meta charset="utf-8" />
+		<title>{% if title is defined %}{{ title }} | {% endif %}Vera Institute{% if entry is defined and entry and entry.slug == 'home' %} of Justice{% endif %}</title>
+		<link rel="home" href="{{ siteUrl }}" />
+
+		<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css" />
+	<!-- 	<link rel="stylesheet" href="{{ siteUrl('dist/css/publication_pdf.css') }}"/> -->
+		<link rel="stylesheet" href="/dist/css/main.combined.min.css?v=1.0.44"/>
+		<style>
+			@media print {
+				* {
+					color: inherit !important;
+				}
+			}
+			html {
+				font-size: 30%;
+			}
+
+			body {
+				padding: 0;
+				margin: 0;
+				padding-top: 0 !important;
+				-webkit-print-color-adjust: exact;
+			}
+
+			html,body {
+				position: relative;
+				height: 100%;
+				width: 100%;
+			}
+
+			article:not(#cover) img {
+				max-height: 396px;
+				width: auto;
+				margin-left: auto;
+				margin-right: auto;
+			}
+
+			#cover {
+				position: relative;
+				width: 100%;
+				height: 100%;
+				overflow: hidden;
+				page-break-after: always;
+			}
+
+			.cover_img {
+				width: 98%;
+			    height: 98%;
+				background-size: cover;
+				background-repeat: no-repeat;
+				background-position: center center;
+				position: absolute;
+				top: 1%;
+				left: 1%;
+				background-color: #EF4136;
+			}
+
+			.cover_overlay {
+				position: relative;
+			}
+
+			.title {
+				position: absolute;
+				bottom: 2cm;
+				left: 2cm;
+				max-width: 60%;
+			}
+
+			.title h1 {
+				font-size: 3em;
+				line-height: 1.25;
+				margin-bottom: .5em;
+			}
+
+			.title h2 {
+				font-size: 2em;
+				font-family: "GT Walsheim Regular";
+			}
+
+			.title .authors {
+				font-family: "GT Walsheim Regular";
+			}
+
+			.title .authors:before {
+				content: '';
+				border-top: 2px solid black;
+				display: block;
+				margin: 2em 0;
+			}
+
+			#cover.no-image .title {
+				position: absolute;
+				top: 35%;
+				left: 10%;
+				max-width: 60%;
+				color: white;
+			}
+
+			#cover.no-image .title .authors:before {
+				border-color: white;
+			}
+
+			.full-bleed {
+				color: white !important;
+				height:100%;
+				width:100%;
+				padding: 20%;
+			}
+
+			.full-bleed .rte a {
+				color: white;
+				border-color: white;
+			}
+
+			#contents {
+				background-color: #6F6D6E !important;
+			}
+
+			#contents h2 {
+				margin-bottom: 20px;
+			}
+
+			#contents a {
+				border-bottom: 0;
+			}
+
+			#contents ul {
+				list-style-type: none;
+				margin-top: 5px;
+			}
+
+			#about {
+				background-color: #EF4136;
+			}
+
+			aside {
+				page-break-inside: avoid;
+			}
+
+			main > a {
+				display:block;
+				height:0;
+			}
+
+			.post-content__single__container {
+				margin-bottom: 40px;
+			}
+
+			.container {
+				max-width: 100%;
+			}
+
+			h1,h2,h3,h4,h5,h6 {
+				page-break-inside: avoid;
+			}
+
+			.module-text .rte ul {
+				margin: 0 0 10px 15px;
+			}
+
+			.module-text .rte ul li+li {
+				margin-top: 5px;
+			}
+
+
+			.module-image-right__text {
+				padding-right: 2em;
+			}
+			.module-image-left__text {
+				padding-left: 2em;
+			}
+
+			.module-image-with-copy__text,
+			.module-image-with-copy__img {
+				display: inline-block;
+				vertical-align: top;
+				width: calc(50% - 5px);
+			}
+
+			.post-module.module-text {
+				page-break-before: avoid;
+				padding-bottom: 0;
+			}
+
+			.post-module.module-text:not(:last-child) {
+				padding-bottom: 20px;
+			}
+
+			.break-avoid {
+				display: inline-block;
+				width: 100%;
+				page-break-inside: avoid;
+			}
+
+			.break-avoid h3, .break-avoid div {
+				page-break-inside: avoid;
+				margin: 0 auto;
+			}
+
+			.break-avoid svg {
+				display: inline-block;
+				width: 100%;
+				height: 100%;
+			}
+
+			.break-after {
+				page-break-after: always;
+			}
+
+			.post-article .chart_container {
+				margin: 20px auto;
+			}
+
+			.module-text--heading {
+				page-break-after: avoid;
+				page-break-inside: avoid;
+			}
+
+			.module-text--heading + .post-moidule {
+				page-break-before: avoid;
+			}
+
+			.module-text--heading h2 {
+				font-size: 2.5em;
+			}
+
+			.module-text--heading, .module-text--heading:last-of-type, .post-module.module-text--heading, .post-module.module-text--heading:last-of-type {
+				padding-top: 0;
+			}
+
+			.module-text--heading + .post-article .post-module.module-text {
+				padding-top: 0;
+			}
+
+			.signature {
+				padding: 0;
+				max-width: 100px;
+			}
+
+			.module-text .rte h4.person-name {
+				margin-bottom: 5px;
+			}
+
+			article .module-text-heading {
+				margin-top: 20px;
+				padding-bottom: 20px;
+			}
+
+			.module-text--heading + .post-article .post-module.module-text {
+				padding-top: 20px;
+			}
+
+			.intext-subhead, .intext-subhead-2, .intext-subhead-3 {
+				margin-top: 10px;pu
+				page-break-after: avoid;
+				page-break-inside: avoid;
+				line-height: 1.25;
+			}
+
+			.rte h5 + p {
+				page-break-before: avoid;
+			}
+
+			.module-text .rte h5.intext-subhead, .module-text .rte h5.intext-subhead-2, .module-text .rte h5.intext-subhead-3 {
+				page-break-after: avoid;
+				margin-bottom: 0 !important;
+				margin-top: 0 !important;
+				padding-bottom: 5px;
+				padding-top: 10px;
+			}
+
+			.post-article {
+				padding-top: 0;
+				padding-bottom: 0;
+				page-break-before: avoid;
+			}
+
+			.footnote {
+				margin-bottom: 10px;
+			}
+
+			.module-pullquote {
+				page-break-inside: avoid;
+				margin: 5px auto;
+				padding: 60px 40px 40px;
+			}
+
+			.module-pullquote:before, .module-pullquote__inner:before {
+				top: 35px;
+				left: 15px;
+			}
+
+			.module-pullquote:after, .module-pullquote__inner:after {
+				bottom: 15px;
+				right: 15px;
+			}
+
+			.rte p:last-of-type {
+				margin-bottom: 0;
+			}
+
+			.post-article .post-module.special-reports-footer {
+				margin: 0;
+				padding: 20px 0;
+				font-style: normal;
+			}
+
+			.post-article .post-module.special-reports-footer .intext-subhead {
+				color: #EF4136;
+			}
+
+			.post-article .post-module.special-reports-footer .rte {
+				font-family: "GT Book Regular";
+			}
+
+			.post-content__single__container:not(:first-of-type) {
+				padding-top: 40px;
+			}
+
+			.special-reports-footer + .post-module {
+				padding-top: 10px !important;
+			}
+
+			.post-article .post-module.special-reports-footer:last-child {
+				margin-bottom: 0;
+			}
+
+			.module-image-with-caption {
+				margin-bottom: 20px;
+			}
+
+			.module-image-with-caption:last-child {
+				padding-bottom: 0;
+			}
+
+			.post-article .post-module.special-reports-footer .rte {
+				padding-bottom: 15px;
+			}
+
+			.post-article .post-module.special-reports-footer h5.intext-subhead {
+				margin-top: 0;
+			}
+
+			.post-module.module-pullquote:last-of-type {
+				padding-bottom: 40px;
+			}
+
+			.post-module:last-of-type {
+				padding-bottom: 40px;
+			}
+
+			.post-module:last-child {
+				padding-bottom: 0;
+			}
+
+			{% if craft.request.getParam('full') == 'true' %}
+				html,body,main {
+					height:100%;
+				}
+			{% endif %}
+
+		</style>
+
+		<!--meta http-equiv="X-UA-Compatible" content="IE=edge"-->
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="mobile-web-app-capable" content="yes" />
+		<link rel="shortcut icon" href="/dist/icons/vera128.ico" type="image/icon" />
+
+	</head>
+
+	{% set allchapters = entry.children %}
+	{% set about,director = null,null %}
+
+	{% for chapter in allchapters %}
+		{% if chapter.type.handle == 'aboutThisReport' %}
+			{% set about = chapter %}
+		{% endif %}
+		{% if chapter.type.handle == 'fromTheDirector' %}
+			{% set director = chapter %}
+		{% endif %}
+	{% endfor %}
+	{% set chapters = allchapters | without([director,about]) %}
+
+	<body class="no-touch">
+		<main id="content" role="main" {% if entry is defined and entry.type == 'publicationOverview' %}class="content--pubs"{% endif %}>
+			{% block banner %}{% endblock %}
+			{% block ajax_wrap_open %}{% endblock %}
+			{% block content %}
+				<p>If you see me, you haven’t set your <code>{% verbatim %}{% block content %}…{% endblock %}{% endverbatim %}</code> yet.</p>
+				<p>See Twig’s <a href="http://twig.sensiolabs.org/doc/templates.html#template-inheritance">Template Inheritance</a> documentation for an explanation.</p>
+			{% endblock %}
+			{% block ajax_wrap_close %}{% endblock %}
+		</main>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+		<script src="{{ siteUrl('dist/js/main.js') }}"></script>
+	</body>
+</html>

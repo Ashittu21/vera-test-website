@@ -1,0 +1,85 @@
+<footer class="footerV2">
+
+  <div class="footerV2-top">
+    <div class="footerV2-top-container">
+
+      <div class="footerV2-column footerV2-top-col01">
+        <img src="https://vera.loc/dist/img/v2/vera-horizontal.svg" class="footerV2-logo">
+        <div class="address">
+          34 35th Street<br>
+          Suite 4-2A<br>
+          Brooklyn, NY 11232<br><br>
+          212-334-1300
+        </div>
+      </div>
+
+      <div class="footerV2-column footerV2-top-col02">
+        {% set footer_links = footer.footerLinks.all() %}
+        {% if  footer_links|length %}
+        <ul class="menu-footer">
+          {% for node in footer_links %}
+          <li><a
+              href="{{ node.footerLink.getUrl() }}">{{node.footerLink.customText }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+        </ul>
+      </div>
+
+      <div class="footerV2-column footerV2-top-col03">
+        <div class="social-copy">
+          Keep up with us on<br> social media.
+        </div>
+        <div class="social-icons">
+          {% set social_links = socialNetworks.socialNetwork.all() %}
+              {% if  social_links|length %}
+                {% for node in social_links %}
+                  <a href="{{ node.socialNetwork_link.getUrl() }}"  target="_blank">
+                    <i class="fa-brands {{node.socialNetwork_handle }}"></i>
+                  </a>
+                {% endfor %}
+              {% endif %}
+        </div>
+
+      </div>
+
+      <div class="footerV2-column footerV2-top-col04">
+        <div class="mail-list">
+          <p class="title"> Transformative change, sent
+            to your inbox.</p>
+          <a href="#" class="button orange arrow"><span>Add
+              your email</span></a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+<div class="footerV2-bottom">
+
+
+    <div class="footerV2-bottom-container">
+      <div class="footer-bottom-copyright">
+        © Vera Institute of Justice. All rights
+        reserved.
+      </div>
+      <div class="footer-bottom-menu">
+        <ul>
+          <li>
+            <a href="">Termsof Use</a>
+          </li>
+          <li>
+            <a href="">GSA Advantage</a>
+          </li>
+          <li>
+            <a href="">Credits</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+</div>
+
+</footer>

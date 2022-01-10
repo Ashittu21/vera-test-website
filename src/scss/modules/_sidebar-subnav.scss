@@ -1,0 +1,111 @@
+.article.has-sidebar {
+  backface-visibility: hidden;
+  position: relative;
+}
+
+.sidebar-subnav--subwayNav {
+  max-width: 135px;
+  padding-left: 10px;
+  position: relative;
+
+  &.is-fixed {
+    left: 100%;
+    position: sticky;
+    right: 10px;
+    top: 150px;
+  }
+
+  .sidebar-subnav-item {
+    @extend .ff-sans;
+    font-size: 1.2rem;
+    line-height: 25px;
+    list-style: none;
+    margin-bottom: 10px;
+    min-height: 25px;
+    min-width: 18px;
+    opacity: 0.5;
+    position: relative;
+
+    // sidebar rail
+    &:after {
+      background-color: #000;
+      bottom: 80%;
+      content: '';
+      left: 9px;
+      opacity: 0.3;
+      position: absolute;
+      top: -60%;
+      transition: all 0.4s;
+      width: 1px;
+    }
+
+    .list-bullet {
+      height: 18px;
+      left: 0;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 18px;
+
+      .ring   { transition: stroke 0.4s; }
+      .center { transition: fill 0.4s; }
+    }
+
+    &.is-active {
+      opacity: 1;
+      &:after { opacity: 1; }
+    }
+
+    &:hover { opacity: 1; }
+
+    &:first-child:after {
+      opacity: 0 !important;
+    }
+  }
+
+  @media (min-width: $tablet-landscape) {
+    .sidebar-subnav-item {
+      &:after { left: -21px; }
+      .list-bullet { left: -30px; }
+    }
+  }
+
+  @media (min-width: $desktop-medium) {
+    max-width: 160px;
+    .sidebar-subnav-item { font-size: inherit; }
+  }
+
+  @media (min-width: $desktop-ml) {
+    max-width: 250px;
+  }
+}
+
+.sidebar-subnav--subwayNav.is-fixed + .scroll-section {
+  @media (min-width: $tablet-landscape) {
+    margin-top: calc(-250px - 8rem);
+  }
+}
+
+.sidebar-subnav-item a {
+  color: inherit;
+  display: block;
+  transition: none;
+}
+
+.color-combo--white-black {
+  .sidebar-subnav-item:after { background-color: black; }
+
+  .list-bullet {
+    .ring   { stroke: black; }
+    .center { fill: black; }
+  }
+
+}
+.color-combo--black-white {
+  .sidebar-subnav-item:after { background-color: $white; }
+
+  .list-bullet {
+    .ring   { stroke: $white; }
+    .center { fill: $white; }
+  }
+}

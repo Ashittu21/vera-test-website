@@ -1,0 +1,130 @@
+.search-module {
+    width: 100%;
+    line-height: 1.5;
+    margin-bottom: $padding-lg;
+
+    @media (min-width: $tablet-landscape) {
+        line-height: 1.75;
+        @include font-size(2.2);
+    }
+
+    @media (min-width: $desktop-medium) {
+        @include width-by-columns(8);
+    }
+
+    a {
+
+        color: $black;
+    }
+
+    .search-module__inner {
+        @media (min-width: $tablet-portrait) {
+            @include justify;
+            flex-flow: row nowrap;
+        }
+    }
+
+    .search-module__label {
+        display: block;
+        @extend .ff-sans--bold;
+        @include font-size(1);
+        text-transform: uppercase;
+        color: $med-gray;
+        letter-spacing: 0.1mm;
+        margin-bottom: $padding-sm;
+    }
+
+    h3 {
+        @extend %h5-alt;
+
+        span.sub {
+	        @extend .ff-sans;
+	        line-height: 1.5;
+        }
+    }
+
+    .img-outer {
+        display: none;
+        @include bg-cover;
+
+        @media (min-width: $tablet-portrait) {
+            display: inline-block;
+            width: 131px;
+            height: 131px;
+            margin-right: $padding-lg;
+        }
+    }
+
+    .text-outer {
+        @media (min-width: $tablet-portrait) {
+            flex: 1;
+        }
+    }
+}
+
+.search-results-header {
+    padding: $padding-lg 0 0 0;
+
+    @media (min-width: $tablet-landscape) {
+        padding: $padding-lg*2 0 0;
+    }
+}
+
+.search-results-form {
+    display: block;
+    padding: $padding-sm 0 $padding-med;
+
+    @media (min-width: $tablet-portrait) {
+        padding: $padding-lg 0;
+    }
+}
+
+.search-results-form__inner {
+    position: relative;
+    border: 1px solid $lt-gray-alt;
+}
+
+.search-results-input {
+    @extend %h4;
+    margin: 0;
+    width: 100%;
+    border: 0;
+    @include border-radius(0);
+    background: transparent;
+    padding: 0 $padding-lg 0 $padding-sm;
+    height: $padding-lg;
+    @extend .ff-sans--bold;
+    color: $red;
+
+    @media (min-width: $tablet-portrait) {
+        height: $padding-med*2;
+    }
+}
+
+.search-results-submit {
+    border: 0;
+    background: $lt-gray;
+    display: flex;
+    width: $padding-lg;
+    height: $padding-lg;
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    @media (min-width: $tablet-portrait) {
+        width: $padding-med*2;
+        height: $padding-med*2;
+    }
+
+    .icon-search {
+        margin: auto;
+        left: 3px;
+    }
+
+    &:hover .icon-search {
+        &:before,
+        &:after {
+            border-color: $red;
+        }
+    }
+}

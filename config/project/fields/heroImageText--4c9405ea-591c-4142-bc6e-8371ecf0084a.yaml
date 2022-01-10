@@ -1,0 +1,18 @@
+contentColumnType: text
+fieldGroup: b7c07949-c4d1-4af6-a996-017773fd0ef5
+handle: heroImageText
+instructions: ''
+name: 'Hero Image Text'
+searchable: true
+settings:
+  byteLimit: null
+  charLimit: null
+  code: false
+  columnType: text
+  initialRows: '4'
+  multiline: ''
+  placeholder: ''
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

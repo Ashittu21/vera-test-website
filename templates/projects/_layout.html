@@ -1,0 +1,135 @@
+{% extends '_layout' %}
+
+{% set title = entry.title %}
+
+{% set project = null %}
+
+{% if entry.type.handle in ['customTab', 'partners', 'stateResources'] %}
+	{% set project = entry.parent %}
+{% elseif entry.type.handle in ['knowledgeBank',] or section in ['overview','learn-more','team','related-work','knowledge-bank','form',''] %}
+	{% set project = entry %}
+{% endif %}
+
+{% block banner %}
+
+	{% if entry.streamImageSquare|length %}
+		{% set imagefield = entry.streamImageSquare %}
+	{% elseif entry.streamImageRectangle|length %}
+		{% set imagefield = entry.streamImageRectangle %}
+	{% elseif entry.heroImage|length %}
+		{% set imagefield = entry.heroImage %}
+	{% endif %}
+
+	{% set image = imagefield[0] ?? null %}
+	<section class="banner-image-left">
+		<div class="container {{ not image ? 'banner-center'}}">
+			<span class="text-banner__breadcrumb text-banner__breadcrumb--mobile">
+				<a href="{{ siteUrl('projects') }}">
+					{{ project.section.name }}
+				</a>
+			</span>
+
+			<div class="col-outer">
+				{% if image %}
+					<div class="banner-image-left__img-outer img-outer">
+						<img src="{{ image.getUrl('square800') }}" width="400" height="400">
+						{% include 'includes/snippets/attribution' with {image: image} %}
+					</div>
+				{% endif %}
+				<header class="banner-image-left__header one-half">
+					<span class="text-banner__breadcrumb text-banner__breadcrumb--desktop">
+						<a href="/projects">Projects</a>
+					</span>
+
+					<h1 class="banner-image-left__heading">
+						{{ project.title }}
+					</h1>
+
+					<p class="banner-image-left__subheading">
+						{{ project.subtitle }}
+					</p>
+
+
+					{% include 'includes/snippets/share_links' with {horizontal : true} %}
+					{% set people = project.director %}
+					{% include 'includes/snippets/people' %}
+
+
+					{% if entry.archived %}
+						<h5 class="archived-label">Project Duration:
+							{{ project.startDate | date('Y') }}-{{ parent.endDate | date('Y') }}</h5>
+					{% endif %}
+				</header>
+			</div>
+		</div>
+	</section>
+
+	{% if not excludeSubnav %}
+		<!-- begin nav -->
+		<nav class="mobile-dropdown">
+			<div class="container">
+				<span
+					class="mobile-dropdown__mobile-active">
+					<!-- active page -->
+					{% include 'includes/snippets/mobile_section_title' %}
+				</span>
+
+				{% set relatedEntry = entry.type.handle in 'projects' ? entry : entry.parent %}
+
+				<ul>
+					<li>
+						<a href="{{ project.url }}/overview" class="{{ (section == '' or section == 'overview') ? 'active' }}">Overview</a>
+					</li>
+
+					{% if project.article | length %}
+						<li>
+							<a href="{{ project.url }}/learn-more" class="{{ (section == 'learn-more') ? 'active' }}">Learn More</a>
+						</li>
+					{% endif %}
+
+					{% set hasWork = craft.entries.section(['blogPosts', 'spotlights', 'publications', 'audio', 'video', 'resourceSite', 'specialReports']).relatedTo(relatedEntry).limit(1).count() %}
+
+					{% if hasWork %}
+						<li>
+							<a href="{{ project.url }}/related-work" class="{{ (section == 'related-work') ? 'active' }}">Related Work</a>
+						</li>
+					{% endif %}
+
+					{% set hasKnowledge = craft.entries.section("knowledgeBank").relatedTo(relatedEntry).limit(1).count() %}
+
+					{% if hasKnowledge %}
+						<li>
+							<a href="{{ project.url }}/knowledge-bank" class="{{ (section == 'knowledge-bank') ? 'active' }}">Knowledge Bank</a>
+						</li>
+					{% endif %}
+
+					{% if project.relatedVeraStaff|length + entry.advisoryBoard|length > 0%}
+						<li>
+							<a href="{{ project.url }}/team" class="{{ (section == 'team') ? 'active' }}">Team</a>
+
+						</li>
+					{% endif %}
+
+					{% set hasForm = project.form %}
+					{% if hasForm %}
+						<li>
+							<a href="{{ project.url }}/form" class="{{ section == 'form' ? 'active'}}">{{ project.customTabName | default("Form")}}</a>
+						</li>
+					{% endif %}
+
+					{% include 'includes/snippets/custom_tab_links' with { parent: project } %}
+				</ul>
+			</div>
+		</nav>
+		<aside class="mobile-dropdown-spacer"></aside>
+		<!-- end nav -->
+	{% endif %}
+{% endblock %}
+
+{% block ajax_wrap_open %}
+	{% include 'includes/snippets/ajax_wrap_open' %}
+{% endblock %}
+
+{% block ajax_wrap_close %}
+	{% include 'includes/snippets/ajax_wrap_close' %}
+{% endblock %}

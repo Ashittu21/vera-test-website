@@ -1,0 +1,105 @@
+field: 25e4c255-e196-4804-9575-837a7870c878
+fieldLayouts:
+  8dbb102c-0cfb-4aa4-be15-7ce058e9d777:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 62f6a7e6-817b-4273-aeaf-b7920e348652
+            instructions: null
+            label: null
+            required: '0'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 0342d2ff-5b7b-4a49-bc60-67e3fb48d769
+            instructions: null
+            label: null
+            required: '0'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 6e321819-8b42-463a-9bdb-7b7b38413852
+            instructions: null
+            label: null
+            required: '0'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  0342d2ff-5b7b-4a49-bc60-67e3fb48d769:
+    contentColumnType: string
+    fieldGroup: null
+    handle: video
+    instructions: ''
+    name: Video
+    searchable: true
+    translationKeyFormat: null
+    translationMethod: none
+    type: dukt\videos\fields\Video
+  62f6a7e6-817b-4273-aeaf-b7920e348652:
+    contentColumnType: text
+    fieldGroup: null
+    handle: textAbove
+    instructions: ''
+    name: 'Text Above'
+    searchable: true
+    settings:
+      availableTransforms: '*'
+      availableVolumes: '*'
+      cleanupHtml: '1'
+      columnType: text
+      configSelectionMode: choose
+      defaultTransform: ''
+      manualConfig: ''
+      purifierConfig: ''
+      purifyHtml: '1'
+      redactorConfig: SpecialReport.json
+      removeEmptyTags: true
+      removeInlineStyles: true
+      removeNbsp: true
+      showHtmlButtonForNonAdmins: true
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: true
+      uiMode: enlarged
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\redactor\Field
+  6e321819-8b42-463a-9bdb-7b7b38413852:
+    contentColumnType: text
+    fieldGroup: null
+    handle: textBelow
+    instructions: ''
+    name: 'Text Below'
+    searchable: true
+    settings:
+      availableTransforms: '*'
+      availableVolumes: '*'
+      cleanupHtml: '1'
+      columnType: text
+      configSelectionMode: choose
+      defaultTransform: ''
+      manualConfig: ''
+      purifierConfig: ''
+      purifyHtml: '1'
+      redactorConfig: ''
+      removeEmptyTags: true
+      removeInlineStyles: true
+      removeNbsp: true
+      showHtmlButtonForNonAdmins: true
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: true
+      uiMode: enlarged
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\redactor\Field
+handle: ambientVideoTextAboveTextBelow
+name: 'Video + Text Above + Text Below'
+sortOrder: 1

@@ -1,0 +1,38 @@
+{% set mapData = entry.aggregateMapData %}
+
+{% set data = {
+	country: {
+		entryid: "randomid",
+		title: entry.heading,
+		body: entry.text,
+		level: 0
+	},
+	states: mapData | json_decode
+} %}
+
+{% include 'vera-maps/map' with {
+	mapid: 'wvewvwev',
+	mapType: 'asdf',
+	mapTheme: 'red',
+	mapTitle: entry.heading,
+	mapInstructions: null,
+	mapOverview: data.country.body,
+	data: data,
+	zoomable: false,
+	mapOptions: {
+		zoomRatio: 0.75,
+		zoomState: true
+	}
+} %}
+
+<section class="line-after">
+	<div class="container">
+		<h2 class="section-heading">Discussion</h2>
+		
+		<div class="indent">
+			<div id="disqus_thread"></div>
+			
+			{% include 'includes/snippets/disqus' %}
+		</div>
+	</div>
+</section>

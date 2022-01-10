@@ -1,0 +1,32 @@
+{% import '_macros/social' as social %}
+
+{% set socialChannels = [
+	{
+		link: "https://twitter.com/verainstitute",
+		title: "Twitter"
+	},
+	{
+		link: "https://www.youtube.com/user/verainst",
+		title: "Youtube"
+	},
+	{
+		link: "https://www.facebook.com/verainstitute",
+		title: "Facebook"
+	},
+	{
+		link: "https://www.instagram.com/verainstitute/",
+		title: "Instagram"
+	}
+] %}
+<ul class="share share--social receives-border-color">
+	<li class="share-item social-share-item receives-border-color">
+		<a class="share-link social-share-link receives-color " href="/contact/" data-analytics-event='["Social Channel","Email"]' target="_blank">
+			<span class="icon-mail"></span>
+		</a>
+	</li>
+	{% for channel in socialChannels %}
+		<li class="share-item social-share-item receives-color receives-border-color">
+			{{ social.socialChannelLink(channel.link,channel.title) }}
+		</li>
+	{% endfor %}
+</ul>

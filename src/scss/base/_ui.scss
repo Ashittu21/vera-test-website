@@ -1,0 +1,388 @@
+%reset-button {
+  border: 0;
+  background-color: transparent;
+  padding: 0;
+}
+
+button.plus {
+  position: relative;
+  width: 25px;
+  height: 25px;
+  border-style: solid;
+  border-radius: 0;
+  padding: 0;
+
+  @media (min-width: $tablet-portrait) {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    background-color: $black;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &:before {
+    width: 2px;
+    height: 70%;
+  }
+
+  &:after {
+    width: 70%;
+    height: 2px;
+  }
+
+  &[disabled] {
+    opacity: 0.3;
+  }
+}
+
+label.checkbox-plain {
+  display: flex;
+  align-items: center;
+}
+
+input[type="checkbox"].plain {
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid $black;
+  border-radius: 0;
+  width: 20px;
+  height: 20px;
+  margin-right: 0.5em;
+
+  &:checked {
+    background-color: #ededed;
+  }
+}
+
+.more {
+  position: relative;
+
+  label.more-toggle-label {
+    display: flex;
+    align-items: center;
+
+    &:active {
+      text-decoration: underline;
+    }
+
+    button {
+      margin-right: 0.5em;
+    }
+  }
+}
+
+.more-content {
+  display: none;
+
+  .more.open & {
+    margin-bottom: 1em;
+    &:before {
+      content: "";
+      border-left: 1px solid $red;
+      position: absolute;
+      left: -1em;
+      height: 100%;
+      display: block;
+    }
+  }
+}
+button.more-toggle {
+  border: 0;
+  border-radius: 0;
+  background-color: $red;
+  padding: 0;
+
+  img {
+    transform-origin: center;
+    transition: transform 0.3s;
+  }
+
+  .more.open & {
+    img {
+      transform: rotate(-180deg);
+    }
+  }
+}
+
+.term {
+  color: $red;
+  cursor: pointer;
+}
+
+select.basic {
+  background-color: transparent;
+  border: 1px solid $black;
+  color: $black;
+}
+
+.radios {
+  margin-top: $padding-med - $padding-xxs;
+
+  input[type="radio"] {
+    @include appearance;
+    visibility: hidden;
+    position: absolute;
+  }
+
+  input[type="radio"]:not(:first-child) {
+    margin-left: 1rem;
+
+    @media (max-width: $tablet-portrait) {
+      margin-left: $padding-xxs/2;
+    }
+  }
+
+  &.no-color {
+    label:before {
+      display: none;
+    }
+  }
+
+  label {
+    margin-right: $padding-sm;
+
+    @media (max-width: $tablet-portrait) {
+      margin-right: $padding-xxs;
+    }
+
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    margin-top: $padding-xxs;
+    padding: 1px 4px;
+
+    @include font-size(1.4);
+
+    @media (max-width: $mobile-large) {
+      @include font-size(1.1);
+    }
+
+    &:before {
+      display: inline-block;
+      content: "";
+      width: $padding-sm;
+      height: $padding-sm;
+      margin-right: $padding-xxs;
+      border: 1px solid $lt-gray-alt;
+    }
+
+    &.color-group-none:before {
+      background-color: $white;
+    }
+
+    &.color-group-1:before {
+      background-color: $table-row--bg-color1;
+    }
+
+    &.color-group-2:before {
+      background-color: $table-row--bg-color2;
+    }
+
+    &.color-group-3:before {
+      background-color: $table-row--bg-color3;
+    }
+
+    &.color-group-4:before {
+      background-color: $table-row--bg-color4;
+    }
+  }
+
+  input[type="radio"]:checked + label {
+    background-color: $lt-gray-alt;
+  }
+}
+
+.term {
+  &:after {
+    content: "";
+    height: 23px;
+    width: 23px;
+    margin-left: 0.25em;
+    display: inline-block;
+    background-image: url(/dist/icons/term.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    vertical-align: middle;
+    opacity: 0.5;
+  }
+  &:hover {
+    &:after {
+      opacity: 1;
+    }
+  }
+}
+
+.footnote {
+  i {
+    vertical-align: top;
+    font-size: 1em;
+    @extend .ff-sans;
+    font-style: normal;
+    padding: 0 0.125em;
+  }
+
+  a.tooltip {
+    border-bottom: 0;
+  }
+
+  .post-module & {
+    a.tooltip {
+      display: inline-block;
+      transform: translateY(-30%);
+      border-bottom: 0;
+      text-decoration: none;
+      color: $dk-gray-alt;
+    }
+  }
+}
+
+.streamloader {
+  flex-basis: 100%;
+  stroke: #bcbdbc;
+  fill: #bcbdbc;
+  margin: 1em;
+}
+
+.streamloader svg {
+  display: block;
+  margin: 0 auto;
+  width: 80px;
+  height: 80px;
+}
+.streamloader svg .box.straight {
+  animation: fade 2.5s ease-out infinite;
+}
+
+.streamloader svg .box.tilt {
+  transform-origin: center center;
+  stroke-dasharray: 360;
+  animation: tilt 2.5s ease-in-out infinite;
+}
+
+@keyframes draw-box {
+  from {
+    stroke-dashoffset: 360;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  20% {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes tilt {
+  from {
+    transform: rotate(0);
+  }
+  50% {
+    transform: rotate(-12deg);
+  }
+
+  80% {
+    transform: rotate(-12deg);
+  }
+  to {
+    transform: rotate(-90deg);
+  }
+}
+
+.share {
+  @extend .list-reset;
+}
+
+.flickity--red {
+  .flickity-prev-next-button {
+    border-radius: 0;
+    background-color: $red--lt;
+    border: 1px solid $red;
+
+    height: 40px;
+    width: 30px;
+
+    @media (min-width: $tablet-portrait) {
+      height: 69px;
+      width: 46px;
+    }
+    &[disabled] {
+      opacity: 0.3;
+    }
+
+    .arrow {
+      fill: $red;
+    }
+  }
+  .flickity-page-dots .dot {
+    background-color: transparent;
+    color: $red;
+    border: 1px solid;
+    opacity: 1;
+  }
+  .flickity-page-dots .dot.is-selected {
+    background-color: $red;
+  }
+}
+
+.line-chart-heading {
+  @extend .ff-sans;
+}
+.line-chart {
+  @extend .ff-sans;
+  font-size: 1.25em;
+}
+.line-chart-yaxis,
+.line-chart-xaxis {
+  line {
+    stroke: $dv-border;
+  }
+}
+.line-chart-yaxis {
+  .tick text {
+    text-anchor: end;
+  }
+}
+
+.key {
+  @extend .ff-sans;
+}
+
+.stroke-line1 {
+  //stroke: $dv-blue;
+  stroke: $red;
+}
+.stroke-line2 {
+  //stroke: $dv-orange;
+  stroke: $black;
+}
+.stroke-line3 {
+  //stroke: $dv-purple;
+  stroke: $dv-blue;
+}
+
+.stroke-line4 {
+  stroke: $dv-purple;
+}
+.stroke-line5 {
+  stroke: $dv-orange;
+}
+.stroke-line6 {
+  stroke: $green;
+}

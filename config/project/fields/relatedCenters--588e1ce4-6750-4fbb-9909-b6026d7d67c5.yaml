@@ -1,0 +1,21 @@
+contentColumnType: string
+fieldGroup: a49b71d0-4d2e-4176-adc3-275acb9215d6
+handle: relatedCenters
+instructions: ''
+name: 'Related Centers'
+searchable: true
+settings:
+  allowSelfRelations: false
+  limit: ''
+  localizeRelations: false
+  selectionLabel: 'Add a center'
+  showSiteMenu: true
+  source: null
+  sources:
+    - 'section:3a907820-56a1-482c-926a-60ab590cfb21'
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Entries

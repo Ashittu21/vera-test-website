@@ -1,0 +1,68 @@
+field: 963e30d2-1d22-41b6-bcb5-65b066fc50ca
+fieldLayouts:
+  cf792b71-890a-410b-8742-002c37ea4ccb:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: c5eaf822-2660-4f24-b33c-3ce634af174e
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: c8889ba6-91ce-44f5-8571-02ca9c41ba6b
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  c5eaf822-2660-4f24-b33c-3ce634af174e:
+    contentColumnType: text
+    fieldGroup: null
+    handle: quote
+    instructions: ''
+    name: Quote
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  c8889ba6-91ce-44f5-8571-02ca9c41ba6b:
+    contentColumnType: text
+    fieldGroup: null
+    handle: author
+    instructions: ''
+    name: Author
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+handle: testimonial
+name: Testimonial
+sortOrder: 1

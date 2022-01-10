@@ -1,0 +1,14 @@
+enableVersioning: true
+handle: newsletterPopup
+name: 'Newsletter Popup'
+propagationMethod: all
+siteSettings:
+  8ed9f980-84ac-470d-94d7-89a2cdb64916:
+    enabledByDefault: true
+    hasUrls: false
+    template: null
+    uriFormat: null
+structure:
+  maxLevels: null
+  uid: 8f0a27fb-98cd-4ae6-99da-fb3fd73a0177
+type: structure

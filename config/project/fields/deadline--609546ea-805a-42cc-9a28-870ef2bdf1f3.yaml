@@ -1,0 +1,15 @@
+contentColumnType: datetime
+fieldGroup: 19837e8c-c89c-4572-8569-fa8556eb36ce
+handle: deadline
+instructions: ''
+name: Deadline
+searchable: true
+settings:
+  max: null
+  min: null
+  minuteIncrement: '15'
+  showDate: 1
+  showTime: 0
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Date

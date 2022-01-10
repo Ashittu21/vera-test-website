@@ -1,0 +1,21 @@
+contentColumnType: string
+fieldGroup: 19837e8c-c89c-4572-8569-fa8556eb36ce
+handle: relatedItacItems
+instructions: ''
+name: 'Related ITAC Items'
+searchable: true
+settings:
+  allowSelfRelations: false
+  limit: '8'
+  localizeRelations: false
+  selectionLabel: ''
+  showSiteMenu: true
+  source: null
+  sources:
+    - 'section:70990db3-ed33-47b7-bc89-088f14a55750'
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Entries

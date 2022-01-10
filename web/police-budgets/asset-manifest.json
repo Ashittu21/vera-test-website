@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/police-budgets/static/css/main.7bc2cd13.chunk.css",
+    "main.js": "/police-budgets/static/js/main.03b8b05d.chunk.js",
+    "main.js.map": "/police-budgets/static/js/main.03b8b05d.chunk.js.map",
+    "runtime-main.js": "/police-budgets/static/js/runtime-main.eaa590bf.js",
+    "runtime-main.js.map": "/police-budgets/static/js/runtime-main.eaa590bf.js.map",
+    "static/js/2.2767c158.chunk.js": "/police-budgets/static/js/2.2767c158.chunk.js",
+    "static/js/2.2767c158.chunk.js.map": "/police-budgets/static/js/2.2767c158.chunk.js.map",
+    "index.html": "/police-budgets/index.html",
+    "precache-manifest.3dc7a5feb697313d17293022fcf69120.js": "/police-budgets/precache-manifest.3dc7a5feb697313d17293022fcf69120.js",
+    "service-worker.js": "/police-budgets/service-worker.js",
+    "static/css/main.7bc2cd13.chunk.css.map": "/police-budgets/static/css/main.7bc2cd13.chunk.css.map",
+    "static/js/2.2767c158.chunk.js.LICENSE.txt": "/police-budgets/static/js/2.2767c158.chunk.js.LICENSE.txt",
+    "static/media/ConsolidatedExp_72PoliceDepartments 12-2-2020.csv": "/police-budgets/static/media/ConsolidatedExp_72PoliceDepartments 12-2-2020.111e9b81.csv",
+    "static/media/carrot.svg": "/police-budgets/static/media/carrot.f3e14036.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.eaa590bf.js",
+    "static/js/2.2767c158.chunk.js",
+    "static/css/main.7bc2cd13.chunk.css",
+    "static/js/main.03b8b05d.chunk.js"
+  ]
+}

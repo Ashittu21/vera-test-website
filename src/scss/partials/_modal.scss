@@ -1,0 +1,85 @@
+.modal-outer {
+    background: $black;
+    background: rgba(64,64,64,0.75);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: auto;
+    z-index: 1000;
+    display: none;
+
+    cursor: pointer;
+
+    &.visible {
+        display: block;
+    }
+}
+
+.modal-inner {
+    padding: $header-height*2 $padding-lg;
+    margin: auto;
+    color: $white;
+    text-align: center;
+
+    @media (min-width: $tablet-portrait) {
+        @include width-by-columns(10);
+    }
+
+    @media (min-width: $tablet-landscape) {
+        @include width-by-columns(7);
+    }
+
+    @media (min-width: $desktop-medium) {
+        @include width-by-columns(6);
+    }
+
+    @media (min-width: $desktop-ml) {
+        @include width-by-columns(5);
+    }
+}
+
+.modal-close {
+    position: absolute;
+    z-index: 10; // new???
+    top: $padding-lg;
+    right: $padding-lg;
+    display: block;
+    width: $padding-lg;
+    height: $padding-lg;
+    cursor: pointer;
+
+    @media (min-width: $tablet-landscape) {
+        top: $header-height;
+        right: $header-height;
+    }
+
+    &:before,
+    &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 58px;
+        height: 1px;
+        background: $red;
+        // @include transform-origin(50%,0);
+        top: 20px;
+        left: -9px;
+    }
+
+    &:before {
+        @include transform(rotate(-45deg));
+    }
+
+    &:after {
+        @include transform(rotate(45deg));
+    }
+}
+
+.plain-text-button {
+	background: none;
+	color: white;
+	border: 0;
+	@extend .ff-serif--italic;
+}

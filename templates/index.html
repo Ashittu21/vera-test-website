@@ -1,0 +1,305 @@
+{#
+ # Homepage template
+ # ---------------
+ #
+ # When this template gets loaded, it will be because someone has accessed
+ # http://yoursite.com/ (without any URI). Craft checks to see if you have
+ # a Single section set to be the Homepage (as you do, by default), and
+ # loads the section’s Template (this file). A special ‘entry’ variable
+ # will already be set for you, assigned to the Homepage entry.
+ #
+ # It's worth noting that even if you didn't have a Homepage Single section,
+ # as long as this template remains at craft/templates/index.html, it
+ # would still be the one to get loaded when accessing http://yoursite.com/,
+ # albeit without an ‘entry’ variable already set for you.
+ #
+ # See this page for more details on how Craft routes requests:
+ # http://craftcms.com/docs/routing
+ #}
+
+{% extends "_layout" %}
+
+{% set isHome = true %}
+
+{% block nav %}
+	{# cache #}
+		{% include 'includes/snippets/header' with {isHome: isHome} %}
+	{# endcache #}
+{% endblock %}
+
+{% block content %}
+	{%- if entry.homepageFeature | length -%}
+		{%- for featuredEntry in entry.homepageFeature -%}
+
+			{%- if featuredEntry.type.handle == 'internalContent' -%}
+
+				{%- set featuredTitle = featuredEntry.overrideTitle ? featuredEntry.overrideTitle : featuredEntry.featuredContent.first.title -%}
+
+				{%- set featuredSubtitle = featuredEntry.overrideSubtitle ? featuredEntry.overrideSubtitle : featuredEntry.featuredContent.first.subtitle -%}
+
+				{%- set featuredLink = featuredEntry.featuredContent.first.url | default(featuredEntry.featuredContent.first.linkUrl) -%}
+				{%- set ext = featuredEntry.featuredContent.first.linkUrl -%}
+
+				{%- set featuredType = featuredEntry.featuredContent.first.type -%}
+
+				{%- set featuredDate = featuredType == 'event' ? featuredEntry.featuredContent.first.eventStartTime : null -%}
+
+			{%- else -%}
+
+				{%- set featuredTitle = featuredEntry.siteTitle -%}
+
+				{%- set featuredSubtitle = featuredEntry.subtitle -%}
+
+				{%- set featuredLink = featuredEntry.siteLink -%}
+				{%- set ext = true -%}
+
+				{%- set featuredType = 'Link' -%}
+
+				{%- set featuredDate = featuredEntry.eventDate -%}
+
+			{%- endif -%}
+
+			{% set theme = featuredEntry.theme.value %}
+
+			{% set heroImage = featuredEntry.heroImage.first %}
+
+			<section class="homepage-banner {{ theme }} {% if theme in ['whiteBox'] %}{{ featuredEntry.boxPosition }}{% endif %}">
+				<a href="{{ featuredLink }}" class="homepage-banner__wrap" {% if ext %}target="_blank"{% endif %}>
+				<div class="homepage-banner__img-outer img-outer fadein" style="background-image: url({{ featuredEntry.heroImage.first.url }});">
+					{% if featuredEntry.heroVideo | length %}
+					<div class="homepage-banner__hero-video-wrap">
+						<video class="homepage-banner__hero-video" autoplay loop muted>
+							<source src="{{ featuredEntry.heroVideo.first.url }}">
+						</video>
+					</div>
+					{% endif %}
+					{% include 'includes/snippets/attribution' with {image: featuredEntry.heroImage.first} %}
+				</div>
+
+				{% if theme in ['noBox','fullPage'] %}
+				<div class="screen" style="opacity: {{ featuredEntry.imageOverlayOpacity }}"></div>
+				{% endif %}
+
+				<div class="homepage-banner__content post-module">
+					<div class="container">
+						<div class="homepage-banner__content-inner">
+							{% if featuredDate %}
+							<p class="homepage-banner__date">
+								<span class="date--full">{{ featuredDate | date('F d, Y') }}</span>
+								<span class="date--no_year">
+									<span class="date_component date--month">{{ featuredDate | date('F') }}</span>
+									<span class="date_component date--day">{{ featuredDate | date('d') }}</span>
+								</span></p>
+							{% endif %}
+
+							<div>
+							{% if featuredTitle %}
+							<h1 class="homepage-banner__heading">
+								{{ featuredTitle }}
+							</h1>
+							{% endif %}
+
+							{% if featuredSubtitle %}
+							<p class="homepage-banner__subheading">{{ featuredSubtitle }}</p>
+							{% endif %}
+
+							{% if featuredLink %}
+							<div class="btn" >{{ featuredEntry.overrideButtonText ?: 'Explore' }}</div>
+							{% endif %}
+							</div>
+						</div>
+					</div>
+				</div>
+				</a>
+<!-- 				<span class="scroll-indicator"></span> -->
+			</section>
+		{% endfor %}
+	{% endif %}
+
+<!-- "strategic priorities" section -->
+  <section class="homepage-sp">
+    <div class="container">
+      <h2 class="homepage-sp__heading">Our Strategic Priorities</h2>
+      <div class="homepage-sp__grid">
+        <ul>
+          <li>
+            <a href="/strategic-priorities#end-criminalization">
+              <div class="img-outer">
+                <div class="img-inner" style="background-image: url(https://storage.googleapis.com/vera-web-assets/audio/about/priorities/1-end-criminalization.jpg);"></div>
+              </div>
+              <div class="text-outer">
+                End the criminalization of people of color, immigrants, and people experiencing poverty
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="/strategic-priorities#reduce-incarceration">
+              <div class="img-outer">
+                <div class="img-inner" style="background-image: url(https://storage.googleapis.com/vera-web-assets/audio/about/priorities/2-reduce-incarceration.jpg);"></div>
+              </div>
+              <div class="text-outer">
+                Drastically reduce the use of jails, prisons, and detention centers
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="/strategic-priorities#center-dignity">
+              <div class="img-outer">
+                <div class="img-inner" style="background-image: url(https://storage.googleapis.com/vera-web-assets/audio/about/priorities/3-center-dignity.jpg);"></div>
+              </div>
+              <div class="text-outer">
+                Center dignity and minimize the harms of criminal legal and immigration system involvement
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="/strategic-priorities#safe-communities">
+              <div class="img-outer">
+                <div class="img-inner" style="background-image: url(https://storage.googleapis.com/vera-web-assets/audio/about/priorities/4-safe-communities.jpg);"></div>
+              </div>
+              <div class="text-outer">
+                Support safe and thriving communities
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+	<!-- original 3-column "commitments" section
+  <section class="homepage-3up">
+		<div class="container">
+			<h2 class="homepage-3up__heading">{{ entry.statement }}</h2>
+
+			<div class="homepage-3up__grid">
+				{{ entry.commitmentStatement }}
+
+				<ul>
+				{% for commitment in craft.entries.section('ourWork').type('commitment') %}
+					<li>
+						<a href="{{ commitment.url }}">
+							{% set img = commitment.commitmentImageSquare[0] ?? null %}
+							{% if img %}
+								{% set imgUrl = img.url %}
+							{% else %}
+								{% set imgUrl = 'http://placehold.it/300x300' %}
+							{% endif %}
+							<div class="img-outer">
+								<div class="img-inner" style="background-image: url({{ imgUrl }});"></div>
+							</div>
+
+							<div class="text-outer">
+								{{ commitment.title }}
+							</div>
+						</a>
+					</li>
+				{% endfor %}
+				</ul>
+			</div>
+		</div>
+	</section> -->
+
+	{% if entry.featuredContent | length or entry.largeFeature | length %}
+	<section class="stream-outer">
+		<div class="container col-outer">
+
+			{% if entry.largeFeature | length %}
+				<!-- large feature -->
+				{% set feature = entry.largeFeature.first %}
+
+				{% switch feature.type.handle %}
+				{% case 'internalContent' %}
+					{% set largeFeatureParams = {
+						module: feature.featuredContent.first,
+						size: 'full',
+						isFeatured: true
+					} %}
+					{% if feature.heroImage.first %}
+						{% set largeFeatureParams = largeFeatureParams|merge({image: feature.heroImage.first}) %}
+					{% endif %}
+					{% if feature.overrideTitle %}
+						{% set largeFeatureParams = largeFeatureParams|merge({moduleTitle: feature.overrideTitle}) %}
+					{% endif %}
+					{% if feature.overrideSubtitle %}
+						{% set largeFeatureParams = largeFeatureParams|merge({moduleSubtitle: feature.overrideSubtitle}) %}
+					{% endif %}
+
+				{% case 'externalContent' %}
+					{% set largeFeatureParams = {
+						moduleTitle: feature.contentTitle,
+						moduleSubtitle: feature.subtitle,
+						image: feature.heroImage.first,
+						module: {
+							url: feature.linkUrl,
+							linkUrl: feature.linkUrl,
+							resourceStreamSize: 'full',
+							type: {
+								handle: 'news',
+								name: null
+							},
+							section: {
+								handle: null
+							},
+							isArchived: false,
+							reportAuthor: null,
+							postDate: null,
+
+						},
+						isFeatured: true,
+						noTypeLabel: true
+					} %}
+				{% endswitch %}
+				{% include 'includes/stream/stream_module' with largeFeatureParams %}
+			{% endif %}
+
+			{% if entry.featuredContent | length %}
+				<div class="stream-module-outer col-outer two-thirds" data-view="grid">
+					<h4>Featured Work</h4>
+
+					<!-- related work -->
+					{% for module in entry.featuredContent %}
+						{% if loop.first %}
+							{% include 'includes/stream/stream_module' with {size: 'full'} %}
+						{% else %}
+							{% include 'includes/stream/stream_module' with {size: 'half'} %}
+						{% endif %}
+					{% endfor %}
+
+				</div>
+
+				<div class="one-third">
+					<h4>In the News</h4>
+
+					<!-- recent news -->
+					{% include 'includes/stream/news' with {newslimit: 6} %}
+				</div>
+			{% endif %}
+
+		</div>
+	</section>
+	{% endif %}
+
+	<!-- upcoming events -->
+	{% set events = craft.entries.section('eventPosts').limit(2).eventStartTime(">= "~"now"|date('c')).order('eventStartTime asc') %}
+	{% if events|length %}
+	<div class="grid-row">
+		<div class="container">
+			<h3 class="grid-row__heading">Upcoming Events</h3>
+
+			<a href="{{ siteUrl('events') }}" class="grid-row__see-more">See All</a>
+
+			<div class="grid-row__items">
+				{% for event in events %}
+					{% include 'includes/stream/stream_event' %}
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+	{% endif %}
+
+	<!-- about cta -->
+
+	{% include 'includes/snippets/banner_cta' with {banner: entry} %}
+
+{% endblock %}

@@ -1,0 +1,14 @@
+contentColumnType: string
+fieldGroup: 2c4b9ee4-cef7-43b1-8842-80358a91beb4
+handle: linkTile
+instructions: ''
+name: 'Link Tile'
+searchable: true
+settings:
+  contentTable: '{{%matrixcontent_linktile}}'
+  maxBlocks: '1'
+  minBlocks: ''
+  propagationMethod: all
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

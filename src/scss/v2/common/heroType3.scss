@@ -1,0 +1,85 @@
+.heroType3 {
+  background-color: var(--global-color-dark-violet);
+  transition: all 0.2s ease-in-out;
+  &-content{
+    position: relative;
+    min-height: 699px;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    @media(max-width:$mobile-breakpoint) {
+      min-height: 250px;
+    }
+    &-title{
+      max-width: 740px;
+      margin-left: 40px;
+
+      h1{
+        font-style: normal;
+        font-weight: bold;
+        font-size: 160px;
+        line-height: 115%;
+        font-family: var(--global-font-sectra);
+        position: relative;
+        z-index: 1;
+        color: white;
+        @media(max-width:$mobile-breakpoint){
+          font-size: 55px;
+          line-height: 107%;
+        }
+      }
+  
+    }
+
+    &-line1{
+      display: block;
+      position: absolute;
+      background-color: var(--global-color-light-violet);
+      color: white;
+      height: 2px;
+      width: 100%;
+      margin-top: -5rem;
+      @media(max-width:$mobile-breakpoint){
+        margin-top: -2rem;
+      }
+    }
+    &-line2{
+      display: block;
+      position: absolute;
+      color: white;
+      background-color: var(--global-color-light-violet);
+      height: 2px;
+      width: 100%;
+      margin-bottom: -31rem;
+      @media(max-width:$mobile-breakpoint){
+        margin-top: -12rem;
+      }
+    }
+    &-line3{
+      display: block;
+      position: absolute;
+      background-color: var(--global-color-light-violet);
+      height: 100%;
+      width: 2px;
+      top: 0;
+      right: 80px;
+      @media(max-width:$mobile-breakpoint){
+        display: none;
+      }
+    }
+    &-line4{
+      display: block;
+      position: absolute;
+      background-color: var(--global-color-light-violet);
+      height: 110px;
+      width: 2px;
+      top: 0;
+      right: 50%;
+      @media(max-width:$mobile-breakpoint){
+        height: 49px;
+      }
+    
+    }
+  }
+}

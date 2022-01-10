@@ -1,0 +1,82 @@
+{% if video is defined and video or playlistEmbed is defined and playlistEmbed %}
+{% set isVideoPage = entry.section.handle in ['video'] ?? null %}
+{% set playOnScroll = playOnScroll ?? false %}
+
+{% set hasCover = entry is defined and entry.section.handle in ['videos'] and entry.streamImageRectangle | length %}
+{% set videoCover = videoCover ?? (hasCover ? entry.streamImageRectangle[0].url : video.getThumbnail(1600)) %}
+{% set container = container ?? true %}
+
+{% set full = full ?? false %}
+
+{% if isVideoPage %}
+<section class="post-module module-video">
+{% endif %}
+	<div class="{% if container and not full %}container{% else %}no-container{% endif %}{% if not isVideoPage %} video-container{% endif %}{% if class is defined %} {{ class }}{% endif %}">
+		{% if video %}
+			{% set id = video.id ~ "__" ~ random() %}
+		    <div id="player__{{ id }}"
+			    class="video-player {{ video.gatewayHandle }} {%- if isVideoPage %} video-embed-outer{% endif %}"
+					data-videoid="{{ video.id }}"
+					data-play-on-scroll="{{ playOnScroll ? 'true' : 'false' }}"
+					data-analytics-event='["Video","Play"]'>
+	        <div id="iframe__{{ id }}"
+		        class="video-play-trigger iframe_target"{% if video.gatewayHandle == 'vimeo' %}
+			    	data-embed="{{ video.getEmbed() | escape }}"{% endif %}></div>
+				<div class="video-player-cover video-outer"
+					style="background-image: url('{{ videoCover }}');"></div>
+		    </div>
+
+	    {% elseif playlistEmbed %}
+
+	    	<div id="player{{ id }}" class="video-player{% if isVideoPage %} video-embed-outer{% endif %}">
+		    	{% if entry is defined and entry.streamImageRectangle | length %}
+			        {% set videoCover = entry.streamImageRectangle[0].url %}
+			    {% endif %}
+
+		        <div id="iframe{{ id }}" class="iframe_target" {%- if videoCover is defined %}
+			        data-embed="{{ playlistEmbed | escape }}"{% endif %}>
+			        {% if videocover is not defined %}{{ playlistEmbed | raw }}{% endif %}
+		        </div>
+
+		        {% if videoCover is defined %}
+			        <div class="video-player-cover youtube video-outer"
+				        style="background-image: url('{{ videoCover }}');"></div>
+
+			        {% set playlistJs %}
+
+				    	$(function() {
+					    	var $covers = $('.video-player-cover.youtube');
+
+							$covers.on("click", function() {
+								playYoutube(this);
+							});
+				    	})
+
+						function playYoutube(cover) {
+							$(cover).fadeOut();
+
+							$player = $(cover).parent();
+
+							var player = $player.find('.iframe_target');
+
+							$iframe = $(player.attr('data-embed'));
+
+							$iframe.attr("src", $iframe.attr("src")+'&autoplay=1');
+
+							player.html($iframe);
+					    }
+
+				    {% endset %}
+
+				    {% includeJs playlistJs %}
+
+		{% endif %}
+
+		    </div>
+
+	    {% endif %}
+	</div>
+{% if isVideoPage %}
+</section>
+{% endif %}
+{% endif %}
