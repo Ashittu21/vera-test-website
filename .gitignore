@@ -7,3 +7,4 @@ web/imager
 node_modules
 .env.production
 dbsync
+htdocs

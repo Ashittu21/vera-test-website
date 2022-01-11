@@ -29180,25 +29180,41 @@ body.nav-pad:not(.no-pad) {
             line-height: 21px;
             letter-spacing: 0.17em;
             text-align: left; }
-          .block-latestNews-content .latestNews-hero .latestNews-hero-container .latestNews-hero-copy-title a {
-            text-decoration: none;
-            color: var(--global-color-white); }
-            .block-latestNews-content .latestNews-hero .latestNews-hero-container .latestNews-hero-copy-title a:hover {
-              text-decoration: underline; }
-            .block-latestNews-content .latestNews-hero .latestNews-hero-container .latestNews-hero-copy-title a h4 {
-              margin: 0;
-              font-family: var(--global-font-sectra);
-              font-size: 32px;
+          .block-latestNews-content .latestNews-hero .latestNews-hero-container .latestNews-hero-copy-title {
+            font-family: var(--global-font-sectra); }
+            .block-latestNews-content .latestNews-hero .latestNews-hero-container .latestNews-hero-copy-title h4 {
+              font-size: 35px;
               font-style: normal;
               font-weight: 700;
-              line-height: 52px;
+              line-height: 42px;
               letter-spacing: 0em;
               text-align: left;
+              margin: 0;
+              font-family: var(--global-font-sectra);
               margin-bottom: 1.5rem; }
               @media (max-width: 1024px) {
-                .block-latestNews-content .latestNews-hero .latestNews-hero-container .latestNews-hero-copy-title a h4 {
+                .block-latestNews-content .latestNews-hero .latestNews-hero-container .latestNews-hero-copy-title h4 {
                   font-size: 35px;
                   line-height: 42px; } }
+            .block-latestNews-content .latestNews-hero .latestNews-hero-container .latestNews-hero-copy-title a {
+              text-decoration: none;
+              color: var(--global-color-white); }
+              .block-latestNews-content .latestNews-hero .latestNews-hero-container .latestNews-hero-copy-title a:hover {
+                text-decoration: underline; }
+              .block-latestNews-content .latestNews-hero .latestNews-hero-container .latestNews-hero-copy-title a h4 {
+                margin: 0;
+                font-family: var(--global-font-sectra);
+                font-size: 32px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 52px;
+                letter-spacing: 0em;
+                text-align: left;
+                margin-bottom: 1.5rem; }
+                @media (max-width: 1024px) {
+                  .block-latestNews-content .latestNews-hero .latestNews-hero-container .latestNews-hero-copy-title a h4 {
+                    font-size: 35px;
+                    line-height: 42px; } }
           .block-latestNews-content .latestNews-hero .latestNews-hero-container .latestNews-hero-copy-excerpt p {
             margin: 0;
             font-family: var(--global-font-abc-whyte);
@@ -31501,6 +31517,73 @@ header {
             font-family: var(--global-font-abc-whyte); }
             .footerV2 .footerV2-bottom-container .footer-bottom-menu ul li a:hover {
               color: #FFF; }
+
+.page404 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: var(--global-color-dark-violet);
+  color: #FFF;
+  padding-top: 103px;
+  padding-bottom: 331px;
+  width: 100%; }
+  .page404_container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    max-width: 615px;
+    width: 100%;
+    color: #FFF; }
+    .page404_container h1, .page404_container .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading, .article .heading-wrap.heading-style--default .heading-wrap-text .page404_container h3.heading, .page404_container .timed-slideshow-item--text {
+      font-family: var(--global-font-sectra);
+      font-size: 60px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 69px;
+      color: #FFF;
+      letter-spacing: 0em;
+      text-align: center;
+      margin-bottom: 70px; }
+    .page404_container_copy {
+      font-family: var(--global-font-abc-whyte);
+      color: #FFF;
+      font-size: 19px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 27px;
+      letter-spacing: 0em;
+      text-align: left; }
+      .page404_container_copy strong {
+        display: block; }
+    .page404_container_links {
+      margin-top: 66px;
+      font-family: var(--global-font-abc-whyte);
+      font-size: 17px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 24px;
+      letter-spacing: 0em;
+      text-align: left; }
+      .page404_container_links p {
+        margin-bottom: 2rem; }
+      .page404_container_links ul {
+        columns: 2;
+        -webkit-columns: 2;
+        -moz-columns: 2;
+        padding-left: 0;
+        margin: 0; }
+        .page404_container_links ul li {
+          max-width: 270px;
+          list-style: none;
+          margin: 0;
+          margin-bottom: 1rem; }
 
 .home-content {
   background-color: var(--global-color-sand);
