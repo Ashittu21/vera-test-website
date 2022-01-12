@@ -1,0 +1,20 @@
+<!-- Listing Blocks -->
+  <section class="block-listing">
+    <h5 class="block-listing-title">{{ block.listing_title }}</h5>
+    <div class="block-listing-content">
+        {% if block.listing_articles|length %}
+          {% for statsItem in block.listing_articles %}
+            <div class="block-listing-item">
+              <div class="block-listing-item-tag">
+                {{ statsItem.type.name | title | upper }}
+              </div>
+              <div class="block-listing-item-title">
+                <a href="{{ statsItem.url }}">{{ statsItem.title }}</a>
+              </div>
+              <div class="block-listing-item-date">{{ statsItem.postDate | date("M d, Y") }}</div>
+            </div>
+          {% endfor %}
+        {% endif %}
+    </div>
+  </section>
+<!-- Listing Blocks -->

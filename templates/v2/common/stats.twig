@@ -1,0 +1,21 @@
+<!-- Stats Block -->
+<section class="stats-block">
+  <div class="stats-block-title">
+    <p>{{ block.stats_title  }}</p>
+  </div>
+  <div class="stats-block-items">
+    {% if block.stats_items|length %}
+      {% for row in block.stats_items %}
+      <div class="stats-block-item">
+        <div class="stats-block-item-number">
+          {{ row.stats_item_number }}
+        </div>
+        <div class="stats-block-item-copy">
+          {{ row.stats_item_text }}
+        </div>
+      </div>
+      {% endfor %}
+    {% endif %}
+  </div>
+</section>
+<!-- Stats Block -->

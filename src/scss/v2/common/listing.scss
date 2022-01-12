@@ -1,0 +1,133 @@
+.block-listing {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding-bottom: 2rem;
+
+  @media (max-width: $desktop-ml) {
+    padding: 0 2rem;
+  }
+}
+
+.block-listing-title {
+  font-family: var(--global-font-sectra);
+  color: var(--global-color-text);
+  font-size: 35px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 42px;
+  letter-spacing: 0em;
+  text-align: left;
+  margin-top: 4rem;
+  margin-bottom: 3rem;
+
+  @media(max-width: $tablet-landscape) {
+    margin: 2rem 0.5rem;
+  }
+}
+
+
+.block-listing-content {
+  margin: 2rem 0;
+  column-gap: 12px;
+  row-gap: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  @media(max-width: $tablet-landscape) {
+    margin: 2rem 0.5rem;
+  }
+
+  &:after {
+    content: '';
+    flex: auto;
+    flex: 0 32%;
+  }
+
+  .block-listing-item {
+    min-height: 220px;
+    flex: 0 32%;
+    border: 2px solid var(--global-color-darker-sand);
+    margin-top: -2px;
+    border-left: 0;
+    border-right: 0;
+    text-align: left;
+    padding: 2rem 20px 2rem 20px;
+    justify-content: flex-start;
+    display: flex;
+    flex-direction: column;
+    color: var(--global-color-text);
+    transition: all 0.2s ease-in-out;
+
+    @media(max-width: $tablet-landscape) {
+      flex: 0 49%;
+    }
+
+    @media (max-width: $tablet-portrait) {
+      flex: 0 99%;
+    }
+
+    &-tag {
+      font-family: var(--global-font-abc-whyte);
+      color: var(--global-color-red-2);
+      font-size: 11px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 21px;
+      letter-spacing: 0.17em;
+      text-align: left;
+
+    }
+
+    &-title {
+      margin-top: 17px;
+
+      a {
+        font-family: var(--global-font-abc-whyte);
+        color: var(--global-color-text);
+        font-size: 19px;
+        line-height: 21px;
+        font-style: normal;
+        font-weight: 400;
+        text-decoration: none;
+
+        &:hover {
+          color: var(--global-color-white);
+          text-decoration: underline;
+        }
+      }
+
+    }
+
+    &-date {
+      margin-top: 10px;
+      font-family: var(--global-font-abc-whyte);
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 23px;
+      letter-spacing: 0em;
+      text-align: left;
+      margin-top: auto;
+    }
+
+    &:hover {
+      color: var(--global-color-white);
+      background-color: var(--global-color-red-2);
+      border: 2px solid var(--global-color-red-2);
+      margin-top: -2px;
+      border-left: 0;
+      border-right: 0;
+      z-index: 1;
+
+      .block-listing-item-title a {
+        color: var(--global-color-white);
+      }
+
+      .block-listing-item-tag {
+        color: var(--global-color-white);
+      }
+    }
+  }
+}

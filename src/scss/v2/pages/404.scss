@@ -13,6 +13,11 @@
     max-width: 615px;
     width: 100%;
     color: #FFF;
+    
+    @media(max-width:$mobile-breakpoint) {
+      padding: 0 4rem;
+    }
+
 
     h1{
       font-family: var(--global-font-sectra);

@@ -1,0 +1,36 @@
+.quote-block {
+  border-top: 2px solid var(--global-color-dark-sand);
+  border-bottom: 2px solid var(--global-color-dark-sand);
+  min-width: 1032px;
+  max-width: 1060px;
+  margin: 2rem 0;
+  margin: 0 auto;
+
+  @media (max-width: $tablet-landscape) {
+    min-width: 90%;
+    max-width: 90%;
+  }
+
+  .quote-block-text {
+    padding: 1.5rem 5rem 2rem 5rem;
+    font-family: var(--global-font-abc-whyte);
+    color: var(--global-color-light-violet);
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 69px;
+    letter-spacing: 0em;
+    text-align: center;
+    display: block;
+
+    @media (max-width: $tablet-portrait) {
+      font-size: 45px;
+      line-height: 49.5px;
+      padding: 2.5rem 3rem 2.5rem 3rem;
+
+      br {
+        display: none;
+      }
+    }
+  }
+}

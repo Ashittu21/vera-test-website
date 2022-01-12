@@ -1,0 +1,92 @@
+.stats-block {
+  background-color: var(--global-color-sand);
+  border-top: 2px solid var(--global-color-dark-sand);
+  border-bottom: 2px solid var(--global-color-dark-sand);
+  max-width: 1032px;
+  margin: 0 auto;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+
+  @media (max-width: $tablet-portrait) {
+    border-bottom: 2px solid transparent;
+    border-top: 2px solid transparent;
+  }
+
+  .stats-block-title {
+    p {
+      font-family: var(--global-font-abc-whyte);
+      font-size: 11px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 21px;
+      letter-spacing: 0.17em;
+      text-align: center;
+      text-transform: uppercase;
+      color: var(--global-color-text);
+      margin: 30px 0;
+    }
+  }
+
+  .stats-block-items {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 40px;
+
+    @media (max-width: $tablet-portrait) {
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 0;
+    }
+
+    .stats-block-item {
+
+      border-right: 2px solid var(--global-color-dark-sand);
+
+      @media (max-width: $tablet-portrait) {
+        flex-direction: column;
+        border-right: 0;
+        border-bottom: 2px solid var(--global-color-dark-sand);
+        max-width: 80%;
+        padding: 1rem 0;
+      }
+
+      &:last-child {
+        border-right: 2px solid transparent;
+
+        @media (max-width: $tablet-portrait) {
+          border-bottom: 2px solid transparent;
+        }
+      }
+
+      .stats-block-item-number {
+        font-family: var(--global-font-abc-whyte);
+        color: var(--global-color-light-violet);
+        font-size: 60px;
+        font-style: normal;
+        font-weight: 900;
+        line-height: 69px;
+        letter-spacing: 0em;
+        text-align: center;
+
+        @media (max-width: $tablet-portrait) {
+          font-size: 45px;
+          line-height: 49.5px;
+          margin-bottom: 0.5rem;
+        }
+      }
+
+      .stats-block-item-copy {
+        font-family: var(--global-font-abc-whyte);
+        font-size: 17px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 22px;
+        letter-spacing: 0em;
+        text-align: center;
+        color: var(--global-color-text);
+        padding: 0 35px 30px 35px;
+      }
+    }
+  }
+
+}

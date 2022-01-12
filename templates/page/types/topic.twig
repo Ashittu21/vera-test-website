@@ -2,36 +2,35 @@
 
 {% block content %}
 
-  <!-- Hero Block -->
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-12 px-0">
-        <div class="topic-block-hero-container"
-          style="background-image: url('{{ entry.topicPage_heroImage.first.url }}');">
-          <div class="topic-block-box">
-            <div class="topic-block-box-content">
-              <div class="topic-block-breadcrumbs">
-                <a href="">home</a> // <a href="">ending   mASS ENCARCERATION</a>
-              </div>
-              <div class="topic-block-title">
-                <h1>{{ entry.topicPage_title }}</h1>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+{% set blocks =  entry.topicPageBlocks %}
 
   <!-- END Hero Block -->
-	 <main class="topic-page-wrap">
-		{% include 'includes/snippets/topic' with 
-			{ 
-				article: entry.topicPageArticle,  
-				theme: entry.chapterTheme ? entry.chapterTheme.value : null, 
-				title: entry.title 
-				} 
-		%}
+ <main class="topic-page-wrap">
+	{% for block in blocks %}
+		{% if block.type == 'copy' %}
+    	{% include 'v2/common/copy' with { block: block }  %}
+		{% elseif block.type == 'quote' %}
+    	{% include 'v2/common/quote' with { block: block } %}
+		{% elseif block.type == 'stats' %}
+    	{% include 'v2/common/stats' with { block: block } %}
+		{% elseif block.type == 'listing' %}
+    	{% include 'v2/common/listing' with { block: block } %}
+		{#{% elseif block.type == 'ctaBanner' %}
+    	{% include 'includes/topic-blocks/ctaBanner'  with { ctaBannerBlock: block } %}
+		{% elseif block.type == 'ctaBannerFull' %}
+    	{% include 'includes/topic-blocks/ctaBannerFull' with { ctaBannerFullBlock: block } %}							
+		{% elseif block.type == 'exploreMore' %}
+    	{% include 'includes/topic-blocks/exploreMore' with { exploreBlock: block } %}					
+		{% elseif block.type == 'latestNewsHero' %}
+    	{% include 'includes/topic-blocks/latestNewsHero' with { latestNewsHeroBlock: block } %}			
+		{% elseif block.type == 'latestNewsItems' %}
+    	{% include 'includes/topic-blocks/latestNewsItems' with { latestNewsItemsBlock: block } %}		      
+
+		{% elseif block.type == 'signUp' %}
+    	{% include 'includes/topic-blocks/signUp' %}
+			#}
+		{% endif %}
+	{% endfor %}
 	</main>
 
 {% endblock %}
