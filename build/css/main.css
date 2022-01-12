@@ -29614,11 +29614,19 @@ body.nav-pad:not(.no-pad) {
               -ms-flex-direction: column;
                   flex-direction: column; } }
       .block-latestNews-content .latestNews-items .latestNews-item {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
         background-color: var(--global-color-medium-violet);
         color: var(--global-color-white);
         width: 400px;
         min-height: 550px;
-        row-gap: 10px;
+        /*row-gap: 10px;*/
+        row-gap: 0px;
         -webkit-transition: all 0.2s ease-in-out;
         transition: all 0.2s ease-in-out; }
         .block-latestNews-content .latestNews-items .latestNews-item:hover {
@@ -29645,7 +29653,24 @@ body.nav-pad:not(.no-pad) {
           background-position: center center;
           background-repeat: no-repeat; }
         .block-latestNews-content .latestNews-items .latestNews-item-copy {
-          margin: 30px 30px 30px 30px; }
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-orient: vertical;
+          -webkit-box-direction: normal;
+              -ms-flex-direction: column;
+                  flex-direction: column;
+          -webkit-box-align: start;
+              -ms-flex-align: start;
+                  align-items: flex-start;
+          -webkit-box-pack: justify;
+              -ms-flex-pack: justify;
+                  justify-content: space-between;
+          -webkit-box-flex: 1;
+              -ms-flex: 1;
+                  flex: 1;
+          margin: 20px 30px;
+          /*margin: 30px 30px 30px 30px;*/ }
           .block-latestNews-content .latestNews-items .latestNews-item-copy-title {
             font-family: var(--global-font-abc-whyte);
             font-size: 26px;
@@ -29660,6 +29685,15 @@ body.nav-pad:not(.no-pad) {
               color: var(--global-color-white); }
               .block-latestNews-content .latestNews-items .latestNews-item-copy-title a:hover {
                 text-decoration: underline; }
+              .block-latestNews-content .latestNews-items .latestNews-item-copy-title a > h5 {
+                font-family: var(--global-font-abc-whyte);
+                font-size: 26px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: 33px;
+                letter-spacing: 0em;
+                text-align: left;
+                text-decoration: none; }
           .block-latestNews-content .latestNews-items .latestNews-item-copy-date time {
             font-family: var(--global-font-abc-whyte);
             font-size: 14px;

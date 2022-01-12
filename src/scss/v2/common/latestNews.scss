@@ -218,11 +218,18 @@
 
 
       .latestNews-item {
+
+     
+        display: flex;
+        flex-direction: column;
+
+
         background-color: var(--global-color-medium-violet);
         color: var(--global-color-white);
         width: 400px;
         min-height: 550px;
-        row-gap: 10px;
+        /*row-gap: 10px;*/
+        row-gap: 0px;
         transition: all 0.2s ease-in-out;
 
         &:hover {
@@ -263,7 +270,15 @@
         }
 
         &-copy {
-          margin: 30px 30px 30px 30px;
+
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: space-between;
+          flex: 1;
+
+          margin: 20px 30px;
+          /*margin: 30px 30px 30px 30px;*/
 
           &-title {
             font-family: var(--global-font-abc-whyte);
@@ -281,6 +296,16 @@
 
               &:hover {
                 text-decoration: underline;
+              }
+              > h5{
+                font-family: var(--global-font-abc-whyte);
+                font-size: 26px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: 33px;
+                letter-spacing: 0em;
+                text-align: left;
+                text-decoration: none;
               }
             }
           }
