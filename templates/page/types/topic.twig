@@ -18,11 +18,13 @@
 		{% elseif block.type == 'exploreMore' %}
     	{% include 'v2/common/exploreMore' with { block: block } %}	
 		{% elseif block.type == 'signUp' %}
-    	{% include 'v2/common/signUp' %}
+    	{% include 'v2/common/signUp' with { block: block } %}
 		{% elseif block.type == 'newsHero' %}
     	{% include 'v2/common/newsHero' with { block: block } %}			
 		{% elseif block.type == 'newsItems' %}
-    	{% include 'v2/common/newsItems' with { block: block } %}		  
+    	{% include 'v2/common/newsItems' with { block: block } %}
+		{% elseif block.type == 'heroType1' %}
+    	{% include 'v2/common/heroType1' with { block: block } %}		   
 
 		{#{% elseif block.type == 'ctaBanner' %}
     	{% include 'includes/topic-blocks/ctaBanner'  with { ctaBannerBlock: block } %}

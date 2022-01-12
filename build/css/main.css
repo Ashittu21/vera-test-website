@@ -29268,6 +29268,104 @@ body.nav-pad:not(.no-pad) {
         font-size: 35px;
         line-height: 35px; }
 
+.heroType1-container {
+  background-color: var(--global-color-violet);
+  height: 519px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-origin: border-box;
+  background-position: calc(402px - 100%) center; }
+  @media (max-width: 1280px) {
+    .heroType1-container {
+      background-size: cover;
+      background-position: calc(402px - 100%) center; } }
+  @media (max-width: 1024px) {
+    .heroType1-container {
+      background-position-x: 350px;
+      background-position-y: center; } }
+  @media (max-width: 768px) {
+    .heroType1-container {
+      background-size: contain;
+      padding: 15px;
+      background-position-x: center;
+      background-position-y: bottom;
+      -webkit-box-pack: start;
+          -ms-flex-pack: start;
+              justify-content: flex-start;
+      height: 600px; } }
+  @media (max-width: 700px) {
+    .heroType1-container {
+      padding: 15px;
+      background-position-x: center;
+      background-position-y: bottom;
+      height: 500px; } }
+  .heroType1-container .heroType1-block-box {
+    background-color: var(--global-color-dark-violet);
+    color: #FFF;
+    width: 590px;
+    height: 377px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center; }
+    .heroType1-container .heroType1-block-box-content {
+      margin-left: 80px; }
+      @media (max-width: 768px) {
+        .heroType1-container .heroType1-block-box-content {
+          margin-top: 0;
+          margin: 1rem 3rem; } }
+      .heroType1-container .heroType1-block-box-content .heroType1-block-breadcrumbs {
+        letter-spacing: 0.17em;
+        text-transform: uppercase;
+        font-family: var(--global-font-abc-whyte);
+        font-style: normal;
+        font-weight: normal;
+        text-transform: uppercase;
+        font-size: 11px;
+        line-height: 186.5%; }
+        .heroType1-container .heroType1-block-box-content .heroType1-block-breadcrumbs a {
+          color: var(--global-color-mint);
+          text-decoration: none; }
+        @media (max-width: 768px) {
+          .heroType1-container .heroType1-block-box-content .heroType1-block-breadcrumbs {
+            display: none; } }
+      .heroType1-container .heroType1-block-box-content .heroType1-block-title {
+        margin-top: 24px; }
+        .heroType1-container .heroType1-block-box-content .heroType1-block-title h1, .heroType1-container .heroType1-block-box-content .heroType1-block-title .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading, .article .heading-wrap.heading-style--default .heading-wrap-text .heroType1-container .heroType1-block-box-content .heroType1-block-title h3.heading, .heroType1-container .heroType1-block-box-content .heroType1-block-title .timed-slideshow-item--text {
+          margin: 0;
+          font-family: var(--global-font-sectra);
+          font-weight: bold;
+          font-size: 60px;
+          line-height: 115%; }
+          @media (max-width: 768px) {
+            .heroType1-container .heroType1-block-box-content .heroType1-block-title h1, .heroType1-container .heroType1-block-box-content .heroType1-block-title .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading, .article .heading-wrap.heading-style--default .heading-wrap-text .heroType1-container .heroType1-block-box-content .heroType1-block-title h3.heading, .heroType1-container .heroType1-block-box-content .heroType1-block-title .timed-slideshow-item--text {
+              font-size: 38px; } }
+    @media (max-width: 768px) {
+      .heroType1-container .heroType1-block-box {
+        width: auto; } }
+
 .heroType2 {
   background-color: var(--global-color-sand);
   -webkit-transition: all 0.2s ease-in-out;

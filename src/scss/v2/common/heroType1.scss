@@ -1,0 +1,106 @@
+.heroType1-container {
+  background-color: var(--global-color-violet);
+  height: 519px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-origin: border-box;
+  background-position: calc(402px - 100%) center;
+
+
+  @media (max-width: $desktop-ml) {
+    background-size: cover;
+    background-position: calc(402px - 100%) center;
+  }
+
+  @media (max-width: $tablet-landscape) {
+    background-position-x: 350px;
+    background-position-y: center;
+  }
+
+  @media (max-width: $tablet-portrait) {
+    background-size: contain;
+    padding: 15px;
+    background-position-x: center;
+    background-position-y: bottom;
+    justify-content: flex-start;
+    height: 600px;
+  }
+
+  @media(max-width: $mobile-large) {
+    padding: 15px;
+    background-position-x: center;
+    background-position-y: bottom;
+    height: 500px;
+  }
+
+
+
+  .heroType1-block-box {
+    background-color: var(--global-color-dark-violet);
+    color: #FFF;
+    width: 590px;
+    height: 377px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+
+    &-content {
+      margin-left: 80px;
+
+      @media (max-width: $tablet-portrait) {
+        margin-top: 0;
+        margin: 1rem 3rem;
+      }
+
+      .heroType1-block-breadcrumbs {
+        letter-spacing: 0.17em;
+        text-transform: uppercase;
+        font-family: var(--global-font-abc-whyte);
+        font-style: normal;
+        font-weight: normal;
+        text-transform: uppercase;
+        font-size: 11px;
+        line-height: 186.5%;
+
+        a {
+          color: var(--global-color-mint);
+          text-decoration: none;
+        }
+
+        @media (max-width: $tablet-portrait) {
+          display: none;
+        }
+      }
+
+      .heroType1-block-title {
+        margin-top: 24px;
+
+        h1 {
+          margin: 0;
+          font-family: var(--global-font-sectra);
+          font-weight: bold;
+          font-size: 60px;
+          line-height: 115%;
+
+          @media (max-width: $tablet-portrait) {
+            font-size: 38px;
+          }
+        }
+
+
+      }
+    }
+
+
+    @media (max-width: $tablet-portrait) {
+      width: auto;
+
+    }
+
+  }
+}
