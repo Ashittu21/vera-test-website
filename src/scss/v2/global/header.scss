@@ -177,7 +177,7 @@ header {
 
       .clicky-menu ul li {
         padding: 10px 20px;
-        transition: all 0.2s ease;
+      /*  transition: all 0.2s ease;*/
 
         &:hover {
           background-color: #3E2BB1;
@@ -311,7 +311,7 @@ header {
         font-weight: bold;
         background: transparent;
         height: 67px;
-        transition: background-color 0.2s ease;
+       /* transition: background-color 0.2s ease;*/
       }
 
       .clicky-menu a:hover,
@@ -363,7 +363,7 @@ header {
         padding: 0;
         list-style: none;
         background-color: #2E1D97;
-        transition: background-color 0.2s ease;
+     /*   transition: background-color 0.2s ease;*/
         //  width: 413px;
       }
 
@@ -391,7 +391,7 @@ header {
 
       .clicky-menu ul li {
         padding: 13px 10px 13px 40px;
-        transition: background-color 0.2s ease;
+     /*   transition: background-color 0.2s ease;*/
 
         &:hover {
           background-color: #3E2BB1;

@@ -30674,8 +30674,7 @@ header {
           width: auto; } }
       .header-v2 .rowTop #header-v2-top-nav .clicky-menu ul li {
         padding: 10px 20px;
-        -webkit-transition: all 0.2s ease;
-        transition: all 0.2s ease; }
+        /*  transition: all 0.2s ease;*/ }
         .header-v2 .rowTop #header-v2-top-nav .clicky-menu ul li:hover {
           background-color: #3E2BB1;
           text-decoration: underline; }
@@ -30812,8 +30811,7 @@ header {
         font-weight: bold;
         background: transparent;
         height: 67px;
-        -webkit-transition: background-color 0.2s ease;
-        transition: background-color 0.2s ease; }
+        /* transition: background-color 0.2s ease;*/ }
       .header-v2 .rowBottom #header-v2-bottom-nav .clicky-menu a:hover,
       .header-v2 .rowBottom #header-v2-bottom-nav .clicky-menu button:hover {
         background-color: #2E1D97; }
@@ -30862,8 +30860,7 @@ header {
         padding: 0;
         list-style: none;
         background-color: #2E1D97;
-        -webkit-transition: background-color 0.2s ease;
-        transition: background-color 0.2s ease; }
+        /*   transition: background-color 0.2s ease;*/ }
       .header-v2 .rowBottom #header-v2-bottom-nav .clicky-menu ul[aria-hidden="false"] {
         position: static;
         width: 100%;
@@ -30877,8 +30874,7 @@ header {
           z-index: 5; } }
       .header-v2 .rowBottom #header-v2-bottom-nav .clicky-menu ul li {
         padding: 13px 10px 13px 40px;
-        -webkit-transition: background-color 0.2s ease;
-        transition: background-color 0.2s ease; }
+        /*   transition: background-color 0.2s ease;*/ }
         .header-v2 .rowBottom #header-v2-bottom-nav .clicky-menu ul li:hover {
           background-color: #3E2BB1; }
           .header-v2 .rowBottom #header-v2-bottom-nav .clicky-menu ul li:hover .hover-arrow {
