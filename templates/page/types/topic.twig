@@ -19,15 +19,15 @@
     	{% include 'v2/common/exploreMore' with { block: block } %}	
 		{% elseif block.type == 'signUp' %}
     	{% include 'v2/common/signUp' %}
+		{% elseif block.type == 'newsHero' %}
+    	{% include 'v2/common/newsHero' with { block: block } %}			
+		{% elseif block.type == 'newsItems' %}
+    	{% include 'v2/common/newsItems' with { block: block } %}		  
+
 		{#{% elseif block.type == 'ctaBanner' %}
     	{% include 'includes/topic-blocks/ctaBanner'  with { ctaBannerBlock: block } %}
 		{% elseif block.type == 'ctaBannerFull' %}
-    	{% include 'includes/topic-blocks/ctaBannerFull' with { ctaBannerFullBlock: block } %}								
-		{% elseif block.type == 'latestNewsHero' %}
-    	{% include 'includes/topic-blocks/latestNewsHero' with { latestNewsHeroBlock: block } %}			
-		{% elseif block.type == 'latestNewsItems' %}
-    	{% include 'includes/topic-blocks/latestNewsItems' with { latestNewsItemsBlock: block } %}		     
-
+    	{% include 'includes/topic-blocks/ctaBannerFull' with { ctaBannerFullBlock: block } %}								   
 		#}
 		{% endif %}
 	{% endfor %}

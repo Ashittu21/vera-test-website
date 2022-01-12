@@ -1,0 +1,43 @@
+<!-- Latest News -->
+  <section class="headTitle bgColor-darkviolet">
+    <div class="headTitle-content headTitle-content--small">
+      <div class="headTitle-title">
+        <h3 class="separator left-aligned"><span>{{ block.newsHero_title }}</span></h3>
+      </div>
+    </div>
+  </section>
+  <section class="block-latestNews">
+    	<div class="block-latestNews-content">
+				{% if block.newsHero_article|length %}
+				  {% set heroNews = block.newsHero_article.one() %}
+					<div class="latestNews-hero">
+						<div class="latestNews-hero-container">
+							<div class="latestNews-hero-copy">
+								<div>
+									<div class="latestNews-hero-copy-category">
+										<p>{{  heroNews.type.name | title | upper }}</p>
+									</div>
+									<div class="latestNews-hero-copy-title">
+										<a href="{{ heroNews.url }}"><h4>{{ heroNews.title }}</h4></a>
+									</div>
+
+									{% if block.newsHero_subtitle %}
+										<div class="latestNews-hero-copy-excerpt">
+											<p>{{ block.newsHero_subtitle }}</p>
+										</div>
+									{% endif %}
+									
+									<div class="latestNews-hero-copy-date">
+										<p>{{ heroNews.postDate | date("M d, Y") }}</p>
+									</div>
+								</div>
+							</div>
+							<div class="latestNews-hero-image">
+								<img src="{{ block.newsHero_image.first.url }}" alt="">
+							</div>
+						</div>
+					</div>
+				{% endif %} 
+    	</div>
+  </section>
+<!-- Latest News -->
