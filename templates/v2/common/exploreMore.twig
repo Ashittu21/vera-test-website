@@ -1,0 +1,14 @@
+<!-- Explore More -->
+<section class="block-exploreMore">
+  <div class="block-exploreMore-container">
+    <h5 class="block-exploreMore-title">{{ block.exploreMore_title }}</h5>
+      {% if block.exploreMore_articles|length %}
+        <ul class="block-exploreMore-items">
+          {% for exploreItem in block.exploreMore_articles %}
+            <li><a href="{{ exploreItem.url }}" class="arrow">{{ exploreItem.title }}</a></li>
+          {% endfor %}
+        </ul>
+      {% endif %}  
+  </div>
+</section>
+<!-- Explore More -->

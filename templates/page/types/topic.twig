@@ -15,20 +15,20 @@
     	{% include 'v2/common/stats' with { block: block } %}
 		{% elseif block.type == 'listing' %}
     	{% include 'v2/common/listing' with { block: block } %}
+		{% elseif block.type == 'exploreMore' %}
+    	{% include 'v2/common/exploreMore' with { block: block } %}	
+		{% elseif block.type == 'signUp' %}
+    	{% include 'v2/common/signUp' %}
 		{#{% elseif block.type == 'ctaBanner' %}
     	{% include 'includes/topic-blocks/ctaBanner'  with { ctaBannerBlock: block } %}
 		{% elseif block.type == 'ctaBannerFull' %}
-    	{% include 'includes/topic-blocks/ctaBannerFull' with { ctaBannerFullBlock: block } %}							
-		{% elseif block.type == 'exploreMore' %}
-    	{% include 'includes/topic-blocks/exploreMore' with { exploreBlock: block } %}					
+    	{% include 'includes/topic-blocks/ctaBannerFull' with { ctaBannerFullBlock: block } %}								
 		{% elseif block.type == 'latestNewsHero' %}
     	{% include 'includes/topic-blocks/latestNewsHero' with { latestNewsHeroBlock: block } %}			
 		{% elseif block.type == 'latestNewsItems' %}
-    	{% include 'includes/topic-blocks/latestNewsItems' with { latestNewsItemsBlock: block } %}		      
+    	{% include 'includes/topic-blocks/latestNewsItems' with { latestNewsItemsBlock: block } %}		     
 
-		{% elseif block.type == 'signUp' %}
-    	{% include 'includes/topic-blocks/signUp' %}
-			#}
+		#}
 		{% endif %}
 	{% endfor %}
 	</main>

@@ -18,8 +18,12 @@
     font-style: normal;
     font-weight: normal;
     font-size: 17px;
-    line-height: 130%;
+    line-height: 139%;
     margin: 0 auto;
+
+    p {
+      margin-bottom: 2rem;
+    }
 
     p::selection {
       background: #EF4136 !important;
@@ -123,7 +127,7 @@
       text-decoration: underline;
       text-decoration-color: var(--global-color-red);
       &:hover{
-        background-color: #EF4136;
+        background-color: #DA392F;
         color: #FFF;
         text-decoration: none;
       }
@@ -229,7 +233,6 @@
           margin-right: 0.8rem;
           line-height: 0;
 
-
           @media(max-width:$mobile-breakpoint) {
             font-size: 17px;
             font-style: normal;
@@ -237,10 +240,7 @@
             line-height: 24px;
             letter-spacing: 0em;
             text-align: left;
-            
           }
-  
-
         }
       }
     }
