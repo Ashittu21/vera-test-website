@@ -1,0 +1,105 @@
+.topic-blocks-ctaBannerFw {
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 2rem 0;
+  background-color: var(--global-color-medium-violet);
+  position: relative;
+
+  &::after{
+    background-color: var(--global-color-light-violet);
+    content: "";
+    height: 110%;
+    position: absolute;
+    width: 2px;
+    box-sizing: border-box;
+    right: 30px;
+    @media (max-width: $tablet-portrait) {
+      height: 2px;
+      width: 100%;
+      right: 0;
+      top: 1.5rem;
+    }
+  }
+
+  &::before{
+    background-color: var(--global-color-light-violet);
+    content: "";
+    height: 110%;
+    position: absolute;
+    width: 2px;
+    box-sizing: border-box;
+    left: 30px;
+    @media (max-width: $tablet-portrait) {
+      height: 2px;
+      width: 100%;
+      left: 0;
+      bottom: 1.5rem;
+    }
+  }
+  
+  
+
+  .topic-blocks-ctaBannerFw-content {
+
+    padding: 0 50px 0 88px;
+    padding: 50px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #FFF;
+    align-items: center;
+    max-width: 1066px;
+    position: relative;
+    @media (max-width: $tablet-portrait) {
+      padding: 3.5rem 0;
+    }
+    
+
+    .topic-blocks-ctaBannerFw-title {
+      font-family: var(--global-font-abc-whyte);
+      font-size: 60px;
+      font-style: normal;
+      font-weight: 900;
+      line-height: 69px;
+      letter-spacing: 0em;
+      text-align: center;
+      color: #FFF;
+      @media (max-width: $tablet-portrait) {
+        font-size: 45px;
+        line-height: 49.5px;
+        br{
+          display: none;
+        }
+      }
+    }
+
+    .topic-blocks-ctaBannerFw-text {
+      font-family: var(--global-font-abc-whyte);
+      font-size: 21px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 29px;
+      letter-spacing: 0em;
+      text-align: left;
+      padding-top: 1.5rem;
+      padding-bottom: 1rem;
+      color: #FFF;
+      @media (max-width: $tablet-portrait) {
+        br{
+          display: none;
+        }
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+    }
+
+  }
+
+
+}
+
+

@@ -24,12 +24,13 @@
 		{% elseif block.type == 'newsItems' %}
     	{% include 'v2/common/newsItems' with { block: block } %}
 		{% elseif block.type == 'heroType1' %}
-    	{% include 'v2/common/heroType1' with { block: block } %}		   
+    	{% include 'v2/common/heroType1' with { block: block } %}		
+		{% elseif block.type == 'bannerType3' %}
+			{% include 'v2/common/bannerType3' with { block: block } %}	   
 
-		{#{% elseif block.type == 'ctaBanner' %}
-    	{% include 'includes/topic-blocks/ctaBanner'  with { ctaBannerBlock: block } %}
-		{% elseif block.type == 'ctaBannerFull' %}
-    	{% include 'includes/topic-blocks/ctaBannerFull' with { ctaBannerFullBlock: block } %}								   
+		{#
+		{% elseif block.type == 'ctaBanner' %}
+    	{% include 'includes/topic-blocks/ctaBanner'  with { ctaBannerBlock: block } %}	   
 		#}
 		{% endif %}
 	{% endfor %}

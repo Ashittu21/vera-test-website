@@ -28870,6 +28870,109 @@ body.nav-pad:not(.no-pad) {
   min-height: 330px; }
 
 /* Common Blocks */
+.topic-blocks-ctaBannerFw {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  margin: 2rem 0;
+  background-color: var(--global-color-medium-violet);
+  position: relative; }
+  .topic-blocks-ctaBannerFw::after {
+    background-color: var(--global-color-light-violet);
+    content: "";
+    height: 110%;
+    position: absolute;
+    width: 2px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    right: 30px; }
+    @media (max-width: 768px) {
+      .topic-blocks-ctaBannerFw::after {
+        height: 2px;
+        width: 100%;
+        right: 0;
+        top: 1.5rem; } }
+  .topic-blocks-ctaBannerFw::before {
+    background-color: var(--global-color-light-violet);
+    content: "";
+    height: 110%;
+    position: absolute;
+    width: 2px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    left: 30px; }
+    @media (max-width: 768px) {
+      .topic-blocks-ctaBannerFw::before {
+        height: 2px;
+        width: 100%;
+        left: 0;
+        bottom: 1.5rem; } }
+  .topic-blocks-ctaBannerFw .topic-blocks-ctaBannerFw-content {
+    padding: 0 50px 0 88px;
+    padding: 50px 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    color: #FFF;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    max-width: 1066px;
+    position: relative; }
+    @media (max-width: 768px) {
+      .topic-blocks-ctaBannerFw .topic-blocks-ctaBannerFw-content {
+        padding: 3.5rem 0; } }
+    .topic-blocks-ctaBannerFw .topic-blocks-ctaBannerFw-content .topic-blocks-ctaBannerFw-title {
+      font-family: var(--global-font-abc-whyte);
+      font-size: 60px;
+      font-style: normal;
+      font-weight: 900;
+      line-height: 69px;
+      letter-spacing: 0em;
+      text-align: center;
+      color: #FFF; }
+      @media (max-width: 768px) {
+        .topic-blocks-ctaBannerFw .topic-blocks-ctaBannerFw-content .topic-blocks-ctaBannerFw-title {
+          font-size: 45px;
+          line-height: 49.5px; }
+          .topic-blocks-ctaBannerFw .topic-blocks-ctaBannerFw-content .topic-blocks-ctaBannerFw-title br {
+            display: none; } }
+    .topic-blocks-ctaBannerFw .topic-blocks-ctaBannerFw-content .topic-blocks-ctaBannerFw-text {
+      font-family: var(--global-font-abc-whyte);
+      font-size: 21px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 29px;
+      letter-spacing: 0em;
+      text-align: left;
+      padding-top: 1.5rem;
+      padding-bottom: 1rem;
+      color: #FFF; }
+      @media (max-width: 768px) {
+        .topic-blocks-ctaBannerFw .topic-blocks-ctaBannerFw-content .topic-blocks-ctaBannerFw-text {
+          padding-left: 1rem;
+          padding-right: 1rem; }
+          .topic-blocks-ctaBannerFw .topic-blocks-ctaBannerFw-content .topic-blocks-ctaBannerFw-text br {
+            display: none; } }
+
 .copy-block-container {
   background-color: var(--global-color-sand);
   padding: 2rem 0; }
@@ -30490,9 +30593,7 @@ header {
         height: 42px;
         font-weight: 300;
         font-size: 14px;
-        font-style: normal;
-        -webkit-transition: all 0.2s ease;
-        transition: all 0.2s ease; }
+        font-style: normal; }
       .header-v2 .rowTop #header-v2-top-nav .clicky-menu a:hover,
       .header-v2 .rowTop #header-v2-top-nav .clicky-menu button:hover {
         background-color: #2E1D97; }
@@ -30507,8 +30608,6 @@ header {
         background-size: inherit;
         background-position: right 10px center; }
       .header-v2 .rowTop #header-v2-top-nav .clicky-menu [aria-expanded="true"] {
-        -webkit-transition: all 0.2s ease;
-        transition: all 0.2s ease;
         background-color: #2E1D97;
         border-bottom: 1px solid #3E2BB1;
         padding-right: 20px;
