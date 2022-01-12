@@ -18,7 +18,7 @@
 	{% block nav %}
 		{% if entry is not defined or entry is not null and (entry.type.handle not in ['donate','donateAppeal'] or entry.donateNavToggle == true) %}
 			{# cache globally #}
-			{# include 'includes/snippets/header' #}
+			{% include 'includes/snippets/header' %}
 			{# endcache #}
 		{% else %}
 			{% include 'includes/snippets/header-no-nav' %}
