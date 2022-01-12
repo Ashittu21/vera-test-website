@@ -31447,8 +31447,8 @@ header {
           -webkit-transition: 0.2s all ease-in-out;
           transition: 0.2s all ease-in-out; }
           .footerV2 .footerV2-top .footerV2-top-col03 .social-icons a:hover {
-            background-color: #160643;
-            color: #ABFFEB; }
+            background-color: var(--global-color-red);
+            color: #160643; }
     .footerV2 .footerV2-top .footerV2-top-col04 {
       padding: 0; }
       .footerV2 .footerV2-top .footerV2-top-col04 .mail-list {

@@ -114,8 +114,8 @@
           transition: 0.2s all ease-in-out;
 
           &:hover {
-            background-color: #160643;
-            color: #ABFFEB;
+            background-color: var(--global-color-red);
+            color: #160643;
           }
         }
       }

@@ -1,0 +1,38 @@
+{% extends '_layout' %}
+
+{% block content %}
+
+  <!-- Hero Block -->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12 px-0">
+        <div class="topic-block-hero-container"
+          style="background-image: url('{{ entry.topicPage_heroImage.first.url }}');">
+          <div class="topic-block-box">
+            <div class="topic-block-box-content">
+              <div class="topic-block-breadcrumbs">
+                <a href="">home</a> // <a href="">ending   mASS ENCARCERATION</a>
+              </div>
+              <div class="topic-block-title">
+                <h1>{{ entry.topicPage_title }}</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- END Hero Block -->
+	 <main class="topic-page-wrap">
+		{% include 'includes/snippets/topic' with 
+			{ 
+				article: entry.topicPageArticle,  
+				theme: entry.chapterTheme ? entry.chapterTheme.value : null, 
+				title: entry.title 
+				} 
+		%}
+	</main>
+
+{% endblock %}
+
