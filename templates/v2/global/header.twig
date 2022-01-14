@@ -17,16 +17,18 @@
 											{% set nodeSubs = node.getChildren() %}
 											{% for nodeSub in nodeSubs.all() %}
 											<li>
-												<a
-												{% if node.navigationMain_linkField.getTarget()  %} target="{{ node.navigationMain_linkField.getTarget() }}"{% endif %}	 href="{% if nodeSub.navigationMain_linkField %}{{ nodeSub.navigationMain_linkField.getUrl() }}{% endif %}">{{ nodeSub.title }}</a>
+												<a {{ nodeSub.navigationMain_linkField.getLinkAttributes() }}>
+													{{ nodeSub.title }}
+												</a>
 											</li>
 											{% endfor %}
 										</ul>
 									</li>
 							 {% else %}
 									<li>
-										<a 
-											{% if node.navigationMain_linkField.getTarget() %} target="{{ node.navigationMain_linkField.getTarget() }}"{% endif %} href="{% if node.navigationMain_linkField  %}{{ node.navigationMain_linkField.getUrl() }}{% endif %}">{{ node.title }}</a>
+										<a {{ node.navigationMain_linkField.getLinkAttributes() }}>
+											{{ node.title }}
+										</a>
 									</li>
 								{% endif %}
 							{% endfor %}
@@ -70,9 +72,7 @@
 													{% set nodeSubs = node.getChildren() %}
 													{% for nodeSub in nodeSubs.all() %}
 													<li>
-														<a
-														{% if node.navigationMain_linkField.getTarget()  %} target="{{ node.navigationMain_linkField.getTarget() }}"	{% endif %}	
-															href="{% if nodeSub.navigationMain_linkField %}{{ nodeSub.navigationMain_linkField.getUrl() }}{% endif %}">
+														<a {{ nodeSub.navigationMain_linkField.getLinkAttributes() }}>
 															<div class="hover-arrow">{{ nodeSub.title }}</div>
 															<span>{{ nodeSub.navigationMain_explainer	}}</span>
 														</a>
@@ -82,9 +82,7 @@
 											</li>
 									 {% else %}
 											<li>
-												<a 
-													{% if node.navigationMain_linkField.getTarget() %} target="{{ node.navigationMain_linkField.getTarget() }}"	{% endif %}	
-													href="{% if node.navigationMain_linkField  %}{{ node.navigationMain_linkField.getUrl() }}{% endif %}">
+												<a {{ node.navigationMain_linkField.getLinkAttributes() }}>
 													{{ node.title }}
 												</a>
 											</li>
@@ -104,21 +102,22 @@
 	<section class="header-v2-mobile">
 		<div class="header-v2-mobile-row">
 			<div class="header-v2-mobile-row-container">
-				<div>
-					<button class="hamburger hamburger--squeeze"
-						type="button" aria-label="Menu"
-						aria-controls="navigation">
-						<span class="hamburger-box">
-							<span class="hamburger-inner"></span>
-						</span>
-					</button>
-				</div>
-				<div class="isologo-mobile">
-					<img src="/dist/img/v2/vera-isologo.svg">
-				</div>
-				<div class="donate-mobile">
-					<a href="#" class="button-donate arrow">Donate</a>
-				</div>
+					<div class="header-v2-mobile-row-container-button">
+						<button class="hamburger hamburger--squeeze" type="button" aria-label="Menu"	aria-controls="navigation">
+							<span class="hamburger-box">
+								<span class="hamburger-inner"></span>
+							</span>
+						</button>
+						<div class="menuText"><span>Menu</span></div>
+					</div>
+
+					<div class="isologo-mobile">
+						<img src="/dist/img/v2/vera-isologo.svg">
+					</div>
+
+					<div class="donate-mobile">
+						<a href="#" class="button-donate arrow">Donate</a>
+					</div>
 			</div>
 
 
@@ -137,10 +136,8 @@
 									{% set nodeSubs = node.getChildren() %}
 									{% for nodeSub in nodeSubs.all() %}
 									<li>
-										<a
-										{% if node.navigationMain_linkField.getTarget()  %} target="{{ node.navigationMain_linkField.getTarget() }}"	{% endif %}	
-											href="{% if nodeSub.navigationMain_linkField %}{{ nodeSub.navigationMain_linkField.getUrl() }}{% endif %}">
-										{{ nodeSub.title }}
+										<a {{ nodeSub.navigationMain_linkField.getLinkAttributes() }}>
+											{{ nodeSub.title }}
 										</a>
 									</li>
 									{% endfor %}
@@ -148,9 +145,7 @@
 							</li>
 					 {% else %}
 							<li>
-								<a 
-									{% if node.navigationMain_linkField.getTarget() %} target="{{ node.navigationMain_linkField.getTarget() }}"	{% endif %}	
-									href="{% if node.navigationMain_linkField  %}{{ node.navigationMain_linkField.getUrl() }}{% endif %}">
+								<a {{ node.navigationMain_linkField.getLinkAttributes() }}>
 									{{ node.title }}
 								</a>
 							</li>
@@ -172,16 +167,18 @@
 									{% set nodeSubs = node.getChildren() %}
 									{% for nodeSub in nodeSubs.all() %}
 									<li>
-										<a
-										{% if node.navigationMain_linkField.getTarget()  %} target="{{ node.navigationMain_linkField.getTarget() }}"{% endif %}	 href="{% if nodeSub.navigationMain_linkField %}{{ nodeSub.navigationMain_linkField.getUrl() }}{% endif %}">{{ nodeSub.title }}</a>
+										<a {{ nodeSub.navigationMain_linkField.getLinkAttributes() }}>
+											{{ nodeSub.title }}
+										</a>
 									</li>
 									{% endfor %}
 								</ul>
 							</li>
 					 {% else %}
 							<li>
-								<a 
-									{% if node.navigationMain_linkField.getTarget() %} target="{{ node.navigationMain_linkField.getTarget() }}"{% endif %} href="{% if node.navigationMain_linkField  %}{{ node.navigationMain_linkField.getUrl() }}{% endif %}">{{ node.title }}</a>
+								<a {{ node.navigationMain_linkField.getLinkAttributes() }}>
+									{{ node.title }}
+								</a>
 							</li>
 						{% endif %}
 					{% endfor %}

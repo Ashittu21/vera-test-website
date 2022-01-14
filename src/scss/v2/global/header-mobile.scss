@@ -26,9 +26,30 @@
       position: relative;
       background: #160643;
 
-      .hamburger {
-        &.is-active {
-          background: #2E1D97;
+      &-button{
+        display: flex;
+        .hamburger {
+          &.is-active {
+            background: #2E1D97;
+          }
+        }
+
+        .menuText{
+          transition: all 0.2s ease;
+          color: #ABFFEB;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 21px;
+          letter-spacing: 0em;
+          text-align: left;
+          display: flex;
+          justify-content: center;
+          align-content: center;
+          flex-direction: column;
+          &.hideTextMenu{
+            opacity: 0;
+          }
         }
       }
 
@@ -42,8 +63,8 @@
           margin: 15px;
         }
       }
-    }
 
+    }
   }
 }
 

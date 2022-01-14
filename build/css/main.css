@@ -31990,8 +31990,36 @@ header {
       z-index: 600;
       position: relative;
       background: #160643; }
-      .header-v2-mobile-row-container .hamburger.is-active {
-        background: #2E1D97; }
+      .header-v2-mobile-row-container-button {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex; }
+        .header-v2-mobile-row-container-button .hamburger.is-active {
+          background: #2E1D97; }
+        .header-v2-mobile-row-container-button .menuText {
+          -webkit-transition: all 0.2s ease;
+          transition: all 0.2s ease;
+          color: #ABFFEB;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 21px;
+          letter-spacing: 0em;
+          text-align: left;
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-pack: center;
+              -ms-flex-pack: center;
+                  justify-content: center;
+          -ms-flex-line-pack: center;
+              align-content: center;
+          -webkit-box-orient: vertical;
+          -webkit-box-direction: normal;
+              -ms-flex-direction: column;
+                  flex-direction: column; }
+          .header-v2-mobile-row-container-button .menuText.hideTextMenu {
+            opacity: 0; }
       .header-v2-mobile-row-container .isologo-mobile {
         height: 60px;
         -ms-flex-line-pack: center;
