@@ -1,0 +1,26 @@
+<!-- Swiper Slider -->
+
+{% set images = block.images %}
+<div class="swiper swiperSlider">
+  <div class="swiper-wrapper">
+    {% for image in images %}
+      <div class="swiper-slide">
+        <img src="{{ image.url }}" />
+     
+        <span class="slide-caption">
+            {% if image.caption %} {{ image.caption }}  {% endif %}
+        </span>
+      </div>
+    {% endfor %}
+  </div>
+
+  <div class="swiper-arrows">
+    <div class="swiper-button-next">
+      <span></span>
+    </div>
+    <div class="swiper-button-prev">
+      <span></span>
+    </div>
+  </div>
+</div>
+<!-- Swiper Slider -->

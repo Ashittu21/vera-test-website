@@ -1,0 +1,16 @@
+<section class="banner-block-container">
+  <div class="banner-block-content {% if block.banner_reverse %}reverse{% else %}{% endif %}">
+    <a href="{{ block.banner_cta.getUrl() }}" class="banner-block-copy">
+        <div class="banner-block-copy-title">
+          {{ block.banner_title }}
+        </div>
+        <div class="banner-block-copy-subtitle">
+          {{ block.banner_subtitle }}
+        </div>
+        <div class="banner-block-copy-link">
+          <span class="button arrowType2">{{ block.banner_cta.customText }}</span>
+        </div>
+    </a>
+    <div class="banner-block-image" style="background-image: url('{{ block.banner_image.first.url }}')"></div>
+  </div>
+</section>

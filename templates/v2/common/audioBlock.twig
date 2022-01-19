@@ -1,0 +1,99 @@
+  <section class="audioBlock">
+    <div class="audioBlock-left">
+
+    </div>
+    <div class="audioBlock-right">
+      <div class="audioBlock-right-c">
+
+        <div class="audioBlock-right-c-title">
+        {{ block.audioBlock_title }}
+        </div>
+        <div class="audioBlock-right-c-subtitle">
+          {{ block.audioBlock_subtitle }}
+        </div>
+        {% set audioFile = block.audioBlock_file.first() %}
+
+        <div class="audio-player">
+          <audio id="audio">
+            <source src="{{ audioFile.getUrl() }}" type="{{  audioFile.getMimeType() }}">
+          </audio>
+
+          <div class="player-controls">
+            <a  class="btnPlay" id="playAudio"><span></span></a>
+    
+            <div id="seekObjContainer">
+              <div id="seekObj">
+                <div id="percentage"></div>
+              </div>
+            </div>
+
+            <p><small id="currentTime">00:00</small></p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+
+  const media = document.getElementById('audio');
+
+  let ui = {
+    play: 'playAudio',
+    audio: 'audio',
+    percentage: 'percentage',
+    seekObj: 'seekObj',
+    currentTime: 'currentTime'
+  };
+
+  function togglePlay() {
+    if (media.paused === false) {
+      media.pause();
+      document.getElementById(ui.play).classList.remove('pause');
+    } else {
+      media.play();
+      document.getElementById(ui.play).classList.add('pause');
+    }
+  }
+
+  function calculatePercentPlayed() {
+    let percentage = (media.currentTime / media.duration).toFixed(2) * 100;
+    document.getElementById(ui.percentage).style.width = `${percentage}%`;
+  }
+
+  function calculateCurrentValue(currentTime) {
+    const currentMinute = parseInt(currentTime / 60) % 60;
+    const currentSecondsLong = currentTime % 60;
+    const currentSeconds = currentSecondsLong.toFixed();
+
+    const currentTimeFormatted = `${currentMinute < 10 ? `0${currentMinute}` : currentMinute}:${
+  currentSeconds < 10 ? `0${currentSeconds}` : currentSeconds
+  } `;
+
+    return currentTimeFormatted;
+  }
+
+  function initProgressBar() {
+    const currentTime = calculateCurrentValue(media.currentTime);
+    document.getElementById(ui.currentTime).innerHTML = currentTime;
+    document.getElementById(ui.seekObj).addEventListener('click', seek);
+
+    media.onended = () => {
+      document.getElementById(ui.play).classList.remove('pause');
+      document.getElementById(ui.percentage).style.width = 0;
+      document.getElementById(ui.currentTime).innerHTML = '00:00';
+    };
+
+    function seek(e) {
+      const percent = e.offsetX / this.offsetWidth;
+      media.currentTime = percent * media.duration;
+    }
+
+    calculatePercentPlayed();
+  }
+
+ document.getElementById(ui.play).addEventListener('click', togglePlay);
+ document.getElementById(ui.audio).addEventListener('timeupdate', initProgressBar);
+
+  </script>

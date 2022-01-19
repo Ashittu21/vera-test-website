@@ -1,0 +1,77 @@
+.quote-block-type1 {
+  display: block;
+  max-width: 840px;
+  margin: 0 auto;
+  color: var(--global-color-text);
+  padding: 0em;
+  border-radius: 1em;
+
+
+
+  margin-top: 60px;
+  margin-bottom: 55px;
+
+  @media(max-width:$mobile-breakpoint) {
+    padding: 1rem;
+  }
+
+  blockquote {
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+
+    .quote-start {
+      font-family: var(--global-font-sectra);
+      background-image: url('../../dist/img/quote.svg');
+      background-repeat: no-repeat;
+      background-size: 100% auto;
+      min-width: 60px;
+      display: block;
+
+      @media(max-width:$mobile-breakpoint) {
+        min-width: 29px;
+      }
+
+    }
+
+    .quote-text {
+      padding-top: 1rem;
+      margin-left: 34px;
+      width: auto;
+
+      font-family: var(--global-font-abc-whyte);
+      font-size: 40px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 48px;
+      letter-spacing: 0em;
+      text-align: left;
+
+
+      @media(max-width:$mobile-breakpoint) {
+        font-size: 28px;
+        line-height: 36px;
+      }
+
+    }
+
+
+  }
+
+  .quote-attribution {
+
+    margin-left: 94px;
+    margin-top: 34px;
+    font-family: var(--global-font-abc-whyte);
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: left;
+
+  }
+
+
+
+}

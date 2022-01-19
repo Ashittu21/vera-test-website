@@ -158,7 +158,6 @@
 
 			const submenuId = submenu.getAttribute('id');
 			let containerId = container.getAttribute('id');
-			console.log(containerId);
 
 			let id;
 			if( null === submenuId ) {

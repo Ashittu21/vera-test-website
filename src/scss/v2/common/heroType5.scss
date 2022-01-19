@@ -1,0 +1,86 @@
+.heroType5 {
+  &-container {
+    height: 597px;
+    width: 100%;
+    background-color: var(--global-color-dark-violet);
+    background-size: cover;
+    background-position: center 140px;
+    background-position-y: 140px;
+    background-repeat: no-repeat;
+    position: relative;
+    display: flex;
+
+    @media(max-width:$mobile-breakpoint) {
+      height: auto;
+      min-height: 330px;
+      background-position: center 78px;
+    }
+
+    &-copy {
+      width: 100%;
+      max-width: 840px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      background-color: var(--global-color-dark-violet);
+      height: fit-content;
+      min-height: 140px;
+      margin-top: 56px;
+      position: relative;
+      padding-bottom: 50px;
+
+      @media(max-width:$mobile-breakpoint) {
+        background-position: center 78px;
+        width: 100%;
+        margin: 0 11px;
+        height: fit-content;
+        min-height: 100px;
+        justify-content: center;
+        padding-bottom: 0;
+      }
+
+
+      &-breadcrumbs {
+        text-align: center;
+        a {
+          font-family: var(--global-font-abc-whyte);
+          font-size: 11px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 21px;
+          letter-spacing: 0.17em;
+          text-align: center;
+          text-transform: uppercase;
+          color: var(--global-color-mint);
+          text-decoration: none;
+        }
+
+        @media(max-width:$mobile-breakpoint) {
+          display: none;
+        }
+      }
+
+      &-title {
+        margin-top: 18px;
+        font-family: var(--global-font-abc-whyte);
+        font-size: 40px;
+        font-style: normal;
+        font-weight: 400;
+        color: #FFF;
+        line-height: 48px;
+        letter-spacing: 0em;
+        text-align: center;
+
+        @media(max-width:$mobile-breakpoint) {
+          font-size: 28px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 36px;
+          letter-spacing: 0em;
+          text-align: center;
+          padding: 0 20px 40px 20px;
+        }
+      }
+    }
+  }
+}

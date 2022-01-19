@@ -1,0 +1,130 @@
+.audioBlock {
+  margin: 0 auto;
+  max-width: 840px;
+  width: 100%;
+  height: 334px;
+  display: flex;
+  flex-direction: row;
+  background-color: var(--global-color-dark-violet);
+  background-image: -webkit-linear-gradient(360deg, var(--global-color-medium-violet) 291px, var(--global-color-dark-violet) 291px);
+  box-sizing: border-box;
+  margin-bottom: 30px;
+  margin-top: 30px;
+
+  @media(max-width:$mobile-breakpoint) {
+    height: auto;
+    padding: 0;
+    flex-direction: column;
+    background-image: -webkit-linear-gradient(0.75turn,var(--global-color-medium-violet) 50.1%,var(--global-color-dark-violet) 0);
+  }
+
+  &-left {
+    max-width: 220;
+    width: 220px;
+    background-image: url('../../dist/img/audio-icon.svg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    @media(max-width:$mobile-breakpoint) {
+      width: 100%;
+      min-height: 125px;
+      padding: 0;
+      background-size: 100% auto;
+      background-image: url('../../dist/img/audio-icon-mobile.svg');
+    }
+  }
+
+  &-right {
+
+
+    color: #FFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    &-c{
+      max-width: 482px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      @media(max-width:$mobile-breakpoint) {
+       max-width: 100%;
+       width: 100%;
+      }
+
+      &-title {
+        font-family: var(--global-font-abc-whyte);
+        font-size: 26px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 34px;
+        letter-spacing: 0em;
+        text-align: left;
+        color: #FFF;
+      }
+  
+      &-subtitle {
+        font-family: var(--global-font-abc-whyte);
+        font-size: 17px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 24px;
+        letter-spacing: 0em;
+        text-align: left;
+        margin-top: 21px;
+        color: #FFF;
+      }
+      .audio-player {
+        width: 480px;
+        padding: 30px 0px;
+        margin: auto;
+        @media(max-width:$mobile-breakpoint) {
+          max-width:  480px;
+          width: 100%;
+         }
+      
+        .player-controls {
+          position: relative;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+      
+        p {
+          margin: 0 0 0 5px;
+          line-height: 1;
+          display: inline-flex;
+      
+          small {
+            font-size: 10px;
+          }
+        }
+      
+        #seekObjContainer {
+          position: relative;
+          width: 295px;
+          margin: 0 5%;
+          height: 5px;
+      
+          #seekObj {
+            position:relative;
+            width: 100%;
+            height: 100%;
+            background-color: #e3e3e3;
+            border: 1px solid black;
+      
+            #percentage {
+              position: absolute;
+              left: 0;
+              top: 0;
+              height: 100%;
+              background-color: coral;
+            }
+          }
+        }
+      }
+    }
+    @media(max-width:$mobile-breakpoint) {
+      padding: 1rem;
+      }
+  }
+}

@@ -1,0 +1,17 @@
+<section class="copy-threeColumns">
+  <div class="copy-threeColumns-title">
+   {{ block.threeColumns_title }}
+  </div>
+
+	<div class="copy-threeColumns-content">
+		{% if block.threeColumns_content|length %}
+     	<ul class="copy-threeColumns-content-items">
+			  {% for row in block.threeColumns_content %}
+        <li>
+         <p>{{ row.content }}</p>
+        </li>
+				{% endfor %}
+      </ul>
+    {% endif %}
+	</div>
+</section>

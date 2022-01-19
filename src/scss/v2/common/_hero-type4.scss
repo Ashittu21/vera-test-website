@@ -1,0 +1,116 @@
+.hero-type4 {
+  background-color: var(--global-color-sand);
+  transition: all 0.2s ease-in-out;
+  &-content{
+    position: relative;
+    min-height: 699px;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    @media(max-width:$mobile-breakpoint) {
+      min-height: 250px;
+    }
+    &-copy{
+      max-width: 840px;
+      width: 100%;
+      margin: 0 auto;
+
+      .breadcrumbs{
+        font-family: var(--global-font-abc-whyte);
+        font-size: 11px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 21px;
+        letter-spacing: 0.17em;
+        text-align: left;
+        text-transform: uppercase;
+        a{
+
+        }
+      }
+
+      h1{
+        color: var(--global-color-text);
+        font-family: var(--global-font-sectra);
+        position: relative;
+        z-index: 1;
+        font-size: 60px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 69px;
+        letter-spacing: 0em;
+        text-align: left;
+        display: block;
+
+        @media(max-width:$mobile-breakpoint){
+          font-size: 55px;
+          line-height: 107%;
+        }
+      }
+
+      .subtitle{
+        display: block;
+        margin-top: 15px;
+        font-family: var(--global-font-abc-whyte);
+        color: var(--global-color-text);
+        font-size: 40px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 48px;
+        letter-spacing: 0em;
+        text-align: left;
+      }
+  
+    }
+
+    &-line1{
+      display: block;
+      position: absolute;
+      background-color: var(--global-color-dark-sand);
+      height: 2px;
+      width: 100%;
+      top: 57px;
+      @media(max-width:$mobile-breakpoint){
+        margin-top: -2rem;
+      }
+    }
+    &-line2{
+      display: block;
+      position: absolute;
+      background-color: var(--global-color-dark-sand);
+      height: 110px;
+      width: 2px;
+      top: 0;
+      right: 109px;
+      @media(max-width:$mobile-breakpoint){
+        display: none;
+      }
+    }
+    &-line3{
+      display: block;
+      position: absolute;
+      background-color: var(--global-color-dark-sand);
+      height: 100%;
+      width: 2px;
+      top: 0;
+      left: 115px;
+      @media(max-width:$mobile-breakpoint){
+        display: none;
+      }
+    }
+    &-line4{
+      display: block;
+      position: absolute;
+      background-color: var(--global-color-dark-sand);
+      height: 110px;
+      width: 2px;
+      top: 0;
+      right: 50%;
+      @media(max-width:$mobile-breakpoint){
+        height: 49px;
+      }
+    
+    }
+  }
+}

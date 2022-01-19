@@ -1,0 +1,84 @@
+
+
+.btnPlay {
+
+  background-color: transparent;
+  color: #FFF;
+  text-decoration: none;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.2s  ease;
+  width: 35px;
+  height: 35px;
+  
+  &-2x{
+    font-size: 28px;
+    padding: 16px 66px 18px 16px;
+  }
+  
+
+  color: #FFF;
+  border: 0;
+  z-index: 1;
+    
+  span{
+    transition: transform 0.2s ease;
+    position: relative;
+    display: block;
+  }
+  
+  &:before,
+  &:after {
+    border: 0;
+    content: '';
+    display: block;
+    position: absolute;
+    z-index: -1;
+  }
+  
+  &:before {
+    left: 0;
+    top: 0;
+    width: 35px;
+    height: 35px;
+    z-index: -1;
+    background-color: #EF4136;
+    background-image: url("../../dist/img/play.svg");
+    background-repeat: no-repeat;
+    background-size: inherit;
+    background-position: center center; 
+    transition: all 0.2s ease;
+  }
+
+  
+  // BOTTOM
+  &:after {
+    background-color: transparent;
+    left: 6px;
+    top: 6px;
+    width: 35px;
+    height: 35px;
+    border: 2px solid #ABFFEB;
+    transform: skewX(0deg);
+    z-index: -2;
+  }
+  
+  &:hover{
+    background-color: transparent;
+    box-sizing: content-box;
+    span{
+      transform: translate3d(6px, 6px, 0px);
+    }
+    &:before {
+      transform: translate3d(6px, 6px, 0px);
+    }
+  }
+
+
+  &.pause{
+    &:before {
+      background-image: url("../../dist/img/pause.svg");
+    }
+  }
+
+}

@@ -1,0 +1,99 @@
+.banner-block-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  width: 100%;
+  background-color: var(--global-color-sand);
+  padding: 2rem 0;
+  
+  .banner-block-content {
+    display: flex;
+    flex-direction: row;
+    background-color: #160643;
+    color: #FFF;
+    max-width: 1280px;
+    width: 100%;
+    @media(max-width:$mobile-breakpoint){
+      flex-direction: column;
+    }
+
+    &:hover{
+      background-color: #DA392F;
+      .banner-block-copy {
+        &-title{
+          text-decoration: underline;
+        }
+      }
+    }
+
+    &.reverse{
+      flex-direction: row-reverse;
+      @media(max-width:$mobile-breakpoint){
+        flex-direction: column;
+      }
+    }
+
+    .banner-block-copy {
+      color: white;
+      text-decoration: none;
+      width: 550px;
+      padding: 89px 70px;
+      height: 505px;
+      @media(max-width:$mobile-breakpoint){
+        padding: 52px 22px;
+        width: auto;
+        height: auto;
+      }
+
+      &-title {
+        font-family: var(--global-font-abc-whyte);
+        font-size: 40px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 48px;
+        letter-spacing: 0em;
+        text-align: left;
+        margin-bottom:33px;
+        @media(max-width:$mobile-breakpoint){
+          line-height: 36px;
+          font-size: 30px;
+        }
+      }
+
+      &-subtitle {
+        font-family: var(--global-font-abc-whyte);
+        font-size: 21px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 29px;
+        letter-spacing: 0em;
+        text-align: left;
+        @media(max-width:$mobile-breakpoint){
+          line-height: 26.5px;
+          font-size: 20px;
+        }
+      }
+
+      &-link{
+        margin-top: 50px;
+      }
+
+    }
+
+    .banner-block-image {
+      background-size: cover;
+      background-position: center center;
+      min-height: 505px;
+      height: 505px;
+      width: 730px;
+      background-repeat: no-repeat;
+
+      @media(max-width:$mobile-breakpoint){
+        height: 352px;
+        min-height: 352px;
+        width: auto;
+      }
+  
+
+    }
+  }
+}

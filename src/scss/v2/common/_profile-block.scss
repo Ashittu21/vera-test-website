@@ -1,0 +1,107 @@
+.profile-block{
+  display: flex;
+  flex-direction: row;
+  max-width: 540px;
+  
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: 30px 0;
+
+  @media (max-width: $mobile-large) {
+    flex-direction: column;
+    height: auto;
+    margin: 0 auto;
+   }
+
+  .profile-block-img {
+    background-color: transparent;
+    background-image: -webkit-linear-gradient(360deg, var(--global-color-violet) 70.1px, var(--global-color-sand) 70.1px);
+    height: 245px;
+    max-width: 540px;
+    height: 245px;
+    padding: 30px 0 0 35px;
+    
+    @media (max-width: $mobile-large) {
+        width: auto;
+    }
+
+    img{
+      width: 185px;
+      height: 185px;
+    }
+  }
+
+  .profile-block-copy{
+    padding: 30px 0px;
+    margin-left: 30px;
+    display: flex;
+    flex-direction: column;
+    @media (max-width: $mobile-large) {
+      max-width: 250px;
+      margin-left: 0;
+    }
+    &-name{
+      font-family: var(--global-font-abc-whyte);
+      font-size: 26px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 34px;
+      letter-spacing: 0em;
+      text-align: left;
+      margin-bottom: 0.5rem;
+    }
+    &-position{
+      font-family: var(--global-font-abc-whyte);
+      margin-bottom: 0.5rem;
+      font-size: 21px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 29px;
+      letter-spacing: 0em;
+      text-align: left;
+    }
+    &-email{
+      display: block;
+      font-family: var(--global-font-abc-whyte);
+      font-size: 17px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 24px;
+      letter-spacing: 0em;
+      text-align: left;
+      a{
+        text-decoration: none;
+        color: var(--global-color-text);
+      }
+    }
+    &-phone{
+      display: block;
+      font-family: var(--global-font-abc-whyte);
+      font-size: 17px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 24px;
+      letter-spacing: 0em;
+      text-align: left;
+      a{
+        text-decoration: none;
+        color: var(--global-color-text);
+      }
+    }
+    &-url{
+      display: block;
+      font-family: var(--global-font-abc-whyte);
+      font-size: 17px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 24px;
+      letter-spacing: 0em;
+      text-align: left;
+      a{
+        text-decoration: none;
+        color: var(--global-color-text);
+      }
+    }
+    
+  }
+}

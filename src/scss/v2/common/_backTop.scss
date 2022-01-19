@@ -1,0 +1,17 @@
+.backTop-block{
+  width: 100%;
+  max-width: $desktop-ml;
+  height: auto;
+  text-align: right;
+  margin: 0 auto;
+
+  a.backToTop{
+    width: 55px;
+    height: 55px;
+    background-color: transparent;
+    background-image: url('../../dist/img/back-to-top.svg');
+    background-position: center center;
+    display: inline-block;
+    margin: 2rem 5rem;
+  }
+}

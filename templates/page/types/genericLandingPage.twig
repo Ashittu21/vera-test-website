@@ -1,0 +1,27 @@
+{% extends '_layout' %}
+
+{% block content %}
+
+  {% set blocks  = entry.genericLandingPage_items %}
+
+    {% for block in blocks %}
+      {% if block.type == 'headerTitle' %}
+        {% include 'v2/common/headerTitle' with { block: block } %}
+      {% elseif block.type == 'copy' %}
+        {% include 'v2/common/copy'  with { block: block } %}
+      {% elseif block.type == 'bannerType2' %}
+        {% include 'v2/common/bannerType2'  with { block: block } %}
+      {% elseif block.type == 'signUp' %}
+        {% include 'v2/common/signUp.twig'  with { block: block } %}
+      {% elseif block.type == 'stats' %}
+    	  {% include 'v2/common/stats'  with { statsBlock: block } %}
+      {% elseif  block.type == 'exploreMore' %}
+        {% include 'v2/common/exploreMore.twig'  with { exploreBlock: block } %}       
+      {% elseif  block.type == 'newsHero' %}
+        {% include 'v2/common/latestNews' with { latestNewsHero: block } %}
+      {% elseif  block.type == 'bannerType3' %}
+        {% include 'v2/common/bannerType3' with { block: block } %}
+      {% endif %}
+    {% endfor %}
+
+{% endblock %}

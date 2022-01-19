@@ -3,9 +3,7 @@
 {% block content %}
 
 {% set blocks =  entry.topicPageBlocks %}
-
-  <!-- END Hero Block -->
- <main class="topic-page-wrap">
+<div class="topicPage">
 	{% for block in blocks %}
 		{% if block.type == 'copy' %}
     	{% include 'v2/common/copy' with { block: block }  %}
@@ -27,14 +25,12 @@
     	{% include 'v2/common/heroType1' with { block: block } %}		
 		{% elseif block.type == 'bannerType3' %}
 			{% include 'v2/common/bannerType3' with { block: block } %}	   
-
 		{#
 		{% elseif block.type == 'ctaBanner' %}
     	{% include 'includes/topic-blocks/ctaBanner'  with { ctaBannerBlock: block } %}	   
 		#}
 		{% endif %}
 	{% endfor %}
-	</main>
-
+</div>
 {% endblock %}
 

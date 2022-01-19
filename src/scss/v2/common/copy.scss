@@ -205,7 +205,6 @@
     }
 
     ol{
-
       counter-reset: listitem;
       list-style-type: none;
       position: relative;
@@ -219,7 +218,6 @@
       letter-spacing: 0em;
       text-align: left;
 
-
       li {
         margin-bottom: 0.7rem;
   
@@ -228,9 +226,10 @@
           content: counters(listitem, ".") ".";
           color: var(--global-color-light-violet);
           display: inline-flex;
-          margin-left: -2rem;
+          margin-left: 0rem;
           font-size: 1.5rem;
-          margin-right: 0.8rem;
+          font-weight: 700;
+          margin-right: 1rem;
           line-height: 0;
 
           @media(max-width:$mobile-breakpoint) {
