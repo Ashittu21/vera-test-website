@@ -2,7 +2,7 @@
 
 {% block content %}
 
-  {% set blocks  = entry.contentDetail_items %}
+  {% set blocks  = entry.contentDetailBlocks %}
 
   <div class="heroType1-container"  style="background-image: url('{{ entry.contentDetail_heroImage.first.url }}');">
     <div class="heroType1-block-box">
@@ -64,7 +64,7 @@
       {% elseif block.type == 'threeColumns' %}
     	  {% include 'v2/common/copy-threeColumns' with { block: block } %}
       {% elseif block.type == 'stats' %}
-    	  {% include 'v2/common/stats' with { statsBlock: block } %}
+    	  {% include 'v2/common/stats' with { block: block } %}
       {% elseif block.type == 'signUp' %}
         {% include 'v2/common/signUp.twig'  with { block: block } %}
       {% elseif  block.type == 'video' %}
