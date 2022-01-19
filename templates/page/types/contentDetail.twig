@@ -4,7 +4,7 @@
 
   {% set blocks  = entry.contentDetail_items %}
 
-  <div class="heroType1-container"  style="background-image: url('{{ entry.heroType1_image.first.url }}');">
+  <div class="heroType1-container"  style="background-image: url('{{ entry.contentDetail_heroImage.first.url }}');">
     <div class="heroType1-block-box">
       <div class="heroType1-block-box-content">
         <div class="heroType1-block-breadcrumbs">
@@ -18,7 +18,7 @@
           {% endif %} 
           </div>
           <div class="heroType1-block-title">
-            <h1>{{ entry.heroType1_title }}</h1>
+            <h1>{{ entry.contentDetail_heroTitle }}</h1>
           </div>
         </div>
       </div>
@@ -26,7 +26,7 @@
 
 
 
-<div class="content-page">
+<div class="content-page content-detail">
 
     <!-- Share Icons -->
     <div class="shareIcons">

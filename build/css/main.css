@@ -34309,4 +34309,7 @@ header {
 .topicPage:first-child {
   margin-bottom: 5rem; }
 
+.content-detail {
+  min-height: 500px; }
+
 /*# sourceMappingURL=main.css.map */
