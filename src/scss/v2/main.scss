@@ -9,9 +9,14 @@
 @import "base/_variables.scss";
 
 /* Common Blocks */
+@import "common/aboutBlock.scss";
 @import "common/audioBlock.scss";
+@import "common/backTop.scss";
+@import "common/bannerBlock.scss";
+@import "common/bannerLinks.scss";
 @import "common/bannerType3.scss";
 @import "common/bannerType4.scss";
+@import "common/blockListing.scss";
 @import "common/btnPlay.scss";
 @import "common/copy-threeColumns.scss";
 @import "common/copy-twoColumns.scss";
@@ -23,19 +28,24 @@
 @import "common/heroType1.scss";
 @import "common/heroType2.scss";
 @import "common/heroType3.scss";
+@import "common/heroType4.scss";
 @import "common/heroType5.scss";
 @import "common/latestNews.scss";
 @import "common/listing.scss";
 @import "common/map.scss";
+@import "common/mediaContacts.scss";
+@import "common/partners.scss";
+@import "common/profileBlock.scss";
+@import "common/quote-block-type1.scss";
 @import "common/quote.scss";
-@import "common/relatedItems.scss";
 @import "common/relatedEntriesType1.scss";
+@import "common/relatedItems.scss";
 @import "common/shareIcons.scss";
 @import "common/signUp.scss";
 @import "common/stats.scss";
 @import "common/swiperSlider.scss";
 @import "common/videoBlock.scss";
-@import "common/quote-block-type1.scss";
+
 
 
 
