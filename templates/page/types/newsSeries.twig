@@ -1,40 +1,51 @@
-
 {% extends '_layout' %}
 
 {% block content %}
 
-  {% set blocks  = entry.newsArticleBlocks %}
+  {% set blocks  = entry.contentDetailBlocks %}
 
+<!-- Hero Type 5 -->
+{% set bgHero    =  entry.heroType5_image.first %}
+{% set bgMobile  =  bgHero.getUrl('heroType5_mobile') %}
+{% set bgDesktop =  bgHero.getUrl('heroType5') %}
 
-  <div class="hero-type4">
-      <div class="hero-type4-content">
-        <div class="hero-type4-content-copy">
-          <div class="hero-type4-content-breadcrumbs">
-            {% if entry.level > 1 %}
-              <a href="">HOME</a>
-              {% for crumb in entry.getAncestors() %}
-                // {{ crumb.getLink() }} 
-              {% endfor %}
-            {% else %}
-              <a href="">HOME</a>
-            {% endif %} 
-          </div> 
+<style>
+  .heroType5-background {
+    background-image: url('{{ bgDesktop }}');
+  }
 
-          <h1>{{ entry.newsArticle_heroTitle }}</h1>
-          <span class="subtitle">{{ entry.newsArticle_heroSubtitle }}</span>
-        </div>
-   
-        <div class="hero-type4-content-line1"></div>
-        <div class="hero-type4-content-line2"></div>
-        <div class="hero-type4-content-line3"></div>
-        <div class="hero-type4-content-line4"></div>
-      </div>
+  @media(max-width: 768px) {
+    .heroType5-background {
+      background-image: url('{{ bgMobile }}');
+    }
+  }
+</style>
+
+<div class="heroType5-container heroType5-background">
+
+  <div class="heroType5-container-copy">
+   <div class="heroType5-container-copy-breadcrumbs">
+      {% if entry.level > 1 %}
+      <a href="">HOME</a>
+      {% for crumb in entry.getAncestors() %}
+      // {{ crumb.getLink() }}
+      {% endfor %}
+      {% else %}
+      <a href="">HOME</a>
+      {% endif %}
     </div>
+    <div class="heroType5-container-copy-title">
+      <span>{{ entry.heroType5_title }}</span>
+    </div>
+  </div>
+
+</div>
+<!-- Hero Type 5 -->
 
 
-<div class="content-page news-article">
+<div class="content-page content-detail">
 
-   <!-- Share Icons -->
+    <!-- Share Icons -->
     <div class="shareIcons">
       <div>
         <div class="shareIcons-title">
@@ -61,8 +72,8 @@
     </div>
     <!-- Share Icons -->
 
-
     {% for block in blocks %}
+
       {% if block.type == 'headerTitle' %}
         {% include 'v2/common/headerTitle' with { block: block } %}
       {% elseif block.type == 'copy' %}
@@ -91,10 +102,11 @@
         {% include 'v2/common/relatedItems' with { block: block } %}
       {% elseif  block.type == 'bannerType4' %}
         {% include 'v2/common/bannerType4' with { block: block } %}
-      {% elseif  block.type == 'newsItems' %}
+      {% elseif  block.type == 'latestNewsItems' %}
         {% include 'v2/common/newsItems' with { block: block } %}
+      {% endif %}
     {% endfor %}
+
 </div>
 
 {% endblock %}
-
