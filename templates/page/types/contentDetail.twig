@@ -36,17 +36,19 @@
         </div>
         <ul class="shareIcons-icons">
           <li>
-            <a href="https://www.twitter.com/intent/tweet?url={{ entry.url | url_encode }}&amp;text=">
+            <a href="https://www.twitter.com/intent/tweet?url={{ entry.url | url_encode }}&amp;text=" target="_blank">
               <i class="fa-brands fa-twitter"></i>
             </a>
           </li>
           <li>
-            <a href="https://www.facebook.com/sharer/sharer.php?u={{ entry.url | url_encode }}&amp;">
+            <a href="https://www.facebook.com/sharer/sharer.php?u={{ entry.url | url_encode }}&amp;" target="_blank">
               <i class="fa-brands fa-facebook-f"></i>
             </a>
           </li>
           <li>
-            <a href="mailto:?subject={{ entry.title | url_encode }}&amp;body={{ entry.url | url_encode }}"><i class="fas fa-envelope"></i></a>
+            <a href="mailto:?subject={{ entry.title | url_encode }}&amp;body={{ entry.url | url_encode }}" target="_blank">
+              <i class="fas fa-envelope"></i>
+            </a>
           </li>
         </ul>
       </div>

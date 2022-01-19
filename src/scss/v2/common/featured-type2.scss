@@ -37,6 +37,7 @@
       line-height: 52px;
       letter-spacing: 0em;
       text-align: center; 
+      font-family: var(--global-font-abc-whyte);
 
       @media(max-width:$mobile-breakpoint) {
         font-size: 35px;
