@@ -1,71 +1,67 @@
+
 {% extends '_layout' %}
 {% set isHome = true %}
 
 {% block nav %}
-	{% include 'includes/snippets/header' with {isHome: isHome} %}
+  {% include 'includes/snippets/header' with {isHome: isHome} %}
 {% endblock %}
 
 {% block content %}
 
-  {% set blocks  = entry.V2_HomeItems %}
-
 	<div class="home">
-  {% for block in blocks %}
-		{% if block.type == 'heroType3' %}
-    	{% include 'v2/common/heroType3' with { block: block } %}
-		{% elseif block.type == 'heroType2' %}
-    	{% include 'v2/common/heroType2' with { block: block } %}
-    {% elseif block.type == 'latestNews' %}
-    	{% include 'v2/common/latestNews'  with { block: block } %}
-    {% elseif block.type == 'map'  %}
-      <div class="mapContainer">
-        {% include 'vera-maps/_maptypesBlock'  with { block: block } %}
-      </div>
-		{% endif %}
-	{% endfor %}
-<style>
+    {% for block in entry.homeBlocks.level(1).all() %}
+        {% switch block.type.handle %}
+            {% case 'heroType3' %}
+              {% include 'v2/common/heroType3'  with { block: block } %}
+            {% case 'heroType2' %}
+              {% include 'v2/common/heroType2'  with { block: block } %}
+            {% case 'latestNews' %}
+              {% include 'v2/common/latestNews' with { block: block } %}
+            {% case 'map' %}
+              <div class="mapContainer">
+                {% include 'vera-maps/_maptypesBlock'  with { block: block } %}
+              </div>
+            {% case 'HomeCharts' %}
+              <div class="home-content">
+                <div class="home-content-items">
+                  {% for chartItem in block.HomeCharts %}
+                  <div class="home-content-item">
+                    <div class="home-content-item-left">
+                      <div class="home-content-item-left-title">
+                        {{ chartItem.homeItemsTitle }}
+                      </div>
+                      <div class="home-content-item-left-copy">
+                        {{ chartItem.homeItemsCopy }}
+                      </div>
+                      <div class="home-content-item-left-cta">
+                        <a href="{{ chartItem.homeItemsCTA.getUrl() }}" class="button button-2x orange arrow"><span> {{ chartItem.homeItemsCTA.customText }}</span></a>
+                      </div>
+                      
+                    </div>
+                    <div class="home-content-item-right 
+                        {% if chartItem.homeItemsLayout == 'vertical' %}vertical{% endif %} 
+                        {% if chartItem.homeItemsLayout == 'horizontal' %}horizontal{% endif %} 
+                        {% if chartItem.homeItemsLayout  == 'single' %}single{% endif %}">
 
-</style>
+                      <div class="home-content-item-right-image">
+                        <object id ="animated-svg" type="image/svg+xml" data="{{ chartItem.homeItemsGraphImage.first.url }}"></object>
+                      </div>
+                      <div class="home-content-item-right-copy">
+                      {{ chartItem.homeItemsGraphCopy }}
+                      </div>
 
-
-
-    <div class="home-content">
-      <div class="home-content-items">
-        {% for chartItem in entry.V2_HomeCharts %}
-        <div class="home-content-item">
-          <div class="home-content-item-left">
-            <div class="home-content-item-left-title">
-              {{ chartItem.V2_HomeCharts_title }}
-            </div>
-            <div class="home-content-item-left-copy">
-                  {{ chartItem.V2_HomeCharts_copy }}
-            </div>
-            <div class="home-content-item-left-cta">
-              <a href="{{ chartItem.V2_HomeCharts_cta.getUrl() }}" class="button button-2x orange arrow"><span> {{ chartItem.V2_HomeCharts_cta.customText }}</span></a>
-            </div>
+                    </div>
+                    <div class="home-content-item-cta">
+                        <a href="{{ chartItem.homeItemsCTA.getUrl() }}" class="button button-2x orange arrow"><span> {{ chartItem.homeItemsCTA.customText }}</span></a>
+                      </div>
+                  </div>  
+                  {% endfor %} 
+                </div>
+              </div>
             
-          </div>
-          <div class="home-content-item-right 
-              {% if chartItem.V2_HomeCharts_layout == 'vertical' %}vertical{% endif %} 
-              {% if chartItem.V2_HomeCharts_layout == 'horizontal' %}horizontal{% endif %} 
-              {% if chartItem.V2_HomeCharts_layout  == 'single' %}single{% endif %}">
+        {% endswitch %}
+    {% endfor %}
 
-            <div class="home-content-item-right-image">
-              <object id ="animated-svg" type="image/svg+xml" data="{{ chartItem.V2_HomeCharts_chartImage.first.url }}"></object>
-            </div>
-            <div class="home-content-item-right-copy">
-            {{ chartItem.V2_HomeCharts_chartCopy }}
-            </div>
-
-
-          </div>
-          <div class="home-content-item-cta">
-              <a href="{{ chartItem.V2_HomeCharts_cta.getUrl() }}" class="button button-2x orange arrow"><span> {{ chartItem.V2_HomeCharts_cta.customText }}</span></a>
-            </div>
-        </div>  
-        {% endfor %} 
-      </div>
-    </div>
 	</div>
 {% endblock %}
 
