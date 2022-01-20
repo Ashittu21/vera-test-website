@@ -85,7 +85,8 @@
         }
 
         a {
-          padding: 1rem;
+          padding: 1rem 1rem 1rem 2rem;
+          line-height: 3rem;
           display: block;
           color: var(--global-color-white);
           background-color: var(--global-color-medium-violet);
@@ -122,7 +123,7 @@
             align-items: center;
             background-repeat: no-repeat;
             background-size: inherit;
-            background-image: url("../../img/arrow.svg");
+            background-image: url("../img/v2/arrow.svg");
           }
 
           &:hover {

@@ -6,11 +6,11 @@
    justify-content: center;
  
    &.bgcolor-sand{
-     background-color: var(--global-color-sand);
+     background-color: var(--global-color-sand) !important; 
    }
 
    &.bgcolor-darkViolet{
-    background-color: var(--global-color-dark-violet);
+    
   }
  
    .block-signup-container{

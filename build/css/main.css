@@ -30080,7 +30080,8 @@ body.nav-pad:not(.no-pad) {
                     flex: 0 99%;
             row-gap: 20px; } }
         .block-exploreMore .block-exploreMore-container .block-exploreMore-items li a {
-          padding: 1rem;
+          padding: 1rem 1rem 1rem 2rem;
+          line-height: 3rem;
           display: block;
           color: var(--global-color-white);
           background-color: var(--global-color-medium-violet);
@@ -30116,7 +30117,7 @@ body.nav-pad:not(.no-pad) {
                     align-items: center;
             background-repeat: no-repeat;
             background-size: inherit;
-            background-image: url("../../img/arrow.svg"); }
+            background-image: url("../img/v2/arrow.svg"); }
           .block-exploreMore .block-exploreMore-container .block-exploreMore-items li a:hover {
             background-color: var(--global-color-red-2);
             text-decoration: underline;
@@ -30267,7 +30268,7 @@ body.nav-pad:not(.no-pad) {
           height: 1px;
           border-top: 2px solid var(--global-color-light-violet);
           position: absolute;
-          bottom: 1rem;
+          bottom: 3rem;
           left: 0; }
         .headTitle-content .headTitle-title .separator span {
           position: relative;
@@ -30294,6 +30295,8 @@ body.nav-pad:not(.no-pad) {
     .headTitle-content--small {
       padding-top: 25px;
       padding-bottom: 25px; }
+      .headTitle-content--small .headTitle-title .separator:before {
+        bottom: 1rem; }
       .headTitle-content--small .headTitle-title .separator span {
         font-size: 35px;
         line-height: 35px; }
@@ -32189,9 +32192,7 @@ body.nav-pad:not(.no-pad) {
       -ms-flex-pack: center;
           justify-content: center; }
   .block-signup.bgcolor-sand {
-    background-color: var(--global-color-sand); }
-  .block-signup.bgcolor-darkViolet {
-    background-color: var(--global-color-dark-violet); }
+    background-color: var(--global-color-sand) !important; }
   .block-signup .block-signup-container {
     display: -webkit-box;
     display: -ms-flexbox;
