@@ -1,12 +1,11 @@
 
-@import "base/_clicky-menu.scss";
-@import "base/_fonts.scss";
-@import "base/_fontStyles.scss";
-@import "base/_global.scss";
-@import "base/_hamburguer-settings.scss";
-@import "base/_page404.scss";
-@import "base/_ui.scss";
-@import "base/_variables.scss";
+@import "base/clicky-menu.scss";
+@import "base/fonts.scss";
+@import "base/fontStyles.scss";
+@import "base/global.scss";
+@import "base/hamburguer-settings.scss";
+@import "base/ui.scss";
+@import "base/variables.scss";
 
 /* Common Blocks */
 @import "common/aboutBlock.scss";
@@ -52,6 +51,7 @@
 @import "global/header.scss";
 @import "global/header-mobile.scss";
 @import "global/footer.scss";
+
 
 @import "pages/404.scss";
 @import "pages/home.scss";

@@ -1,5 +1,6 @@
+<!-- Banner Type 2 -->
 <section class="banner-block-container">
-  <div class="banner-block-content {% if block.banner_reverse %}reverse{% else %}{% endif %}">
+  <div class="banner-block-content {{ block.banner_reverse }}">
     <a href="{{ block.banner_cta.getUrl() }}" class="banner-block-copy">
         <div class="banner-block-copy-title">
           {{ block.banner_title }}
@@ -14,3 +15,4 @@
     <div class="banner-block-image" style="background-image: url('{{ block.banner_image.first.url }}')"></div>
   </div>
 </section>
+<!-- END Banner Type 2 -->
