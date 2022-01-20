@@ -35092,6 +35092,8 @@ header {
         @media (min-width: 768px) {
           .home-content-items .home-content-item-cta {
             display: none; } }
+  .home-content .headTitle-content {
+    padding-top: 10rem; }
 
 .topicPage:first-child {
   margin-bottom: 5rem; }
