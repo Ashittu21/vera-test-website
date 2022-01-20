@@ -3,16 +3,19 @@
 
 {% block content %}
 
-  {% set blocks  = entry.newsArticleBlocks %}
+{% set blocks  = entry.newsArticleBlocks %}
 <!-- Header Title -->
   <section class="headTitle bgColor-darkviolet">
     <div class="headTitle-content {{ entry.headerTitle_size }}">
       <div class="headTitle-breadcumb">
-        {# if entry.level > 1 %}
-          {% for crumb in entry.getAncestors() %}
-            {{ crumb.getLink() }} 
-          {% endfor %}
-        {% endif #}
+        {% if entry.level > 1 %}
+              <a href="">HOME</a>
+              {% for crumb in entry.getAncestors() %}
+                // {{ crumb.getLink() }} 
+              {% endfor %}
+            {% else %}
+              <a href="">HOME</a>
+            {% endif %} 
       </div>
       <div class="headTitle-title">
         <h3 class="separator left-aligned">
@@ -26,18 +29,18 @@
       <div class="hero-type4-content">
         <div class="hero-type4-content-copy">
           <div class="hero-type4-content-breadcrumbs">
-            {% if entry.level > 1 %}
-              <a href="">HOME</a>
-              {% for crumb in entry.getAncestors() %}
-                // {{ crumb.getLink() }} 
-              {% endfor %}
-            {% else %}
-              <a href="">HOME</a>
-            {% endif %} 
           </div> 
-
           <h1>{{ entry.newsArticle_heroTitle }}</h1>
           <span class="subtitle">{{ entry.newsArticle_heroSubtitle }}</span>
+          <div class="authors">
+            {% if entry.newsArticle_heroAuthors|length %}
+              {% for profile in entry.newsArticle_heroAuthors %}
+                  <span class="profile-name">{{ profile.firstName }} {{ profile.lastName }}</span>
+                  <span>{{ profile.jobTitle }}</span> {% if loop.last %}{% else %}//{% endif %}
+              {% endfor %} 
+            {% endif %}
+          </div>
+          <div class="date"></div>
         </div>
    
         <div class="hero-type4-content-line1"></div>
