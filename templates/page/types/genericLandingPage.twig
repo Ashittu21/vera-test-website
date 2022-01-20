@@ -8,7 +8,7 @@
     {% for block in blocks %}
       {% if block.type == 'headerTitle' %}
         {% include 'v2/common/headerTitle' with { block: block } %}
-      {% if block.type == 'heroType1' %}
+      {% elseif block.type == 'heroType1' %}
         {% include 'v2/common/heroType1' with { block: block } %}
       {% elseif block.type == 'copy' %}
         {% include 'v2/common/copy'  with { block: block } %}
