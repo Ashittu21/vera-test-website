@@ -32213,7 +32213,7 @@ body.nav-pad:not(.no-pad) {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center; }
-  .block-signup.bgcolor-sand {
+  .block-signup.bgColor-sand {
     background-color: var(--global-color-sand) !important; }
   .block-signup .block-signup-container {
     display: -webkit-box;

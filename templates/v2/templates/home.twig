@@ -21,6 +21,8 @@
               {% include 'v2/common/signUp'     with { block: block } %}
             {% case 'newsItems' %}
               {% include 'v2/common/newsItems'  with { block: block } %}
+            {% case 'headerTitle' %}
+              {% include 'v2/common/headerTitle'  with { block: block } %}
             {% case 'map' %}
               <div class="mapContainer">
                 {% include 'vera-maps/_maptypesBlock'  with { block: block } %}

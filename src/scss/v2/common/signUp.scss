@@ -5,11 +5,11 @@
    flex-direction: row;
    justify-content: center;
  
-   &.bgcolor-sand{
+   &.bgColor-sand{
      background-color: var(--global-color-sand) !important; 
    }
 
-   &.bgcolor-darkViolet{}
+   &.bgColor-darkViolet{}
  
    .block-signup-container{
      display: flex;
