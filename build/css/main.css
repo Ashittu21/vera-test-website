@@ -30607,6 +30607,26 @@ body.nav-pad:not(.no-pad) {
         line-height: 48px;
         letter-spacing: 0em;
         text-align: left; }
+      .hero-type4-content-copy .authors {
+        margin-top: 2rem;
+        font-family: var(--global-font-abc-whyte);
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 23px;
+        letter-spacing: 0em;
+        text-align: left; }
+        .hero-type4-content-copy .authors .profile-name {
+          font-weight: 700; }
+      .hero-type4-content-copy .date {
+        margin-top: 2rem;
+        font-family: var(--global-font-abc-whyte);
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 23px;
+        letter-spacing: 0em;
+        text-align: left; }
     .hero-type4-content-line1 {
       display: block;
       position: absolute;

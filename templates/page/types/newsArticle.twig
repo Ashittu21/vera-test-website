@@ -26,10 +26,11 @@
             {% if entry.newsArticle_heroAuthors|length %}
               {% for profile in entry.newsArticle_heroAuthors %}
                   <span class="profile-name">{{ profile.firstName }} {{ profile.lastName }}</span>
-                  <span>{{ profile.jobTitle }}</span> //
+                  <span>{{ profile.jobTitle }}</span> {% if loop.last %}{% else %}//{% endif %}
               {% endfor %} 
             {% endif %}
           </div>
+          <div class="date"></div>
         </div>
    
         <div class="hero-type4-content-line1"></div>
