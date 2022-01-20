@@ -4,7 +4,23 @@
 {% block content %}
 
   {% set blocks  = entry.newsArticleBlocks %}
-
+<!-- Header Title -->
+  <section class="headTitle bgColor-darkviolet">
+    <div class="headTitle-content {{ entry.headerTitle_size }}">
+      <div class="headTitle-breadcumb">
+        {# if entry.level > 1 %}
+          {% for crumb in entry.getAncestors() %}
+            {{ crumb.getLink() }} 
+          {% endfor %}
+        {% endif #}
+      </div>
+      <div class="headTitle-title">
+        <h3 class="separator left-aligned">
+        <span>{{ entry.headerTitle_title }}</span></h3>
+      </div>
+    </div>
+  </section>
+<!-- Header Title -->
 
   <div class="hero-type4">
       <div class="hero-type4-content">
