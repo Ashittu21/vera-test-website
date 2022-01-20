@@ -3,14 +3,14 @@
     <div class="heroType1-block-box">
       <div class="heroType1-block-box-content">
         <div class="heroType1-block-breadcrumbs">
-          {% if entry.level > 1 %}
+          {# {% if entry.level > 1 %}
               <a href="{{ siteUrl }}">HOME</a>
               {% for crumb in entry.getAncestors() %}
                 // {{ crumb.getLink() }} 
               {% endfor %}
-          {% else %}
+          {% else %}#}
           <a href="{{ siteUrl }}">HOME</a>
-          {% endif %} 
+          {# {% endif %}  #}
           </div>
           <div class="heroType1-block-title">
             <h1>{{ block.heroType1_title }}</h1>
