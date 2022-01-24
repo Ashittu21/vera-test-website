@@ -1,8 +1,8 @@
 {% extends '_layout' %}
 {% block content %}
-{% set blocks  = entry.initiativeBlocks %}
 
 <div class="content-page initiative-page">
+
     <!-- Share Icons -->
     <div class="shareIcons">
       <div>
@@ -30,34 +30,34 @@
     </div>
     <!-- Share Icons -->
 
-   {% for block in entry.blocks.level(1).all() %}
-        {% switch block.type.handle %}
-            {% case 'heroType1' %}
-              {% include 'v2/common/heroType1'  with { block: block } %}
-            {% case 'latestNews' %}
-              {% include 'v2/common/latestNews' with { block: block } %}
-            {% case 'copy' %}
-              {% include 'v2/common/copy' with { block: block } %}
-            {% case 'listing' %}
-              {% include 'v2/common/listing' with { block: block } %}
-            {% case 'contactUs' %}
-              {% include 'v2/common/contactUs.twig'  with { block: block } %}
-            {% case 'partners' %}
-              {% include 'v2/common/partners'  with { block: block } %}
-            {% case 'exporeMore' %}
-              {% include 'v2/common/exploreMore'  with { block: block } %}
-            {% case 'signUp' %}
-              {% include 'v2/common/signUp'     with { block: block } %}              
-            {% case 'newsItems' %}
-              {% include 'v2/common/newsItems'  with { block: block } %}
-            {% case 'headerTitle' %}
-              {% include 'v2/common/headerTitle'  with { block: block } %}
-            {% case 'map' %}
-              <div class="mapContainer">
-                {% include 'vera-maps/_maptypesBlock'  with { map: block } %}
-              </div>       
-        {% endswitch %}
-    {% endfor %}    
+  {% for block in entry.initiativeBlocks.level(1).all() %}
+    {% switch block.type.handle %}
+      {% case 'heroType1' %}
+        {% include '/v2/common/heroType1'  with { block: block } %}
+      {% case 'latestNews' %}
+        {% include '/v2/common/latestNews' with { block: block } %}
+      {% case 'copy' %}
+        {% include '/v2/common/copy' with { block: block } %}
+      {% case 'listing' %}
+        {% include '/v2/common/listing' with { block: block } %}
+      {% case 'contactUs' %}
+        {% include '/v2/common/contactUs.twig'  with { block: block } %}
+      {% case 'partners' %}
+        {% include '/v2/common/partners'  with { block: block } %}
+      {% case 'exporeMore' %}
+        {% include '/v2/common/exploreMore'  with { block: block } %}
+      {% case 'signUp' %}
+        {% include '/v2/common/signUp'     with { block: block } %}              
+      {% case 'newsItems' %}
+        {% include '/v2/common/newsItems'  with { block: block } %}
+      {% case 'headerTitle' %}
+        {% include '/v2/common/headerTitle'  with { block: block } %}
+      {% case 'map' %}
+        <div class="mapContainer">
+          {% include 'vera-maps/_maptypesBlock'  with { map: block } %}
+        </div>       
+    {% endswitch %}
+  {% endfor %}    
 </div>
 {% endblock %}
 

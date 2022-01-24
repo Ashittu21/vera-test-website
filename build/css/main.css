@@ -35095,6 +35095,9 @@ header {
   .home-content .headTitle-content {
     padding-top: 10rem; }
 
+.initiative-page {
+  min-height: 500px; }
+
 .topicPage:first-child {
   margin-bottom: 5rem; }
 
