@@ -1,0 +1,30 @@
+
+    <!-- Partners -->
+    <section class="partners-block-container">
+      <div class="headTitle bgColor-darkviolet">
+        <div class="headTitle-content headTitle-content--small">
+          <div class="headTitle-title ">
+            <h3 class="separator left-aligned"><span>{{ block.partners_title }}</span></h3>
+          </div>
+        </div>
+      </div>
+
+      <div class="partners-block-content">
+        <div class="partners-block-copy">
+          {{ block.partners_copy }}
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do <br> 
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+        </div>
+        <div class="partners-block-logos">
+
+        {% if block.partners_logos|length %}
+          {% for partner in block.partners_logos %}
+           <img src="{{ partner.url }}" alt="">
+          {% endfor %}
+        {% endif %}
+        </div>
+
+
+      </div>
+    </section>
+    <!-- Partners -->

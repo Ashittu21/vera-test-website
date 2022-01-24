@@ -1,0 +1,30 @@
+    <section class="about-block-container">
+      <div class="about-block-content">
+        <div class="about-block-title">{{ block.contactUs_title }}</div>
+        <div class="about-block-copy">
+         {{ block.contactUs_copy }}
+        </div>
+
+        <div class="about-block-profiles">
+
+          {% if block.contactUs_profiles|length %}
+            {% for profile in block.contactUs_profiles %}
+            <div class="profile-block">
+              <div class="profile-block-img">
+                <img src="{{ profile.headshot.first.url }}" alt="">
+              </div>
+              <div class="profile-block-copy">
+                <span class="profile-block-copy-name">{{ profile.firstName }} {{ profile.lastName }}</span>
+                <span class="profile-block-copy-position">{{ profile.jobTitle }}</span>
+                <span class="profile-block-copy-email">{{ profile.email }}</span>
+                <span class="profile-block-copy-phone">{{ profile.telephone }}</span>
+              {% if profile.social.twitterHandle %} <span class="profile-block-copy-url">{{ profile.social.twitterHandle }}</span>{% endif %}
+              </div>
+            </div>
+            {% endfor %}
+          {% endif %}
+
+        </div>
+
+      </div>
+    </section>

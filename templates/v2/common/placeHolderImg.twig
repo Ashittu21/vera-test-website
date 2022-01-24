@@ -1,0 +1,26 @@
+
+  {% set color = {
+    '1': {
+      'bgcolor': '#160643',
+      'fontColor': '#EF4136',
+    },
+    '2': {
+      'bgcolor': '#FF9E44',
+      'fontColor': '#2E1D97',
+    },
+    '3': {
+      'bgcolor': '#EF4136',
+      'fontColor': '#160643',
+    },
+    '4': {
+      'bgcolor': '#2E1D97',
+      'fontColor': '#ABFFEB',
+    }
+  }
+  %}
+
+    <div class="placeHolderImg" style="background-color: {{ color[indexColor].bgcolor }}">
+      <svg width="173" height="177" viewBox="0 0 173 177" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M68.9555 177L14.3321 16.5401L0 13.3153L1.24853 0H76.4987L77.7473 13.3153L61.6984 16.5401L100.715 134.713L139.446 16.5401L121.68 13.3153L122.903 0H171.751L173 13.3153L159.994 16.5401L105.657 169.432L68.9555 177Z" fill="{{ color[indexColor].fontColor }}"/>
+      </svg>
+    </div>
