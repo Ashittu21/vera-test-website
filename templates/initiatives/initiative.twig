@@ -60,12 +60,14 @@
         {% include '/v2/common/stats' with { block: block } %}
       {% case 'listing' %}
         {% include '/v2/common/listing' with { block: block } %}
-      {% case 'exporeMore' %}
+      {% case 'exploreMore' %}
         {% include '/v2/common/exploreMore'  with { block: block } %}
       {% case 'headerTitle' %}
         {% include '/v2/common/headerTitle'  with { block: block } %}
       {% case 'latestNews' %}
         {% include '/v2/common/latestNews' with { block: block } %}
+      {% case 'newsHero' %}
+        {% include '/v2/common/newsHero'     with { block: block } %}  
       {% case 'signUp' %}
         {% include '/v2/common/signUp'     with { block: block } %}     
       {% case 'newsItems' %}
@@ -83,10 +85,6 @@
         {% include '/v2/common/contactUs.twig'  with { block: block } %}
       {% case 'partners' %}
         {% include '/v2/common/partners'  with { block: block } %}
-
-               
-      
-
       {% case 'resources' %} 
             <section class="resources-block-container">
               <div class="resources-block-content">
