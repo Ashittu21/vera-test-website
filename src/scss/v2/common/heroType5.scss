@@ -24,10 +24,11 @@
       flex-direction: column;
       background-color: var(--global-color-dark-violet);
       height: fit-content;
-      min-height: 140px;
-      margin-top: 56px;
+      /*min-height: 140px;*/
+      margin-top: 65px;
       position: relative;
-      padding-bottom: 50px;
+      /*padding-bottom: 50px;*/
+      padding-bottom: 0;
 
       @media(max-width:$mobile-breakpoint) {
         background-position: center 78px;
@@ -47,12 +48,14 @@
           font-size: 11px;
           font-style: normal;
           font-weight: 400;
-          line-height: 21px;
+          line-height: normal;
           letter-spacing: 0.17em;
           text-align: center;
           text-transform: uppercase;
           color: var(--global-color-mint);
           text-decoration: none;
+          margin: 0;
+          padding: 0;
         }
 
         @media(max-width:$mobile-breakpoint) {
@@ -61,14 +64,16 @@
       }
 
       &-title {
-        margin-top: 18px;
+        margin-top: 30px;
+        margin-bottom: 63px;
+        /*margin-top: 18px;*/
         font-family: var(--global-font-abc-whyte);
         font-size: 40px;
         font-style: normal;
         font-weight: 400;
         color: #FFF;
-        line-height: 48px;
-        letter-spacing: 0em;
+        line-height: 40px;
+        letter-spacing: 0;
         text-align: center;
 
         @media(max-width:$mobile-breakpoint) {
