@@ -8,6 +8,6 @@
 		{% include 'vera-maps/types/countyHeatmapWithLineCharts' with { entry: map } %}
 	{% default %}
     <!-- {{ map.type.handle }} -->
-		{% include 'vera-maps/map' with {map: map, mapTheme: mapTheme ?? null} %}
+		{% include 'vera-maps/map' with {map: map, zoomable: 'zoom',  mapTheme: mapTheme ?? null} %}
 {% endswitch %}
 
