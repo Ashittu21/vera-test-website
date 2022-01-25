@@ -58,6 +58,8 @@
     {% switch block.type.handle %}
       {% case 'stats' %}
         {% include '/v2/common/stats' with { block: block } %}
+      {% case 'onThisPage' %}
+        {% include '/v2/common/onThisPage' with { block: block } %}
       {% case 'listing' %}
         {% include '/v2/common/listing' with { block: block } %}
       {% case 'exploreMore' %}
@@ -80,7 +82,6 @@
             </div>
           </section>
         <!-- Copy Block -->
-
       {% case 'contactUs' %}
         {% include '/v2/common/contactUs.twig'  with { block: block } %}
       {% case 'partners' %}
