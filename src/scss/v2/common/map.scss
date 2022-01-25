@@ -22,6 +22,30 @@
     background-color: transparent;
 
 
+.container{
+  .map__header{}
+  .map__inner-container{
+    .map__content{}
+    .map_wrap{
+      .map_inner_wrap{
+        .state{
+          fill: #97DFD1;
+          &.state__is-active{
+            fill: #2E1D97;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+
     ::-webkit-scrollbar-thumb{
       background-color: #CEC0BC !important;
     }
@@ -60,6 +84,7 @@
         fill: #97DFD1;
         stroke: #fff;
       }
+
       .project-map.light .state__path.state__is-active{
         fill: #2e1d97;
       }
@@ -84,7 +109,6 @@
 
     }
   }
-
 
 
   .no-touch .project-map.light .state__path.state__is-not-active {

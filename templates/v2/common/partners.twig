@@ -10,11 +10,12 @@
       </div>
 
       <div class="partners-block-content">
+
         <div class="partners-block-copy">
           {{ block.partners_copy }}
         </div>
-        <div class="partners-block-logos">
 
+        <div class="partners-block-logos">
         {% if block.partners_logos|length %}
           {% for partner in block.partners_logos %}
            <img src="{{ partner.url }}" alt="">
