@@ -48,9 +48,12 @@
         background-color: #3E2BB1;
       }
 
-      .map_select_button:hover {
-        text-decoration: underline;
-        color: #FFF;
+      .map_select_button{
+        padding: 5px 0 5px 10px;
+        &:hover {
+          text-decoration: underline;
+          color: #FFF;
+        }
       }
 
       .states {

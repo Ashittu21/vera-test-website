@@ -82,6 +82,29 @@
         {% include '/v2/common/newsItems'  with { block: block } %}
       {% case 'headerTitle' %}
         {% include '/v2/common/headerTitle'  with { block: block } %}
+      {% case 'resources' %} 
+            <section class="resources-block-container">
+              <div class="resources-block-content">
+                <div class="resources-block-title">
+                  {{ block.resourceFiles_title }}
+                </div>
+              {# {% for block in resources  %}
+                  {% switch block.type.handle %}
+                      {% case 'resource_subtitle' %}
+                        <div class="resources-block-items-title">
+                          {{ block.initiative_resources_subtitle }}
+                        </div>
+
+                          <div class="resources-block-items">
+                            {% for resource_item in block.children %}
+                                <div class="resources-block-item"><a href="{{ resource_item.initiative_resources_item.url }}" class="icon-link">{{ resource_item.initiative_resources_item.customText }}</a></div>
+                            {% endfor %}
+                          </div>
+                        
+                  {% endswitch %}
+              {% endfor %}#}
+              </div>
+            </section>
       {% case 'map' %}
         <div class="mapContainer">
           {% include '/vera-maps/mapsv2'  with { block: block } %}
