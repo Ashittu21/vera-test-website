@@ -88,21 +88,21 @@
                 <div class="resources-block-title">
                   {{ block.resourceFiles_title }}
                 </div>
-              {# {% for block in resources  %}
-                  {% switch block.type.handle %}
-                      {% case 'resource_subtitle' %}
-                        <div class="resources-block-items-title">
-                          {{ block.initiative_resources_subtitle }}
-                        </div>
-
-                          <div class="resources-block-items">
-                            {% for resource_item in block.children %}
-                                <div class="resources-block-item"><a href="{{ resource_item.initiative_resources_item.url }}" class="icon-link">{{ resource_item.initiative_resources_item.customText }}</a></div>
-                            {% endfor %}
-                          </div>
-                        
-                  {% endswitch %}
-              {% endfor %}#}
+              <div class="resources-block-items">
+               {% if block.resourceFiles_items %}
+	              {% for block in block.resourceFiles_items %}
+                    {% if block.type == 'subtitle' %}
+                      <div class="resources-block-items-title">
+                        {{ block.resourceFiles_subtitle }}
+                      </div>
+                    {% endif %}
+                    {% if block.type == 'item' %}
+                    <div class="resources-block-item"><a href="{{ block.resource_link.url }}"
+                          class="icon-link">{{ block.resource_link.customText }}</a></div>                   
+                    {% endif %}
+                {% endfor %}
+                </div>
+              {% endif %}
               </div>
             </section>
       {% case 'map' %}
