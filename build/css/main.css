@@ -30703,10 +30703,8 @@ body.nav-pad:not(.no-pad) {
     height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;
-    /*min-height: 140px;*/
-    margin-top: 65px;
+    margin-top: 56px;
     position: relative;
-    /*padding-bottom: 50px;*/
     padding-bottom: 0; }
     @media (max-width: 768px) {
       .heroType5-container-copy {
@@ -30740,9 +30738,8 @@ body.nav-pad:not(.no-pad) {
         .heroType5-container-copy-breadcrumbs {
           display: none; } }
     .heroType5-container-copy-title {
-      margin-top: 30px;
-      margin-bottom: 63px;
-      /*margin-top: 18px;*/
+      margin-top: 17px;
+      margin-bottom: 50px;
       font-family: var(--global-font-abc-whyte);
       font-size: 40px;
       font-style: normal;
