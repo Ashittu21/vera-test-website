@@ -1,0 +1,19 @@
+
+{% if block.map |length %}
+
+		{% set map = block.map.one() %}  
+		{% set zoomeable = 'does-not-zoom' %}
+
+	{% include 'vera-maps/map' with {map: map, mapTheme: mapTheme ?? null} %}
+    {{ map.type.handle }}
+    
+		{% switch map.type.handle %}
+			{% case 'citiesMapWithLinks' %}
+				{% include 'vera-maps/types/citiesMapWithLinks' with { entry: map, zoomable: 'zoom' } %}
+			{% case 'countyHeatmapWithLineCharts' %}
+				{% include 'vera-maps/types/countyHeatmapWithLineCharts' with { entry: map } %}
+			{% default %}
+        <!-- null -->
+				{# include 'vera-maps/map' with {map: map, mapTheme: mapTheme ?? null} #}
+		{% endswitch %}
+{% endif %}

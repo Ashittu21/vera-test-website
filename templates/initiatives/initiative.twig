@@ -1,6 +1,30 @@
 {% extends '_layout' %}
 {% block content %}
 
+
+<!-- Hero Block -->
+  <div class="heroType1-container"  style="background-image: url('{{ entry.heroType1_image.first.url }}');">
+    <div class="heroType1-block-box">
+      <div class="heroType1-block-box-content">
+          <div class="heroType1-block-breadcrumbs">
+            {% if entry.level > 1 %}
+                <a href="{{ siteUrl }}">HOME</a>
+                {% for crumb in entry.getAncestors() %}
+                  // {{ crumb.getLink() }} 
+                {% endfor %}
+            {% else %}
+            <a href="{{ siteUrl }}">HOME</a>
+            {% endif %}  
+          </div>
+          <div class="heroType1-block-title">
+            <h1>{{ entry.heroType1_title }}</h1>
+          </div>
+      </div>
+    </div>
+  </div>
+<!-- END Hero Block -->
+
+
 <div class="content-page initiative-page">
 
     <!-- Share Icons -->
@@ -37,7 +61,13 @@
       {% case 'latestNews' %}
         {% include '/v2/common/latestNews' with { block: block } %}
       {% case 'copy' %}
-        {% include '/v2/common/copy' with { block: block } %}
+        <!-- Copy Block -->
+          <section class="copy-block-container">
+            <div class="copy-block-content">
+              {{ block.copy | shortcodes }}
+            </div>
+          </section>
+        <!-- Copy Block -->
       {% case 'listing' %}
         {% include '/v2/common/listing' with { block: block } %}
       {% case 'contactUs' %}
@@ -54,10 +84,13 @@
         {% include '/v2/common/headerTitle'  with { block: block } %}
       {% case 'map' %}
         <div class="mapContainer">
-          {% include 'vera-maps/_maptypesBlock'  with { map: block } %}
+          {% include '/vera-maps/_maptypesBlock'  with { block: block } %}
         </div>       
     {% endswitch %}
   {% endfor %}    
+
+
+
 </div>
 {% endblock %}
 
