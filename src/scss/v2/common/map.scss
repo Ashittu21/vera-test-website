@@ -56,6 +56,15 @@
         }
       }
 
+      .state{
+        fill: #97DFD1;
+        stroke: #fff;
+      }
+      .project-map.light .state__path.state__is-active{
+        fill: #2e1d97;
+      }
+      
+
       .states {
         fill: #97DFD1;
         stroke: #fff7f0;

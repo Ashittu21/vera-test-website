@@ -1,3 +1,4 @@
+  <!--- Contact Us -->
     <section class="about-block-container">
       <div class="about-block-content">
         <div class="about-block-title">{{ block.contactUs_title }}</div>
@@ -6,7 +7,6 @@
         </div>
 
         <div class="about-block-profiles">
-
           {% if block.contactUs_profiles|length %}
             {% for profile in block.contactUs_profiles %}
             <div class="profile-block">
@@ -23,8 +23,9 @@
             </div>
             {% endfor %}
           {% endif %}
-
         </div>
 
       </div>
     </section>
+
+    <!--- Contact Us -->

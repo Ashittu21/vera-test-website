@@ -18365,7 +18365,7 @@ button.next-slide {
       stroke: #fff;
       vector-effect: non-scaling-stroke; }
       .project-map.light .state__path.state__is-active {
-        fill: #bcbdbc; }
+        fill: #2E1D97; }
         .no-touch .project-map.light .state__path.state__is-active:hover {
           fill: #4d4e56; }
         .project-map.light .state__path.state__is-active.state__group1 {
@@ -18399,7 +18399,7 @@ button.next-slide {
           .no-touch .project-map.light .state__path.state__is-active.state__group6:hover {
             fill: #a869e7; }
     .project-map.light .marker {
-      stroke: #bcbdbc;
+      stroke: #2E1D97;
       fill: #231f20; }
       .no-touch .project-map.light .marker:hover, .project-map.light .marker.hovered, .project-map.light .marker.active {
         fill: #ef4136; }
@@ -18430,9 +18430,9 @@ button.next-slide {
     .project-map.light.zooms.zoomed .map__legend {
       background-color: #f9f9f9; }
     .project-map.light.zooms.zoomed .state__path.state__is-active {
-      fill: #bcbdbc; }
+      fill: #2E1D97; }
       .no-touch .project-map.light.zooms.zoomed .state__path.state__is-active:hover {
-        fill: #bcbdbc; }
+        fill: #2E1D97; }
       .project-map.light.zooms.zoomed .state__path.state__is-active.state__group1 {
         fill: #e5eff8;
         stroke: #0061b6; }
@@ -19175,7 +19175,7 @@ button.next-slide {
     stroke: #fff;
     vector-effect: non-scaling-stroke; }
     .us-map .state__path.state__is-active {
-      fill: #bcbdbc; }
+      fill: #2E1D97; }
       .no-touch .us-map .state__path.state__is-active:hover {
         fill: #4d4e56; }
       .us-map .state__path.state__is-active.state__group1 {
@@ -19209,7 +19209,7 @@ button.next-slide {
         .no-touch .us-map .state__path.state__is-active.state__group6:hover {
           fill: #a869e7; }
   .us-map .marker {
-    stroke: #bcbdbc;
+    stroke: #2E1D97;
     fill: #231f20; }
     .no-touch .us-map .marker:hover, .us-map .marker.hovered, .us-map .marker.active {
       fill: #ef4136; }
@@ -19240,9 +19240,9 @@ button.next-slide {
   .us-map.zooms.zoomed .map__legend {
     background-color: #f9f9f9; }
   .us-map.zooms.zoomed .state__path.state__is-active {
-    fill: #bcbdbc; }
+    fill: #2E1D97; }
     .no-touch .us-map.zooms.zoomed .state__path.state__is-active:hover {
-      fill: #bcbdbc; }
+      fill: #2E1D97; }
     .us-map.zooms.zoomed .state__path.state__is-active.state__group1 {
       fill: #e5eff8;
       stroke: #0061b6; }
@@ -31305,6 +31305,11 @@ body.nav-pad:not(.no-pad) {
       .mapContainer .project-map.light .map_select_button_wrap .map_select_button:hover {
         text-decoration: underline;
         color: #FFF; }
+    .mapContainer .project-map.light .map_select_button_wrap .state {
+      fill: #97DFD1;
+      stroke: #fff; }
+    .mapContainer .project-map.light .map_select_button_wrap .project-map.light .state__path.state__is-active {
+      fill: #2e1d97; }
     .mapContainer .project-map.light .map_select_button_wrap .states {
       fill: #97DFD1;
       stroke: #fff7f0; }

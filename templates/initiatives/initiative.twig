@@ -56,10 +56,20 @@
 
   {% for block in entry.initiativeBlocks.level(1).all() %}
     {% switch block.type.handle %}
-      {% case 'heroType1' %}
-        {% include '/v2/common/heroType1'  with { block: block } %}
+      {% case 'stats' %}
+        {% include '/v2/common/stats' with { block: block } %}
+      {% case 'listing' %}
+        {% include '/v2/common/listing' with { block: block } %}
+      {% case 'exporeMore' %}
+        {% include '/v2/common/exploreMore'  with { block: block } %}
+      {% case 'headerTitle' %}
+        {% include '/v2/common/headerTitle'  with { block: block } %}
       {% case 'latestNews' %}
         {% include '/v2/common/latestNews' with { block: block } %}
+      {% case 'signUp' %}
+        {% include '/v2/common/signUp'     with { block: block } %}     
+      {% case 'newsItems' %}
+        {% include '/v2/common/newsItems'  with { block: block } %}
       {% case 'copy' %}
         <!-- Copy Block -->
           <section class="copy-block-container">
@@ -68,20 +78,15 @@
             </div>
           </section>
         <!-- Copy Block -->
-      {% case 'listing' %}
-        {% include '/v2/common/listing' with { block: block } %}
+
       {% case 'contactUs' %}
         {% include '/v2/common/contactUs.twig'  with { block: block } %}
       {% case 'partners' %}
         {% include '/v2/common/partners'  with { block: block } %}
-      {% case 'exporeMore' %}
-        {% include '/v2/common/exploreMore'  with { block: block } %}
-      {% case 'signUp' %}
-        {% include '/v2/common/signUp'     with { block: block } %}              
-      {% case 'newsItems' %}
-        {% include '/v2/common/newsItems'  with { block: block } %}
-      {% case 'headerTitle' %}
-        {% include '/v2/common/headerTitle'  with { block: block } %}
+
+               
+      
+
       {% case 'resources' %} 
             <section class="resources-block-container">
               <div class="resources-block-content">
