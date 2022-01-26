@@ -57,34 +57,34 @@
   {% for block in entry.initiativeBlocks.level(1).all() %}
     {% switch block.type.handle %}
       {% case 'stats' %}
-        {% if block.anchorField is not null %}<a class="anchor-link" id="{{ block.anchorField }}" /></a>{% endif %}
+        {% if block.anchorField is not null %}<a class="anchor-link" name="{{ block.anchorField }}" /></a>{% endif %}
         {% include '/v2/common/stats' with { block: block } %}
       {% case 'onThisPage' %}
-        {% if block.anchorField is not null %}<a class="anchor-link" id="{{ block.anchorField }}" /></a>{% endif %}
+        {% if block.anchorField is not null %}<a class="anchor-link" name="{{ block.anchorField }}" /></a>{% endif %}
         {% include '/v2/common/onThisPage' with { block: block } %}
       {% case 'listing' %}
-        {% if block.anchorField is not null %}<a class="anchor-link" id="{{ block.anchorField }}" /></a>{% endif %}
+        {% if block.anchorField is not null %}<a class="anchor-link" name="{{ block.anchorField }}" /></a>{% endif %}
         {% include '/v2/common/listing' with { block: block } %}
       {% case 'exploreMore' %}
-        {% if block.anchorField is not null %}<a class="anchor-link" id="{{ block.anchorField }}" /></a>{% endif %}
+        {% if block.anchorField is not null %}<a class="anchor-link" name="{{ block.anchorField }}" /></a>{% endif %}
         {% include '/v2/common/exploreMore'  with { block: block } %}
       {% case 'headerTitle' %}
-        {% if block.anchorField is not null %}<a class="anchor-link" id="{{ block.anchorField }}" /></a>{% endif %}
+        {% if block.anchorField is not null %}<a class="anchor-link" name="{{ block.anchorField }}" /></a>{% endif %}
         {% include '/v2/common/headerTitle'  with { block: block } %}
       {% case 'latestNews' %}
-        {% if block.anchorField is not null %}<a class="anchor-link" id="{{ block.anchorField }}" /></a>{% endif %}
+        {% if block.anchorField is not null %}<a class="anchor-link" name="{{ block.anchorField }}" /></a>{% endif %}
         {% include '/v2/common/latestNews' with { block: block } %}
       {% case 'newsHero' %}
-        {% if block.anchorField is not null %}<a class="anchor-link" id="{{ block.anchorField }}" /></a>{% endif %}
+        {% if block.anchorField is not null %}<a class="anchor-link" name="{{ block.anchorField }}" /></a>{% endif %}
         {% include '/v2/common/newsHero'     with { block: block } %}  
       {% case 'signUp' %}
-        {% if block.anchorField is not null %}<a class="anchor-link" id="{{ block.anchorField }}" /></a>{% endif %}
+        {% if block.anchorField is not null %}<a class="anchor-link" name="{{ block.anchorField }}" /></a>{% endif %}
         {% include '/v2/common/signUp'     with { block: block } %}     
       {% case 'newsItems' %}
-        {% if block.anchorField is not null %}<a class="anchor-link" id="{{ block.anchorField }}" /></a>{% endif %}
+        {% if block.anchorField is not null %}<a class="anchor-link" name="{{ block.anchorField }}" /></a>{% endif %}
         {% include '/v2/common/newsItems'  with { block: block } %}
       {% case 'copy' %}
-          {% if block.anchorField is not null %}<a class="anchor-link" id="{{ block.anchorField }}" /></a>{% endif %}
+          {% if block.anchorField is not null %}<a class="anchor-link" name="{{ block.anchorField }}" /></a>{% endif %}
           <!-- Copy Block -->
           <section class="copy-block-container">
             <div class="copy-block-content">
@@ -93,13 +93,13 @@
           </section>
         <!-- Copy Block -->
       {% case 'contactUs' %}
-        {% if block.anchorField is not null %}<a class="anchor-link" id="{{ block.anchorField }}" /></a>{% endif %}
+        {% if block.anchorField is not null %}<a class="anchor-link" name="{{ block.anchorField }}" /></a>{% endif %}
         {% include '/v2/common/contactUs.twig'  with { block: block } %}
       {% case 'partners' %}
-        {% if block.anchorField is not null %}<a class="anchor-link" id="{{ block.anchorField }}" /></a>{% endif %}
+        {% if block.anchorField is not null %}<a class="anchor-link" name="{{ block.anchorField }}" /></a>{% endif %}
         {% include '/v2/common/partners'  with { block: block } %}
       {% case 'resources' %} 
-          {% if block.anchorField is not null %}<a class="anchor-link" id="{{ block.anchorField }}" /></a>{% endif %}
+          {% if block.anchorField is not null %}<a class="anchor-link" name="{{ block.anchorField }}" /></a>{% endif %}
             <section class="resources-block-container">
               <div class="resources-block-content">
                 <div class="resources-block-title">
@@ -123,15 +123,29 @@
               </div>
             </section>
       {% case 'map' %}
-        {% if block.anchorField is not null %}<a class="anchor-link" id="{{ block.anchorField }}" /></a>{% endif %}
+        {% if block.anchorField is not null %}<a class="anchor-link" name="{{ block.anchorField }}" /></a>{% endif %}
         <div class="mapContainer">
           {% include '/vera-maps/mapsv2'  with { block: block } %}
         </div>       
     {% endswitch %}
   {% endfor %}    
 
-
-
 </div>
+
+<script>
+var lnks = document .querySelectorAll('a[href*="#"]');
+for (var i = 0; i < lnks.length; i++) {
+    lnks[i].onclick = function(e){
+    e.preventDefault();
+    var  b = this; 
+    var c = b.getAttribute("href").substring(1); 
+    var el = document .querySelectorAll('a[name="'+c+'"]')[0];
+	  window.scrollTo({
+        top: el.offsetTop -120, 
+        behavior: "smooth"
+    });
+    };
+}
+</script>
 {% endblock %}
 

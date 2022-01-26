@@ -28600,7 +28600,7 @@ body.nav-pad:not(.no-pad) {
   background-color: var(--global-color-sand); }
 
 .anchor-link {
-  top: -120px;
+  /*top: -120px;*/
   position: relative; }
 
 .button {
