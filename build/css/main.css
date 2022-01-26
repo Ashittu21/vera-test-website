@@ -31178,6 +31178,8 @@ body.nav-pad:not(.no-pad) {
       fill: #97DFD1; }
       .mapContainer .project-map.light .container .map__inner-container .map_wrap .map_inner_wrap .state.state__is-active, .mapContainer .project-map.light .timed-slideshow-item--text .map__inner-container .map_wrap .map_inner_wrap .state.state__is-active, .mapContainer .project-map.light .PoliceBudget .map__inner-container .map_wrap .map_inner_wrap .state.state__is-active {
         fill: #2E1D97; }
+        .mapContainer .project-map.light .container .map__inner-container .map_wrap .map_inner_wrap .state.state__is-active:hover, .mapContainer .project-map.light .timed-slideshow-item--text .map__inner-container .map_wrap .map_inner_wrap .state.state__is-active:hover, .mapContainer .project-map.light .PoliceBudget .map__inner-container .map_wrap .map_inner_wrap .state.state__is-active:hover {
+          fill: #DA392F; }
     .mapContainer .project-map.light ::-webkit-scrollbar-thumb {
       background-color: #CEC0BC !important; }
     .mapContainer .project-map.light ::-webkit-scrollbar-track {

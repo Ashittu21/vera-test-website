@@ -32,6 +32,9 @@
           fill: #97DFD1;
           &.state__is-active{
             fill: #2E1D97;
+            &:hover{
+              fill: #DA392F;
+            }
           }
         }
       }

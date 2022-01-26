@@ -1,0 +1,69 @@
+{% extends '_layout' %}
+
+{% block content %}
+
+{% set headerTitle    = entry.mediaPress_headerTitle %}
+{% set pageTitle      = entry.mediaPress_pageTitle %}
+{% set pageCopy       = entry.mediaPress_copy %}
+
+<!-- Latest News 2 -->
+  <section class="headTitle bgColor-darkviolet">
+    <div class="headTitle-content">
+      <div class="headTitle-title">
+        <h3 class="separator left-aligned"><span>{{ headerTitle }}</span></h3>
+      </div>
+    </div>
+  </section>
+<!-- Latest News -->
+
+
+  <div class="mediaContacts">
+
+    <div class="mediaContacts-header">
+      <div class="mediaContacts-header-title">{{ pageTitle }}</div>
+      <div class="mediaContacts-header-copy">
+        {{ pageCopy }}
+      </div>
+    </div>
+
+    <div class="mediaContacts-items">
+      {% paginate craft.entries.section('pressReleases').limit(10) as pageInfo, pageEntries %}
+
+      {% for entry in pageEntries %}
+        {% set blockCopy = entry.article.type('copy').first() %}
+        <div class="mediaContacts-item">
+          <div class="mediaContacts-item-content">
+
+            <div class="mediaContacts-item-content-left">
+              <div class="mediaContacts-item-content-left-tag">{{ entry.type.name | title | upper }}</div>
+            </div>
+
+            <div class="mediaContacts-item-content-right">
+              <div class="mediaContacts-item-content-right-title"><a href="{{ entry.url }}">{{ entry.title }}</a></div>
+              <div class="mediaContacts-item-content-right-date">{{ entry.postDate | date("M d, Y") }}</div>
+            </div>
+
+          </div>
+        </div>
+      {% endfor %}
+
+
+        <div class="mediaContacts-paginate">
+          {% if pageInfo.prevUrl %}
+          <a href="{{ pageInfo.prevUrl }}" class="mediaContacts-paginate-item">Prev</a>
+          {% else %}
+          <a href="{{ pageInfo.firstUrl }}" class="mediaContacts-paginate-item">Prev</a>
+          {% endif %}
+          {% for page, url in pageInfo.getPrevUrls(5) %}
+            <a href="{{ url }}" class="mediaContacts-paginate-item">{{ page }}</a>
+          {% endfor %}
+          <span class="mediaContacts-paginate-item--current">{{ pageInfo.currentPage }}</span>
+          {% for page, url in pageInfo.getNextUrls(5) %}
+            <a href="{{ url }}" class="mediaContacts-paginate-item">{{ page }}</a>
+          {% endfor %}
+          {% if pageInfo.nextUrl %}<a href="{{ pageInfo.nextUrl }}" class="mediaContacts-paginate-item">Next</a>{% endif %}
+        </div>
+    </div>
+  </div>
+
+{% endblock %}
