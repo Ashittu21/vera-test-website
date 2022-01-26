@@ -31573,6 +31573,7 @@ body.nav-pad:not(.no-pad) {
     width: 100%; }
     .partners-block-container .partners-block-content .partners-block-copy {
       font-family: var(--global-font-abc-whyte);
+      color: #FFF;
       font-size: 21px;
       font-style: normal;
       font-weight: 400;

@@ -16,13 +16,16 @@
         </div>
 
         <div class="partners-block-logos">
-        {% if block.partners_logos|length %}
-          {% for partner in block.partners_logos %}
-           <img src="{{ partner.url }}" alt="">
-          {% endfor %}
+        {% if block.partners_items|length %}
+          {% for partner in block.partners_items %}
+           {% if partner.type == 'partners_image' %}
+             <a {{ partner.partners_link.getLinkAttributes() }}><img src="{{ partner.partners_image.first.url }}" ></a>
+           {% elseif partner.type == 'partners_text' %}
+           		<a {{ partner.partners_link.getLinkAttributes() }}>{{ partner.partners_link.customText }}</a>
+           {% endif %}
+           {% endfor %}
         {% endif %}
         </div>
-
 
       </div>
     </section>
