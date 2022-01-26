@@ -1,18 +1,22 @@
 
     <!-- On this Page Links -->
-    <!--<section class="bannerLinks-block-container">
+    <section class="bannerLinks-block-container">
       <div class="bannerLinks-title-mobile">{{ block.onThisPage_title }} </div>
       <div class="bannerLinks-left" style="background-image: url('{{ block.onThisPage_image.first.url }}');"></div>
-      <div class="bannerLinks-right">
-        <div class="bannerLinks-right-title">
-         {{ block.onThisPage_title }}
-        </div>
-
-        <div class="bannerLinks-right-items">
-          <div class="bannerLinks-right-item">
-            <a href=""></a>
+        <div class="bannerLinks-right">
+          <div class="bannerLinks-right-title">
+          {{ block.onThisPage_title }}
           </div>
-        </div>
+          
+          {% if block.onThisPage_anchors|length %}
+          <div class="bannerLinks-right-items">
+            {% for anchorLink in block.onThisPage_anchors  %}
+            <div class="bannerLinks-right-item">
+            		<a {{ anchorLink.onThisPage_anchors.getLinkAttributes() }}>{{ anchorLink.onThisPage_anchors.customText }}</a>
+            </div>
+            {% endfor %}
+          </div>
+          {% endif %}
       </div>
-    </section> -->
+    </section>
     <!-- On This Page Links -->

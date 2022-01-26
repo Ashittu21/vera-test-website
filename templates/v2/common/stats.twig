@@ -1,5 +1,7 @@
 <!-- Stats Block -->
-<section class="stats-block" {% if block.anchorField is not null %} id="{{ block.anchorField }}" {% endif %}>
+<a class="anchor-link" {% if block.anchorField is not null %} id="{{ block.anchorField }}" {% endif %}/></a>
+
+<section class="stats-block">
   <div class="stats-block-title">
     <p>{{ block.stats_title  }}</p>
   </div>
