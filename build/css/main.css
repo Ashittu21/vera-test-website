@@ -31353,6 +31353,25 @@ body.nav-pad:not(.no-pad) {
             background-color: #DA392F;
             color: #FFF;
             text-decoration: none; }
+    .mediaContacts .mediaContacts-header-links a {
+      font-family: var(--global-font-abc-whyte);
+      font-size: 21px;
+      font-style: normal;
+      font-weight: 900;
+      line-height: 27px;
+      letter-spacing: 0em;
+      text-align: left;
+      letter-spacing: 0em;
+      padding-top: 0;
+      padding-left: 0;
+      border: 0;
+      padding-bottom: 0;
+      background-image: url("../img/v2/arrow-red.svg");
+      background-repeat: no-repeat;
+      background-size: 20px auto;
+      background-position: right 20px center; }
+  .mediaContacts .bannerType4 {
+    max-width: 1060px; }
   .mediaContacts .mediaContacts-items {
     width: 100%;
     max-width: 1440px;
