@@ -20,14 +20,16 @@
   z-index: 1;  
   &::after {
     content: '';
-    position: absolute;
-    bottom: -0.5rem;
-    height: 1.95rem;
+    bottom: -2.5rem;
+    height: 4rem;
     left: -0.5rem;
-    right: -1.5rem;
-    z-index: -1; 
+    right: -1.6rem;
+    z-index: -1;
     background-repeat: no-repeat;
-    background-size: cover; 
+    background-position: center;
+    background-size: 90%;
+    position: absolute;
+    z-index: -1; 
     background-image: url("../../dist/img/v2/brushstroke-02.svg");
     @media (max-width: $tablet-portrait) {
       height: 1rem;

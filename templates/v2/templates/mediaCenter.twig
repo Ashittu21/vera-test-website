@@ -25,9 +25,10 @@
         {{ pageCopy }}
       </div>
     </div>
+    
 
     <div class="mediaContacts-items">
-      {% paginate craft.entries.section('pressReleases').limit(10) as pageInfo, pageEntries %}
+      {% paginate craft.entries.section('pressReleases','news','specialReports').limit(10) as pageInfo, pageEntries %}
 
       {% for entry in pageEntries %}
         {% set blockCopy = entry.article.type('copy').first() %}
@@ -49,18 +50,23 @@
 
 
         <div class="mediaContacts-paginate">
+          
           {% if pageInfo.prevUrl %}
-          <a href="{{ pageInfo.prevUrl }}" class="mediaContacts-paginate-item">Prev</a>
+            <a href="{{ pageInfo.prevUrl }}" class="mediaContacts-paginate-item">Prev</a>
           {% else %}
-          <a href="{{ pageInfo.firstUrl }}" class="mediaContacts-paginate-item">Prev</a>
+            <a href="{{ pageInfo.firstUrl }}" class="mediaContacts-paginate-item">Prev</a>
           {% endif %}
+
           {% for page, url in pageInfo.getPrevUrls(5) %}
             <a href="{{ url }}" class="mediaContacts-paginate-item">{{ page }}</a>
           {% endfor %}
+
           <span class="mediaContacts-paginate-item--current">{{ pageInfo.currentPage }}</span>
+          
           {% for page, url in pageInfo.getNextUrls(5) %}
             <a href="{{ url }}" class="mediaContacts-paginate-item">{{ page }}</a>
           {% endfor %}
+          
           {% if pageInfo.nextUrl %}<a href="{{ pageInfo.nextUrl }}" class="mediaContacts-paginate-item">Next</a>{% endif %}
         </div>
     </div>
