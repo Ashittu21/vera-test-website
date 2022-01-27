@@ -31522,6 +31522,7 @@ body.nav-pad:not(.no-pad) {
           color: #fff; }
         .mediaContacts .mediaContacts-items .mediaContacts-paginate-item--current {
           display: block;
+          font-family: var(--global-font-abc-whyte);
           padding: 11px;
           min-width: 36px;
           margin: 0 2px;
