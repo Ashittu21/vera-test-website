@@ -72,7 +72,7 @@
         <div class="mediaContacts-paginate">
           
           {% if pageInfo.prevUrl %}
-            <a href="{{ pageInfo.prevUrl }}" class="mediaContacts-paginate-item">Prev</a>
+            <a href="{{ pageInfo.prevUrl }}" class="mediaContacts-paginate-item-prev ">Prev</a>
           {% else %}
             <a href="{{ pageInfo.firstUrl }}" class="mediaContacts-paginate-item">Prev</a>
           {% endif %}
@@ -87,7 +87,7 @@
             <a href="{{ url }}" class="mediaContacts-paginate-item">{{ page }}</a>
           {% endfor %}
 
-          {% if pageInfo.nextUrl %}<a href="{{ pageInfo.nextUrl }}" class="mediaContacts-paginate-item">Next</a>{% endif %}
+          {% if pageInfo.nextUrl %}<a href="{{ pageInfo.nextUrl }}" class="mediaContacts-paginate-item-next">Next</a>{% endif %}
         </div>
     </div>
   </div>

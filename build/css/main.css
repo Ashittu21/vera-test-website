@@ -31478,8 +31478,10 @@ body.nav-pad:not(.no-pad) {
             letter-spacing: 0em;
             text-align: left; }
     .mediaContacts .mediaContacts-items .mediaContacts-paginate {
-      padding: 3rem 0;
+      padding: 0;
       margin: 0 auto;
+      padding-top: 90px;
+      padding-bottom: 153px;
       max-width: 1060px;
       display: -webkit-box;
       display: -ms-flexbox;
@@ -31509,7 +31511,7 @@ body.nav-pad:not(.no-pad) {
         text-decoration: none; }
         .mediaContacts .mediaContacts-items .mediaContacts-paginate-item:hover {
           display: block;
-          padding: .5rem 1em;
+          padding: 11px;
           min-width: 36px;
           margin: 0 2px;
           text-align: center;
@@ -31535,6 +31537,30 @@ body.nav-pad:not(.no-pad) {
           background-color: #da392f;
           color: #fff;
           text-decoration: underline; }
+        .mediaContacts .mediaContacts-items .mediaContacts-paginate-item-prev {
+          padding: 11px 0px 11px 32px;
+          border: 0;
+          display: inline-block;
+          background-image: url("../img/v2/arrow-red-left.svg");
+          background-repeat: no-repeat;
+          background-size: 20px auto;
+          background-position: left 4px center;
+          margin-right: 10px; }
+          .mediaContacts .mediaContacts-items .mediaContacts-paginate-item-prev:hover {
+            background-color: transparent;
+            color: #0A0319; }
+        .mediaContacts .mediaContacts-items .mediaContacts-paginate-item-next {
+          padding: 11px 32px 11px 0px;
+          border: 0;
+          display: inline-block;
+          background-image: url("../img/v2/arrow-red.svg");
+          background-repeat: no-repeat;
+          background-size: 20px auto;
+          background-position: right 4px center;
+          margin-left: 10px; }
+          .mediaContacts .mediaContacts-items .mediaContacts-paginate-item-next:hover {
+            background-color: transparent;
+            color: #0A0319; }
 
 .bannerLinks-block-container {
   width: 100%;

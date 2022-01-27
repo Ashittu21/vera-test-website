@@ -194,8 +194,10 @@
     }
 
     .mediaContacts-paginate {
-      padding: 3rem 0;
+      padding: 0;
       margin: 0 auto;
+      padding-top: 90px;
+      padding-bottom: 153px;
       max-width: 1060px;
       display: flex;
       flex-direction: row;
@@ -219,7 +221,7 @@
 
         &:hover {
           display: block;
-          padding: .5rem 1em;
+          padding: 11px;
           min-width: 36px;
           margin: 0 2px;
           text-align: center;
@@ -247,9 +249,37 @@
           text-decoration: underline;
         }
 
+        &-prev{
+          padding: 11px 0px 11px 32px;
+          border: 0;
+          display: inline-block;
+          background-image: url("../img/v2/arrow-red-left.svg");
+          background-repeat: no-repeat;
+          background-size: 20px auto;
+          background-position: left 4px center;
+          margin-right: 10px;
+          &:hover{
+            background-color: transparent;
+            color: #0A0319;
+          }
+        }
 
+        &-next{
+          padding: 11px 32px 11px 0px;
+          border: 0;
+          display: inline-block;
+          background-image: url("../img/v2/arrow-red.svg");
+          background-repeat: no-repeat;
+          background-size: 20px auto;
+          background-position: right 4px center;
+          margin-left: 10px;
+          &:hover{
+            background-color: transparent;
+            color: #0A0319;
+          }
+        }
+        
       }
     }
-
   }
 }
