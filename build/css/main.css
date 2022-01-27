@@ -29218,7 +29218,8 @@ body.nav-pad:not(.no-pad) {
       padding: 0; }
       .topic-blocks-ctaBannerFw .topic-blocks-ctaBannerFw-content .button span {
         line-height: 70px;
-        padding-left: 29px; }
+        padding-left: 29px;
+        padding-right: 55px; }
       .topic-blocks-ctaBannerFw .topic-blocks-ctaBannerFw-content .button.orange.arrow {
         background-size: 27px 16px; }
 
@@ -29313,6 +29314,7 @@ body.nav-pad:not(.no-pad) {
     .bannerType4 .bannerType4-content .bannerType4-text {
       font-family: var(--global-font-abc-whyte);
       font-size: 21px;
+      color: #FFF;
       font-style: normal;
       font-weight: 400;
       line-height: 29px;
@@ -31342,15 +31344,15 @@ body.nav-pad:not(.no-pad) {
         line-height: 24px;
         letter-spacing: 0em;
         text-align: center; }
-      .mediaContacts .mediaContacts-header-copy a {
-        color: var(--global-color-text);
-        text-decoration: underline;
-        -webkit-text-decoration-color: var(--global-color-red);
-                text-decoration-color: var(--global-color-red); }
-        .mediaContacts .mediaContacts-header-copy a:hover {
-          background-color: #DA392F;
-          color: #FFF;
-          text-decoration: none; }
+        .mediaContacts .mediaContacts-header-copy p a {
+          color: var(--global-color-text);
+          text-decoration: underline;
+          -webkit-text-decoration-color: var(--global-color-red);
+                  text-decoration-color: var(--global-color-red); }
+          .mediaContacts .mediaContacts-header-copy p a:hover {
+            background-color: #DA392F;
+            color: #FFF;
+            text-decoration: none; }
   .mediaContacts .mediaContacts-items {
     width: 100%;
     max-width: 1440px;

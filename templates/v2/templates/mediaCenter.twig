@@ -6,6 +6,10 @@
 {% set pageTitle      = entry.mediaPress_pageTitle %}
 {% set pageCopy       = entry.mediaPress_copy %}
 
+{% set bannerTitle    = entry.banner_title %}
+{% set bannerSubtitle = entry.banner_subtitle %}
+{% set bannerCta      = entry.banner_cta %}
+
 <!-- Latest News 2 -->
   <section class="headTitle bgColor-darkviolet">
     <div class="headTitle-content">
@@ -16,7 +20,6 @@
     </div>
   </section>
 <!-- Latest News -->
-
 
   <div class="mediaContacts">
 
@@ -29,10 +32,24 @@
     
 
     <div class="mediaContacts-items">
-      {% paginate craft.entries.section('pressReleases','news','specialReports').limit(10) as pageInfo, pageEntries %}
+      {% paginate craft.entries.section('pressReleases','news','specialReports').limit(12) as pageInfo, pageEntries %}
 
       {% for entry in pageEntries %}
-        {% set blockCopy = entry.article.type('copy').first() %}
+
+        {% if loop.index == 8 %}
+          <!-- Banner Type 4 -->
+          <section class="bannerType4">
+            <div class="bannerType4-content">
+              <h3 class="bannerType4-title">{{ bannerTitle }}</h3>
+              <div class="bannerType4-text">
+              <p>{{ bannerSubtitle }}</p>
+              </div>
+              <a href="{{ bannerCta.getUrl() }}" class="button orange arrow"><span>{{  bannerCta.customText }}</span></a>
+            </div>
+          </section>
+          <!-- Banner Type 4 -->
+        {% endif %}
+
         <div class="mediaContacts-item">
           <div class="mediaContacts-item-content">
 
