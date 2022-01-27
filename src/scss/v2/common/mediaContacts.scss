@@ -94,6 +94,7 @@
     margin: 0 auto;
 
     .mediaContacts-item {
+
       width: 100%;
       max-width: $desktop-mlarge;
       color: var(--global-color-text);
@@ -251,6 +252,10 @@
         height: 36px;
         box-sizing: border-box;
         text-decoration: none;
+        @media (max-width: $mobile-large) {
+          display: none;
+        }
+  
 
         &:hover {
           display: block;
