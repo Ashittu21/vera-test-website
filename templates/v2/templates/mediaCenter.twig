@@ -34,7 +34,8 @@
     
 
     <div class="mediaContacts-items">
-      {% paginate craft.entries.section('pressReleases','news','specialReports').limit(12) as pageInfo, pageEntries %}
+      {% set totalEntries = craft.entries.section('pressReleases','news','specialReports').limit(10).count() %}
+      {% paginate craft.entries.section('pressReleases','news','specialReports').limit(10) as pageInfo, pageEntries %}
 
       {% for entry in pageEntries %}
 
@@ -77,18 +78,19 @@
             <a href="{{ pageInfo.firstUrl }}" class="mediaContacts-paginate-item">Prev</a>
           {% endif %}
 
-          {% for page, url in pageInfo.getPrevUrls(5) %}
+          {% for page, url in pageInfo.getPrevUrls(4) %}
             <a href="{{ url }}" class="mediaContacts-paginate-item">{{ page }}</a>
           {% endfor %}
 
           <span class="mediaContacts-paginate-item--current">{{ pageInfo.currentPage }}</span>
           
-          {% for page, url in pageInfo.getNextUrls(5) %}
+          {% for page, url in pageInfo.getNextUrls(4) %}
             <a href="{{ url }}" class="mediaContacts-paginate-item">{{ page }}</a>
           {% endfor %}
 
           {% if pageInfo.nextUrl %}<a href="{{ pageInfo.nextUrl }}" class="mediaContacts-paginate-item-next">Next</a>{% endif %}
         </div>
+        <div class="mediaContacts-paginate-counter"> {{ pageInfo.currentPage * 10 - 9 }}-{{ pageInfo.currentPage * 10 }} of {{ totalEntries }} results </div>
     </div>
   </div>
 
