@@ -30170,11 +30170,12 @@ body.nav-pad:not(.no-pad) {
 
 .headTitle {
   width: 100%;
-  overflow: hidden; }
+  overflow: hidden;
+  height: 260px; }
   .headTitle-content {
     max-width: 1280px;
     margin: 0 auto;
-    padding-top: 114px;
+    padding-top: 67px;
     padding-bottom: 80px;
     overflow: visible; }
     .headTitle-content .headTitle-breadcrumb {
