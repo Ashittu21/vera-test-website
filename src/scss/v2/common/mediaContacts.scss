@@ -1,13 +1,14 @@
-.mediaContacts{
+.mediaContacts {
   background-color: var(--global-color-sand);
-  .mediaContacts-header{
+
+  .mediaContacts-header {
     color: var(--global-color-text);
     padding-top: 80px;
     padding-bottom: 90px;
     max-width: 700px;
     margin: 0 auto;
-    
-    &-title{
+
+    &-title {
       font-family: var(--global-font-sectra);
       font-size: 45px;
       font-style: normal;
@@ -17,113 +18,128 @@
       text-align: center;
     }
 
-    &-copy{
+    &-copy {
       margin-top: 26px;
-      p{
-        font-family: var( --global-font-abc-whyte);
+
+      p {
+        font-family: var(--global-font-abc-whyte);
         font-size: 17px;
         font-style: normal;
         font-weight: 400;
         line-height: 24px;
         letter-spacing: 0em;
         text-align: center;
-        a{
+
+        a {
           color: var(--global-color-text);
           text-decoration: underline;
           text-decoration-color: var(--global-color-red);
-          &:hover{
+
+          &:hover {
             background-color: #DA392F;
             color: #FFF;
             text-decoration: none;
           }
-        }  
+        }
       }
     }
 
-    &-links{
-      a{
+    &-links {
+      display: flex;
+      justify-content: space-around;
+      margin: 60px 0 80px 0;
+
+      a {
         font-family: var(--global-font-abc-whyte);
         font-size: 21px;
         font-style: normal;
         font-weight: 900;
         line-height: 27px;
-        letter-spacing: 0em;
         text-align: left;
-
-        letter-spacing: 0em;
+        letter-spacing: 0;
+        color: #0A0319;
         padding-top: 0;
         padding-left: 0;
         border: 0;
+        display: inline-block;
         padding-bottom: 0;
         background-image: url("../img/v2/arrow-red.svg");
         background-repeat: no-repeat;
         background-size: 20px auto;
         background-position: right 20px center;
+        padding-right: 50px;
       }
     }
   }
 
-  .bannerType4{
+  .bannerType4 {
     max-width: 1060px;
-  } 
-  
-  .mediaContacts-items{
+  }
+
+  .mediaContacts-items {
     width: 100%;
     max-width: $desktop-mlarge;
     margin: 0 auto;
-    
-    .mediaContacts-item{
+
+    .mediaContacts-item {
       width: 100%;
       max-width: $desktop-mlarge;
-      color: var( --global-color-text);
+      color: var(--global-color-text);
       transition: all 0.2s ease-in-out;
       position: relative;
-  
-      &:hover{
+
+      &:hover {
         z-index: 2;
-        color: var( --global-color-white);
-        background-color: var(--global-color-red-2); 
+        color: var(--global-color-white);
+        background-color: var(--global-color-red-2);
+
         .mediaContacts-item-content {
-          border-top: 2px solid transparent; 
-          border-bottom: 2px solid transparent; 
-          &-left{
-            &-tag{
-              color: var( --global-color-white);
+          border-top: 2px solid transparent;
+          border-bottom: 2px solid transparent;
+
+          &-left {
+            &-tag {
+              color: var(--global-color-white);
             }
           }
-          &-right{
-            
-            &-title{
-              color: var( --global-color-white);
+
+          &-right {
+
+            &-title {
+              color: var(--global-color-white);
               text-decoration: underline;
-              a{
-                color: var( --global-color-white);
+
+              a {
+                color: var(--global-color-white);
                 text-decoration: underline;
               }
             }
-            &-date{
-              color: var( --global-color-white);
+
+            &-date {
+              color: var(--global-color-white);
             }
           }
         }
       }
-      
-      &-content{
+
+      &-content {
         max-width: 1060px;
         margin: 0 auto;
         padding: 12px 0;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        margin-top:-2px;
+        margin-top: -2px;
         border-top: 2px solid var(--global-color-darker-sand);
         border-bottom: 2px solid var(--global-color-darker-sand);
         padding-top: 53px;
         padding-bottom: 27px;
+
         &-left {
           width: 100%;
           max-width: 180px;
-          &-tag{
+
+          &-tag {
             color: var(--global-color-red-2);
             text-transform: uppercase;
             font-family: var(--global-font-abc-whyte);
@@ -135,18 +151,18 @@
             text-align: left;
           }
         }
-        
-        &-right{
+
+        &-right {
           width: 100%;
           max-width: 840px;
           justify-content: center;
           align-items: flex-start;
           display: flex;
           flex-direction: column;
-          
-          
-          
-          &-title{
+
+
+
+          &-title {
             font-family: var(--global-font-sectra);
             font-size: 35px;
             font-style: normal;
@@ -154,14 +170,15 @@
             line-height: 42px;
             letter-spacing: 0em;
             text-align: left;
-            a{
-              color: var( --global-color-text);
+
+            a {
+              color: var(--global-color-text);
               text-decoration: none;
             }
-            
+
           }
-          
-          &-date{
+
+          &-date {
             margin-top: 29px;
             font-family: var(--global-font-abc-whyte);
             font-size: 14px;
@@ -170,13 +187,13 @@
             line-height: 23px;
             letter-spacing: 0em;
             text-align: left;
-            
+
           }
         }
       }
     }
-    
-    .mediaContacts-paginate{
+
+    .mediaContacts-paginate {
       padding: 3rem 0;
       margin: 0 auto;
       max-width: 1060px;
@@ -184,7 +201,7 @@
       flex-direction: row;
       justify-content: center;
 
-      &-item{
+      &-item {
         background-color: transparent;
         color: var(--global-color-text);
         display: block;
@@ -197,7 +214,8 @@
         height: 36px;
         box-sizing: border-box;
         text-decoration: none;
-        &:hover{
+
+        &:hover {
           display: block;
           padding: .5rem 1em;
           min-width: 36px;
@@ -211,7 +229,7 @@
           color: #fff;
         }
 
-        &--current{
+        &--current {
           display: block;
           padding: .5rem 1em;
           min-width: 36px;
@@ -229,6 +247,6 @@
 
       }
     }
-    
+
   }
 }
