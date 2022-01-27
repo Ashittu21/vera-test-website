@@ -29908,7 +29908,7 @@ body.nav-pad:not(.no-pad) {
   .block-exploreMore .block-exploreMore-container {
     max-width: 1280px;
     margin: 0 auto;
-    padding: 80px 0;
+    padding: 90px 0 120px 0;
     overflow: hidden; }
     .block-exploreMore .block-exploreMore-container .block-exploreMore-title {
       display: table;
@@ -29957,7 +29957,7 @@ body.nav-pad:not(.no-pad) {
               justify-content: space-between;
       height: 100%;
       margin: 0px;
-      margin-top: 4rem; }
+      margin-top: 52px; }
       @media (max-width: 768px) {
         .block-exploreMore .block-exploreMore-container .block-exploreMore-items {
           -webkit-column-gap: 20px;
@@ -29965,11 +29965,17 @@ body.nav-pad:not(.no-pad) {
                   column-gap: 20px;
           row-gap: 20px; } }
       .block-exploreMore .block-exploreMore-container .block-exploreMore-items li {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: stretch;
+            -ms-flex-align: stretch;
+                align-items: stretch;
         list-style-type: none;
         -webkit-box-flex: 0;
-            -ms-flex: 0 47%;
-                flex: 0 47%;
-        height: 33%; }
+            -ms-flex: 0 48.4387%;
+                flex: 0 48.4387%;
+        /*height: 33%;*/ }
         @media (max-width: 768px) {
           .block-exploreMore .block-exploreMore-container .block-exploreMore-items li {
             -webkit-box-flex: 0;
@@ -29983,8 +29989,21 @@ body.nav-pad:not(.no-pad) {
                     flex: 0 99%;
             row-gap: 20px; } }
         .block-exploreMore .block-exploreMore-container .block-exploreMore-items li a {
-          padding: 1rem 1rem 1rem 2rem;
-          line-height: 3rem;
+          line-height: 0px;
+          letter-spacing: -1px;
+          -webkit-box-pack: center;
+              -ms-flex-pack: center;
+                  justify-content: center;
+          -webkit-box-align: center;
+              -ms-flex-align: center;
+                  align-items: center;
+          font-size: 21px;
+          font-style: normal;
+          font-weight: 400;
+          width: 100%;
+          padding: 1.2rem 24px;
+          text-align: left;
+          min-height: 80px;
           display: block;
           color: var(--global-color-white);
           background-color: var(--global-color-medium-violet);
@@ -32366,7 +32385,7 @@ body.nav-pad:not(.no-pad) {
     top: 6px;
     width: 100%;
     height: 100%;
-    border: 2px solid #ABFFEB;
+    border: 2px solid #97DFD1;
     -webkit-transform: skewX(0deg);
             transform: skewX(0deg);
     z-index: -2; }

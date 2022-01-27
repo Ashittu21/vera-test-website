@@ -9,6 +9,7 @@
 <!-- Latest News 2 -->
   <section class="headTitle bgColor-darkviolet">
     <div class="headTitle-content">
+      <div class="headTitle-breadcrumb"><a href="{{ siteURL }}">HOME</a> // <a href="">NEWS & STORIES</a></div>
       <div class="headTitle-title">
         <h3 class="separator left-aligned"><span>{{ headerTitle }}</span></h3>
       </div>
@@ -66,7 +67,7 @@
           {% for page, url in pageInfo.getNextUrls(5) %}
             <a href="{{ url }}" class="mediaContacts-paginate-item">{{ page }}</a>
           {% endfor %}
-          
+
           {% if pageInfo.nextUrl %}<a href="{{ pageInfo.nextUrl }}" class="mediaContacts-paginate-item">Next</a>{% endif %}
         </div>
     </div>
