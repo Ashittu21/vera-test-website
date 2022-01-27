@@ -135,6 +135,10 @@
         padding-top: 53px;
         padding-bottom: 27px;
 
+        @media (max-width: $mobile-large) {
+          flex-direction: column;
+        }
+
         &-left {
           width: 100%;
           max-width: 180px;
@@ -149,6 +153,11 @@
             line-height: 21px;
             letter-spacing: 0.17em;
             text-align: left;
+            @media (max-width: $mobile-large) {
+              font-size: 11px;
+              line-height: 20px;
+              margin-bottom: 29px;
+            }
           }
         }
 
@@ -170,6 +179,10 @@
             line-height: 42px;
             letter-spacing: 0em;
             text-align: left;
+            @media (max-width: $mobile-large) {
+              font-size: 23px;
+              line-height: 32px;
+            }
 
             a {
               color: var(--global-color-text);
@@ -187,7 +200,10 @@
             line-height: 23px;
             letter-spacing: 0em;
             text-align: left;
-
+            @media (max-width: $mobile-large) {
+              font-size: 14px;
+              line-height: 22px;
+            }
           }
         }
       }

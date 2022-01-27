@@ -31428,6 +31428,12 @@ body.nav-pad:not(.no-pad) {
         border-bottom: 2px solid var(--global-color-darker-sand);
         padding-top: 53px;
         padding-bottom: 27px; }
+        @media (max-width: 700px) {
+          .mediaContacts .mediaContacts-items .mediaContacts-item-content {
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+                -ms-flex-direction: column;
+                    flex-direction: column; } }
         .mediaContacts .mediaContacts-items .mediaContacts-item-content-left {
           width: 100%;
           max-width: 180px; }
@@ -31441,6 +31447,11 @@ body.nav-pad:not(.no-pad) {
             line-height: 21px;
             letter-spacing: 0.17em;
             text-align: left; }
+            @media (max-width: 700px) {
+              .mediaContacts .mediaContacts-items .mediaContacts-item-content-left-tag {
+                font-size: 11px;
+                line-height: 20px;
+                margin-bottom: 29px; } }
         .mediaContacts .mediaContacts-items .mediaContacts-item-content-right {
           width: 100%;
           max-width: 840px;
@@ -31465,6 +31476,10 @@ body.nav-pad:not(.no-pad) {
             line-height: 42px;
             letter-spacing: 0em;
             text-align: left; }
+            @media (max-width: 700px) {
+              .mediaContacts .mediaContacts-items .mediaContacts-item-content-right-title {
+                font-size: 23px;
+                line-height: 32px; } }
             .mediaContacts .mediaContacts-items .mediaContacts-item-content-right-title a {
               color: var(--global-color-text);
               text-decoration: none; }
@@ -31477,6 +31492,10 @@ body.nav-pad:not(.no-pad) {
             line-height: 23px;
             letter-spacing: 0em;
             text-align: left; }
+            @media (max-width: 700px) {
+              .mediaContacts .mediaContacts-items .mediaContacts-item-content-right-date {
+                font-size: 14px;
+                line-height: 22px; } }
     .mediaContacts .mediaContacts-items .mediaContacts-paginate {
       padding: 0;
       margin: 0 auto;
