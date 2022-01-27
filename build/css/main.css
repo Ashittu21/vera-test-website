@@ -31490,12 +31490,14 @@ body.nav-pad:not(.no-pad) {
               flex-direction: row;
       -webkit-box-pack: center;
           -ms-flex-pack: center;
-              justify-content: center; }
+              justify-content: center;
+      font-family: var(--global-font-abc-whyte); }
       .mediaContacts .mediaContacts-items .mediaContacts-paginate-item {
         background-color: transparent;
+        font-family: var(--global-font-abc-whyte);
         color: var(--global-color-text);
         display: block;
-        padding: .5rem 1em;
+        padding: 11px;
         min-width: 36px;
         margin: 0 2px;
         text-align: center;
@@ -31520,7 +31522,7 @@ body.nav-pad:not(.no-pad) {
           color: #fff; }
         .mediaContacts .mediaContacts-items .mediaContacts-paginate-item--current {
           display: block;
-          padding: .5rem 1em;
+          padding: 11px;
           min-width: 36px;
           margin: 0 2px;
           text-align: center;
