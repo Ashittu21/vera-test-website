@@ -114,7 +114,6 @@
             
           }
           
-          
           &:after{
             width: 20%;
             height: 30px;
@@ -135,13 +134,9 @@
           &:hover {
             color: var(--global-color-white);
             text-decoration: underline;
-            
           }
         }
-        
-        
-        
-        
+
         &:hover {
           color: var(--global-color-white);
           border: 2px solid var(--global-color-light-violet);
@@ -149,15 +144,9 @@
           border-left: 0;
           border-right: 0;
           z-index: 1;
-          
-          
-          
         }
       }
-    }
-    
-    
-    
+    }  
   }
 }
 
