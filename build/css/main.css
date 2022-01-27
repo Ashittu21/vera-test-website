@@ -31538,25 +31538,29 @@ body.nav-pad:not(.no-pad) {
           color: #fff;
           text-decoration: underline; }
         .mediaContacts .mediaContacts-items .mediaContacts-paginate-item-prev {
-          padding: 11px 0px 11px 32px;
+          padding: 8px 0px 8px 32px;
           border: 0;
+          height: 36px;
+          color: #0A0319;
           display: inline-block;
           background-image: url("../img/v2/arrow-red-left.svg");
           background-repeat: no-repeat;
           background-size: 20px auto;
-          background-position: left 4px center;
+          background-position: left 6px center;
           margin-right: 10px; }
           .mediaContacts .mediaContacts-items .mediaContacts-paginate-item-prev:hover {
             background-color: transparent;
             color: #0A0319; }
         .mediaContacts .mediaContacts-items .mediaContacts-paginate-item-next {
-          padding: 11px 32px 11px 0px;
+          padding: 8px 32px 8px 0px;
           border: 0;
+          height: 36px;
+          color: #0A0319;
           display: inline-block;
           background-image: url("../img/v2/arrow-red.svg");
           background-repeat: no-repeat;
           background-size: 20px auto;
-          background-position: right 4px center;
+          background-position: right 6px center;
           margin-left: 10px; }
           .mediaContacts .mediaContacts-items .mediaContacts-paginate-item-next:hover {
             background-color: transparent;
