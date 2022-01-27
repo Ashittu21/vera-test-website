@@ -26,7 +26,16 @@
         line-height: 24px;
         letter-spacing: 0em;
         text-align: center;
-        
+        a{
+          color: var(--global-color-text);
+          text-decoration: underline;
+          text-decoration-color: var(--global-color-red);
+          &:hover{
+            background-color: #DA392F;
+            color: #FFF;
+            text-decoration: none;
+          }
+        }  
       }
     }
   }

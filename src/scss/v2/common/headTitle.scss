@@ -10,6 +10,22 @@
     padding-bottom: 80px;
     overflow: visible;
 
+    .headTitle-breadcrumb{
+      font-family: var(--global-font-abc-whyte);
+      font-size: 11px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 21px;
+      color: white;
+      letter-spacing: 0.17em;
+      text-align: left;
+      margin-bottom: 20px;
+      margin-left: 10px;
+      a{
+        color: #ABFFEB;
+      }
+    }
+
     .headTitle-title {
       color: white;
       $separator-padding: 0 10px;
