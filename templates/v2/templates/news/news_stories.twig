@@ -50,16 +50,17 @@
 
 
     <div class="newsLanding-items">
+
 {% paginate craft.entries.section('pressReleases').limit(10) as pageInfo, pageEntries %}
+
 {% set fallback = 0 %}
 {% for entry in pageEntries %}
   {% set blockCopy = entry.article.type('copy').first() %}
   {% set image = entry.streamImageRectangle.one() %}
+
     {% if loop.index == 8 %}
           <!-- Banner Type 4 -->
-
-          BANNER
-          {#<section class="bannerType4">
+          <section class="bannerType4">
             <div class="bannerType4-content">
               <h3 class="bannerType4-title">{{ bannerTitle }}</h3>
               <div class="bannerType4-text">
@@ -67,7 +68,7 @@
               </div>
               <a href="{{ bannerCta.getUrl() }}" class="button orange arrow"><span>{{  bannerCta.customText }}</span></a>
             </div>
-          </section>#}
+          </section>
           <!-- Banner Type 4 -->
         {% endif %}
 
@@ -76,7 +77,7 @@
           <div class="newsLanding-item-content">
             <div class="newsLanding-item-content-left">
               {% if image %}
-                  <img src="{{ programImage.getUrl() }}" alt=""/>
+                  <img src="{{ image.getUrl() }}" alt=""/>
               {% else %}
                 {% if fallback <= 3 %}
                     {% set fallback =  fallback + 1 %}
