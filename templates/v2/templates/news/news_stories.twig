@@ -1,0 +1,125 @@
+{% extends '_layout' %}
+
+{% block content %}
+
+{% set headerTitle    = entry.headerTitle_title %}
+{% set pageCopy       = entry.mediaPress_copy %}
+
+{% set bannerTitle    = entry.banner_title %}
+{% set bannerSubtitle = entry.banner_subtitle %}
+{% set bannerCta      = entry.banner_cta %}
+
+
+<!-- Head Title -->
+  <section class="headTitle bgColor-darkviolet">
+    <div class="headTitle-content">
+      <div class="headTitle-breadcrumb"><a href="{{ siteURL }}">HOME</a> // <a href="{{ entry.url }}">NEWS & STORIES</a></div>
+      <div class="headTitle-title">
+        <h3 class="separator left-aligned"><span>{{ headerTitle }}</span></h3>
+      </div>
+    </div>
+  </section>
+<!-- Head Title  -->
+
+
+
+
+
+    {% for block in blocks %}
+      {% if block.type == 'newsItems' %}
+         {% include 'v2/common/newsItems' with { block: block } %}
+      {% elseif  block.type == 'newsHero' %}
+        {% include 'v2/common/newsHero' with { block: block } %}  
+      {% endif %}
+    {% endfor %}
+
+
+
+  <div class="newsLanding-content">
+    <div class="newsLanding-head">
+      <div class="newsLanding-head-title">Select a topic</div>
+      <div class="newsLanding-head-filter">
+          <button class="button-sand active">Press Releases</button>      
+          <button class="button-sand">Special Reports</button>
+          <button class="button-sand">Opinion</button>
+          <button class="button-sand">Analysis</button>
+          <button class="button-sand">Special Features</button>
+      </div>
+    </div>
+
+
+
+    <div class="newsLanding-items">
+{% paginate craft.entries.section('pressReleases').limit(10) as pageInfo, pageEntries %}
+{% set fallback = 0 %}
+{% for entry in pageEntries %}
+  {% set blockCopy = entry.article.type('copy').first() %}
+  {% set image = entry.streamImageRectangle.one() %}
+    {% if loop.index == 8 %}
+          <!-- Banner Type 4 -->
+
+          BANNER
+          {#<section class="bannerType4">
+            <div class="bannerType4-content">
+              <h3 class="bannerType4-title">{{ bannerTitle }}</h3>
+              <div class="bannerType4-text">
+              <p>{{ bannerSubtitle }}</p>
+              </div>
+              <a href="{{ bannerCta.getUrl() }}" class="button orange arrow"><span>{{  bannerCta.customText }}</span></a>
+            </div>
+          </section>#}
+          <!-- Banner Type 4 -->
+        {% endif %}
+
+
+  <div class="newsLanding-item">
+          <div class="newsLanding-item-content">
+            <div class="newsLanding-item-content-left">
+              {% if image %}
+                  <img src="{{ programImage.getUrl() }}" alt=""/>
+              {% else %}
+                {% if fallback <= 3 %}
+                    {% set fallback =  fallback + 1 %}
+                {% else %}
+                    {% set fallback = 1 %}
+                {% endif %}
+                {% include 'v2/common/placeHolderImg' with 
+                  { 
+                    indexColor: fallback,  
+                  } 
+                %}
+              {% endif %}
+            </div>
+            <div class="newsLanding-item-content-right">
+              <div class="newsLanding-item-content-right-tag">{{ entry.type.name | title | upper }}</div>
+              <div class="newsLanding-item-content-right-title">
+              <a href="{{ entry.url }}">{{ entry.title }}</a>
+              </div>
+              <div class="newsLanding-item-content-right-copy">{{ blockCopy.text|striptags|truncate(80)|raw }}</div>
+              <div class="newsLanding-item-content-right-date">{{ entry.postDate | date("M d, Y") }}</div>
+            </div>
+          </div>
+        </div>
+  {% endfor %}
+
+
+<div class="newsLanding-paginate">
+  {% if pageInfo.prevUrl %}
+  <a href="javascript:loadPage('{{ pageInfo.prevUrl }});" class="newsLanding-paginate-item">Prev</a>
+  {% else %}
+  <a href="javascript:loadPage('{{ pageInfo.firstUrl }});" class="newsLanding-paginate-item">Prev</a>
+  {% endif %}
+  {% for page, url in pageInfo.getPrevUrls(5) %}
+    <a href="javascript:loadPage('{{ url }});" class="newsLanding-paginate-item">{{ page }}</a>
+  {% endfor %}
+  <span class="newsLanding-paginate-item--current">{{ pageInfo.currentPage }}</span>
+  {% for page, url in pageInfo.getNextUrls(5) %}
+    <a href="javascript:loadPage('{{ url }}')" class="newsLanding-paginate-item">{{ page }}</a>
+  {% endfor %}
+  {% if pageInfo.nextUrl %}<a href="javascript:loadPage('{{ pageInfo.nextUrl }}')" class="newsLanding-paginate-item">Next</a>{% endif %}
+</div>
+    
+    </div><!-- news Landing -->
+  
+  </div>
+{% endblock %}
