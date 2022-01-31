@@ -4,32 +4,32 @@
 
 {% set headerTitle    = entry.headerTitle_title %}
 {% set blocks         = entry.newsStoriesBlocks %}
-{% set blocksBottom   = entry.newsStoriesBlocksBottom %}
 
 {% set bannerTitle    = entry.banner_title %}
 {% set bannerSubtitle = entry.banner_subtitle %}
 {% set bannerCta      = entry.banner_cta %}
 
 
-  <!-- Head Title -->
-    <section class="headTitle bgColor-darkviolet">
-      <div class="headTitle-content">
-        <div class="headTitle-breadcrumb"><a href="{{ siteUrl }}">HOME</a> // <a href="{{ entry.url }}">{{ entry.title }}</a></div>
-        <div class="headTitle-title">
-          <h3 class="separator left-aligned"><span>{{ headerTitle }}</span></h3>
-        </div>
+<!-- Head Title -->
+  <section class="headTitle bgColor-darkviolet">
+    <div class="headTitle-content">
+      <div class="headTitle-breadcrumb"><a href="{{ siteUrl }}">HOME</a> // <a href="{{ entry.url }}">{{ entry.title }}</a></div>
+      <div class="headTitle-title">
+        <h3 class="separator left-aligned"><span>{{ headerTitle }}</span></h3>
       </div>
-    </section>
-  <!-- Head Title  -->
+    </div>
+  </section>
+<!-- Head Title  -->
 
 
-  {% for block in blocks %}
-    {% if block.type == 'newsItems' %}
-       {% include 'v2/common/newsItems' with { block: block } %}
-    {% elseif  block.type == 'newsHero' %}
-      {% include 'v2/common/newsHero2' with { block: block } %}  
-    {% endif %}
-  {% endfor %}
+    {% for block in blocks %}
+      {% if block.type == 'newsItems' %}
+         {% include 'v2/common/newsItems' with { block: block } %}
+      {% elseif  block.type == 'newsHero' %}
+        {% include 'v2/common/newsHero2' with { block: block } %}  
+      {% endif %}
+    {% endfor %}
+
 
 
   <div class="newsLanding-content">
@@ -43,7 +43,8 @@
           <button class="button-sand">Analysis</button>
           <button class="button-sand">Special Features</button>
       </div>
-    </div><!-- newsLanding-head -->
+    </div>
+
 
     <div class="newsLanding-items">
 
@@ -117,12 +118,5 @@
     
     </div><!-- news Landing -->
   
-  </div><!-- newsLanding-content -->
-
-  {% for blockBottom in blocksBottom %}
-    {% if blockBottom.type == 'listing' %}
-       {% include 'v2/common/listing' with { block: blockBottom } %}
-    {% endif %}
-  {% endfor %}
-
+  </div>
 {% endblock %}
