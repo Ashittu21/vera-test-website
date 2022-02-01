@@ -5,6 +5,8 @@
 {% set headerTitle    = entry.headerTitle_title %}
 {% set blocks         = entry.newsStoriesBlocks %}
 {% set blocksBottom   = entry.newsStoriesBlocksBottom %}
+{% set footerCopy     = entry.redactorField %}
+
 
 {% set bannerTitle    = entry.banner_title %}
 {% set bannerSubtitle = entry.banner_subtitle %}
@@ -100,19 +102,23 @@
         {% endfor %}
 
         <div class="newsLanding-paginate">
+          
           {% if pageInfo.prevUrl %}
-          <a href="javascript:loadPage('{{ pageInfo.prevUrl }});" class="newsLanding-paginate-item">Prev</a>
+            <a href="{{ pageInfo.prevUrl }}" class="newsLanding-paginate-item">Prev</a>
           {% else %}
-          <a href="javascript:loadPage('{{ pageInfo.firstUrl }});" class="newsLanding-paginate-item">Prev</a>
+            <a href="{{ pageInfo.firstUrl }}" class="newsLanding-paginate-item">Prev</a>
           {% endif %}
+
           {% for page, url in pageInfo.getPrevUrls(5) %}
-            <a href="javascript:loadPage('{{ url }});" class="newsLanding-paginate-item">{{ page }}</a>
+             <a href="{{ url }}" class="newsLanding-paginate-item">{{ page }}</a>
           {% endfor %}
+
           <span class="newsLanding-paginate-item--current">{{ pageInfo.currentPage }}</span>
           {% for page, url in pageInfo.getNextUrls(5) %}
-            <a href="javascript:loadPage('{{ url }}')" class="newsLanding-paginate-item">{{ page }}</a>
+            <a href="{{ url }}" class="newsLanding-paginate-item">{{ page }}</a>
           {% endfor %}
-          {% if pageInfo.nextUrl %}<a href="javascript:loadPage('{{ pageInfo.nextUrl }}')" class="newsLanding-paginate-item">Next</a>{% endif %}
+
+          {% if pageInfo.nextUrl %}<a href="{{ pageInfo.nextUrl }}" class="newsLanding-paginate-item">Next</a>{% endif %}
         </div>
     
     </div><!-- news Landing -->
@@ -124,5 +130,7 @@
        {% include 'v2/common/listing' with { block: blockBottom } %}
     {% endif %}
   {% endfor %}
+
+  <div>{{ footerCopy }}</div>
 
 {% endblock %}
