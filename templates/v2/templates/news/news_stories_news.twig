@@ -84,7 +84,7 @@
                   <div class="newsLanding-item-content-right">
                     <div class="newsLanding-item-content-right-tag">{{ entry.type.name | title | upper }}</div>
                     <div class="newsLanding-item-content-right-title">
-                    <a href="{{ entry.linkUrl }}">{{ entry.title }}</a>
+                      <a href="{{ entry.linkUrl }}" target="_blank">{{ entry.title }}</a>
                     </div>
                     <div class="newsLanding-item-content-right-copy">{{ blockCopy|striptags|truncate(80)|raw }}</div>
                     <div class="newsLanding-item-content-right-date">{{ entry.postDate | date("M d, Y") }}</div>

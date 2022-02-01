@@ -178,7 +178,7 @@
   &:hover{
     background-color: var(--global-color-red-2);
     border-color: var(--global-color-red-2);
-    color: var(--global-color-white);
+    color: var(--global-color-white) !important;
   }
 
   &.active{

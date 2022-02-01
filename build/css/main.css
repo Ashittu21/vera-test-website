@@ -28760,7 +28760,7 @@ body.nav-pad:not(.no-pad) {
   .button-sand:hover {
     background-color: var(--global-color-red-2);
     border-color: var(--global-color-red-2);
-    color: var(--global-color-white); }
+    color: var(--global-color-white) !important; }
   .button-sand.active {
     background-color: var(--global-color-red-2);
     border-color: var(--global-color-red-2);
