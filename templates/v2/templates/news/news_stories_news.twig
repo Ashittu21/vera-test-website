@@ -1,0 +1,128 @@
+{% extends '_layout' %}
+
+{% block content %}
+
+{% set headerTitle    = entry.headerTitle_title %}
+{% set blocks         = entry.newsStoriesBlocks %}
+{% set blocksBottom   = entry.newsStoriesBlocksBottom %}
+{% set footerCopy     = entry.redactorField %}
+
+
+{% set bannerTitle    = entry.banner_title %}
+{% set bannerSubtitle = entry.banner_subtitle %}
+{% set bannerCta      = entry.banner_cta %}
+
+
+  <!-- Head Title -->
+    <section class="headTitle bgColor-darkviolet">
+      <div class="headTitle-content">
+        <div class="headTitle-breadcrumb"><a href="{{ siteUrl }}">HOME</a> // <a href="{{ entry.url }}">{{ entry.title }}</a></div>
+        <div class="headTitle-title">
+          <h3 class="separator left-aligned"><span>{{ headerTitle }}</span></h3>
+        </div>
+      </div>
+    </section>
+  <!-- Head Title  -->
+
+
+  {% for block in blocks %}
+    {% if block.type == 'newsItems' %}
+       {% include 'v2/common/newsItems' with { block: block } %}
+    {% elseif  block.type == 'newsHero' %}
+      {% include 'v2/common/newsHero2' with { block: block } %}  
+    {% endif %}
+  {% endfor %}
+
+
+  <div class="newsLanding-content">
+
+    {% include 'v2/templates/news/topicMenu' %} 
+
+    <div class="newsLanding-items">
+
+      {% paginate craft.entries.section('news').limit(10) as pageInfo, pageEntries %}
+
+      {% set fallback = 0 %}
+      {% for entry in pageEntries %}
+        
+        {% set blockCopy = entry.overview %}
+        {% set image = entry.streamImageRectangle.one() %}
+
+          {% if loop.index == 8 %}
+                <!-- Banner Type 4 -->
+                <section class="bannerType4">
+                  <div class="bannerType4-content">
+                    <h3 class="bannerType4-title">{{ bannerTitle }}</h3>
+                    <div class="bannerType4-text">
+                    <p>{{ bannerSubtitle }}</p>
+                    </div>
+                    <a href="{{ bannerCta.getUrl() }}" class="button orange arrow"><span>{{  bannerCta.customText }}</span></a>
+                  </div>
+                </section>
+                <!-- Banner Type 4 -->
+              {% endif %}
+
+
+        <div class="newsLanding-item">
+                <div class="newsLanding-item-content">
+                  <div class="newsLanding-item-content-left">
+                    {% if image %}
+                        <img src="{{ image.getUrl() }}" alt=""/>
+                    {% else %}
+                      {% if fallback <= 3 %}
+                          {% set fallback =  fallback + 1 %}
+                      {% else %}
+                          {% set fallback = 1 %}
+                      {% endif %}
+                      {% include 'v2/common/placeHolderImg' with 
+                        { 
+                          indexColor: fallback,  
+                        } 
+                      %}
+                    {% endif %}
+                  </div>
+                  <div class="newsLanding-item-content-right">
+                    <div class="newsLanding-item-content-right-tag">{{ entry.type.name | title | upper }}</div>
+                    <div class="newsLanding-item-content-right-title">
+                    <a href="{{ entry.linkUrl }}">{{ entry.title }}</a>
+                    </div>
+                    <div class="newsLanding-item-content-right-copy">{{ blockCopy|striptags|truncate(80)|raw }}</div>
+                    <div class="newsLanding-item-content-right-date">{{ entry.postDate | date("M d, Y") }}</div>
+                  </div>
+                </div>
+              </div>
+        {% endfor %}
+
+        <div class="newsLanding-paginate">
+          
+          {% if pageInfo.prevUrl %}
+            <a href="{{ pageInfo.prevUrl }}" class="newsLanding-paginate-item">Prev</a>
+          {% else %}
+            <a href="{{ pageInfo.firstUrl }}" class="newsLanding-paginate-item">Prev</a>
+          {% endif %}
+
+          {% for page, url in pageInfo.getPrevUrls(5) %}
+             <a href="{{ url }}" class="newsLanding-paginate-item">{{ page }}</a>
+          {% endfor %}
+
+          <span class="newsLanding-paginate-item--current">{{ pageInfo.currentPage }}</span>
+          {% for page, url in pageInfo.getNextUrls(5) %}
+            <a href="{{ url }}" class="newsLanding-paginate-item">{{ page }}</a>
+          {% endfor %}
+
+          {% if pageInfo.nextUrl %}<a href="{{ pageInfo.nextUrl }}" class="newsLanding-paginate-item">Next</a>{% endif %}
+        </div>
+    
+    </div><!-- news Landing -->
+  
+  </div><!-- newsLanding-content -->
+
+  {% for blockBottom in blocksBottom %}
+    {% if blockBottom.type == 'listing' %}
+       {% include 'v2/common/listing' with { block: blockBottom } %}
+    {% endif %}
+  {% endfor %}
+
+  <div>{{ footerCopy }}</div>
+
+{% endblock %}
