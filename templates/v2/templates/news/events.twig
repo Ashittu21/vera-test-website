@@ -36,24 +36,16 @@
 
   <div class="newsLanding-content">
 
-    <div class="newsLanding-head">
-      <div class="newsLanding-head-title">Select a topic</div>
-      <div class="newsLanding-head-filter">
-          <button class="button-sand">Press Releases</button>      
-          <button class="button-sand active">Events</button>
-          <button class="button-sand">Opinion</button>
-          <button class="button-sand">Analysis</button>
-          <button class="button-sand">Special Features</button>
-      </div>
-    </div><!-- newsLanding-head -->
+    {% include 'v2/templates/news/topicMenu' %} 
 
     <div class="newsLanding-items">
 
       {% paginate craft.entries.section('eventSeries').limit(10) as pageInfo, pageEntries %}
 
       {% set fallback = 0 %}
+
       {% for entry in pageEntries %}
-        {% set blockCopy = entry.article.type('copy').first() %}
+
         {% set image = entry.heroImage.one() %}
           {% if loop.index == 8 %}
                 <!-- Banner Type 4 -->
@@ -93,7 +85,13 @@
                     <div class="newsLanding-item-content-right-title">
                     <a href="{{ entry.url }}">{{ entry.title }}</a>
                     </div>
-                    <div class="newsLanding-item-content-right-copy">{{ blockCopy.text|striptags|truncate(80)|raw }}</div>
+                    <div class="newsLanding-item-content-right-copy">
+                    {% if entry.overview is not null %}
+                      {{ entry.overview|striptags|truncate(149)|raw }}
+                    {% elseif  entry.seriesDescription is not null %}
+                      {{ entry.seriesDescription|striptags|truncate(149)|raw }}
+                    {% endif %}
+                    </div>
                     <div class="newsLanding-item-content-right-date">{{ entry.postDate | date("M d, Y") }}</div>
                   </div>
                 </div>

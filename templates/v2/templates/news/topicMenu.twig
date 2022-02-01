@@ -1,0 +1,10 @@
+    <div class="newsLanding-head">
+      <div class="newsLanding-head-title">Select a topic</div>
+      <div class="newsLanding-head-filter">
+          <a href="{{ siteUrl }}news-and-stories" class="button-sand {% if craft.app.request.fullPath == 'news-and-stories' %} active {% endif %}">Press Releases</a>      
+          <a href="{{ siteUrl }}news-and-stories-events" class="button-sand {% if craft.app.request.fullPath == 'news-and-stories-events' %} active {% endif %}">Events</a>
+          <a href="{{ siteUrl }}" class="button-sand">Opinion</a>
+          <a href="{{ siteUrl }}" class="button-sand">Analysis</a>
+          <a href="{{ siteUrl }}" class="button-sand">Special Features</a>
+      </div>
+    </div><!-- newsLanding-head -->
