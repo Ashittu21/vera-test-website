@@ -54,6 +54,7 @@
         line-height: 42px;
         letter-spacing: 0em;
         text-align: left;
+        color: #FFF;
         overflow: hidden;
         @media (max-width: $tablet-landscape) {
           padding: 0 2rem;
@@ -85,6 +86,7 @@
           font-style: normal;
           font-weight: 400;
           line-height: 21px;
+          color: #FFF;
           letter-spacing: 0.17em;
           text-align: left;
         }
@@ -92,6 +94,7 @@
         .rs-filters{
           display: flex;
           flex-direction: row;
+          color: #FFF;
         }
       }
       

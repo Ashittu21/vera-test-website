@@ -35709,6 +35709,7 @@ header {
       line-height: 42px;
       letter-spacing: 0em;
       text-align: left;
+      color: #FFF;
       overflow: hidden; }
       @media (max-width: 1024px) {
         .rs-page .rs-head-container .rs-headContent .rs-title {
@@ -35742,6 +35743,7 @@ header {
         font-style: normal;
         font-weight: 400;
         line-height: 21px;
+        color: #FFF;
         letter-spacing: 0.17em;
         text-align: left; }
       .rs-page .rs-head-container .rs-headContent .rs-head-form .rs-filters {
