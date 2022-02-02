@@ -35681,6 +35681,7 @@ header {
       .rs-page .rs-head-container .rs-headContent-title h4 {
         font-family: var(--global-font-sectra);
         font-size: 45px;
+        color: #FFF;
         font-style: normal;
         font-weight: 700;
         line-height: 52px;
@@ -35690,6 +35691,7 @@ header {
         margin-top: 20px;
         font-family: var(--global-font-abc-whyte);
         font-size: 21px;
+        color: #FFF;
         font-style: normal;
         font-weight: 400;
         line-height: 29px;

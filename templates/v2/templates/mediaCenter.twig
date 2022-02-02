@@ -73,7 +73,8 @@
 
             <div class="mediaContacts-item-content-right">
               <div class="mediaContacts-item-content-right-title">
-                {% if entry.type == 'pressReleases' %}
+              
+                {% if entry.type == 'pressRelease' %}
                   <a href="{{ entry.url }}">{{ entry.title }}</a>
                 {% elseif  entry.type == 'news' %}
                   <a href="{{ entry.linkUrl }}" target="_blank">{{ entry.title }}</a>
