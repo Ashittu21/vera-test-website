@@ -55,38 +55,42 @@
 
     </section>
 
+
     <section class="rs-listing">
       <div class="rs-listing-content">
 
+	      {% if entry.newsHero_article|length %}
+          {% set heroNews = entry.newsHero_article.one() %}
         <div class="rs-listing-hero">
           <div class="rs-listing-hero-container">
             <div class="rs-listing-hero-image">
-              <img src="/img/news-item2.png" alt="">
+              <img src="{{ entry.newsHero_image.first.url }}" alt="">
             </div>
             <div class="rs-listing-hero-copy">
               <div>
                 <div class="rs-listing-hero-copy-category">
-                  <p>BLOG POST</p>
+                  <p>{{ heroNews.type.name | title | upper }}</p>
                 </div>
                 <div class="rs-listing-hero-copy-title">
-                  <h4>Tracking COVID-19 in Immigration
-                    Detention</h4>
+                  <a href="{{ heroNews.url }}">
+                    <h4>{{ entry.newsHero_title }}</h4>
+                  </a>
                 </div>
   
                 <div class="rs-listing-hero-copy-excerpt">
-                  <p>The Immigration and Customs Enforcement
-                    (ICE) detention system is ill-suited to
-                    protect detained people from the COVID-19
-                    pandemic.</p>
+                  	{% if entry.newsHero_subtitle %}
+                    <p>{{ entry.newsHero_subtitle }}</p>
+                    {% endif %}
                 </div>
   
                 <div class="rs-listing-hero-copy-date">
-                  <p>May 11, 2021</p>
+                  <p>{{ heroNews.postDate | date("M d, Y") }}</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
+        {% endif %} 
         
 
         <div class="rs-listing-items">
