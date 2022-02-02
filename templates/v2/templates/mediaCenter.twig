@@ -72,7 +72,13 @@
             </div>
 
             <div class="mediaContacts-item-content-right">
-              <div class="mediaContacts-item-content-right-title"><a href="{{ entry.url }}">{{ entry.title }}</a></div>
+              <div class="mediaContacts-item-content-right-title">
+                {% if entry.type == 'pressReleases' %}
+                  <a href="{{ entry.url }}">{{ entry.title }}</a>
+                {% elseif  entry.type == 'news' %}
+                  <a href="{{ entry.linkUrl }}" target="_blank">{{ entry.title }}</a>
+                {% endif %}
+              </div>
               <div class="mediaContacts-item-content-right-date">{{ entry.postDate | date("M d, Y") }}</div>
             </div>
 
