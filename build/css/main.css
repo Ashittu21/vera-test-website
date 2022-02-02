@@ -35753,7 +35753,8 @@ header {
         -webkit-box-orient: horizontal;
         -webkit-box-direction: normal;
             -ms-flex-direction: row;
-                flex-direction: row; }
+                flex-direction: row;
+        color: #FFF; }
 
 .rs-page .rs-listing {
   background-color: var(--global-color-sand); }
@@ -35824,20 +35825,25 @@ header {
             line-height: 21px;
             letter-spacing: 0.17em;
             text-align: left; }
-          .rs-page .rs-listing .rs-listing-content .rs-listing-hero .rs-listing-hero-container .rs-listing-hero-copy-title h4 {
-            margin: 0;
-            font-family: var(--global-font-sectra);
-            font-size: 45px;
-            font-style: normal;
-            font-weight: 700;
-            line-height: 52px;
-            letter-spacing: 0em;
-            text-align: left;
-            margin-bottom: 1.5rem; }
-            @media (max-width: 1024px) {
-              .rs-page .rs-listing .rs-listing-content .rs-listing-hero .rs-listing-hero-container .rs-listing-hero-copy-title h4 {
-                font-size: 35px;
-                line-height: 42px; } }
+          .rs-page .rs-listing .rs-listing-content .rs-listing-hero .rs-listing-hero-container .rs-listing-hero-copy-title a {
+            text-decoration: none;
+            color: #0A0319; }
+            .rs-page .rs-listing .rs-listing-content .rs-listing-hero .rs-listing-hero-container .rs-listing-hero-copy-title a h4 {
+              margin: 0;
+              font-family: var(--global-font-sectra);
+              font-size: 35px;
+              font-style: normal;
+              font-weight: 700;
+              line-height: 42px;
+              letter-spacing: 0em;
+              text-align: left;
+              margin-bottom: 1.5rem; }
+              @media (max-width: 1024px) {
+                .rs-page .rs-listing .rs-listing-content .rs-listing-hero .rs-listing-hero-container .rs-listing-hero-copy-title a h4 {
+                  font-size: 35px;
+                  line-height: 42px; } }
+            .rs-page .rs-listing .rs-listing-content .rs-listing-hero .rs-listing-hero-container .rs-listing-hero-copy-title a:hover {
+              color: #FFF; }
           .rs-page .rs-listing .rs-listing-content .rs-listing-hero .rs-listing-hero-container .rs-listing-hero-copy-excerpt p {
             margin: 0;
             font-family: var(--global-font-abc-whyte);
