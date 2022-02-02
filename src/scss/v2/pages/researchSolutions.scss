@@ -180,9 +180,6 @@
                     line-height: 42px;
                   }
                 }
-                &:hover{
-                  color: #FFF;
-                }
               }
             } 
             
@@ -243,11 +240,13 @@
             .rs-listing-hero-copy,
             .rs-listing-hero-image,
             .rs-listing-hero-copy-excerpt *,
-            .rs-listing-hero-copy-category {
+            .rs-listing-hero-copy-category,
+            .rs-listing-hero-copy-title,
+            .rs-listing-hero-copy-title a {
               color: var(--global-color-white);
             }
 
-            .rs-listing-hero-copy-title{
+            .rs-listing-hero-copy-title {
               text-decoration: underline;
             }
 

@@ -35842,8 +35842,6 @@ header {
                 .rs-page .rs-listing .rs-listing-content .rs-listing-hero .rs-listing-hero-container .rs-listing-hero-copy-title a h4 {
                   font-size: 35px;
                   line-height: 42px; } }
-            .rs-page .rs-listing .rs-listing-content .rs-listing-hero .rs-listing-hero-container .rs-listing-hero-copy-title a:hover {
-              color: #FFF; }
           .rs-page .rs-listing .rs-listing-content .rs-listing-hero .rs-listing-hero-container .rs-listing-hero-copy-excerpt p {
             margin: 0;
             font-family: var(--global-font-abc-whyte);
@@ -35889,7 +35887,9 @@ header {
           .rs-page .rs-listing .rs-listing-content .rs-listing-hero .rs-listing-hero-container:hover .rs-listing-hero-copy,
           .rs-page .rs-listing .rs-listing-content .rs-listing-hero .rs-listing-hero-container:hover .rs-listing-hero-image,
           .rs-page .rs-listing .rs-listing-content .rs-listing-hero .rs-listing-hero-container:hover .rs-listing-hero-copy-excerpt *,
-          .rs-page .rs-listing .rs-listing-content .rs-listing-hero .rs-listing-hero-container:hover .rs-listing-hero-copy-category {
+          .rs-page .rs-listing .rs-listing-content .rs-listing-hero .rs-listing-hero-container:hover .rs-listing-hero-copy-category,
+          .rs-page .rs-listing .rs-listing-content .rs-listing-hero .rs-listing-hero-container:hover .rs-listing-hero-copy-title,
+          .rs-page .rs-listing .rs-listing-content .rs-listing-hero .rs-listing-hero-container:hover .rs-listing-hero-copy-title a {
             color: var(--global-color-white); }
           .rs-page .rs-listing .rs-listing-content .rs-listing-hero .rs-listing-hero-container:hover .rs-listing-hero-copy-title {
             text-decoration: underline; }
