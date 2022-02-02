@@ -2,6 +2,7 @@
 
 {% block content %}
 
+{% set filterCat      = craft.app.request.getQueryParam('filter') %}
 {% set headerTitle    = entry.mediaPress_headerTitle %}
 {% set pageTitle      = entry.mediaPress_pageTitle %}
 {% set pageCopy       = entry.mediaPress_copy %}
@@ -13,7 +14,7 @@
 <!-- Latest News 2 -->
   <section class="headTitle bgColor-darkviolet">
     <div class="headTitle-content">
-      <div class="headTitle-breadcrumb"><a href="{{ siteURL }}">HOME</a> // <a href="">NEWS & STORIES</a></div>
+      <div class="headTitle-breadcrumb"><a href="{{ siteUrl }}">HOME</a> // <a href="{{ entry.url }}">NEWS & STORIES</a></div>
       <div class="headTitle-title">
         <h3 class="separator left-aligned"><span>{{ headerTitle }}</span></h3>
       </div>
@@ -22,20 +23,30 @@
 <!-- Latest News -->
 
   <div class="mediaContacts">
-
+    
     <div class="mediaContacts-header">
       <div class="mediaContacts-header-title">{{ pageTitle }}</div>
       <div class="mediaContacts-header-copy">{{ pageCopy }}</div>
       <div class="mediaContacts-header-links">
-        <a href="{{ entry.mediaPress_linkLeft.getUrl() }}">{{ entry.mediaPress_linkLeft.customText }}</a>
-        <a href="{{ entry.mediaPress_linkRight.getUrl() }}">{{ entry.mediaPress_linkRight.customText }}</a>
+        <a href="{{ entry.url }}/?filter=pressReleases">View all press releases</a>
+        <a href="{{ entry.url }}/?filter=news">View all media coverage</a>
       </div>
     </div>
-    
+
 
     <div class="mediaContacts-items">
-      {% set totalEntries = craft.entries.section('pressReleases','news','specialReports').limit(10).count() %}
-      {% paginate craft.entries.section('pressReleases','news','specialReports').limit(10) as pageInfo, pageEntries %}
+
+      {% switch filterCat %}
+         {% case 'news' %}
+           {% set totalEntries = craft.entries.section('news').limit(10).count() %}
+           {% paginate craft.entries.section('news').limit(10) as pageInfo, pageEntries %}
+         {% case 'pressReleases'%}
+           {% set totalEntries = craft.entries.section('pressReleases').limit(10).count() %}
+           {% paginate craft.entries.section('pressReleases').limit(10) as pageInfo, pageEntries %}
+         {% default %}
+           {% set totalEntries = craft.entries.section(['pressReleases','news']).limit(10).count() %}
+           {% paginate craft.entries.section(['pressReleases','news']).limit(10) as pageInfo, pageEntries %}
+      {% endswitch %}
 
       {% for entry in pageEntries %}
 
