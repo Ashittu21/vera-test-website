@@ -35997,6 +35997,20 @@ header {
             .rs-page .rs-listing .rs-listing-content .rs-listing-items .rs-listing-item .rs-listing-item-wrapper .rs-listing-item-image img {
               margin-left: 150px;
               width: 180px; }
+            .rs-page .rs-listing .rs-listing-content .rs-listing-items .rs-listing-item .rs-listing-item-wrapper .rs-listing-item-image .placeHolderImg {
+              width: 180px;
+              height: 201px;
+              text-align: center;
+              display: -webkit-box;
+              display: -ms-flexbox;
+              display: flex;
+              min-height: 201px;
+              -webkit-box-pack: center;
+                  -ms-flex-pack: center;
+                      justify-content: center; }
+              .rs-page .rs-listing .rs-listing-content .rs-listing-items .rs-listing-item .rs-listing-item-wrapper .rs-listing-item-image .placeHolderImg svg {
+                width: 88px;
+                height: 86px; }
         .rs-page .rs-listing .rs-listing-content .rs-listing-items .rs-listing-item:hover {
           background-color: var(--global-color-red-2);
           z-index: 1; }

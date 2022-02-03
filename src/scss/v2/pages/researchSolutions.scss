@@ -358,6 +358,18 @@
                 margin-left: 150px;
                 width: 180px;
               }
+              .placeHolderImg{
+                width: 180px;
+                height: 201px;
+                text-align: center;
+                display: flex;
+                min-height: 201px;
+                justify-content: center;
+                svg{
+                  width: 88px;
+                  height: 86px;
+                }
+              }
             }
           }
           
