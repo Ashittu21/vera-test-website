@@ -215,7 +215,7 @@
               </div>
               <div class="rs-listing-item-image">
                {% if image %}
-                        <img src="{{ image.getUrl() }}" alt=""/>
+                        <img src="{{ image.getUrl('thumbnailVertical') }}" alt=""/>
                     {% else %}
                       {% if fallback <= 3 %}
                           {% set fallback =  fallback + 1 %}
