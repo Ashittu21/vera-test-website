@@ -20,18 +20,17 @@
   {% else %}
    <div class="dropMenu dropdown-topic">
       <button class="dropdown-toggle" type="button" id="menu" aria-haspopup="true">
-        <span class="dropdown-text">Select Topic</span>
+        <span class="dropdown-text-section">Select Topic</span>
         <span class="caret"></span>
       </button>
-    <ul class="dropdown-menu" id="list" aria-labelledby="menu">
+    <ul class="dropdown-menu-section" id="list" aria-labelledby="menu">
         {% for section in streamOptions.sections %}
-          <li>
-            <input type="checkbox" name='options[]'  id="{{ section[1] }}" value="{{ section[1] }}" class="option justone section_checkbox" {% if section[1] in searchSections %}checked{% endif %}/>
+          <li class="checkFilter">
+            <input type="checkbox" name='optionsTopic[]'  id="{{ section[1] }}" value="{{ section[1] }}" class="option justone section_checkbox" {% if section[1] in searchSections %}checked{% endif %}/>
             <label for="{{ section[1] }}">{{ section[0] }}</label>
           </li>
         {% endfor %}
-        <li class="divider"></li>
-        <li><button type="Button" class="apply">APPLY</button></li>
+        <li class="applybtn"><button type="Button" class="apply">APPLY</button></li>
       </ul>
     </div>
   {% endif %}
@@ -58,7 +57,7 @@
             {% set relation_id = relation.id %}
             {% set relation_type = 'relation' %}
           {% endif %}
-          <li>
+          <li class="checkFilter">
             <input type="checkbox" id="{{ relation_id }}" class="{{ relation_type }}_checkbox" value="{{ relation_id }}" class="option justone section_checkbox" data-type="{{ relationBlock.type }}" {% if relation_id in relations %}checked{% endif %}/>
             <label for="{{ relation_id }}">
               {% if relationBlock.title == 'Action Areas' %}
@@ -77,27 +76,13 @@
             </label>
           </li>
         {% endfor %}
-           <li class="divider"></li>
-        <li><button type="Button" class="apply">APPLY</button></li>
+        <li class="applybtn"><button type="Button" class="apply">APPLY</button></li>
       </ul>
     </div>
   {% endfor %}
 {% endif %}
 
-<style>
 
-ul.dropdown-menu {
-  display: none;
-  padding: 20px 20px;
-  border: solid 3px #ddd;
-  list-style: none;
-}
-
-
-ul.dropdown-menu[aria-hidden="false"] {
-  display: block;
-}
-</style>
 
 <script>
 

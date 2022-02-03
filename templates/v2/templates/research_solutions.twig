@@ -235,27 +235,27 @@
 
       </div>
 
-        <div class="mediaContacts-paginate">
+        <div class="rs-paginate">
 
           {% if pageInfo.prevUrl %}
-            <a href="{{ pageInfo.prevUrl }}" class="mediaContacts-paginate-item-prev">Prev</a>
+            <a href="{{ pageInfo.prevUrl }}" class="rs-paginate-item-prev">Prev</a>
           {% else %}
-            <a href="{{ pageInfo.firstUrl }}" class="mediaContacts-paginate-item-prev">Prev</a>
+            <a href="{{ pageInfo.firstUrl }}" class="rs-paginate-item-prev">Prev</a>
           {% endif %}
 
           {% for page, url in pageInfo.getPrevUrls(4) %}
-            <a href="{{ url }}" class="mediaContacts-paginate-item">{{ page }}</a>
+            <a href="{{ url }}" class="rs-paginate-item">{{ page }}</a>
           {% endfor %}
 
-          <span class="mediaContacts-paginate-item--current">{{ pageInfo.currentPage }}</span>
+          <span class="rs-paginate-item--current">{{ pageInfo.currentPage }}</span>
 
           {% for page, url in pageInfo.getNextUrls(4) %}
-            <a href="{{ url }}" class="mediaContacts-paginate-item">{{ page }}</a>
+            <a href="{{ url }}" class="rs-paginate-item">{{ page }}</a>
           {% endfor %}
 
-          {% if pageInfo.nextUrl %}<a href="{{ pageInfo.nextUrl }}" class="mediaContacts-paginate-item-next">Next</a>{% endif %}
+          {% if pageInfo.nextUrl %}<a href="{{ pageInfo.nextUrl }}" class="rs-paginate-item-next">Next</a>{% endif %}
         </div>
-        <div class="mediaContacts-paginate-counter"> {{ pageInfo.currentPage * 10 - 9 }}-{{ pageInfo.currentPage * 10 }} of {{ totalEntries }} results </div>
+        <div class="rs-paginate-counter"> {{ pageInfo.currentPage * 10 - 9 }}-{{ pageInfo.currentPage * 10 }} of {{ totalEntries }} results </div>
 
       </div>
     </section>
@@ -267,19 +267,19 @@
 
 <script>
 
-$('body').on("click", ".dropdown-menu", function (e) {
+$('body').on("click", ".dropdown-menu-section", function (e) {
     $(this).parent().is(".open") && e.stopPropagation();
 });
 
-$("input[type='checkbox'].justone").change(function(){
-    var a = $("input[type='checkbox'].justone");
+$("input[type='checkbox'].section_checkbox").change(function(){
+    var a = $("input[type='checkbox'].section_checkbox");
     if(a.length == a.filter(":checked").length){
         $('.selectall').prop('checked', true);
         $(".select-text").html(' Deselect');
     }
 
-  var total = $('input[name="options[]"]:checked').length;
-  $(".dropdown-text").html('Topic (' + total + ')');
+  var total = $('input[name="optionsTopic[]"]:checked').length;
+  $(".dropdown-text-section").html('Topic (' + total + ')');
 });
 
 
