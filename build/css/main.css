@@ -35931,7 +35931,8 @@ header {
           color: var(--global-color-text);
           margin-top: -2px; }
           .rs-page .rs-listing .rs-listing-content .rs-listing-items .rs-listing-item .rs-listing-item-wrapper .rs-listing-item-cat {
-            padding-left: 70px; }
+            padding-left: 70px;
+            min-width: 180px; }
             .rs-page .rs-listing .rs-listing-content .rs-listing-items .rs-listing-item .rs-listing-item-wrapper .rs-listing-item-cat span {
               max-width: 130px;
               display: block;
@@ -35997,6 +35998,10 @@ header {
             .rs-page .rs-listing .rs-listing-content .rs-listing-items .rs-listing-item:hover .rs-listing-item-wrapper .rs-listing-item-cat span {
               color: var(--global-color-white);
               margin: 0; }
+            .rs-page .rs-listing .rs-listing-content .rs-listing-items .rs-listing-item:hover .rs-listing-item-wrapper a {
+              color: var(--global-color-white); }
+              .rs-page .rs-listing .rs-listing-content .rs-listing-items .rs-listing-item:hover .rs-listing-item-wrapper a .rs-listing-item-content-title {
+                color: var(--global-color-white); }
             .rs-page .rs-listing .rs-listing-content .rs-listing-items .rs-listing-item:hover .rs-listing-item-wrapper .rs-listing-item-content {
               color: var(--global-color-white); }
               .rs-page .rs-listing .rs-listing-content .rs-listing-items .rs-listing-item:hover .rs-listing-item-wrapper .rs-listing-item-content-copy {

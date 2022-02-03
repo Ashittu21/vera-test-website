@@ -1,9 +1,105 @@
 {% extends '_layout' %}
-
 {% block content %}
 
-{% set filterCat      = craft.app.request.getQueryParam('filter') %}
+{% set filterSection   = craft.app.request.getQueryParam('section') %}
 
+{% set streamOptions = {
+      title: 'All Research & Analysis',
+      news: false,
+      filterAltLayout: 'unstacked',
+      sections: [
+            ['Publications', 'publications'],
+            ['Audio', 'audio'],
+            ['Video', 'video'],
+            ['Resource Sites', 'resourceSite'],
+            ['Special Reports', 'specialReports']
+          ],
+      filterRelations: [{type: 'categories', relations: craft.categories.group('ourWork').level(2), title: 'Action Areas'}]
+      }
+%}
+
+{% if entry is defined and entry.type.handle in ['ourProjects'] %}
+  {% set streamOptions = streamOptions|merge({showArchived: true}) %}
+{% endif %}
+
+{% if streamOptions.streamType is not defined %}
+  {% set streamOptions = streamOptions|merge({streamType: 'content'}) %}
+{% endif %}
+
+
+{% if craft.request.getParam('relations') %}
+                {% set relationObjsQuery = craft.request.getParam('relations') | split('},') %}
+                {% set relationObjs = [] %}
+                {% for relation in relationObjsQuery %}
+                        {% if not loop.last %}
+                                {% set relation = relation~'}' %}
+                        {% endif %}
+                        {% set thisrelation = relation | json_decode %}
+                        {% set relationObjs = relationObjs | merge([thisrelation]) %}
+                {% endfor %}
+        {% elseif streamOptions.primaryRelation is defined %}
+                {% set relationObjs = [{
+                        type: streamOptions.primaryRelation.type,
+                        id: streamOptions.primaryRelation.relations[0].id
+                }] %}
+        {% endif %}
+
+
+
+
+        {% if craft.request.getParam('sections') %}
+                {% set searchSections = craft.request.getParam('sections') | split(',') %}
+        {% elseif streamOptions.sections is defined %}
+                {% set searchSections = [] %}
+                {% for section in streamOptions.sections %}
+                        {% set searchSections = searchSections|merge([section[1]]) %}
+                {% endfor %}
+                {% if streamOptions.hiddenSections is defined %}
+                        {% set searchSections = searchSections|merge(streamOptions.hiddenSections) %}
+                {% endif %}
+        {% else %}
+                {% set searchSections = [] %}
+        {% endif %}
+
+
+
+
+{% if relations is not defined and relationObjs is defined and relationObjs|length > 0 %}
+        {% set relations = [] %}
+        {% for relation in relationObjs %}
+                {% if relation.type == 'entries' %}
+
+                        {% if (streamType == 'people') %}
+                                {% set relations = relations|merge([{sourceElement: craft.entries.id(relation.id).first}]) %}
+                        {% else %}
+                                {% set relations = relations|merge([{targetElement: craft.entries.id(relation.id).first}]) %}
+                        {% endif %}
+
+                        {% set relatedPeopleInCenter =  craft.entries.section('people').relatedTo(craft.entries.id(relation.id).first) %}
+
+                {% elseif relation.type == 'categories' %}
+                        {% set relations = relations|merge([{targetElement: craft.categories.id(relation.id).first}]) %}
+                {% endif %}
+        {% endfor %}
+{% elseif relationObjs is not defined and relations is not defined %}
+        {% set relations = null %}
+{% endif %}
+
+
+
+
+
+
+
+
+{% set queryObj = {
+                relatedTo: relations,
+                section: searchSections
+        }
+%}
+
+{% set totalEntries = craft.entries(queryObj).limit(10).count() %}
+{% paginate craft.entries(queryObj).limit(10) as pageInfo, pageEntries %}
 
 <!-- Hero Block -->
   <div class="heroType1-container"  style="background-image: url('{{ entry.heroType1_image.first.url }}');">
@@ -13,11 +109,11 @@
             {% if entry.level > 1 %}
                 <a href="{{ siteUrl }}">HOME</a>
                 {% for crumb in entry.getAncestors() %}
-                  {{ crumb.getLink() }} 
+                  {{ crumb.getLink() }}
                 {% endfor %}
             {% else %}
             <a href="{{ siteUrl }}">HOME</a>
-            {% endif %}  
+            {% endif %}
           </div>
           <div class="heroType1-block-title">
             <h1>{{ entry.heroType1_title }}</h1>
@@ -40,13 +136,13 @@
         </div>
 
         <h3 class="rs-title">Research & Solutions</h3>
-      
+
         <div class="rs-head-form">
           <div class="filter-by">
             FILTER BY
           </div>
           <div class="rs-filters">
-
+            {% include 'v2/templates/filter' %}
           </div>
 
 
@@ -59,7 +155,7 @@
     <section class="rs-listing">
       <div class="rs-listing-content">
 
-	      {% if entry.newsHero_article|length %}
+              {% if entry.newsHero_article|length %}
           {% set heroNews = entry.newsHero_article.one() %}
         <div class="rs-listing-hero">
           <div class="rs-listing-hero-container">
@@ -76,13 +172,13 @@
                     <h4>{{ entry.newsHero_title }}</h4>
                   </a>
                 </div>
-  
+
                 <div class="rs-listing-hero-copy-excerpt">
-                  	{% if entry.newsHero_subtitle %}
-                    <p>{{ entry.newsHero_subtitle }}</p>
+                    {% if entry.newsHero_subtitle %}
+                     <p>{{ entry.newsHero_subtitle }}</p>
                     {% endif %}
                 </div>
-  
+
                 <div class="rs-listing-hero-copy-date">
                   <p>{{ heroNews.postDate | date("M d, Y") }}</p>
                 </div>
@@ -90,109 +186,76 @@
             </div>
           </div>
         </div>
-        {% endif %} 
+      {% endif %}
+
         
+    <div class="rs-listing-items">    
+    {% set fallback = 0 %}
+     {% for result in pageEntries %}
 
-        <div class="rs-listing-items">
-
+         {% set image = result.streamImageRectangle.one() %}
           <div class="rs-listing-item">
             <div class="rs-listing-item-wrapper">
               <div class="rs-listing-item-cat">
                 <span>
-                  eyebrow two lines
+                 {{ result.type.name }}
                 </span>
               </div>
               <div class="rs-listing-item-content">
 
                 <div class="rs-listing-item-content-date">
-                  July 08, 2021
+                  {{ entry.postDate | date("M d, Y") }}
                 </div>
 
-                <h6 class="rs-listing-item-content-title">Headline, Project Title, Publication or Resource Title Goes Here</h6>
+                <a href="{{ result.url }}" target="_blank"><h6 class="rs-listing-item-content-title">{{ result.title }}</h6></a>
                 <p  class="rs-listing-item-content-copy">
                   Line of text from the resource goes here lorem ipsum dolor sit amet...
                 </p>
 
               </div>
               <div class="rs-listing-item-image">
-                <img src="/img/item-img.png"  width="180" height="201" >
+               {% if image %}
+                        <img src="{{ image.getUrl() }}" alt=""/>
+                    {% else %}
+                      {% if fallback <= 3 %}
+                          {% set fallback =  fallback + 1 %}
+                      {% else %}
+                          {% set fallback = 1 %}
+                      {% endif %}
+                      {% include 'v2/common/placeHolderImg' with 
+                        { 
+                          indexColor: fallback,  
+                        } 
+                      %}
+                    {% endif %}
               </div>
             </div>
           </div>
-          <div class="rs-listing-item">
-            <div class="rs-listing-item-wrapper">
-              <div class="rs-listing-item-cat">
-                <span>
-                  eyebrow two lines
-                </span>
-              </div>
-              <div class="rs-listing-item-content">
+     {% endfor %}
 
-                <div class="rs-listing-item-content-date">
-                  July 08, 2021
-                </div>
-
-                <h6 class="rs-listing-item-content-title">Headline, Project Title, Publication or Resource Title Goes Here</h6>
-                <p  class="rs-listing-item-content-copy">
-                  Line of text from the resource goes here lorem ipsum dolor sit amet...
-                </p>
-
-              </div>
-              <div class="rs-listing-item-image">
-                <img src="/img/item-img.png"  width="180" height="201" >
-              </div>
-            </div>
-          </div>
-          <div class="rs-listing-item">
-            <div class="rs-listing-item-wrapper">
-              <div class="rs-listing-item-cat">
-                <span>
-                  eyebrow two lines
-                </span>
-              </div>
-              <div class="rs-listing-item-content">
-
-                <div class="rs-listing-item-content-date">
-                  July 08, 2021
-                </div>
-
-                <h6 class="rs-listing-item-content-title">Headline, Project Title, Publication or Resource Title Goes Here</h6>
-                <p  class="rs-listing-item-content-copy">
-                  Line of text from the resource goes here lorem ipsum dolor sit amet...
-                </p>
-
-              </div>
-              <div class="rs-listing-item-image">
-                <img src="/img/item-img.png"  width="180" height="201" >
-              </div>
-            </div>
-          </div>
-          <div class="rs-listing-item">
-            <div class="rs-listing-item-wrapper">
-              <div class="rs-listing-item-cat">
-                <span>
-                  eyebrow two lines
-                </span>
-              </div>
-              <div class="rs-listing-item-content">
-
-                <div class="rs-listing-item-content-date">
-                  July 08, 2021
-                </div>
-
-                <h6 class="rs-listing-item-content-title">Headline, Project Title, Publication or Resource Title Goes Here</h6>
-                <p  class="rs-listing-item-content-copy">
-                  Line of text from the resource goes here lorem ipsum dolor sit amet...
-                </p>
-
-              </div>
-              <div class="rs-listing-item-image">
-                <img src="/img/item-img.png"  width="180" height="201" >
-              </div>
-            </div>
-          </div>          
       </div>
 
+        <div class="mediaContacts-paginate">
+
+          {% if pageInfo.prevUrl %}
+            <a href="{{ pageInfo.prevUrl }}" class="mediaContacts-paginate-item-prev">Prev</a>
+          {% else %}
+            <a href="{{ pageInfo.firstUrl }}" class="mediaContacts-paginate-item-prev">Prev</a>
+          {% endif %}
+
+          {% for page, url in pageInfo.getPrevUrls(4) %}
+            <a href="{{ url }}" class="mediaContacts-paginate-item">{{ page }}</a>
+          {% endfor %}
+
+          <span class="mediaContacts-paginate-item--current">{{ pageInfo.currentPage }}</span>
+
+          {% for page, url in pageInfo.getNextUrls(4) %}
+            <a href="{{ url }}" class="mediaContacts-paginate-item">{{ page }}</a>
+          {% endfor %}
+
+          {% if pageInfo.nextUrl %}<a href="{{ pageInfo.nextUrl }}" class="mediaContacts-paginate-item-next">Next</a>{% endif %}
+        </div>
+        <div class="mediaContacts-paginate-counter"> {{ pageInfo.currentPage * 10 - 9 }}-{{ pageInfo.currentPage * 10 }} of {{ totalEntries }} results </div>
 
       </div>
     </section>
@@ -200,5 +263,58 @@
 
 
 
-{% endblock %}
 
+
+<script>
+
+$('body').on("click", ".dropdown-menu", function (e) {
+    $(this).parent().is(".open") && e.stopPropagation();
+});
+
+$("input[type='checkbox'].justone").change(function(){
+    var a = $("input[type='checkbox'].justone");
+    if(a.length == a.filter(":checked").length){
+        $('.selectall').prop('checked', true);
+        $(".select-text").html(' Deselect');
+    }
+
+  var total = $('input[name="options[]"]:checked').length;
+  $(".dropdown-text").html('Topic (' + total + ')');
+});
+
+
+$('.apply').click(function(e) {
+
+   var sections = [];
+    $(".section_checkbox:checked").each(function () {
+      sections.push(this.value);
+    });
+
+    if (sections.length == 0) {
+      $(".section_checkbox").each(function () {
+        sections.push(this.value);
+      });
+      var nosectionrelation = true;
+    }
+
+   var relations = [];
+        $(".relation_checkbox:checked").each(function () {
+          relations.push({
+            id: this.value,
+            type: this.dataset.type,
+            category: this.dataset.category,
+          });
+        });
+
+
+    var varRelations = JSON.stringify(relations);
+        varRelations = varRelations.replace('[','');
+        varRelations = varRelations.replace(']','');
+    var varSections = sections.join(',');
+    query = 'sections=' + varSections +'&relations='+ varRelations;
+    window.location.search = query;
+
+});
+</script>
+
+{% endblock %}

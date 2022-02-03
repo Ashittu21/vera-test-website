@@ -286,6 +286,7 @@
             
             .rs-listing-item-cat{
               padding-left: 70px;
+              min-width: 180px;
               span{
                 max-width: 130px;
                 display: block;
@@ -362,6 +363,12 @@
                 span{
                   color: var(--global-color-white);
                   margin:0;
+                }
+              }
+              a{
+                color: var(--global-color-white);
+                .rs-listing-item-content-title{
+                  color: var(--global-color-white);
                 }
               }
               .rs-listing-item-content{

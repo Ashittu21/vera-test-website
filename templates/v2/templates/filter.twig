@@ -1,0 +1,128 @@
+
+{% if streamOptions.fieldOptions is defined %}
+  <div>
+    <span>{{ streamOptions.fieldOptions.title }}</span>
+    <ul>
+      {% for option in streamOptions.fieldOptions.options %}
+        <li><input type="checkbox" id="{{ option.title|replace(' ','_')|lower }}" class="field_checkbox" data-option={{ option.option | json_encode | raw }}/>
+          <label for="{{ option.title|replace(' ','_')|lower }}">{{ option.title }}</label>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endif %}
+
+
+{% if streamOptions.sections | length %}
+  {% if streamOptions.sections|length == 1 %}
+    {% set section = streamOptions.sections[0] %}
+    <input type="hidden" checked id="{{ section[1] }}" value="{{ section[1] }}" class="section_checkbox"/>
+  {% else %}
+   <div class="dropdown-topic">
+      <button class="dropdown-toggle" type="button" id="menu" aria-haspopup="true">
+        <span class="dropdown-text"> Select Topic</span>
+        <span class="caret"></span>
+      </button>
+    <ul class="dropdown-menu" id="list" aria-labelledby="menu">
+        {% for section in streamOptions.sections %}
+          <li>
+            <input type="checkbox" name='options[]'  id="{{ section[1] }}" value="{{ section[1] }}" class="option justone section_checkbox" {% if section[1] in searchSections %}checked{% endif %}/>
+            <label for="{{ section[1] }}">{{ section[0] }}</label>
+          </li>
+        {% endfor %}
+        <li class="divider"></li>
+        <li><button type="Button" class="apply">APPLY</button></li>
+      </ul>
+    </div>
+  {% endif %}
+{% endif %}
+
+
+{% set relencode =  craft.request.getParam('relations')|json_encode %}
+
+{% if streamOptions.filterRelations is defined %}
+  {% for relationBlock in streamOptions.filterRelations %}
+    <div class="dropdown-areas">
+
+      <button class="dropdown-toggle" type="button" id="menuRelations" aria-haspopup="true">
+        <span class="dropdown-text">{{ relationBlock.title }}</span>
+        <span class="caret"></span>
+      </button>
+
+      <ul class="dropdown-menu" id="listRelations" aria-labelledby="menuRelations">
+        {% for relation in relationBlock.relations %}
+          {% if relationBlock.type == 'type' %}
+            {% set relation_id = relation.handle %}
+            {% set relation_type = 'type' %}
+          {% else %}
+            {% set relation_id = relation.id %}
+            {% set relation_type = 'relation' %}
+          {% endif %}
+          <li>
+            <input type="checkbox" id="{{ relation_id }}" class="{{ relation_type }}_checkbox" value="{{ relation_id }}" class="option justone section_checkbox" data-type="{{ relationBlock.type }}" {% if relation_id in relations %}checked{% endif %}/>
+            <label for="{{ relation_id }}">
+              {% if relationBlock.title == 'Action Areas' %}
+                {% set workRelation = craft.entries.section('ourWork').relatedTo(relation).first %}
+                {% set shortTitle = workRelation ? workRelation.shortTitle %}
+                {% if shortTitle %}
+                  {{ shortTitle }}
+                {% else %}
+                  {{ relation }}
+                {% endif %}
+              {% elseif relationBlock.type == 'type' %}
+                {{ relation.name }}
+              {% else %}
+                {{ relation }}
+              {% endif %}
+            </label>
+          </li>
+        {% endfor %}
+           <li class="divider"></li>
+        <li><button type="Button" class="apply">APPLY</button></li>
+      </ul>
+    </div>
+  {% endfor %}
+{% endif %}
+
+<style>
+
+ul.dropdown-menu {
+  display: none;
+  padding: 20px 20px;
+  border: solid 3px #ddd;
+  list-style: none;
+}
+
+
+ul.dropdown-menu[aria-hidden="false"] {
+  display: block;
+}
+</style>
+
+<script>
+
+$("#menu").on('click',function(){
+  var Check = $("#menu").attr("aria-expanded");
+  console.log(Check);
+ if ( Check == "true") {
+      $("#menu").attr("aria-expanded", "false");
+      $("#list").attr("aria-hidden", "true");
+ } else {
+      $("#menu").attr("aria-expanded", "true");
+      $("#list").attr("aria-hidden", "false");
+ }
+});
+
+
+$("#menuRelations").on('click',function(){
+  var Check = $("#menuRelations").attr("aria-expanded");
+  console.log(Check);
+ if ( Check == "true") {
+      $("#menuRelations").attr("aria-expanded", "false");
+      $("#listRelations").attr("aria-hidden", "true");
+ } else {
+      $("#menuRelations").attr("aria-expanded", "true");
+      $("#listRelations").attr("aria-hidden", "false");
+ }
+});
+</script>
