@@ -35973,6 +35973,15 @@ header {
               line-height: 34px;
               letter-spacing: 0em;
               text-align: left; }
+              .rs-page .rs-listing .rs-listing-content .rs-listing-items .rs-listing-item .rs-listing-item-wrapper .rs-listing-item-content-title h6 {
+                margin-top: 15px;
+                font-family: var(--global-font-abc-whyte);
+                font-size: 26px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: 34px;
+                letter-spacing: 0em;
+                text-align: left; }
             .rs-page .rs-listing .rs-listing-content .rs-listing-items .rs-listing-item .rs-listing-item-wrapper .rs-listing-item-content-copy {
               margin-top: 26px;
               font-family: var(--global-font-abc-whyte);
@@ -35998,9 +36007,9 @@ header {
             .rs-page .rs-listing .rs-listing-content .rs-listing-items .rs-listing-item:hover .rs-listing-item-wrapper .rs-listing-item-cat span {
               color: var(--global-color-white);
               margin: 0; }
-            .rs-page .rs-listing .rs-listing-content .rs-listing-items .rs-listing-item:hover .rs-listing-item-wrapper a {
+            .rs-page .rs-listing .rs-listing-content .rs-listing-items .rs-listing-item:hover .rs-listing-item-wrapper .rs-listing-item-content-title {
               color: var(--global-color-white); }
-              .rs-page .rs-listing .rs-listing-content .rs-listing-items .rs-listing-item:hover .rs-listing-item-wrapper a .rs-listing-item-content-title {
+              .rs-page .rs-listing .rs-listing-content .rs-listing-items .rs-listing-item:hover .rs-listing-item-wrapper .rs-listing-item-content-title h6 {
                 color: var(--global-color-white); }
             .rs-page .rs-listing .rs-listing-content .rs-listing-items .rs-listing-item:hover .rs-listing-item-wrapper .rs-listing-item-content {
               color: var(--global-color-white); }

@@ -327,7 +327,16 @@
                 line-height: 34px;
                 letter-spacing: 0em;
                 text-align: left;
-                
+                h6{
+                  margin-top:15px;
+                  font-family: var(--global-font-abc-whyte);
+                  font-size: 26px;
+                  font-style: normal;
+                  font-weight: 500;
+                  line-height: 34px;
+                  letter-spacing: 0em;
+                  text-align: left;
+                }
               }
               &-copy{
                 margin-top: 26px;
@@ -365,12 +374,12 @@
                   margin:0;
                 }
               }
-              a{
-                color: var(--global-color-white);
                 .rs-listing-item-content-title{
                   color: var(--global-color-white);
-                }
-              }
+                  h6{
+                    color: var(--global-color-white);
+                  }
+                }             
               .rs-listing-item-content{
                 color: var(--global-color-white);
                 &-copy{
