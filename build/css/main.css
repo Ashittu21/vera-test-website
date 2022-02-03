@@ -35761,6 +35761,12 @@ header {
             -ms-flex-pack: start;
                 justify-content: flex-start;
         width: 100%; }
+      .rs-page .rs-head-container .rs-headContent .rs-head-form .dropMenu {
+        position: relative;
+        margin-right: 28px; }
+        .rs-page .rs-head-container .rs-headContent .rs-head-form .dropMenu ul.dropdown-menu {
+          width: 100%;
+          background-color: #2E1D97; }
       .rs-page .rs-head-container .rs-headContent .rs-head-form button.dropdown-toggle {
         height: 43px;
         width: 335px;

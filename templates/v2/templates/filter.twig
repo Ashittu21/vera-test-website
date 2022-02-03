@@ -18,7 +18,7 @@
     {% set section = streamOptions.sections[0] %}
     <input type="hidden" checked id="{{ section[1] }}" value="{{ section[1] }}" class="section_checkbox"/>
   {% else %}
-   <div class="dropdown-topic">
+   <div class="dropMenu dropdown-topic">
       <button class="dropdown-toggle" type="button" id="menu" aria-haspopup="true">
         <span class="dropdown-text">Select Topic</span>
         <span class="caret"></span>
@@ -42,7 +42,7 @@
 
 {% if streamOptions.filterRelations is defined %}
   {% for relationBlock in streamOptions.filterRelations %}
-    <div class="dropdown-areas">
+    <div class="dropMenu dropdown-areas">
 
       <button class="dropdown-toggle" type="button" id="menuRelations" aria-haspopup="true">
         <span class="dropdown-text">{{ relationBlock.title }}</span>
