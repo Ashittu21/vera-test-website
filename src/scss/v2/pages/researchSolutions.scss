@@ -308,6 +308,8 @@
               flex-direction: column;
               color: var(--global-color-text);
               padding-left: 40px;
+              padding-right: 40px;
+              width: 100%;
 
               &-date{
                 font-family: var(--global-font-abc-whyte);
@@ -353,7 +355,7 @@
             }
             
             .rs-listing-item-image{              
-              width: 330px;
+              width: 180px;
               img{
                 margin-left: 150px;
                 width: 180px;
