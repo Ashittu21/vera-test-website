@@ -35828,7 +35828,12 @@ header {
         line-height: 22px;
         letter-spacing: 0em;
         text-align: left;
-        padding-left: 18px; }
+        padding-left: 18px;
+        background-image: url("../img/v2/menu-close.svg");
+        background-repeat: no-repeat;
+        background-position-x: 95%;
+        background-position-y: center;
+        background-size: 16px; }
 
 .rs-page .rs-listing {
   background-color: var(--global-color-sand); }
@@ -36004,9 +36009,19 @@ header {
                   flex-direction: row;
           color: var(--global-color-text);
           margin-top: -2px; }
+          @media (max-width: 1024px) {
+            .rs-page .rs-listing .rs-listing-content .rs-listing-items .rs-listing-item .rs-listing-item-wrapper {
+              -webkit-box-orient: vertical;
+              -webkit-box-direction: normal;
+                  -ms-flex-direction: column;
+                      flex-direction: column; } }
           .rs-page .rs-listing .rs-listing-content .rs-listing-items .rs-listing-item .rs-listing-item-wrapper .rs-listing-item-cat {
             padding-left: 70px;
             min-width: 180px; }
+            @media (max-width: 1024px) {
+              .rs-page .rs-listing .rs-listing-content .rs-listing-items .rs-listing-item .rs-listing-item-wrapper .rs-listing-item-cat {
+                padding-left: 40px;
+                margin-bottom: 15px; } }
             .rs-page .rs-listing .rs-listing-content .rs-listing-items .rs-listing-item .rs-listing-item-wrapper .rs-listing-item-cat span {
               max-width: 130px;
               display: block;
@@ -36070,6 +36085,10 @@ header {
               text-align: left; }
           .rs-page .rs-listing .rs-listing-content .rs-listing-items .rs-listing-item .rs-listing-item-wrapper .rs-listing-item-image {
             width: 180px; }
+            @media (max-width: 1024px) {
+              .rs-page .rs-listing .rs-listing-content .rs-listing-items .rs-listing-item .rs-listing-item-wrapper .rs-listing-item-image {
+                margin: 0 auto;
+                margin-top: 30px; } }
             .rs-page .rs-listing .rs-listing-content .rs-listing-items .rs-listing-item .rs-listing-item-wrapper .rs-listing-item-image img {
               /* margin-left: 150px;*/
               width: 180px;

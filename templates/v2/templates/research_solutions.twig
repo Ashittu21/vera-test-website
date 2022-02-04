@@ -193,7 +193,12 @@
     {% set fallback = 0 %}
      {% for result in pageEntries %}
 
-         {% set image = result.streamImageRectangle.one() %}
+        {% if  result.streamImageRectangle is not null %}
+          {% set image = result.streamImageRectangle.one() %}
+        {% else %}
+          {% set image = null %}
+        {% endif %}
+
           <div class="rs-listing-item">
             <div class="rs-listing-item-wrapper">
               <div class="rs-listing-item-cat">
@@ -209,7 +214,30 @@
 
                 <a href="{{ result.url }}"  class="rs-listing-item-content-title" target="_blank"><h6>{{ result.title }}</h6></a>
                 <p class="rs-listing-item-content-copy">
-                  Line of text from the resource goes here lorem ipsum dolor sit amet...
+                {% switch result.type.handle %}
+                   {% case 'publicationOverview' %}
+                        {{ result.subtitle }}
+                   {% case 'audio' %}
+                        {{ result.overview|striptags|truncate(120)|raw }}
+                   {% case 'video' %}
+                        {{ result.overview|striptags|truncate(120)|raw }}
+                   {% case 'videoPlaylist' %}
+                        {{ result.overview|striptags|truncate(120)|raw }}
+                   {% case 'resourceSite' %}
+                        {{ result.overview|striptags|truncate(120)|raw }}
+                   {% case 'specialReport' %}
+                        {{ result.overview|striptags|truncate(120)|raw }}
+                   {% case 'story' %}
+                        {% if result.storiesSubtitle | length > 1 %}
+                          {{ result.storiesSubtitle|striptags|truncate(120)|raw }}
+                        {% elseif  result.overview | length > 1 %}
+                            {{ result.overview|striptags|truncate(120)|raw }}
+                        {% elseif result.specialReportsArticle.type('copy').first()  | length > 1 %}
+                            {{ result.specialReportsArticle.type('copy').first().text|striptags|truncate(120)|raw }}
+                        {% endif %}
+                   {% default %}
+                       <!-- {{ result.type.handle }} -->
+                 {% endswitch %}
                 </p>
 
               </div>
@@ -331,7 +359,7 @@ $('.apply').click(function(e) {
 document.addEventListener("DOMContentLoaded", function() {
   var totalRelations = $('input[name="optionsRelations[]"]:checked').length;
   $(".dropdown-text-relations").html('Action Areas (' + totalRelations + ')');
-  
+
    var totalSection = $('input[name="optionsTopic[]"]:checked').length;
   $(".dropdown-text-section").html('Topic (' + totalSection + ')');
 
