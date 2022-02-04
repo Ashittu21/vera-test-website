@@ -116,16 +116,7 @@
             text-align: center;
           }
           
-          .slabel{
-            color: white;
-            font-size: 11px;
-            font-style: normal;
-            font-weight: 400;
-            line-height: 14px;
-            letter-spacing: 0em;
-            text-align: left;
-            margin-bottom: 13px;
-          }
+      
           
         }
         
@@ -138,6 +129,18 @@
             margin-bottom: 20px;
           }
           
+          .slabel{
+            color: white;
+            font-size: 11px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 14px;
+            letter-spacing: 0em;
+            text-align: left;
+            margin-bottom: 13px;
+            font-family: var(--global-font-abc-whyte);
+          }
+
           ul.dropdown-menu{
             width: 100%;
             background-color: #2E1D97;

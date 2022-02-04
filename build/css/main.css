@@ -35777,15 +35777,6 @@ header {
                 -ms-flex-direction: column;
                     flex-direction: column;
             text-align: center; } }
-        .rs-page .rs-head-container .rs-headContent .rs-head-form .rs-filters .slabel {
-          color: white;
-          font-size: 11px;
-          font-style: normal;
-          font-weight: 400;
-          line-height: 14px;
-          letter-spacing: 0em;
-          text-align: left;
-          margin-bottom: 13px; }
       .rs-page .rs-head-container .rs-headContent .rs-head-form .dropMenu {
         position: relative;
         margin-right: 28px; }
@@ -35794,6 +35785,16 @@ header {
             margin: 0 auto;
             width: 80%;
             margin-bottom: 20px; } }
+        .rs-page .rs-head-container .rs-headContent .rs-head-form .dropMenu .slabel {
+          color: white;
+          font-size: 11px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 14px;
+          letter-spacing: 0em;
+          text-align: left;
+          margin-bottom: 13px;
+          font-family: var(--global-font-abc-whyte); }
         .rs-page .rs-head-container .rs-headContent .rs-head-form .dropMenu ul.dropdown-menu {
           width: 100%;
           background-color: #2E1D97;
