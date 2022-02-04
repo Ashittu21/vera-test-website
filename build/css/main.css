@@ -35748,6 +35748,11 @@ header {
         color: #FFF;
         letter-spacing: 0.17em;
         text-align: left; }
+        @media (max-width: 1024px) {
+          .rs-page .rs-head-container .rs-headContent .rs-head-form .filter-by {
+            width: 84%;
+            margin: 0 auto;
+            margin-bottom: 13px; } }
       .rs-page .rs-head-container .rs-headContent .rs-head-form .rs-filters {
         display: -webkit-box;
         display: -ms-flexbox;
@@ -35761,16 +35766,28 @@ header {
             -ms-flex-pack: start;
                 justify-content: flex-start;
         width: 100%; }
+        @media (max-width: 1024px) {
+          .rs-page .rs-head-container .rs-headContent .rs-head-form .rs-filters {
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+                -ms-flex-direction: column;
+                    flex-direction: column; } }
       .rs-page .rs-head-container .rs-headContent .rs-head-form .dropMenu {
         position: relative;
         margin-right: 28px; }
+        @media (max-width: 1024px) {
+          .rs-page .rs-head-container .rs-headContent .rs-head-form .dropMenu {
+            margin: 0 auto;
+            width: 100%;
+            margin-bottom: 20px; } }
         .rs-page .rs-head-container .rs-headContent .rs-head-form .dropMenu ul.dropdown-menu {
           width: 100%;
           background-color: #2E1D97;
           position: absolute;
           display: none;
           list-style: none;
-          border-top: 2px solid #3E2BB1; }
+          border-top: 2px solid #3E2BB1;
+          z-index: 100; }
           .rs-page .rs-head-container .rs-headContent .rs-head-form .dropMenu ul.dropdown-menu li.checkFilter {
             padding: 11px 19px; }
             .rs-page .rs-head-container .rs-headContent .rs-head-form .dropMenu ul.dropdown-menu li.checkFilter label, .rs-page .rs-head-container .rs-headContent .rs-head-form .dropMenu ul.dropdown-menu li.checkFilter .chart_container .legend, .chart_container .rs-page .rs-head-container .rs-headContent .rs-head-form .dropMenu ul.dropdown-menu li.checkFilter .legend {
@@ -35834,6 +35851,9 @@ header {
         background-position-x: 95%;
         background-position-y: center;
         background-size: 16px; }
+        @media (max-width: 1024px) {
+          .rs-page .rs-head-container .rs-headContent .rs-head-form button.dropdown-toggle {
+            width: 85%; } }
 
 .rs-page .rs-listing {
   background-color: var(--global-color-sand); }

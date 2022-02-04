@@ -91,6 +91,13 @@
           color: #FFF;
           letter-spacing: 0.17em;
           text-align: left;
+
+          @media (max-width: $tablet-landscape) {
+            width: 84%;
+            margin: 0 auto;
+            margin-bottom: 13px;
+          }
+
         }
         
         .rs-filters{
@@ -99,11 +106,21 @@
           color: #FFF;
           justify-content: flex-start;
           width: 100%;
+          @media (max-width: $tablet-landscape) {
+            flex-direction: column;
+          }
+    
         }
         
         .dropMenu{
           position: relative;
           margin-right: 28px;
+          @media (max-width: $tablet-landscape) {
+            margin: 0 auto;
+            width:100%;
+            margin-bottom: 20px;
+          }
+
           ul.dropdown-menu{
             width: 100%;
             background-color: #2E1D97;
@@ -111,6 +128,7 @@
             display: none;
             list-style: none;
             border-top: 2px solid #3E2BB1;
+            z-index: 100;
             li.checkFilter{
               padding: 11px 19px;
 
@@ -187,6 +205,9 @@
           background-position-x: 95%;
           background-position-y: center;
           background-size: 16px;
+          @media (max-width: $tablet-landscape) {
+            width:85%;
+          }
         }
       }
       
