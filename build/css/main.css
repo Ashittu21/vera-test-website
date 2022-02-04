@@ -35873,7 +35873,7 @@ header {
         @media (max-width: 1024px) {
           .rs-page .rs-head-container .rs-headContent .rs-head-form button.dropdown-toggle {
             width: 100%; } }
-      .rs-page .rs-head-container .rs-headContent .rs-head-form button.dropdown-toggle[aria-hidden="true"] {
+      .rs-page .rs-head-container .rs-headContent .rs-head-form button.dropdown-toggle[aria-expanded="true"] {
         background-image: url("../img/v2/menu-open.svg");
         background-repeat: no-repeat;
         background-position-x: 95%;
