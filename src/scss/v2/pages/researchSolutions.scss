@@ -219,6 +219,9 @@
           width: 100%;
           box-sizing: border-box;
           transition: all 0.3s ease-in-out;
+          @media (max-width: $tablet-landscape) {
+            flex-direction: column;
+          }
           
           .rs-listing-hero-copy {
             display: flex;
@@ -229,6 +232,10 @@
             padding-right: 0px;
             width: 100%;
             max-width: 480px;
+            @media (max-width: $tablet-landscape) {
+              padding-left: 14px;
+            }
+            
             
             @media (max-width: $tablet-landscape) {
               width: 60%;
@@ -264,14 +271,11 @@
                   line-height: 42px;
                   letter-spacing: 0em;
                   text-align: left;
-                  margin-bottom: 1.5rem;
-
-                  
-                  
-                  
+                  margin-bottom: 1.5rem;                 
                   @media (max-width: $tablet-landscape) {
-                    font-size: 35px;
-                    line-height: 42px;
+                    font-size: 26px;
+                    line-height: 31px;
+                    margin-top: 19px;
                   }
                 }
               }
