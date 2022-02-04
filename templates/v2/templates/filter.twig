@@ -19,11 +19,11 @@
     <input type="hidden" checked id="{{ section[1] }}" value="{{ section[1] }}" class="section_checkbox"/>
   {% else %}
    <div class="dropMenu dropdown-topic">
-      <button class="dropdown-toggle" type="button" id="menu" aria-haspopup="true">
+      <button class="dropdown-toggle" type="button" id="menuTopic" aria-haspopup="true">
         <span class="dropdown-text-section">Select Topic</span>
         <span class="caret"></span>
       </button>
-    <ul class="dropdown-menu-section" id="list" aria-labelledby="menu">
+    <ul class="dropdown-menu dropdown-menu-section" id="listTopic" aria-labelledby="menu">
         {% for section in streamOptions.sections %}
           <li class="checkFilter">
             <input type="checkbox" name='optionsTopic[]'  id="{{ section[1] }}" value="{{ section[1] }}" class="option justone section_checkbox" {% if section[1] in searchSections %}checked{% endif %}/>
@@ -44,11 +44,11 @@
     <div class="dropMenu dropdown-areas">
 
       <button class="dropdown-toggle" type="button" id="menuRelations" aria-haspopup="true">
-        <span class="dropdown-text">{{ relationBlock.title }}</span>
+        <span class="dropdown-text-relations">{{ relationBlock.title }}</span>
         <span class="caret"></span>
       </button>
 
-      <ul class="dropdown-menu" id="listRelations" aria-labelledby="menuRelations">
+      <ul class="dropdown-menu dropdown-menu-relations" id="listRelations" aria-labelledby="menuRelations">
         {% for relation in relationBlock.relations %}
           {% if relationBlock.type == 'type' %}
             {% set relation_id = relation.handle %}
@@ -58,7 +58,7 @@
             {% set relation_type = 'relation' %}
           {% endif %}
           <li class="checkFilter">
-            <input type="checkbox" id="{{ relation_id }}" class="{{ relation_type }}_checkbox" value="{{ relation_id }}" class="option justone section_checkbox" data-type="{{ relationBlock.type }}" {% if relation_id in relations %}checked{% endif %}/>
+            <input type="checkbox" name='optionsRelations[]' id="{{ relation_id }}" class="{{ relation_type }}_checkbox option justone" value="{{ relation_id }}"  data-type="{{ relationBlock.type }}" {% if relation_id in relations %}checked{% endif %}/>
             <label for="{{ relation_id }}">
               {% if relationBlock.title == 'Action Areas' %}
                 {% set workRelation = craft.entries.section('ourWork').relatedTo(relation).first %}
@@ -86,22 +86,20 @@
 
 <script>
 
-$("#menu").on('click',function(){
-  var Check = $("#menu").attr("aria-expanded");
-  console.log(Check);
- if ( Check == "true") {
-      $("#menu").attr("aria-expanded", "false");
-      $("#list").attr("aria-hidden", "true");
+$("#menuTopic").on('click',function(){
+  var Check = $("#menuTopic").attr("aria-expanded");
+   if ( Check == "true") {
+      $("#menuTopic").attr("aria-expanded", "false");
+      $("#listTopic").attr("aria-hidden", "true");
  } else {
-      $("#menu").attr("aria-expanded", "true");
-      $("#list").attr("aria-hidden", "false");
+      $("#menuTopic").attr("aria-expanded", "true");
+      $("#listTopic").attr("aria-hidden", "false");
  }
 });
 
 
 $("#menuRelations").on('click',function(){
   var Check = $("#menuRelations").attr("aria-expanded");
-  console.log(Check);
  if ( Check == "true") {
       $("#menuRelations").attr("aria-expanded", "false");
       $("#listRelations").attr("aria-hidden", "true");

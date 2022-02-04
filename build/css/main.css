@@ -35781,11 +35781,11 @@ header {
               letter-spacing: 0em;
               text-align: left;
               padding-left: 10px; }
-          .rs-page .rs-head-container .rs-headContent .rs-head-form .dropMenu ul.dropdown-menu li.apply {
+          .rs-page .rs-head-container .rs-headContent .rs-head-form .dropMenu ul.dropdown-menu li.applybtn {
             border-top: 2px solid #3E2BB1;
             padding: 18px;
             text-align: center; }
-            .rs-page .rs-head-container .rs-headContent .rs-head-form .dropMenu ul.dropdown-menu li.apply button {
+            .rs-page .rs-head-container .rs-headContent .rs-head-form .dropMenu ul.dropdown-menu li.applybtn button {
               border: 2px solid #ABFFEB;
               background-color: transparent;
               padding: 10px;
