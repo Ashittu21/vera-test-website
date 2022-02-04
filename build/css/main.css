@@ -35835,12 +35835,7 @@ header {
               font-weight: 400;
               font-family: var(--global-font-abc-whyte); }
         .rs-page .rs-head-container .rs-headContent .rs-head-form .dropMenu ul.dropdown-menu[aria-hidden="false"] {
-          display: block;
-          background-image: url("../img/v2/menu-close.svg");
-          background-repeat: no-repeat;
-          background-position-x: 95%;
-          background-position-y: center;
-          background-size: 16px; }
+          display: block; }
       .rs-page .rs-head-container .rs-headContent .rs-head-form button.dropdown-toggle {
         height: 43px;
         width: 335px;
@@ -35864,6 +35859,12 @@ header {
         @media (max-width: 1024px) {
           .rs-page .rs-head-container .rs-headContent .rs-head-form button.dropdown-toggle {
             width: 100%; } }
+      .rs-page .rs-head-container .rs-headContent .rs-head-form button.dropdown-toggle[aria-hidden="true"] {
+        background-image: url("../img/v2/menu-open.svg");
+        background-repeat: no-repeat;
+        background-position-x: 95%;
+        background-position-y: center;
+        background-size: 16px; }
 
 .rs-page .rs-listing {
   background-color: var(--global-color-sand); }

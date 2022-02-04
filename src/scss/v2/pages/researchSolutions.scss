@@ -189,11 +189,6 @@
           }
           ul.dropdown-menu[aria-hidden="false"] {
             display: block;
-            background-image: url('../img/v2/menu-close.svg');
-            background-repeat: no-repeat;
-            background-position-x: 95%;
-            background-position-y: center;
-            background-size: 16px;
           }
         }
         
@@ -220,6 +215,15 @@
           @media (max-width: $tablet-landscape) {
             width:100%;
           }
+        }
+
+        button.dropdown-toggle[aria-hidden="true"]{
+          background-image: url('../img/v2/menu-open.svg');
+          background-repeat: no-repeat;
+          background-position-x: 95%;
+          background-position-y: center;
+          background-size: 16px;
+
         }
       }
       
