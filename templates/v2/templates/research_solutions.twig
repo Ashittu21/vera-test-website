@@ -328,6 +328,15 @@ $('.apply').click(function(e) {
 });
 
 
+document.addEventListener("DOMContentLoaded", function() {
+  var totalRelations = $('input[name="optionsRelations[]"]:checked').length;
+  $(".dropdown-text-relations").html('Action Areas (' + totalRelations + ')');
+  
+   var totalSection = $('input[name="optionsTopic[]"]:checked').length;
+  $(".dropdown-text-section").html('Topic (' + totalSection + ')');
+
+});
+
 
 </script>
 
