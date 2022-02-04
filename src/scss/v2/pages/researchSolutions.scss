@@ -81,6 +81,10 @@
         align-items: flex-start;
         max-width: 1060px;
         width: 100%;
+
+        @media (max-width: $tablet-landscape) {
+          display: none;
+        }
         
         .filter-by{
           font-family: var(--global-font-abc-whyte);
@@ -93,7 +97,7 @@
           text-align: left;
 
           @media (max-width: $tablet-landscape) {
-            width: 84%;
+            width: 80%;
             margin: 0 auto;
             margin-bottom: 13px;
           }
@@ -224,6 +228,22 @@
           background-position-y: center;
           background-size: 16px;
 
+        }
+      }
+
+      .rs-head-form-mobile{
+        @media (min-width: $tablet-landscape) {
+          display: none;
+        }
+        margin: 0 auto;
+        button.filter{
+          border: 2px solid #abffeb;
+          background-color: transparent;
+          padding: 10px;
+          width: 217px;
+          font-size: 16px;
+          font-weight: 400;
+          font-family: var(--global-font-abc-whyte);
         }
       }
       

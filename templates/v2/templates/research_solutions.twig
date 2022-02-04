@@ -14,7 +14,7 @@
             ['Resource Sites', 'resourceSite'],
             ['Special Reports', 'specialReports']
           ],
-      filterRelations: [{type: 'categories', relations: craft.categories.group('ourWork').level(2), title: 'Action Areas'}]
+      filterRelations: [{type: 'categories', relations: craft.categories.group('ourWork').level(2), title: 'Resource Type'}]
       }
 %}
 
@@ -144,9 +144,12 @@
           <div class="rs-filters">
             {% include 'v2/templates/filter' %}
           </div>
-
-
         </div>
+
+        <div class="rs-head-form-mobile">
+          <button type="button" class="filter">Sort & filter</button>
+        </div>
+
       </div>
 
     </section>
