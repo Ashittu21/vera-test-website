@@ -87,6 +87,8 @@
         {% include 'v2/common/bannerType4' with { block: block } %}
       {% elseif  block.type == 'latestNewsItems' %}
         {% include 'v2/common/newsItems' with { block: block } %}
+      {% elseif  block.type == 'slideshow' %}
+        {% include 'v2/common/swiperSlider' with { block: block } %}
       {% endif %}
     {% endfor %}
 
