@@ -126,7 +126,7 @@
   {% for blockBottom in blocksBottom %}
     {% if blockBottom.type == 'listing' %}
        {% include 'v2/common/listing' with { block: blockBottom } %}
-       <div>{{ footerCopy }}</div>
+        <div class="newsLanding-footer">{{ footerCopy }}</div>
     {% endif %}
   {% endfor %}
 

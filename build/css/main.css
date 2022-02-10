@@ -35685,6 +35685,13 @@ header {
           color: #fff;
           text-decoration: underline; }
 
+.newsLanding-footer {
+  font-family: var(--global-font-abc-whyte);
+  max-width: 1280px;
+  margin: 0 auto;
+  text-align: left;
+  padding-bottom: 30px; }
+
 .rs-page .rs-head-container {
   background-color: var(--global-color-dark-violet); }
   .rs-page .rs-head-container .rs-headContent {

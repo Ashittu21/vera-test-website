@@ -41,6 +41,14 @@
                         {% set thisrelation = relation | json_decode %}
                         {% set relationObjs = relationObjs | merge([thisrelation]) %}
                 {% endfor %}
+
+{% set relacionesArray = [] %}
+ {% for relaciones in relationObjs %}
+  {% set relacionesArray = relacionesArray|merge([relaciones["id"]]) %}
+ {% endfor %}
+
+
+
         {% elseif streamOptions.primaryRelation is defined %}
                 {% set relationObjs = [{
                         type: streamOptions.primaryRelation.type,
@@ -88,7 +96,6 @@
 {% elseif relationObjs is not defined and relations is not defined %}
         {% set relations = null %}
 {% endif %}
-
 
 
 
