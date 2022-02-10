@@ -42,10 +42,10 @@
                         {% set relationObjs = relationObjs | merge([thisrelation]) %}
                 {% endfor %}
 
-{% set relacionesArray = [] %}
- {% for relaciones in relationObjs %}
-  {% set relacionesArray = relacionesArray|merge([relaciones["id"]]) %}
- {% endfor %}
+        {% set relacionesArray = [] %}
+        {% for relaciones in relationObjs %}
+          {% set relacionesArray = relacionesArray|merge([relaciones["id"]]) %}
+        {% endfor %}
 
 
 
