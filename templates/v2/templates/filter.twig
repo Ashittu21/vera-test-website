@@ -13,31 +13,6 @@
 {% endif %}
 
 
-{% if streamOptions.sections | length %}
-  {% if streamOptions.sections|length == 1 %}
-    {% set section = streamOptions.sections[0] %}
-    <input type="hidden" checked id="{{ section[1] }}" value="{{ section[1] }}" class="section_checkbox"/>
-  {% else %}
- 
-   <div class="dropMenu dropdown-topic">
-      <div class="slabel">Topic</div>
-      <button class="dropdown-toggle" type="button" id="menuTopic" aria-haspopup="true">
-        <span class="dropdown-text-section">Select Topic</span>
-        <span class="caret"></span>
-      </button>
-    <ul class="dropdown-menu dropdown-menu-section" id="listTopic" aria-labelledby="menu">
-        {% for section in streamOptions.sections %}
-          <li class="checkFilter">
-            <input type="checkbox" name='optionsTopic[]'  id="{{ section[1] }}" value="{{ section[1] }}" class="option justone section_checkbox" {% if section[1] in searchSections %}checked{% endif %}/>
-            <label for="{{ section[1] }}">{{ section[0] }}</label>
-          </li>
-        {% endfor %}
-        <li class="applybtn"><button type="Button" class="apply">APPLY</button></li>
-      </ul>
-    </div>
-  {% endif %}
-{% endif %}
-
 
 {% set relencode =  craft.request.getParam('relations')|json_encode %}
 
@@ -45,9 +20,9 @@
   {% for relationBlock in streamOptions.filterRelations %}
    
     <div class="dropMenu dropdown-areas">
-     <div class="slabel">Type</div>
+     <div class="slabel">Topic</div>
       <button class="dropdown-toggle" type="button" id="menuRelations" aria-haspopup="true">
-        <span class="dropdown-text-relations">Select resource type</span>
+        <span class="dropdown-text-relations">Select Topic</span>
         <span class="caret"></span>
       </button>
 
@@ -62,7 +37,7 @@
           {% endif %}
           <li class="checkFilter">
             <input type="checkbox" name='optionsRelations[]' id="{{ relation_id }}" class="{{ relation_type }}_checkbox option justone" value="{{ relation_id }}"  data-type="{{ relationBlock.type }}" {% if relation_id in relations %}checked{% endif %}/>
-            <label for="{{ relation_id }}">
+            <label class="labelTopic" for="{{ relation_id }}">
               {% if relationBlock.title == 'Action Areas' %}
                 {% set workRelation = craft.entries.section('ourWork').relatedTo(relation).first %}
                 {% set shortTitle = workRelation ? workRelation.shortTitle %}
@@ -84,6 +59,36 @@
     </div>
   {% endfor %}
 {% endif %}
+
+
+
+{% if streamOptions.sections | length %}
+  {% if streamOptions.sections|length == 1 %}
+    {% set section = streamOptions.sections[0] %}
+    <input type="hidden" checked id="{{ section[1] }}" value="{{ section[1] }}" class="section_checkbox"/>
+  {% else %}
+ 
+   <div class="dropMenu dropdown-topic">
+      <div class="slabel">Type</div>
+      <button class="dropdown-toggle" type="button" id="menuTopic" aria-haspopup="true">
+        <span class="dropdown-text-section">Select resource type</span>
+        <span class="caret"></span>
+      </button>
+
+      <ul class="dropdown-menu dropdown-menu-section" id="listTopic" aria-labelledby="menu">
+        {% for section in streamOptions.sections %}
+          <li class="checkFilter">
+            <input type="checkbox" name='optionsTopic[]'  id="{{ section[1] }}" value="{{ section[1] }}" class="option justone section_checkbox" {% if section[1] in searchSections %}checked{% endif %}/>
+            <label class="labelTopic" for="{{ section[1] }}">{{ section[0] }}</label>
+          </li>
+        {% endfor %}
+        <li class="applybtn"><button type="Button" class="apply">APPLY</button></li>
+      </ul>
+    </div>
+  {% endif %}
+{% endif %}
+
+
 
 
 

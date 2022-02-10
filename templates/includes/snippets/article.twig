@@ -67,13 +67,16 @@
 
 		{% elseif block.type == 'code' %}
 			<div class="container">{{ block.code | raw }}</div>
+
 		{% elseif block.type == 'callToActionDownload' %}
+		
 			{% set dl = block.file[0] ?? null %}
 			{% if dl %}
 				<div class="post-module text-center">
 					<a href="{{ dl.url }}" target="_blank" class="btn">{{ block.buttonText }}</a>
 				</div>
 			{% endif %}
+
 		{% elseif block.type == 'additionalReading' %}
 
 			{% set additionalReading = block.entry.first ? block : null %}

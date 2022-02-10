@@ -27,10 +27,12 @@
     <div class="mediaContacts-header">
       <div class="mediaContacts-header-title">{{ pageTitle }}</div>
       <div class="mediaContacts-header-copy">{{ pageCopy }}</div>
-      <div class="mediaContacts-header-links">
-        <a href="{{ entry.url }}/?filter=pressReleases">View all press releases</a>
-        <a href="{{ entry.url }}/?filter=news">View all media coverage</a>
-      </div>
+      <div class="mediaContacts-header-filter">Filter By:</div>
+          <div class="mediaContacts-header-links">
+            <a href="{{ entry.url }}/"  class="button-sand {% if filterCat  == '' %}active{% endif %}">View all</a>
+            <a href="{{ entry.url }}/?filter=pressReleases" class="button-sand {% if filterCat  == 'pressReleases' %}active{% endif %}">View all press releases</a>
+            <a href="{{ entry.url }}/?filter=news"  class="button-sand {% if filterCat  == 'news' %}active{% endif %}">View all news</a>
+          </div>   
     </div>
 
 

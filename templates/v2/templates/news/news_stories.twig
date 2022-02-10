@@ -7,11 +7,10 @@
 {% set blocksBottom   = entry.newsStoriesBlocksBottom %}
 {% set footerCopy     = entry.redactorField %}
 
-
 {% set bannerTitle    = entry.banner_title %}
 {% set bannerSubtitle = entry.banner_subtitle %}
 {% set bannerCta      = entry.banner_cta %}
-
+{% set actual         = 'blogPosts' %}
 
   <!-- Head Title -->
     <section class="headTitle bgColor-darkviolet">
@@ -33,14 +32,13 @@
     {% endif %}
   {% endfor %}
 
-
   <div class="newsLanding-content">
 
     {% include 'v2/templates/news/topicMenu' %} 
 
     <div class="newsLanding-items">
 
-      {% paginate craft.entries.section('pressReleases').limit(10) as pageInfo, pageEntries %}
+      {% paginate craft.entries.section('blogPosts').limit(10) as pageInfo, pageEntries %}
 
       {% set fallback = 0 %}
       {% for entry in pageEntries %}
@@ -55,7 +53,7 @@
                     <div class="bannerType4-text">
                     <p>{{ bannerSubtitle }}</p>
                     </div>
-                    <a href="{{ bannerCta.getUrl() }}" class="button orange arrow"><span>{{  bannerCta.customText }}</span></a>
+                    <a href="{{ bannerCta.getUrl('newsstoriesTransform') }}" class="button orange arrow"><span>{{  bannerCta.customText }}</span></a>
                   </div>
                 </section>
                 <!-- Banner Type 4 -->

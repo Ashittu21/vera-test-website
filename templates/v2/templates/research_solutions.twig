@@ -2,6 +2,10 @@
 {% block content %}
 
 {% set filterSection   = craft.app.request.getQueryParam('section') %}
+{% set filterOrder     = craft.app.request.getQueryParam('order') %}
+
+
+
 
 {% set streamOptions = {
       title: 'All Research & Analysis',
@@ -93,13 +97,22 @@
 
 
 {% set queryObj = {
-                relatedTo: relations,
-                section: searchSections
-        }
+    relatedTo: relations,
+    section: searchSections
+  }
 %}
 
+
+
 {% set totalEntries = craft.entries(queryObj).limit(10).count() %}
-{% paginate craft.entries(queryObj).limit(10) as pageInfo, pageEntries %}
+
+{% if filterOrder == 'newest' %}
+  {% paginate craft.entries(queryObj).orderBy('dateCreated DESC').limit(10) as pageInfo, pageEntries %}
+{% elseif  filterOrder =="oldest" %}
+  {% paginate craft.entries(queryObj).orderBy('dateCreated ASC').limit(10) as pageInfo, pageEntries %}
+{% else %}
+  {% paginate craft.entries(queryObj).limit(10) as pageInfo, pageEntries %}
+{% endif %}
 
 <!-- Hero Block -->
   <div class="heroType1-container"  style="background-image: url('{{ entry.heroType1_image.first.url }}');">
@@ -124,19 +137,26 @@
 <!-- END Hero Block -->
 
 
+
+
+
+
+
+
+
+
+
+
   <div class="rs-page">
     <section class="rs-head-container">
       <div class="rs-headContent">
-
         <div class="rs-headContent-title">
           <h4>{{ entry.rs_headline }}</h4>
           <div class="rs-headContent-title-copy">
             {{ entry.rs_copy }}
           </div>
         </div>
-
         <h3 class="rs-title">Research & Solutions</h3>
-
         <div class="rs-head-form">
           <div class="filter-by">
             FILTER BY
@@ -144,22 +164,25 @@
           <div class="rs-filters">
             {% include 'v2/templates/filter' %}
           </div>
-        </div>
 
+          <div class="rs-tags">
+            <a href="#" id="clearall">Clear All </a>
+            <div id="searchTags"> </div>
+          </div>
+
+        </div>
         <div class="rs-head-form-mobile">
           <button type="button" class="filter"><span>Sort & filter</span></button>
         </div>
-
       </div>
-
     </section>
 
 
     <section class="rs-listing">
       <div class="rs-listing-content">
+        {% if entry.newsHero_article|length %}
 
-              {% if entry.newsHero_article|length %}
-          {% set heroNews = entry.newsHero_article.one() %}
+        {% set heroNews = entry.newsHero_article.one() %}
         <div class="rs-listing-hero">
           <div class="rs-listing-hero-container">
             <div class="rs-listing-hero-image">
@@ -189,9 +212,54 @@
             </div>
           </div>
         </div>
+      {% else %}
+      
+      {% set mainNews = craft.entries().section('blogPosts').one() %}
+        {% if  mainNews.streamImageRectangle is not null %}
+          {% set imageN =  mainNews.streamImageRectangle.one() %}
+        {% else %}
+          {% set imageN = null %}
+        {% endif %}
+
+      <div class="rs-listing-hero">
+            <div class="rs-listing-hero-container">
+              <div class="rs-listing-hero-image">
+                <img src="{{ imageN.url }}" alt="">
+              </div>
+              <div class="rs-listing-hero-copy">
+                <div>
+                  <div class="rs-listing-hero-copy-category">
+                    <p>{{ mainNews.type.name | title | upper }}</p>
+                  </div>
+                  <div class="rs-listing-hero-copy-title">
+                    <a href="">
+                      <h4>{{ mainNews.title }}</h4>
+                    </a>
+                  </div>
+
+                  <div class="rs-listing-hero-copy-excerpt">
+                      <p>{{ mainNews.subtitle }}</p>
+                  </div>
+
+                  <div class="rs-listing-hero-copy-date">
+                    <p> {{ mainNews.postDate | date("M d, Y") }}</p>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
       {% endif %}
 
-        
+
+    <div class="rs-listing-filter">
+      <label for="orderby">Order by</label>
+      <select type="text" id="orderby" onchange="orderby()"> 
+        <option value="newest" {% if filterOrder == 'newest' %} selected {% endif %}>Newest</option>
+        <option value="oldest" {% if filterOrder == 'oldest' %} selected {% endif %}>Oldest</option>
+      </select>
+    </div>
+
     <div class="rs-listing-items">    
     {% set fallback = 0 %}
      {% for result in pageEntries %}
@@ -212,7 +280,7 @@
               <div class="rs-listing-item-content">
 
                 <div class="rs-listing-item-content-date">
-                  {{ entry.postDate | date("M d, Y") }}
+                  {{ result.postDate | date("M d, Y") }}
                 </div>
 
                 <a href="{{ result.url }}"  class="rs-listing-item-content-title" target="_blank"><h6>{{ result.title }}</h6></a>
@@ -292,83 +360,160 @@
     </section>
   </div>
 
-
-
-
-
 <script>
+var optionSelected = [];
+let tagCont = document.getElementById('searchTags');
 
-$('body').on("click", ".dropdown-menu-section", function (e) {
-    $(this).parent().is(".open") && e.stopPropagation();
+function createTagItem(name, id) {
+  let a = document.createElement('a');
+  a.textContent = name;
+  a.setAttribute("data-check", id);
+  a.setAttribute("href", '#');
+  a.setAttribute("class", 'filterTags');
+  return a;
+}
+
+function borra(t) {
+  $.each(optionSelected, function(i) {
+    if (optionSelected[i].id === t) {
+      optionSelected.splice(i, 1);
+      return false;
+    }
+  });
+  document.querySelector('[data-check="' + t + '"]').remove();
+}
+
+$(document).on('click', '.filterTags', function(event) {
+  event.preventDefault();
+  console.log(this.getAttribute('data-check'));
+  document.getElementById(this.getAttribute('data-check')).checked = false;
+  var totalRelations = $('input[name="optionsRelations[]"]:checked').length;
+  $(".dropdown-text-relations").html('Topic (' + totalRelations + ')');
+  borra(this.getAttribute('data-check'));
 });
 
-$("input[type='checkbox'].section_checkbox").change(function(){
-    var a = $("input[type='checkbox'].section_checkbox");
-    if(a.length == a.filter(":checked").length){
-        $('.selectall').prop('checked', true);
-        $(".select-text").html(' Deselect');
-    }
+$('body').on("click", ".dropdown-menu-section", function(e) {
+  $(this).parent().is(".open") && e.stopPropagation();
+});
 
+
+$("input[type='checkbox'].section_checkbox").change(function() {
+  var a = $("input[type='checkbox'].section_checkbox");
+  if (a.length == a.filter(":checked").length) {
+    $('.selectall').prop('checked', true);
+    $(".select-text").html(' Deselect');
+  }
+  optionSelected.push({
+    label: $(this).next().text().trim(),
+    id: $(this).attr('id')
+  });
+  console.log(optionSelected);
   var totalSection = $('input[name="optionsTopic[]"]:checked').length;
-  $(".dropdown-text-section").html('Topic (' + totalSection + ')');
+  $(".dropdown-text-section").html(' Resource Type(' + totalSection + ')');
 });
 
-$("input[type='checkbox'].relation_checkbox").change(function(){
-    var a = $("input[type='checkbox'].relation_checkbox");
-    if(a.length == a.filter(":checked").length){
-        $('.selectall').prop('checked', true);
-        $(".select-text").html(' Deselect');
-    }
+
+
+$("input[type='checkbox'].relation_checkbox").change(function() {
+  var a = $("input[type='checkbox'].relation_checkbox");
+  if (a.length == a.filter(":checked").length) {
+    $('.selectall').prop('checked', true);
+    $(".select-text").html(' Deselect');
+  }
+
+
+  if ($(this).is(':checked')) {
+    optionSelected.push({
+      label: $(this).next().text().trim(),
+      id: $(this).attr('id')
+    });
+    tagCont.appendChild(createTagItem($(this).next().text().trim(), $(this).attr('id')));
+  } else {
+    borra($(this).attr('id'));
+  }
+
+  console.log(optionSelected);
 
   var totalRelations = $('input[name="optionsRelations[]"]:checked').length;
-  $(".dropdown-text-relations").html('Resource Type (' + totalRelations + ')');
+  $(".dropdown-text-relations").html('Topic (' + totalRelations + ')');
 });
-
 
 $('.apply').click(function(e) {
+  var sections = [];
+  $(".section_checkbox:checked").each(function() {
+    sections.push(this.value);
+  });
 
-   var sections = [];
-    $(".section_checkbox:checked").each(function () {
+  if (sections.length == 0) {
+    $(".section_checkbox").each(function() {
       sections.push(this.value);
     });
+    var nosectionrelation = true;
+  }
 
-    if (sections.length == 0) {
-      $(".section_checkbox").each(function () {
-        sections.push(this.value);
-      });
-      var nosectionrelation = true;
-    }
+  var relations = [];
+  $(".relation_checkbox:checked").each(function() {
+    relations.push({
+      id: this.value,
+      type: this.dataset.type,
+      category: this.dataset.category,
+    });
+  });
 
-   var relations = [];
-        $(".relation_checkbox:checked").each(function () {
-          relations.push({
-            id: this.value,
-            type: this.dataset.type,
-            category: this.dataset.category,
-          });
-        });
-
-
-    var varRelations = JSON.stringify(relations);
-        varRelations = varRelations.replace('[','');
-        varRelations = varRelations.replace(']','');
-    var varSections = sections.join(',');
-    query = 'sections=' + varSections +'&relations='+ varRelations;
-    window.location.search = query;
-
+  var varRelations = JSON.stringify(relations);
+  varRelations = varRelations.replace('[', '');
+  varRelations = varRelations.replace(']', '');
+  var varSections = sections.join(',');
+  query = 'sections=' + varSections + '&relations=' + varRelations;
+  window.location.search = query;
 });
 
+document.getElementById('orderby').addEventListener('change', function() {
+  var sections = [];
+  $(".section_checkbox:checked").each(function() {
+    sections.push(this.value);
+  });
+
+  if (sections.length == 0) {
+    $(".section_checkbox").each(function() {
+      sections.push(this.value);
+    });
+    var nosectionrelation = true;
+  }
+
+  var relations = [];
+  $(".relation_checkbox:checked").each(function() {
+    relations.push({
+      id: this.value,
+      type: this.dataset.type,
+      category: this.dataset.category,
+    });
+  });
+
+  var varRelations = JSON.stringify(relations);
+  varRelations = varRelations.replace('[', '');
+  varRelations = varRelations.replace(']', '');
+  var varSections = sections.join(',');
+  query = 'sections=' + varSections + '&relations=' + varRelations + '&order=' + this.value;
+  window.location.search = query;
+});
 
 document.addEventListener("DOMContentLoaded", function() {
   var totalRelations = $('input[name="optionsRelations[]"]:checked').length;
-  $(".dropdown-text-relations").html('Resource Type (' + totalRelations + ')');
-
-   var totalSection = $('input[name="optionsTopic[]"]:checked').length;
-  $(".dropdown-text-section").html('Topic (' + totalSection + ')');
-
+  $(".dropdown-text-relations").html('Topic (' + totalRelations + ')');
+  var totalSection = $('input[name="optionsTopic[]"]:checked').length;
+  $(".dropdown-text-section").html('Resource Type (' + totalSection + ')');
 });
 
 
+$('#clearall').click(function(event) {
+  $('.option').prop('checked', false);
+  var optionSelected = [];
+  $(".dropdown-text-relations").html('Select topic');
+  $("#searchTags").html('');
+  $(".dropdown-text-section").html('Select resource type');
+  event.preventDefault();
+});
 </script>
 
 {% endblock %}

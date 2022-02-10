@@ -1,10 +1,9 @@
     <div class="newsLanding-head">
-      <div class="newsLanding-head-title">Select a topic</div>
+      <div class="newsLanding-head-title">Filter By:</div>
       <div class="newsLanding-head-filter">
-          <a href="{{ siteUrl }}news-and-stories" class="button-sand {% if entry.type == 'news_stories' %} active {% endif %}">Press Releases</a>      
-          <a href="{{ siteUrl }}news-and-stories-events" class="button-sand {% if entry.type == 'news_stories_events' %} active {% endif %}">Events</a>
-          <a href="{{ siteUrl }}news-and-stories-news" class="button-sand {% if entry.type == 'news_stories_news' %} active {% endif %}">News</a>
-          <a href="{{ siteUrl }}" class="button-sand">Analysis</a>
-          <a href="{{ siteUrl }}" class="button-sand">Special Features</a>
+        <a href="{{ siteUrl }}news-and-stories" class="button-sand {% if actual == 'blogPosts' %}active{% endif %}">News</a>
+        <a href="{{ siteUrl }}news-and-stories-series" class="button-sand {% if actual == 'blogSeries' %}active{% endif %}">Series</a> <!-- blogSeries -->
+        <a href="{{ siteUrl }}news-and-stories-special-reports" class="button-sand {% if actual == 'specialReports' %}active{% endif %}">Special Reports</a> <!-- specialReports	 -->
+        <a href="{{ siteUrl }}news-and-stories-spotlights" class="button-sand {% if actual == 'spotlights' %}active{% endif %}">Spotlights</a> <!-- spotlights -->
       </div>
     </div><!-- newsLanding-head -->

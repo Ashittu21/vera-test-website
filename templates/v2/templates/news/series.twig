@@ -11,6 +11,7 @@
 {% set bannerTitle    = entry.banner_title %}
 {% set bannerSubtitle = entry.banner_subtitle %}
 {% set bannerCta      = entry.banner_cta %}
+{% set actual         = 'blogSeries' %}
 
 
   <!-- Head Title -->
@@ -40,14 +41,13 @@
 
     <div class="newsLanding-items">
 
-      {% paginate craft.entries.section('news').limit(10) as pageInfo, pageEntries %}
+      {% paginate craft.entries.section('blogSeries').limit(10) as pageInfo, pageEntries %}
 
       {% set fallback = 0 %}
-      {% for entry in pageEntries %}
-        
-        {% set blockCopy = entry.overview %}
-        {% set image = entry.streamImageRectangle.one() %}
 
+      {% for entry in pageEntries %}
+
+        {% set image = entry.heroImage.one() %}
           {% if loop.index == 8 %}
                 <!-- Banner Type 4 -->
                 <section class="bannerType4">
@@ -84,9 +84,15 @@
                   <div class="newsLanding-item-content-right">
                     <div class="newsLanding-item-content-right-tag">{{ entry.type.name | title | upper }}</div>
                     <div class="newsLanding-item-content-right-title">
-                      <a href="{{ entry.linkUrl }}" target="_blank">{{ entry.title }}</a>
+                    <a href="{{ entry.url }}">{{ entry.title }}</a>
                     </div>
-                    <div class="newsLanding-item-content-right-copy">{{ blockCopy|striptags|truncate(80)|raw }}</div>
+                    <div class="newsLanding-item-content-right-copy">
+                    {% if entry.overview is not null %}
+                      {{ entry.overview|striptags|truncate(149)|raw }}
+                    {% elseif  entry.seriesDescription is not null %}
+                      {{ entry.seriesDescription|striptags|truncate(149)|raw }}
+                    {% endif %}
+                    </div>
                     <div class="newsLanding-item-content-right-date">{{ entry.postDate | date("M d, Y") }}</div>
                   </div>
                 </div>
@@ -120,9 +126,10 @@
   {% for blockBottom in blocksBottom %}
     {% if blockBottom.type == 'listing' %}
        {% include 'v2/common/listing' with { block: blockBottom } %}
+       <div>{{ footerCopy }}</div>
     {% endif %}
   {% endfor %}
 
-  <div>{{ footerCopy }}</div>
+  
 
 {% endblock %}

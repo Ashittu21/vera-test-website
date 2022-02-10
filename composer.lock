@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "72feb43f625623cde1387132de908ef9",
+    "content-hash": "d9b99ac0a1fff9b0c6c7632623e1f6ef",
     "packages": [
         {
             "name": "aelvan/inlin",
@@ -1359,6 +1359,62 @@
                 "php"
             ],
             "time": "2020-05-25T17:44:05+00:00"
+        },
+        {
+            "name": "doublesecretagency/craft-inventory",
+            "version": "2.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/doublesecretagency/craft-inventory.git",
+                "reference": "37de17aea82150a6aa114f3ae0c90179684f6a7d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/doublesecretagency/craft-inventory/zipball/37de17aea82150a6aa114f3ae0c90179684f6a7d",
+                "reference": "37de17aea82150a6aa114f3ae0c90179684f6a7d",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^3.4"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "name": "Inventory",
+                "handle": "inventory",
+                "schemaVersion": "2.0.0",
+                "changelogUrl": "https://raw.githubusercontent.com/doublesecretagency/craft-inventory/v2/CHANGELOG.md",
+                "class": "doublesecretagency\\inventory\\Inventory"
+            },
+            "autoload": {
+                "psr-4": {
+                    "doublesecretagency\\inventory\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Double Secret Agency",
+                    "homepage": "https://www.doublesecretagency.com/plugins"
+                }
+            ],
+            "description": "Take stock of your field usage.",
+            "keywords": [
+                "Craft",
+                "cms",
+                "craft-plugin",
+                "craftcms",
+                "fields",
+                "inventory"
+            ],
+            "support": {
+                "docs": "https://github.com/doublesecretagency/craft-inventory/blob/v2/README.md",
+                "issues": "https://github.com/doublesecretagency/craft-inventory/issues",
+                "source": "https://github.com/doublesecretagency/craft-inventory/tree/2.1.1"
+            },
+            "time": "2020-08-22T05:05:07+00:00"
         },
         {
             "name": "dukt/oauth2-vimeo",
@@ -5642,7 +5698,7 @@
             "dist": {
                 "type": "path",
                 "url": "plugins/csvreader",
-                "reference": "4cc57586bc0e049e056d0bc56d08fc049fb848a6"
+                "reference": "8a7f0d3a35e0736f61127ed8f1a7e23e90d06231"
             },
             "require": {
                 "craftcms/cms": "^3.0.0"
@@ -5693,7 +5749,7 @@
             "dist": {
                 "type": "path",
                 "url": "plugins/geocode",
-                "reference": "bfbf0018ea0cf43019e5085c12fd7b27a7b089fc"
+                "reference": "af33793981503002e11bb73aec8129fa812ca158"
             },
             "require": {
                 "craftcms/cms": "^3.0.0"
@@ -5752,7 +5808,7 @@
             "dist": {
                 "type": "path",
                 "url": "plugins/specialrelations",
-                "reference": "b143df2f86551400efe1000c4b2b6524943112dd"
+                "reference": "5cb6e2c6dd909424797da01a73d3a37af7cf8135"
             },
             "require": {
                 "craftcms/cms": "^3.0.0"
@@ -9250,5 +9306,5 @@
     "platform-overrides": {
         "php": "7.2.5"
     },
-    "plugin-api-version": "2.0.0"
+    "plugin-api-version": "2.1.0"
 }

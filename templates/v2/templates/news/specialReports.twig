@@ -11,6 +11,7 @@
 {% set bannerTitle    = entry.banner_title %}
 {% set bannerSubtitle = entry.banner_subtitle %}
 {% set bannerCta      = entry.banner_cta %}
+{% set actual         = 'specialReports' %}
 
 
   <!-- Head Title -->
@@ -40,7 +41,7 @@
 
     <div class="newsLanding-items">
 
-      {% paginate craft.entries.section('eventSeries').limit(10) as pageInfo, pageEntries %}
+      {% paginate craft.entries.section('specialReports').limit(10) as pageInfo, pageEntries %}
 
       {% set fallback = 0 %}
 
