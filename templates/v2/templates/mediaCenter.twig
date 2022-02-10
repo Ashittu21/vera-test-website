@@ -70,7 +70,14 @@
           <div class="mediaContacts-item-content">
 
             <div class="mediaContacts-item-content-left">
-              <div class="mediaContacts-item-content-left-tag">{{ entry.type.name | title | upper }}</div>
+              <div class="mediaContacts-item-content-left-tag">
+              {% if entry.type.name == "News" %}
+                Media Coverage
+              {% else %}
+              {{ entry.type.name | title | upper }}
+              {% endif %}
+              
+              </div>
             </div>
 
             <div class="mediaContacts-item-content-right">
