@@ -19,7 +19,7 @@
   letter-spacing: 0em;
   text-align: left;
   margin-top: 4rem;
-  margin-bottom: 3rem;
+  margin-bottom: 60px;
   @media(max-width: $tablet-landscape){
     margin: 2rem  0.5rem;
   }
@@ -79,10 +79,9 @@
 
     }
 
-    &-title {
-      margin-top: 17px;
 
-      a {
+    &-title {
+        margin-top: 17px;
         font-family: var(--global-font-abc-whyte);
         color: var(--global-color-text);
         font-size: 19px;
@@ -94,8 +93,6 @@
           color: var(--global-color-white);
           text-decoration: underline;
         }
-      }
-
     }
 
     &-date {
@@ -119,8 +116,9 @@
       border-right: 0;
       z-index: 1;
 
-      .block-listing-item-title a {
+      .block-listing-item-title  {
         color: var(--global-color-white);
+        text-decoration: underline;
       }
 
       .block-listing-item-tag {

@@ -1,11 +1,12 @@
 .bannerType4 {
-
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   width: 100%;
-  max-width: 840px;
+ /* max-width: 840px;*/
+  max-width: 1060px;
+  margin: 0 auto;
   margin: 0 auto;
   overflow: hidden;
   background-color: var(--global-color-medium-violet);
@@ -20,7 +21,7 @@
     position: absolute;
     width: 2px;
     box-sizing: border-box;
-    right: 30px;
+    right: 70px;
     @media (max-width: $tablet-portrait) {
       height: 2px;
       width: 100%;
@@ -36,7 +37,7 @@
     position: absolute;
     width: 2px;
     box-sizing: border-box;
-    left: 30px;
+    left: 70px;
     @media (max-width: $tablet-portrait) {
       height: 2px;
       width: 100%;
@@ -67,6 +68,7 @@
       line-height: 69px;
       letter-spacing: 0em;
       text-align: center;
+      margin-bottom: 11px;
       @media (max-width: $tablet-portrait) {
         font-size: 45px;
         line-height: 49.5px;
@@ -86,9 +88,9 @@
       letter-spacing: 0em;
       text-align: left;
       padding-top: 1.5rem;
-      padding-bottom: 30px;
       max-width: 500px;
       text-align: center;
+      padding-bottom: 38px;
       @media (max-width: $tablet-portrait) {
         br{
           display: none;

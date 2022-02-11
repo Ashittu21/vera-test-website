@@ -1,26 +1,11 @@
 {% extends '_layout' %}
 
 {% set title = entry.title %}
-
 {% set bloghome = craft.entries.section('blog').first %}
 
 {% block content %}
-	<div class="container"><aside class="hr"></aside></div>
-	
-	<section class="post-content__single__container blog">			
-		{% include 'includes/snippets/post_header' %}
+	<div class="content-page news-article">
 		{% set article = entry.article %}
 		{% include 'includes/snippets/article' %}
-		<div class="module-text disqus hide-on-print">
-			<div class="container">
-				<div class="module-text__inner">
-					<div id="disqus_thread"></div>
-				</div>
-			</div>
-		</div>
-	</section>
-	
-	{% include 'includes/snippets/disqus' %}
-	{% include 'includes/stream/module_related-content' %}
-	
+	</div>
 {% endblock %}

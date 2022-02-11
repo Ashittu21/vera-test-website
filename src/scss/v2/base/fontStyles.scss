@@ -4,10 +4,10 @@
     &::after {
       content: '';
       position: absolute;
-      bottom: 0rem;
-      left: -0.5rem;
+      bottom: -5px;
+      left: -.5rem;
       right: -1.5rem;
-      height: 0.74rem;
+      height: 20px;
       z-index: -1; //behind the testalign-content
       background-repeat: no-repeat;
       background-size: cover; // allows for word fit

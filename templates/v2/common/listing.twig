@@ -4,15 +4,15 @@
     <div class="block-listing-content">
         {% if block.listing_articles|length %}
           {% for statsItem in block.listing_articles %}
-            <div class="block-listing-item">
+            <a class="block-listing-item"  href="{{ statsItem.url }}">
               <div class="block-listing-item-tag">
                 {{ statsItem.type.name | title | upper }}
               </div>
               <div class="block-listing-item-title">
-                <a href="{{ statsItem.url }}">{{ statsItem.title }}</a>
+                {{ statsItem.title }}
               </div>
               <div class="block-listing-item-date">{{ statsItem.postDate | date("M d, Y") }}</div>
-            </div>
+            </a>
           {% endfor %}
         {% endif %}
     </div>

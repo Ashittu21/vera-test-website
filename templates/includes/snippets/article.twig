@@ -16,8 +16,11 @@
 	{% set isEditorial = isEditorial ?? false %}
 	{% set print = craft.request.getParam('print') ?? false %}
 {% endspaceless %}
-<article class="post-article {{ theme ?? 'light' }}" data-highlight-share>
-	{% if isEditorial and (not fromOnePage or not entry.prevSibling) %}
+
+
+
+<!--<article class="post-article {{ theme ?? 'light' }}" data-highlight-share> -->
+	{# if isEditorial and (not fromOnePage or not entry.prevSibling) %}
 		<div class="meta-wrap container">
 			<div class="post-content__meta__date">{{ entry.postDate | date('F Y')}}</div>
 			{% include 'includes/snippets/people' with {people: entry.authors | length ? entry.authors : entry.parent.authors} %}
@@ -26,7 +29,7 @@
 		<div class="container">
 			<aside class="hr"></aside>
 		</div>
-	{% endif %}
+	{% endif #}
 
 	{% for block in article %}
 		{% if block.type == 'form' %}
@@ -82,7 +85,8 @@
 			{% set additionalReading = block.entry.first ? block : null %}
 
 		{% elseif block.type == 'copy' %}
-			{% if firstCopy %}
+		   {% include 'v2/common/copy'  with { block: block } %}
+{#			{% if firstCopy %}
 				{% set showShare =  entry.type.handle in ['post','pressRelease'] %}
 				{% set showActionAreas = entry.type.handle in ['post','pressRelease'] %}
 				{% set firstCopy = false %}
@@ -176,7 +180,7 @@
 					</div>
 				</div>
 			</div>
-
+#}
 		{% elseif block.type == 'singleImage' %}
 
 			{% set image = block.image[0] %}
@@ -745,7 +749,7 @@
 		</aside>
 
 	{% endif %}
-</article>
+<!--</article> -->
 
 {% if not firstSlideout %}
 	<article id="Slider--article">

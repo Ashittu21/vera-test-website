@@ -30,8 +30,22 @@
     }
 
     &-filter {
-      margin-top: 35px;
+      margin-top: 31px;
       flex-direction: row;
+      height: fit-content;
+      margin-bottom: 60px;
+      display: flex;
+      a{   
+        margin-right: 10px;
+        border-radius: 2px;
+        border-color: #CEC0BC;
+        &.active{
+          background: #CEC0BC;
+          color: #0A0319;
+          border-radius: 2px;
+          border-color: #CEC0BC;
+        }
+      }
     }
   }
 
@@ -237,5 +251,5 @@
   max-width: 1280px;
   margin: 0 auto;
   text-align: left;
-  padding-bottom: 30px;
+  padding-bottom: 90px;
 }
