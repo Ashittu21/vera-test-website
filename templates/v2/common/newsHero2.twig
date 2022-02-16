@@ -4,14 +4,14 @@
 				{% if block.newsHero_article|length %}
 				  {% set heroNews = block.newsHero_article.one() %}
 					<div class="latestNews-hero">
-						<div class="latestNews-hero-container">
+						<a class="latestNews-hero-container" href="{{ heroNews.url }}">
 							<div class="latestNews-hero-copy">
 								<div>
 									<div class="latestNews-hero-copy-category">
 										<p>{{  heroNews.type.name | title | upper }}</p>
 									</div>
 									<div class="latestNews-hero-copy-title">
-										<a href="{{ heroNews.url }}"><h4>{{ heroNews.title }}</h4></a>
+										<span><h4>{{ heroNews.title }}</h4></span>
 									</div>
 
 									{% if block.newsHero_subtitle %}
@@ -28,7 +28,7 @@
 							<div class="latestNews-hero-image">
 								<img src="{{ block.newsHero_image.first.url }}" alt="">
 							</div>
-						</div>
+						</a>
 					</div>
 				{% endif %} 
     	</div>
