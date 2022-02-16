@@ -67,7 +67,7 @@
                 <div class="newsLanding-item-content">
                   <div class="newsLanding-item-content-left">
                     {% if image %}
-                        <img src="{{ image.getUrl() }}" alt=""/>
+                        <img src="{{ image.getUrl('newsstoriesTransform') }}" alt=""/>
                     {% else %}
                       {% if fallback <= 3 %}
                           {% set fallback =  fallback + 1 %}

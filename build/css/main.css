@@ -32866,6 +32866,10 @@ body.nav-pad:not(.no-pad) {
   -o-object-fit: cover;
      object-fit: cover; }
 
+.singleImage .swiper-slide img {
+  -o-object-fit: contain !important;
+     object-fit: contain !important; }
+
 .swiper-arrows {
   width: 215px;
   position: absolute;

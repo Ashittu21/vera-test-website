@@ -1,0 +1,27 @@
+	{% set image = block.image.first %}
+			{% set link = block.linkUrl %}
+			{% set ext = true %}
+
+			{% set module_class_prefix = 'stream-module' %}
+			<div class="post-module container video-container module-featured-entry">
+				<article class="stream-module stream-module--gc stream-module--gc--full stream-module--featured stream-module--border-alt {% if image %} has-image{% endif %}">
+					<a class="{{ module_class_prefix }}__inner" href="{{ link }}" {{ ext ? 'target="_blank"' }}>
+						{% if image %}
+							<div class="{{ module_class_prefix }}__img-outer img-outer" style="background-image: url({{ image.url }});">
+								<div class="spacer"></div>
+								{% include 'includes/snippets/attribution' with {noLink: true} %}
+							</div>
+						{% endif %}
+						<div class="{{ module_class_prefix }}__content">
+							<div class="{{ module_class_prefix }}__content-inner">
+								<div class="stream-module__title-outer">
+									<h3 class="{{ module_class_prefix }}__heading">{{ block.linkTitle }}</h3>
+									{% if block.subtitle|length %}
+										<p class="{{ module_class_prefix }}__subheading">{{ block.subtitle }}</p>
+									{% endif %}
+								</div>
+							</div>
+						</div>
+					</a>
+				</article>
+			</div>

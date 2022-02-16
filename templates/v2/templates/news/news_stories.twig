@@ -24,6 +24,11 @@
   <!-- Head Title  -->
 
 
+
+
+
+
+
   {% for block in blocks %}
     {% if block.type == 'newsItems' %}
        {% include 'v2/common/newsItems' with { block: block } %}
@@ -35,6 +40,7 @@
   <div class="newsLanding-content">
 
     {% include 'v2/templates/news/topicMenu' %} 
+
 
     <div class="newsLanding-items">
 
@@ -64,7 +70,7 @@
                 <div class="newsLanding-item-content">
                   <div class="newsLanding-item-content-left">
                     {% if image %}
-                        <img src="{{ image.getUrl() }}" alt=""/>
+                        <img src="{{ image.getUrl('newsstoriesTransform') }}" alt=""/>
                     {% else %}
                       {% if fallback <= 3 %}
                           {% set fallback =  fallback + 1 %}

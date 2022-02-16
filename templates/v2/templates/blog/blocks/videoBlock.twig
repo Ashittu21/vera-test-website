@@ -1,0 +1,22 @@
+{% set video = block.video %}
+<div class="videoBlock-container">
+	<div class="videoBlock-content">
+		<div class="videoBlock-video">
+			{% set id = video.id ~ "__" ~ random() %}
+				<div id="player__{{ id }}" class="video-player-v2 {{ video.gatewayHandle }}" data-videoid="{{ video.id }}">
+					<div id="iframe__{{ video.id }}" class="iframe_target"></div>
+					<div class="video-cover" style="background-image: url('{{ video.thumbnailSource }}');">
+						<div class="btnVideoPlay playVideo"><span></span></div>
+					</div>
+				</div>
+		</div>
+		<div class="videoBlock-copy">
+				<div class="videoBlock-copy-title">{{ block.videoTitle }}</div>
+				<div class="videoBlock-copy-description">
+					<div class="description-caption">{{ block.caption }}</div>
+				  <div class="description-time">{{ video.getDuration() }} min</div>
+				</div>
+		</div>
+	</div>
+</div>
+

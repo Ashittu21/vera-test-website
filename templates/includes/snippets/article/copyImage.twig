@@ -1,0 +1,39 @@
+{% if block.position == 'right' %}
+				<div class="post-module module-image-with-copy image-right container">
+					<div class="module-image-with-copy__text module-image-right__text rte">
+						{{ block.text | shortcodes}}
+					</div>
+
+					<div class="module-image-with-copy__img module-image-right__img">
+						{% switch block.type %}
+							{% case 'copyImage' %}
+								{% set image = block.image[0] %}
+								<div class="img-outer">
+									{% include 'includes/snippets/image' with {image: image} %}
+								</div>
+							{% case 'copyCode' %}
+								<div class="container">{{ block.code | raw }}</div>
+							{% default %}
+						{% endswitch %}
+					</div>
+				</div>
+			{% elseif block.position == 'left' %}
+				<div class="post-module module-image-with-copy image-left container">
+					<div class="module-image-with-copy__img module-image-left__img">
+						{% switch block.type %}
+							{% case 'copyImage' %}
+								{% set image = block.image[0] %}
+								<div class="img-outer">
+									{% include 'includes/snippets/image' with {image: image} %}
+								</div>
+							{% case 'copyCode' %}
+								<div class="container">{{ block.code | raw }}</div>
+							{% default %}
+						{% endswitch %}
+					</div>
+
+					<div class="module-image-with-copy__text module-image-left__text rte">
+						{{ block.text | shortcodes }}
+					</div>
+				</div>
+			{% endif %}

@@ -1,0 +1,19 @@
+			{% set signatory = block.signatory.first ?? null %}
+			{% if signatory %}
+				{% set signature = signatory.signature.first %}
+				{% if signature %}
+					<div class="post-module module-text module-text--body module-text--signature">
+						<div class="container">
+							<div class="module-text__inner rte">
+								<div class="signature">
+									<img src="{{ signature.url }}" width="200" alt="President's Signature"/>
+									<div class="text-outer">
+										<h4 class="person-name">{{ signatory.title }}</h4>
+										<div class="person-info">{% include 'includes/snippets/person__title' with {person: signatory} %}</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				{% endif %}
+			{% endif %}

@@ -6,6 +6,7 @@
 {% block content %}
 	<div class="content-page news-article">
 		{% set article = entry.article %}
-		{% include 'includes/snippets/article' %}
+		{# include 'includes/snippets/article' #}
+		{% include 'v2/templates/blog/index' %}
 	</div>
 {% endblock %}

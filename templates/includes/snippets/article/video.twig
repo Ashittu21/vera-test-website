@@ -1,0 +1,60 @@
+		{% if entry.parent and entry.parent.type == 'specialReportCampaign' %}
+				<div
+					class="video-tile-container container">
+					{# Use modal to launch video #}
+					{% set mediaId = "media__" ~ block.id ~ random() %}
+					<div class="article-video-tile video-play-trigger article-sidebar-block {{ block.video.gatewayHandle }}" data-media-id="{{ mediaId }}" data-analytics-event='["Video","Play"]'>
+						<div class="media modal-video" id="{{ mediaId }}">
+							{% set class = "full" %}
+							{% include 'includes/snippets/video' with {video: block.video} %}
+						</div>
+					</div>
+				</div>
+			{% else %}
+				{% set full = block['fullContainerVideo'] ?? null %}
+				<div class="media post-module {{ full ? 'container' : 'module-text' }} hide-on-print">
+					{% if not full %}
+						<div class="container">
+						{% endif %}
+						{% if block.videoTitle or block.subtitle %}
+							<div class="rte attribution container video-attribution">
+								{% if block.videoTitle %}
+									<h5 class="intext-subhead">{{ block.videoTitle }}</h5>
+								{% endif %}
+								{% if block.subtitle %}
+									{% set hasSlideout = block['slideout'] is defined and block.slideout | length %}
+									{% if hasSlideout %}
+										<div class="slideoutcta slideoutcta--link" data-url="{{ block.slideout[0].url }}">
+											<div class="cta_wrap">
+											{% endif %}
+											<h5 class="person-name">{{ block.subtitle }}</h5>
+											{% if hasSlideout %}
+											</div>
+										</div>
+									{% endif %}
+								{% endif %}
+							</div>
+						{% endif %}
+
+
+						{% if full and full == 1 %}
+							{% set class = "full" %}
+						{% endif %}
+
+						{% include 'includes/snippets/video' with {
+					video: block.video,
+					class: block.caption ? "video-container--hasCaption",
+					playOnScroll: block['playOnScroll'] ?? false
+				} %}
+
+						{% if block.caption %}
+							<p class="video-container video-container-caption container img-caption simple">{{ block.caption }}</p>
+						{% endif %}
+
+						{% set video = block.video %}
+
+						{% if not full %}
+						</div>
+					{% endif %}
+				</div>
+			{% endif %}

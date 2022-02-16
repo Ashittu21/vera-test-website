@@ -1,0 +1,44 @@
+	{% set image = block.image[0] %}
+			{% set size = block['overrideSize'] is defined and block.overrideSize != 'auto' ? block.overrideSize : null %}
+			{% set maxHeight = block['maxHeight'] is defined and block.maxHeight ? block.maxHeight : null %}
+			{% set isCentered = block.position == 'center' %}
+			<div class="
+																				        post-module
+																				        {% if isCentered %}module-text {% endif %}
+																				        module-image-with-caption container
+																				        {% if block['fullBleed'] is defined and block.fullBleed %} full-bleed{% elseif isCentered %} center{% endif %}
+																				        {% if size %} {{ size }}{% endif %}
+																				      ">
+				<div class="img-outer container">
+					<div style="position: relative">
+						{% if isCentered %}
+							<div class="module-text__inner">
+								<div>
+								{% endif %}
+								{% if maxHeight %}
+									<div class="img-maxheight" style="height: {{ maxHeight }}vh">
+									{% endif %}
+									{% include 'includes/snippets/image' with {image: image} %}
+									{% if maxHeight %}
+									</div>
+								{% endif %}
+								{% if isCentered %}
+								</div>
+							</div>
+						{% endif %}
+						{% if block['overlayText'] is defined and block.overlayText %}
+							<div class="image-overlay padding--lg">
+								<div class="screen color-combo--{{ block.overlayColorCombo.value }}" style="opacity: {{ block.overlayOpacity }}"></div>
+								<div class="image-overlay-text-wrapper">
+									<div class="image-overlay-text h1 ff-walsheim color-combo--{{ block.overlayColorCombo.value }}" style="background-color: transparent">
+										{{ block.overlayText }}
+									</div>
+									{% if block.overlayTextAttribution %}
+										<div class="image-overlay-attribution h5 padding--xxs color-combo--{{ block.overlayColorCombo.value }}">{{ block.overlayTextAttribution }}</div>
+									{% endif %}
+								</div>
+							</div>
+						{% endif %}
+					</div>
+				</div>
+			</div>
