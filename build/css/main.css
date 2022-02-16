@@ -30125,14 +30125,15 @@ body.nav-pad:not(.no-pad) {
   overflow: hidden;
   height: 260px; }
   .headTitle--small {
-    height: inherit;
-    padding-top: 20px;
-    padding-bottom: 0px; }
-    .headTitle--small .headTitle-title .separator:before {
-      bottom: 1rem; }
-    .headTitle--small .headTitle-title .separator span {
-      font-size: 35px;
-      line-height: 35px; }
+    height: inherit; }
+    .headTitle--small .headTitle-content {
+      padding-top: 20px;
+      padding-bottom: 0px; }
+      .headTitle--small .headTitle-content .headTitle-title .separator:before {
+        bottom: 1rem; }
+      .headTitle--small .headTitle-content .headTitle-title .separator span {
+        font-size: 35px;
+        line-height: 35px; }
   .headTitle-content {
     max-width: 1280px;
     margin: 0 auto;
