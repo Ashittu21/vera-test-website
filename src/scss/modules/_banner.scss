@@ -483,12 +483,13 @@
 
   .btn {
     margin-top: $padding-lg;
+    font-family: 'ABC Whyte';
   }
 }
 
 .banner-image-right__header {
   margin-bottom: $padding-lg;
-
+  font-family: 'ABC Whyte';
   @media (min-width: $tablet-landscape) {
     padding-right: $padding-lg * 2;
     max-width: $two-thirds;
