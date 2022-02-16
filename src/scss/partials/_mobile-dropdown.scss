@@ -1,9 +1,9 @@
 .mobile-dropdown {
     width: 100%;
-    background: $lt-gray-alt;
+    background: #160643; /*$lt-gray-alt;*/
 
     @media (min-width: $tablet-portrait) {
-        background: $lt-gray;
+        background: #160643; /*$lt-gray;*/
     }
 
     &.open ul {
@@ -57,14 +57,19 @@
 
     a {
 
-        color: $black;
-        @extend .ff-sans--bold;
+        /*color: $black;*/
+        color: #FFF;
+        /* @extend .ff-sans--bold;*/
+        font-family: var(--global-font-abc-whyte);
         padding: $padding-xxs 0;
         display: block;
-
+        &:hover{
+            color: var(--global-color-mint);
+        }
         @media (min-width: $tablet-portrait) {
             // color: $med-gray;
-            color: $dk-gray;
+            /*color: $dk-gray;*/
+            color: #FFF;
             display: inline-block;
             padding: 0;
             border-top: 3px solid transparent;
@@ -75,7 +80,8 @@
             @include transition(all 0.15s ease-in);
 
             &.active {
-                color: $black;
+                /*color: $black;*/
+                color: #FFF;
                 border-top-color: $red;
             }
         }

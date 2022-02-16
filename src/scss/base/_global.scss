@@ -263,6 +263,8 @@ select {
   color: $black;
   border: 1px solid $dk-gray;
   border-radius: 0;
+  justify-content: center;
+  font-family: 'ABC Whyte';
   background-color: transparent;
   @include font-btn;
   //transition-property: background-color, color, border-color;
