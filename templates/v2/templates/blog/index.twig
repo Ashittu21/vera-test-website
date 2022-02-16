@@ -96,6 +96,8 @@
         {% include 'v2/templates/blog/blocks/quoteType2' with { block: block } %}
       {% elseif block.type == 'chart' %}
         {% include 'v2/templates/blog/blocks/chart' with { block: block } %}
+      {% elseif  block.type == 'newsItems' %}
+        {% include 'v2/templates/blog/blocks/newsItems' with { block: block } %}
 
 
       {% elseif block.type == 'twoColumns' %}
@@ -116,8 +118,7 @@
         {% include 'v2/common/relatedItems' with { block: block } %}
       {% elseif  block.type == 'bannerType4' %}
         {% include 'v2/common/bannerType4' with { block: block } %}
-      {% elseif  block.type == 'newsItems' %}
-        {% include 'v2/common/newsItems' with { block: block } %}
+
       {% endif %}
     {% endfor %}
 
