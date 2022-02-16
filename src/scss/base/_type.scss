@@ -273,13 +273,13 @@ h6,
     @include font-size(2.8);
   }
 }
-
+/*
 .dropcap:first-letter {
   @include big-letter;
   float: left;
   margin-right: 5px;
 }
-
+*/
 .footnote {
   color: $dk-gray;
   @include font-size(1.6);

@@ -1,6 +1,9 @@
 {% includeJs %}
 	
-var colors = ["#ef4136", "#4d4e56", "#ff7200", "#007a69", "#005eb8", "#bcbdbc",  "#b0cc1b"];
+//var colors = ["#ef4136", "#4d4e56", "#ff7200", "#007a69", "#005eb8", "#bcbdbc",  "#b0cc1b"];
+
+var colors = ["#EF4136", "#ABFFEB", "#ff7200", "#007a69", "#005eb8", "#bcbdbc",  "#b0cc1b"];
+
 
 var color = d3.scaleOrdinal()
     .range(colors);
@@ -221,7 +224,7 @@ function line(chartid,dataurl,axisTitles) {
 		xAxis.append("g").append("text")
 			.attr("x", width/2)
 			.attr("y", 40)
-			.attr("fill", "#000000")
+			.attr("fill", "#FFFFFF")
 			.attr("class", "axis-label")
 			//.attr("transform", "translate(0," + 20 + ")")
 			.text(axisTitles.x)
@@ -235,7 +238,7 @@ function line(chartid,dataurl,axisTitles) {
 		yAxis.append("g").append("text")
 			.attr("x", -40)
 			.attr("y", height/2)
-			.attr("fill", "#000000")
+			.attr("fill", "#FFFFFF")
 			.attr("class", "axis-label")
 			.attr("transform", "rotate(-90,-40," + height/2 + ")")
 			.text(axisTitles.y)

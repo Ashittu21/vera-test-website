@@ -1,8 +1,9 @@
 {% extends '_layout' %}
-
 {% block content %}
-
-   {% set blocks  = entry.article %}
+{% spaceless %}
+  {% set blocks  = entry.article %}
+	{% set includeCharts = false %}
+{% endspaceless %}
 
 
   <div class="hero-type4">
@@ -39,76 +40,6 @@
         <div class="hero-type4-content-line4"></div>
       </div>
     </div>
-
-{#
-{% set myEntryQuery = craft.entries().section('blogPosts') %}
-
-
-{% set t_copy = 0 %}
-{% set t_singleImage = 0 %}
-{% set t_copyImage = 0 %}
-{% set t_slideshow = 0 %}
-{% set t_largeBlockQuote = 0 %}
-{% set t_infoModule = 0 %}
-{% set t_video = 0 %}
-{% set t_chart = 0 %}
-{% set t_audio = 0 %}
-{% set t_anchor = 0 %}
-{% set t_map = 0 %}
-{% set t_code = 0 %}
-{% set t_test = 0 %}
-
-{% for rr in myEntryQuery %}
-
-  {% for tt in rr.article %}
-    {% switch tt.type.handle %}
-       {% case 'copy' %} 
-         {% set t_copy = t_copy + 1 %}
-       {% case 'singleImage' %} 
-         {% set t_singleImage = t_singleImage + 1 %}
-         <a href="{{rr.url}}">{{ rr.title }}</a> <br>     
-       {% case 'copyImage' %} 
-         {% set t_copyImage = t_copyImage + 1 %}
-       {% case 'slideshow' %} 
-         {% set t_slideshow = t_slideshow + 1 %}    
-       {% case 'largeBlockQuote' %} 
-         {% set t_largeBlockQuote = t_largeBlockQuote + 1 %}     
-       {% case 'infoModule' %} 
-         {% set t_infoModule = t_infoModule + 1 %}   
-       {% case 'video' %} 
-         {% set t_video = t_video + 1 %}     
-       {% case 'chart' %} 
-         {% set t_chart = t_chart + 1 %}        
-       {% case 'audio' %} 
-         {% set t_audio = t_audio + 1 %}   
-          
-       {% case 'anchor' %} 
-         {% set t_anchor = t_anchor + 1 %}      
-       {% case 'map' %} 
-         {% set t_map = t_map + 1 %}    
-       {% case 'code' %} 
-         {% set t_code = t_code + 1 %} 
-       {% case 'test' %} 
-         {% set t_test = t_test + 1 %}                                                                                            
-       {% endswitch %}
-  {% endfor %}
-{% endfor %}
-
-       Copy -  {{ t_copy }} <br>
-       Single Image -  {{ t_singleImage }} <br>
-       Copy + Image - {{ t_copyImage }} <br>
-       Slideshow - {{ t_slideshow }} <br>
-       Large Block Quote - {{ t_largeBlockQuote }} <br>
-       Info Module -{{ t_infoModule }} <br>
-       Video - {{ t_video }} <br>
-       Chart - {{ t_chart }} <br>
-       Audio - {{ t_audio }} <br>
-       Anchor - {{ t_anchor }} <br>
-       Map - {{ t_map }} <br>
-       Code - {{ t_code }} <br>
-       Test - {{ t_test }} <br>
-
-#}
 
 
 
@@ -153,6 +84,19 @@
         {% include 'v2/templates/blog/blocks/videoBlock' with { block: block } %}
       {% elseif  block.type == 'audio' %}
         {% include 'v2/templates/blog/blocks/audioBlock' with { block: block } %}
+      {% elseif block.type == 'infoModule' %}
+        {% include 'v2/templates/blog/blocks/infoModule'  with { block: block } %}
+      {% elseif block.type == 'code' %}
+        <div class="code-container">{{ block.code | raw }}</div>
+      {% elseif block.type == 'map' %}
+        <div class="mapContainer">
+          {% include 'vera-maps/_maptypesBlock'  with { block: block } %}
+        </div>
+      {% elseif block.type == 'largeBlockQuote' %}
+        {% include 'v2/templates/blog/blocks/quoteType2' with { block: block } %}
+      {% elseif block.type == 'chart' %}
+        {% include 'v2/templates/blog/blocks/chart' with { block: block } %}
+
 
       {% elseif block.type == 'twoColumns' %}
     	  {% include 'v2/common/copy-twoColumns' with { block: block } %}
@@ -164,8 +108,6 @@
         {% include 'v2/common/signUp.twig'  with { block: block } %}
       {% elseif block.type == 'featuredType1' %}
         {% include 'v2/common/featuredType1' with { block: block } %}
-      {% elseif block.type == 'featuredType2' %}
-        {% include 'v2/common/featuredType2' with { block: block } %}
       {% elseif block.type == 'audioBlock' %}
     	  {% include 'v2/common/audioBlock' with { block: block } %}
       {% elseif block.type == 'quoteBlockType1' %}
@@ -178,7 +120,22 @@
         {% include 'v2/common/newsItems' with { block: block } %}
       {% endif %}
     {% endfor %}
+
+
+    {% if entry.relatedSeries | length and entry.relatedSeries.first.seriesDescription %}
+    <section class="copy-block-container">
+      <div class="copy-block-content">
+      {{ entry.relatedSeries.first.seriesDescription }}
+      </div>
+    </section>
+	{% endif %}
 </div>
+
+{% if includeCharts %}
+	{% includeJsFile '/dist/js/specialReportCampaign.js?v=0.2' %}
+{% endif %}
+
+
 
 {% endblock %}
 
