@@ -30119,6 +30119,9 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
     margin: 0 auto; }
     .copy-block-container .copy-block-content p {
       margin-bottom: 2rem; }
+      .copy-block-container .copy-block-content p.intro {
+        font-size: inherit;
+        margin-bottom: 0; }
     .copy-block-container .copy-block-content p::-moz-selection {
       background: #EF4136 !important;
       color: #FFF  !important; }

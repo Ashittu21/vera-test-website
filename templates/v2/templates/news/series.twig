@@ -63,7 +63,7 @@
               {% endif %}
 
 
-        <div class="newsLanding-item">
+        <a href="{{ entry.url }}" class="newsLanding-item">
                 <div class="newsLanding-item-content">
                   <div class="newsLanding-item-content-left">
                     {% if image %}
@@ -83,20 +83,20 @@
                   </div>
                   <div class="newsLanding-item-content-right">
                     <div class="newsLanding-item-content-right-tag">{{ entry.type.name | title | upper }}</div>
-                    <div class="newsLanding-item-content-right-title">
-                    <a href="{{ entry.url }}">{{ entry.title }}</a>
-                    </div>
+                    <h5 class="newsLanding-item-content-right-title">
+                      <span>{{ entry.title }}</span>
+                    </h5>
                     <div class="newsLanding-item-content-right-copy">
-                    {% if entry.overview is not null %}
-                      {{ entry.overview|striptags|truncate(149)|raw }}
-                    {% elseif  entry.seriesDescription is not null %}
-                      {{ entry.seriesDescription|striptags|truncate(149)|raw }}
-                    {% endif %}
+                      {% if entry.overview is not null %}
+                        {{ entry.overview|striptags|truncate(149)|raw }}
+                      {% elseif  entry.seriesDescription is not null %}
+                        {{ entry.seriesDescription|striptags|truncate(149)|raw }}
+                      {% endif %}
                     </div>
                     <div class="newsLanding-item-content-right-date">{{ entry.postDate | date("M d, Y") }}</div>
                   </div>
                 </div>
-              </div>
+              </a>
         {% endfor %}
 
         <div class="newsLanding-paginate">
