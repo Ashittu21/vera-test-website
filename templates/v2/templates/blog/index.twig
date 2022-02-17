@@ -111,6 +111,10 @@
     	  {% include 'v2/common/quoteBlockType1' with { block: block } %}
       {% elseif  block.type == 'bannerType4' %}
         {% include 'v2/common/bannerType4' with { block: block } %}
+      {% elseif  block.type == 'quoteType2' %}
+        {% include 'v2/templates/blog/blocks/quoteType2' with { block: block } %}
+      {% elseif  block.type == 'quoteType1' %}
+        {% include 'v2/templates/blog/blocks/quoteType1' with { block: block } %}
 
      {# 
       {% elseif  block.type == 'relatedItems' %}

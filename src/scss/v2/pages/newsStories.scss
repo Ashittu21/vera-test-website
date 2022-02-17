@@ -60,6 +60,7 @@
       max-width: $desktop-mlarge;
       color: var(--global-color-text);
       transition: all 0.2s ease-in-out;
+      display: block;
 
       &:hover {
         color: var(--global-color-white);
@@ -75,10 +76,7 @@
               color: var(--global-color-white);
               text-decoration: underline;
 
-              a {
-                color: var(--global-color-white);
-                text-decoration: underline;
-              }
+    
             }
 
             &-copy {
@@ -136,13 +134,14 @@
             line-height: 21px;
             letter-spacing: 0.17em;
             text-align: left;
+            margin-bottom: 33px;
           }
 
           &-title {
             font-family: var(--global-font-sectra);
             font-size: 35px;
             font-style: normal;
-            font-weight: 700;
+            font-weight: 600;
             line-height: 42px;
             letter-spacing: 0em;
             text-align: left;
@@ -152,11 +151,9 @@
               font-size: 26px;
               line-height: 32px;
             }
-
-            a {
-              color: var(--global-color-text);
-              text-decoration: none;
-            }
+            color: var(--global-color-text);
+            text-decoration: none;
+       
 
           }
 
@@ -178,8 +175,9 @@
           }
 
           &-date {
-            margin-top: 29px;
+            margin-top: 24px;
             font-family: var(--global-font-abc-whyte);
+            color: #0A0319;
             font-size: 14px;
             font-style: normal;
             font-weight: 400;
