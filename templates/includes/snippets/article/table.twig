@@ -1,0 +1,42 @@
+			{% spaceless %}
+				{% set data = craft.csvReader.get(block.data.first.url) %}
+				{% if block.firstRowIsHeadings and block.lastRowIsSummary %}
+					{% set head = data[0] %}
+					{% set body = data[1:(data|length - 2)] %}
+					{% set foot = data[(data|length - 1):] %}
+				{% elseif block.firstRowIsHeadings %}
+					{% set head = data[0] %}
+					{% set body = data[1:] %}
+					{% set foot = null %}
+				{% elseif block.lastRowIsSummary %}
+					{% set head = null %}
+					{% set body = data[:data|length - 1] %}
+					{% set foot = data[data|length - 1:] %}
+				{% else %}
+					{% set head = null %}
+					{% set body = data %}
+					{% set foot = null %}
+				{% endif %}
+				{% set alignment = block.columnAlignment ?? null %}
+			{% endspaceless %}
+
+			<div class="post-module module-text module-text--body break-avoid">
+				<div class="container">
+					<div class="module-text__inner">
+						{% if block.label %}
+							<aside class="table__label">{{ block.label }}</aside>
+						{% endif %}
+
+						<h4>{{ block.tableTitle }}</h4>
+
+						{% include '/includes/snippets/table' with {head: head, body: body, foot: foot, alignment: alignment} %}
+
+						{% if block.notes %}
+							<button class="table__notes__toggle">Notes</button>
+							<div class="table__notes">
+								{{ block.notes | nl2br }}
+							</div>
+						{% endif %}
+					</div>
+				</div>
+			</div>

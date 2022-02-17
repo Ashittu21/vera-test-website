@@ -1,0 +1,44 @@
+
+<!-- Latest News Items -->
+    <section class="headTitle headTitle--small bgColor-darkviolet">
+      <div class="headTitle-content  ">
+        <div class="headTitle-title">
+          <h3 class="separator left-aligned">
+          <span>{{ block.newsItems_title }}</span></h3>
+        </div>
+      </div>
+    </section>
+
+    <section class="block-latestNews">
+    	<div class="block-latestNews-content">
+				{% if block.newsItems_item |length %}
+    		<div class="latestNews-items">
+    		  {% for newsItem in block.newsItems_item %}
+          		{% if newsItem.streamImageRectangle | length %}
+			            {% set imageset = newsItem.streamImageRectangle %}
+              {% endif %}
+          <div class="latestNews-item">
+    				<div class="latestNews-item-category">
+    					<p>{{ newsItem.type.name | title | upper }}</p>
+    				</div>
+    				<div class="latestNews-item-image"
+    					style="background-image: url('{{ imageset.first.url }}');">
+    				</div>
+    				<div class="latestNews-item-copy">
+    					<div class="latestNews-item-copy-title">
+    						<a href="{{ newsItem.url }}"><h5>{{ newsItem.title }}</h5></a>
+    					</div>
+    					<div class="latestNews-item-copy-date">
+    						<time datetime="2018-07-07">{{ newsItem.postDate | date("M d, Y") }}</time>
+    					</div>
+    				</div>
+    			</div>
+          {% endfor %}
+    		</div>
+				{% endif %} 
+    	</div>
+    </section>
+
+    {# newsItems_bottomLink #}
+
+<!-- Latest News  Items -->

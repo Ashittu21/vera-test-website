@@ -361,7 +361,7 @@
   // @include justify(center);
   display: flex;
   align-items: center;
-
+  font-family: 'ABC Whyte';
   .stream-module__meta__date {
     flex-shrink: 0;
   }
@@ -647,6 +647,7 @@
 
   .stream-module__label {
     background: $red;
+    font-family: 'ABC Whyte';
   }
 
   .stream-module__content-inner {
@@ -1343,6 +1344,7 @@
   .stream-module__content,
   .stream-module__inner {
     padding: 0;
+    font-family: 'ABC Whyte';
   }
 
   .stream-module__inner {
@@ -1562,6 +1564,7 @@
     @media (max-width: $tablet-portrait - 1) {
       text-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
     }
+    font-family: 'ABC Whyte';
   }
 }
 

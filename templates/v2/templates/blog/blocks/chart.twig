@@ -1,0 +1,35 @@
+	<div class="chart_container break-avoid">
+				<div class="post-module module-text module-text--body">
+					<div class="container">
+						<h3>{{ block.chartTitle }}</h3>
+
+						{% set chartId = block.chartTitle | kebab %}
+
+						<div id="chart_{{ chartId }}" class="chart">
+							<div class="tooltip"></div>
+						</div>
+
+						{% include 'includes/snippets/chart' with {
+								dataurl: block.data.first.url,
+								chartid: 'chart_'~chartId,
+								axisTitles: {
+									x: block.xAxisTitle,
+									y: block.yAxisTitle
+								},
+								type: block.chartType,
+								barGroups: block.barGroups
+							}
+						%}
+
+						{% set includeD3,includeCharts = true,true %}
+						{% include 'includes/snippets/chart_scripts' %}
+
+						{% if block.notes %}
+							<button class="table__notes__toggle">Notes</button>
+							<div class="table__notes">
+								{{ block.notes | nl2br }}
+							</div>
+						{% endif %}
+					</div>
+				</div>
+			</div>

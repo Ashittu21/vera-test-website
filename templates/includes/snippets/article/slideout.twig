@@ -1,0 +1,26 @@
+		{% if print and block.slideout.first.type == 'slideout' %}
+
+				{% include 'special-reports/types/slideout' with {entry: block.slideout.first, ajaxLayout: true} %}
+
+			{% elseif block.slideout | length %}
+
+				{% if firstSlideout %}
+					{% set firstSlideout = false %}
+				{% endif %}
+
+				{% include 'includes/_blocks/slideoutCta' with {entry: block.slideout.first} %}
+
+			{% endif %}
+
+			{# Carousel slide #}
+		{% elseif block.type == 'entriesSlideshow' %}
+			{# image variable is polluting the stream modules #}
+			{% set image = null %}
+			{% include 'includes/_blocks/entriesSlideshow' %}
+		{% endif %}
+
+		{# set lineblocks = ['audio','video','largeBlockQuote'] #}
+		{% set lineblocks = ['largeBlockQuote'] %}
+		{% if block.type.handle in lineblocks and not loop.last and article[loop.index0 + 1].type.handle in lineblocks %}
+
+			<div class="red-line-after"></div>

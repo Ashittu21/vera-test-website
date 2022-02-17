@@ -273,13 +273,13 @@ h6,
     @include font-size(2.8);
   }
 }
-
+/*
 .dropcap:first-letter {
   @include big-letter;
   float: left;
   margin-right: 5px;
 }
-
+*/
 .footnote {
   color: $dk-gray;
   @include font-size(1.6);
@@ -358,10 +358,12 @@ h6,
 }
 
 //Font Weights/Styles
+
 .ff-serif {
-  /* font-family: $ff-gt-sectra, georgia, serif; */
+  //font-family: $ff-gt-sectra, georgia, serif;
   font-weight: normal;
 }
+
 .ff-serif--italic {
  /*  @extend .ff-serif; */
   /* font-style: italic; */
@@ -370,7 +372,7 @@ h6,
 .ff-serif--medium {
  /*  @extend .ff-serif; */
   font-weight: 500;
-  font-family: 'GT Sectra';
+  font-family: 'ABC Whyte';
 }
 .ff-serif--medium--italic {
   @extend .ff-serif--medium;
@@ -378,15 +380,16 @@ h6,
 }
 
 .ff-sans {
-  font-family: $ff-gt-walsheim, helvetica, arial, sans-serif;
+  //font-family: $ff-gt-walsheim, helvetica, arial, sans-serif;
   font-weight: normal; //This is because of h1,h2,h3 it needs to be "unset"
 }
 .ff-sans--oblique {
-  @extend .ff-sans;
+  /* @extend .ff-sans; */
   font-style: oblique;
+  font-family: 'ABC Whyte';
 }
 .ff-sans--bold {
-  @extend .ff-sans;
+  /* @extend .ff-sans; */
   font-weight: bold;
 }
 .ff-sans--bold--oblique {
