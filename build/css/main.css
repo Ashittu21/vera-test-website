@@ -30585,12 +30585,11 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
 
 .headTitle {
   width: 100%;
-  overflow: hidden;
-  height: 260px; }
+  overflow: hidden; }
   .headTitle--small {
     height: inherit; }
     .headTitle--small .headTitle-content {
-      padding-top: 20px;
+      padding-top: 30px;
       padding-bottom: 0px; }
       .headTitle--small .headTitle-content .headTitle-title .separator:before {
         bottom: 1rem; }
