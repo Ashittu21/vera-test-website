@@ -365,11 +365,12 @@ h6,
 }
 
 .ff-serif--italic {
-  @extend .ff-serif;
-  font-style: italic;
+ /*  @extend .ff-serif; */
+  /* font-style: italic; */
+  font-family: 'ABC Whyte';
 }
 .ff-serif--medium {
-  @extend .ff-serif;
+ /*  @extend .ff-serif; */
   font-weight: 500;
   font-family: 'ABC Whyte';
 }
