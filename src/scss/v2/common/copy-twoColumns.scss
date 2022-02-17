@@ -9,7 +9,9 @@
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  margin-bottom: 2rem;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  
   @media(max-width:$mobile-breakpoint) {
     padding: 1rem;
   }
