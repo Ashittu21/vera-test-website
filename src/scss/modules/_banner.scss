@@ -499,6 +499,9 @@
   ol {
     margin-left: 1.25em;
   }
+  p{
+    font-family: 'ABC Whyte';
+  }
 }
 
 .banner-image-right__img-outer {
@@ -511,6 +514,7 @@
 
 .banner-image-right__heading {
   margin-bottom: $padding-lg;
+  font-family: 'GT Sectra';
 }
 
 .banner-image-right__subheading {
@@ -524,6 +528,7 @@
 // careers
 
 .banner-image-right--careers {
+  font-family: 'ABC Whyte';
   .img-outer {
     display: none;
 

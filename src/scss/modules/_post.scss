@@ -3,8 +3,9 @@
 .post-content {
   line-height: 1.75;
   padding: $padding-sm 0 $padding-lg;
-  background: $lt-gray;
-
+  /* background: $lt-gray; */
+  background-color: #FFF7F0;
+  font-family: 'ABC Whyte';
   @media (min-width: $tablet-portrait) {
     padding: $padding-lg * 2 0;
   }

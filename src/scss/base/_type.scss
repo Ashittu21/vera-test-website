@@ -359,16 +359,18 @@ h6,
 
 //Font Weights/Styles
 .ff-serif {
-  font-family: $ff-gt-sectra, georgia, serif;
+  /* font-family: $ff-gt-sectra, georgia, serif; */
   font-weight: normal;
 }
 .ff-serif--italic {
-  @extend .ff-serif;
-  font-style: italic;
+ /*  @extend .ff-serif; */
+  /* font-style: italic; */
+  font-family: 'ABC Whyte';
 }
 .ff-serif--medium {
-  @extend .ff-serif;
+ /*  @extend .ff-serif; */
   font-weight: 500;
+  font-family: 'GT Sectra';
 }
 .ff-serif--medium--italic {
   @extend .ff-serif--medium;

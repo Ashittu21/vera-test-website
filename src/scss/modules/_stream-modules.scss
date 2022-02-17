@@ -1442,7 +1442,7 @@
 // featured stream-modules
 
 .featured-stream-modules {
-  background: $black;
+  background: #160643 !important;
   color: $white;
   padding: $padding-sm 0;
 
@@ -1451,7 +1451,7 @@
   }
 
   h4 {
-    color: $red;
+    color: $white;
   }
 
   p,
@@ -1548,6 +1548,7 @@
     line-height: 1.25;
     margin-bottom: 10px;
     padding-bottom: 0;
+    font-family: 'ABC Whyte';
   }
 
   .stream-module__heading {

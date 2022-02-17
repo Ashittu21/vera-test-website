@@ -24,6 +24,12 @@ body {
   width: 100%;
   min-height: 100%;
   height: auto;
+  overflow-x: hidden !important;
+}
+
+header {
+  position: relative;
+  z-index: 999;
 }
 
 html {
@@ -38,6 +44,7 @@ body {
   line-height: 1.4;
   background: $white;
   color: $black;
+  
 
   &.nav-pad:not(.no-pad) {
     padding-top: $mobile-header-height;
@@ -77,10 +84,10 @@ a {
   border-bottom: 1px solid;
 }
 
-.rte em {
+/* .rte em {
   font-style: italic;
 }
-
+ */
 .rte strong,
 .rte b {
   font-weight: 500;

@@ -161,10 +161,11 @@
 
     .stream-module__subheading {
         color: $black;
-        @extend .ff-serif--italic;
+        /* @extend .ff-serif--italic; */
         @include font-size(1.6);
         @include transition(color 0.15s ease-in);
         color: $dk-gray;
+        font-family: 'ABC Whyte';
     }
 
     .stream-module__description {
