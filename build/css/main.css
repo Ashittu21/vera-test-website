@@ -30180,8 +30180,8 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
           left: 0;
           -webkit-animation-name: test-animation;
                   animation-name: test-animation;
-          -webkit-animation-duration: 2s;
-                  animation-duration: 2s;
+          -webkit-animation-duration: 8s;
+                  animation-duration: 8s;
           background-color: var(--global-color-light-violet);
           width: 100vw;
           height: 2px; }
