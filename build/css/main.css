@@ -30119,9 +30119,6 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
     margin: 0 auto; }
     .copy-block-container .copy-block-content p {
       margin-bottom: 2rem; }
-      .copy-block-container .copy-block-content p.intro {
-        font-size: inherit;
-        margin-bottom: 0; }
     .copy-block-container .copy-block-content p::-moz-selection {
       background: #EF4136 !important;
       color: #FFF  !important; }
@@ -30148,9 +30145,7 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
       font-size: 45px;
       line-height: 110%;
       margin-bottom: 1rem; }
-    .copy-block-container .copy-block-content .h2,
-    .copy-block-container .copy-block-content h2,
-    .copy-block-container .copy-block-content h2 strong {
+    .copy-block-container .copy-block-content .h2 {
       margin: 0;
       font-family: var(--global-font-sectra);
       color: var(--global-color-dark-violet);
@@ -30158,8 +30153,7 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
       font-weight: bold;
       font-size: 45px;
       line-height: 110%;
-      margin-bottom: 30px;
-      margin-top: 30px; }
+      margin-bottom: 1rem; }
     .copy-block-container .copy-block-content .h5 {
       font-family: var(--global-font-sectra);
       font-size: 35px;
@@ -30209,8 +30203,7 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
       color: var(--global-color-text);
       text-decoration: underline;
       -webkit-text-decoration-color: var(--global-color-red);
-              text-decoration-color: var(--global-color-red);
-      text-underline-offset: 0.2em; }
+              text-decoration-color: var(--global-color-red); }
       .copy-block-container .copy-block-content a:hover {
         background-color: #DA392F;
         color: #FFF;
@@ -30592,11 +30585,12 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
 
 .headTitle {
   width: 100%;
-  overflow: hidden; }
+  overflow: hidden;
+  height: 260px; }
   .headTitle--small {
     height: inherit; }
     .headTitle--small .headTitle-content {
-      padding-top: 30px;
+      padding-top: 20px;
       padding-bottom: 0px; }
       .headTitle--small .headTitle-content .headTitle-title .separator:before {
         bottom: 1rem; }
