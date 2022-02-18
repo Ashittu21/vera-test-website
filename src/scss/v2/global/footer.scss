@@ -75,6 +75,21 @@
             line-height: 1;
             font-family: var(--global-font-abc-whyte);
             font-weight: 700;
+            display: flex;
+            align-items: center;
+  
+            img{
+              width: 20px;
+              margin-left: 10px;
+              opacity: 0;
+            }
+      
+          }
+          &:hover{
+            img{
+              opacity: 1;
+              transition: .5s ease;
+            }
           }
         }
 

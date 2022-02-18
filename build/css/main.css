@@ -33315,7 +33315,21 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
             font-size: 16px;
             line-height: 1;
             font-family: var(--global-font-abc-whyte);
-            font-weight: 700; }
+            font-weight: 700;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+                -ms-flex-align: center;
+                    align-items: center; }
+            .footerV2 .footerV2-top .footerV2-top-col02 ul.menu-footer li a img {
+              width: 20px;
+              margin-left: 10px;
+              opacity: 0; }
+          .footerV2 .footerV2-top .footerV2-top-col02 ul.menu-footer li:hover img {
+            opacity: 1;
+            -webkit-transition: .5s ease;
+            transition: .5s ease; }
         .footerV2 .footerV2-top .footerV2-top-col02 ul.menu-footer li:first-of-type {
           margin-top: 0px; }
     .footerV2 .footerV2-top .footerV2-top-col03 {
