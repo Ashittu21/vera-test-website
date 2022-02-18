@@ -1,0 +1,98 @@
+			<div class="post-module social-feeds container">
+				{% set hashtags = null %}
+				{% for tag in block.hashtags %}
+					{% if not loop.first %}
+						{% set hashtags = hashtags~', ' %}
+					{% endif %}
+					{% set hashtags = hashtags~tag.hashtag %}
+				{% endfor %}
+
+				{% cache for 1 hour %}
+
+				{% set query = hashtags | replace(', ',' OR ') | url_encode %}
+
+				{% set tweets = craft.twitter.get('search/tweets', {q: query, count: 6, result_type: 'recent'}) %}
+
+				{% if tweets.statuses | length %}
+					<div class="social-feed post-sidebar__twitter-feed">
+						<h5>
+							<a href="https://twitter.com/search?q={{ query }}" target="_blank">
+								<i class="icon-twitter"></i>
+								{{ hashtags }}</a>
+						</h5>
+
+						<ul>
+
+							{% set statuses = tweets.statuses %}
+
+							{% for tweet in statuses %}
+								{% if tweet.retweeted_status is defined %}
+									{% set text = tweet.retweeted_status.text %}
+								{% else %}
+									{% set text = tweet.text %}
+								{% endif %}
+								<li>
+									{{ text }}
+									{# {{ text | autoLinkTweet }} #}
+
+									<span class="timestamp">-{{ tweet.user.name }}<span class="right">{{ tweet.created_at  | time_ago }}
+											ago</span>
+									</span>
+								</li>
+							{% endfor %}
+
+						</ul>
+					</div>
+				{% endif %}
+
+				{% endcache %}
+
+
+				{% cache for 1 hour %}
+
+				{% set insta_token = craft.instagram.token() %}
+
+				{% set gram_response = craft.apiAccess.get('https://api.instagram.com/v1/users/self/media/recent?access_token='~insta_token~'&count=6') %}
+				{% set grams = gram_response.data %}
+
+				{% if grams | length %}
+
+					<div class="social-feed instagram-feed">
+						<h5>
+							<a href="https://www.instagram.com/verainstitute/" target="_blank">
+								<i class="icon-instagram"></i>
+								verainstitute</a>
+						</h5>
+
+						{% for gram in grams %}
+
+							<article class="instagram_post">
+
+								<a href="{{ gram.link }}" target="_blank">
+
+									{% set image = gram.images.standard_resolution %}
+
+									<img
+									src="{{ image.url }}">
+
+								{#
+																																																{% if gram.caption %}
+																																																	<span class="timestamp">{{ gram.caption.text }}</span>
+																																																{% endif %}
+																																																#}
+
+								</a>
+
+							</article>
+
+						{% endfor %}
+						<div class="empty"></div>
+						<div class="empty"></div>
+
+					</div>
+
+				{% endif %}
+
+				{% endcache %}
+
+			</div>

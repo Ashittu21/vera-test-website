@@ -239,6 +239,7 @@ $red-line-width: 114px;
 @mixin font-size($sizeValue: 1.4) {
   font-size: ($sizeValue * 10) + px;
   font-size: $sizeValue + rem;
+  font-family: 'ABC Whyte';
 }
 
 @mixin font-sizes($mobile, $tablet, $desktop) {

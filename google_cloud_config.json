@@ -14,7 +14,8 @@
       "https://vera.local",
       "https://verac3.test",
       "https://vera.hyperakt.com",
-      "https://craft2.vera.org"
+      "https://craft2.vera.org",
+      "http://34.238.108.106"
     ],
     "responseHeader": ["Content-Type"]
   }

@@ -74,6 +74,7 @@
   &.open:before {
     content: "Hide ";
   }
+  font-family: var(--global-font-abc-whyte);
 }
 
 .table__notes {
@@ -81,6 +82,7 @@
   margin-top: 2em;
   max-width: 50em;
   display: none;
+  font-family: var(--global-font-abc-whyte);
 }
 
 .table__label {
@@ -88,6 +90,7 @@
   @extend .ff-sans;
   color: $red;
   margin-bottom: 0.5em;
+  font-family: var(--global-font-abc-whyte);
 }
 
 .table__topx {

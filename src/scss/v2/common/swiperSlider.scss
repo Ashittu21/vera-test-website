@@ -59,6 +59,13 @@
   object-fit: cover;
 }
 
+.singleImage {
+  .swiper-slide {
+    img {
+      object-fit: contain !important;
+    }
+  }
+}
 
 .swiper-arrows {
   width: 215px;

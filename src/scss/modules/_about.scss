@@ -107,7 +107,7 @@
 
 .about__centered-text__block {
     margin: 0 auto $padding-lg;
-
+    font-family: 'ABC Whyte';
     @media (min-width: $desktop-medium) {
         line-height: 1.5;
         @include style-by-columns('max-width', 8);
@@ -115,7 +115,7 @@
 }
 
 .about__infographics {
-    background: $lt-gray-alt;
+    background: #fff7f0;
     text-align: center;
 
     $graph_height-mobile: 201px;
@@ -155,7 +155,7 @@
 	        display: block;
 	        margin-bottom: 3em;
 	        padding-top: $padding-xxs;
-
+            
 	        @media (min-width: $tablet-portrait) {
 	            //border-top: 1px solid $dk-gray;
 	            padding-top: $padding-sm;
@@ -601,7 +601,7 @@
 }
 
 .about__history {
-    background: $lt-gray-alt;
+    background: #fff7f0;
     @include hairline;
     @include font-size(1.8);
     line-height: 1.5;

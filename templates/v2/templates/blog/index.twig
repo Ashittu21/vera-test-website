@@ -1,0 +1,145 @@
+{% extends '_layout' %}
+{% block content %}
+
+{% spaceless %}
+  {% set blocks  = entry.article %}
+	{% set includeCharts = false %}
+{% endspaceless %}
+
+
+  <div class="hero-type4">
+      <div class="hero-type4-content">
+        <div class="hero-type4-content-copy">
+          <div class="hero-type4-content-breadcrumbs">
+            {% if entry.level > 1 %}
+              <a href="">HOME</a>
+              {% for crumb in entry.getAncestors() %}
+                // {{ crumb.getLink() }} 
+              {% endfor %}
+            {% else %}
+              <a href="">HOME</a>
+            {% endif %} 
+          </div> 
+
+          <h1>{{ entry.title }}</h1>
+          <span class="subtitle">{{ entry.subtitle }}</span>
+
+          <div class="authors">
+            {% if entry.authors|length %}
+              {% for profile in entry.authors %}
+                  <span class="profile-name">{{ profile.firstName }} {{ profile.lastName }}</span>
+                  <span>{{ profile.jobTitle }}</span> {% if loop.last %}{% else %}//{% endif %}
+              {% endfor %} 
+            {% endif %}
+          </div>
+          <div class="date"></div>
+        </div>
+   
+        <div class="hero-type4-content-line1"></div>
+        <div class="hero-type4-content-line2"></div>
+        <div class="hero-type4-content-line3"></div>
+        <div class="hero-type4-content-line4"></div>
+      </div>
+    </div>
+
+
+
+<div class="content-page news-article">
+   <!-- Share Icons -->
+    <div class="shareIcons">
+      <div>
+        <div class="shareIcons-title">
+          SHARE
+        </div>
+        <ul class="shareIcons-icons">
+          <li>
+            <a href="https://www.twitter.com/intent/tweet?url={{ entry.url | url_encode }}&amp;text=" target="_blank">
+              <i class="fa-brands fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.facebook.com/sharer/sharer.php?u={{ entry.url | url_encode }}&amp;" target="_blank">
+              <i class="fa-brands fa-facebook-f"></i>
+            </a>
+          </li>
+          <li>
+            <a href="mailto:?subject={{ entry.title | url_encode }}&amp;body={{ entry.url | url_encode }}" target="_blank">
+              <i class="fas fa-envelope"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- Share Icons -->
+
+    {% for block in blocks %}
+      {% if block.type == 'headerTitle' %}
+        {% include 'v2/common/headerTitle' with { block: block } %}
+      {% elseif block.type == 'copy' %}
+        {% include 'v2/common/copy'  with { block: block } %}
+      {% elseif  block.type == 'slideshow' %}
+        {% include 'v2/common/swiperSlider' with { block: block } %}
+      {% elseif  block.type == 'singleImage' %}
+        {% include 'v2/common/swiperSlider' with { block: block } %}
+      {% elseif  block.type == 'video' %}
+        {% include 'v2/templates/blog/blocks/videoBlock' with { block: block } %}
+      {% elseif  block.type == 'audio' %}
+        {% include 'v2/templates/blog/blocks/audioBlock' with { block: block } %}
+      {% elseif block.type == 'infoModule' %}
+        {% include 'v2/templates/blog/blocks/infoModule'  with { block: block } %}
+      {% elseif block.type == 'code' %}
+        <div class="code-container">{{ block.code | raw }}</div>
+      {% elseif block.type == 'map' %}
+        <div class="mapContainer">
+          {% include 'vera-maps/_maptypesBlock'  with { block: block } %}
+        </div>
+      {% elseif block.type == 'largeBlockQuote' %}
+        {% include 'v2/templates/blog/blocks/quoteType2' with { block: block } %}
+      {% elseif block.type == 'chart' %}
+        {% include 'v2/templates/blog/blocks/chart' with { block: block } %}
+      {% elseif  block.type == 'newsItems' %}
+        {% include 'v2/templates/blog/blocks/newsItems' with { block: block } %}
+      {% elseif block.type == 'twoColumns' %}
+    	  {% include 'v2/common/copy-twoColumns' with { block: block } %}
+      {% elseif block.type == 'threeColumns' %}
+    	  {% include 'v2/common/copy-threeColumns' with { block: block } %}
+      {% elseif block.type == 'stats' %}
+    	  {% include 'v2/common/stats' with { block: block } %}
+      {% elseif block.type == 'signUp' %}
+        {% include 'v2/common/signUp.twig'  with { block: block } %}
+      {% elseif block.type == 'quoteBlockType1' %}
+    	  {% include 'v2/common/quoteBlockType1' with { block: block } %}
+      {% elseif  block.type == 'bannerType4' %}
+        {% include 'v2/common/bannerType4' with { block: block } %}
+      {% elseif  block.type == 'quoteType2' %}
+        {% include 'v2/templates/blog/blocks/quoteType2' with { block: block } %}
+      {% elseif  block.type == 'quoteType1' %}
+        {% include 'v2/templates/blog/blocks/quoteType1' with { block: block } %}
+
+     {# 
+      {% elseif  block.type == 'relatedItems' %}
+        {% include 'v2/common/relatedItems' with { block: block } %}
+      {% elseif  block.type == 'bannerType4' %}
+        {% include 'v2/common/bannerType4' with { block: block } %}
+      #}
+      {% endif %}
+    {% endfor %}
+
+
+    {% if entry.relatedSeries | length and entry.relatedSeries.first.seriesDescription %}
+    <section class="copy-block-container">
+      <div class="copy-block-content">
+      {{ entry.relatedSeries.first.seriesDescription }}
+      </div>
+    </section>
+	{% endif %}
+</div>
+
+{% if includeCharts %}
+	{% includeJsFile '/dist/js/specialReportCampaign.js?v=0.2' %}
+{% endif %}
+
+
+
+{% endblock %}
+

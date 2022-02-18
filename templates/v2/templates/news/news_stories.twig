@@ -24,6 +24,11 @@
   <!-- Head Title  -->
 
 
+
+
+
+
+
   {% for block in blocks %}
     {% if block.type == 'newsItems' %}
        {% include 'v2/common/newsItems' with { block: block } %}
@@ -35,6 +40,7 @@
   <div class="newsLanding-content">
 
     {% include 'v2/templates/news/topicMenu' %} 
+
 
     <div class="newsLanding-items">
 
@@ -60,11 +66,11 @@
               {% endif %}
 
 
-        <div class="newsLanding-item">
+        <a class="newsLanding-item" href="{{ entry.url }}">
                 <div class="newsLanding-item-content">
                   <div class="newsLanding-item-content-left">
                     {% if image %}
-                        <img src="{{ image.getUrl() }}" alt=""/>
+                        <img src="{{ image.getUrl('newsstoriesTransform') }}" alt=""/>
                     {% else %}
                       {% if fallback <= 3 %}
                           {% set fallback =  fallback + 1 %}
@@ -80,14 +86,14 @@
                   </div>
                   <div class="newsLanding-item-content-right">
                     <div class="newsLanding-item-content-right-tag">{{ entry.type.name | title | upper }}</div>
-                    <div class="newsLanding-item-content-right-title">
-                    <a href="{{ entry.url }}">{{ entry.title }}</a>
-                    </div>
+                    <h5 class="newsLanding-item-content-right-title">
+                      <span href="{{ entry.url }}">{{ entry.title }}</span>
+                    </h5>
                     <div class="newsLanding-item-content-right-copy">{{ blockCopy.text|striptags|truncate(80)|raw }}</div>
                     <div class="newsLanding-item-content-right-date">{{ entry.postDate | date("M d, Y") }}</div>
                   </div>
                 </div>
-              </div>
+              </a>
         {% endfor %}
 
         <div class="newsLanding-paginate">

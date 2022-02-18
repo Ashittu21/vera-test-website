@@ -1,0 +1,31 @@
+			<div class="media post-module module-text hide-on-print">
+				<div class="container">
+					<div class="rte attribution container audio-container">
+						{% if block.audioTitle %}
+							<h5 class="intext-subhead">{{ block.audioTitle }}</h5>
+						{% endif %}
+						{% if block.subtitle %}
+							{% set hasSlideout = block['slideout'] is defined and block.slideout | length %}
+							{% if hasSlideout %}
+								<div class="slideoutcta slideoutcta--link" data-url="{{ block.slideout[0].url }}">
+									<div class="cta_wrap">
+									{% endif %}
+									<h5 class="person-name">{{ block.subtitle }}</h5>
+									{% if hasSlideout %}
+									</div>
+								</div>
+							{% endif %}
+						{% endif %}
+						{% if block.image | length %}
+							<img class="person-headshot" src="{{ block.image.first.getUrl('square174') }}">
+						{% endif %}
+
+					</div>
+
+					{% include 'includes/snippets/audio' with {audio: block.audioClip} %}
+
+					{% if block.caption %}
+						<p class="module-text">{{ block.caption }}</p>
+					{% endif %}
+				</div>
+			</div>
