@@ -72,12 +72,21 @@
             }
 
             &-title {
-              color: var(--global-color-white);
-              text-decoration: underline;
+              /* color: var(--global-color-white); */
+              /* text-decoration: underline; */
 
               a {
                 color: var(--global-color-white);
-                text-decoration: underline;
+               /*  text-decoration: underline; */
+                background-image: linear-gradient(currentColor, currentColor);
+                background-position: 0% 100%;
+                background-repeat: no-repeat;
+                background-size: 0% 2px;
+                transition: background-size .9s;
+                display: initial;
+                &:hover {
+                  background-size: 100% 2px;
+                }
               }
             }
 
@@ -239,7 +248,7 @@
           box-sizing: border-box;
           background-color: #da392f;
           color: #fff;
-          text-decoration: underline;
+          /* text-decoration: underline; */
         }
       }
     }

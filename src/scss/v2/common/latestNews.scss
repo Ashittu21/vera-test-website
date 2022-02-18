@@ -77,7 +77,9 @@
           padding-top: 0;
           background-image: -webkit-linear-gradient(180deg, var(--global-color-medium-violet) 30.1%, var(--global-color-medium-violet) 30.1%);
         }
-
+        .latestNews-hero-copy-title{
+          margin-bottom: 1.5rem;
+        }
         .latestNews-hero-copy {
           display: flex;
           justify-content: center;
@@ -87,7 +89,7 @@
           padding-right: 50px;
           width: 50%;
           transition: all 0.2s ease-in-out;
-
+          margin-bottom: 1.5rem;
           @media (max-width: $tablet-landscape) {
             width: 60%;
             padding-left: 50px;
@@ -111,8 +113,6 @@
 
           &-title {
             font-family: var(--global-font-sectra);
-
-
            /* h4 {
               font-size: 45px;
               font-style: normal;
@@ -131,23 +131,33 @@
             }*/
 
             a {
-              text-decoration: none;
-              color: var(--global-color-white);
+        /*       text-decoration: none;
+              color: var(--global-color-white); */
 
-              &:hover {
+          /*     &:hover {
                 text-decoration: underline;
-              }
+              } */
 
               h4 {
                 margin: 0;
                 font-family: var(--global-font-sectra);
+                color: var(--global-color-white);
                 font-size: 45px;
                 font-style: normal;
                 font-weight: 700;
                 line-height: 115%;
                 letter-spacing: 0em;
                 text-align: left;
-                margin-bottom: 1.5rem;
+                background-image: linear-gradient(currentColor, currentColor);
+                background-position: 0% 100%;
+                background-repeat: no-repeat;
+                background-size: 0% 2px;
+                transition: background-size .9s;
+                display: initial;
+
+                &:hover {
+                  background-size: 100% 2px;
+                }
 
                 @media (max-width: $tablet-landscape) {
                   font-size: 35px;
@@ -295,12 +305,12 @@
             text-decoration: none;
 
             a {
-              text-decoration: none;
-              color: var(--global-color-white);
+           /*    text-decoration: none;
+              color: var(--global-color-white); */
 
-              &:hover {
+             /*  &:hover {
                 text-decoration: underline;
-              }
+              } */
               > h5{
                 font-family: var(--global-font-abc-whyte);
                 font-size: 26px;
@@ -310,6 +320,16 @@
                 letter-spacing: 0em;
                 text-align: left;
                 text-decoration: none;
+                color: #fff;
+                background-image: linear-gradient(currentColor, currentColor);
+                background-position: 0% 100%;
+                background-repeat: no-repeat;
+                background-size: 0% 2px;
+                transition: background-size .9s;
+                display: initial;
+                &:hover {
+                  background-size: 100% 2px;
+                }
               }
             }
           }
