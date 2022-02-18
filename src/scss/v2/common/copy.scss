@@ -134,6 +134,7 @@
       color: var(--global-color-text);
       text-decoration: underline;
       text-decoration-color: var(--global-color-red);
+      text-underline-offset: 0.2em;
       &:hover{
         background-color: #DA392F;
         color: #FFF;
