@@ -8,8 +8,6 @@ node_modules
 .env.production
 dbsync
 htdocs
-composer.json
 package-lock.json
 web/dist/css
-composer.json
 build/css/
