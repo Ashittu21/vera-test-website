@@ -115,7 +115,7 @@ gulp.task("scss", () => {
 
   //These 2 are specialty css files for redactor backend and publication pdfs
   gulp
-    .src(pkg.paths.src.scss + "redactor.scss")
+    .src(pkg.paths.src.redactor)
     .pipe($.plumber({ errorHandler: onError }))
     .pipe($.sourcemaps.init({ loadMaps: true }))
     .pipe(
@@ -138,7 +138,7 @@ gulp.task("scss", () => {
     )
     .pipe($.sourcemaps.write("./"))
     .pipe($.size({ gzip: true, showFiles: true }))
-    .pipe(gulp.dest(pkg.paths.dist.css, { mode: 0777 }));
+    .pipe(gulp.dest(pkg.paths.dist.redactor, { mode: 0777 }));
 
   gulp
     .src(pkg.paths.src.scss + "publication_pdf.scss")

@@ -1,0 +1,199 @@
+
+ .h2,
+  h2,
+  h2 strong {
+  margin: 0;
+  font-family: var(--global-font-sectra);
+  color: var(--global-color-dark-violet);
+  font-style: normal;
+  font-weight: bold;
+  font-size: 45px;
+  line-height: 110%;
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+
+.h5{
+  font-family: var(--global-font-sectra);
+  font-size: 35px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 42px;
+  letter-spacing: 0em;
+  text-align: left;
+  margin-bottom: 1rem;
+}
+
+.h5-sectra{
+  font-family: var(--global-font-sectra);
+  font-size: 35px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 42px;
+  letter-spacing: 0em;
+  text-align: left;
+  margin-bottom: 35px;
+}
+
+
+.h6{
+  font-family: var(--global-font-abc-whyte);
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 34px;
+  letter-spacing: 0em;
+  text-align: left;
+  margin-bottom: 1rem;
+}
+
+
+
+.h6-whyte{
+  font-family: var(--global-font-abc-whyte);
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 34px;
+  letter-spacing: 0em;
+  text-align: left;
+  margin-bottom: 1rem;
+}
+
+.h7-whyte{
+  font-family: var(--global-font-abc-whyte);
+  font-size: 21px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 29px;
+  letter-spacing: 0em;
+  text-align: left;
+  margin-bottom: 1rem;
+}
+
+a{
+  color: var(--global-color-text);
+  text-decoration: underline;
+  text-decoration-color: var(--global-color-red);
+  text-underline-offset: 0.2em;
+  &:hover{
+    background-color: #DA392F;
+    color: #FFF;
+    text-decoration: none;
+  }
+}
+
+.line-through{
+  text-decoration: line-through;
+  text-decoration-color: var(--global-color-red);
+}
+
+
+figure {
+  margin: 0 40px 40px 0;
+  figcaption{
+    font-family: var(--global-font-abc-whyte);
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 14px;
+    letter-spacing: 0em;
+    text-align: left;
+    margin-top: 17px;
+    color: #4A4A4A;
+    text-align: left !important;
+    @media(max-width:$mobile-breakpoint) {
+      text-align: center;
+      float: inherit;
+    }
+  }  
+  
+  @media(max-width:$mobile-breakpoint) {
+    width: 100%  !important;
+    margin: 0 auto;
+    text-align: center !important;
+    margin-bottom: 40px !important;
+    float: inherit  !important;
+  }
+}
+
+ul{
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  margin: 30px 0;
+  height: auto;
+  li{
+    display: block;
+    background-image: url('../../dist/img/ul-icon-1.svg');
+    background-repeat: no-repeat; 
+    background-position: 0rem 0.34rem;
+    margin-top: 20px;
+    padding-left: 36px;
+    padding-top: 0;
+    >ul{
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      margin-top:26px;
+      li{
+        display: block;
+        background-image: url('../../dist/img/ul-icon-2.svg');
+        background-repeat: no-repeat; 
+        background-position: 0rem 0.34rem;
+        font-family: var(--global-font-abc-whyte);
+        font-size: 17px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 24px;
+        letter-spacing: 0em;
+        text-align: left;
+        height: auto;
+        margin-top: 0.5rem;
+        padding-left: 31px;
+      }
+    }
+  }
+}
+
+
+
+ol{
+  counter-reset: listitem;
+  list-style-type: none;
+  position: relative;
+  column-gap: 0px;
+  color: var(--global-color-text);
+  font-family: var(--global-font-abc-whyte);
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: left;
+  
+  li {
+    margin-bottom: 0.7rem;
+    
+    &::before {
+      counter-increment: listitem;
+      content: counters(listitem, ".") ".";
+      color: var(--global-color-light-violet);
+      display: inline-flex;
+      margin-left: 0rem;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-right: 1rem;
+      line-height: 0;
+      
+      @media(max-width:$mobile-breakpoint) {
+        font-size: 17px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 24px;
+        letter-spacing: 0em;
+        text-align: left;
+      }
+    }
+  }
+}
