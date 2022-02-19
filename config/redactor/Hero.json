@@ -3,21 +3,20 @@
     "format",
     "bold",
     "italic",
-    "lists",
-    "link",
     "html"
   ],
-  "plugins": ["scriptbuttons", "fullscreen"],
-  "formatting": ["p", "blockquote"],
+  "plugins": ["scriptbuttons", "fullscreen","alignment","customstyles"],
+  "formatting": ["p", "blockquote", "span"],
   "formattingAdd": {
     "underline": {
       "title": "Underline",
-      "args": ["span", "class", "underline"]
+      "api": "module.inline.format",
+      "args": {"tag": "span", "class": "underline"}
     },
     "underline2": {
       "title": "Underline 2",
-      "args": ["h5", "class", "underline2"]
+      "api": "module.inline.format",
+      "args": {"tag": "span", "class": "underline2"}
     }
-
   }
 }

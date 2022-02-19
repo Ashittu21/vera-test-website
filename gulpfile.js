@@ -113,7 +113,7 @@ gulp.task("js", ["js-babel"], () => {
 gulp.task("scss", () => {
   $.fancyLog("-> Compiling scss");
 
-  //These 2 are specialty css files for redactor backend and publication pdfs
+  //redactor
   gulp
     .src(pkg.paths.src.redactor)
     .pipe($.plumber({ errorHandler: onError }))
@@ -139,6 +139,7 @@ gulp.task("scss", () => {
     .pipe($.sourcemaps.write("./"))
     .pipe($.size({ gzip: true, showFiles: true }))
     .pipe(gulp.dest(pkg.paths.dist.redactor, { mode: 0777 }));
+  
 
   gulp
     .src(pkg.paths.src.scss + "publication_pdf.scss")
@@ -191,7 +192,6 @@ gulp.task("css", ["scss"], () => {
     gulp
       .src(pkg.globs.distCss)
       .pipe($.ignore.exclude("publication_pdf.css"))
-      .pipe($.ignore.exclude("redactor.css"))
       //.pipe($.scssLint())
       .pipe($.plumber({ errorHandler: onError }))
       .pipe($.newer({ dest: pkg.paths.dist.css + pkg.vars.siteCssName }))
