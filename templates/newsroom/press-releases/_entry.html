@@ -6,10 +6,10 @@
 <div class="container"><aside class="hr"></aside></div>
 
 <section class="post-content__single__container">			
-{% include 'includes/snippets/post_header' %}
-{% set article = entry.article %}{% include 'includes/snippets/article' %}
+  {% include 'includes/snippets/post_header' %}
+  {% set article = entry.article %}
+  {% include 'includes/snippets/article' %}
 </section>
 
 {% include 'includes/stream/module_related-content' %}
-
 {% endblock %}
