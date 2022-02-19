@@ -4,6 +4,7 @@
   "require": {
     "aelvan/inlin": "^2.1",
     "besteadfast/craft-preparse-field": "1.2.5",
+    "carlcs/craft-redactorcustomstyles": "^3.0",
     "craftcms/cms": "3.7.11",
     "craftcms/contact-form": "2.2.7",
     "craftcms/element-api": "2.6.0",

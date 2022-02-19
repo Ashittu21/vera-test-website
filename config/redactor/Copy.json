@@ -12,7 +12,7 @@
   ],
   "imageResizable": true,
   "imagePosition": true,
-  "plugins": ["scriptbuttons", "fullscreen", "alignment"],
+  "plugins": ["scriptbuttons", "fullscreen", "alignment","customstyles"],
   "formatting": ["p", "blockquote"],
   "formattingAdd": {
     "body": {

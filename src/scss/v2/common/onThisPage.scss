@@ -4,10 +4,10 @@
   background-color: var(--global-color-medium-violet);
   display: flex;
   flex-direction: row;
-  min-height: 550px;
+  min-height: 465px;
   margin: 0 auto;
-  margin-top: 60px;
-  margin-bottom: 60px;
+  margin-top: 55px;
+  margin-bottom: 0;
   
   
   @media (max-width: $tablet-landscape) {
@@ -50,7 +50,7 @@
     padding-left: 110px;
     padding-right: 110px;
     padding-top:52px;
-    padding-top:60px;
+    padding-top:55px;
     @media (max-width: $mobile-large) {
       min-width: 100%;
       padding: 0 11px;
@@ -97,7 +97,7 @@
           padding: 0 5px;
           display: inline-block;
           font-family: var(--global-font-abc-whyte);
-          color: var(--global-color-dark-mint);
+          color: #ABFFEB;
           text-decoration: none;
           font-size: 21px;
           font-style: normal;
@@ -122,4 +122,5 @@
       }
     }
   }
+
 }

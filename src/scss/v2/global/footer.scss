@@ -202,9 +202,15 @@
               text-decoration: none;
               font-size: 14px;
               font-family: var(--global-font-abc-whyte);
-
+              background-image: linear-gradient(#ef4136, #ef4136);
+              background-position: 0% 100%;
+              background-repeat: no-repeat;
+              background-size: 0% 2px;
+              transition: background-size .9s;
+              display: initial;
               &:hover {
                 color: #FFF;
+                background-size: 100% 2px;
               }
             }
           }

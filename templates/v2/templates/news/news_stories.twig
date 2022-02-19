@@ -1,5 +1,7 @@
 {% extends '_layout' %}
 
+{% set title = entry.title %}
+
 {% block content %}
 
 {% set headerTitle    = entry.headerTitle_title %}
@@ -22,8 +24,6 @@
       </div>
     </section>
   <!-- Head Title  -->
-
-
 
 
 
@@ -87,7 +87,7 @@
                   <div class="newsLanding-item-content-right">
                     <div class="newsLanding-item-content-right-tag">{{ entry.type.name | title | upper }}</div>
                     <h5 class="newsLanding-item-content-right-title">
-                      <span href="{{ entry.url }}">{{ entry.title }}</span>
+                      <span>{{ entry.title }}</span>
                     </h5>
                     <div class="newsLanding-item-content-right-copy">{{ blockCopy.text|striptags|truncate(80)|raw }}</div>
                     <div class="newsLanding-item-content-right-date">{{ entry.postDate | date("M d, Y") }}</div>

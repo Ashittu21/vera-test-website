@@ -284,7 +284,7 @@
                   {{ result.postDate | date("M d, Y") }}
                 </div>
 
-                <a href="{{ result.url }}"  class="rs-listing-item-content-title" target="_blank"><h6>{{ result.title }}</h6></a>
+                <a href="{{ result.url }}"  class="rs-listing-item-content-title" target="_blank"><h6 class="c-black">{{ result.title }}</h6></a>
                 <p class="rs-listing-item-content-copy">
                 {% switch result.type.handle %}
                    {% case 'publicationOverview' %}
