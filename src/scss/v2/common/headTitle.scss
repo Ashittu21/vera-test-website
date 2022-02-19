@@ -56,18 +56,30 @@
         text-align: center;
         text-align: left;
         margin-left: 10px;
-        
         &:before {
           content: "";
           display: inline-block;
-          width: 10000px;
-          height: 1px;
-          border-top: 2px solid var(--global-color-light-violet);
+          /* width: 10000px; */
+         /*  height: 1px; */
+         /*  border-top: 2px solid var(--global-color-light-violet); */
           position: absolute;
           bottom: 3rem;
           left: 0;
+          animation-name: test-animation;
+          animation-duration: 8s;
+          background-color: var(--global-color-light-violet);
+          width: 100vw;
+          height: 2px;
         }
-        
+        @keyframes test-animation {
+          from {
+              width:0px;
+          }
+      
+          to {
+              width: 100vw ;
+          }
+      }
         span {
           position: relative;
           padding-right: 1rem;

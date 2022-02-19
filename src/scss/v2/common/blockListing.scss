@@ -89,9 +89,16 @@
         font-style: normal;
         font-weight: 400;
         text-decoration: none;
+        background-image: linear-gradient(currentColor, currentColor);
+        background-position: 0% 100%;
+        background-repeat: no-repeat;
+        background-size: 0% 2px;
+        transition: background-size .9s;
+        display: initial;
         &:hover {
           color: var(--global-color-white);
-          text-decoration: underline;
+         /*  text-decoration: underline; */
+         background-size: 100% 2px;
         }
     }
 
@@ -118,7 +125,7 @@
 
       .block-listing-item-title  {
         color: var(--global-color-white);
-        text-decoration: underline;
+        /* text-decoration: underline; */
       }
 
       .block-listing-item-tag {

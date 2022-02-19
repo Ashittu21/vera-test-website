@@ -19,7 +19,9 @@
         <ul class="menu-footer">
           {% for node in footer_links %}
           <li><a
-              href="{{ node.footerLink.getUrl() }}">{{node.footerLink.customText }}</a>
+              href="{{ node.footerLink.getUrl() }}">{{node.footerLink.customText }}
+              <img src="/dist/img/v2/arrow-menu_1.svg" width="20px">
+              </a>
           </li>
           {% endfor %}
         </ul>
