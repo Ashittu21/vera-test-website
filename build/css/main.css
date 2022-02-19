@@ -30225,6 +30225,9 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
 .headTitle + .copy-block-container {
   padding-top: 50px; }
 
+.heroType1-container + .copy-block-container {
+  margin-top: 60px; }
+
 .block-exploreMore {
   width: 100%;
   background-color: var(--global-color-dark-violet);
@@ -35929,6 +35932,9 @@ header {
 
 .news-article {
   min-height: 500px; }
+
+.newsandstories-page .block-latestNews {
+  padding: 70px 0; }
 
 .newsLanding-content {
   background-color: var(--global-color-sand);
