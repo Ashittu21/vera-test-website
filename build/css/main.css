@@ -29969,7 +29969,8 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
       font-size: 45px;
       line-height: 110%;
       margin-bottom: 30px;
-      margin-top: 30px; }
+      margin-top: 30px;
+      display: inline-block; }
     .copy-block-container .copy-block-content .h5 {
       font-family: var(--global-font-sectra);
       font-size: 35px;
@@ -29978,7 +29979,9 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
       line-height: 42px;
       letter-spacing: 0em;
       text-align: left;
-      margin-bottom: 1rem; }
+      margin-bottom: 30px;
+      margin-top: 30px;
+      display: inline-block; }
     .copy-block-container .copy-block-content .h5-sectra {
       font-family: var(--global-font-sectra);
       font-size: 35px;
@@ -29987,7 +29990,9 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
       line-height: 42px;
       letter-spacing: 0em;
       text-align: left;
-      margin-bottom: 35px; }
+      margin-bottom: 30px;
+      margin-top: 30px;
+      display: inline-block; }
     .copy-block-container .copy-block-content .h6 {
       font-family: var(--global-font-abc-whyte);
       font-size: 26px;
@@ -29996,7 +30001,9 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
       line-height: 34px;
       letter-spacing: 0em;
       text-align: left;
-      margin-bottom: 1rem; }
+      margin-bottom: 30px;
+      margin-top: 30px;
+      display: inline-block; }
     .copy-block-container .copy-block-content .h6-whyte {
       font-family: var(--global-font-abc-whyte);
       font-size: 26px;
@@ -30005,7 +30012,9 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
       line-height: 34px;
       letter-spacing: 0em;
       text-align: left;
-      margin-bottom: 1rem; }
+      margin-bottom: 30px;
+      margin-top: 30px;
+      display: inline-block; }
     .copy-block-container .copy-block-content .h7-whyte {
       font-family: var(--global-font-abc-whyte);
       font-size: 21px;
@@ -30014,7 +30023,9 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
       line-height: 29px;
       letter-spacing: 0em;
       text-align: left;
-      margin-bottom: 1rem; }
+      margin-bottom: 30px;
+      margin-top: 30px;
+      display: inline-block; }
     .copy-block-container .copy-block-content a {
       color: var(--global-color-text);
       text-decoration: underline;
