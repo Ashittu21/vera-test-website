@@ -40,11 +40,12 @@
   margin-top: 60px;
 }
 
+.copy-block-container + .featured-type2 {
+  margin-top:60px;
+}
+
 .featured-type2 + .copy-block-container {
   margin-top:30px;
 }
 
 
-.copy-block-container + .featured-type2 {
-  margin-top:30px;
-}
