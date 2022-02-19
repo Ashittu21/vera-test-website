@@ -29158,7 +29158,7 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
         font-family: var(--global-font-abc-whyte);
         font-size: 26px;
         font-style: normal;
-        font-weight: 400;
+        font-weight: 500;
         line-height: 34px;
         letter-spacing: 0em;
         text-align: left;
@@ -29333,6 +29333,9 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
 
 .stats-block + .banner-block-container {
   margin-top: 45px; }
+
+.banner-block-container + .block-signup {
+  margin-top: 120px; }
 
 .topic-blocks-ctaBannerFw {
   display: -webkit-box;
@@ -30165,6 +30168,9 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
     .copy-block-container .copy-block-content .h7-whyte + ul {
       margin-top: 0;
       padding: 0; }
+
+.copy-block-container + .relatedItems-container {
+  margin-top: 30px; }
 
 .block-exploreMore {
   width: 100%;
@@ -32482,7 +32488,8 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
     line-height: 42px;
     letter-spacing: 0em;
     text-align: left;
-    margin-bottom: 1rem; }
+    padding: 0;
+    margin-bottom: 4rem; }
     @media (max-width: 768px) {
       .relatedItems-container .relatedItems-title {
         font-size: 26px;
@@ -32519,10 +32526,12 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
             -ms-flex-direction: row;
                 flex-direction: row; }
         .relatedItems-container .relatedItems-item:hover .relatedItems-item-content-right-tag {
-          color: var(--global-color-white); }
+          color: var(--global-color-white);
+          font-weight: 500; }
         .relatedItems-container .relatedItems-item:hover .relatedItems-item-content-right-title {
           color: var(--global-color-white);
-          text-decoration: underline; }
+          text-decoration: underline;
+          font-weight: 500; }
           .relatedItems-container .relatedItems-item:hover .relatedItems-item-content-right-title a {
             color: var(--global-color-white);
             text-decoration: underline; }
@@ -32581,7 +32590,7 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
           font-family: var(--global-font-abc-whyte);
           font-size: 11px;
           font-style: normal;
-          font-weight: 400;
+          font-weight: 500;
           line-height: 21px;
           letter-spacing: 0.17em;
           text-align: left; }
@@ -32589,7 +32598,7 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
           font-family: var(--global-font-abc-whyte);
           font-size: 26px;
           font-style: normal;
-          font-weight: 400;
+          font-weight: 500;
           line-height: 34px;
           letter-spacing: 0em;
           text-align: left; }
@@ -32878,7 +32887,7 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
-    max-width: 1280px;
+    max-width: 1380px;
     -ms-flex-line-pack: end;
         align-content: flex-end;
     -webkit-box-align: end;
