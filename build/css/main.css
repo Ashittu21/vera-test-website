@@ -28926,7 +28926,9 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
       color: white;
       text-decoration: underline; }
     .button.arrowType2.arrowHoverWhite {
-      background-image: url("../img/v2/arrow-white.svg"); }
+      background-image: url("../img/v2/arrow-mint.svg"); }
+      .button.arrowType2.arrowHoverWhite:hover {
+        background-image: url("../img/v2/arrow-w.svg"); }
 
 .button-donate {
   font-family: var(--global-font-abc-whyte);
@@ -29025,6 +29027,12 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
           flex: 0 0 100%;
   min-height: 330px; }
 
+/*
+
+.arrowMint {
+  background-size: 20px auto;
+  background-image: url("../img/v2/arrow-mint.svg");
+}*/
 /* Common Blocks */
 .about-block-container {
   width: 100%;
@@ -29282,11 +29290,11 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
         font-family: var(--global-font-abc-whyte);
         font-size: 40px;
         font-style: normal;
-        font-weight: 400;
+        font-weight: 500;
         line-height: 48px;
         letter-spacing: 0em;
         text-align: left;
-        margin-bottom: 33px; }
+        margin-bottom: 31px; }
         @media (max-width: 768px) {
           .banner-block-container .banner-block-content .banner-block-copy-title {
             line-height: 36px;
@@ -29305,6 +29313,8 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
             font-size: 20px; } }
       .banner-block-container .banner-block-content .banner-block-copy-link {
         margin-top: 50px; }
+      .banner-block-container .banner-block-content .banner-block-copy:hover .banner-block-copy-link .button {
+        background-image: url("../img/v2/arrow-white.svg"); }
     .banner-block-container .banner-block-content .banner-block-image {
       background-size: cover;
       background-position: center center;

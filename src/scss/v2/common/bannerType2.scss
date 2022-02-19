@@ -48,11 +48,11 @@
         font-family: var(--global-font-abc-whyte);
         font-size: 40px;
         font-style: normal;
-        font-weight: 400;
+        font-weight: 500;
         line-height: 48px;
         letter-spacing: 0em;
         text-align: left;
-        margin-bottom:33px;
+        margin-bottom:31px;
         @media(max-width:$mobile-breakpoint){
           line-height: 36px;
           font-size: 30px;
@@ -77,6 +77,15 @@
         margin-top: 50px;
       }
 
+
+      &:hover{
+        .banner-block-copy-link{
+          .button{
+            background-image: url("../img/v2/arrow-white.svg");
+          }
+
+        }
+      }
     }
 
     .banner-block-image {

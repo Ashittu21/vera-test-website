@@ -60,6 +60,7 @@
   function calculatePercentPlayed() {
     let percentage = (media.currentTime / media.duration).toFixed(2) * 100;
     document.getElementById(ui.percentage).style.width = `${percentage}%`;
+    console.log(media.duration);
   }
 
   function calculateCurrentValue(currentTime) {
