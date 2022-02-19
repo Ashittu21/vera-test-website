@@ -24,10 +24,14 @@
   }
 }
 
-.copy-block-container + .relatedItems-container{
+.copy-block-container + .relatedItems-container {
   margin-top: 30px;
 }
 
-.copy-block-container + .banner-block-container{
+.copy-block-container + .banner-block-container {
   padding-top: 60px;
+}
+
+.headTitle + .copy-block-container {
+  padding-top: 50px; 
 }

@@ -30175,6 +30175,9 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
 .copy-block-container + .banner-block-container {
   padding-top: 60px; }
 
+.headTitle + .copy-block-container {
+  padding-top: 50px; }
+
 .block-exploreMore {
   width: 100%;
   background-color: var(--global-color-dark-violet);
