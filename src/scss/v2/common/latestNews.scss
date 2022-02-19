@@ -475,7 +475,10 @@
   }
   
 }
-
-.block-latestNews + .block-latestNews{
-  padding-top: 0px;
+.newsandstories-page{
+  .block-latestNews {
+    &:last-child{
+      padding-top: 0px;
+    }
+  }
 }
