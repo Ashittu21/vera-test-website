@@ -9,10 +9,13 @@ p::selection {
 }
 
 p {
-  margin-bottom: 32px;
+  margin-bottom: 30px;
   &.intro{
     font-size: inherit;
     margin-bottom: 0;
+  }
+  &:last-child {
+    margin-bottom: 0px;
   }
 }
 
@@ -97,7 +100,6 @@ h2 strong {
 }
 
 
-
 .h6-whyte{
   font-family: var(--global-font-abc-whyte);
   font-size: 26px;
@@ -115,7 +117,7 @@ h2 strong {
   font-family: var(--global-font-abc-whyte);
   font-size: 21px;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 29px;
   letter-spacing: 0em;
   text-align: left;
@@ -177,6 +179,7 @@ ul{
   margin: 30px 0;
   height: auto;
   margin-bottom: 60px;
+  margin-top: 10px;
   li{
     display: block;
     background-image: url('../../dist/img/ul-icon-1.svg');
@@ -185,6 +188,9 @@ ul{
     margin-top: 20px;
     padding-left: 36px;
     padding-top: 0;
+    &:first-child {
+      margin-top: 0px;
+    }
     >ul{
       list-style-type: none;
       padding: 0;
@@ -226,9 +232,14 @@ ol{
   line-height: 24px;
   letter-spacing: 0em;
   text-align: left;
+  margin-top: 10px;
   
   li {
-    margin-bottom: 0.7rem;
+    margin-bottom: 0;
+    margin-top: 20px;
+    &:first-child {
+      margin-top: 0px;
+    }
     
     &::before {
       counter-increment: listitem;
@@ -251,4 +262,10 @@ ol{
       }
     }
   }
+}
+
+
+.h7-whyte + ul {
+  margin-top:0;
+  padding:0;
 }

@@ -1,3 +1,5 @@
-.content-detail{
+.content-detail {
+  display: flex;
+  flex-direction: column;
   min-height: 500px;
 }
