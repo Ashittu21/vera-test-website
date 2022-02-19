@@ -28,6 +28,7 @@
   <!-- Head Title  -->
 
 
+<div class="newsandstories-page">
   {% for block in blocks %}
     {% if block.type == 'newsItems' %}
        {% include 'v2/common/newsItems' with { block: block } %}
@@ -35,6 +36,7 @@
       {% include 'v2/common/newsHero2' with { block: block } %}  
     {% endif %}
   {% endfor %}
+</div>
 
 
   <div class="newsLanding-content">

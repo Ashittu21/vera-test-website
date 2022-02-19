@@ -21,7 +21,7 @@
             "js": "./src/js/",
             "img": "./src/img/",
             "scss": "./src/scss/",
-            "redactor": "./src/scss/redactor/copy.scss"
+            "redactor": "./src/scss/redactor/*.scss"
         },
         "dist": {
             "base": "./web/dist/",

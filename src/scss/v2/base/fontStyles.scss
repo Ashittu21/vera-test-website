@@ -1,42 +1,4 @@
-.underline {
-    position: relative;
-    z-index: 1;
-    &::after {
-      content: '';
-      position: absolute;
-      bottom: -5px;
-      left: -.5rem;
-      right: -1.5rem;
-      height: 20px;
-      z-index: -1; //behind the testalign-content
-      background-repeat: no-repeat;
-      background-size: cover; // allows for word fit
-      background-image: url("../../dist/img/v2/brushstroke.svg");
-    }  
-}
-
-.underline2 {
-  position: relative;
-  z-index: 1;  
-  &::after {
-    content: '';
-    bottom: -2.5rem;
-    height: 4rem;
-    left: -0.5rem;
-    right: -1.6rem;
-    z-index: -1;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 90%;
-    position: absolute;
-    z-index: -1; 
-    background-image: url("../../dist/img/v2/brushstroke-02.svg");
-    @media (max-width: $tablet-portrait) {
-      height: 1rem;
-      bottom: -0.1rem;
-    }
-  }
-}
+@import "../common/hero-format.scss";
 
 .heading-2{
   font-family: var(--global-font-sectra);
