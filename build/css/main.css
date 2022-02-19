@@ -29241,7 +29241,7 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
   margin: 0 auto;
   width: 100%;
   background-color: var(--global-color-sand);
-  padding: 2rem 0; }
+  padding: 1.5rem 0; }
   .banner-block-container .banner-block-content {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -29327,6 +29327,12 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
           height: 352px;
           min-height: 352px;
           width: auto; } }
+
+.banner-block-container + .stats-block {
+  margin-top: 45px; }
+
+.stats-block + .banner-block-container {
+  margin-top: 45px; }
 
 .topic-blocks-ctaBannerFw {
   display: -webkit-box;

@@ -27,7 +27,8 @@
               </div>
             </div>
 
-            <p><small id="currentTime">00:00</small></p>
+            <p><small id="currentTime">00:00</small></p><p> // </p>
+            <p><small id="totalTime">00:00</small></p>
 
           </div>
         </div>
@@ -44,7 +45,8 @@
     audio: 'audio',
     percentage: 'percentage',
     seekObj: 'seekObj',
-    currentTime: 'currentTime'
+    currentTime: 'currentTime',
+    totalTime: 'totalTime'
   };
 
   function togglePlay() {
@@ -60,7 +62,7 @@
   function calculatePercentPlayed() {
     let percentage = (media.currentTime / media.duration).toFixed(2) * 100;
     document.getElementById(ui.percentage).style.width = `${percentage}%`;
-    console.log(media.duration);
+    
   }
 
   function calculateCurrentValue(currentTime) {
@@ -75,8 +77,24 @@
     return currentTimeFormatted;
   }
 
+
+  function calculateDuration(duration) {
+    const durationMinute = parseInt(duration / 60) % 60;
+    const durationSecondsLong = duration % 60;
+    const durationSeconds = durationSecondsLong.toFixed();
+
+    const durationTimeFormatted = `${durationMinute < 10 ? `0${durationMinute}` : durationMinute}:${
+  durationSeconds < 10 ? `0${durationSeconds}` : durationSeconds
+  } `;
+
+    return durationTimeFormatted;
+  }
+
   function initProgressBar() {
     const currentTime = calculateCurrentValue(media.currentTime);
+    const totalTime = calculateCurrentValue(media.duration);
+    
+    document.getElementById(ui.totalTime).innerHTML = totalTime;
     document.getElementById(ui.currentTime).innerHTML = currentTime;
     document.getElementById(ui.seekObj).addEventListener('click', seek);
 

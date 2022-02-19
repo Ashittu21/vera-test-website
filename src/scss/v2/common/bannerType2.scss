@@ -3,7 +3,7 @@
   margin: 0 auto;
   width: 100%;
   background-color: var(--global-color-sand);
-  padding: 2rem 0;
+  padding: 1.5rem 0;
   
   .banner-block-content {
     display: flex;
@@ -105,4 +105,12 @@
 
     }
   }
+}
+
+.banner-block-container + .stats-block{
+  margin-top: 45px;
+}
+
+.stats-block + .banner-block-container {
+  margin-top: 45px;
 }
