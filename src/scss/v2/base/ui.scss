@@ -131,10 +131,14 @@
     }
 
     &.arrowHoverWhite{
-      background-image: url("../img/v2/arrow-white.svg");
+      background-image: url("../img/v2/arrow-mint.svg");
+      &:hover{
+        background-image: url("../img/v2/arrow-w.svg");
+      }
     }
   }
 }
+
 
 .button-donate{
   font-family: var(--global-font-abc-whyte);
@@ -233,3 +237,9 @@
   flex: 0 0 100%;
   min-height: 330px;
 }
+/*
+
+.arrowMint {
+  background-size: 20px auto;
+  background-image: url("../img/v2/arrow-mint.svg");
+}*/

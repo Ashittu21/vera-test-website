@@ -20,11 +20,13 @@
             "json": "./src/json/",
             "js": "./src/js/",
             "img": "./src/img/",
-            "scss": "./src/scss/"
+            "scss": "./src/scss/",
+            "redactor": "./src/scss/redactor/copy.scss"
         },
         "dist": {
             "base": "./web/dist/",
             "css": "./web/dist/css/",
+            "redactor": "./config/redactor/resources/",
             "js": "./web/dist/js/",
             "fonts": "./web/dist/css/fonts/",
             "img": "./web/dist/img/"
