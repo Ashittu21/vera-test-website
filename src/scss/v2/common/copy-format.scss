@@ -20,7 +20,7 @@ p {
 }
 
 @media(max-width:$mobile-breakpoint) {
-  padding:0 1rem;
+  padding:0px 1rem;
   p{
     display: inline-block;
   }
@@ -45,8 +45,8 @@ figure + h5{
 
 
 .h2,
-h2,
-h2 strong {
+ h2,
+ h2 strong {
   margin: 0;
   font-family: var(--global-font-sectra);
   color: var(--global-color-dark-violet);
@@ -59,12 +59,53 @@ h2 strong {
   display: inline-block;
 }
 
-.h5{
+.h1-sectra{
   font-family: var(--global-font-sectra);
-  font-size: 35px;
+  font-size: 160px;
   font-style: normal;
   font-weight: 700;
-  line-height: 42px;
+  line-height: 120%;
+  letter-spacing: 0em;
+  text-align: left;
+  margin-bottom: 30px;
+  margin-top: 30px;
+  display: inline-block;
+}
+
+.h2-sectra{
+  font-family: var(--global-font-sectra);
+  font-size: 80px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 115%;
+  letter-spacing: 0em;
+  text-align: left;
+  margin-bottom: 30px;
+  margin-top: 30px;
+  display: inline-block;
+}
+
+
+.h3-sectra{
+  font-family: var(--global-font-sectra);
+  font-size: 60px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 115%;
+  letter-spacing: 0em;
+  text-align: left;
+  margin-bottom: 30px;
+  margin-top: 30px;
+  display: inline-block;
+}
+
+
+.h4-sectra{
+  font-family: var(--global-font-sectra);
+  font-size: 45px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 115%;
   letter-spacing: 0em;
   text-align: left;
   margin-bottom: 30px;
@@ -84,6 +125,21 @@ h2 strong {
   margin-top: 30px;
   display: inline-block;
 }
+
+
+.h5{
+  font-family: var(--global-font-sectra);
+  font-size: 35px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 42px;
+  letter-spacing: 0em;
+  text-align: left;
+  margin-bottom: 30px;
+  margin-top: 30px;
+  display: inline-block;
+}
+
 
 
 .h6{

@@ -35,15 +35,41 @@
       "api": "module.block.format",
       "args": {"tag": "h3", "class": "h3"}
     },
-    "heading5": {
-      "title": "Heading 5",
+    "heading1-sectra": {
+      "title": "Heading 1 - Sectra",
       "api": "module.block.format",
-      "args": {"tag": "h5", "class": "h5"}
+      "args": {"tag": "h1", "class": "h1-sectra"}
+    },
+    "heading2-sectra": {
+      "title": "Heading 2 - Sectra",
+      "api": "module.block.format",
+      "args": {"tag": "h2", "class": "h2-sectra"}
+    },
+    "heading3-sectra": {
+      "title": "Heading 3 - Sectra",
+      "api": "module.block.format",
+      "args": {"tag": "h3", "class": "h3-sectra"}
+    },
+    "heading4-sectra": {
+      "title": "Heading 4 - Sectra",
+      "api": "module.block.format",
+      "args": {"tag": "h4", "class": "h4-sectra"}
+    },
+    "heading4-sectra": {
+      "title": "Heading 4 - Sectra",
+      "api": "module.block.format",
+      "args": {"tag": "h4", "class": "h4-sectra"}
     },
     "heading5-sectra": {
       "title": "Heading 5 - Sectra",
       "api": "module.block.format",
       "args": {"tag": "h5", "class": "h5-sectra"}
+    },
+
+    "heading5": {
+      "title": "Heading 5",
+      "api": "module.block.format",
+      "args": {"tag": "h5", "class": "h5"}
     },
     "heading6": {
       "title": "Heading 6",

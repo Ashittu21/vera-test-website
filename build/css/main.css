@@ -29964,7 +29964,7 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
         margin-bottom: 0px; }
     @media (max-width: 768px) {
       .copy-block-container .copy-block-content {
-        padding: 0 1rem; }
+        padding: 0px 1rem; }
         .copy-block-container .copy-block-content p {
           display: inline-block; } }
     .copy-block-container .copy-block-content figure + h5 {
@@ -29992,7 +29992,51 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
       margin-bottom: 30px;
       margin-top: 30px;
       display: inline-block; }
-    .copy-block-container .copy-block-content .h5 {
+    .copy-block-container .copy-block-content .h1-sectra {
+      font-family: var(--global-font-sectra);
+      font-size: 160px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 120%;
+      letter-spacing: 0em;
+      text-align: left;
+      margin-bottom: 30px;
+      margin-top: 30px;
+      display: inline-block; }
+    .copy-block-container .copy-block-content .h2-sectra {
+      font-family: var(--global-font-sectra);
+      font-size: 80px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 115%;
+      letter-spacing: 0em;
+      text-align: left;
+      margin-bottom: 30px;
+      margin-top: 30px;
+      display: inline-block; }
+    .copy-block-container .copy-block-content .h3-sectra {
+      font-family: var(--global-font-sectra);
+      font-size: 60px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 115%;
+      letter-spacing: 0em;
+      text-align: left;
+      margin-bottom: 30px;
+      margin-top: 30px;
+      display: inline-block; }
+    .copy-block-container .copy-block-content .h4-sectra {
+      font-family: var(--global-font-sectra);
+      font-size: 45px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 115%;
+      letter-spacing: 0em;
+      text-align: left;
+      margin-bottom: 30px;
+      margin-top: 30px;
+      display: inline-block; }
+    .copy-block-container .copy-block-content .h5-sectra {
       font-family: var(--global-font-sectra);
       font-size: 35px;
       font-style: normal;
@@ -30003,7 +30047,7 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
       margin-bottom: 30px;
       margin-top: 30px;
       display: inline-block; }
-    .copy-block-container .copy-block-content .h5-sectra {
+    .copy-block-container .copy-block-content .h5 {
       font-family: var(--global-font-sectra);
       font-size: 35px;
       font-style: normal;
