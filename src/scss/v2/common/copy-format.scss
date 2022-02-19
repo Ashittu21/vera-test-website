@@ -1,4 +1,48 @@
+p::selection {
+  background: #EF4136 !important;
+  color:#FFF  !important;
+}
 
+&::selection {
+  background: #EF4136 !important;
+  color:#FFF  !important;
+}
+
+ 
+
+    p {
+      margin-bottom: 30px;
+      &.intro{
+        font-size: inherit;
+        margin-bottom: 0;
+      }
+     }
+
+      @media(max-width:$mobile-breakpoint) {
+      padding: 0 1rem;
+      p{
+        display: inline-block;
+      }
+    }
+
+
+    figure + h5{
+      margin-top: 6rem;
+      padding:0;
+    }
+
+    .copy-block-title{
+      margin: 0;
+      font-family: var(--global-font-sectra);
+      color: var(--global-color-dark-violet);
+      font-style: normal;
+      font-weight: bold;
+      font-size: 45px;
+      line-height: 110%;
+      margin-bottom: 1rem;
+    }
+
+ 
  .h2,
   h2,
   h2 strong {
