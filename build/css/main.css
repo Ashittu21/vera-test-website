@@ -29768,7 +29768,7 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
     line-height: 34px;
     letter-spacing: 0em;
     text-align: left;
-    margin-bottom: 25px; }
+    margin-bottom: 21px; }
   .copy-threeColumns-content {
     font-family: var(--global-font-abc-whyte);
     color: var(--global-color-text);
@@ -29809,7 +29809,7 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
                   flex-direction: column; } }
       .copy-threeColumns-content-items li {
         border-right: 2px solid #CEC0BC;
-        padding: 0 2rem;
+        padding: 0 44px;
         -webkit-box-flex: 1;
             -ms-flex-positive: 1;
                 flex-grow: 1;
@@ -29821,13 +29821,13 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
             border-bottom: 2px solid #CEC0BC;
             padding: 1rem 0; } }
         .copy-threeColumns-content-items li:first-child {
-          padding: 0 2rem 0 0; }
+          padding: 0 44px 0 0; }
           @media (max-width: 768px) {
             .copy-threeColumns-content-items li:first-child {
               padding: 1rem 0; } }
         .copy-threeColumns-content-items li:last-child {
           border: 0;
-          padding: 0 0 0 2rem; }
+          padding: 0 0 0 44px; }
           @media (max-width: 768px) {
             .copy-threeColumns-content-items li:last-child {
               padding: 1rem 0; } }
@@ -29862,7 +29862,7 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
     line-height: 34px;
     letter-spacing: 0em;
     text-align: left;
-    margin-bottom: 2rem; }
+    margin-bottom: 21px; }
   .copy-twoColumns-content {
     font-family: var(--global-font-abc-whyte);
     color: var(--global-color-text);
@@ -29937,7 +29937,7 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
       background: #EF4136 !important;
       color: #FFF  !important; }
     .copy-block-container .copy-block-content p {
-      margin-bottom: 30px; }
+      margin-bottom: 32px; }
       .copy-block-container .copy-block-content p.intro {
         font-size: inherit;
         margin-bottom: 0; }
