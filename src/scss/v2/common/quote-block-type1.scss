@@ -5,11 +5,8 @@
   color: var(--global-color-text);
   padding: 0em;
   border-radius: 1em;
-
-
-
-  margin-top: 60px;
-  margin-bottom: 55px;
+  margin-top: 10px;
+  margin-bottom: 30px;
 
   @media(max-width:$mobile-breakpoint) {
     padding: 1rem;
@@ -42,7 +39,7 @@
       font-family: var(--global-font-abc-whyte);
       font-size: 40px;
       font-style: normal;
-      font-weight: 400;
+      font-weight: 500;
       line-height: 48px;
       letter-spacing: 0em;
       text-align: left;
@@ -59,7 +56,6 @@
   }
 
   .quote-attribution {
-
     margin-left: 94px;
     margin-top: 34px;
     font-family: var(--global-font-abc-whyte);
@@ -69,7 +65,12 @@
     line-height: 24px;
     letter-spacing: 0em;
     text-align: left;
-
+    strong{
+      font-family: var(--global-font-abc-whyte);
+      text-decoration: underline;
+      text-decoration-color: var(--global-color-red);
+      text-underline-offset: 0.2em;
+    }
   }
 
 
