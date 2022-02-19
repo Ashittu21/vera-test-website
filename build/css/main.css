@@ -30372,7 +30372,7 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
 .featured-type2 {
   height: auto;
   min-height: 250px;
-  max-width: 880px;
+  max-width: 935px;
   margin: 0 auto;
   background-image: url("../../dist/img/featured-2-left.svg"), url("../../dist/img/featured-2-right.svg");
   background-position: center left, center right;
@@ -30391,8 +30391,8 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin-top: 1rem;
-  margin-bottom: 1rem; }
+  margin-top: 30px;
+  margin-bottom: 30px; }
   @media (max-width: 768px) {
     .featured-type2 {
       background-image: none; } }
