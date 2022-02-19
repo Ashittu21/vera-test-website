@@ -165,11 +165,12 @@ ul{
   margin: 0;
   margin: 30px 0;
   height: auto;
+  margin-bottom: 60px;
   li{
     display: block;
     background-image: url('../../dist/img/ul-icon-1.svg');
     background-repeat: no-repeat; 
-    background-position: 0rem 0.34rem;
+    background-position: 0rem 0.5rem;
     margin-top: 20px;
     padding-left: 36px;
     padding-top: 0;
@@ -182,7 +183,7 @@ ul{
         display: block;
         background-image: url('../../dist/img/ul-icon-2.svg');
         background-repeat: no-repeat; 
-        background-position: 0rem 0.34rem;
+        background-position: 0rem 0.7rem;
         font-family: var(--global-font-abc-whyte);
         font-size: 17px;
         font-style: normal;
@@ -191,8 +192,9 @@ ul{
         letter-spacing: 0em;
         text-align: left;
         height: auto;
-        margin-top: 0.5rem;
+        margin-top: 0rem;
         padding-left: 31px;
+        margin-bottom: 20px;
       }
     }
   }
