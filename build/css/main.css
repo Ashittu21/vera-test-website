@@ -29382,8 +29382,7 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
         left: 0;
         bottom: 1.5rem; } }
   .topic-blocks-ctaBannerFw .topic-blocks-ctaBannerFw-content {
-    padding: 0 50px 0 88px;
-    padding: 50px 0;
+    padding: 117px 0 157px 0;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -29426,9 +29425,9 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
       line-height: 33.8px;
       letter-spacing: 0em;
       text-align: left;
-      padding-top: 1.5rem;
       text-align: center;
-      padding-bottom: 49px;
+      padding-top: 12px;
+      padding-bottom: 47px;
       color: #FFF; }
       @media (max-width: 768px) {
         .topic-blocks-ctaBannerFw .topic-blocks-ctaBannerFw-content .topic-blocks-ctaBannerFw-text {
@@ -30778,7 +30777,7 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
     margin-top: -2%;
     font-family: var(--global-font-abc-whyte);
     font-style: normal;
-    font-weight: normal;
+    font-weight: 500;
     font-size: 26px;
     line-height: 130%; }
     @media (max-width: 700px) {
