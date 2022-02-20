@@ -43,11 +43,13 @@
     background-color: var(--global-color-dark-violet);
     color: #FFF;
     width: 590px;
-    height: 377px;
+    min-height: 377px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
+    padding-top: 86px;
+    padding-bottom: 130px;
 
     &-content {
       margin-left: 80px;

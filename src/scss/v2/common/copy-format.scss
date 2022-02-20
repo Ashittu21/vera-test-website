@@ -32,6 +32,10 @@ figure + h5{
   padding:0;
 }
 
+p + figure {
+  padding-top: 30px;
+}
+
 .copy-block-title{
   margin: 0;
   font-family: var(--global-font-sectra);
@@ -160,7 +164,7 @@ figure + h5{
   font-family: var(--global-font-abc-whyte);
   font-size: 26px;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 34px;
   letter-spacing: 0em;
   text-align: left;
