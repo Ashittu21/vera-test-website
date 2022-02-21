@@ -106,7 +106,7 @@
         fill: #2E1D97;
 
         &:hover {
-          fill: #160643;
+          fill: red;
         }
       }
 
@@ -150,7 +150,7 @@
   }
 
   .no-touch .project-map.light .state__path.state__is-active:hover {
-    fill: #DA392F !important;
+    fill: #000 !important;
   }
 
   .project-map .tooltip .subtitle:before,

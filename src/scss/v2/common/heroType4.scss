@@ -93,13 +93,21 @@
       display: block;
       position: absolute;
       background-color: var(--global-color-dark-sand);
-      height: 2px;
-      width: 100%;
+      /* height: 2px; */
+     /*  width: 100%; */
       top: 57px;
+      animation-name: test-animation;
+      animation-duration: 8s;
+      animation-fill-mode: forwards;
+      background-color: var(--global-color-dark-sand);
+      width: 0;
+      height: 2px;
+
       @media(max-width:$mobile-breakpoint){
         margin-top: -2rem;
       }
     }
+  
     &-line2{
       display: block;
       position: absolute;
@@ -137,5 +145,15 @@
       }
     
     }
+  }
+}
+
+@keyframes test-animation {
+  from {
+      width:0px;
+  }
+
+  to {
+      width: 100vw;
   }
 }

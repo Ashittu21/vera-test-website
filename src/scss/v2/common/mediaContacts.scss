@@ -4,7 +4,7 @@
   .mediaContacts-header {
     color: var(--global-color-text);
     padding-top: 80px;
-    padding-bottom: 90px;
+    padding-bottom: 60px;
     max-width: 700px;
     margin: 0 auto;
     @media (max-width: $mobile-large) {
@@ -36,7 +36,7 @@
         a {
           color: var(--global-color-text);
           text-decoration: underline;
-          text-decoration-color: var(--global-color-red);
+          /* text-decoration-color: var(--global-color-red); */
           
           &:hover {
             background-color: #DA392F;

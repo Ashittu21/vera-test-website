@@ -55,7 +55,7 @@
       flex-direction: row;
       margin: 0;
       padding: 0;
-      column-gap: 40px;
+      /* column-gap: 40px; */
       row-gap: 40px;
       display: flex;
       flex-wrap: wrap;
@@ -63,7 +63,7 @@
       height: 100%;
       margin: 0px;
       margin-top: 52px;
-
+      column-count: 2;
       @media (max-width: $tablet-portrait) {
         column-gap: 20px;
         row-gap: 20px;
@@ -95,7 +95,7 @@
           font-style: normal;
           font-weight: 400;
           width: 100%;
-          padding: 1.2rem 24px;
+          padding: 1.2rem 20px;
           text-align: left;
           min-height: 80px;
           display: block;

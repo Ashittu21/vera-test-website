@@ -32,7 +32,7 @@ $group5_fill__dk: #7548a2;
 $group6_stroke: #a869e7;
 $group6_fill: #c296ee;
 $group6_fill__lt: #f5edfc;
-$group6_fill__dk: #a52e28;
+$group6_fill__dk: #EF4136;
 
 @mixin mapTheme(
   $bg,
@@ -820,8 +820,8 @@ $group6_fill__dk: #a52e28;
   }
 
   .state_select_menu {
-    column-count: 5;
-    -moz-column-count: 5;
+    column-count: 3;
+    -moz-column-count: 3;
 
     @media (max-width: $tablet-landscape) {
       column-count: 4;

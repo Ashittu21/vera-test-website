@@ -64,7 +64,7 @@
         box-sizing: border-box;
         transition: all 0.5s ease-in-out;
         &:hover{
-          background-image: -webkit-linear-gradient(180deg, #ff2626 40.1%, var(--global-color-medium-violet) 40.1%);
+          background-image: -webkit-linear-gradient(180deg, #da392f 40.1%, var(--global-color-medium-violet) 40.1%);
         }
         
         @media (max-width: $tablet-landscape) {
@@ -88,6 +88,7 @@
           width: 50%;
           transition: all 0.2s ease-in-out;
           margin-top: 1.5rem;
+          margin-bottom: 1.5rem;
           @media (max-width: $tablet-landscape) {
             width: 60%;
             padding-left: 50px;
@@ -129,12 +130,14 @@
               background-size: 0% 2px;
               transition: background-size .9s;
               display: initial;
+              color: #fff;
               @media (max-width: $tablet-landscape) {
                 font-size: 35px;
                 line-height: 42px;
               }
               &:hover {
                 background-size: 100% 2px;
+                color: #fff;
               }
             }
             

@@ -28,7 +28,7 @@
           }
           
           &-copy{
-            margin-top:20px;
+            margin-top:0;
             font-family: var(--global-font-abc-whyte);
             font-size: 21px;
             color: #FFF;
@@ -96,7 +96,7 @@
             letter-spacing: 0.17em;
             text-align: left;
             margin-bottom: 22px;
-            
+            margin-top: 33px;
             @media (max-width: $tablet-landscape) {
               width: 80%;
               margin: 0 auto;
@@ -352,7 +352,8 @@
                     line-height: 42px;
                     letter-spacing: 0em;
                     text-align: left;
-                    margin-bottom: 1.5rem;                 
+                    margin-bottom: 2.5rem;
+                    margin-top: 2.5rem;                  
                     @media (max-width: $tablet-landscape) {
                       font-size: 26px;
                       line-height: 31px;
@@ -642,7 +643,7 @@
           color: #0A0319;
           text-transform: capitalize;
           margin-bottom: 50px;
-          max-width: max-content;
+          max-width: 180px;
           background-position: 91% center;
           background-size: auto 11px;
           background-repeat: no-repeat;
@@ -779,7 +780,9 @@
       text-decoration: underline;
       white-space: nowrap;
       padding: 0px 20px 0px 0px;
-      
+      &:hover{
+        color: #fff;
+      }
     }
     
     
