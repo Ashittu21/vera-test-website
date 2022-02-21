@@ -30,13 +30,22 @@
       padding: 1rem;
     }
     &-text {
-      font-size: 45px;
+      font-size: 60px;
       font-style: normal;
       font-weight: 900;
-      line-height: 52px;
+      line-height: 68.7px;
       letter-spacing: 0em;
       text-align: center; 
       font-family: var(--global-font-abc-whyte);
+
+      &.smallText{
+        font-size: 45px;
+        font-style: normal;
+        font-weight: 900;
+        line-height: 52px;
+        letter-spacing: 0em;
+        text-align: center;
+      }
 
       @media(max-width:$mobile-breakpoint) {
         font-size: 35px;

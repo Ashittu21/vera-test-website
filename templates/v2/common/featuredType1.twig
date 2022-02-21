@@ -1,6 +1,7 @@
 <section class="featured-type1">
   <div class="featured-type1-content">
-    <div class="featured-type1-content-title">
+      {% set stringLength = block.featuredType2_text | length %}
+    <div class="featured-type1-content-title {% if stringLength > 133 %}smallText{% endif %}">
       {{ block.featuredType1_title }}
     </div>
     <div class="featured-type1-content-subtitle">
