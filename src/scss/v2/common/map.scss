@@ -166,12 +166,14 @@
     border-top-color: #DA392F;
   }
 
-  .project-map.light .tooltip {
-    background-color: #DA392F;
+ /*  .project-map.light .tooltip {
+    background-color: #0E002C;
   }
+ */
 
-
-
+  .mapContainer .project-map.light .tooltip {
+    background-color: #0E002C !important;
+  }
 
 
 

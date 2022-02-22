@@ -31,9 +31,28 @@ z-index: 1;
   position: absolute;
   z-index: -1; 
   background-image: url("../../dist/img/v2/brushstroke-02.svg");
+  animation-name: test-text3;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
   @media (max-width: $tablet-portrait) {
     height: 1rem;
     bottom: -0.1rem;
   }
 }
+}
+
+@keyframes test-text3 {
+  0% {
+    -webkit-transform: translateX(-100px);
+    transform: translateX(-100px);
+    /* opacity: 0; */
+    width: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    width: 100%;
+    /* opacity: 1; */
+
+  }
 }

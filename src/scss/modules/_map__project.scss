@@ -149,7 +149,7 @@ $group6_fill__dk: #EF4136;
     stroke: white;
   }
   .tooltip {
-    background-color: $tooltip_bg;
+    /* background-color: $tooltip_bg; */
     color: $tooltip_text;
 
     &:after {
@@ -1367,7 +1367,7 @@ $group6_fill__dk: #EF4136;
   padding-bottom: $padding-lg;
   @include mapThemeLight;
   .tooltip {
-    @extend %map-tooltip;
+    /* @extend %map-tooltip; */
   }
   .map_wrap {
     max-width: 1000px;
@@ -1433,4 +1433,12 @@ $group6_fill__dk: #EF4136;
   div + div {
     margin-left: 0.5rem;
   }
+}
+
+.no-touch .project-map.light .state__path.state__is-active:hover {
+  fill: #EF4136;
+}
+
+.mapContainer .project-map.light .tooltip {
+  background-color: #0E002C !important;
 }
