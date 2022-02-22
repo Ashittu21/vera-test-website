@@ -33710,16 +33710,21 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
       .footerV2 .footerV2-top .footerV2-top-col04 .mail-list {
         background-color: #2E1D97;
         color: #FFF;
-        padding: 30px 20px 40px 70px;
+        padding: 30px 20px 40px 60px;
         -webkit-box-sizing: border-box;
                 box-sizing: border-box;
-        overflow: hidden; }
-        .footerV2 .footerV2-top .footerV2-top-col04 .mail-list .title {
-          font-family: var(--global-font-abc-whyte);
-          font-weight: 800;
-          font-size: 26px;
-          line-height: 33.8px;
-          margin-bottom: 32px; }
+        position: absolute;
+        width: 100%; }
+        .footerV2 .footerV2-top .footerV2-top-col04 .mail-list-container {
+          max-width: 223px;
+          left: 0;
+          position: relative; }
+          .footerV2 .footerV2-top .footerV2-top-col04 .mail-list-container .title {
+            font-family: var(--global-font-abc-whyte);
+            font-weight: 800;
+            font-size: 26px;
+            line-height: 33.8px;
+            margin-bottom: 32px; }
   .footerV2 .footerV2-bottom {
     background-color: #160643;
     border-top: 2px solid #3E2BB1;
