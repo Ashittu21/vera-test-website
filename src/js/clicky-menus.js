@@ -21,24 +21,21 @@
 
 		this.init = function() {
 			menuSetup();
-			document.addEventListener( 'click', closeOpenMenu );
+			document.addEventListener('mouseover', closeOpenMenu);
 		}
 
 
 		/*===================================================
 		=            Menu Open / Close Functions            =
 		===================================================*/
+
 		function toggleOnMenuClick( e ) {
-
 			const button = e.currentTarget;
-
 			// close open menu if there is one
 			if ( currentMenuItem && button !== currentMenuItem ) {
 				toggleSubmenu( currentMenuItem );
 			}
-
 			toggleSubmenu( button );
-
 		};
 
 		function toggleSubmenu( button ) {
@@ -46,18 +43,14 @@
 			const submenu = document.getElementById( button.getAttribute( 'aria-controls' ) );
 
 			if ( 'true' === button.getAttribute( 'aria-expanded' ) ) {
-
 				button.setAttribute( 'aria-expanded', false );
 				submenu.setAttribute( 'aria-hidden', true );
 				currentMenuItem = false;
-
 			} else {
-
 				button.setAttribute( 'aria-expanded', true );
 				submenu.setAttribute( 'aria-hidden', false );
 				preventOffScreenSubmenu( submenu );
 				currentMenuItem = button;
-
 			}
 
 		};
@@ -120,7 +113,8 @@
 					setUpAria( submenu, button );
 
 					// bind event listener to button
-					button.addEventListener( 'click', toggleOnMenuClick );
+					button.addEventListener('mouseover', toggleOnMenuClick);
+					//button.addEventListener( 'mouseeave', toggleOnMenuClick );
 					menu.addEventListener( 'keyup', closeOnEscKey );
 
 				}

@@ -10,9 +10,10 @@
 							{% for node in navigationTop.level(1).all() %}
 								{% if node.hasDescendants() %}
 									<li>
-										<a href="#">
+										 <a href="#">
 											{{ node.title }}
 										</a>
+
 										<ul>
 											{% set nodeSubs = node.getChildren() %}
 											{% for nodeSub in nodeSubs.all() %}
