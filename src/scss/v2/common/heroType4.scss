@@ -7,7 +7,7 @@
     height: 100%;
     display: flex;
     justify-content: flex-start;
-    align-items: center;
+    align-items: flex-end;
     @media(max-width:$mobile-breakpoint) {
       min-height: 250px;
     }
@@ -15,18 +15,29 @@
       max-width: 840px;
       width: 100%;
       margin: 0 auto;
-
-      .breadcrumbs{
-        font-family: var(--global-font-abc-whyte);
+     
+      &-breadcrumbs{
+        text-align: left;
+        margin-bottom: 22px;
         font-size: 11px;
         font-style: normal;
-        font-weight: 400;
-        line-height: 21px;
-        letter-spacing: 0.17em;
+        font-weight: 500;
         text-align: left;
+        line-height: 12px;
+        letter-spacing: 0.17em;
         text-transform: uppercase;
-        a{
+        font-family: var(--global-font-abc-whyte);
+        color: #0a0319;
 
+        a {
+          font-size: 11px;
+          font-style: normal;
+          font-weight: 500;
+          text-align: left;
+          line-height: 12px;
+          letter-spacing: 0.17em;
+          text-transform: uppercase;
+          font-family: var(--global-font-abc-whyte);
         }
       }
 
@@ -51,19 +62,19 @@
 
       .subtitle{
         display: block;
-        margin-top: 15px;
+        margin-top: 20px;
         font-family: var(--global-font-abc-whyte);
         color: var(--global-color-text);
         font-size: 40px;
         font-style: normal;
-        font-weight: 400;
+        font-weight: 500;
         line-height: 48px;
         letter-spacing: 0em;
         text-align: left;
       }
 
       .authors{
-        margin-top: 2rem;
+        margin-top: 20px;
         font-family: var(--global-font-abc-whyte);
         font-size: 14px;
         font-style: normal;
@@ -78,6 +89,7 @@
 
       .date{
         margin-top: 2rem;
+        margin-bottom: 18px;
         font-family: var(--global-font-abc-whyte);
         font-size: 14px;
         font-style: normal;
@@ -93,8 +105,6 @@
       display: block;
       position: absolute;
       background-color: var(--global-color-dark-sand);
-      /* height: 2px; */
-     /*  width: 100%; */
       top: 57px;
       animation-name: test-animation;
       animation-duration: 8s;
@@ -152,7 +162,6 @@
   from {
       width:0px;
   }
-
   to {
       width: 100vw;
   }

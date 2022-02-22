@@ -9,15 +9,16 @@
   <div class="hero-type4">
       <div class="hero-type4-content">
         <div class="hero-type4-content-copy">
-          <div class="hero-type4-content-breadcrumbs">
-            {% if entry.level > 1 %}
-              <a href="">HOME</a>
+          <div class="hero-type4-content-copy-breadcrumbs">
+           {% if entry.level > 1 %}
+              <a href="{{ siteUrl }}">HOME</a>
+              //  <a href="#">News Article</a>
               {% for crumb in entry.getAncestors() %}
                 // {{ crumb.getLink() }} 
               {% endfor %}
-            {% else %}
-              <a href="">HOME</a>
-            {% endif %} 
+          {% else %}
+            <a href="{{ siteUrl }}">HOME</a> //  <a href="#">News Article</a>
+          {% endif %}  
           </div> 
 
           <h1>{{ entry.newsArticle_heroTitle }}</h1>
@@ -30,7 +31,7 @@
               {% endfor %} 
             {% endif %}
           </div>
-          <div class="date"></div>
+          <div class="date">{{ entry.postDate | date("M d, Y") }}</div>
         </div>
    
         <div class="hero-type4-content-line1 news"></div>
