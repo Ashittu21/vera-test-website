@@ -35900,8 +35900,6 @@ header {
       border-bottom: 1px solid #ABFFEB;
       -webkit-transform: translate(0, 60px);
               transform: translate(0, 60px);
-      -webkit-transition-delay: 0.3s;
-              transition-delay: 0.3s;
       padding-right: 90px; }
     .search-wrapper .input-holder .txt-label {
       font-family: var(--global-font-abc-whyte);
@@ -35953,9 +35951,7 @@ header {
     left: 0px;
     width: 25px;
     height: 25px;
-    cursor: pointer;
-    -webkit-transition-delay: 0.2s;
-            transition-delay: 0.2s; }
+    cursor: pointer; }
   .search-wrapper.active .close {
     right: 0px;
     -webkit-transform: rotate(45deg);

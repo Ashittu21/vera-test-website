@@ -33,7 +33,6 @@
         background-image: url("../img/v2/s-icon.svg");
         background-repeat: no-repeat;
         background-size: cover;
-
       }
     }
 
@@ -56,7 +55,6 @@
       color: #FFF;
       border-bottom: 1px solid #ABFFEB;
       transform: translate(0, 60px);
-      transition-delay: 0.3s;
       padding-right: 90px;
     }
 
@@ -137,8 +135,6 @@
     width: 25px;
     height: 25px;
     cursor: pointer;
-    transition-delay: 0.2s;
-
   }
 
   &.active .close {
