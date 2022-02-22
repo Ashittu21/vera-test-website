@@ -91,6 +91,10 @@
            &::placeholder{
              color: var(--global-color-white);
            }
+           @media (max-width: $mobile-large) {
+            width: 100%;
+          }
+      
          }
        }
      }
