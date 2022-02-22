@@ -37271,5 +37271,7 @@ header {
       background-color: var(--global-color-mint);
       border-color: var(--global-color-mint);
       color: var(--global-color-text); }
+  .search-stream .filter-label a:after, .search-stream .filter__dropdown-outer a:after {
+    border: 2px solid #ffffff; }
 
 /*# sourceMappingURL=main.css.map */

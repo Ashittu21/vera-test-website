@@ -89,4 +89,8 @@
       color: var(--global-color-text);
     }
   }
+
+  .filter-label a:after, .filter__dropdown-outer a:after{
+    border: 2px solid #ffffff;
+  }
 }
