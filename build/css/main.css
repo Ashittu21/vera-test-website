@@ -31231,7 +31231,8 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
             text-align: left; }
           .block-latestNews-content .latestNews-hero .latestNews-hero-container .latestNews-hero-copy-title {
             font-family: var(--global-font-sectra);
-            margin-top: 1.5rem; }
+            margin-top: 20px;
+            margin-bottom: 50px; }
             .block-latestNews-content .latestNews-hero .latestNews-hero-container .latestNews-hero-copy-title h4 {
               font-size: 45px;
               font-style: normal;
@@ -35891,6 +35892,9 @@ header {
             display: none; } }
   .home-content .headTitle-content {
     padding-top: 10rem; }
+
+.block-latestNews + .heroType2 {
+  margin-top: 75px; }
 
 .initiative-page {
   min-height: 500px; }
