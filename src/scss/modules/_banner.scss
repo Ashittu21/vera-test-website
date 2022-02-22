@@ -7,6 +7,7 @@
   position: relative;
   overflow: hidden;
 
+
   img {
     display: none;
   }
@@ -444,6 +445,7 @@
 
 .banner-image-right {
   padding: $padding-lg 0;
+  z-index: 1;
   @include body-font;
   @include font-size(2);
   line-height: 1.75;
@@ -488,6 +490,7 @@
 }
 
 .banner-image-right__header {
+  z-index: 1;
   margin-bottom: $padding-lg;
   font-family: 'ABC Whyte';
   @media (min-width: $tablet-landscape) {

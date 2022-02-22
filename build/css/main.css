@@ -7169,6 +7169,7 @@ body.no-scroll {
 
 .banner-image-right {
   padding: 40px 0;
+  z-index: 1;
   font-size: 20px;
   font-size: 2rem;
   font-family: 'ABC Whyte';
@@ -7208,6 +7209,7 @@ body.no-scroll {
     font-family: 'ABC Whyte'; }
 
 .banner-image-right__header {
+  z-index: 1;
   margin-bottom: 40px;
   font-family: 'ABC Whyte'; }
   @media (min-width: 1024px) {
@@ -35462,7 +35464,7 @@ header {
           -ms-flex-direction: row;
               flex-direction: row;
       width: 100%;
-      z-index: 100;
+      z-index: 1000;
       /* General Link & Button Styles */
       /* Top Level Items */
       /* Submenu Styles */
@@ -35667,7 +35669,7 @@ header {
     height: 67px;
     border-bottom: 2px solid #3E2BB1;
     width: 100%;
-    z-index: 5;
+    z-index: 500;
     -webkit-transition: all 0.2s ease;
     transition: all 0.2s ease; }
     .header-v2 .rowBottom-container {
@@ -35729,12 +35731,10 @@ header {
         height: 67px;
         background-color: #160643;
         border-bottom: 2px solid #3e2bb1;
-        z-index: 5;
-        /*  transition: all .2s ease;*/ }
+        z-index: 500; }
         .header-v2 .rowBottom #header-v2-bottom-nav ul.row-bottom-menu ul {
           border-top: 2px solid #3e2bb1;
-          z-index: 5;
-          /*  transition: all .2s ease;*/ }
+          z-index: 500; }
       .header-v2 .rowBottom #header-v2-bottom-nav .clicky-menu a,
       .header-v2 .rowBottom #header-v2-bottom-nav .clicky-menu button {
         color: #FFF;
@@ -35807,7 +35807,7 @@ header {
         .header-v2 .rowBottom #header-v2-bottom-nav .clicky-menu ul[aria-hidden="false"] {
           position: absolute;
           min-width: 413px;
-          z-index: 5; } }
+          z-index: 500; } }
       .header-v2 .rowBottom #header-v2-bottom-nav .clicky-menu ul li {
         padding: 17px 10px 17px 35px; }
         .header-v2 .rowBottom #header-v2-bottom-nav .clicky-menu ul li:first-child {
@@ -35841,9 +35841,6 @@ header {
   background: #160643;
   height: 60px;
   border-bottom: 2px solid #3E2BB1; }
-
-body {
-  background: #0E002C; }
 
 .search-wrapper {
   position: absolute;
@@ -35957,18 +35954,12 @@ body {
     width: 25px;
     height: 25px;
     cursor: pointer;
-    -webkit-transition: all 0.3s cubic-bezier(0.285, -0.45, 0.935, 0.11);
-    transition: all 0.3s cubic-bezier(0.285, -0.45, 0.935, 0.11);
     -webkit-transition-delay: 0.2s;
             transition-delay: 0.2s; }
   .search-wrapper.active .close {
     right: 0px;
     -webkit-transform: rotate(45deg);
-            transform: rotate(45deg);
-    -webkit-transition: all 0.6s cubic-bezier(0, 0.105, 0.035, 1.57);
-    transition: all 0.6s cubic-bezier(0, 0.105, 0.035, 1.57);
-    -webkit-transition-delay: 0.5s;
-            transition-delay: 0.5s; }
+            transform: rotate(45deg); }
 
 .page404 {
   display: -webkit-box;

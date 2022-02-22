@@ -1,13 +1,9 @@
-body {
-  background: #0E002C;
-}
 
 .search-wrapper {
   position: absolute;
   transform: translate(0%, -50%);
   top: 50%;
   right: 50px;
-
 
   .input-holder {
     max-height: 70px;
@@ -19,7 +15,6 @@ body {
     flex-direction: row;
 
     .search-icon {
-
       border: none;
       padding: 0px;
       outline: none;
@@ -28,7 +23,6 @@ body {
       float: right;
       cursor: pointer;
       background-color: transparent;
-
 
       span {
         width: 22px;
@@ -41,7 +35,6 @@ body {
         background-size: cover;
 
       }
-
     }
 
     .search-input {
@@ -68,7 +61,6 @@ body {
     }
 
     .txt-label {
-
       font-family: var(--global-font-abc-whyte);
       font-size: 14px;
       font-style: normal;
@@ -77,7 +69,6 @@ body {
       letter-spacing: 0em;
       text-align: left;
       padding-right: 10px;
-
     }
 
     .close {
@@ -90,10 +81,7 @@ body {
       display: block;
       max-width: 300px;
       width: 250px;
-
-
       .search-icon {
-
         height: 50px;
         margin: 10px;
         right: 0px;
@@ -104,7 +92,6 @@ body {
         opacity: 1;
         transform: translate(0, 10px);
         margin-left: 50px;
-
       }
 
       .close {
@@ -150,7 +137,6 @@ body {
     width: 25px;
     height: 25px;
     cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.285, -0.45, 0.935, 0.11);
     transition-delay: 0.2s;
 
   }
@@ -158,8 +144,6 @@ body {
   &.active .close {
     right: 0px;
     transform: rotate(45deg);
-    transition: all 0.6s cubic-bezier(0, 0.105, 0.035, 1.57);
-    transition-delay: 0.5s;
   }
 
 
