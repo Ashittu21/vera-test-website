@@ -58,7 +58,6 @@ header {
         width: 100%;
         max-height: 42px;
         justify-content: flex-start;
-
         font-weight: 300;
         font-size: 14px;
         font-style: normal;
@@ -83,6 +82,9 @@ header {
         font-size: 14px;
         font-style: normal;
     //    transition: all 0.2s ease;
+        justify-content: left;
+        align-content: center;
+
       }
 
       .clicky-menu a:hover,
@@ -140,7 +142,10 @@ header {
 
         .clicky-menu>li>a,
         .clicky-menu>li>button {
-          justify-content: center;
+          
+          justify-content: flex-start;
+          align-content: center;
+          padding-left: 35px;
         }
       }
 
@@ -260,7 +265,6 @@ header {
           align-content: center;
           box-sizing: border-box;
           display: flex;
-
           img {
             margin: 15px;
           }
@@ -301,6 +305,20 @@ header {
 
       }
 
+      ul.row-bottom-menu{
+        height: 67px;
+        background-color: #160643;
+        border-bottom: 2px solid #3e2bb1;
+        z-index: 5;
+      /*  transition: all .2s ease;*/
+
+        ul{
+          border-top: 2px solid #3e2bb1;
+          z-index: 5;
+        /*  transition: all .2s ease;*/
+        }
+      }
+
 
       /* General Link & Button Styles */
       .clicky-menu a,
@@ -310,8 +328,8 @@ header {
         font-size: 16px;
         font-weight: bold;
         background: transparent;
-        height: 67px;
-       /* transition: background-color 0.2s ease;*/
+        justify-content: left;
+        align-content: center;
       }
 
       .clicky-menu a:hover,
@@ -338,18 +356,18 @@ header {
         flex: 1 0 auto;
         display: flex;
         flex-wrap: wrap;
-        align-items: center;
         border: 0;
         font-size: inherit;
         line-height: 1.5;
         cursor: pointer;
+        justify-content: left;
+        padding-left: 35px;
       }
 
       @media (min-width: 540px) {
-
         .clicky-menu>li>a,
         .clicky-menu>li>button {
-          justify-content: center;
+          justify-content: left;
         }
       }
 
@@ -382,7 +400,7 @@ header {
         .clicky-menu ul[aria-hidden="false"] {
           position: absolute;
           //width: auto;
-          width: 413px;
+          min-width: 413px;
           z-index: 5;
         }
       }
@@ -390,8 +408,16 @@ header {
       /* Submenu Links */
 
       .clicky-menu ul li {
-        padding: 13px 10px 13px 40px;
-     /*   transition: background-color 0.2s ease;*/
+        &:first-child{
+          padding-top: 34px;
+        }
+        &:last-child{
+          padding-bottom: 40px;
+        }
+        padding: 17px 10px 17px 35px;
+        .hover-arrow {
+          margin-bottom: 16px;
+        }
 
         &:hover {
           background-color: #3E2BB1;
