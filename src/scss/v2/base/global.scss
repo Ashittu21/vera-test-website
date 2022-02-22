@@ -63,3 +63,8 @@ h1,h2,h3,h4,h5{
   /* display: none; */
   font-weight: bold;
 }
+
+#content{
+  z-index: 1;
+  position: relative;
+}
