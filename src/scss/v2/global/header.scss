@@ -81,7 +81,6 @@ header {
         font-weight: 300;
         font-size: 14px;
         font-style: normal;
-    //    transition: all 0.2s ease;
         justify-content: left;
         align-content: center;
 
@@ -100,11 +99,11 @@ header {
         background-image: url("../img/v2/menu-close.svg");
         background-repeat: no-repeat;
         background-size: inherit;
-        background-position: right 10px center;
+        background-position: right 17px center;
+        justify-content: center;
       }
 
       .clicky-menu [aria-expanded="true"] {
-     //   transition: all 0.2s ease;
         background-color: #2E1D97;
         border-bottom: 1px solid #3E2BB1;
         padding-right: 20px;
@@ -112,7 +111,8 @@ header {
         background-image: url("../img/v2/menu-open.svg");
         background-repeat: no-repeat;
         background-size: inherit;
-        background-position: right 10px center;
+        background-position: right 17px center;
+        justify-content: center;
       }
 
 
@@ -230,6 +230,12 @@ header {
       max-width: 510px;
       justify-content: flex-end;
 
+      .search{
+        display: block;
+        width: 100%;
+        position: relative;
+        right: 0;
+      }
       .donate {
         justify-content: end;
         align-items: center;
