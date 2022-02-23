@@ -121,11 +121,20 @@
             min-height: inherit;
           }
 
-          &::before {
+/*           &::before {
             content: '';
             height: 100%;
             display: inline-block;
             vertical-align: middle;
+          } */
+
+          &::before {
+            content: '';
+            height: auto;
+            display: flex;
+            /* vertical-align: middle; */
+            justify-content: center;
+            align-items: center;
           }
 
           &::after {
