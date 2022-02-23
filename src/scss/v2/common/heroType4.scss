@@ -1,9 +1,10 @@
 .hero-type4 {
   background-color: var(--global-color-sand);
   transition: all 0.2s ease-in-out;
+  margin-bottom: 60px;
   &-content{
     position: relative;
-    min-height: 699px;
+    min-height: 610px;
     height: 100%;
     display: flex;
     justify-content: flex-start;
@@ -91,11 +92,12 @@
         margin-top: 2rem;
         font-family: var(--global-font-abc-whyte);
         font-size: 14px;
+        line-height: 14px;
         font-style: normal;
         font-weight: 400;
-        line-height: 23px;
         letter-spacing: 0em;
         text-align: left;
+        padding: 0;
       }
   
     }

@@ -31014,10 +31014,11 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
 .hero-type4 {
   background-color: var(--global-color-sand);
   -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out; }
+  transition: all 0.2s ease-in-out;
+  margin-bottom: 60px; }
   .hero-type4-content {
     position: relative;
-    min-height: 699px;
+    min-height: 610px;
     height: 100%;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -31098,11 +31099,12 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
         margin-top: 2rem;
         font-family: var(--global-font-abc-whyte);
         font-size: 14px;
+        line-height: 14px;
         font-style: normal;
         font-weight: 400;
-        line-height: 23px;
         letter-spacing: 0em;
-        text-align: left; }
+        text-align: left;
+        padding: 0; }
     .hero-type4-content-line1 {
       display: block;
       position: absolute;
