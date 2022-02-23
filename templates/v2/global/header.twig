@@ -1,4 +1,4 @@
-<header>
+<header class="header-site">
   <section class="header-v2">
 
     <div class="rowTop">
@@ -45,10 +45,10 @@
         <div class="d-md-block menu-right">
           <div class="search">
             <div class="search-wrapper">
-              <form class="input-holder" action="/search" method="get">
+              <form class="input-holder" action="{{ siteUrl }}search" method="GET">
                 <div class="txt-label">Search</div>
-                <input type="text" class="search-input" placeholder="Search"/>
-                <button class="search-icon" onclick="searchToggle(this, event);">
+                  <input type="text" class="search-input" name="query" placeholder="Search"/>
+                  <button class="search-icon" onclick="searchToggle(this, event);">
                   <span></span>
                 </button>
               </form>

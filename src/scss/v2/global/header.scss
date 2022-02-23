@@ -333,12 +333,16 @@ header {
         background: transparent;
         justify-content: left;
         align-content: center;
+        transition: background-size .9s;
+        &:hover{
+          background-color: #2E1D97;
+        }
       }
-
+/*
       .clicky-menu a:hover,
       .clicky-menu button:hover {
         background-color: #2E1D97;
-      }
+      }*/
 
       .clicky-menu [aria-expanded="true"] {
         background-color: #2E1D97;
@@ -363,19 +367,26 @@ header {
         font-size: inherit;
         line-height: 1.5;
         cursor: pointer;
-        justify-content: left;
         padding-left: 35px;
       }
 
-      @media (min-width: 540px) {
-        .clicky-menu>li>a,
-        .clicky-menu>li>button {
+      .clicky-menu>li
+      {
+        >a {
+          justify-content: center;
+          padding-left: 0px;
+          @media (min-width: 540px) {
+            justify-content: center;
+          }
+        }
+        >button {
           justify-content: left;
+          @media (min-width: 540px) {
+            justify-content: left;
+          }
         }
       }
-
-
-
+   
       /* Submenu Styles */
       .clicky-menu ul {
         min-width: 100%;
@@ -384,8 +395,6 @@ header {
         padding: 0;
         list-style: none;
         background-color: #2E1D97;
-     /*   transition: background-color 0.2s ease;*/
-        //  width: 413px;
       }
 
       @media (min-width: 540px) {
@@ -414,12 +423,15 @@ header {
         &:first-child{
           padding-top: 34px;
         }
+
         &:last-child{
           padding-bottom: 40px;
         }
+        
         padding: 17px 10px 17px 35px;
+
         .hover-arrow {
-          margin-bottom: 16px;
+          margin-bottom: 5px;
         }
 
         &:hover {
@@ -449,12 +461,6 @@ header {
           &:hover {
             background-color: transparent;
           }
-        }
-      }
-
-      @media (min-width: 540px) {
-        .clicky-menu ul a .hover-arrow {
-
         }
       }
     }
