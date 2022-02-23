@@ -4,7 +4,7 @@
 
   &-content{
     position: relative;
-    padding-top: 130px;
+    padding-top: 150px;
     height: 100%;
     display: flex;
     justify-content: flex-start;
@@ -109,7 +109,7 @@
       background-color: var(--global-color-dark-sand);
       top: 57px;
       animation-name: test-animation;
-      animation-duration: 8s;
+      animation-duration: 4s;
       animation-fill-mode: forwards;
       background-color: var(--global-color-dark-sand);
       width: 0;
