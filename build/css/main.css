@@ -35739,6 +35739,11 @@ header {
               flex-direction: row;
       width: 100%;
       /* General Link & Button Styles */
+      /*
+      .clicky-menu a:hover,
+      .clicky-menu button:hover {
+        background-color: #2E1D97;
+      }*/
       /* Top Level Items */
       /* Submenu Styles */
       /* Responsive Submenu Behavior */
@@ -35777,10 +35782,12 @@ header {
             -ms-flex-pack: left;
                 justify-content: left;
         -ms-flex-line-pack: center;
-            align-content: center; }
-      .header-v2 .rowBottom #header-v2-bottom-nav .clicky-menu a:hover,
-      .header-v2 .rowBottom #header-v2-bottom-nav .clicky-menu button:hover {
-        background-color: #2E1D97; }
+            align-content: center;
+        -webkit-transition: background-size .9s;
+        transition: background-size .9s; }
+        .header-v2 .rowBottom #header-v2-bottom-nav .clicky-menu a:hover,
+        .header-v2 .rowBottom #header-v2-bottom-nav .clicky-menu button:hover {
+          background-color: #2E1D97; }
       .header-v2 .rowBottom #header-v2-bottom-nav .clicky-menu [aria-expanded="true"] {
         background-color: #2E1D97; }
       .header-v2 .rowBottom #header-v2-bottom-nav .clicky-menu > li {

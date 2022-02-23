@@ -333,12 +333,16 @@ header {
         background: transparent;
         justify-content: left;
         align-content: center;
+        transition: background-size .9s;
+        &:hover{
+          background-color: #2E1D97;
+        }
       }
-
+/*
       .clicky-menu a:hover,
       .clicky-menu button:hover {
         background-color: #2E1D97;
-      }
+      }*/
 
       .clicky-menu [aria-expanded="true"] {
         background-color: #2E1D97;
