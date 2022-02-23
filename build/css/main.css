@@ -29755,6 +29755,9 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
       .block-listing-content .block-listing-item:hover .block-listing-item-tag {
         color: var(--global-color-white); }
 
+.block-listing-item:hover .block-listing-item-title p {
+  color: #fff; }
+
 .btnPlay {
   background-color: transparent;
   color: #FFF;
@@ -30485,7 +30488,13 @@ ol{
           border-left: 2px solid var(--global-color-mint);
           text-decoration: none;
           -webkit-transition: all 0.15s cubic-bezier(0.19, 0.11, 0.21, 0.99);
-          transition: all 0.15s cubic-bezier(0.19, 0.11, 0.21, 0.99); }
+          transition: all 0.15s cubic-bezier(0.19, 0.11, 0.21, 0.99);
+          /*           &::before {
+            content: '';
+            height: 100%;
+            display: inline-block;
+            vertical-align: middle;
+          } */ }
           @media (max-width: 1024px) {
             .block-exploreMore .block-exploreMore-container .block-exploreMore-items li a {
               min-height: 90px; } }
@@ -30497,9 +30506,17 @@ ol{
               min-height: inherit; } }
           .block-exploreMore .block-exploreMore-container .block-exploreMore-items li a::before {
             content: '';
-            height: 100%;
-            display: inline-block;
-            vertical-align: middle; }
+            height: auto;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            /* vertical-align: middle; */
+            -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                    justify-content: center;
+            -webkit-box-align: center;
+                -ms-flex-align: center;
+                    align-items: center; }
           .block-exploreMore .block-exploreMore-container .block-exploreMore-items li a::after {
             content: '';
             width: 20px;
@@ -32530,7 +32547,8 @@ ol{
   margin-bottom: 30px; }
   @media (max-width: 768px) {
     .quote-block-type1 {
-      padding: 1rem; } }
+      padding: 1rem;
+      margin-top: 35px; } }
   .quote-block-type1 blockquote {
     margin: 0;
     display: -webkit-box;
@@ -32563,6 +32581,9 @@ ol{
       text-align: left; }
       @media (max-width: 768px) {
         .quote-block-type1 blockquote .quote-text {
+          margin-left: 0; } }
+      @media (max-width: 768px) {
+        .quote-block-type1 blockquote .quote-text {
           font-size: 28px;
           line-height: 36px; } }
   .quote-block-type1 .quote-attribution {
@@ -32575,6 +32596,9 @@ ol{
     line-height: 24px;
     letter-spacing: 0em;
     text-align: left; }
+    @media (max-width: 768px) {
+      .quote-block-type1 .quote-attribution {
+        margin-left: 30px; } }
     .quote-block-type1 .quote-attribution strong {
       font-family: var(--global-font-abc-whyte);
       text-decoration: underline;
