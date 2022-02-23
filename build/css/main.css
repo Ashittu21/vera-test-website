@@ -35874,7 +35874,7 @@ header {
         .header-v2 .rowBottom #header-v2-bottom-nav .clicky-menu ul li:last-child {
           padding-bottom: 40px; }
         .header-v2 .rowBottom #header-v2-bottom-nav .clicky-menu ul li .hover-arrow {
-          margin-bottom: 16px; }
+          margin-bottom: 5px; }
         .header-v2 .rowBottom #header-v2-bottom-nav .clicky-menu ul li:hover {
           background-color: #3E2BB1; }
           .header-v2 .rowBottom #header-v2-bottom-nav .clicky-menu ul li:hover .hover-arrow {
@@ -36015,6 +36015,8 @@ header {
     right: 0px;
     -webkit-transform: rotate(45deg);
             transform: rotate(45deg); }
+    .search-wrapper.active .close:hover::before, .search-wrapper.active .close:hover::after {
+      background: var(--global-color-red); }
 
 .page404 {
   display: -webkit-box;
