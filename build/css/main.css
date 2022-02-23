@@ -36302,7 +36302,11 @@ header {
       padding: 0; }
 
 .news-article {
-  min-height: 500px; }
+  min-height: 500px;
+  padding-top: 60px; }
+  .news-article:first-child {
+    padding-top: 0;
+    margin-top: 0; }
 
 .newsandstories-page .block-latestNews {
   padding: 70px 0; }
