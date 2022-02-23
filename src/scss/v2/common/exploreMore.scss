@@ -91,9 +91,12 @@
           letter-spacing: -1px;
           justify-content: center;
           align-items: center;
+          font-family: var(--global-font-abc-whyte);
           font-size: 21px;
+          letter-spacing: 0em;
           font-style: normal;
-          font-weight: 400;
+          line-height: 29px;
+          font-weight: 500;
           width: 100%;
           padding: 1.2rem 20px;
           text-align: left;
@@ -101,10 +104,10 @@
           display: block;
           color: var(--global-color-white);
           background-color: var(--global-color-medium-violet);
-          border-left: 2px solid var(--global-color-light-violet);
+          border-left: 2px solid var(--global-color-mint);
           text-decoration: none;
           transition: all 0.15s $ease-nice;
-          font-family: var(--global-font-abc-whyte);
+    
           
           @media (max-width: $tablet-landscape) {
             min-height: 90px;

@@ -10,6 +10,10 @@
     flex-direction: row;
     margin: 0 auto;
 
+    @media(max-width: $mobile-breakpoint) {
+      padding: 0;
+    }
+
     .footerV2-top-container {
       max-width: $desktop-ml;
       width: 100%;
@@ -23,7 +27,7 @@
     }
 
     .footerV2-column {
-      margin: 10px 0 0 2%;
+      margin: 0 0 0 2%;
       flex-grow: 1;
       width: calc(100% * (1/4) - 10px - 1px);
 
@@ -106,9 +110,18 @@
     }
 
     .footerV2-top-col03 {
-      padding-top: 40px;
+      padding-top: 37px;
 
-      .social-copy {}
+      .social-copy {
+        font-size: 17px;
+        font-family: var(--global-font-abc-whyte);
+        font-size: 17px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 24px;
+        letter-spacing: 0em;
+        text-align: left;
+      }
 
       .social-icons {
         display: flex;
@@ -147,10 +160,13 @@
       .mail-list {
         background-color: #2E1D97;
         color: #FFF;
-        padding: 30px 20px 40px 60px;
+        padding: 33px 20px 40px 60px;
         box-sizing: border-box;
         position: absolute;
         width: 100%;
+        @media(max-width: $mobile-breakpoint) {
+          position: relative;
+        }
 
         &-container {
           max-width: 223px;
@@ -162,7 +178,10 @@
             font-weight: 800;
             font-size: 26px;
             line-height: 33.8px;
-            margin-bottom: 32px;
+            margin-bottom: 21px;
+          }
+          .button span{
+            font-size: 16px;
           }
         }
 
