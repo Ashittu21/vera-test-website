@@ -1,42 +1,45 @@
 p::selection {
   background: #EF4136 !important;
-  color:#FFF  !important;
+  color: #FFF !important;
 }
 
 &::selection {
   background: #EF4136 !important;
-  color:#FFF  !important;
+  color: #FFF !important;
 }
 
 p {
   margin-bottom: 30px;
-  &.intro{
+
+  &.intro {
     font-size: inherit;
     margin-bottom: 0;
   }
+
   &:last-child {
     margin-bottom: 0px;
   }
 }
 
 @media(max-width:$mobile-breakpoint) {
-  padding:0px 1rem;
-  p{
+  padding: 0px 1rem;
+
+  p {
     display: inline-block;
   }
 }
 
 
-figure + h5{
+figure+h5 {
   margin-top: 6rem;
-  padding:0;
+  padding: 0;
 }
 
-p + figure {
+p+figure {
   padding-top: 30px;
 }
 
-.copy-block-title{
+.copy-block-title {
   margin: 0;
   font-family: var(--global-font-sectra);
   color: var(--global-color-dark-violet);
@@ -49,8 +52,8 @@ p + figure {
 
 
 .h2,
- h2,
- h2 strong {
+h2,
+h2 strong {
   margin: 0;
   font-family: var(--global-font-sectra);
   color: var(--global-color-dark-violet);
@@ -63,7 +66,7 @@ p + figure {
   display: inline-block;
 }
 
-.h1-sectra{
+.h1-sectra {
   font-family: var(--global-font-sectra);
   font-size: 160px;
   font-style: normal;
@@ -76,7 +79,7 @@ p + figure {
   display: inline-block;
 }
 
-.h2-sectra{
+.h2-sectra {
   font-family: var(--global-font-sectra);
   font-size: 80px;
   font-style: normal;
@@ -90,7 +93,7 @@ p + figure {
 }
 
 
-.h3-sectra{
+.h3-sectra {
   font-family: var(--global-font-sectra);
   font-size: 60px;
   font-style: normal;
@@ -104,7 +107,7 @@ p + figure {
 }
 
 
-.h4-sectra{
+.h4-sectra {
   font-family: var(--global-font-sectra);
   font-size: 45px;
   font-style: normal;
@@ -117,7 +120,7 @@ p + figure {
   display: inline-block;
 }
 
-.h5-sectra{
+.h5-sectra {
   font-family: var(--global-font-sectra);
   font-size: 35px;
   font-style: normal;
@@ -131,7 +134,7 @@ p + figure {
 }
 
 
-.h5{
+.h5 {
   font-family: var(--global-font-sectra);
   font-size: 35px;
   font-style: normal;
@@ -141,15 +144,17 @@ p + figure {
   text-align: left;
   margin-bottom: 30px;
   margin-top: 30px;
+
   @media(max-width:$mobile-breakpoint) {
     margin-bottom: 20px;
   }
+
   display: inline-block;
 }
 
 
 
-.h6{
+.h6 {
   font-family: var(--global-font-abc-whyte);
   font-size: 26px;
   font-style: normal;
@@ -163,7 +168,7 @@ p + figure {
 }
 
 
-.h6-whyte{
+.h6-whyte {
   font-family: var(--global-font-abc-whyte);
   font-size: 26px;
   font-style: normal;
@@ -176,7 +181,7 @@ p + figure {
   display: inline-block;
 }
 
-.h7-whyte{
+.h7-whyte {
   font-family: var(--global-font-abc-whyte);
   font-size: 21px;
   font-style: normal;
@@ -189,19 +194,20 @@ p + figure {
   display: inline-block;
 }
 
-a{
+a {
   color: var(--global-color-text);
   text-decoration: underline;
   text-decoration-color: var(--global-color-red);
   text-underline-offset: 0.2em;
-  &:hover{
+
+  &:hover {
     background-color: #DA392F;
     color: #FFF;
     text-decoration: none;
   }
 }
 
-.line-through{
+.line-through {
   text-decoration: line-through;
   text-decoration-color: var(--global-color-red);
 }
@@ -209,7 +215,8 @@ a{
 
 figure {
   margin: 0 40px 40px 0;
-  figcaption{
+
+  figcaption {
     font-family: var(--global-font-abc-whyte);
     font-size: 11px;
     font-style: normal;
@@ -220,22 +227,23 @@ figure {
     margin-top: 17px;
     color: #4A4A4A;
     text-align: left !important;
+
     @media(max-width:$mobile-breakpoint) {
       text-align: center;
       float: inherit;
     }
-  }  
-  
+  }
+
   @media(max-width:$mobile-breakpoint) {
-    width: 100%  !important;
+    width: 100% !important;
     margin: 0 auto;
     text-align: center !important;
     margin-bottom: 40px !important;
-    float: inherit  !important;
+    float: inherit !important;
   }
 }
 
-ul{
+ul {
   list-style-type: none;
   padding: 0;
   margin: 0;
@@ -243,26 +251,30 @@ ul{
   height: auto;
   margin-bottom: 60px;
   margin-top: 10px;
-  li{
+
+  li {
     display: block;
     background-image: url('../../dist/img/ul-icon-1.svg');
-    background-repeat: no-repeat; 
+    background-repeat: no-repeat;
     background-position: 0rem 0.5rem;
     margin-top: 20px;
     padding-left: 36px;
     padding-top: 0;
+
     &:first-child {
       margin-top: 0px;
     }
-    >ul{
+
+    >ul {
       list-style-type: none;
       padding: 0;
       margin: 0;
-      margin-top:26px;
-      li{
+      margin-top: 26px;
+
+      li {
         display: block;
         background-image: url('../../dist/img/ul-icon-2.svg');
-        background-repeat: no-repeat; 
+        background-repeat: no-repeat;
         background-position: 0rem 0.7rem;
         font-family: var(--global-font-abc-whyte);
         font-size: 17px;
@@ -281,7 +293,7 @@ ul{
 }
 
 
-
+/*
 ol{
   counter-reset: listitem;
   list-style-type: none;
@@ -326,18 +338,69 @@ ol{
     }
   }
 }
+*/
 
+ol {
+  counter-reset: li;
+  position: relative;
+  color: var(--global-color-text);
+  font-family: var(--global-font-abc-whyte);
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: left;
+  margin-bottom: 30px;
+  padding: 0;
 
-.h7-whyte + ul {
-  margin-top:0;
-  padding:0;
+  li {
+    list-style: none;
+    position: relative;
+    margin: 0 0 13px 27px;
+
+    @media(max-width:$mobile-breakpoint) {
+      margin: 0 0 13px 40px;
+      font-family: var(--global-font-abc-whyte);
+      font-size: 17px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 24px;
+      letter-spacing: 0em;
+      text-align: left;
+    }
+
+    &::before {
+      content: counters(li, ".") ".";
+      counter-increment: li;
+      position: absolute;
+      left: -27px;
+      box-sizing: border-box;
+      color: var(--global-color-light-violet);
+      font-family: var(--global-font-abc-whyte);
+      font-size: 17px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 24px;
+      letter-spacing: 0;
+      text-align: left;
+
+      @media(max-width:$mobile-breakpoint) {
+        left: -37px;
+      }
+    }
+  }
 }
 
 
+.h7-whyte+ul {
+  margin-top: 0;
+  padding: 0;
+}
 
 .copy-block-container .copy-block-content figure {
   @media(max-width:$mobile-breakpoint) {
-    margin-bottom: 20px!important;
+    margin-bottom: 20px !important;
   }
 
 }

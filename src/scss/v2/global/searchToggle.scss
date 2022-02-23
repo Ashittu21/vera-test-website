@@ -30,7 +30,7 @@
         display: inline-block;
         vertical-align: middle;
         position: relative;
-        background-image: url("../img/v2/s-icon.svg");
+        background-image: url("../img/v2/s-iconw.svg");
         background-repeat: no-repeat;
         background-size: cover;
       }
@@ -80,10 +80,13 @@
       max-width: 300px;
       width: 250px;
       .search-icon {
-        height: 50px;
+        height: 50px; 
         margin: 10px;
         right: 0px;
         background-color: transparent;
+        span {
+          background-image: url("../img/v2/s-icon.svg");
+        }
       }
 
       .search-input {
