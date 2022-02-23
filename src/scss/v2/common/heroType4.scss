@@ -1,7 +1,7 @@
 .hero-type4 {
   background-color: var(--global-color-sand);
   transition: all 0.2s ease-in-out;
-  margin-bottom: 60px;
+
   &-content{
     position: relative;
     min-height: 610px;
@@ -16,6 +16,7 @@
       max-width: 840px;
       width: 100%;
       margin: 0 auto;
+      padding-bottom: 60px;
      
       &-breadcrumbs{
         text-align: left;

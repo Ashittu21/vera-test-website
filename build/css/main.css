@@ -31014,8 +31014,7 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
 .hero-type4 {
   background-color: var(--global-color-sand);
   -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
-  margin-bottom: 60px; }
+  transition: all 0.2s ease-in-out; }
   .hero-type4-content {
     position: relative;
     min-height: 610px;
@@ -31035,7 +31034,8 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
     .hero-type4-content-copy {
       max-width: 840px;
       width: 100%;
-      margin: 0 auto; }
+      margin: 0 auto;
+      padding-bottom: 60px; }
       .hero-type4-content-copy-breadcrumbs {
         text-align: left;
         margin-bottom: 22px;
