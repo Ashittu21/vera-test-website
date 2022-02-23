@@ -234,8 +234,7 @@
       @media (max-width: $tablet-portrait) {
         flex-direction: column;
       }
-      
-      
+            
       .latestNews-item {
         
         display: flex;
@@ -332,6 +331,9 @@
           }
         }
         
+
+
+
         &:hover {
           background-color: var(--global-color-red-2);
 /*           background-size: 100% 2px; */
@@ -349,7 +351,19 @@
         }
       }
 
-    
+      &-link {
+        a{
+          color: white;
+          font-size: 21px;
+          font-style: normal;
+          font-weight: 800;
+          line-height: 27px;
+          letter-spacing: 0em;
+          text-align: left;
+          margin-top: 1rem;
+          margin-bottom: 3rem;
+        }
+      }
     }
     
     .latest-hero-sidebar {

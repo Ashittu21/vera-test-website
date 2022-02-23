@@ -28859,7 +28859,8 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
 
 #content {
   z-index: 1;
-  position: relative; }
+  position: relative;
+  display: flow-root; }
 
 .copy-block-content h5 {
   font-size: 35px; }
@@ -31088,7 +31089,8 @@ ol{
   transition: all 0.2s ease-in-out; }
   .hero-type4-content {
     position: relative;
-    min-height: 610px;
+    padding-top: 130px;
+    /* min-height: 610px;*/
     height: 100%;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -31106,7 +31108,7 @@ ol{
       max-width: 840px;
       width: 100%;
       margin: 0 auto;
-      padding-bottom: 60px; }
+      padding-bottom: 0px; }
       .hero-type4-content-copy-breadcrumbs {
         text-align: left;
         margin-bottom: 22px;
@@ -31649,6 +31651,16 @@ ol{
             color: var(--global-color-white); }
           .block-latestNews-content .latestNews-items .latestNews-item:hover .latestNews-item-copy .latestNews-item-copy-title {
             /* background-size: 100% 2px; */ }
+      .block-latestNews-content .latestNews-items-link a {
+        color: white;
+        font-size: 21px;
+        font-style: normal;
+        font-weight: 800;
+        line-height: 27px;
+        letter-spacing: 0em;
+        text-align: left;
+        margin-top: 1rem;
+        margin-bottom: 3rem; }
     .block-latestNews-content .latest-hero-sidebar {
       display: -webkit-box;
       display: -ms-flexbox;

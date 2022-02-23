@@ -4,7 +4,8 @@
 
   &-content{
     position: relative;
-    min-height: 610px;
+    padding-top: 130px;
+    /* min-height: 610px;*/
     height: 100%;
     display: flex;
     justify-content: flex-start;
@@ -16,7 +17,7 @@
       max-width: 840px;
       width: 100%;
       margin: 0 auto;
-      padding-bottom: 60px;
+      padding-bottom: 0px;
      
       &-breadcrumbs{
         text-align: left;
