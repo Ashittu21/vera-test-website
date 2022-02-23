@@ -19,13 +19,16 @@
     font-weight: normal;
     font-size: 17px;
     line-height: 139%;
-    margin: 0 auto;
+    margin: 15px auto;
+    @media(max-width:$mobile-breakpoint) {
+      margin: 0;
+    }
     @import "copy-format.scss";
   }
 }
 
 .copy-block-container + .relatedItems-container {
-  margin-top: 30px;
+  margin-top: 45px;
 }
 
 .copy-block-container + .banner-block-container {
@@ -42,15 +45,18 @@
 
 .copy-block-container + .featured-type2 {
   margin-top:60px;
+  @media(max-width:$mobile-breakpoint) {
+    margin-top:30px;
+  }
 }
 
 .featured-type2 + .copy-block-container {
-  margin-top:30px;
+  margin-top:0;
 }
 
 
 .copy-block-container + .copy-twoColumns{
-  margin-top:60px;
+  margin-top:30px;
 }
 
 

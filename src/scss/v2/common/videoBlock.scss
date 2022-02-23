@@ -11,6 +11,7 @@
 
   @media(max-width:$mobile-breakpoint) {
     height: auto;
+    margin-top: 0;
   }
 
   .videoBlock-content {
@@ -129,10 +130,10 @@
               z-index: -2;
 
               @media(max-width:$mobile-breakpoint) {
-                left: 6px;
-                top: 6px;
-                width: 30px;
-                height: 30px;
+                left: 14px;
+                top: 14px;
+                width: 31px;
+                height: 31px;
               }
             }
 
