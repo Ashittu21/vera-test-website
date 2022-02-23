@@ -126,7 +126,7 @@ p + figure {
   letter-spacing: 0em;
   text-align: left;
   margin-bottom: 30px;
-  margin-top: 55px;
+  margin-top: 0;
   display: inline-block;
 }
 
@@ -141,6 +141,9 @@ p + figure {
   text-align: left;
   margin-bottom: 30px;
   margin-top: 30px;
+  @media(max-width:$mobile-breakpoint) {
+    margin-bottom: 20px;
+  }
   display: inline-block;
 }
 
@@ -182,7 +185,7 @@ p + figure {
   letter-spacing: 0em;
   text-align: left;
   margin-bottom: 30px;
-  margin-top: 30px;
+  margin-top: 10px;
   display: inline-block;
 }
 
@@ -328,4 +331,13 @@ ol{
 .h7-whyte + ul {
   margin-top:0;
   padding:0;
+}
+
+
+
+.copy-block-container .copy-block-content figure {
+  @media(max-width:$mobile-breakpoint) {
+    margin-bottom: 20px!important;
+  }
+
 }
