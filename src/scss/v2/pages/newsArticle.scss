@@ -1,4 +1,9 @@
 .news-article {
   min-height: 500px;
-  padding-bottom: 60px;
+  .content-page-blocks{
+    section:first-child{
+      padding-top: 0;
+      margin-top: 0;
+    }
+  }
 }

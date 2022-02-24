@@ -4,7 +4,6 @@
   justify-content: center;
   align-items: center;
   width: 100%;
- /* max-width: 840px;*/
   max-width: 1060px;
   margin: 0 auto;
   margin: 0 auto;
@@ -55,6 +54,7 @@
     align-items: center;
     max-width: 1066px;
     position: relative;
+
     @media (max-width: $tablet-portrait) {
       padding: 3.5rem 0;
     }
@@ -92,7 +92,7 @@
       text-align: center;
       padding-bottom: 38px;
       @media (max-width: $tablet-portrait) {
-        br{
+        br {
           display: none;
         }
         padding-left: 1rem;

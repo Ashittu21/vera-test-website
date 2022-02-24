@@ -22,7 +22,7 @@
     },
     "intro-p": {
       "title": "Intro Paragraph",
-      "api": "module.block.format",
+      "api": "module.inline.format",
       "args": {"tag": "p", "class": "type--body--large"}
     },
     "heading1": {
@@ -32,68 +32,68 @@
     },
     "heading2": {
       "title": "Heading 2",
-      "api": "module.block.format",
+      "api": "module.inline.format",
       "args": {"tag": "h3", "class": "h3"}
     },
     "heading1-sectra": {
       "title": "Heading 1 - Sectra",
-      "api": "module.block.format",
+      "api": "module.inline.format",
       "args": {"tag": "h1", "class": "h1-sectra"}
     },
     "heading2-sectra": {
       "title": "Heading 2 - Sectra",
-      "api": "module.block.format",
+      "api": "module.inline.format",
       "args": {"tag": "h2", "class": "h2-sectra"}
     },
     "heading3-sectra": {
       "title": "Heading 3 - Sectra",
-      "api": "module.block.format",
+      "api": "module.inline.format",
       "args": {"tag": "h3", "class": "h3-sectra"}
     },
     "heading4-sectra": {
       "title": "Heading 4 - Sectra",
-      "api": "module.block.format",
+      "api": "module.inline.format",
       "args": {"tag": "h4", "class": "h4-sectra"}
     },
     "heading4-sectra": {
       "title": "Heading 4 - Sectra",
-      "api": "module.block.format",
+      "api": "module.inline.format",
       "args": {"tag": "h4", "class": "h4-sectra"}
     },
     "heading5-sectra": {
       "title": "Heading 5 - Sectra",
-      "api": "module.block.format",
+      "api": "module.inline.format",
       "args": {"tag": "h5", "class": "h5-sectra"}
     },
 
     "heading5": {
       "title": "Heading 5",
-      "api": "module.block.format",
+      "api": "module.inline.format",
       "args": {"tag": "h5", "class": "h5"}
     },
     "heading6": {
       "title": "Heading 6",
-      "api": "module.block.format",
+      "api": "module.inline.format",
       "args": {"tag": "h6", "class": "h6"}
     },
     "heading6-whyte": {
       "title": "Heading 6 - Whyte",
-      "api": "module.block.format",
+      "api": "module.inline.format",
       "args": {"tag": "h6", "class": "h6-whyte"}
     },
     "heading7-whyte": {
       "title": "Heading 7  - Whyte",
-      "api": "module.block.format",
+      "api": "module.inline.format",
       "args": {"tag": "p", "class": "h7-whyte"}
     },
     "lineThrough": {
       "title": "Line Through",
-      "api": "module.block.format",
+      "api": "module.inline.format",
       "args": {"tag": "span", "class": "line-through"}
     },
     "footnote": {
       "title": "Footnote",
-      "api": "module.block.format",
+      "api": "module.inline.format",
       "args": {"tag": "p", "class": "footnote"}
     },
     "dropcap": {

@@ -65,6 +65,9 @@
         transition: all 0.5s ease-in-out;
         &:hover{
           background-image: -webkit-linear-gradient(180deg, #da392f 40.1%, var(--global-color-medium-violet) 40.1%);
+          .latestNews-hero-copy {
+            
+          }
         }
         
         @media (max-width: $tablet-landscape) {
@@ -234,8 +237,7 @@
       @media (max-width: $tablet-portrait) {
         flex-direction: column;
       }
-      
-      
+            
       .latestNews-item {
         
         display: flex;
@@ -332,6 +334,9 @@
           }
         }
         
+
+
+
         &:hover {
           background-color: var(--global-color-red-2);
 /*           background-size: 100% 2px; */
@@ -349,7 +354,19 @@
         }
       }
 
-    
+      &-link {
+        a{
+          color: white;
+          font-size: 21px;
+          font-style: normal;
+          font-weight: 800;
+          line-height: 27px;
+          letter-spacing: 0em;
+          text-align: left;
+          margin-top: 1rem;
+          margin-bottom: 3rem;
+        }
+      }
     }
     
     .latest-hero-sidebar {
@@ -477,8 +494,8 @@
       }
     }
   }
-  
 }
+
 .newsandstories-page{
   .block-latestNews {
     &:last-child{
@@ -496,26 +513,10 @@
   opacity: 1;
 }
 
-/* .scrolled.slide-left {
-  animation: slide-in-left 1s ease-in-out both;
-}
-
-@keyframes slide-in-left {
-  0% {
-    -webkit-transform: translateX(-100px);
-    transform: translateX(-100px);
-    opacity: 0;
-  }
-  100% {
-    -webkit-transform: translateX(0);
-    transform: translateX(0);
-    opacity: 1;
-  }
-} */
-
 .scrolled.slide-right {
   animation: slide-in-right 1s ease-in-out both;
 }
+
 
 @keyframes slide-in-right {
   0% {

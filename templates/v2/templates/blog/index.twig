@@ -48,33 +48,10 @@
 
 
 <div class="content-page news-article">
-   <!-- Share Icons -->
-    <div class="shareIcons">
-      <div>
-        <div class="shareIcons-title">
-          SHARE
-        </div>
-        <ul class="shareIcons-icons">
-          <li>
-            <a href="https://www.twitter.com/intent/tweet?url={{ entry.url | url_encode }}&amp;text=" target="_blank">
-              <i class="fa-brands fa-twitter"></i>
-            </a>
-          </li>
-          <li>
-            <a href="https://www.facebook.com/sharer/sharer.php?u={{ entry.url | url_encode }}&amp;" target="_blank">
-              <i class="fa-brands fa-facebook-f"></i>
-            </a>
-          </li>
-          <li>
-            <a href="mailto:?subject={{ entry.title | url_encode }}&amp;body={{ entry.url | url_encode }}" target="_blank">
-              <i class="fas fa-envelope"></i>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
     <!-- Share Icons -->
-
+     {% include 'v2/common/shareIcons' with { entry:entry } %}
+    <!-- Share Icons -->
+    <div class="content-page-blocks">
     {% for block in blocks %}
       {% if block.type == 'headerTitle' %}
         {% include 'v2/common/headerTitle' with { block: block } %}
@@ -127,7 +104,7 @@
       #}
       {% endif %}
     {% endfor %}
-
+    </div>
 
     {% if entry.relatedSeries | length and entry.relatedSeries.first.seriesDescription %}
     <section class="copy-block-container">

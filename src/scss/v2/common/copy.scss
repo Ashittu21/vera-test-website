@@ -11,7 +11,9 @@
     color:#FFF;
   }
 
-  .copy-block-content{
+  .copy-block-content { 
+    margin: 0 auto;
+    margin-top: 15px;
     max-width: $max-copy;
     color: var(--global-color-text);
     font-family: var(--global-font-abc-whyte);
@@ -19,10 +21,15 @@
     font-weight: normal;
     font-size: 17px;
     line-height: 139%;
-    margin: 15px auto;
+    &:first-child{
+      padding-top: 0;
+      margin-top: 0;
+    }
+
     @media(max-width:$mobile-breakpoint) {
       margin: 0;
     }
+
     @import "copy-format.scss";
   }
 }
