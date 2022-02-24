@@ -24,7 +24,9 @@
       <div class="infographic">
         <div class="bars-outer">
           <div class="bar-stats_wrap">
-            <h4 class="infographic__heading">{{ graph.heading }}</h4>
+            <h4 class="infographic__heading">
+              <span>{{ graph.heading }}</span>
+            </h4>
             {% for datum in graph.data %}
 
               <div class="bar__stats">

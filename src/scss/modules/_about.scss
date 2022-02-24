@@ -2,42 +2,51 @@
 .mobile-dropdown.br-toggle br {
   display: none;
 }
+
 @media (min-width: $tablet-portrait) {
   .mobile-dropdown.br-toggle br {
     display: inline;
   }
+
   .mobile-dropdown.br-toggle ul {
     display: flex;
     justify-content: space-between;
   }
+
   .mobile-dropdown.br-toggle li {
     margin-right: 0;
   }
+
   .mobile-dropdown.br-toggle li:first-child a,
   .mobile-dropdown.br-toggle li:last-child a {
     padding: 8px 0;
   }
+
   .mobile-dropdown.br-toggle a {
     height: $padding-lg*2;
     line-height: $padding-sm;
     padding: 8px 0;
   }
 }
+
 @media (min-width: $tablet-landscape) {
   .mobile-dropdown.br-toggle ul {
     margin: 0 60px;
   }
 }
+
 @media (min-width: $desktop-medium) {
   .mobile-dropdown.br-toggle ul {
     margin: 0 80px;
   }
 }
+
 @media (min-width: $desktop-ml) {
   .mobile-dropdown.br-toggle ul {
     margin: 0 100px;
   }
 }
+
 @media (min-width: $desktop-mlarge) {
   .mobile-dropdown.br-toggle ul {
     margin: 0 130px;
@@ -45,475 +54,527 @@
 }
 
 .about__content {
-    .post-module {
-        padding: $padding-lg 0;
-        margin: 0 auto;
+  .post-module {
+    padding: $padding-lg 0;
+    margin: 0 auto;
 
-        @media (min-width: $mobile-large) {
-            padding: $padding-med*2 0 $padding-lg*2;
-        }
-
-        &.container {
-            padding: $padding-sm;
-
-            @media (min-width: $mobile-large) {
-                padding: $padding-med*2 $padding-sm $padding-lg*2;
-            }
-        }
+    @media (min-width: $mobile-large) {
+      padding: $padding-med*2 0 $padding-lg*2;
     }
 
-    .module-intro {
-        padding-bottom: $padding-lg;
-        margin-bottom: $padding-lg;
+    &.container {
+      padding: $padding-sm;
+
+      @media (min-width: $mobile-large) {
+        padding: $padding-med*2 $padding-sm $padding-lg*2;
+      }
     }
+  }
 
-    .about__heading {
-        @include font-size(1.8);
+  .module-intro {
+    padding-bottom: $padding-lg;
+    margin-bottom: $padding-lg;
+  }
 
-        @media (min-width: $tablet-landscape) {
-            @include font-size(2.1);
-        }
-    }
-
-    .about__subheading {
-        @include font-size(1.8);
-
-        @media (min-width: $tablet-landscape) {
-            @include font-size(2.5);
-        }
-    }
-
-    // new
+  .about__heading {
+    @include font-size(1.8);
 
     @media (min-width: $tablet-landscape) {
-        .filter__section {
-            width: $one-third;
-
-            .filter__section--date {
-	            padding-left:0;
-	            width: 100%;
-            }
-        }
-
-        .filter__section--clear {
-            width: 100%;
-        }
+      @include font-size(2.1);
     }
+  }
+
+  .about__subheading {
+    @include font-size(1.8);
+
+    @media (min-width: $tablet-landscape) {
+      @include font-size(2.5);
+    }
+  }
+
+  // new
+
+  @media (min-width: $tablet-landscape) {
+    .filter__section {
+      width: $one-third;
+
+      .filter__section--date {
+        padding-left: 0;
+        width: 100%;
+      }
+    }
+
+    .filter__section--clear {
+      width: 100%;
+    }
+  }
 }
 
 .about__centered-text {
-    text-align: center;
+  text-align: center;
 }
 
 .about__centered-text__block {
-    margin: 0 auto $padding-lg;
-    font-family: 'ABC Whyte';
-    @media (min-width: $desktop-medium) {
-        line-height: 1.5;
-        @include style-by-columns('max-width', 8);
-    }
+  margin: 0 auto $padding-lg;
+  font-family: 'ABC Whyte';
+
+  @media (min-width: $desktop-medium) {
+    line-height: 1.5;
+    @include style-by-columns('max-width', 8);
+  }
 }
 
 .about__infographics {
-    background: #fff7f0;
+  background: #0E002C;
+  text-align: center;
+  color: #FFF;
+  padding-top: 62px;
+  padding-bottom: 82px;
+
+  $graph_height-mobile: 201px;
+  $graph_height-desktop: 302px;
+
+  .about__heading {
+    padding: $padding-sm 0;
+
+    @media (min-width: $tablet-landscape) {
+      @include font-size(2.8);
+    }
+  }
+
+  .infographic_wrap {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  .infographic {
+    @include font-size(1.5);
+    text-align: left;
+    border-top: 1px solid $dk-gray;
+    padding: $padding-sm 0 $padding-lg;
+    width: 100%;
+
+    @media (min-width: $tablet-portrait) {
+      border: 0;
+      width: 45%;
+      @include justify(flex-start);
+      flex-wrap: wrap;
+      align-content: center;
+      padding-bottom: 0;
+    }
+
+    .infographic__description {
+      display: block;
+      margin-bottom: 3em;
+      font-family: 'ABC Whyte';
+      font-size: 21px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 29px;
+      letter-spacing: 0em;
+      text-align: center;
+      width: 100%;
+      margin: 0 auto;
+      padding-top: 40px;
+
+      @media (min-width: $tablet-portrait) {
+        //border-top: 1px solid $dk-gray;
+        padding-top: $padding-sm;
+      }
+
+      @media (min-width: $tablet-landscape) {
+        font-size: 21px;
+        @include calc('max-width', #{$dec-one-third} * #{$desktop-large});
+      }
+    }
+
+    .infographic__heading {
+      width: 100%;
+      text-align: center;
+      margin: 1em 0;
+      margin-bottom: 45px;
+      span{
+        font-family: 'ABC Whyte';
+        font-size: 26px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 34px;
+        letter-spacing: 0em;
+        text-align: center;
+        border-bottom: 2px solid #3E2BB1;
+        padding-bottom: 30px;
+        display: flow-root;
+        width: fit-content;
+        margin: 0 auto;
+      }
+
+    }
+  }
+
+  // pie chart
+
+  .pies-inner {
+    @include justify(flex-start);
+    align-items: center;
+    height: $graph_height-mobile;
+
+    @media (min-width: $desktop-medium) {
+      height: $graph_height-desktop;
+    }
+  }
+
+  .pie-outer {
+    width: $one-half;
+  }
+
+  .pie {
+    width: 100%;
+    height: 0;
+    padding-top: 100%;
+    position: relative;
+    //margin-bottom: $padding-sm;
+  }
+
+  .pie__slice {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: $white;
+    border: $padding-xxs solid $med-gray-alt;
+    @include border-radius(100%);
+    z-index: 1;
+    overflow: hidden;
+    @include hardware-acc;
+    @include transition(all 0.15s ease-in 1s);
+
+    .rotated {
+      content: '';
+      display: block;
+      margin: -5% 0 -5% 50%;
+      height: 110%; // hmm
+      width: 55%; // hmm
+      border-radius: 0 100% 100% 0 / 50%;
+      background-color: $white; // piece of the pie that covers up stuff...
+      transform-origin: left;
+      @include transition(transform 1s $ease-nice 1s);
+      @include transform(rotate(0deg) translateZ(0));
+    }
+
+    @media (min-width: $desktop-medium) {
+      border-width: $padding-sm;
+    }
+  }
+
+  .no-touch &.triggered .pie__slice,
+  .touch & .pie__slice {
+    // TODO: touch devices?
+    background-image: linear-gradient(to right, transparent 51%, $red 0);
+  }
+
+  .pie__stats {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50%;
+    height: 50%; // hmm
+    @include transform(translate(-50%, -50%));
+    background: $med-gray-alt;
+    @include border-radius(100%);
+    z-index: 4;
     text-align: center;
 
-    $graph_height-mobile: 201px;
-    $graph_height-desktop: 302px;
+    span {
+      position: absolute;
 
-    .about__heading {
-        padding: $padding-sm 0;
+      @media (min-width: $desktop-medium) {
+        position: static;
+        display: block;
+        line-height: 1;
+      }
+    }
+  }
 
-        @media (min-width: $tablet-landscape) {
-            @include font-size(2.8);
+  .pie__stats__num {
+    top: 50%;
+    left: 50%;
+    @include transform(translate(-50%, -50%)); // centering hack for small els
+    color: $red;
+
+    @media (min-width: $desktop-medium) {
+      @include transform(translate(0, 0));
+      padding-top: $padding-sm;
+    }
+
+    @media (min-width: $desktop-large) {
+      padding-top: $padding-med;
+    }
+  }
+
+  .pie__mobile-caption {
+    padding: 0 $padding-med;
+  }
+
+  // bar graph
+
+  .bars-outer {
+    width: 100%;
+  }
+
+  .bars-inner {
+    height: $graph_height-mobile; // 20px line spacing
+    @include justify;
+    position: relative;
+    padding: 0 $padding-sm;
+    border-bottom: 2px solid #ABFFEB;
+    width: 100%;
+
+    .graph-line {
+      position: absolute;
+      width: 100%;
+      height: 0;
+      z-index: 1;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      /* border-bottom: 1px solid darken($lt-gray-alt, 10%);*/
+    }
+
+    @for $i from 1 through 10 {
+      .line-#{$i*10} {
+        @include calc('bottom', #{$i*($graph_height-mobile - 1)/10});
+      }
+    }
+
+    @media (min-width: $desktop-medium) {
+      height: $graph_height-desktop;
+
+      @for $i from 1 through 10 {
+        .line-#{$i*10} {
+          @include calc('bottom', #{$i*($graph_height-desktop - 2)/10});
         }
+      }
+    }
+  }
+
+  .bar-outer {
+    width: $one-half;
+    height: 100%;
+    position: relative;
+    padding: 0 $padding-xxs;
+
+    @media (min-width: $desktop-medium) {
+      padding: 0 $padding-med;
+    }
+  }
+
+  .bar {
+    background: #2E1D97;
+    height: 100%;
+    padding: 0 $padding-xxs;
+    position: relative;
+    z-index: 2;
+    margin-bottom: $padding-sm;
+  }
+
+  .bar__bar {
+    position: absolute;
+    z-index: 3;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #ABFFEB;
+    height: 0;
+    @include transition(height 1s $ease-nice 1s);
+  }
+
+  .bar-stats_wrap {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: $padding-xs;
+
+    .bar__stats {
+      position: relative;
+      z-index: 4;
+      width: 50%;
+      text-align: center;
+      color: #ABFFEB;
+
+    }
+  }
+
+
+  .bar__stats__caption {
+    color: #FFF;
+    font-family: 'ABC Whyte';
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: center;
+
+  }
+
+  .bar__stats__num {
+    color: #ABFFEB;
+    font-family: 'ABC Whyte';
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 69px;
+    letter-spacing: 0em;
+    text-align: center;
+  }
+
+  .bar__stats__num {
+    line-height: 1.25;
+  }
+
+  .bar__mobile-caption {
+    padding: 0 $padding-xxs;
+  }
+
+  // shared styles
+  .pie__stats__num,
+  .bar__stats__num {
+    @include font-size(3.5);
+    @extend .ff-sans;
+
+    b {
+      @extend .ff-sans--bold;
     }
 
-	.infographic_wrap {
-		display: flex;
-		justify-content: space-between;
-		flex-wrap: wrap;
-		width: 100%;
-	}
-
-    .infographic {
-        @include font-size(1.5);
-        text-align: left;
-        border-top: 1px solid $dk-gray;
-        padding: $padding-sm 0 $padding-lg;
-        width: 100%;
-
-        @media (min-width: $tablet-portrait) {
-            border: 0;
-            width: 45%;
-            @include justify(flex-start);
-            flex-wrap: wrap;
-            padding-bottom: 0;
-        }
-
-        .infographic__description {
-	        display: block;
-	        margin-bottom: 3em;
-	        padding-top: $padding-xxs;
-            
-	        @media (min-width: $tablet-portrait) {
-	            //border-top: 1px solid $dk-gray;
-	            padding-top: $padding-sm;
-	        }
-
-	        @media (min-width: $tablet-landscape) {
-	            @include font-size(2.5);
-	            @include calc('max-width', #{$dec-one-third} * #{$desktop-large});
-	        }
-	    }
-
-	    .infographic__heading {
-		    width: 100%;
-		    text-align: center;
-		    margin: 1em 0;
-	    }
+    @media (min-width: $desktop-medium) {
+      @include font-size(4);
+      line-height: 1;
     }
 
-    // pie chart
+    @media (min-width: $desktop-large) {
+      @include font-size(6);
+    }
+  }
 
-    .pies-inner {
-        @include justify(flex-start);
-        align-items: center;
-        height: $graph_height-mobile;
+  .pie__stats__caption {
+    display: none;
+    @extend .ff-sans;
+    @include font-size(1.8);
 
-        @media (min-width: $desktop-medium) {
-	        height: $graph_height-desktop;
-        }
+    @media (min-width: $desktop-medium) {
+      display: block;
+    }
+  }
+
+  .pie__mobile-caption {
+    @extend .ff-sans;
+    @include font-size(1.2);
+    text-align: center;
+    line-height: 1.25;
+
+    @media (min-width: $tablet-landscape) {
+      @include font-size(1.8);
     }
 
-    .pie-outer {
-        width: $one-half;
+    @media (min-width: $desktop-medium) {
+      display: none;
     }
-
-    .pie {
-        width: 100%;
-        height: 0;
-        padding-top: 100%;
-        position: relative;
-        //margin-bottom: $padding-sm;
-    }
-
-    .pie__slice {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: $white;
-        border: $padding-xxs solid $med-gray-alt;
-        @include border-radius(100%);
-        z-index: 1;
-        overflow: hidden;
-        @include hardware-acc;
-        @include transition(all 0.15s ease-in 1s);
-
-        .rotated {
-            content: '';
-            display: block;
-            margin: -5% 0 -5% 50%;
-            height: 110%; // hmm
-            width: 55%; // hmm
-            border-radius: 0 100% 100% 0 / 50%;
-            background-color: $white;// piece of the pie that covers up stuff...
-            transform-origin: left;
-            @include transition(transform 1s $ease-nice 1s);
-            @include transform(rotate(0deg) translateZ(0));
-        }
-
-        @media (min-width: $desktop-medium) {
-            border-width: $padding-sm;
-        }
-    }
-
-    .no-touch &.triggered .pie__slice,
-    .touch & .pie__slice { // TODO: touch devices?
-        background-image: linear-gradient(to right, transparent 51%, $red 0);
-    }
-
-    .pie__stats {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 50%;
-        height: 50%; // hmm
-        @include transform(translate(-50%, -50%));
-        background: $med-gray-alt;
-        @include border-radius(100%);
-        z-index: 4;
-        text-align: center;
-
-        span {
-            position: absolute;
-
-            @media (min-width: $desktop-medium) {
-                position: static;
-                display: block;
-                line-height: 1;
-            }
-        }
-    }
-
-    .pie__stats__num {
-        top: 50%;
-        left: 50%;
-        @include transform(translate(-50%,-50%)); // centering hack for small els
-        color: $red;
-
-        @media (min-width: $desktop-medium) {
-            @include transform(translate(0,0));
-            padding-top: $padding-sm;
-        }
-
-        @media (min-width: $desktop-large) {
-            padding-top: $padding-med;
-        }
-    }
-
-    .pie__mobile-caption {
-        padding: 0 $padding-med;
-    }
-
-    // bar graph
-
-    .bars-outer {
-	    width: 100%;
-    }
-
-    .bars-inner {
-        height: $graph_height-mobile; // 20px line spacing
-        @include justify;
-        position: relative;
-        padding: 0 $padding-sm;
-        border-bottom: 2px solid $dk-gray;
-
-		width: 100%;
-
-        .graph-line {
-            position: absolute;
-            width: 100%;
-            height: 0;
-            z-index: 1;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            border-bottom: 1px solid darken($lt-gray-alt, 10%);
-        }
-
-        @for $i from 1 through 10 {
-            .line-#{$i*10} {
-                @include calc('bottom', #{$i*($graph_height-mobile - 1)/10});
-            }
-        }
-
-        @media (min-width: $desktop-medium) {
-            height: $graph_height-desktop;
-
-            @for $i from 1 through 10 {
-                .line-#{$i*10} {
-                    @include calc('bottom', #{$i*($graph_height-desktop - 2)/10});
-                }
-            }
-        }
-    }
-
-    .bar-outer {
-        width: $one-half;
-        height: 100%;
-        position: relative;
-        padding: 0 $padding-xxs;
-
-        @media (min-width: $desktop-medium) {
-            padding: 0 $padding-med;
-        }
-    }
-
-    .bar {
-        background: $white;
-        height: 100%;
-        padding: 0 $padding-xxs;
-        position: relative;
-        z-index: 2;
-        margin-bottom: $padding-sm;
-    }
-
-    .bar__bar {
-        position: absolute;
-        z-index: 3;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: $red;
-        height: 0;
-        @include transition(height 1s $ease-nice 1s);
-    }
-
-    .bar-stats_wrap {
-		display: flex;
-		flex-wrap: wrap;
-		margin-bottom: $padding-xs;
-
-	    .bar__stats {
-	        position: relative;
-	        z-index: 4;
-	        width: 50%;
-	        text-align: center;
-	        color: $red;
-	    }
-    }
-
-    .bar__stats__num,
-    .bar__stats__caption {
-        color: $red;
-    }
-
-    .bar__stats__num {
-	    line-height: 1.25;
-    }
-
-    .bar__mobile-caption {
-        padding: 0 $padding-xxs;
-    }
-
-    // shared styles
-    .pie__stats__num,
-    .bar__stats__num {
-        @include font-size(3.5);
-        @extend .ff-sans;
-
-        b {
-            @extend .ff-sans--bold;
-        }
-
-        @media (min-width: $desktop-medium) {
-            @include font-size(4);
-            line-height: 1;
-        }
-
-        @media (min-width: $desktop-large) {
-            @include font-size(6);
-        }
-    }
-
-    .pie__stats__caption {
-        display: none;
-        @extend .ff-sans;
-        @include font-size(1.8);
-
-        @media (min-width: $desktop-medium) {
-            display: block;
-        }
-    }
-
-    .pie__mobile-caption {
-        @extend .ff-sans;
-        @include font-size(1.2);
-        text-align: center;
-        line-height: 1.25;
-
-        @media (min-width: $tablet-landscape) {
-            @include font-size(1.8);
-        }
-
-        @media (min-width: $desktop-medium) {
-            display: none;
-        }
-    }
+  }
 }
 
 .about__headings {
-    background: $lt-gray;
-    text-align: center;
-    @include font-size(1.8);
+  background: $lt-gray;
+  text-align: center;
+  @include font-size(1.8);
 
-    h4 {
-        @include font-size(1.5);
-        @include body-font;
-        margin-bottom: $padding-lg;
-
-        @media (min-width: $tablet-landscape) {
-            @include font-size(1.8);
-        }
-
-        &:last-child {
-            margin-bottom: 0;
-        }
-
-        span {
-            color: $red;
-            @extend .ff-sans--bold;
-            @include font-size(1.8);
-            display: block;
-            padding: $padding-xxs;
-
-            @media (min-width: $tablet-landscape) {
-                @include font-size(2.8);
-            }
-        }
-    }
-
-    .about__subheading {
-        @media (min-width: $tablet-landscape) {
-            @include font-size(2.2);
-        }
-    }
+  h4 {
+    @include font-size(1.5);
+    @include body-font;
+    margin-bottom: $padding-lg;
+    font-family: 'ABC Whyte';
 
     @media (min-width: $tablet-landscape) {
-        .container {
-            @include style-by-columns('max-width', 6);
-        }
+      @include font-size(1.8);
     }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    span {
+      color: $red;
+      @extend .ff-sans--bold;
+      @include font-size(1.8);
+      display: block;
+      padding: $padding-xxs;
+      font-family: 'ABC Whyte';
+
+      @media (min-width: $tablet-landscape) {
+        @include font-size(2.8);
+      }
+    }
+  }
+
+  .about__subheading {
+    @media (min-width: $tablet-landscape) {
+      @include font-size(2.2);
+    }
+  }
+
+  @media (min-width: $tablet-landscape) {
+    .container {
+      @include style-by-columns('max-width', 6);
+    }
+  }
 }
 
 .about__2up,
 .about__4up,
 .module-2up {
-    @include font-size(1.6);
-    text-align: center;
+  @include font-size(1.6);
+  text-align: center;
 
-    .about__heading {
-        margin-bottom: $padding-sm;
-    }
+  .about__heading {
+    margin-bottom: $padding-sm;
+  }
 
-    // h4 {
-    //     @include font-size(1.8);
+  // h4 {
+  //     @include font-size(1.8);
 
-    //     @media (min-width: $tablet-landscape) {
-    //         @include font-size(2.5);
-    //         margin-bottom: 1em;
-    //     }
-    // }
+  //     @media (min-width: $tablet-landscape) {
+  //         @include font-size(2.5);
+  //         margin-bottom: 1em;
+  //     }
+  // }
 
-    // ul {
-    //     list-style: none;
-    //     text-align: left;
+  // ul {
+  //     list-style: none;
+  //     text-align: left;
 
-    //     @media (min-width: $tablet-landscape) {
-    //         padding: $padding-med*2 0;
-    //         @include justify(stretch);
-    //     }
-    // }
+  //     @media (min-width: $tablet-landscape) {
+  //         padding: $padding-med*2 0;
+  //         @include justify(stretch);
+  //     }
+  // }
 
-    // li {
-    //     border-left: 1px solid $red;
-    //     padding-left: $padding-sm;
-    //     margin-bottom: $padding-lg;
+  // li {
+  //     border-left: 1px solid $red;
+  //     padding-left: $padding-sm;
+  //     margin-bottom: $padding-lg;
 
-    //     &:last-child {
-    //         margin: 0;
-    //     }
+  //     &:last-child {
+  //         margin: 0;
+  //     }
 
-    //     @media (min-width: $tablet-landscape) {
-    //         @include font-size(1.8);
-    //         line-height: 1.75;
-    //         width: $one-fourth;
-    //         margin: 0;
-    //     }
-    // }
+  //     @media (min-width: $tablet-landscape) {
+  //         @include font-size(1.8);
+  //         line-height: 1.75;
+  //         width: $one-fourth;
+  //         margin: 0;
+  //     }
+  // }
 }
 
 // .about__2up,
@@ -552,464 +613,503 @@
 // }
 
 .about__2up {
-    margin: 0;
-    background: $lt-gray;
-    padding: $padding-sm 0;
+  margin: 0;
+  background: $lt-gray;
+  padding: $padding-sm 0;
 
+  .blocks {
+    justify-content: space-between;
+  }
+
+  @media (min-width: $tablet-landscape) {
+    padding: $padding-lg 0;
+  }
+
+  @media (min-width: $desktop-medium) {
     .blocks {
-	    justify-content: space-between;
+      @include style-by-columns('max-width', 10);
     }
-
-    @media (min-width: $tablet-landscape) {
-        padding: $padding-lg 0;
-    }
-
-    @media (min-width: $desktop-medium) {
-        .blocks {
-            @include style-by-columns('max-width', 10);
-        }
-    }
+  }
 }
 
 .about__4up,
 .about__content .about__4up {
-    .blocks {
-        padding-bottom: 0;
-    }
+  .blocks {
+    padding-bottom: 0;
+  }
 
-    @media (min-width: $tablet-landscape) {
-        padding: $padding-lg*2 0 $padding-lg;
-    }
+  @media (min-width: $tablet-landscape) {
+    padding: $padding-lg*2 0 $padding-lg;
+  }
 }
 
 .about__where {
-    text-align: center;
-    overflow: visible; // because tooltips need to overlap other sections
+  text-align: center;
+  overflow: visible; // because tooltips need to overlap other sections
 
-    .about__heading {
-        margin-bottom: $padding-lg;
+  .about__heading {
+    margin-bottom: $padding-lg;
+  }
+
+  .about__subheading {
+    margin: 0 auto $padding-lg;
+    @include font-size(1.8);
+
+    @media (min-width: $tablet-portrait) {
+      @include style-by-columns('max-width', 4);
     }
-
-    .about__subheading {
-        margin: 0 auto $padding-lg;
-        @include font-size(1.8);
-
-        @media (min-width: $tablet-portrait) {
-            @include style-by-columns('max-width', 4);
-        }
-    }
+  }
 }
 
 .about__history {
-    background: #fff7f0;
-    @include hairline;
-    @include font-size(1.8);
-    line-height: 1.5;
+  background: #fff7f0;
+  @include hairline;
+  @include font-size(1.8);
+  line-height: 1.5;
+
+  @media (min-width: $tablet-portrait) {
+    @include font-size(2.2);
+    line-height: 1.75;
+  }
+
+  h3,
+  .about__heading {
+    width: 100%;
+    text-align: center;
+    margin-bottom: $padding-sm;
 
     @media (min-width: $tablet-portrait) {
-        @include font-size(2.2);
-        line-height: 1.75;
+      text-align: left;
+      margin-bottom: $padding-lg;
+    }
+  }
+
+  .col-outer {
+    display: block;
+
+    @media (min-width: $tablet-portrait) {
+      display: flex;
+      flex-direction: row-reverse;
+    }
+  }
+
+  @media (min-width: $tablet-portrait) {
+    .col-lg {
+      @include style-by-columns('width', 7);
     }
 
-    h3,
-    .about__heading {
-        width: 100%;
-        text-align: center;
-        margin-bottom: $padding-sm;
-
-        @media (min-width: $tablet-portrait) {
-            text-align: left;
-            margin-bottom: $padding-lg;
-        }
+    .col-sm {
+      @include style-by-columns('width', 4);
     }
+  }
 
-    .col-outer {
+  @media (min-width: $tablet-landscape) {
+    .col-sm {
+      @include style-by-columns('width', 5);
+    }
+  }
+
+  .img-outer {
+    position: relative;
+    margin-bottom: $padding-lg;
+
+    @media (min-width: $tablet-portrait) {
+      margin-bottom: $padding-lg*2;
+
+      img {
+        max-width: 300px;
+        height: auto;
         display: block;
-
-        @media (min-width: $tablet-portrait) {
-            display: flex;
-            flex-direction: row-reverse;
-        }
+        margin: auto;
+      }
     }
+  }
+
+  .img-caption {
+    width: 90%;
+    margin: 0 5%;
+    padding: $padding-xs;
 
     @media (min-width: $tablet-portrait) {
-        .col-lg {
-            @include style-by-columns('width', 7);
-        }
-
-        .col-sm {
-            @include style-by-columns('width', 4);
-        }
+      width: auto;
+      padding: $padding-sm $padding-med;
+      margin: 0;
+      @include font-size(1.8);
     }
-
-    @media (min-width: $tablet-landscape) {
-        .col-sm {
-            @include style-by-columns('width', 5);
-        }
-    }
-
-    .img-outer {
-        position: relative;
-        margin-bottom: $padding-lg;
-
-        @media (min-width: $tablet-portrait) {
-            margin-bottom: $padding-lg*2;
-
-            img {
-                max-width: 300px;
-                height: auto;
-                display: block;
-                margin: auto;
-            }
-        }
-    }
-
-    .img-caption {
-        width: 90%;
-        margin: 0 5%;
-        padding: $padding-xs;
-
-        @media (min-width: $tablet-portrait) {
-            width: auto;
-            padding: $padding-sm $padding-med;
-            margin: 0;
-            @include font-size(1.8);
-        }
-    }
+  }
 }
 
-#stream > h3 {
-	margin-bottom: $padding-lg;
+#stream>h3 {
+  margin-bottom: $padding-lg;
 }
 
 .about-centers {
-    text-align: center;
+  text-align: center;
 
-    .module-text {
-        padding-top: $padding-lg;
-        @include font-size(1.8);
+  .module-text {
+    padding-top: $padding-lg;
+    @include font-size(1.8);
 
-        @media (min-width: $tablet-portrait) {
-            padding-top: $padding-med*2;
-            @include font-size(2.2);
-        }
+    @media (min-width: $tablet-portrait) {
+      padding-top: $padding-med*2;
+      @include font-size(2.2);
     }
+  }
 }
 
 // financials
 
 .about-financials {
-    padding: $padding-lg 0;
+  padding: $padding-lg 0;
+
+  @media (min-width: $tablet-landscape) {
+    padding: $padding-med*2 0;
+  }
+
+  h2 {
+    @extend .ff-serif--medium;
+    display: inline-block;
+    padding-bottom: $padding-sm;
+    padding-right: $padding-xxs;
+    border-bottom: 1px solid $red;
+    margin-bottom: $padding-lg;
+  }
+
+  .col-outer {
+    display: block;
 
     @media (min-width: $tablet-landscape) {
-        padding: $padding-med*2 0;
+      display: flex;
+    }
+  }
+
+  .col {
+    margin-bottom: $padding-lg;
+
+    &:first-child {
+      border-bottom: 1px solid $lt-gray-alt;
     }
 
-    h2 {
-        @extend .ff-serif--medium;
-        display: inline-block;
-        padding-bottom: $padding-sm;
-        padding-right: $padding-xxs;
-        border-bottom: 1px solid $red;
-        margin-bottom: $padding-lg;
+    @media (min-width: $tablet-landscape) {
+      margin-bottom: 0;
+      width: 40%;
+
+      &:first-child {
+        width: 50%;
+        padding-right: 10%;
+        border-bottom: 0;
+        border-right: 1px solid $lt-gray-alt;
+      }
     }
-
-    .col-outer {
-        display: block;
-
-        @media (min-width: $tablet-landscape) {
-            display: flex;
-        }
-    }
-
-    .col {
-        margin-bottom: $padding-lg;
-
-        &:first-child {
-            border-bottom: 1px solid $lt-gray-alt;
-        }
-
-        @media (min-width: $tablet-landscape) {
-            margin-bottom: 0;
-            width: 40%;
-
-            &:first-child {
-                width: 50%;
-                padding-right: 10%;
-                border-bottom: 0;
-                border-right: 1px solid $lt-gray-alt;
-            }
-        }
-    }
+  }
 }
 
 .bar-ltr,
 .about-financials__download {
-    margin-bottom: $padding-lg;
+  margin-bottom: $padding-lg;
 
-    @media (min-width: $tablet-landscape) {
-        margin-bottom: $padding-med*2;
-    }
+  @media (min-width: $tablet-landscape) {
+    margin-bottom: $padding-med*2;
+  }
 }
 
 .bar-ltr {
-    padding-top: $padding-xxs;
+  padding-top: $padding-xxs;
 }
 
 .bar-ltr__row,
 .bar-ltr__row-outer {
-    height: 50px;
+  height: 50px;
 }
 
 .bar-ltr__row-outer {
-    display: block;
+  display: block;
 
-    h6 {
-        display: inline-block;
-        position: absolute;
-        top: 0;
-        left: 100%;
-        z-index: 1;
-        white-space: nowrap;
-        @include font-size(1.2);
-        line-height: 1;
-        margin: 0 0 0 $padding-xxs;
+  h6 {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    z-index: 1;
+    white-space: nowrap;
+    margin: 0 0 0 $padding-xxs;
+    line-height: 50px;
+    font-family: 'ABC Whyte';
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 50px;
+    letter-spacing: 0em;
+    text-align: left;
 
-        span {
-            @include subheading-font-thin;
-            @include font-size(1.8);
-            line-height: 50px;
-            vertical-align: middle;
-            display: inline-block;
-            margin-right: 5px;
-        }
+
+    span {
+      @include subheading-font-thin;
+      @include font-size(1.8);
+      line-height: 50px;
+      vertical-align: middle;
+      display: inline-block;
+      margin-right: 5px;
     }
+  }
 
-    &:nth-child(1) .bar-ltr__row {
-        background: $red;
-        color: $red;
-    }
+  &:nth-child(1) .bar-ltr__row {
+    background: #2E1D97;
+    color: #FFF;
+  }
 
-    &:nth-child(2) .bar-ltr__row {
-        background: $black;
-        color: $black;
-    }
+  &:nth-child(2) .bar-ltr__row {
+    background: #97DFD1;
+    color: #080214;
+  }
 
-    &:nth-child(3) .bar-ltr__row {
-        background: $dk-gray;
-        color: $dk-gray;
-    }
+  &:nth-child(3) .bar-ltr__row {
+    background: #FF9E44;
+    color: #080214;
+  }
 
-    &:nth-child(4) .bar-ltr__row {
-        background: $med-gray;
-        color: $med-gray;
-    }
+  &:nth-child(4) .bar-ltr__row {
+    background: #0E002C;
+    color: #080214;
+  }
 }
 
 .bar-ltr__row--lg {
-    h6 {
-        top: 0;
-        left: inherit;
-        right: 0;
-        color: $white;
+  h6 {
+    top: 0;
+    left: inherit;
+    right: 0;
+    color: $white;
 
-        margin: 0 $padding-xxs 0 0;
-    }
+    margin: 0 $padding-xxs 0 0;
+  }
 }
 
 .bar-ltr__row {
-    position: relative;
-    display: inline-block;
-    width: 0;
-    // min-width: 3px;
+  position: relative;
+  display: inline-block;
+  width: 0;
+  // min-width: 3px;
 
-    .no-touch & {
-        @include transition(width 1s $ease-nice 0.5s);
+  .no-touch & {
+    @include transition(width 1s $ease-nice 0.5s);
 
-        h6 {
-            opacity: 0;
-            @include transition(opacity 0.5s $ease-nice 1s);
-        }
+    h6 {
+      opacity: 0;
+      @include transition(opacity 0.5s $ease-nice 1s);
     }
+  }
 }
 
 .no-touch .bar-ltr.triggered .bar-ltr__row h6 {
-    opacity: 1;
+  opacity: 1;
 }
 
 .about-financials__download {
-    @extend .ff-sans--bold;
+  @extend .ff-sans--bold;
 
-    a {
+  a {
 
-        color: $black;
-        display: inline-block;
-        margin-right: $padding-sm;
-    }
+    color: $black;
+    display: inline-block;
+    margin-right: $padding-sm;
+  }
 }
 
 .icon-download {
-    display: inline-block;
-    width: 14px;
-    height: 10px;
-    position: relative;
-    margin-right: 5px;
+  display: inline-block;
+  width: 14px;
+  height: 10px;
+  position: relative;
+  margin-right: 5px;
 
-    &:before {
-        top: 0;
-        width: 0;
-        height: 0;
-        border-left: 7px solid transparent;
-        border-right: 7px solid transparent;
-        border-top: 7px solid $black;
-    }
+  &:before {
+    top: 0;
+    width: 0;
+    height: 0;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-top: 7px solid $black;
+  }
 
-    &:after {
-        bottom: 0;
-        left: 1px;
-        right: 1px;
-        border-bottom: 2px solid $black;
-    }
+  &:after {
+    bottom: 0;
+    left: 1px;
+    right: 1px;
+    border-bottom: 2px solid $black;
+  }
 
-    &:before,
-    &:after {
-        content: '';
-        display: block;
-        position: absolute;
-        @include transition(border 0.15s ease-in);
-    }
+  &:before,
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    @include transition(border 0.15s ease-in);
+  }
 }
 
 a:hover .icon-download {
-    &:before {
-        border-top-color: $red;
-    }
+  &:before {
+    border-top-color: $red;
+  }
 
-    &:after {
-        border-bottom-color: $red;
-    }
+  &:after {
+    border-bottom-color: $red;
+  }
 }
 
 .module-text-footer {
-    padding-top: $padding-xxs;
+  padding-top: $padding-xxs;
 
-    img {
-        width: auto;
-        height: auto;
-        max-width: 200px; // TODO...
-    }
+  img {
+    width: auto;
+    height: auto;
+    max-width: 200px; // TODO...
+  }
 
-    h4 {
-        @extend .ff-serif--medium;
-        margin-bottom: $padding-xs;
-    }
+  h4 {
 
-    h6 {
-        @extend .ff-sans;
-    }
+    font-family: 'ABC Whyte';
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 34px;
+    letter-spacing: 0em;
+    text-align: left;
+    margin-bottom: $padding-xs;
+  }
+
+  h6 {
+    line-height: 50px;
+    font-family: 'ABC Whyte';
+  }
 }
 
 // map tooltip
 
 .location-hover {
+  position: relative;
+  display: inline-block;
+  background: $med-gray-bg;
+  min-width: 150px;
+  max-width: 170px;
+  padding: $padding-sm;
+  @include body-font;
+
+
+  @include font-size(1.3);
+  text-align: center;
+  line-height: 1.5;
+
+  @media (min-width: $tablet-portrait) {
+    padding: $padding-med;
+    @include font-size(1.4);
+    min-width: 180px;
+    max-width: 350px;
+  }
+
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    z-index: 1;
+    top: 100%;
+    left: 50%;
+    margin-left: -4px;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid $med-gray-bg;
+  }
+
+  h5 {
+    display: block;
     position: relative;
-    display: inline-block;
-    background: $med-gray-bg;
-    min-width: 150px;
-    max-width: 170px;
-    padding: $padding-sm;
-    @include body-font;
-
-
-    @include font-size(1.3);
-    text-align: center;
-    line-height: 1.5;
-
-    @media (min-width: $tablet-portrait) {
-        padding: $padding-med;
-        @include font-size(1.4);
-        min-width: 180px;
-        max-width: 350px;
-    }
+    z-index: 2;
+    @extend .ff-sans--bold;
+    text-transform: uppercase;
+    @include font-size(1.2);
+    letter-spacing: 0.2mm;
+    padding-bottom: $padding-xs;
+    margin-bottom: $padding-xs;
 
     &:after {
-        content: '';
-        display: block;
-        position: absolute;
-        z-index: 1;
-        top: 100%;
-        left: 50%;
-        margin-left: -4px;
-        border-left: 8px solid transparent;
-        border-right: 8px solid transparent;
-        border-top: 8px solid $med-gray-bg;
+      // could use red-line-after mixin, but untested...
+      content: '';
+      display: block;
+      position: absolute;
+      z-index: 3;
+      bottom: 0;
+      left: 50%;
+      margin-left: -57px;
+      width: 114px;
+      height: 1px;
+      background: $red;
     }
-
-    h5 {
-        display: block;
-        position: relative;
-        z-index: 2;
-        @extend .ff-sans--bold;
-        text-transform: uppercase;
-        @include font-size(1.2);
-        letter-spacing: 0.2mm;
-        padding-bottom: $padding-xs;
-        margin-bottom: $padding-xs;
-
-        &:after { // could use red-line-after mixin, but untested...
-            content: '';
-            display: block;
-            position: absolute;
-            z-index: 3;
-            bottom: 0;
-            left: 50%;
-            margin-left: -57px;
-            width: 114px;
-            height: 1px;
-            background: $red;
-        }
-    }
+  }
 }
 
 // new. for now
 
-.datamap{
-    top: 0;
-    left: 0;
+.datamap {
+  top: 0;
+  left: 0;
 }
-.datamaps-subunit, .datamaps-bubble{
-    cursor: pointer;
+
+.datamaps-subunit,
+.datamaps-bubble {
+  cursor: pointer;
 }
-.datamaps-subunit.map--active:hover, .datamaps-subunit.map--active-on{
-    fill: #231F20 !important;
-    transition: 0.5s;
-    cursor: pointer;
+
+.datamaps-subunit.map--active:hover,
+.datamaps-subunit.map--active-on {
+  fill: #231F20 !important;
+  transition: 0.5s;
+  cursor: pointer;
 }
-.datamaps-subunit{
-    cursor: initial;
+
+.datamaps-subunit {
+  cursor: initial;
 }
-.datamaps-bubble--replace, .datamaps-bubble--replace-v{
-    pointer-events: none;
+
+.datamaps-bubble--replace,
+.datamaps-bubble--replace-v {
+  pointer-events: none;
 }
-.datamaps-bubble--replace-v{
-    fill: #fff;
-    font-family: "GT Medium",georgia,serif;
-    font-weight: 800;
+
+.datamaps-bubble--replace-v {
+  fill: #fff;
+  font-family: "GT Medium", georgia, serif;
+  font-weight: 800;
 }
 
 .location-hover {
-    margin-left: -100%;
+  margin-left: -100%;
 }
+
 .location-hover:after {
-    border-bottom: 8px solid $med-gray-bg;
-    border-top: 0 !important;
-    top: -8px;
+  border-bottom: 8px solid $med-gray-bg;
+  border-top: 0 !important;
+  top: -8px;
 }
 
 #us-map {
-    @media (max-width: $tablet-portrait - 1) {
-        margin-left: -40px;
-        margin-right: -40px;
-        padding-bottom: 70% !important;
-    }
+  @media (max-width: $tablet-portrait - 1) {
+    margin-left: -40px;
+    margin-right: -40px;
+    padding-bottom: 70% !important;
+  }
+}
+
+
+.about-financials {
+
+  h4 {
+    font-family: "ABC Whyte";
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 34px;
+    letter-spacing: 0em;
+    text-align: left;
+  }
 }
