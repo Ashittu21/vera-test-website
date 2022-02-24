@@ -7,7 +7,7 @@
   {% set singleImage = true %}
 {% endif %}
 
-<div class="swiper swiperSlider">
+<section class="swiper swiperSlider">
   <div class="swiper-wrapper {% if singleImage is defined %} singleImage {% endif %}">
     {% for image in images %}
       <div class="swiper-slide">
@@ -27,5 +27,5 @@
       <span></span>
     </div>
   </div>
-</div>
+</section>
 <!-- Swiper Slider -->
