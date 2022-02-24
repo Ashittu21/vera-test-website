@@ -31459,7 +31459,7 @@ ol{
           .block-latestNews-content .latestNews-hero .latestNews-hero-container .latestNews-hero-copy-title {
             font-family: var(--global-font-sectra);
             margin-top: 20px;
-            margin-bottom: 50px; }
+            margin-bottom: 25px; }
             .block-latestNews-content .latestNews-hero .latestNews-hero-container .latestNews-hero-copy-title h4 {
               font-size: 45px;
               font-style: normal;
@@ -31533,7 +31533,7 @@ ol{
             line-height: 23px;
             letter-spacing: 0em;
             text-align: left;
-            margin-top: 1.49rem; }
+            margin-top: 30px; }
         .block-latestNews-content .latestNews-hero .latestNews-hero-container .latestNews-hero-image {
           width: 50%;
           overflow: hidden;
@@ -33944,6 +33944,8 @@ ol{
         .footerV2 .footerV2-top .footerV2-top-col02 ul.menu-footer li {
           margin-top: 16px;
           line-height: 1; }
+          .footerV2 .footerV2-top .footerV2-top-col02 ul.menu-footer li:hover a {
+            color: #ABFFEB; }
           .footerV2 .footerV2-top .footerV2-top-col02 ul.menu-footer li a {
             color: #FFF;
             text-decoration: none;
@@ -34085,17 +34087,21 @@ ol{
             text-decoration: none;
             font-size: 14px;
             font-family: var(--global-font-abc-whyte);
-            background-image: -webkit-gradient(linear, left top, left bottom, from(#ef4136), to(#ef4136));
-            background-image: linear-gradient(#ef4136, #ef4136);
-            background-position: 0% 100%;
-            background-repeat: no-repeat;
-            background-size: 0% 2px;
-            -webkit-transition: background-size .9s;
-            transition: background-size .9s;
-            display: initial; }
+            /* background-image: linear-gradient(#ef4136, #ef4136); */
+            /*  background-position: 0% 100%;
+              background-repeat: no-repeat;
+              background-size: 0% 2px; */
+            /* transition: background-size .9s; */
+            display: initial;
+            text-decoration: underline;
+            -webkit-text-decoration-color: #ef4136;
+                    text-decoration-color: #ef4136;
+            padding: 5px;
+            text-decoration-thickness: 2px; }
             .footerV2 .footerV2-bottom-container .footer-bottom-menu ul li a:hover {
               color: #FFF;
-              background-size: 100% 2px; }
+              background-size: 100% 2px;
+              background-color: #ef4136; }
 
 /*!
  * Hamburgers
@@ -36663,7 +36669,15 @@ header {
       letter-spacing: 0em;
       text-align: left;
       color: #FFF;
-      overflow: hidden; }
+      overflow: hidden;
+      /*        &:before {
+            border-top: 2px solid var(--global-color-light-violet);
+            content: '';
+            display: table-cell;
+            position: relative;
+            top: 0.55em;
+            width: 100%;
+          } */ }
       @media (max-width: 1024px) {
         .rs-page .rs-head-container .rs-headContent .rs-title {
           padding: 0 2rem; } }
@@ -36910,7 +36924,7 @@ header {
                   flex-direction: column;
           color: var(--global-color-text);
           padding-left: 40px;
-          padding-right: 0px;
+          padding-right: 40px;
           width: 100%;
           max-width: 480px; }
           @media (max-width: 1024px) {
@@ -37307,7 +37321,7 @@ header {
     line-height: 14px;
     letter-spacing: 0em;
     padding-top: 10px;
-    padding-bottom: 153px; }
+    padding-bottom: 115px; }
 
 .rs-tags {
   margin-top: 30px;
