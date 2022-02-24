@@ -7144,12 +7144,16 @@ body.no-scroll {
     margin: 0; }
 
 .text-banner--center {
-  background: #f3f3f2;
-  color: #231f20; }
+  /*background: $lt-gray;
+  color: $black;*/
+  background: #0e002c;
+  color: #ffffff; }
   .text-banner--center .text-banner__heading {
-    color: #231f20; }
+    /* color: $black;*/
+    color: #ffffff; }
   .text-banner--center .text-banner__subheading {
-    color: #231f20;
+    /*  color: $black;*/
+    color: #ffffff;
     line-height: 1.75;
     margin: 0; }
   .text-banner--center .text-banner__content {
@@ -12301,7 +12305,7 @@ h2 strong {
 
 .about__2up {
   margin: 0;
-  background: #f3f3f2;
+  background: #fff7f0;
   padding: 20px 0; }
   .about__2up .blocks {
     -webkit-box-pack: justify;
@@ -12739,7 +12743,8 @@ a:hover .icon-download:after {
     color: #231f20; }
 
 .people-grid--highlight {
-  background: #f3f3f2; }
+  /* background: $lt-gray;*/
+  background: #fff7f0; }
 
 .careersBuilder-block-margin {
   margin-top: 30px;
@@ -13697,7 +13702,6 @@ a:hover .icon-download:after {
     bottom: -1px;
     z-index: 2;
     content: '';
-    background: url(../img/border-publication.png) center center no-repeat transparent;
     background-size: cover; }
 
 @media (min-width: 1024px) {
