@@ -1265,7 +1265,7 @@ h2,
 .post-content__main h3,
 .post-content__main h4,
 .post-content__main h5,
-.post-content__main h6, .homepage-3up__heading, .homepage-sp__heading, .banner-cta__heading, .event__agenda table td:first-child, .event__details b, .event__special-guests .person-name, .event__special-guests .people--large .person-name, .about-financials h2, .module-text-footer h4, .people-grid__list .text-outer .person-name, .module-intro__title, .contact-location h3,
+.post-content__main h6, .homepage-3up__heading, .homepage-sp__heading, .banner-cta__heading, .event__agenda table td:first-child, .event__details b, .event__special-guests .person-name, .event__special-guests .people--large .person-name, .about-financials h2, .people-grid__list .text-outer .person-name, .module-intro__title, .contact-location h3,
 .contact-directions h3, .stream-module-outer--special-reports h2, .special-reports-footer b,
 .special-reports-footer strong, .intro-phrases, .secondary-statement, .comparison-list .comparison-item-heading, .next-slide-wrap > div, .project-map .tooltip .subtitle p strong, .formbuilder2 legend, .full-nav-carousel .grid-intro-heading, .blocks b,
 .blocks strong {
@@ -1298,7 +1298,7 @@ h2,
 .signup-popup-outer, .post-content__single__header--event .person-name,
 .post-content__single__header--event h5.person-name,
 .post-content__single__header--event .post-content__author .text-outer h5, .event__info__details, .event__special-guests .people--large li, .about__infographics .pie__stats__num,
-.about__infographics .bar__stats__num, .about__infographics .pie__stats__caption, .about__infographics .pie__mobile-caption, .module-text-footer h6, .people-grid__list .text-outer, .module-intro__sidebar, .module-intro__sidebar li, .sidebar__grid--2up .text-outer, .sidebar__people, .sidebar__people:before, .sidebar__people:after, .sidebar__people li, .sidebar__people li:before, .sidebar__people li:after,
+.about__infographics .bar__stats__num, .about__infographics .pie__stats__caption, .about__infographics .pie__mobile-caption, .people-grid__list .text-outer, .module-intro__sidebar, .module-intro__sidebar li, .sidebar__grid--2up .text-outer, .sidebar__people, .sidebar__people:before, .sidebar__people:after, .sidebar__people li, .sidebar__people li:before, .sidebar__people li:after,
 .post-content__author,
 .post-content__author:before,
 .post-content__author:after,
@@ -7144,12 +7144,16 @@ body.no-scroll {
     margin: 0; }
 
 .text-banner--center {
-  background: #f3f3f2;
-  color: #231f20; }
+  /*background: $lt-gray;
+  color: $black;*/
+  background: #0e002c;
+  color: #ffffff; }
   .text-banner--center .text-banner__heading {
-    color: #231f20; }
+    /* color: $black;*/
+    color: #ffffff; }
   .text-banner--center .text-banner__subheading {
-    color: #231f20;
+    /*  color: $black;*/
+    color: #ffffff;
     line-height: 1.75;
     margin: 0; }
   .text-banner--center .text-banner__content {
@@ -11872,8 +11876,11 @@ h2 strong {
       max-width: 65.9919%; } }
 
 .about__infographics {
-  background: #fff7f0;
-  text-align: center; }
+  background: #0E002C;
+  text-align: center;
+  color: #FFF;
+  padding-top: 62px;
+  padding-bottom: 82px; }
   .about__infographics .about__heading {
     padding: 20px 0; }
     @media (min-width: 1024px) {
@@ -11920,24 +11927,49 @@ h2 strong {
                 align-items: flex-start;
         -ms-flex-wrap: wrap;
             flex-wrap: wrap;
+        -ms-flex-line-pack: center;
+            align-content: center;
         padding-bottom: 0; } }
     .about__infographics .infographic .infographic__description {
       display: block;
       margin-bottom: 3em;
-      padding-top: 10px; }
+      font-family: 'ABC Whyte';
+      font-size: 21px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 29px;
+      letter-spacing: 0em;
+      text-align: center;
+      width: 100%;
+      margin: 0 auto;
+      padding-top: 40px; }
       @media (min-width: 768px) {
         .about__infographics .infographic .infographic__description {
           padding-top: 20px; } }
       @media (min-width: 1024px) {
         .about__infographics .infographic .infographic__description {
-          font-size: 25px;
-          font-size: 2.5rem;
-          font-family: 'ABC Whyte';
+          font-size: 21px;
           max-width: calc(0.3206 * 1520px); } }
     .about__infographics .infographic .infographic__heading {
       width: 100%;
       text-align: center;
-      margin: 1em 0; }
+      margin: 1em 0;
+      margin-bottom: 45px; }
+      .about__infographics .infographic .infographic__heading span {
+        font-family: 'ABC Whyte';
+        font-size: 26px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 34px;
+        letter-spacing: 0em;
+        text-align: center;
+        border-bottom: 2px solid #3E2BB1;
+        padding-bottom: 30px;
+        display: flow-root;
+        width: -webkit-fit-content;
+        width: -moz-fit-content;
+        width: fit-content;
+        margin: 0 auto; }
   .about__infographics .pies-inner {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -12063,7 +12095,7 @@ h2 strong {
             align-items: stretch;
     position: relative;
     padding: 0 20px;
-    border-bottom: 2px solid #4d4e56;
+    border-bottom: 2px solid #ABFFEB;
     width: 100%; }
     .about__infographics .bars-inner .graph-line {
       position: absolute;
@@ -12073,7 +12105,7 @@ h2 strong {
       bottom: 0;
       left: 0;
       right: 0;
-      border-bottom: 1px solid #c2c0ba; }
+      /* border-bottom: 1px solid darken($lt-gray-alt, 10%);*/ }
     .about__infographics .bars-inner .line-10 {
       bottom: calc(20px); }
     .about__infographics .bars-inner .line-20 {
@@ -12126,7 +12158,7 @@ h2 strong {
       .about__infographics .bar-outer {
         padding: 0 30px; } }
   .about__infographics .bar {
-    background: #fff;
+    background: #2E1D97;
     height: 100%;
     padding: 0 10px;
     position: relative;
@@ -12138,7 +12170,7 @@ h2 strong {
     bottom: 0;
     left: 0;
     right: 0;
-    background: #ef4136;
+    background: #ABFFEB;
     height: 0;
     -webkit-transition: height 1s cubic-bezier(0.19, 0.11, 0.21, 0.99) 1s;
     transition: height 1s cubic-bezier(0.19, 0.11, 0.21, 0.99) 1s; }
@@ -12154,10 +12186,25 @@ h2 strong {
       z-index: 4;
       width: 50%;
       text-align: center;
-      color: #ef4136; }
-  .about__infographics .bar__stats__num,
+      color: #ABFFEB; }
   .about__infographics .bar__stats__caption {
-    color: #ef4136; }
+    color: #FFF;
+    font-family: 'ABC Whyte';
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: center; }
+  .about__infographics .bar__stats__num {
+    color: #ABFFEB;
+    font-family: 'ABC Whyte';
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 69px;
+    letter-spacing: 0em;
+    text-align: center; }
   .about__infographics .bar__stats__num {
     line-height: 1.25; }
   .about__infographics .bar__mobile-caption {
@@ -12213,7 +12260,8 @@ h2 strong {
     font-size: 15px;
     font-size: 1.5rem;
     font-family: 'ABC Whyte';
-    margin-bottom: 40px; }
+    margin-bottom: 40px;
+    font-family: 'ABC Whyte'; }
     @media (min-width: 1024px) {
       .about__headings h4 {
         font-size: 18px;
@@ -12227,7 +12275,8 @@ h2 strong {
       font-size: 1.8rem;
       font-family: 'ABC Whyte';
       display: block;
-      padding: 10px; }
+      padding: 10px;
+      font-family: 'ABC Whyte'; }
       @media (min-width: 1024px) {
         .about__headings h4 span {
           font-size: 28px;
@@ -12256,7 +12305,7 @@ h2 strong {
 
 .about__2up {
   margin: 0;
-  background: #f3f3f2;
+  background: #fff7f0;
   padding: 20px 0; }
   .about__2up .blocks {
     -webkit-box-pack: justify;
@@ -12431,11 +12480,15 @@ h2 strong {
     left: 100%;
     z-index: 1;
     white-space: nowrap;
-    font-size: 12px;
-    font-size: 1.2rem;
+    margin: 0 0 0 10px;
+    line-height: 50px;
     font-family: 'ABC Whyte';
-    line-height: 1;
-    margin: 0 0 0 10px; }
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 50px;
+    letter-spacing: 0em;
+    text-align: left; }
     .bar-ltr__row-outer h6 span {
       font-size: 18px;
       font-size: 1.8rem;
@@ -12445,17 +12498,17 @@ h2 strong {
       display: inline-block;
       margin-right: 5px; }
   .bar-ltr__row-outer:nth-child(1) .bar-ltr__row {
-    background: #ef4136;
-    color: #ef4136; }
+    background: #2E1D97;
+    color: #FFF; }
   .bar-ltr__row-outer:nth-child(2) .bar-ltr__row {
-    background: #231f20;
-    color: #231f20; }
+    background: #97DFD1;
+    color: #080214; }
   .bar-ltr__row-outer:nth-child(3) .bar-ltr__row {
-    background: #4d4e56;
-    color: #4d4e56; }
+    background: #FF9E44;
+    color: #080214; }
   .bar-ltr__row-outer:nth-child(4) .bar-ltr__row {
-    background: #a3a3a3;
-    color: #a3a3a3; }
+    background: #0E002C;
+    color: #080214; }
 
 .bar-ltr__row--lg h6 {
   top: 0;
@@ -12522,7 +12575,17 @@ a:hover .icon-download:after {
     height: auto;
     max-width: 200px; }
   .module-text-footer h4 {
+    font-family: 'ABC Whyte';
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 34px;
+    letter-spacing: 0em;
+    text-align: left;
     margin-bottom: 15px; }
+  .module-text-footer h6 {
+    line-height: 50px;
+    font-family: 'ABC Whyte'; }
 
 .location-hover {
   position: relative;
@@ -12582,10 +12645,12 @@ a:hover .icon-download:after {
   top: 0;
   left: 0; }
 
-.datamaps-subunit, .datamaps-bubble {
+.datamaps-subunit,
+.datamaps-bubble {
   cursor: pointer; }
 
-.datamaps-subunit.map--active:hover, .datamaps-subunit.map--active-on {
+.datamaps-subunit.map--active:hover,
+.datamaps-subunit.map--active-on {
   fill: #231F20 !important;
   -webkit-transition: 0.5s;
   transition: 0.5s;
@@ -12594,12 +12659,13 @@ a:hover .icon-download:after {
 .datamaps-subunit {
   cursor: initial; }
 
-.datamaps-bubble--replace, .datamaps-bubble--replace-v {
+.datamaps-bubble--replace,
+.datamaps-bubble--replace-v {
   pointer-events: none; }
 
 .datamaps-bubble--replace-v {
   fill: #fff;
-  font-family: "GT Medium",georgia,serif;
+  font-family: "GT Medium", georgia, serif;
   font-weight: 800; }
 
 .location-hover {
@@ -12615,6 +12681,15 @@ a:hover .icon-download:after {
     margin-left: -40px;
     margin-right: -40px;
     padding-bottom: 70% !important; } }
+
+.about-financials h4 {
+  font-family: "ABC Whyte";
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 34px;
+  letter-spacing: 0em;
+  text-align: left; }
 
 .people-grid {
   padding: 40px 0 0;
@@ -12668,7 +12743,8 @@ a:hover .icon-download:after {
     color: #231f20; }
 
 .people-grid--highlight {
-  background: #f3f3f2; }
+  /* background: $lt-gray;*/
+  background: #fff7f0; }
 
 .careersBuilder-block-margin {
   margin-top: 30px;
@@ -13626,7 +13702,6 @@ a:hover .icon-download:after {
     bottom: -1px;
     z-index: 2;
     content: '';
-    background: url(../img/border-publication.png) center center no-repeat transparent;
     background-size: cover; }
 
 @media (min-width: 1024px) {
@@ -24459,7 +24534,7 @@ body.state-of.covid-article {
 .initiatives .post-content__main h3.timed-slideshow-item--text, .post-content__main .initiatives h3.timed-slideshow-item--text,
 .initiatives .post-content__main h4.timed-slideshow-item--text, .post-content__main .initiatives h4.timed-slideshow-item--text,
 .initiatives .post-content__main h5.timed-slideshow-item--text, .post-content__main .initiatives h5.timed-slideshow-item--text,
-.initiatives .post-content__main h6.timed-slideshow-item--text, .post-content__main .initiatives h6.timed-slideshow-item--text, .initiatives .event__agenda table td.timed-slideshow-item--text:first-child, .event__agenda table .initiatives td.timed-slideshow-item--text:first-child, .initiatives .event__details b.timed-slideshow-item--text, .event__details .initiatives b.timed-slideshow-item--text, .initiatives .about-financials h2.timed-slideshow-item--text, .about-financials .initiatives h2.timed-slideshow-item--text, .initiatives .module-text-footer h4.timed-slideshow-item--text, .module-text-footer .initiatives h4.timed-slideshow-item--text, .initiatives .contact-location h3.timed-slideshow-item--text, .contact-location .initiatives h3.timed-slideshow-item--text,
+.initiatives .post-content__main h6.timed-slideshow-item--text, .post-content__main .initiatives h6.timed-slideshow-item--text, .initiatives .event__agenda table td.timed-slideshow-item--text:first-child, .event__agenda table .initiatives td.timed-slideshow-item--text:first-child, .initiatives .event__details b.timed-slideshow-item--text, .event__details .initiatives b.timed-slideshow-item--text, .initiatives .about-financials h2.timed-slideshow-item--text, .about-financials .initiatives h2.timed-slideshow-item--text, .initiatives .contact-location h3.timed-slideshow-item--text, .contact-location .initiatives h3.timed-slideshow-item--text,
 .initiatives .contact-directions h3.timed-slideshow-item--text, .contact-directions .initiatives h3.timed-slideshow-item--text, .initiatives .stream-module-outer--special-reports h2.timed-slideshow-item--text, .stream-module-outer--special-reports .initiatives h2.timed-slideshow-item--text, .initiatives .special-reports-footer b.timed-slideshow-item--text, .special-reports-footer .initiatives b.timed-slideshow-item--text,
 .initiatives .special-reports-footer strong.timed-slideshow-item--text, .special-reports-footer .initiatives strong.timed-slideshow-item--text, .initiatives .next-slide-wrap > div.timed-slideshow-item--text, .initiatives .project-map .tooltip .subtitle p strong.timed-slideshow-item--text, .project-map .tooltip .subtitle p .initiatives strong.timed-slideshow-item--text, .initiatives .formbuilder2 legend.timed-slideshow-item--text, .formbuilder2 .initiatives legend.timed-slideshow-item--text, .initiatives .blocks b.timed-slideshow-item--text, .blocks .initiatives b.timed-slideshow-item--text,
 .initiatives .blocks strong.timed-slideshow-item--text, .blocks .initiatives strong.timed-slideshow-item--text, .initiatives h2.ff-serif--medium,

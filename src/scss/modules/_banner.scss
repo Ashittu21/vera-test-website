@@ -74,6 +74,7 @@
   &.editorial {
     padding-top: 0;
     align-items: flex-end;
+
     //@media (min-width: $mobile-large) {
     &.editorialIntroduction {
       align-items: center;
@@ -85,7 +86,7 @@
       @media print {
         display: block;
 
-        .print-image + .title_wrap {
+        .print-image+.title_wrap {
           margin-top: $padding-xl;
         }
       }
@@ -103,6 +104,7 @@
           @media (min-width: $tablet-landscape) {
             font-size: 9vw;
           }
+
           @media (min-width: $desktop-mlarge) {
             font-size: 8vw;
           }
@@ -117,15 +119,19 @@
           transform: translateY(-50%);
 
           @include font-size(1.4);
+
           @media (min-width: $mobile-small) {
             @include font-size(1.6);
           }
+
           @media (min-width: $mobile-medium) {
             @include font-size(2);
           }
+
           @media (min-width: $tablet-portrait) {
             @include font-size(2.6);
           }
+
           @media (min-width: $tablet-landscape) {
             @include font-size(3.2);
           }
@@ -138,6 +144,7 @@
       min-height: 600px;
 
       .title_wrap {
+
         .chapter-count,
         h1.title {
           @include font-size(10);
@@ -148,6 +155,7 @@
         }
 
         &.long {
+
           .chapter-count,
           h1.title {
             @include font-size(6);
@@ -159,6 +167,7 @@
         }
       }
     }
+
     //}
 
     display: flex;
@@ -173,6 +182,7 @@
       height: 100%;
       background-color: $black;
       opacity: 0.2;
+
       &.full-opacity {
         opacity: 1;
       }
@@ -256,6 +266,7 @@
       .title {
         font-size: 4em !important;
       }
+
       .subtitle {
         font-size: 2em !important;
       }
@@ -403,16 +414,20 @@
 // centered / gray
 
 .text-banner--center {
-  background: $lt-gray;
-  color: $black;
+  /*background: $lt-gray;
+  color: $black;*/
+  background: #0e002c;
+  color: #ffffff;
 
   .text-banner__heading {
-    color: $black;
+    /* color: $black;*/
+    color: #ffffff;
     @extend .ff-serif--medium;
   }
 
   .text-banner__subheading {
-    color: $black;
+    /*  color: $black;*/
+    color: #ffffff;
     @include body-font;
     line-height: 1.75;
     margin: 0;
@@ -493,6 +508,7 @@
   z-index: 1;
   margin-bottom: $padding-lg;
   font-family: 'ABC Whyte';
+
   @media (min-width: $tablet-landscape) {
     padding-right: $padding-lg * 2;
     max-width: $two-thirds;
@@ -503,7 +519,8 @@
   ol {
     margin-left: 1.25em;
   }
-  p{
+
+  p {
     font-family: 'ABC Whyte';
   }
 }
@@ -533,6 +550,7 @@
 
 .banner-image-right--careers {
   font-family: 'ABC Whyte';
+
   .img-outer {
     display: none;
 
@@ -552,6 +570,7 @@
 
 .text-banner--event {
   background-color: $black;
+
   @media (min-width: $tablet-landscape) {
     margin-bottom: $padding-med;
   }
@@ -589,7 +608,7 @@
   }
 
   .text-banner__content {
-    > * {
+    >* {
       position: relative;
       z-index: 2;
     }
@@ -672,6 +691,7 @@
 }
 
 @media all and (-ms-high-contrast: none) {
+
   *::-ms-backdrop,
   .text-banner--left-center {
     display: table;
@@ -932,6 +952,7 @@
       }
     }
   }
+
   .director-tagline {
     margin-top: $padding-sm;
   }
@@ -942,14 +963,16 @@
   margin: 0 auto;
   text-align: left;
 
-  > a {
+  >a {
     color: inherit;
     display: flex;
   }
+
   .img-outer {
     margin-right: 15px;
     flex-shrink: 0;
   }
+
   img {
     border-radius: 50%;
   }
