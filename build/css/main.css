@@ -30927,23 +30927,18 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
         position: relative;
         z-index: 1;
         color: white;
-        -webkit-animation-name: test-text;
-                animation-name: test-text;
-        -webkit-animation-duration: 1s;
-                animation-duration: 1s;
-        -webkit-animation-fill-mode: forwards;
-                animation-fill-mode: forwards; }
+        /*  animation-name: test-text;
+        animation-duration: 1s;
+        animation-fill-mode: forwards; */
+        /*         span{
+          animation-name: test-text2;
+          animation-duration: 2s;
+          animation-fill-mode: forwards;
+        } */ }
         @media (max-width: 768px) {
           .heroType3-content-title h1, .heroType3-content-title .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading, .article .heading-wrap.heading-style--default .heading-wrap-text .heroType3-content-title h3.heading, .heroType3-content-title .timed-slideshow-item--text {
             font-size: 55px;
             line-height: 107%; } }
-        .heroType3-content-title h1 span, .heroType3-content-title .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading span, .article .heading-wrap.heading-style--default .heading-wrap-text .heroType3-content-title h3.heading span, .heroType3-content-title .timed-slideshow-item--text span {
-          -webkit-animation-name: test-text2;
-                  animation-name: test-text2;
-          -webkit-animation-duration: 2s;
-                  animation-duration: 2s;
-          -webkit-animation-fill-mode: forwards;
-                  animation-fill-mode: forwards; }
     .heroType3-content-line1 {
       display: block;
       position: absolute;
@@ -30968,7 +30963,7 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
       background-color: var(--global-color-light-violet);
       height: 2px;
       width: 0;
-      margin-bottom: -31rem;
+      margin-bottom: -32rem;
       -webkit-animation-name: test-animation;
               animation-name: test-animation;
       -webkit-animation-duration: 3s;
@@ -31001,12 +30996,15 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
         .heroType3-content-line4 {
           height: 49px; } }
 
-@keyframes test-animation {
+/* @keyframes test-animation {
   from {
-    width: 0px; }
-  to {
-    width: 100vw; } }
+      width:0px;
+  }
 
+  to {
+      width: 100vw ;
+  }
+} */
 /* @keyframes test-text {
   from {
       top:33px;
@@ -31018,44 +31016,151 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
     opacity: 1;
   }
 } */
-@-webkit-keyframes test-text {
+/* @keyframes test-text {
   0% {
     -webkit-transform: translateX(30px);
     transform: translateY(30px);
-    opacity: 0; }
+    opacity: 0;
+  }
   100% {
     -webkit-transform: translateX(0);
     transform: translateY(0);
-    opacity: 1; } }
-@keyframes test-text {
-  0% {
-    -webkit-transform: translateX(30px);
-    transform: translateY(30px);
-    opacity: 0; }
-  100% {
-    -webkit-transform: translateX(0);
-    transform: translateY(0);
-    opacity: 1; } }
-
-@-webkit-keyframes test-text2 {
-  0% {
-    -webkit-transform: translateX(30px);
-    transform: translateY(30px);
-    opacity: 0; }
-  100% {
-    -webkit-transform: translateX(0);
-    transform: translateY(0);
-    opacity: 1; } }
+    opacity: 1;
+  }
+}
 
 @keyframes test-text2 {
   0% {
     -webkit-transform: translateX(30px);
     transform: translateY(30px);
-    opacity: 0; }
+    opacity: 0;
+  }
   100% {
     -webkit-transform: translateX(0);
     transform: translateY(0);
+    opacity: 1;
+  }
+} */
+/* Animación home */
+.heading {
+  margin: 120px 0 0 80px;
+  font-size: 100px;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  font-family: var(--global-font-sectra);
+  font-style: normal;
+  font-weight: bold;
+  font-size: 160px;
+  line-height: 115%;
+  color: #fff; }
+
+.heading img {
+  height: 31px; }
+
+.heading > div {
+  overflow: hidden; }
+
+.heading > div > p {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  white-space: nowrap;
+  margin: 0;
+  line-height: 117%; }
+
+.green {
+  color: #fff; }
+
+div.heading > div {
+  -webkit-animation-delay: 0;
+  animation-delay: 0; }
+
+div.heading > div:nth-child(2) > p {
+  -webkit-animation-delay: 0.05s;
+  animation-delay: 0.05s; }
+
+/* .div.heading>div:nth-child(3)>:before {
+  content: '';
+  bottom: -15px;
+  height: 4rem;
+  left: -0.5rem;
+  right: -1.6rem;
+  z-index: -1;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: inherit;
+  position: absolute;
+  z-index: -1; 
+  background-image: url("../../dist/img/v2/brushstroke-02.svg");
+}
+ */
+div.heading > div {
+  -webkit-animation-delay: 0;
+  animation-delay: 0; }
+
+div.heading > div:nth-child(3) > p {
+  -webkit-animation-delay: 0.075s;
+  animation-delay: 0.075s; }
+
+.slide-up {
+  -webkit-animation: slide-up 0.9s cubic-bezier(0.65, 0, 0.35, 1) both;
+  animation: slide-up 0.9s cubic-bezier(0.65, 0, 0.35, 1) both; }
+
+.stroke {
+  -webkit-animation: stroke 0.9s cubic-bezier(0.65, 0, 0.35, 1) both;
+  animation: stroke 0.9s cubic-bezier(0.65, 0, 0.35, 1) both; }
+
+@-webkit-keyframes stroke {
+  0% {
+    width: 0;
+    position: relative;
+    top: -30px;
+    opacity: 0; }
+  100% {
+    width: 340px;
+    position: relative;
+    top: -30px;
     opacity: 1; } }
+
+@keyframes stroke {
+  0% {
+    width: 0;
+    position: relative;
+    top: -30px;
+    opacity: 0; }
+  100% {
+    width: 340px;
+    position: relative;
+    top: -30px;
+    opacity: 1; } }
+
+.slider-home {
+  position: absolute !important;
+  top: 0;
+  margin: 0 !important; }
+
+.slider-home .swiper-slide {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline; }
+
+.slider-home .swiper-slide img {
+  height: 70px !important; }
 
 .hero-type4 {
   background-color: var(--global-color-sand);
