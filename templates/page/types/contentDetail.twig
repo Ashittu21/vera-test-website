@@ -91,8 +91,8 @@
         {% include 'v2/common/swiperSlider' with { block: block } %}
       {% elseif block.type == 'map' %}
         <div class="mapContainer">
-          {% include 'vera-maps/_maptypesBlock'  with { block: block } %}
-        </div>
+          {% include '../../vera-maps/mapsv2'  with { block: block } %}
+        </div>       
       {% endif %}
     {% endfor %}
 
