@@ -5,6 +5,7 @@
 }
 
 .newsLanding-content {
+  position: relative;
 
   background-color: var(--global-color-sand);
   width: 100%;
@@ -113,9 +114,17 @@
         &-left {
           max-width: 510px;
           width: 100%;
+          position: relative;
 
           img {
             width: 100%;
+          }
+
+          img.series-icon{
+            width: 25px;
+           position: absolute;
+            top: 30px;
+            right: 15px;
           }
         }
 
