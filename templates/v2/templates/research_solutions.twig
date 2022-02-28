@@ -16,7 +16,8 @@
             ['Audio', 'audio'],
             ['Video', 'video'],
             ['Resource Sites', 'resourceSite'],
-            ['Special Reports', 'specialReports']
+            ['Special Reports', 'specialReports'],
+            ['Blog Series', 'blogSeries']
           ],
       filterRelations: [{type: 'categories', relations: craft.categories.group('ourWork').level(2), title: 'Resource Type'}]
       }
@@ -314,6 +315,7 @@
 
               </div>
               <div class="rs-listing-item-image">
+               
                {% if image %}
                         <img src="{{ image.getUrl('thumbnailVertical') }}" alt=""/>
                     {% else %}
@@ -327,6 +329,11 @@
                           indexColor: fallback,  
                         } 
                       %}
+                    {% endif %}
+                    {% if result.type.handle == 'blogSeries' %}
+                    
+                     <img src="/dist/img/v2/series.svg" class="series-icon">
+                    
                     {% endif %}
               </div>
             </div>

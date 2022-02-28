@@ -555,7 +555,8 @@
                 }
               }
               
-              .rs-listing-item-image{    
+              .rs-listing-item-image{   
+                position: relative; 
                 
                 @media (max-width: $tablet-landscape) {
                   margin: 0 auto;
@@ -569,6 +570,15 @@
                   height: 201px;
                   max-width: fit-content;
                 }
+
+                img.series-icon{
+                  width: 20px;
+                  position: absolute;
+                  top: 30px;
+                  right: 15px;
+                  height: auto;
+                }
+
                 .placeHolderImg{
                   width: 180px;
                   height: 201px;

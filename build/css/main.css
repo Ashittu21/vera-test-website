@@ -36513,6 +36513,7 @@ header {
   padding: 70px 0; }
 
 .newsLanding-content {
+  position: relative;
   background-color: var(--global-color-sand);
   width: 100%;
   color: var(--global-color-text);
@@ -36606,9 +36607,15 @@ header {
             padding: 0; } }
         .newsLanding-content .newsLanding-items .newsLanding-item-content-left {
           max-width: 510px;
-          width: 100%; }
+          width: 100%;
+          position: relative; }
           .newsLanding-content .newsLanding-items .newsLanding-item-content-left img {
             width: 100%; }
+          .newsLanding-content .newsLanding-items .newsLanding-item-content-left img.series-icon {
+            width: 25px;
+            position: absolute;
+            top: 30px;
+            right: 15px; }
         .newsLanding-content .newsLanding-items .newsLanding-item-content-right {
           width: 100%;
           max-width: 510px;
@@ -37280,6 +37287,7 @@ header {
               margin: 0;
               padding: 0; }
           .rs-page .rs-listing .rs-listing-content .rs-listing-items .rs-listing-item .rs-listing-item-wrapper .rs-listing-item-image {
+            position: relative;
             width: 180px; }
             @media (max-width: 1024px) {
               .rs-page .rs-listing .rs-listing-content .rs-listing-items .rs-listing-item .rs-listing-item-wrapper .rs-listing-item-image {
@@ -37293,6 +37301,12 @@ header {
               max-width: -webkit-fit-content;
               max-width: -moz-fit-content;
               max-width: fit-content; }
+            .rs-page .rs-listing .rs-listing-content .rs-listing-items .rs-listing-item .rs-listing-item-wrapper .rs-listing-item-image img.series-icon {
+              width: 20px;
+              position: absolute;
+              top: 30px;
+              right: 15px;
+              height: auto; }
             .rs-page .rs-listing .rs-listing-content .rs-listing-items .rs-listing-item .rs-listing-item-wrapper .rs-listing-item-image .placeHolderImg {
               width: 180px;
               height: 201px;
