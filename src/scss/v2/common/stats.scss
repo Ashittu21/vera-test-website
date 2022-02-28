@@ -4,8 +4,8 @@
   border-bottom: 2px solid var(--global-color-dark-sand);
   max-width: 1032px;
   margin: 0 auto;
-  margin-top: 55px;
-  margin-bottom: 0;
+  margin-top: 60px;
+  margin-bottom: 60px;
 
   @media (max-width: $tablet-portrait) {
     border-bottom: 2px solid transparent;
@@ -23,7 +23,7 @@
       text-align: center;
       text-transform: uppercase;
       color: var(--global-color-text);
-      margin: 40px 0;
+      margin: 45px 0;
     }
   }
 
@@ -66,7 +66,7 @@
         font-weight: 900;
         line-height: 60px;
         letter-spacing: 0em;
-        margin-bottom: 11px;
+        margin-bottom: 25px;
         text-align: center;
 
         @media (max-width: $tablet-portrait) {

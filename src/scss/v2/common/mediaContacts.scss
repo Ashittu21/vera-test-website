@@ -127,6 +127,9 @@
   
   .bannerType4 {
     max-width: 1060px;
+    .button.orange span{
+      font-size: 28px;
+    }
   }
   
   .mediaContacts-items {
@@ -196,6 +199,8 @@
         
         @media (max-width: $mobile-large) {
           flex-direction: column;
+          padding-top: 40px;
+          padding-bottom: 0px;
         }
         
         &-left {
@@ -215,7 +220,7 @@
             @media (max-width: $mobile-large) {
               font-size: 11px;
               line-height: 20px;
-              margin-bottom: 29px;
+              margin-bottom: 20px;
             }
           }
         }
@@ -262,6 +267,7 @@
             @media (max-width: $mobile-large) {
               font-size: 14px;
               line-height: 22px;
+              margin-bottom: 35px;
             }
           }
         }
