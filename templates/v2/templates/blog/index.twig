@@ -95,7 +95,6 @@
         {% include 'v2/templates/blog/blocks/quoteType2' with { block: block } %}
       {% elseif  block.type == 'quoteType1' %}
         {% include 'v2/templates/blog/blocks/quoteType1' with { block: block } %}
-
      {# 
       {% elseif  block.type == 'relatedItems' %}
         {% include 'v2/common/relatedItems' with { block: block } %}
@@ -107,19 +106,30 @@
     </div>
 
     {% if entry.relatedSeries | length and entry.relatedSeries.first.seriesDescription %}
-    <section class="copy-block-container">
-      <div class="copy-block-content">
-      {{ entry.relatedSeries.first.seriesDescription }}
-      </div>
-    </section>
-	{% endif %}
+      <section class="copy-block-container">
+        <div class="copy-block-content">
+        {{ entry.relatedSeries.first.seriesDescription }}
+        </div>
+      </section>
+  	{% endif %}
+
+    <div id="topButton" class="hidd-en">
+        <a href="javascript:window.scrollTo({top: 0, behavior: 'smooth'});" class="topIcon"></a>   
+    </div>
 </div>
 
 {% if includeCharts %}
 	{% includeJsFile '/dist/js/specialReportCampaign.js?v=0.2' %}
 {% endif %}
 
-
+{% js %}
+document.addEventListener('DOMContentLoaded', function () {
+  const btnTop = document.querySelector('#topButton');
+  if(document.body.scrollHeight > 4500){
+    btnTop.classList.remove('active');
+  }
+});
+{% endjs %}
 
 {% endblock %}
 

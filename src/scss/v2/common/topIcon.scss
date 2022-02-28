@@ -1,0 +1,24 @@
+#topButton{
+  &.hidden{
+    display: none;
+  }
+  position: absolute;
+  bottom: 0;
+  display: block;
+  height: 100px;
+  width: 100%;
+  .topIcon{
+    width: 54px;
+    height: 54px;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: cover;
+    background-image: url(../img/v2/backtoTop.svg);
+    right: 20px;
+    display: block;
+    position: absolute;
+    &:hover {
+      background-image: url('../img/v2/backtoTop-hover.svg');
+    }
+  }
+}

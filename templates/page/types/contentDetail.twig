@@ -56,7 +56,6 @@
     <!-- Share Icons -->
 
     {% for block in blocks %}
-
       {% if block.type == 'headerTitle' %}
         {% include 'v2/common/headerTitle' with { block: block } %}
       {% elseif block.type == 'copy' %}

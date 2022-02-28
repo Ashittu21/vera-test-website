@@ -30,9 +30,8 @@
 		{% block ajax_wrap_open %}{% endblock %}
 		{% block content %}{% endblock %}
 		{% block ajax_wrap_close %}{% endblock %}
-
+		
 		<!-- Modals -->
-
 		{% set currentDonateCta = craft.entries.section('donateCta').first %}
 		{% if entry is defined and entry and entry.section.handle not in ['donate','donateAppeal','careersLanding'] and not entry.suppressDonatePopup %}
 			{% if currentDonateCta %}
