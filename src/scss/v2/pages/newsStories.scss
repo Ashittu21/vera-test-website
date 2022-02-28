@@ -78,6 +78,7 @@
           &-right {
             &-tag {
               color: var(--global-color-white);
+
             }
 
             &-title {
@@ -151,6 +152,9 @@
             letter-spacing: 0.17em;
             text-align: left;
             margin-bottom: 33px;
+            @media(max-width:$mobile-breakpoint) {
+              margin-bottom: 20px;
+            }
           }
 
           &-title {

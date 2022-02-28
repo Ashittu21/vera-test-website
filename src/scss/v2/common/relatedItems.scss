@@ -45,6 +45,8 @@
 
     @media(max-width:$mobile-breakpoint) {
       padding-left: 0px;
+      width: 90%;
+      margin: 0 auto;
     }
 
     &:hover {
