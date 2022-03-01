@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0e273322bf1982489545fcb5d28c4bc8",
+    "content-hash": "84c42d4cfaa133bf9d677c1976d1fad3",
     "packages": [
         {
             "name": "aelvan/inlin",
@@ -2568,6 +2568,48 @@
             "time": "2017-05-01T15:36:40+00:00"
         },
         {
+            "name": "jean85/pretty-package-versions",
+            "version": "2.0.5",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Jean85/pretty-package-versions/zipball/ae547e455a3d8babd07b96966b17d7fd21d9c6af",
+                "reference": "ae547e455a3d8babd07b96966b17d7fd21d9c6af",
+                "shasum": ""
+            },
+            "require": {
+                "composer-runtime-api": "^2.0.0",
+                "php": "^7.1|^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Jean85\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alessandro Lai",
+                    "email": "alessandro.lai85@gmail.com"
+                }
+            ],
+            "description": "A library to get pretty versions strings of installed dependencies",
+            "keywords": [
+                "composer",
+                "package",
+                "release",
+                "versions"
+            ],
+            "time": "2021-10-08T21:21:46+00:00"
+        },
+        {
             "name": "justinrainbow/json-schema",
             "version": "5.2.11",
             "dist": {
@@ -2827,38 +2869,36 @@
         },
         {
             "name": "league/csv",
-            "version": "8.2.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/thephpleague/csv.git",
-                "reference": "d2aab1e7bde802582c3879acf03d92716577c76d"
-            },
+            "version": "9.8.0",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/csv/zipball/d2aab1e7bde802582c3879acf03d92716577c76d",
-                "reference": "d2aab1e7bde802582c3879acf03d92716577c76d",
+                "url": "https://api.github.com/repos/thephpleague/csv/zipball/9d2e0265c5d90f5dd601bc65ff717e05cec19b47",
+                "reference": "9d2e0265c5d90f5dd601bc65ff717e05cec19b47",
                 "shasum": ""
             },
             "require": {
+                "ext-json": "*",
                 "ext-mbstring": "*",
-                "php": ">=5.5.0"
+                "php": "^7.4 || ^8.0"
             },
-            "require-dev": {
-                "friendsofphp/php-cs-fixer": "^1.9",
-                "phpunit/phpunit": "^4.0"
+            "suggest": {
+                "ext-dom": "Required to use the XMLConverter and or the HTMLConverter classes",
+                "ext-iconv": "Needed to ease transcoding CSV using iconv stream filters"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "8.2-dev"
+                    "dev-master": "9.x-dev"
                 }
             },
             "autoload": {
                 "psr-4": {
                     "League\\Csv\\": "src"
-                }
+                },
+                "files": [
+                    "src/functions_include.php"
+                ]
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -2870,17 +2910,19 @@
                     "role": "Developer"
                 }
             ],
-            "description": "Csv data manipulation made easy in PHP",
-            "homepage": "http://csv.thephpleague.com",
+            "description": "CSV data manipulation made easy in PHP",
+            "homepage": "https://csv.thephpleague.com",
             "keywords": [
+                "convert",
                 "csv",
                 "export",
                 "filter",
                 "import",
                 "read",
+                "transform",
                 "write"
             ],
-            "time": "2018-02-06T08:27:03+00:00"
+            "time": "2022-01-04T00:13:07+00:00"
         },
         {
             "name": "league/flysystem",
@@ -3230,16 +3272,11 @@
         },
         {
             "name": "lewisjenkins/craft-dynamic-fields",
-            "version": "3.0.11",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/lewisjenkins/craft-dynamic-fields.git",
-                "reference": "8ae684f441be5b2670df4a91be384c0ba1de2da0"
-            },
+            "version": "3.0.12",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/lewisjenkins/craft-dynamic-fields/zipball/8ae684f441be5b2670df4a91be384c0ba1de2da0",
-                "reference": "8ae684f441be5b2670df4a91be384c0ba1de2da0",
+                "url": "https://api.github.com/repos/lewisjenkins/craft-dynamic-fields/zipball/ff2b27d33faaf1cfe9417beb3ff073b8f1b1706d",
+                "reference": "ff2b27d33faaf1cfe9417beb3ff073b8f1b1706d",
                 "shasum": ""
             },
             "require": {
@@ -3262,7 +3299,6 @@
                     "lewisjenkins\\craftdynamicfields\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "proprietary"
             ],
@@ -3274,14 +3310,19 @@
             ],
             "description": "Populate Craft fields with dynamic data using the power of Twig.",
             "keywords": [
-                "Craft",
                 "cms",
+                "craft",
                 "craft dynamic fields",
                 "craft-plugin",
                 "craftcms",
                 "lj dynamic fields"
             ],
-            "time": "2020-02-13T10:16:40+00:00"
+            "support": {
+                "docs": "https://github.com/lewisjenkins/craft-dynamic-fields/blob/master/README.md",
+                "issues": "https://github.com/lewisjenkins/craft-dynamic-fields/issues",
+                "email": "lewis@lj.io"
+            },
+            "time": "2021-09-23T14:34:48+00:00"
         },
         {
             "name": "maennchen/zipstream-php",
@@ -4181,38 +4222,64 @@
             "time": "2021-10-11T16:38:14+00:00"
         },
         {
-            "name": "nystudio107/craft-retour",
-            "version": "3.1.45",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/nystudio107/craft-retour.git",
-                "reference": "9c2e9862ac2a014fcadf666443dcb7a1b19469e6"
-            },
+            "name": "nystudio107/craft-plugin-vite",
+            "version": "1.0.22",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nystudio107/craft-retour/zipball/9c2e9862ac2a014fcadf666443dcb7a1b19469e6",
-                "reference": "9c2e9862ac2a014fcadf666443dcb7a1b19469e6",
+                "url": "https://api.github.com/repos/nystudio107/craft-plugin-vite/zipball/bf6f960ff4da77a4b7ab8771dd39a36272e731ef",
+                "reference": "bf6f960ff4da77a4b7ab8771dd39a36272e731ef",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^3.0.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "nystudio107\\pluginvite\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "nystudio107",
+                    "homepage": "https://nystudio107.com"
+                }
+            ],
+            "description": "Plugin Vite is the conduit between Craft CMS plugins and Vite, with manifest.json & HMR support",
+            "keywords": [
+                "craftcms",
+                "plugin",
+                "vite"
+            ],
+            "support": {
+                "docs": "https://github.com/nystudio107/craft-plugin-vite/blob/v1/README.md",
+                "issues": "https://github.com/nystudio107/craft-plugin-vite/issues"
+            },
+            "time": "2022-01-21T13:17:34+00:00"
+        },
+        {
+            "name": "nystudio107/craft-retour",
+            "version": "3.1.70",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nystudio107/craft-retour/zipball/204d129ed28cabe241563ecdf81d6beceb4ee9ac",
+                "reference": "204d129ed28cabe241563ecdf81d6beceb4ee9ac",
                 "shasum": ""
             },
             "require": {
                 "craftcms/cms": "^3.0.0",
-                "league/csv": "^8.2"
-            },
-            "require-dev": {
-                "codeception/codeception": "^3.0",
-                "vlucas/phpdotenv": "^3.0"
+                "jean85/pretty-package-versions": "^1.5 || ^2.0",
+                "league/csv": "^8.2 || ^9.0",
+                "nystudio107/craft-plugin-vite": "^1.0.0"
             },
             "type": "craft-plugin",
             "extra": {
                 "name": "Retour",
                 "handle": "retour",
-                "hasCpSettings": true,
-                "hasCpSection": true,
                 "changelogUrl": "https://raw.githubusercontent.com/nystudio107/craft-retour/v3/CHANGELOG.md",
-                "components": {
-                    "redirects": "nystudio107\\retour\\services\\Redirects",
-                    "statistics": "nystudio107\\retour\\services\\Statistics"
-                },
                 "class": "nystudio107\\retour\\Retour"
             },
             "autoload": {
@@ -4220,7 +4287,6 @@
                     "nystudio107\\retour\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "proprietary"
             ],
@@ -4239,7 +4305,11 @@
                 "retour",
                 "statistics"
             ],
-            "time": "2020-12-11T03:18:35+00:00"
+            "support": {
+                "docs": "https://nystudio107.com/plugins/retour/documentation",
+                "issues": "https://nystudio107.com/plugins/retour/support"
+            },
+            "time": "2022-01-17T14:17:41+00:00"
         },
         {
             "name": "nystudio107/craft-seomatic",
