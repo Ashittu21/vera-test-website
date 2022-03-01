@@ -5,7 +5,7 @@
     "aelvan/inlin": "^2.1",
     "besteadfast/craft-preparse-field": "1.2.5",
     "carlcs/craft-redactorcustomstyles": "^3.0",
-    "craftcms/cms": "3.7.34",
+    "craftcms/cms": "3.7.35",
     "craftcms/contact-form": "2.3.0",
     "craftcms/element-api": "2.8.4",
     "craftcms/feed-me": "^4.3",

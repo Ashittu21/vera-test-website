@@ -1,6 +1,6 @@
 {
   "buttons": ["format", "link", "lists", "bold", "italic", "image"],
-  "plugins": ["scriptbuttons"],
+  "plugins": [],
   "formatting": [],
   "formattingAdd": {
     "footnote": {

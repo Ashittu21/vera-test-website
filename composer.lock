@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7d7285893ef145b8935d131db2d7b4f4",
+    "content-hash": "fb648b61f7de1de5b7014587bb8aa836",
     "packages": [
         {
             "name": "aelvan/inlin",
@@ -897,11 +897,11 @@
         },
         {
             "name": "craftcms/cms",
-            "version": "3.7.34",
+            "version": "3.7.35",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/cms/zipball/5176602f4ad33769dcee05ccafc0d4d8b894f80a",
-                "reference": "5176602f4ad33769dcee05ccafc0d4d8b894f80a",
+                "url": "https://api.github.com/repos/craftcms/cms/zipball/72f6e6e1a81b82608f48378bc15780f558388ef0",
+                "reference": "72f6e6e1a81b82608f48378bc15780f558388ef0",
                 "shasum": ""
             },
             "require": {
@@ -985,7 +985,7 @@
                 "docs": "https://craftcms.com/docs/3.x/",
                 "rss": "https://github.com/craftcms/cms/releases.atom"
             },
-            "time": "2022-02-22T18:34:09+00:00"
+            "time": "2022-03-01T20:05:01+00:00"
         },
         {
             "name": "craftcms/contact-form",
@@ -5189,11 +5189,6 @@
         {
             "name": "psr/simple-cache",
             "version": "1.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/php-fig/simple-cache.git",
-                "reference": "408d5eafb83c57f6365a3ca330ff23aa4a5fa39b"
-            },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/php-fig/simple-cache/zipball/408d5eafb83c57f6365a3ca330ff23aa4a5fa39b",
@@ -5214,7 +5209,6 @@
                     "Psr\\SimpleCache\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],

@@ -1,4 +1,4 @@
 {
   "buttons": ["link", "bold", "italic"],
-  "plugins": ["scriptbuttons"]
+  "plugins": []
 }

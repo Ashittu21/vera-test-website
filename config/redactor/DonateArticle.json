@@ -1,6 +1,6 @@
 {
   "buttons": ["format", "link", "bold", "italic", "lists", "line"],
-  "plugins": ["scriptbuttons", "fullscreen", "alignment"],
+  "plugins": ["fullscreen", "alignment"],
   "formatting": ["p"],
   "formattingAdd": {
     "intro-p": {

@@ -5,7 +5,7 @@
     "italic",
     "html"
   ],
-  "plugins": ["scriptbuttons", "fullscreen","alignment","customstyles"],
+  "plugins": ["fullscreen","alignment","customstyles"],
   "formatting": ["p", "blockquote", "span"],
   "formattingAdd": {
     "underline": {

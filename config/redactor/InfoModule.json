@@ -1,6 +1,6 @@
 {
   "buttons": ["format", "bold", "italic", "lists", "link"],
-  "plugins": ["fullscreen", "scriptbuttons"],
+  "plugins": ["fullscreen"],
   "formatting": ["p", "blockquote"],
   "formattingAdd": {
     "subhead": {
