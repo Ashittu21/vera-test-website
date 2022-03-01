@@ -1,17 +1,19 @@
-.copy-block-container{
+.copy-block-container {
   background-color: var(--global-color-sand);
   padding: 0;
+
   &::selection {
     background: #EF4136;
-    color:#FFF;
+    color: #FFF;
   }
 
-  &::-moz-selection { /* Code for Firefox */
+  &::-moz-selection {
+    /* Code for Firefox */
     background: #EF4136;
-    color:#FFF;
+    color: #FFF;
   }
 
-  .copy-block-content { 
+  .copy-block-content {
     margin: 0 auto;
     margin-top: 15px;
     max-width: $max-copy;
@@ -21,7 +23,8 @@
     font-weight: normal;
     font-size: 17px;
     line-height: 139%;
-    &:first-child{
+
+    &:first-child {
       padding-top: 0;
       margin-top: 0;
     }
@@ -34,39 +37,61 @@
   }
 }
 
-.copy-block-container + .relatedItems-container {
+.copy-block-container+.relatedItems-container {
   margin-top: 45px;
 }
 
-.copy-block-container + .banner-block-container {
+.copy-block-container+.banner-block-container {
   padding-top: 60px;
 }
 
-.headTitle + .copy-block-container {
-  padding-top: 50px; 
+.headTitle+.copy-block-container {
+  padding-top: 50px;
 }
 
-.heroType1-container + .copy-block-container {
+.heroType1-container+.copy-block-container {
   margin-top: 60px;
 }
 
-.copy-block-container + .featured-type2 {
-  margin-top:60px;
+.copy-block-container+.featured-type2 {
+  margin-top: 60px;
+
   @media(max-width:$mobile-breakpoint) {
-    margin-top:30px;
+    margin-top: 30px;
   }
 }
 
-.featured-type2 + .copy-block-container {
-  margin-top:0;
+.featured-type2+.copy-block-container {
+  margin-top: 0;
 }
 
 
-.copy-block-container + .copy-twoColumns{
-  margin-top:30px;
+.copy-block-container+.copy-twoColumns {
+  margin-top: 30px;
 }
 
 
-.shareIcons + .copy-block-container{
+.shareIcons+.copy-block-container {
   margin-top: 50px;
+}
+
+
+.copy-block-container+.headTitle {
+  @media(max-width:$mobile-breakpoint) {
+    margin-top: 54px;
+  }
+}
+
+.copy-block-container .copy-block-content figure {
+  @media(max-width:$mobile-breakpoint) {
+    margin-bottom: 20px;
+  }
+}
+
+.copy-block-content {
+  @media(max-width:$mobile-breakpoint) {
+    figure + p {
+      margin-top: 40px;
+    }
+  }
 }
