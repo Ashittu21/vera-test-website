@@ -30607,6 +30607,10 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
   margin-top: 60px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box; }
+  @media (max-width: 768px) {
+    .featured-type1 {
+      margin-bottom: 40px;
+      margin-top: 40px; } }
   .featured-type1-content {
     color: var(--global-color-text);
     padding-left: 60px;
@@ -33267,7 +33271,8 @@ div.heading > div:nth-child(3) > p {
           -ms-flex-pack: center;
               justify-content: center;
       margin-top: 0;
-      margin-bottom: 60px; } }
+      margin-bottom: 60px;
+      top: 0; } }
   .shareIcons-title {
     font-family: var(--global-font-abc-whyte);
     font-size: 11px;
