@@ -45,13 +45,20 @@
 
     <div class="newsLanding-items">
 
-      {% paginate craft.entries.section('specialReports').limit(10) as pageInfo, pageEntries %}
+      {% paginate craft.entries.section('specialReports').orderBy('dateCreated DESC').limit(10) as pageInfo, pageEntries %}
 
       {% set fallback = 0 %}
 
       {% for entry in pageEntries %}
 
-        {% set image = entry.heroImage.one() %}
+     
+
+        {% if  entry.heroImage is not null %}
+           {% set image = entry.heroImage.one() %}
+        {% else %}
+          {% set image = null %}
+        {% endif %}
+
           {% if loop.index == 8 %}
                 <!-- Banner Type 4 -->
                 <section class="bannerType4">

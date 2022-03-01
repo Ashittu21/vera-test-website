@@ -33279,8 +33279,8 @@ div.heading > div:nth-child(3) > p {
       -webkit-box-pack: center;
           -ms-flex-pack: center;
               justify-content: center;
-      margin-top: 0;
-      margin-bottom: 60px;
+      margin-top: 30px;
+      margin-bottom: 30px;
       top: 0; } }
   .shareIcons-title {
     font-family: var(--global-font-abc-whyte);
