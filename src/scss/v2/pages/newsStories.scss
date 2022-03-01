@@ -138,7 +138,7 @@
           flex-direction: column;
 
           @media(max-width:$mobile-breakpoint) {
-            padding: 39px 12px 59px 12px;
+            padding: 45px 12px 60px 12px;
           }
 
           &-tag {
@@ -153,7 +153,7 @@
             text-align: left;
             margin-bottom: 33px;
             @media(max-width:$mobile-breakpoint) {
-              margin-bottom: 20px;
+              margin-bottom: 30px;
             }
           }
 
@@ -193,7 +193,7 @@
             letter-spacing: 0em;
             text-align: left;
             color: var(--global-color-gray-text);
-            margin-top: 15px;
+            margin-top: 25px;
 
             @media(max-width:$mobile-breakpoint) {
               font-size: 19px;
