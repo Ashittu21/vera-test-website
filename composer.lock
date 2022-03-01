@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "32e1aeea79158fe6007c8071e6fb787f",
+    "content-hash": "0e273322bf1982489545fcb5d28c4bc8",
     "packages": [
         {
             "name": "aelvan/inlin",
@@ -1075,6 +1075,43 @@
             "time": "2020-06-01T06:11:08+00:00"
         },
         {
+            "name": "craftcms/html-field",
+            "version": "1.0.5",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/craftcms/html-field/zipball/d8ae4e3e4862a008ce50589eb7c90caf4fc0e2a2",
+                "reference": "d8ae4e3e4862a008ce50589eb7c90caf4fc0e2a2",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^3.6.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "craft\\htmlfield\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Pixel & Tonic",
+                    "homepage": "https://pixelandtonic.com/"
+                }
+            ],
+            "description": "Base class for Craft CMS field types with HTML values.",
+            "support": {
+                "email": "support@craftcms.com",
+                "issues": "https://github.com/craftcms/html-field/issues?state=open",
+                "source": "https://github.com/craftcms/html-field",
+                "docs": "https://github.com/craftcms/html-field/blob/main/README.md",
+                "rss": "https://github.com/craftcms/html-field/commits/main.atom"
+            },
+            "time": "2022-02-16T09:33:08+00:00"
+        },
+        {
             "name": "craftcms/oauth2-craftid",
             "version": "1.0.0.1",
             "dist": {
@@ -1152,15 +1189,16 @@
         },
         {
             "name": "craftcms/redactor",
-            "version": "2.8.4",
+            "version": "2.10.5",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/redactor/zipball/73113daea0541ee53036a4129428ddcf8e056ba0",
-                "reference": "73113daea0541ee53036a4129428ddcf8e056ba0",
+                "url": "https://api.github.com/repos/craftcms/redactor/zipball/b4d5d8e9b034e8f0018c560505022d0b8f5750ce",
+                "reference": "b4d5d8e9b034e8f0018c560505022d0b8f5750ce",
                 "shasum": ""
             },
             "require": {
-                "craftcms/cms": "^3.5.0"
+                "craftcms/cms": "^3.6.0",
+                "craftcms/html-field": "^1.0.4"
             },
             "type": "craft-plugin",
             "extra": {
@@ -1197,7 +1235,7 @@
                 "docs": "https://github.com/craftcms/redactor/blob/v2/README.md",
                 "rss": "https://github.com/craftcms/redactor/commits/v2.atom"
             },
-            "time": "2020-11-30T15:20:16+00:00"
+            "time": "2022-02-25T08:14:08+00:00"
         },
         {
             "name": "craftcms/server-check",
@@ -6050,26 +6088,21 @@
         },
         {
             "name": "spicyweb/craft-neo",
-            "version": "2.8.14",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/spicywebau/craft-neo.git",
-                "reference": "7d85115f87f206f237b2128f0fffd6cc11427e24"
-            },
+            "version": "2.11.9",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spicywebau/craft-neo/zipball/7d85115f87f206f237b2128f0fffd6cc11427e24",
-                "reference": "7d85115f87f206f237b2128f0fffd6cc11427e24",
+                "url": "https://api.github.com/repos/spicywebau/craft-neo/zipball/74eb82315f723047f5b19353927e7e3984e9a8e4",
+                "reference": "74eb82315f723047f5b19353927e7e3984e9a8e4",
                 "shasum": ""
             },
             "require": {
-                "craftcms/cms": "^3.5.8"
+                "craftcms/cms": "^3.7.0"
             },
             "type": "craft-plugin",
             "extra": {
                 "handle": "neo",
                 "name": "Neo",
-                "schemaVersion": "2.8.14",
+                "schemaVersion": "2.11.6",
                 "class": "benf\\neo\\Plugin",
                 "changelogUrl": "https://github.com/spicywebau/craft-neo/blob/master/CHANGELOG.md",
                 "downloadUrl": "https://github.com/spicywebau/craft-neo/archive/master.zip"
@@ -6079,7 +6112,6 @@
                     "benf\\neo\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "proprietary"
             ],
@@ -6091,14 +6123,20 @@
             ],
             "description": "A Matrix-like field type that uses existing fields",
             "keywords": [
-                "Neo",
                 "cms",
                 "craftcms",
                 "field",
                 "matrix",
+                "neo",
                 "plugin"
             ],
-            "time": "2020-11-08T14:16:18+00:00"
+            "support": {
+                "issues": "https://github.com/spicywebau/craft-neo/issues",
+                "source": "https://github.com/spicywebau/craft-neo",
+                "docs": "https://github.com/spicywebau/craft-neo/blob/2.11.9/README.md",
+                "rss": "https://github.com/spicywebau/craft-neo/commits/master.atom"
+            },
+            "time": "2021-08-29T14:34:03+00:00"
         },
         {
             "name": "ssnepenthe/color-utils",
