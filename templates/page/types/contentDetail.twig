@@ -56,7 +56,6 @@
     <!-- Share Icons -->
 
     {% for block in blocks %}
-
       {% if block.type == 'headerTitle' %}
         {% include 'v2/common/headerTitle' with { block: block } %}
       {% elseif block.type == 'copy' %}
@@ -91,7 +90,7 @@
         {% include 'v2/common/swiperSlider' with { block: block } %}
       {% elseif block.type == 'map' %}
         <div class="mapContainer">
-          {% include '../../vera-maps/mapsv2'  with { block: block } %}
+          {% include 'vera-maps/mapsv2'  with { block: block } %}
         </div>      
       {% endif %}
     {% endfor %}

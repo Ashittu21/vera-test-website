@@ -350,10 +350,3 @@ ol {
   margin-top: 0;
   padding: 0;
 }
-
-.copy-block-container .copy-block-content figure {
-  @media(max-width:$mobile-breakpoint) {
-    margin-bottom: 20px !important;
-  }
-
-}

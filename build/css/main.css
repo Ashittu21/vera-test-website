@@ -29712,7 +29712,7 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
   line-height: 42px;
   letter-spacing: 0em;
   text-align: left;
-  margin-top: 4rem;
+  margin-top: 50px;
   margin-bottom: 60px; }
   @media (max-width: 1024px) {
     .block-listing-title {
@@ -30370,9 +30370,6 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
     .copy-block-container .copy-block-content .h7-whyte + ul {
       margin-top: 0;
       padding: 0; }
-    @media (max-width: 768px) {
-      .copy-block-container .copy-block-content .copy-block-container .copy-block-content figure {
-        margin-bottom: 20px !important; } }
 
 .copy-block-container + .relatedItems-container {
   margin-top: 45px; }
@@ -30400,6 +30397,18 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
 
 .shareIcons + .copy-block-container {
   margin-top: 50px; }
+
+@media (max-width: 768px) {
+  .copy-block-container + .headTitle {
+    margin-top: 54px; } }
+
+@media (max-width: 768px) {
+  .copy-block-container .copy-block-content figure {
+    margin-bottom: 20px; } }
+
+@media (max-width: 768px) {
+  .copy-block-content figure + p {
+    margin-top: 40px; } }
 
 .block-exploreMore {
   width: 100%;
@@ -30594,9 +30603,14 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
       -ms-flex-pack: center;
           justify-content: center;
   margin-top: 0;
-  margin-bottom: 30px;
+  margin-bottom: 60px;
+  margin-top: 60px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box; }
+  @media (max-width: 768px) {
+    .featured-type1 {
+      margin-bottom: 40px;
+      margin-top: 40px; } }
   .featured-type1-content {
     color: var(--global-color-text);
     padding-left: 60px;
@@ -31266,6 +31280,9 @@ div.heading > div:nth-child(3) > p {
       width: 100%;
       margin: 0 auto;
       padding-bottom: 0px; }
+      @media (max-width: 768px) {
+        .hero-type4-content-copy {
+          padding: 0 12px; } }
       .hero-type4-content-copy-breadcrumbs {
         text-align: left;
         margin-bottom: 22px;
@@ -31301,7 +31318,7 @@ div.heading > div:nth-child(3) > p {
         display: block; }
         @media (max-width: 768px) {
           .hero-type4-content-copy h1, .hero-type4-content-copy .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading, .article .heading-wrap.heading-style--default .heading-wrap-text .hero-type4-content-copy h3.heading, .hero-type4-content-copy .timed-slideshow-item--text {
-            font-size: 55px;
+            font-size: 38px;
             line-height: 107%; } }
       .hero-type4-content-copy .subtitle {
         display: block;
@@ -31314,6 +31331,12 @@ div.heading > div:nth-child(3) > p {
         line-height: 48px;
         letter-spacing: 0em;
         text-align: left; }
+        @media (max-width: 768px) {
+          .hero-type4-content-copy .subtitle {
+            font-size: 28px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 36px; } }
       .hero-type4-content-copy .authors {
         margin-top: 20px;
         font-family: var(--global-font-abc-whyte);
@@ -33257,7 +33280,8 @@ div.heading > div:nth-child(3) > p {
           -ms-flex-pack: center;
               justify-content: center;
       margin-top: 0;
-      margin-bottom: 60px; } }
+      margin-bottom: 60px;
+      top: 0; } }
   .shareIcons-title {
     font-family: var(--global-font-abc-whyte);
     font-size: 11px;
@@ -34014,6 +34038,27 @@ div.heading > div:nth-child(3) > p {
   max-width: 980px;
   margin: 0 auto;
   width: 100%; }
+
+#topButton {
+  position: absolute;
+  bottom: 0;
+  display: block;
+  height: 100px;
+  width: 100%; }
+  #topButton.hidden {
+    display: none; }
+  #topButton .topIcon {
+    width: 54px;
+    height: 54px;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: cover;
+    background-image: url(../img/v2/backtoTop.svg);
+    right: 20px;
+    display: block;
+    position: absolute; }
+    #topButton .topIcon:hover {
+      background-image: url("../img/v2/backtoTop-hover.svg"); }
 
 .footerV2 {
   font-family: var(--global-font-abc-whyte);
