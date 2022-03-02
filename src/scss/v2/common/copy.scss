@@ -35,6 +35,12 @@
 
     @import "copy-format.scss";
   }
+
+
+  &.text-description{
+    margin-top:30px;
+    margin-bottom:60px;
+  }
 }
 
 .copy-block-container+.relatedItems-container {

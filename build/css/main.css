@@ -28937,6 +28937,11 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
   position: relative;
   display: flow-root; }
 
+.txt-underline {
+  text-decoration: underline;
+  -webkit-text-decoration-color: #ef4641;
+          text-decoration-color: #ef4641; }
+
 .copy-block-content h5 {
   font-size: 35px;
   margin-bottom: 45px; }
@@ -29427,7 +29432,7 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
         @media (max-width: 768px) {
           .banner-block-container .banner-block-content .banner-block-copy-title {
             line-height: 36px;
-            font-size: 30px; } }
+            font-size: 28px; } }
       .banner-block-container .banner-block-content .banner-block-copy-subtitle {
         font-family: var(--global-font-abc-whyte);
         font-size: 21px;
@@ -29439,7 +29444,7 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
         @media (max-width: 768px) {
           .banner-block-container .banner-block-content .banner-block-copy-subtitle {
             line-height: 26.5px;
-            font-size: 20px; } }
+            font-size: 19px; } }
       .banner-block-container .banner-block-content .banner-block-copy-link {
         margin-top: 50px; }
       .banner-block-container .banner-block-content .banner-block-copy:hover .banner-block-copy-link .button {
@@ -29792,28 +29797,29 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
       color: var(--global-color-red-2);
       font-size: 11px;
       font-style: normal;
-      font-weight: 400;
+      font-weight: 500;
       line-height: 21px;
       letter-spacing: 0.17em;
       text-align: left; }
-    .block-listing-content .block-listing-item-title p {
-      padding: 0;
-      margin-top: 17px;
-      font-family: var(--global-font-abc-whyte);
-      color: var(--global-color-text);
-      font-size: 19px;
-      line-height: 21px;
-      font-style: normal;
-      font-weight: 400;
-      text-decoration: none;
-      background-image: -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor));
-      background-image: linear-gradient(currentColor, currentColor);
-      background-position: 0% 100%;
-      background-repeat: no-repeat;
-      background-size: 0% 2px;
-      -webkit-transition: background-size .9s;
-      transition: background-size .9s;
-      display: initial; }
+    .block-listing-content .block-listing-item-title {
+      margin-top: 17px; }
+      .block-listing-content .block-listing-item-title p {
+        padding: 0;
+        font-family: var(--global-font-abc-whyte);
+        color: var(--global-color-text);
+        font-size: 19px;
+        line-height: 21px;
+        font-style: normal;
+        font-weight: 500;
+        text-decoration: none;
+        background-image: -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor));
+        background-image: linear-gradient(currentColor, currentColor);
+        background-position: 0% 100%;
+        background-repeat: no-repeat;
+        background-size: 0% 2px;
+        -webkit-transition: background-size .9s;
+        transition: background-size .9s;
+        display: initial; }
     .block-listing-content .block-listing-item-date {
       margin-top: 10px;
       font-family: var(--global-font-abc-whyte);
@@ -30381,6 +30387,9 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
     .copy-block-container .copy-block-content .h7-whyte + ul {
       margin-top: 0;
       padding: 0; }
+  .copy-block-container.text-description {
+    margin-top: 30px;
+    margin-bottom: 60px; }
 
 .copy-block-container + .relatedItems-container {
   margin-top: 45px; }
@@ -30422,7 +30431,7 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
 } */
 .block-exploreMore {
   width: 100%;
-  background-color: var(--global-color-dark-violet);
+  background-color: #0f002c;
   padding: 0 1.5rem; }
   @media (max-width: 1280px) {
     .block-exploreMore {
@@ -30535,17 +30544,11 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
           min-height: 80px;
           display: block;
           color: var(--global-color-white);
-          background-color: var(--global-color-medium-violet);
+          background-color: #2E1D97;
           border-left: 2px solid var(--global-color-mint);
           text-decoration: none;
           -webkit-transition: all 0.15s cubic-bezier(0.19, 0.11, 0.21, 0.99);
-          transition: all 0.15s cubic-bezier(0.19, 0.11, 0.21, 0.99);
-          /*           &::before {
-            content: '';
-            height: 100%;
-            display: inline-block;
-            vertical-align: middle;
-          } */ }
+          transition: all 0.15s cubic-bezier(0.19, 0.11, 0.21, 0.99); }
           @media (max-width: 1024px) {
             .block-exploreMore .block-exploreMore-container .block-exploreMore-items li a {
               min-height: 90px; } }
@@ -30561,7 +30564,6 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
             display: -webkit-box;
             display: -ms-flexbox;
             display: flex;
-            /* vertical-align: middle; */
             -webkit-box-pack: center;
                 -ms-flex-pack: center;
                     justify-content: center;
@@ -30586,6 +30588,8 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
             background-color: var(--global-color-red-2);
             text-decoration: underline;
             border-left: 2px solid var(--global-color-mint); }
+            .block-exploreMore .block-exploreMore-container .block-exploreMore-items li a:hover::after {
+              background-image: url("../img/v2/arrow-white.svg"); }
       .block-exploreMore .block-exploreMore-container .block-exploreMore-items--violet li a {
         border-left: 2px solid var(--global-color-mint);
         background-color: var(--global-color-violet); }
@@ -30620,7 +30624,9 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
   @media (max-width: 768px) {
     .featured-type1 {
       margin-bottom: 40px;
-      margin-top: 40px; } }
+      margin-top: 40px;
+      margin-left: 15px;
+      margin-right: 15px; } }
   .featured-type1-content {
     color: var(--global-color-text);
     padding-left: 60px;
@@ -30637,7 +30643,9 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
     height: 100%; }
     @media (max-width: 768px) {
       .featured-type1-content {
-        margin-top: 30px; } }
+        margin-top: 30px;
+        padding-left: 45px;
+        margin-bottom: 20px; } }
     .featured-type1-content-title {
       font-family: var(--global-font-abc-whyte);
       font-size: 40px;
@@ -30710,7 +30718,7 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
     height: 100%; }
     @media (max-width: 768px) {
       .featured-type2-content {
-        padding: 1rem; } }
+        padding: 15px; } }
     .featured-type2-content-text {
       font-size: 60px;
       font-style: normal;
@@ -30726,6 +30734,10 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
         line-height: 52px;
         letter-spacing: 0em;
         text-align: center; }
+        @media (max-width: 768px) {
+          .featured-type2-content-text.smallText {
+            font-size: 35px;
+            line-height: 39px; } }
       @media (max-width: 768px) {
         .featured-type2-content-text {
           font-size: 35px;
@@ -36428,7 +36440,7 @@ header {
   .home-content-items {
     max-width: 1060px;
     margin: 0 auto;
-    padding-bottom: 70px; }
+    padding-bottom: 120px; }
     .home-content-items .home-content-item {
       border-top: 1px solid var(--global-color-dark-sand);
       border-bottom: 1px solid var(--global-color-dark-sand);
@@ -36579,7 +36591,7 @@ header {
 
 .news-article {
   min-height: 500px;
-  padding-bottom: 60px; }
+  /* padding-bottom: 60px;*/ }
   .news-article .content-page-blocks section:first-child {
     padding-top: 0;
     margin-top: 0; }

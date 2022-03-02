@@ -27,7 +27,7 @@
     align-content: center;
     height: 100%;
     @media(max-width:$mobile-breakpoint) {
-      padding: 1rem;
+      padding: 15px;
     }
     &-text {
       font-size: 60px;
@@ -45,6 +45,10 @@
         line-height: 52px;
         letter-spacing: 0em;
         text-align: center;
+        @media(max-width:$mobile-breakpoint) {
+          font-size: 35px;
+          line-height: 39px;
+        }
       }
 
       @media(max-width:$mobile-breakpoint) {

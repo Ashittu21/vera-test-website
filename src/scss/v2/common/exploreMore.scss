@@ -1,6 +1,6 @@
 .block-exploreMore {
   width: 100%;
-  background-color: var(--global-color-dark-violet);
+  background-color: #0f002c;
   padding: 0 1.5rem;
 
   @media (max-width: $desktop-ml) {
@@ -103,12 +103,11 @@
           min-height: 80px;
           display: block;
           color: var(--global-color-white);
-          background-color: var(--global-color-medium-violet);
+          background-color: #2E1D97;
           border-left: 2px solid var(--global-color-mint);
           text-decoration: none;
           transition: all 0.15s $ease-nice;
     
-          
           @media (max-width: $tablet-landscape) {
             min-height: 90px;
           }
@@ -121,18 +120,10 @@
             min-height: inherit;
           }
 
-/*           &::before {
-            content: '';
-            height: 100%;
-            display: inline-block;
-            vertical-align: middle;
-          } */
-
           &::before {
             content: '';
             height: auto;
             display: flex;
-            /* vertical-align: middle; */
             justify-content: center;
             align-items: center;
           }
@@ -153,6 +144,9 @@
             background-color: var(--global-color-red-2);
             text-decoration: underline;
             border-left: 2px solid var(--global-color-mint);
+            &::after {
+              background-image: url("../img/v2/arrow-white.svg");
+            }
           }
         }
       }
