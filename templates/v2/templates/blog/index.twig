@@ -16,12 +16,12 @@
           <div class="hero-type4-content-copy-breadcrumbs">
            {% if entry.level > 1 %}
               <a href="{{ siteUrl }}">HOME</a>
-              //  <a href="{{ siteUrl }}blog">BLOG</a>
+              //  <a href="{{ siteUrl }}news-and-stories">NEWS AND STORIES</a>
               {% for crumb in entry.getAncestors() %}
                 // {{ crumb.getLink() }} 
               {% endfor %}
           {% else %}
-            <a href="{{ siteUrl }}">HOME</a>  //  <a href="{{ siteUrl }}blog">BLOG</a>
+            <a href="{{ siteUrl }}">HOME</a> // <a href="{{ siteUrl }}news-and-stories">NEWS AND STORIES</a>
           {% endif %}  
           </div> 
 

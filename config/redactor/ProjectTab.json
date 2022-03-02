@@ -10,7 +10,6 @@
         "line"
     ],
     "plugins": [
-        "scriptbuttons",
         "fullscreen",
         "alignment"
     ],

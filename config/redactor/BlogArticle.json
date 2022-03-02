@@ -9,7 +9,7 @@
     "image",
     "line"
   ],
-  "plugins": ["scriptbuttons", "fullscreen"],
+  "plugins": ["fullscreen"],
   "formatting": ["p", "blockquote"],
   "formattingAdd": {
     "intro-p": {
