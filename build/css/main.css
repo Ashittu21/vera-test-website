@@ -30623,7 +30623,9 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
   @media (max-width: 768px) {
     .featured-type1 {
       margin-bottom: 40px;
-      margin-top: 40px; } }
+      margin-top: 40px;
+      margin-left: 15px;
+      margin-right: 15px; } }
   .featured-type1-content {
     color: var(--global-color-text);
     padding-left: 60px;
@@ -30640,7 +30642,9 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
     height: 100%; }
     @media (max-width: 768px) {
       .featured-type1-content {
-        margin-top: 30px; } }
+        margin-top: 30px;
+        padding-left: 45px;
+        margin-bottom: 20px; } }
     .featured-type1-content-title {
       font-family: var(--global-font-abc-whyte);
       font-size: 40px;
