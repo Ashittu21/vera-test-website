@@ -30380,14 +30380,9 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
 .headTitle + .copy-block-container {
   padding-top: 50px; }
 
-.heroType1-container + .copy-block-container {
-  margin-top: 60px; }
-
-.copy-block-container + .featured-type2 {
-  margin-top: 60px; }
-  @media (max-width: 768px) {
-    .copy-block-container + .featured-type2 {
-      margin-top: 30px; } }
+@media (max-width: 768px) {
+  .copy-block-container + .featured-type2 {
+    margin-top: 30px; } }
 
 .featured-type2 + .copy-block-container {
   margin-top: 0; }
@@ -30680,8 +30675,8 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin-top: 30px;
-  margin-bottom: 30px; }
+  margin-top: 60px;
+  margin-bottom: 60px; }
   @media (max-width: 768px) {
     .featured-type2 {
       background-image: none; } }
