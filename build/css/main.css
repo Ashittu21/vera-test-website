@@ -28937,6 +28937,11 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
   position: relative;
   display: flow-root; }
 
+.txt-underline {
+  text-decoration: underline;
+  -webkit-text-decoration-color: #ef4641;
+          text-decoration-color: #ef4641; }
+
 .copy-block-content h5 {
   font-size: 35px; }
 
@@ -29791,28 +29796,29 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
       color: var(--global-color-red-2);
       font-size: 11px;
       font-style: normal;
-      font-weight: 400;
+      font-weight: 500;
       line-height: 21px;
       letter-spacing: 0.17em;
       text-align: left; }
-    .block-listing-content .block-listing-item-title p {
-      padding: 0;
-      margin-top: 17px;
-      font-family: var(--global-font-abc-whyte);
-      color: var(--global-color-text);
-      font-size: 19px;
-      line-height: 21px;
-      font-style: normal;
-      font-weight: 400;
-      text-decoration: none;
-      background-image: -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor));
-      background-image: linear-gradient(currentColor, currentColor);
-      background-position: 0% 100%;
-      background-repeat: no-repeat;
-      background-size: 0% 2px;
-      -webkit-transition: background-size .9s;
-      transition: background-size .9s;
-      display: initial; }
+    .block-listing-content .block-listing-item-title {
+      margin-top: 17px; }
+      .block-listing-content .block-listing-item-title p {
+        padding: 0;
+        font-family: var(--global-font-abc-whyte);
+        color: var(--global-color-text);
+        font-size: 19px;
+        line-height: 21px;
+        font-style: normal;
+        font-weight: 500;
+        text-decoration: none;
+        background-image: -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor));
+        background-image: linear-gradient(currentColor, currentColor);
+        background-position: 0% 100%;
+        background-repeat: no-repeat;
+        background-size: 0% 2px;
+        -webkit-transition: background-size .9s;
+        transition: background-size .9s;
+        display: initial; }
     .block-listing-content .block-listing-item-date {
       margin-top: 10px;
       font-family: var(--global-font-abc-whyte);
@@ -30380,6 +30386,9 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
     .copy-block-container .copy-block-content .h7-whyte + ul {
       margin-top: 0;
       padding: 0; }
+  .copy-block-container.text-description {
+    margin-top: 30px;
+    margin-bottom: 60px; }
 
 .copy-block-container + .relatedItems-container {
   margin-top: 45px; }

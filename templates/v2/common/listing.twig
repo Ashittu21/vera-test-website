@@ -16,7 +16,7 @@
               </div>
               <div class="block-listing-item-date">
               {% if statsItem.type.name == 'News' %}
-               {{ statsItem.newsSource.one().title }}
+               <span class="txt-underline">{{ statsItem.newsSource.one().title }}</span>
               {% else %}
                 {{ statsItem.postDate | date("M d, Y") }}
               {% endif %}

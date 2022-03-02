@@ -73,24 +73,23 @@
       color: var(--global-color-red-2);
       font-size: 11px;
       font-style: normal;
-      font-weight: 400;
+      font-weight: 500;
       line-height: 21px;
       letter-spacing: 0.17em;
       text-align: left;
-
     }
 
 
     &-title {
+      margin-top: 17px;
       p{
         padding: 0;
-        margin-top: 17px;
         font-family: var(--global-font-abc-whyte);
         color: var(--global-color-text);
         font-size: 19px;
         line-height: 21px;
         font-style: normal;
-        font-weight: 400;
+        font-weight: 500;
         text-decoration: none;
         background-image: linear-gradient(currentColor, currentColor);
         background-position: 0% 100%;
@@ -99,7 +98,6 @@
         transition: background-size .9s;
         display: initial;
       }
-  
     }
 
     &-date {

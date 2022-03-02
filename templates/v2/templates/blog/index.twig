@@ -106,7 +106,7 @@
     </div>
 
     {% if entry.relatedSeries | length and entry.relatedSeries.first.seriesDescription %}
-      <section class="copy-block-container">
+      <section class="copy-block-container text-description">
         <div class="copy-block-content">
         {{ entry.relatedSeries.first.seriesDescription }}
         </div>
@@ -161,6 +161,8 @@
     </section>
 	{% endif %} 
   <!-- Latest News  Items -->
+
+
 {% if includeCharts %}
 	{% includeJsFile '/dist/js/specialReportCampaign.js?v=0.2' %}
 {% endif %}
