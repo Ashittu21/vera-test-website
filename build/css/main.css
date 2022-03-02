@@ -29431,7 +29431,7 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
         @media (max-width: 768px) {
           .banner-block-container .banner-block-content .banner-block-copy-title {
             line-height: 36px;
-            font-size: 30px; } }
+            font-size: 28px; } }
       .banner-block-container .banner-block-content .banner-block-copy-subtitle {
         font-family: var(--global-font-abc-whyte);
         font-size: 21px;
@@ -29443,7 +29443,7 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
         @media (max-width: 768px) {
           .banner-block-container .banner-block-content .banner-block-copy-subtitle {
             line-height: 26.5px;
-            font-size: 20px; } }
+            font-size: 19px; } }
       .banner-block-container .banner-block-content .banner-block-copy-link {
         margin-top: 50px; }
       .banner-block-container .banner-block-content .banner-block-copy:hover .banner-block-copy-link .button {
