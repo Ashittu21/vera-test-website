@@ -9,7 +9,7 @@
   margin-bottom: 7rem;
   background-color: var(--global-color-medium-violet);
   position: relative;
-
+  max-height: 613px;
   &::after{
     background-color: var(--global-color-light-violet);
     content: "";
@@ -64,6 +64,7 @@
       letter-spacing: 0em;
       text-align: center;
       color: #FFF;
+      margin-bottom: 0;
       @media (max-width: $tablet-portrait) {
         font-size: 45px;
         line-height: 49.5px;
@@ -104,6 +105,13 @@
         line-height: 70px;
         padding-left: 29px;
         padding-right: 55px;
+        font-size: 28px;
+        width: 390px;
+        text-align: center;
+        @media(max-width:$mobile-breakpoint){
+          font-size: 24px;
+          width: 320px;
+        }
       }
       &.orange{
         &.arrow{

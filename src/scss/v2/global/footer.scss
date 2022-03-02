@@ -44,6 +44,9 @@
       .footerV2-logo {
         width: 223px;
         height: 52px;
+        @media(max-width: $mobile-breakpoint) {
+         margin-top: 70px;
+        }
       }
 
       .address {
