@@ -31710,18 +31710,14 @@ div.heading > div:nth-child(3) > p {
                 .block-latestNews-content .latestNews-hero .latestNews-hero-container .latestNews-hero-copy-title h4 {
                   font-size: 35px;
                   line-height: 42px; } }
-              .block-latestNews-content .latestNews-hero .latestNews-hero-container .latestNews-hero-copy-title h4:hover {
+              .block-latestNews-content .latestNews-hero .latestNews-hero-container .latestNews-hero-copy-title h4:hover span {
                 background-size: 100% 2px;
                 color: #fff; }
             .block-latestNews-content .latestNews-hero .latestNews-hero-container .latestNews-hero-copy-title span {
               text-decoration: none;
               color: var(--global-color-white);
               display: block;
-              margin-bottom: 1.5rem;
-              /*  &:hover {
-                text-decoration: underline;
-              }
-               */ }
+              margin-bottom: 1.5rem; }
               .block-latestNews-content .latestNews-hero .latestNews-hero-container .latestNews-hero-copy-title span h4 {
                 margin: 0;
                 font-family: var(--global-font-sectra);
@@ -31805,7 +31801,6 @@ div.heading > div:nth-child(3) > p {
         color: var(--global-color-white);
         width: 400px;
         min-height: 550px;
-        /*row-gap: 10px;*/
         row-gap: 0px;
         -webkit-transition: all 0.2s ease-in-out;
         transition: all 0.2s ease-in-out; }
@@ -31845,8 +31840,7 @@ div.heading > div:nth-child(3) > p {
           -webkit-box-flex: 1;
               -ms-flex: 1;
                   flex: 1;
-          margin: 20px 30px;
-          /*margin: 30px 30px 30px 30px;*/ }
+          margin: 20px 30px; }
           .block-latestNews-content .latestNews-items .latestNews-item-copy-title {
             font-family: var(--global-font-abc-whyte);
             font-size: 26px;
@@ -31856,17 +31850,16 @@ div.heading > div:nth-child(3) > p {
             letter-spacing: 0em;
             text-align: left;
             text-decoration: none;
-            color: white;
-            background-image: -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor));
-            background-image: linear-gradient(currentColor, currentColor);
-            background-position: 0% 100%;
-            background-repeat: no-repeat;
-            background-size: 0% 2px;
-            -webkit-transition: background-size .9s;
-            transition: background-size .9s;
-            display: initial; }
-            .block-latestNews-content .latestNews-items .latestNews-item-copy-title:hover {
-              background-size: 100% 2px; }
+            color: white; }
+            .block-latestNews-content .latestNews-items .latestNews-item-copy-title span {
+              background-image: -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor));
+              background-image: linear-gradient(currentColor, currentColor);
+              background-position: 0% 100%;
+              background-repeat: no-repeat;
+              background-size: 0% 2px;
+              -webkit-transition: background-size .9s;
+              transition: background-size .9s;
+              display: initial; }
           .block-latestNews-content .latestNews-items .latestNews-item-copy-date time {
             font-family: var(--global-font-abc-whyte);
             font-size: 14px;
@@ -31875,24 +31868,12 @@ div.heading > div:nth-child(3) > p {
             line-height: 23px;
             letter-spacing: 0em;
             text-align: left; }
-          .block-latestNews-content .latestNews-items .latestNews-item-copy h5 {
-            background-image: -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor));
-            background-image: linear-gradient(currentColor, currentColor);
-            background-position: 0% 100%;
-            background-repeat: no-repeat;
-            background-size: 0% 2px;
-            -webkit-transition: background-size .9s;
-            transition: background-size .9s;
-            display: initial; }
-            .block-latestNews-content .latestNews-items .latestNews-item-copy h5:hover {
-              background-size: 100% 2px; }
         .block-latestNews-content .latestNews-items .latestNews-item:hover {
-          background-color: var(--global-color-red-2);
-          /*           background-size: 100% 2px; */ }
+          background-color: var(--global-color-red-2); }
           .block-latestNews-content .latestNews-items .latestNews-item:hover .latestNews-item-category p {
             color: var(--global-color-white); }
-          .block-latestNews-content .latestNews-items .latestNews-item:hover .latestNews-item-copy .latestNews-item-copy-title {
-            /* background-size: 100% 2px; */ }
+          .block-latestNews-content .latestNews-items .latestNews-item:hover .latestNews-item-copy .latestNews-item-copy-title span {
+            background-size: 100% 2px; }
       .block-latestNews-content .latestNews-items-link a {
         color: white;
         font-size: 21px;
