@@ -30390,14 +30390,9 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
 .headTitle + .copy-block-container {
   padding-top: 50px; }
 
-.heroType1-container + .copy-block-container {
-  margin-top: 60px; }
-
-.copy-block-container + .featured-type2 {
-  margin-top: 60px; }
-  @media (max-width: 768px) {
-    .copy-block-container + .featured-type2 {
-      margin-top: 30px; } }
+@media (max-width: 768px) {
+  .copy-block-container + .featured-type2 {
+    margin-top: 30px; } }
 
 .featured-type2 + .copy-block-container {
   margin-top: 0; }
@@ -30694,8 +30689,8 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin-top: 30px;
-  margin-bottom: 30px; }
+  margin-top: 60px;
+  margin-bottom: 60px; }
   @media (max-width: 768px) {
     .featured-type2 {
       background-image: none; } }
@@ -30737,7 +30732,8 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
 
 .headTitle {
   width: 100%;
-  overflow: hidden; }
+  overflow: hidden;
+  background-color: var(--global-color-dark-violet); }
   .headTitle--small {
     height: inherit; }
     .headTitle--small .headTitle-content {
@@ -30746,6 +30742,16 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
       .headTitle--small .headTitle-content .headTitle-title .separator:before {
         bottom: 1rem; }
       .headTitle--small .headTitle-content .headTitle-title .separator span {
+        font-size: 35px;
+        line-height: 35px; }
+  .headTitle--news {
+    height: inherit; }
+    .headTitle--news .headTitle-content {
+      padding-top: 0px;
+      padding-bottom: 0px; }
+      .headTitle--news .headTitle-content .headTitle-title .separator:before {
+        bottom: 1rem; }
+      .headTitle--news .headTitle-content .headTitle-title .separator span {
         font-size: 35px;
         line-height: 35px; }
   .headTitle-content {
@@ -30780,9 +30786,6 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
         .headTitle-content .headTitle-title .separator:before {
           content: "";
           display: inline-block;
-          /* width: 10000px; */
-          /*  height: 1px; */
-          /*  border-top: 2px solid var(--global-color-light-violet); */
           position: absolute;
           bottom: 3rem;
           left: 0;
@@ -36574,7 +36577,8 @@ header {
       padding: 0; }
 
 .news-article {
-  min-height: 500px; }
+  min-height: 500px;
+  padding-bottom: 60px; }
   .news-article .content-page-blocks section:first-child {
     padding-top: 0;
     margin-top: 0; }

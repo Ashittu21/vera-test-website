@@ -49,12 +49,8 @@
   padding-top: 50px;
 }
 
-.heroType1-container+.copy-block-container {
-  margin-top: 60px;
-}
 
 .copy-block-container+.featured-type2 {
-  margin-top: 60px;
 
   @media(max-width:$mobile-breakpoint) {
     margin-top: 30px;
