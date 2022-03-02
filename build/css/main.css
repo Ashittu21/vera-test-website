@@ -30713,7 +30713,7 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
     height: 100%; }
     @media (max-width: 768px) {
       .featured-type2-content {
-        padding: 1rem; } }
+        padding: 15px; } }
     .featured-type2-content-text {
       font-size: 60px;
       font-style: normal;
@@ -30729,6 +30729,10 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
         line-height: 52px;
         letter-spacing: 0em;
         text-align: center; }
+        @media (max-width: 768px) {
+          .featured-type2-content-text.smallText {
+            font-size: 35px;
+            line-height: 39px; } }
       @media (max-width: 768px) {
         .featured-type2-content-text {
           font-size: 35px;
