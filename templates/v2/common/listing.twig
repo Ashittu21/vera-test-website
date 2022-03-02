@@ -4,14 +4,23 @@
     <div class="block-listing-content">
         {% if block.listing_articles|length %}
           {% for statsItem in block.listing_articles %}
-            <a class="block-listing-item"  href="{{ statsItem.url }}">
+            <a class="block-listing-item" 
+               href="{% if statsItem.type.name == 'News' %}{{ statsItem.linkUrl }}{% else %}{{ statsItem.url }}{% endif %}"
+               target="{% if statsItem.type.name == 'News' %}_blank{% else %}_self{% endif %}"
+               >
               <div class="block-listing-item-tag">
                 {{ statsItem.type.name | title | upper }}
               </div>
               <div class="block-listing-item-title">
                 <p>{{ statsItem.title }}</p>
               </div>
-              <div class="block-listing-item-date">{{ statsItem.postDate | date("M d, Y") }}</div>
+              <div class="block-listing-item-date">
+              {% if statsItem.type.name == 'News' %}
+               {{ statsItem.newsSource.one().title }}
+              {% else %}
+                {{ statsItem.postDate | date("M d, Y") }}
+              {% endif %}
+              </div>
             </a>
           {% endfor %}
         {% endif %}
