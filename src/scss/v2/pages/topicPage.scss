@@ -1,3 +1,7 @@
 .topicPage:first-child {
   margin-bottom: 5rem;
+  
+  @media(max-width:$mobile-breakpoint) {
+    margin-bottom: 0;
+  }
 }
