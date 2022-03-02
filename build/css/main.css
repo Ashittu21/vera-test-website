@@ -29588,7 +29588,7 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
         text-align: center; }
         @media (max-width: 768px) {
           .topic-blocks-ctaBannerFw .topic-blocks-ctaBannerFw-content .button span {
-            font-size: 24px;
+            font-size: 20px;
             width: 320px; } }
       .topic-blocks-ctaBannerFw .topic-blocks-ctaBannerFw-content .button.orange.arrow {
         background-size: 27px 16px; }
@@ -29834,7 +29834,8 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
       padding: 2rem 2rem; }
       .block-listing-content .block-listing-item:hover .block-listing-item-title {
         color: var(--global-color-white);
-        background-size: 100% 2px; }
+        background-size: 100% 2px;
+        text-decoration: underline; }
       .block-listing-content .block-listing-item:hover .block-listing-item-tag {
         color: var(--global-color-white); }
 
@@ -30419,10 +30420,10 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
   .copy-block-content figure + p {
     margin-top: 40px; } }
 
-.copy-block-container .copy-block-content p {
+/* .copy-block-container .copy-block-content p {
   margin-top: 50px;
-  margin-bottom: 30px; }
-
+  margin-bottom: 30px;
+} */
 .block-exploreMore {
   width: 100%;
   background-color: var(--global-color-dark-violet);
@@ -30436,7 +30437,7 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
   .block-exploreMore .block-exploreMore-container {
     max-width: 1280px;
     margin: 0 auto;
-    padding: 90px 0 120px 0;
+    padding: 55px 0 120px 0;
     overflow: hidden; }
     .block-exploreMore .block-exploreMore-container .block-exploreMore-title {
       display: table;
@@ -31642,8 +31643,8 @@ div.heading > div:nth-child(3) > p {
             text-align: left; }
           .block-latestNews-content .latestNews-hero .latestNews-hero-container .latestNews-hero-copy-title {
             font-family: var(--global-font-sectra);
-            margin-top: 20px;
-            margin-bottom: 25px; }
+            margin-top: 30px;
+            margin-bottom: 40px; }
             .block-latestNews-content .latestNews-hero .latestNews-hero-container .latestNews-hero-copy-title h4 {
               font-size: 45px;
               font-style: normal;
@@ -31717,7 +31718,7 @@ div.heading > div:nth-child(3) > p {
             line-height: 23px;
             letter-spacing: 0em;
             text-align: left;
-            margin-top: 30px; }
+            margin-top: 40px; }
         .block-latestNews-content .latestNews-hero .latestNews-hero-container .latestNews-hero-image {
           width: 50%;
           overflow: hidden;
@@ -31743,7 +31744,7 @@ div.heading > div:nth-child(3) > p {
           -ms-flex-pack: justify;
               justify-content: space-between;
       padding-top: 2rem;
-      padding-bottom: 2rem; }
+      padding-bottom: 5.5rem; }
       @media (max-width: 768px) {
         .block-latestNews-content .latestNews-items {
           -webkit-box-orient: vertical;
@@ -33559,7 +33560,8 @@ div.heading > div:nth-child(3) > p {
   @media (max-width: 768px) {
     .stats-block {
       border-bottom: 2px solid transparent;
-      border-top: 2px solid transparent; } }
+      border-top: 2px solid transparent;
+      margin-top: 0; } }
   .stats-block .stats-block-title p {
     font-family: var(--global-font-abc-whyte);
     font-size: 11px;
@@ -33621,7 +33623,7 @@ div.heading > div:nth-child(3) > p {
           .stats-block .stats-block-items .stats-block-item .stats-block-item-number {
             font-size: 45px;
             line-height: 49.5px;
-            margin-bottom: 0.5rem; } }
+            margin-bottom: 20px; } }
       .stats-block .stats-block-items .stats-block-item .stats-block-item-copy {
         font-family: var(--global-font-abc-whyte);
         font-size: 17px;
@@ -33631,7 +33633,8 @@ div.heading > div:nth-child(3) > p {
         letter-spacing: 0em;
         text-align: center;
         color: var(--global-color-text);
-        padding: 0 35px 30px 35px; }
+        padding-top: 35px;
+        padding-bottom: 40px; }
 
 .swiper {
   width: 100%;
