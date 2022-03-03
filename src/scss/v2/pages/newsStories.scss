@@ -11,7 +11,9 @@
   width: 100%;
   color: var(--global-color-text);
   padding: 80px 0 0 0;
-
+  @media(max-width:$mobile-breakpoint) {
+    padding-top: 30px;
+  }
   .newsLanding-head {
     max-width: 1060px;
     margin: 0 auto;
@@ -42,11 +44,19 @@
       flex-direction: row;
       height: fit-content;
       margin-bottom: 60px;
+      @media(max-width:$mobile-breakpoint) {
+        margin-bottom: 0px;
+        justify-content: center;
+
+      }
       display: flex;
       a{   
         margin-right: 10px;
         border-radius: 2px;
         border-color: #CEC0BC;
+        @media(max-width:$mobile-breakpoint) {
+          margin-right: 5px;
+        }
         &.active{
           background: #CEC0BC;
           color: #0A0319;
@@ -151,7 +161,7 @@
             line-height: 21px;
             letter-spacing: 0.17em;
             text-align: left;
-            margin-bottom: 33px;
+            margin-bottom: 20px;
             @media(max-width:$mobile-breakpoint) {
               margin-bottom: 30px;
             }
@@ -193,7 +203,7 @@
             letter-spacing: 0em;
             text-align: left;
             color: var(--global-color-gray-text);
-            margin-top: 25px;
+            margin-top: 10px;
 
             @media(max-width:$mobile-breakpoint) {
               font-size: 19px;
@@ -282,4 +292,8 @@
 
 .newsLanding-item:hover span{
   color: #fff;
+}
+
+.newsLanding-item-content-right h5{
+  margin-bottom: 10px;
 }
