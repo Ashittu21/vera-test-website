@@ -10,13 +10,11 @@
                 <div class="resources-block-items-title">
                   {{ block.initiative_resources_subtitle }}
                 </div>
-
                   <div class="resources-block-items">
                      {% for resource_item in block.children %}
                          <div class="resources-block-item"><a href="{{ resource_item.initiative_resources_item.url }}" class="icon-link">{{ resource_item.initiative_resources_item.customText }}</a></div>
                     {% endfor %}
                   </div>
-                
           {% endswitch %}
       {% endfor %}
       </div>
