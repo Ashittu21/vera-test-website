@@ -31840,15 +31840,7 @@ div.heading > div:nth-child(3) > p {
           -webkit-box-flex: 1;
               -ms-flex: 1;
                   flex: 1;
-<<<<<<< HEAD
-          margin: 20px 30px;
-          /*margin: 30px 30px 30px 30px;*/ }
-          @media (max-width: 768px) {
-            .block-latestNews-content .latestNews-items .latestNews-item-copy {
-              margin: 30px; } }
-=======
           margin: 20px 30px; }
->>>>>>> af5f5545076d03a3caac145dd4c474b0fb54c2b3
           .block-latestNews-content .latestNews-items .latestNews-item-copy-title {
             font-family: var(--global-font-abc-whyte);
             font-size: 26px;

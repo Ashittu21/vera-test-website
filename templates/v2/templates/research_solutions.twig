@@ -147,7 +147,7 @@
 
 
 
-{% set myEntryQuery = craft.entries().section('blogPosts') %}
+{% set myEntryQuery = craft.entries().section('blogPosts').orderBy('dateCreated DESC') %}
 
   <div class="rs-page">
     <section class="rs-head-container">
