@@ -119,7 +119,7 @@
 {% elseif  filterOrder =="oldest" %}
   {% paginate craft.entries(queryObj).orderBy('dateCreated ASC').limit(10) as pageInfo, pageEntries %}
 {% else %}
-  {% paginate craft.entries(queryObj).limit(10) as pageInfo, pageEntries %}
+  {% paginate craft.entries(queryObj).orderBy('dateCreated DESC').limit(10) as pageInfo, pageEntries %}
 {% endif %}
 
 <!-- Hero Block -->
@@ -147,7 +147,7 @@
 
 
 
-{% set myEntryQuery = craft.entries().section('blogPosts') %}
+{% set myEntryQuery = craft.entries().section('blogPosts').orderBy('dateCreated DESC') %}
 
   <div class="rs-page">
     <section class="rs-head-container">
