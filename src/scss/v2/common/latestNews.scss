@@ -4,7 +4,7 @@
   color: var(--global-color-white);
   width: 100%;
   box-sizing: border-box;
-  padding: 2rem 0;
+  padding: 2rem 0.1rem;
 
   &-content {
     max-width: 1280px;
@@ -285,6 +285,12 @@
           flex: 1;
           margin: 20px 30px;
 
+
+          @media(max-width:$mobile-breakpoint) {
+            margin: 30px;
+          }
+          /*margin: 30px 30px 30px 30px;*/
+          
           &-title {
             font-family: var(--global-font-abc-whyte);
             font-size: 26px;

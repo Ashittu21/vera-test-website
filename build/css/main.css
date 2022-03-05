@@ -7453,7 +7453,7 @@ body.no-scroll {
   .banner-image-left .share {
     display: inline-block;
     margin-bottom: 20px;
-    font-family: 'fontello'; }
+    font-family: 'fontello' !important; }
     @media (min-width: 1024px) {
       .banner-image-left .share {
         margin-bottom: 40px; } }
@@ -31577,7 +31577,7 @@ div.heading > div:nth-child(3) > p {
   width: 100%;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  padding: 2rem 0; }
+  padding: 2rem 0.1rem; }
   .block-latestNews-content {
     max-width: 1280px;
     -webkit-box-sizing: border-box;
@@ -31841,7 +31841,11 @@ div.heading > div:nth-child(3) > p {
           -webkit-box-flex: 1;
               -ms-flex: 1;
                   flex: 1;
-          margin: 20px 30px; }
+          margin: 20px 30px;
+          /*margin: 30px 30px 30px 30px;*/ }
+          @media (max-width: 768px) {
+            .block-latestNews-content .latestNews-items .latestNews-item-copy {
+              margin: 30px; } }
           .block-latestNews-content .latestNews-items .latestNews-item-copy-title {
             font-family: var(--global-font-abc-whyte);
             font-size: 26px;
