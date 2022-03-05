@@ -36073,7 +36073,9 @@ header {
       .header-v2 .rowBottom.show-logo #header-v2-bottom-nav .isologo a {
         margin: 15px;
         height: auto;
-        display: block; }
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex; }
     .header-v2 .rowBottom.hide-logo #header-v2-bottom-nav .isologo {
       display: none; }
     .header-v2 .rowBottom #header-v2-bottom-nav {
@@ -36203,7 +36205,7 @@ header {
           min-width: 413px;
           z-index: 500; } }
       .header-v2 .rowBottom #header-v2-bottom-nav .clicky-menu ul li {
-        padding: 17px 10px 17px 35px; }
+        padding: 17px 20px 17px 35px; }
         .header-v2 .rowBottom #header-v2-bottom-nav .clicky-menu ul li:first-child {
           padding-top: 34px; }
         .header-v2 .rowBottom #header-v2-bottom-nav .clicky-menu ul li:last-child {
