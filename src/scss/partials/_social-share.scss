@@ -5,17 +5,20 @@
   overflow: hidden;
   line-height: 1;
   @include font-size(1);
+  font-family: 'fontello' !important;
 
   span {
     display: block;
 
     &:before {
-      @include font-size(2);
+      font-size: 2rem;
+      font-family: 'fontello' !important;
     }
 
     &.icon-mail:before {
       line-height: 1.15;
-      @include font-size(1.8);
+      font-size: 1.8rem;
+      font-family: 'fontello' !important;
     }
   }
 

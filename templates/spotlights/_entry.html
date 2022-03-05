@@ -44,6 +44,7 @@ with { class: navClass } %}
 	{% endif %}
 {% endblock %}
 {% block footer %}
-	{% include
-'includes/snippets/footer' with { class: navClass } %}
+{% include 'v2/global/footer' %}
+	{# include
+'includes/snippets/footer' with { class: navClass } #}
 {% endblock %}
