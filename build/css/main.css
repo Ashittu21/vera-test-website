@@ -35473,7 +35473,7 @@ div.heading > div:nth-child(3) > p {
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex; }
-        .header-v2-mobile-row-container .isologo-mobile img {
+        .header-v2-mobile-row-container .isologo-mobile a img {
           margin: 15px; }
 
 .mobile-nav {
@@ -36070,8 +36070,10 @@ header {
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex; }
-      .header-v2 .rowBottom.show-logo #header-v2-bottom-nav .isologo img {
-        margin: 15px; }
+      .header-v2 .rowBottom.show-logo #header-v2-bottom-nav .isologo a {
+        margin: 15px;
+        height: auto;
+        display: block; }
     .header-v2 .rowBottom.hide-logo #header-v2-bottom-nav .isologo {
       display: none; }
     .header-v2 .rowBottom #header-v2-bottom-nav {
