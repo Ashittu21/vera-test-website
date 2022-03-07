@@ -249,12 +249,14 @@
       }
 
       span:before {
-        @include font-size(3);
+        font-size: 20px;
+        font-family: 'fontello';
       }
 
       span.icon-mail {
         &:before {
-          @include font-size(2.65);
+         font-size: 2.36rem;
+         font-family: 'fontello';
         }
       }
     }

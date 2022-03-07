@@ -98,19 +98,11 @@
         {% set relations = null %}
 {% endif %}
 
-
-
-
-
-
-
 {% set queryObj = {
     relatedTo: relations,
     section: searchSections
   }
 %}
-
-
 
 {% set totalEntries = craft.entries(queryObj).limit(10).count() %}
 
@@ -144,12 +136,9 @@
   </div>
 <!-- END Hero Block -->
 
-
-
-
 {% set myEntryQuery = craft.entries().section('blogPosts').orderBy('dateCreated DESC') %}
-
   <div class="rs-page">
+
     <section class="rs-head-container">
       <div class="rs-headContent">
         <div class="rs-headContent-title">
@@ -178,7 +167,6 @@
         </div>
       </div>
     </section>
-
 
     <section class="rs-listing">
       <div class="rs-listing-content">

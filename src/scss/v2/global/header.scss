@@ -271,9 +271,12 @@ header {
           align-content: center;
           box-sizing: border-box;
           display: flex;
-          img {
+          a{
             margin: 15px;
+            height: auto;
+            display: flex;
           }
+          
         }
       }
     }
@@ -428,7 +431,7 @@ header {
           padding-bottom: 40px;
         }
         
-        padding: 17px 10px 17px 35px;
+        padding: 17px 20px 17px 35px;
 
         .hover-arrow {
           margin-bottom: 5px;

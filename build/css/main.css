@@ -1370,8 +1370,8 @@ article.fact .viz-text, .best-of-list,
 
 @font-face {
   font-family: "fontello";
-  src: url("fonts/fontello.eot?57468956");
-  src: url("fonts/fontello.eot?57468956#iefix") format("embedded-opentype"), url("fonts/fontello.woff2?57468956") format("woff2"), url("fonts/fontello.woff?57468956") format("woff"), url("fonts/fontello.ttf?57468956") format("truetype"), url("fonts/fontello.svg?57468956#fontello") format("svg");
+  src: url("../css/fonts/fontello.eot?57468956");
+  src: url("../css/fonts/fontello.eot?57468956#iefix") format("embedded-opentype"), url("../css/fonts/fontello.woff2?57468956") format("woff2"), url("../css/fonts/fontello.woff?57468956") format("woff"), url("../css/fonts/fontello.ttf?57468956") format("truetype"), url("../css/fonts/fontello.svg?57468956#fontello") format("svg");
   font-weight: normal;
   font-style: normal; }
 
@@ -2493,6 +2493,9 @@ select.basic {
   to {
     -webkit-transform: rotate(-90deg);
             transform: rotate(-90deg); } }
+
+.share {
+  font-family: 'fontello' !important; }
 
 .flickity--red .flickity-prev-next-button, .full-nav-carousel .flickity-prev-next-button {
   border-radius: 0;
@@ -7449,7 +7452,8 @@ body.no-scroll {
         max-width: 320px; } }
   .banner-image-left .share {
     display: inline-block;
-    margin-bottom: 20px; }
+    margin-bottom: 20px;
+    font-family: 'fontello' !important; }
     @media (min-width: 1024px) {
       .banner-image-left .share {
         margin-bottom: 40px; } }
@@ -14715,13 +14719,11 @@ a:hover .icon-download:after {
   .contact-social .share.share--social a {
     padding: 12px; }
   .contact-social .share.share--social span:before {
-    font-size: 30px;
-    font-size: 3rem;
-    font-family: 'ABC Whyte'; }
+    font-size: 20px;
+    font-family: 'fontello'; }
   .contact-social .share.share--social span.icon-mail:before {
-    font-size: 26.5px;
-    font-size: 2.65rem;
-    font-family: 'ABC Whyte'; } }
+    font-size: 2.36rem;
+    font-family: 'fontello'; } }
 
 .part_anchor {
   display: block;
@@ -26150,18 +26152,17 @@ button.SortableTable-header-column-button {
   line-height: 1;
   font-size: 10px;
   font-size: 1rem;
-  font-family: 'ABC Whyte'; }
+  font-family: 'ABC Whyte';
+  font-family: 'fontello' !important; }
   .share span {
     display: block; }
     .share span:before {
-      font-size: 20px;
       font-size: 2rem;
-      font-family: 'ABC Whyte'; }
+      font-family: 'fontello' !important; }
     .share span.icon-mail:before {
       line-height: 1.15;
-      font-size: 18px;
       font-size: 1.8rem;
-      font-family: 'ABC Whyte'; }
+      font-family: 'fontello' !important; }
   .share.module-intro__share li {
     margin-top: 0 !important; }
   @media (min-width: 1024px) {
@@ -35472,7 +35473,7 @@ div.heading > div:nth-child(3) > p {
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex; }
-        .header-v2-mobile-row-container .isologo-mobile img {
+        .header-v2-mobile-row-container .isologo-mobile a img {
           margin: 15px; }
 
 .mobile-nav {
@@ -36069,8 +36070,12 @@ header {
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex; }
-      .header-v2 .rowBottom.show-logo #header-v2-bottom-nav .isologo img {
-        margin: 15px; }
+      .header-v2 .rowBottom.show-logo #header-v2-bottom-nav .isologo a {
+        margin: 15px;
+        height: auto;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex; }
     .header-v2 .rowBottom.hide-logo #header-v2-bottom-nav .isologo {
       display: none; }
     .header-v2 .rowBottom #header-v2-bottom-nav {
@@ -36200,7 +36205,7 @@ header {
           min-width: 413px;
           z-index: 500; } }
       .header-v2 .rowBottom #header-v2-bottom-nav .clicky-menu ul li {
-        padding: 17px 10px 17px 35px; }
+        padding: 17px 20px 17px 35px; }
         .header-v2 .rowBottom #header-v2-bottom-nav .clicky-menu ul li:first-child {
           padding-top: 34px; }
         .header-v2 .rowBottom #header-v2-bottom-nav .clicky-menu ul li:last-child {

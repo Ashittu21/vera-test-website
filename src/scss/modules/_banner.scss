@@ -825,6 +825,7 @@
   .share {
     display: inline-block;
     margin-bottom: $padding-sm;
+    font-family: 'fontello' !important;
 
     @media (min-width: $tablet-landscape) {
       margin-bottom: $padding-lg;

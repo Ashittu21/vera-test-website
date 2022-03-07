@@ -37,7 +37,7 @@
         </div>
         <div class="menu-center">
           <h1>
-            <a class="logo" href="/">
+            <a class="logo" href="{{ siteUrl }}">
               Vera Institute of Justice
             </a>
           </h1>
@@ -69,7 +69,7 @@
       <div class="rowBottom-container">
         <div id="header-v2-bottom-nav">
           <div class="isologo">
-            <img src="/dist/img/v2/vera-isologo.svg">
+            <a href="{{ siteUrl }}"><img src="/dist/img/v2/vera-isologo.svg"></a>
           </div>
 
           {% set navigationMain = craft.entries.section('navigationMain') %}
