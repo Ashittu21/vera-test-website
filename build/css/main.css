@@ -1719,7 +1719,8 @@ sup {
   font-size: 65%; }
 
 .video-player iframe {
-  height: 100%; }
+  height: 100%;
+  width: 100%; }
   .video-player iframe .video-wrapper {
     background-color: white; }
 
