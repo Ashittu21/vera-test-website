@@ -84,6 +84,14 @@
   }
 }
 
+
+.copy-block-container .copy-block-content ol {
+  @media(max-width:$mobile-breakpoint) {
+    margin-bottom: -50px;
+    padding: 0px;
+  }
+}
+
 .copy-block-container .copy-block-content figure {
   @media(max-width:$mobile-breakpoint) {
     margin-bottom: 20px;
