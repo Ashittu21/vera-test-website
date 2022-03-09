@@ -20,7 +20,7 @@ position: relative;
 z-index: 1;  
 &::after {
   content: '';
-  bottom: -0.5rem;
+  bottom: -17px;
   height: 4rem;
   left: -0.5rem;
   right: -1.6rem;
@@ -31,9 +31,9 @@ z-index: 1;
   position: absolute;
   z-index: -1; 
   background-image: url("../../dist/img/v2/brushstroke-02.svg");
-  animation-name: test-text3;
+/*  animation-name: test-text3;
   animation-duration: 3s;
-  animation-fill-mode: forwards;
+  animation-fill-mode: forwards;*/
   @media (max-width: $tablet-portrait) {
     height: 1rem;
     bottom: -0.1rem;

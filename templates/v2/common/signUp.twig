@@ -1,34 +1,26 @@
 <!-- SignUp -->
-<section 
- class="block-signup {{block.signUp_backgroundcolor}} " >
-
-
+<section class="block-signup {{block.signUp_backgroundcolor}} ">
   <div class="block-signup-container">
     <div class="block-signup-left">
       <div class="block-signup-title">Learn. Take action. <br> <span  class="underline2">Transform</span> the system.</div>
       <div class="block-signup-copy">Sign up for our  mailing list.</div>
      
       <form class="block-signup-form" id="signUp-form" onsubmit="return validation(event)">
-        <input type="email" id="emailSignUp" placeholder="Email">
+        <input type="email" id="emailSignUp" placeholder="Email Address*">
         <button href="#" class="button orange arrow"><span>I’m in!</span></button>
       </form>
+      <div id="error-email"></div>
     </div>
-    <div class="block-signup-right"></div>
+    <div class="block-signup-right" style="" class=""></div>
   </div>
 </section>
 <!-- SignUp -->
 
-
 <script>
-
 var emailAddress = document.getElementById("emailSignUp").value;
-
-
-
 
 function validation(event) {
   event.preventDefault();
-
   const regex = {
     email: /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}/gi,
   };
@@ -48,7 +40,7 @@ function validation(event) {
     if (!regex.email.test(emailAddress)) {
       document.getElementById("emailSignUp").focus();
       document.getElementById("error-email").innerHTML =
-        "Not a Valid Email Adress";
+        "Please enter a valid email address";
       formerror = true;
     }
   }
@@ -57,7 +49,7 @@ function validation(event) {
     var error_message = document.getElementById("error-message");
     error_message.style.display = "block";
     error_message.innerHTML =
-      "There is error on Form !!! Please Correct it before submitting again";
+      "Please Correct it before submitting again";
     return false;
   }
 
@@ -72,27 +64,11 @@ function validation(event) {
     body: 'EmailAddress='+emailAddress+'&type=SignupForm'
   })
     .then(res => res.json())
-    .then(data => {console.log('success', data)});
-  
-/*
-  fetch("/echo", {
-    method: "POST",
-    body: formdata
-  })
-    .then((response) => response.text())
-    .then((text) => console.log(text))
-    .catch((error) => console.error(error));*/
+    .then(data => {
+      // console.log('success', data);
+      if(data.resultCode =="Success"){
+        console.log('CHingon');
+      }
+    });
 }
-
-
-
-
-
-
-
-
-
-
-
-
 </script>
