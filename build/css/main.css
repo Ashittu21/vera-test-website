@@ -37001,7 +37001,7 @@ header {
         text-align: center; }
     .rs-page .rs-head-container .rs-headContent .rs-title {
       margin-top: 80px;
-      max-width: 100vw;
+      max-width: 1280px;
       display: table;
       white-space: nowrap;
       font-family: var(--global-font-sectra);
