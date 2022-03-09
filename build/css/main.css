@@ -31344,6 +31344,10 @@ div.heading > div:nth-child(3) > p {
 .slider-home .swiper-slide img {
   height: 70px !important; }
 
+.heroType3 .swiper {
+  width: 100%;
+  max-width: 1280px; }
+
 .hero-type4 {
   background-color: var(--global-color-sand);
   -webkit-transition: all 0.2s ease-in-out;
