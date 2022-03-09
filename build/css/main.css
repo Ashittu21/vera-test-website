@@ -31122,7 +31122,7 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
       color: white;
       height: 2px;
       width: 0;
-      margin-top: -2.5rem;
+      margin-top: -10.5rem;
       -webkit-animation-name: test-animation;
               animation-name: test-animation;
       -webkit-animation-duration: 3s;
@@ -31139,7 +31139,7 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
       background-color: var(--global-color-light-violet);
       height: 2px;
       width: 0;
-      margin-bottom: -32rem;
+      margin-bottom: -25.5rem;
       -webkit-animation-name: test-animation;
               animation-name: test-animation;
       -webkit-animation-duration: 3s;
@@ -31219,7 +31219,7 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
 } */
 /* Animación home */
 .heading {
-  margin: 130px 0 0 160px;
+  margin: 95px 0 0 160px;
   font-size: 100px;
   width: -webkit-max-content;
   width: -moz-max-content;
@@ -33636,8 +33636,9 @@ div.heading > div:nth-child(3) > p {
   @media (max-width: 768px) {
     .stats-block {
       border-bottom: 2px solid transparent;
-      border-top: 2px solid transparent;
-      margin-top: 0; } }
+      border-top: 2px solid var(--global-color-dark-sand);
+      margin-top: 0;
+      max-width: 280px; } }
   .stats-block .stats-block-title p {
     font-family: var(--global-font-abc-whyte);
     font-size: 11px;
@@ -33678,13 +33679,13 @@ div.heading > div:nth-child(3) > p {
                   flex-direction: column;
           border-right: 0;
           border-bottom: 2px solid var(--global-color-dark-sand);
-          max-width: 80%;
+          max-width: 280px;
           padding: 1rem 0; } }
       .stats-block .stats-block-items .stats-block-item:last-child {
         border-right: 2px solid transparent; }
         @media (max-width: 768px) {
           .stats-block .stats-block-items .stats-block-item:last-child {
-            border-bottom: 2px solid transparent; } }
+            border-bottom: 2px solid var(--global-color-dark-sand); } }
       .stats-block .stats-block-items .stats-block-item .stats-block-item-number {
         font-family: var(--global-font-abc-whyte);
         color: var(--global-color-light-violet);
