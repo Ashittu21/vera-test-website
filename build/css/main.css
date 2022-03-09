@@ -29160,6 +29160,9 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
 .button.orange span {
   font-size: 16px; }
 
+.home-content-item-left-cta .button.orange:before {
+  background-position: right 34px center; }
+
 /* Common Blocks */
 .about-block-container {
   width: 100%;
@@ -31119,7 +31122,7 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
       color: white;
       height: 2px;
       width: 0;
-      margin-top: -5rem;
+      margin-top: -2.5rem;
       -webkit-animation-name: test-animation;
               animation-name: test-animation;
       -webkit-animation-duration: 3s;
@@ -31136,7 +31139,7 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
       background-color: var(--global-color-light-violet);
       height: 2px;
       width: 0;
-      margin-bottom: -29rem;
+      margin-bottom: -32rem;
       -webkit-animation-name: test-animation;
               animation-name: test-animation;
       -webkit-animation-duration: 3s;
@@ -31216,7 +31219,7 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
 } */
 /* Animación home */
 .heading {
-  margin: 120px 0 0 80px;
+  margin: 130px 0 0 160px;
   font-size: 100px;
   width: -webkit-max-content;
   width: -moz-max-content;
@@ -36473,11 +36476,21 @@ header {
         -moz-columns: 2;
         padding-left: 0;
         margin: 0; }
+        @media (max-width: 768px) {
+          .page404_container_links ul {
+            columns: 1;
+            -webkit-columns: 1;
+            -moz-columns: 1; } }
+        .page404_container_links ul li:first-child {
+          max-width: 185px; }
         .page404_container_links ul li {
-          max-width: 270px;
+          width: auto;
           list-style: none;
           margin: 0;
           margin-bottom: 1rem; }
+        @media (max-width: 768px) {
+          .page404_container_links ul li:last-child {
+            width: 190px; } }
 
 .content-detail {
   display: -webkit-box;

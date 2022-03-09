@@ -66,11 +66,24 @@
         -moz-columns: 2;
         padding-left: 0;
         margin: 0;
+        @media(max-width:$mobile-breakpoint) {
+          columns: 1;
+          -webkit-columns: 1;
+          -moz-columns: 1;
+        }
+        li:first-child{
+          max-width: 185px;
+        }
         li{
-          max-width: 270px;
+          width: auto;
           list-style: none;
           margin: 0;
           margin-bottom: 1rem;
+        }
+        li:last-child{
+          @media(max-width:$mobile-breakpoint) {
+            width: 190px;
+          }
         }
       }
     }
