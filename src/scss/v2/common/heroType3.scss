@@ -62,12 +62,12 @@
       background-color: var(--global-color-light-violet);
       height: 2px;
       width: 0;
-      margin-bottom: -32rem;
+      margin-bottom: -29rem;
       animation-name: test-animation;
       animation-duration: 3s;
       animation-fill-mode: forwards;
       @media(max-width:$mobile-breakpoint){
-        margin-top: -12rem;
+        margin-top: -21rem;
       }
     }
     &-line3{
@@ -162,6 +162,11 @@
   font-size: 160px;
   line-height: 115%;
   color: #fff;
+  @media(max-width:$mobile-breakpoint){
+    margin: 47px 0;
+    font-size: 55px;
+    padding: 15px;
+  }
 }
 
 .heading img{
@@ -177,6 +182,7 @@
   white-space: nowrap;
   margin: 0;
   line-height: 117%;
+  margin-bottom: -10px;
 }
 
 .green {

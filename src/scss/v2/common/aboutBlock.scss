@@ -21,6 +21,9 @@
       line-height: 42px;
       letter-spacing: 0em;
       text-align: left;
+      @media(max-width:$mobile-breakpoint) {
+        padding-left: 20px;
+      }
     }
     .about-block-copy{
       max-width: 613px;

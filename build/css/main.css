@@ -29182,6 +29182,9 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
       line-height: 42px;
       letter-spacing: 0em;
       text-align: left; }
+      @media (max-width: 768px) {
+        .about-block-container .about-block-content .about-block-title {
+          padding-left: 20px; } }
     .about-block-container .about-block-content .about-block-copy {
       max-width: 613px;
       font-family: var(--global-font-abc-whyte);
@@ -29442,7 +29445,7 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
       height: 505px; }
       @media (max-width: 768px) {
         .banner-block-container .banner-block-content .banner-block-copy {
-          padding: 52px 22px;
+          padding: 30px 22px;
           width: auto;
           height: auto; } }
       .banner-block-container .banner-block-content .banner-block-copy-title {
@@ -29519,6 +29522,9 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
   background-color: var(--global-color-medium-violet);
   position: relative;
   max-height: 613px; }
+  @media (max-width: 768px) {
+    .topic-blocks-ctaBannerFw {
+      padding: 0; } }
   .topic-blocks-ctaBannerFw::after {
     background-color: var(--global-color-light-violet);
     content: "";
@@ -29533,7 +29539,7 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
         height: 2px;
         width: 100%;
         right: 0;
-        top: 1.5rem; } }
+        top: 40px; } }
   .topic-blocks-ctaBannerFw::before {
     background-color: var(--global-color-light-violet);
     content: "";
@@ -29548,7 +29554,7 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
         height: 2px;
         width: 100%;
         left: 0;
-        bottom: 1.5rem; } }
+        bottom: 40px; } }
   .topic-blocks-ctaBannerFw .topic-blocks-ctaBannerFw-content {
     padding: 117px 0 157px 0;
     display: -webkit-box;
@@ -29566,10 +29572,13 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
         -ms-flex-align: center;
             align-items: center;
     max-width: 1066px;
-    position: relative; }
+    position: relative;
+    /*     @media (max-width: $tablet-portrait) {
+      padding: 3.5rem 0;
+    } */ }
     @media (max-width: 768px) {
       .topic-blocks-ctaBannerFw .topic-blocks-ctaBannerFw-content {
-        padding: 3.5rem 0; } }
+        padding: 0; } }
     .topic-blocks-ctaBannerFw .topic-blocks-ctaBannerFw-content .topic-blocks-ctaBannerFw-title {
       font-family: var(--global-font-abc-whyte);
       font-size: 80px;
@@ -29586,6 +29595,9 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
           line-height: 49.5px; }
           .topic-blocks-ctaBannerFw .topic-blocks-ctaBannerFw-content .topic-blocks-ctaBannerFw-title br {
             display: none; } }
+      @media (max-width: 768px) {
+        .topic-blocks-ctaBannerFw .topic-blocks-ctaBannerFw-content .topic-blocks-ctaBannerFw-title {
+          margin-top: 80px; } }
     .topic-blocks-ctaBannerFw .topic-blocks-ctaBannerFw-content .topic-blocks-ctaBannerFw-text {
       font-family: var(--global-font-abc-whyte);
       font-size: 26px;
@@ -29601,7 +29613,8 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
       @media (max-width: 768px) {
         .topic-blocks-ctaBannerFw .topic-blocks-ctaBannerFw-content .topic-blocks-ctaBannerFw-text {
           padding-left: 1rem;
-          padding-right: 1rem; }
+          padding-right: 1rem;
+          padding-top: 40px; }
           .topic-blocks-ctaBannerFw .topic-blocks-ctaBannerFw-content .topic-blocks-ctaBannerFw-text br {
             display: none; } }
     .topic-blocks-ctaBannerFw .topic-blocks-ctaBannerFw-content .button {
@@ -29610,6 +29623,9 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
       min-height: 70px;
       min-width: 255px;
       padding: 0; }
+      @media (max-width: 768px) {
+        .topic-blocks-ctaBannerFw .topic-blocks-ctaBannerFw-content .button {
+          margin-bottom: 90px; } }
       .topic-blocks-ctaBannerFw .topic-blocks-ctaBannerFw-content .button span {
         line-height: 70px;
         padding-left: 29px;
@@ -30443,6 +30459,11 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
     margin-top: 54px; } }
 
 @media (max-width: 768px) {
+  .copy-block-container .copy-block-content ol {
+    margin-bottom: -50px;
+    padding: 0px; } }
+
+@media (max-width: 768px) {
   .copy-block-container .copy-block-content figure {
     margin-bottom: 20px; } }
 
@@ -31115,7 +31136,7 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
       background-color: var(--global-color-light-violet);
       height: 2px;
       width: 0;
-      margin-bottom: -32rem;
+      margin-bottom: -29rem;
       -webkit-animation-name: test-animation;
               animation-name: test-animation;
       -webkit-animation-duration: 3s;
@@ -31124,7 +31145,7 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
               animation-fill-mode: forwards; }
       @media (max-width: 768px) {
         .heroType3-content-line2 {
-          margin-top: -12rem; } }
+          margin-top: -21rem; } }
     .heroType3-content-line3 {
       display: block;
       position: absolute;
@@ -31213,6 +31234,11 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
   font-size: 160px;
   line-height: 115%;
   color: #fff; }
+  @media (max-width: 768px) {
+    .heading {
+      margin: 47px 0;
+      font-size: 55px;
+      padding: 15px; } }
 
 .heading img {
   height: 31px; }
@@ -31226,7 +31252,8 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
   width: max-content;
   white-space: nowrap;
   margin: 0;
-  line-height: 117%; }
+  line-height: 117%;
+  margin-bottom: -10px; }
 
 .green {
   color: #fff; }
@@ -33551,9 +33578,9 @@ div.heading > div:nth-child(3) > p {
         margin-top: 15px;
         color: #ffffff;
         font-family: var(--global-font-abc-whyte);
-        font-size: 11px;
+        font-size: 12px;
         font-style: normal;
-        font-weight: 500;
+        font-weight: 400;
         line-height: 14px;
         letter-spacing: 0em;
         text-align: left; }
@@ -33733,6 +33760,10 @@ div.heading > div:nth-child(3) > p {
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover; }
+  @media (max-width: 768px) {
+    .swiper-slide img {
+      -o-object-fit: contain;
+         object-fit: contain; } }
 
 .singleImage .swiper-slide img {
   -o-object-fit: contain !important;
