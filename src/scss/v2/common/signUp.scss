@@ -60,6 +60,7 @@
            line-height: 49.5px;
          }
        }
+
        .block-signup-copy{       
          font-family: var(--global-font-abc-whyte);
          color: #FFF;
@@ -77,7 +78,7 @@
          display: flex;
          align-content: flex-end;
          align-items: stretch;
-         input[type="text"]{
+         input[type="email"]{
            background-color: transparent;
            border: 0;
            border-bottom: 2px solid var(--global-color-mint);
@@ -98,6 +99,7 @@
          }
        }
      }
+     
      .block-signup-right{
        background-color: var(--global-color-medium-violet);
        height: 398px;

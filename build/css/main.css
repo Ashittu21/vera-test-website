@@ -33519,7 +33519,7 @@ div.heading > div:nth-child(3) > p {
         -webkit-box-align: stretch;
             -ms-flex-align: stretch;
                 align-items: stretch; }
-        .block-signup .block-signup-container .block-signup-left .block-signup-form input[type="text"] {
+        .block-signup .block-signup-container .block-signup-left .block-signup-form input[type="email"] {
           background-color: transparent;
           border: 0;
           border-bottom: 2px solid var(--global-color-mint);
@@ -33527,18 +33527,18 @@ div.heading > div:nth-child(3) > p {
           margin: 0 1rem;
           color: var(--global-color-white);
           width: 510px; }
-          .block-signup .block-signup-container .block-signup-left .block-signup-form input[type="text"]:focus {
+          .block-signup .block-signup-container .block-signup-left .block-signup-form input[type="email"]:focus {
             outline: none; }
-          .block-signup .block-signup-container .block-signup-left .block-signup-form input[type="text"]::-webkit-input-placeholder {
+          .block-signup .block-signup-container .block-signup-left .block-signup-form input[type="email"]::-webkit-input-placeholder {
             color: var(--global-color-white); }
-          .block-signup .block-signup-container .block-signup-left .block-signup-form input[type="text"]::-moz-placeholder {
+          .block-signup .block-signup-container .block-signup-left .block-signup-form input[type="email"]::-moz-placeholder {
             color: var(--global-color-white); }
-          .block-signup .block-signup-container .block-signup-left .block-signup-form input[type="text"]::-ms-input-placeholder {
+          .block-signup .block-signup-container .block-signup-left .block-signup-form input[type="email"]::-ms-input-placeholder {
             color: var(--global-color-white); }
-          .block-signup .block-signup-container .block-signup-left .block-signup-form input[type="text"]::placeholder {
+          .block-signup .block-signup-container .block-signup-left .block-signup-form input[type="email"]::placeholder {
             color: var(--global-color-white); }
           @media (max-width: 700px) {
-            .block-signup .block-signup-container .block-signup-left .block-signup-form input[type="text"] {
+            .block-signup .block-signup-container .block-signup-left .block-signup-form input[type="email"] {
               width: 100%; } }
     .block-signup .block-signup-container .block-signup-right {
       background-color: var(--global-color-medium-violet);
