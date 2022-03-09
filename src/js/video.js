@@ -28,7 +28,6 @@ function loadScript(src, callback) {
 }
 
 if (document.querySelector('.videoBlock-video .video-player-v2.vimeo')) { 
-
   document.querySelectorAll('.videoBlock-video .video-player-v2.vimeo:not(.video-initialized)').forEach(item => {
     item.addEventListener('click', e => {
       var target = e.target;
