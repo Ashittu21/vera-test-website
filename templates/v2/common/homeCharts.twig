@@ -20,7 +20,8 @@
           {% if chartItem.homeItemsLayout  == 'single' %}single{% endif %} ">
 
           <div class="home-content-item-right-image">
-            <object id ="animated-svg" type="image/svg+xml" data="{{ chartItem.homeItemsGraphImage.first.url }}"></object>
+           <img src="{{ chartItem.homeItemsGraphImage.first.url }}"/>
+           <!-- <object id ="animated-svg" type="image/svg+xml" data=""></object>-->
           </div>
 
           <div class="home-content-item-right-copy">

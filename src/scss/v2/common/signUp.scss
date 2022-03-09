@@ -60,6 +60,7 @@
            line-height: 49.5px;
          }
        }
+
        .block-signup-copy{       
          font-family: var(--global-font-abc-whyte);
          color: #FFF;
@@ -77,27 +78,56 @@
          display: flex;
          align-content: flex-end;
          align-items: stretch;
-         input[type="text"]{
-           background-color: transparent;
-           border: 0;
-           border-bottom: 2px solid var(--global-color-mint);
-           font-family: var(--global-font-abc-whyte);
-           margin: 0 1rem;
-           color: var(  --global-color-white);
-           width: 510px;
-           &:focus {
-             outline:none;
-           }
-           &::placeholder{
-             color: var(--global-color-white);
-           }
-           @media (max-width: $mobile-large) {
+         input[type="email"]{
+          background-color: transparent;
+          border: 0;
+          border-bottom: 2px solid var(--global-color-mint);
+          font-family: var(--global-font-abc-whyte);
+          margin-left: 0px;
+          margin-right: 10px;
+          color: var(  --global-color-white);
+          width: 510px;
+          font-size: 21px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 29px;
+          letter-spacing: 0em;
+          text-align: left;
+
+          &:focus {
+            outline:none;
+          }
+
+          &::placeholder{
+            color: var(--global-color-white);
+          }
+
+          @media (max-width: $mobile-large) {
             width: 100%;
           }
-      
-         }
+          
+          &.error{
+            border-bottom: 2px solid #EF4136;
+
+
+          }
+        }
+      }
+
+       #error-email{
+        margin-left: 0px;
+        margin-top: 15px;
+        color: #ffffff;
+        font-family: var(--global-font-abc-whyte);
+        font-size: 11px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 14px;
+        letter-spacing: 0em;
+        text-align: left;
        }
      }
+     
      .block-signup-right{
        background-color: var(--global-color-medium-violet);
        height: 398px;
@@ -127,7 +157,7 @@
      &::before{
        background-color: var(--global-color-light-violet);
        content: "";
-       height: 120%;
+       height: 110%;
        position: absolute;
        width: 2px;
        top: -10%;

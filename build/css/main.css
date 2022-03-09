@@ -28828,7 +28828,7 @@ body.color-combo--lightGrayGradient-black {
   z-index: 1; }
   .underline2::after {
     content: '';
-    bottom: -0.5rem;
+    bottom: -17px;
     height: 4rem;
     left: -0.5rem;
     right: -1.6rem;
@@ -28839,12 +28839,9 @@ body.color-combo--lightGrayGradient-black {
     position: absolute;
     z-index: -1;
     background-image: url("../../dist/img/v2/brushstroke-02.svg");
-    -webkit-animation-name: test-text3;
-            animation-name: test-text3;
-    -webkit-animation-duration: 3s;
-            animation-duration: 3s;
-    -webkit-animation-fill-mode: forwards;
-            animation-fill-mode: forwards; }
+    /*  animation-name: test-text3;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;*/ }
     @media (max-width: 768px) {
       .underline2::after {
         height: 1rem;
@@ -33549,27 +33546,47 @@ div.heading > div:nth-child(3) > p {
         -webkit-box-align: stretch;
             -ms-flex-align: stretch;
                 align-items: stretch; }
-        .block-signup .block-signup-container .block-signup-left .block-signup-form input[type="text"] {
+        .block-signup .block-signup-container .block-signup-left .block-signup-form input[type="email"] {
           background-color: transparent;
           border: 0;
           border-bottom: 2px solid var(--global-color-mint);
           font-family: var(--global-font-abc-whyte);
-          margin: 0 1rem;
+          margin-left: 0px;
+          margin-right: 10px;
           color: var(--global-color-white);
-          width: 510px; }
-          .block-signup .block-signup-container .block-signup-left .block-signup-form input[type="text"]:focus {
+          width: 510px;
+          font-size: 21px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 29px;
+          letter-spacing: 0em;
+          text-align: left; }
+          .block-signup .block-signup-container .block-signup-left .block-signup-form input[type="email"]:focus {
             outline: none; }
-          .block-signup .block-signup-container .block-signup-left .block-signup-form input[type="text"]::-webkit-input-placeholder {
+          .block-signup .block-signup-container .block-signup-left .block-signup-form input[type="email"]::-webkit-input-placeholder {
             color: var(--global-color-white); }
-          .block-signup .block-signup-container .block-signup-left .block-signup-form input[type="text"]::-moz-placeholder {
+          .block-signup .block-signup-container .block-signup-left .block-signup-form input[type="email"]::-moz-placeholder {
             color: var(--global-color-white); }
-          .block-signup .block-signup-container .block-signup-left .block-signup-form input[type="text"]::-ms-input-placeholder {
+          .block-signup .block-signup-container .block-signup-left .block-signup-form input[type="email"]::-ms-input-placeholder {
             color: var(--global-color-white); }
-          .block-signup .block-signup-container .block-signup-left .block-signup-form input[type="text"]::placeholder {
+          .block-signup .block-signup-container .block-signup-left .block-signup-form input[type="email"]::placeholder {
             color: var(--global-color-white); }
           @media (max-width: 700px) {
-            .block-signup .block-signup-container .block-signup-left .block-signup-form input[type="text"] {
+            .block-signup .block-signup-container .block-signup-left .block-signup-form input[type="email"] {
               width: 100%; } }
+          .block-signup .block-signup-container .block-signup-left .block-signup-form input[type="email"].error {
+            border-bottom: 2px solid #EF4136; }
+      .block-signup .block-signup-container .block-signup-left #error-email {
+        margin-left: 0px;
+        margin-top: 15px;
+        color: #ffffff;
+        font-family: var(--global-font-abc-whyte);
+        font-size: 11px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 14px;
+        letter-spacing: 0em;
+        text-align: left; }
     .block-signup .block-signup-container .block-signup-right {
       background-color: var(--global-color-medium-violet);
       height: 398px;
@@ -33595,7 +33612,7 @@ div.heading > div:nth-child(3) > p {
       .block-signup .block-signup-container .block-signup-right::before {
         background-color: var(--global-color-light-violet);
         content: "";
-        height: 120%;
+        height: 110%;
         position: absolute;
         width: 2px;
         top: -10%;
@@ -36588,6 +36605,11 @@ header {
             height: 100%;
             max-height: 200px;
             width: 100%; }
+          .home-content-items .home-content-item-right-image img {
+            -webkit-box-sizing: border-box;
+                    box-sizing: border-box;
+            max-height: 300px;
+            width: auto; }
         .home-content-items .home-content-item-right-copy {
           min-width: 50%;
           -webkit-box-pack: center;

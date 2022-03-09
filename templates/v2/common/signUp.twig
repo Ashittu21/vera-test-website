@@ -2,15 +2,73 @@
 <section class="block-signup {{block.signUp_backgroundcolor}} ">
   <div class="block-signup-container">
     <div class="block-signup-left">
-      <div class="block-signup-title">Learn. Take action. <br> <span  class="underline2">Transform</span> the system.
-      </div>
+      <div class="block-signup-title">Learn. Take action. <br> <span  class="underline2">Transform</span> the system.</div>
       <div class="block-signup-copy">Sign up for our  mailing list.</div>
-      <div class="block-signup-form">
-        <input type="text" placeholder="Email">
-        <a href="#" class="button orange arrow"><span>I’m in!</span></a>
-      </div>
+     
+      <form class="block-signup-form" id="signUp-form" onsubmit="return validation(event)">
+        <input type="email" id="emailSignUp" placeholder="Email Address*">
+        <button href="#" class="button orange arrow"><span>I’m in!</span></button>
+      </form>
+      <div id="error-email"></div>
     </div>
-    <div class="block-signup-right"></div>
+    <div class="block-signup-right" style="" class=""></div>
   </div>
 </section>
 <!-- SignUp -->
+
+<script>
+var emailAddress = document.getElementById("emailSignUp").value;
+
+function validation(event) {
+  event.preventDefault();
+  const regex = {
+    email: /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}/gi,
+  };
+
+  var emailAddress = document.getElementById("emailSignUp").value;
+  var formerror = false;
+
+  if (emailAddress == "") {
+    document.getElementById("emailSignUp").focus();
+    document.getElementById("error-email").innerHTML =
+      "Email address cannot be blank";
+    formerror = true;
+  }
+
+  if (emailAddress) {
+    emailAddress = emailAddress.trim();
+    if (!regex.email.test(emailAddress)) {
+      document.getElementById("emailSignUp").focus();
+      document.getElementById("error-email").innerHTML =
+        "Please enter a valid email address";
+      formerror = true;
+    }
+  }
+
+  if (formerror) {
+    var error_message = document.getElementById("error-message");
+    error_message.style.display = "block";
+    error_message.innerHTML =
+      "Please Correct it before submitting again";
+    return false;
+  }
+
+  var form = document.getElementById("signUp-form");
+  var formdata = new FormData(form);
+
+  fetch('https://secure.everyaction.com/v1/Forms/9MnyiyAupU20rLpl1qXycQ2', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    body: 'EmailAddress='+emailAddress+'&type=SignupForm'
+  })
+    .then(res => res.json())
+    .then(data => {
+      // console.log('success', data);
+      if(data.resultCode =="Success"){
+        console.log('CHingon');
+      }
+    });
+}
+</script>
