@@ -31,7 +31,7 @@
           <div class="authors">
             {% if entry.authors|length %}
               {% for profile in entry.authors %}
-                  <span class="profile-name">{{ profile.firstName }} {{ profile.lastName }}</span>
+                  <a href="{{ profile.url }}" target="_blank" class="profile-name">{{ profile.firstName }} {{ profile.lastName }}</a>
                   <span>{{ profile.jobTitle }}</span> {% if loop.last %}{% else %}//{% endif %}
               {% endfor %} 
             {% endif %}
