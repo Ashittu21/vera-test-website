@@ -260,7 +260,7 @@ div.heading > div:nth-child(3) > p {
 
 .slider-home .swiper-slide{
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: baseline;
 }
 
@@ -270,9 +270,17 @@ div.heading > div:nth-child(3) > p {
   height: 70px !important;
 }
 
-.heroType3{
+/* .heroType3{
   .swiper {
     width: 100%;
     max-width: 1280px;
 }
+} */
+
+.home-slider-content{
+    max-width: 1280px;
+    box-sizing: border-box;
+    margin: 0;
+    width: 100%;
+    margin: 0 auto;
 }
