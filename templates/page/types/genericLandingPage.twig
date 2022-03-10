@@ -5,9 +5,9 @@
 {% set blocks  = entry.genericLandingBlocks %}
   <div class="generic-landing">
       {% for block in blocks %}
-        {% if block.type == 'headerTitle' %}
+        {% if block.type == 'headerTitle' %} {# Header - No Image#}
           {% include 'v2/common/headerTitle' with { block: block } %}
-        {% elseif block.type == 'heroType1' %}
+        {% elseif block.type == 'heroType1' %} {# Header #}
           {% include 'v2/common/heroType1' with { block: block } %}
         {% elseif block.type == 'copy' %}
           {% include 'v2/common/copy'  with { block: block } %}

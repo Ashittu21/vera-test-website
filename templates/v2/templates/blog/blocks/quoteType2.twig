@@ -1,6 +1,7 @@
 <section class="featured-type2">
   <div class="featured-type2-content">
-    <div class="featured-type2-content-text">
+    {% set stringLength = block.copy | length %}
+    <div class="featured-type2-content-text {% if stringLength > 74 %}smallText{% endif %}">
       {{ block.copy }}
     </div>
   </div>
