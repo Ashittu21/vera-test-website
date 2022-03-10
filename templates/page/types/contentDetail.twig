@@ -92,6 +92,8 @@
         <div class="mapContainer">
           {% include 'vera-maps/mapsv2'  with { block: block } %}
         </div>      
+      {% elseif block.type == 'code' %}
+        <div class="code-container">{{ block.code | raw }}</div> 
       {% endif %}
     {% endfor %}
 

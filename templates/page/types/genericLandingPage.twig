@@ -22,7 +22,9 @@
         {% elseif  block.type == 'exploreMore' %}
           {% include 'v2/common/exploreMore.twig'  with { block: block } %}       
         {% elseif  block.type == 'newsHero' %}
-          {% include 'v2/common/newsHero' with { block: block } %}      
+          {% include 'v2/common/newsHero' with { block: block } %}   
+        {% elseif block.type == 'code'  %}
+        <div class="code-container">{{ block.code | raw }}</div>    
         {% endif %}
       {% endfor %}
   </div>

@@ -1,6 +1,6 @@
 <div class="post-sidebar__series sidebar_module {{ entry.type.handle == 'blogSeries' or entry.type == 'blog' ? 'post-sidebar__series--blog'}}">
 	{% if entry.type.handle in ['blogSeries', 'blog'] %}
-	<h3>Blog Series</h3>
+	<h3>News Series</h3>
 	{% endif %}
 	<ul class="sidebar__grid">
 	{% for series in seriesList.with('heroImage', 'streamImageSquare') %}
