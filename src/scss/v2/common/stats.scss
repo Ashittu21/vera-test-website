@@ -74,7 +74,7 @@
         @media (max-width: $tablet-portrait) {
           font-size: 45px;
           line-height: 49.5px;
-          margin-bottom: 20px;
+          margin-bottom: 0;
         }
       }
 
@@ -89,6 +89,10 @@
         color: var(--global-color-text);
         padding-top: 35px;
         padding-bottom: 40px;
+        @media (max-width: $tablet-portrait) {
+          padding-top: 20px;
+          padding-bottom: 20px;
+        }
       }
     }
   }

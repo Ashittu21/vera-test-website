@@ -59,14 +59,19 @@
   height: 100%;
   object-fit: cover;
   @media(max-width:$mobile-breakpoint) {
-    object-fit: contain;
+    object-fit: cover !important;
   }
+
 }
 
 .singleImage {
   .swiper-slide {
     img {
-      object-fit: contain !important;
+      @media(max-width:$mobile-breakpoint) {
+        object-fit: cover !important;
+        margin-top: 60px;
+    }
+    
     }
   }
 }
@@ -286,3 +291,13 @@
 
 
 }
+
+.news-article .copy-block-content p:last-child{
+  margin-bottom: 0;
+}
+
+.news-article .copy-block-content:first-child{
+  margin-top: 30px;
+}
+
+
