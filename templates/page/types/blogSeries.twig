@@ -111,6 +111,8 @@
         {% include 'v2/common/bannerType4' with { block: block } %}
       {% elseif  block.type == 'newsItems' %}
         {% include 'v2/common/newsItems' with { block: block } %}
+      {% elseif block.type == 'code'  %}
+        <div class="code-container">{{ block.code | raw }}</div>         
       {% endif %}
     {% endfor %}
 </div>

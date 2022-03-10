@@ -24,7 +24,9 @@
 		{% elseif block.type == 'heroType1' %}
     	{% include 'v2/common/heroType1' with { block: block } %}		
 		{% elseif block.type == 'bannerType3' %}
-			{% include 'v2/common/bannerType3' with { block: block } %}	   
+			{% include 'v2/common/bannerType3' with { block: block } %}	
+		{% elseif block.type == 'code'  %}
+        <div class="code-container">{{ block.code | raw }}</div>   
 		{#
 		{% elseif block.type == 'ctaBanner' %}
     	{% include 'includes/topic-blocks/ctaBanner'  with { ctaBannerBlock: block } %}	   
