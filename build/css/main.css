@@ -31338,9 +31338,9 @@ div.heading > div:nth-child(3) > p {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   -webkit-box-align: baseline;
       -ms-flex-align: baseline;
           align-items: baseline; }
@@ -31348,9 +31348,19 @@ div.heading > div:nth-child(3) > p {
 .slider-home .swiper-slide img {
   height: 70px !important; }
 
-.heroType3 .swiper {
+/* .heroType3{
+  .swiper {
+    width: 100%;
+    max-width: 1280px;
+}
+} */
+.home-slider-content {
+  max-width: 1280px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
   width: 100%;
-  max-width: 1280px; }
+  margin: 0 auto; }
 
 .hero-type4 {
   background-color: var(--global-color-sand);
@@ -33774,8 +33784,8 @@ div.heading > div:nth-child(3) > p {
   display: block;
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover; }
+  -o-object-fit: contain;
+     object-fit: contain; }
   @media (max-width: 768px) {
     .swiper-slide img {
       -o-object-fit: cover !important;
