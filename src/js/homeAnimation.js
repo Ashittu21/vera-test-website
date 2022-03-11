@@ -5,7 +5,7 @@
     draggable: false,
     noSwiping: true,
     autoplay: {
-        delay: 2500,
+        delay: 2700,
     },
 });
 
@@ -44,9 +44,9 @@ swiper.on('slideChange', function (e) {
     const img = document.querySelector(`.swiper-slide:nth-child(${index}) >.heading > div:last-child >  img`)
 
 
-    title.animate(animationSlideUp, { duration: 900, fill: 'both',easing:'cubic-bezier(0.65, 0, 0.35, 1)' })
+    title.animate(animationSlideUp, { duration: 450, fill: 'both',easing:'cubic-bezier(0.65, 0, 0.35, 1)' })
     subTitle.animate(animationSlideUp, { duration: 900, fill: 'both' ,easing:'cubic-bezier(0.65, 0, 0.35, 1)' })
-    img.animate(animationStroke, { duration: 900, fill: 'both' ,easing:'cubic-bezier(0.65, 0, 0.35, 1)' })
+    img.animate(animationStroke, { duration: 1800, fill: 'both' ,easing:'cubic-bezier(0.65, 0, 0.35, 1)' })
 
    
 });

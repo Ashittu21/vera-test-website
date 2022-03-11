@@ -56,6 +56,7 @@
         border-color: #CEC0BC;
         @media(max-width:$mobile-breakpoint) {
           margin-right: 5px;
+
         }
         &.active{
           background: #CEC0BC;
@@ -93,7 +94,7 @@
 
             &-title {
               span{
-                background-size: 100% 2px;
+                /* background-size: 100% 2px; */
                 color: #fff;
               }
             }
