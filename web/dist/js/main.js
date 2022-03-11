@@ -276,6 +276,7 @@ $carousel.find(".is-selected").removeClass("is-selected");$(cellElement).addClas
 "use strict";(function(){//closure
 window.addEventListener("load",function(){init();});var init=function init(){$('.carousel-slideshow').flickity({wrapAround:true,pageDots:false,prevNextButtons:false,imagesLoaded:true});};//closure
 })();
+"use strict";var acharts=document.querySelectorAll(".achart");function mostrarScroll(){var scrollTop=document.documentElement.scrollTop;for(var i=0;i<acharts.length;i++){var alturaAnimado=acharts[i].offsetTop;if(alturaAnimado-30<scrollTop){acharts[i].style.display="block";}}}window.addEventListener('scroll',mostrarScroll);
 'use strict';/**
  * Object for creating click-triggered navigation submenus
  *

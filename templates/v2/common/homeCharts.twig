@@ -1,4 +1,4 @@
-<div class="home-content">
+<div class="home-content charts">
   <div class="home-content-items">
     {% for chartItem in block.HomeCharts %}
       <div class="home-content-item">
@@ -19,9 +19,10 @@
           {% if chartItem.homeItemsLayout == 'horizontal' %}horizontal{% endif %} 
           {% if chartItem.homeItemsLayout == 'single' %}single{% endif %} ">
 
-          <div class="home-content-item-right-image">
-          <img src="{{ chartItem.homeItemsStaticImage.first.url }}"/>
-          <img src="{{ chartItem.homeItemsGraphImage.first.url }}"/>
+          <div class="home-content-item-right-image" id="chart">
+      
+          <img class="achart" src="{{ chartItem.homeItemsStaticImage.first.url }}"/>
+         {#  <img  src="{{ chartItem.homeItemsGraphImage.first.url }}"/> #}
            
            <!-- <object id ="animated-svg" type="image/svg+xml" data=""></object>-->
           </div>

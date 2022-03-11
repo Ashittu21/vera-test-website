@@ -36773,6 +36773,9 @@ header {
   .home-content .headTitle-content {
     padding-top: 10rem; }
 
+.achart {
+  display: none; }
+
 .initiative-page {
   min-height: 500px; }
   .initiative-page .mapContainer {
