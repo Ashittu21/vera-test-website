@@ -2,8 +2,20 @@
 <section class="block-signup {{block.signUp_backgroundcolor}} ">
   <div class="block-signup-container">
     <div class="block-signup-left">
-      <div class="block-signup-title">Learn. Take action. <br> <span  class="underline2">Transform</span> the system.</div>
-      <div class="block-signup-copy">Sign up for our  mailing list.</div>
+      <div class="block-signup-title">
+        {% if block.signUp_title|length > 0 %}
+          {{ block.signUp_title }}
+        {% else %}
+          Learn. Take action. <br> <span  class="underline2">Transform</span> the system.
+        {% endif %}
+      </div>
+      <div class="block-signup-copy">
+       {% if  block.signUp_subtitle|length > 0 %}
+           {{ block.signUp_subtitle }}
+        {% else %}
+           Sign up for our  mailing list.
+        {% endif %}
+      </div>
      
       <form class="block-signup-form" id="signUp-form" onsubmit="return validation(event)">
         <input type="email" id="emailSignUp" placeholder="Email Address*">
@@ -33,7 +45,7 @@ function validation(event) {
     document.getElementById("emailSignUp").focus();
     emailField.classList.add('error');
     document.getElementById("error-email").innerHTML =
-      "Email address cannot be blank";
+      "<i class='fa-solid fa-circle-exclamation colorRed'></i> Email address cannot be blank";
     formerror = true;
   }
 
@@ -43,9 +55,7 @@ function validation(event) {
       document.getElementById("emailSignUp").focus();
       emailField.classList.add('error');
       document.getElementById("error-email").innerHTML =
-        " <i class='fa-solid fa-circle-exclamation'></i> Please enter a valid email address";
-      
-
+        "<i class='fa-solid fa-circle-exclamation colorRed'></i> Please enter a valid email address";
       formerror = true;
     }
   }
@@ -54,7 +64,7 @@ function validation(event) {
     var error_message = document.getElementById("error-message");
     error_message.style.display = "block";
     error_message.innerHTML =
-      "Please Correct it before submitting again";
+      "<i class='fa-solid fa-circle-exclamation colorRed'></i> Please Correct it before submitting again";
     return false;
   }
 

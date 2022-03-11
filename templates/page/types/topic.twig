@@ -7,6 +7,14 @@
 	{% for block in blocks %}
 		{% if block.type == 'copy' %}
     	{% include 'v2/common/copy' with { block: block }  %}
+		{% elseif  block.type == 'slideshow' %}
+      {% include 'v2/common/swiperSlider' with { block: block } %}
+		{% elseif  block.type == 'video' %}
+      {% include 'v2/common/videoBlock' with { block: block } %}
+		{% elseif  block.type == 'map' %}
+		  <div class="mapContainer">
+        {% include '../../vera-maps/_maptypesBlock'  with { block: block } %}
+      </div>
 		{% elseif block.type == 'quote' %}
     	{% include 'v2/common/quote' with { block: block } %}
 		{% elseif block.type == 'stats' %}
@@ -27,10 +35,8 @@
 			{% include 'v2/common/bannerType3' with { block: block } %}	
 		{% elseif block.type == 'code'  %}
         <div class="code-container">{{ block.code | raw }}</div>   
-		{#
-		{% elseif block.type == 'ctaBanner' %}
-    	{% include 'includes/topic-blocks/ctaBanner'  with { ctaBannerBlock: block } %}	   
-		#}
+		{% elseif  block.type == 'headerTitle' %} {# Header - No Image#}
+        {% include 'v2/common/headerTitle' with { block: block } %}
 		{% endif %}
 	{% endfor %}
 </div>

@@ -5,26 +5,28 @@
 {% set blocks  = entry.genericLandingBlocks %}
   <div class="generic-landing">
       {% for block in blocks %}
-        {% if block.type == 'headerTitle' %}
+        {% if block.type == 'headerTitle' %} {# Header - No Image#}
           {% include 'v2/common/headerTitle' with { block: block } %}
-        {% elseif block.type == 'heroType1' %}
+        {% elseif block.type == 'heroType1' %} {# Header #}
           {% include 'v2/common/heroType1' with { block: block } %}
-        {% elseif block.type == 'copy' %}
+        {% elseif block.type == 'copy' %}  {# Text #}
           {% include 'v2/common/copy'  with { block: block } %}
         {% elseif block.type == 'bannerType2' %}
           {% include 'v2/common/bannerType2'  with { block: block } %}
-        {% elseif  block.type == 'bannerType3' %}
+        {% elseif  block.type == 'bannerType3' %} {# Full width CTA without image #}
           {% include 'v2/common/bannerType3' with { block: block } %}
-        {% elseif block.type == 'signUp' %}
+        {% elseif  block.type == 'bannerType4' %} {# In-page CTA #}
+          {% include 'v2/common/bannerType4' with { block: block } %}
+        {% elseif block.type == 'signUp' %} {# Email sign up CTA #}
           {% include 'v2/common/signUp.twig'  with { block: block } %}
-        {% elseif block.type == 'stats' %}
+        {% elseif block.type == 'stats' %} {# Stats #}
           {% include 'v2/common/stats'  with { block: block } %}
-        {% elseif  block.type == 'exploreMore' %}
+        {% elseif  block.type == 'exploreMore' %} {# Expore More #}
           {% include 'v2/common/exploreMore.twig'  with { block: block } %}       
         {% elseif  block.type == 'newsHero' %}
           {% include 'v2/common/newsHero' with { block: block } %}   
-        {% elseif block.type == 'code'  %}
-        <div class="code-container">{{ block.code | raw }}</div>    
+        {% elseif block.type == 'code'  %} {# Code #}
+          <div class="code-container">{{ block.code | raw }}</div>    
         {% endif %}
       {% endfor %}
   </div>

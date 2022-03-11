@@ -28941,6 +28941,9 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
   -webkit-text-decoration-color: #ef4641;
           text-decoration-color: #ef4641; }
 
+.colorRed {
+  color: #DA392F; }
+
 .copy-block-content h5 {
   font-size: 35px;
   margin-bottom: 45px; }

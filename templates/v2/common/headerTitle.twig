@@ -1,16 +1,16 @@
 <!-- Header Title -->
   <section class="headTitle bgColor-darkviolet">
     <div class="headTitle-content {{ block.headerTitle_size }}">
-      <div class="headTitle-breadcumb">
-        {# if entry.level > 1 %}
+     {#  <div class="headTitle-breadcumb">
+        if entry.level > 1 %}
           {% for crumb in entry.getAncestors() %}
             {{ crumb.getLink() }} 
           {% endfor %}
-        {% endif #}
-      </div>
+        {% endif 
+      </div>#}
       <div class="headTitle-title">
         <h3 class="separator left-aligned">
-        <span>{{ block.headerTitle_title }}</span></h3>
+        <span>{{ block.headerTitle_title|striptags('<p>')|raw }}</span></h3>
       </div>
     </div>
   </section>
