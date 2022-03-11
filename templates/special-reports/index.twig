@@ -8,12 +8,11 @@
     <section class="post-module module-text module-text--small">
       <div class="container">
         <h3>{{ heading }}</h3>
-        {{ explainer }}
+          {{ explainer }}
       </div>
     </section>
 		<section class="module-spotlight-grid" data-view="grid">
 			<div class="container col-outer">
-
 				{% for module in items %}
 					{% include 'includes/stream/stream_module' with {size: 'half'} %}
 				{% endfor %}

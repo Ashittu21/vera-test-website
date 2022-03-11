@@ -56,6 +56,9 @@
 
   {% for block in entry.initiativeBlocks.level(1).all() %}
     {% switch block.type.handle %}
+      {% case 'heroType1' %}
+        {% if block.anchorField is not null %}<a class="anchor-link" name="{{ block.anchorField }}" /></a>{% endif %}
+        {% include '/v2/common/heroType1' with { block: block } %}
       {% case 'stats' %}
         {% if block.anchorField is not null %}<a class="anchor-link" name="{{ block.anchorField }}" /></a>{% endif %}
         {% include '/v2/common/stats' with { block: block } %}
