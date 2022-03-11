@@ -35,10 +35,8 @@
 			{% include 'v2/common/bannerType3' with { block: block } %}	
 		{% elseif block.type == 'code'  %}
         <div class="code-container">{{ block.code | raw }}</div>   
-		{#
-		{% elseif block.type == 'ctaBanner' %}
-    	{% include 'includes/topic-blocks/ctaBanner'  with { ctaBannerBlock: block } %}	   
-		#}
+		{% elseif  block.type == 'headerTitle' %} {# Header - No Image#}
+        {% include 'v2/common/headerTitle' with { block: block } %}
 		{% endif %}
 	{% endfor %}
 </div>
