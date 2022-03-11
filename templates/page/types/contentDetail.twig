@@ -83,6 +83,10 @@
         </div>      
       {% elseif block.type == 'code' %}
         <div class="code-container">{{ block.code | raw }}</div> 
+      {% elseif block.type == 'contactUs' %}
+        {% include 'v2/common/contactUs.twig'  with { block: block } %}
+      {% elseif block.type == 'partners' %}
+         {% include 'v2/common/partners'  with { block: block } %}
       {% endif %}
     {% endfor %}
 
