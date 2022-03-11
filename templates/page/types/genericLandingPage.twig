@@ -1,7 +1,7 @@
 {% extends '_layout' %}
 {% set title = entry.title %}
-
 {% block content %}
+
 {% set blocks  = entry.genericLandingBlocks %}
   <div class="generic-landing">
       {% for block in blocks %}
@@ -11,7 +11,7 @@
           {% include 'v2/common/heroType1' with { block: block } %}
         {% elseif block.type == 'copy' %}  {# Text #}
           {% include 'v2/common/copy'  with { block: block } %}
-        {% elseif block.type == 'bannerType2' %}
+        {% elseif block.type == 'bannerType2' %} {# Text besides images #}
           {% include 'v2/common/bannerType2'  with { block: block } %}
         {% elseif  block.type == 'bannerType3' %} {# Full width CTA without image #}
           {% include 'v2/common/bannerType3' with { block: block } %}
