@@ -10,7 +10,7 @@
       </div>
       <div class="headTitle-title">
         <h3 class="separator left-aligned">
-        <span>{{ block.headerTitle_title }}</span></h3>
+        <span>{{ block.headerTitle_title|striptags('<p>')|raw  }}</span></h3>
       </div>
     </div>
   </section>
