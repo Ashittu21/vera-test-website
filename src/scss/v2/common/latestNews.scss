@@ -503,6 +503,9 @@
 
 .scrolled.slide-right {
   animation: slide-in-right 1s ease-in-out both;
+  @media(max-width:$mobile-breakpoint) {
+    animation: none;
+  }
 }
 
 
@@ -517,5 +520,21 @@
     -webkit-transform: translateX(0);
     transform: translateX(0);
     opacity: 1;
+  }
+}
+
+@media(max-width:$mobile-breakpoint) {
+  @keyframes slide-in-right {
+    0% {
+      -webkit-transform: translateX(0);
+      transform: translateX(0);
+      opacity: 1;
+    }
+  
+    100% {
+      -webkit-transform: translateX(0);
+      transform: translateX(0);
+      opacity: 1;
+    }
   }
 }

@@ -74,10 +74,13 @@
       display: block;
       position: absolute;
       background-color: var(--global-color-light-violet);
-      height: 100%;
+      height: 0%;
       width: 2px;
       top: 0;
       right: 80px;
+      animation-name: test-animation-h-2;
+      animation-duration: 2s;
+      animation-fill-mode: forwards;
       @media(max-width:$mobile-breakpoint){
         display: none;
       }
@@ -86,10 +89,13 @@
       display: block;
       position: absolute;
       background-color: var(--global-color-light-violet);
-      height: 110px;
+      height: 0px;
       width: 2px;
       top: 0;
       right: 50%;
+      animation-name: test-animation-h;
+      animation-duration: 2s;
+      animation-fill-mode: forwards;
       @media(max-width:$mobile-breakpoint){
         height: 49px;
       }
@@ -98,15 +104,26 @@
   }
 }
 
-/* @keyframes test-animation {
+ @keyframes test-animation-h {
   from {
-      width:0px;
+      height:0px;
   }
 
   to {
-      width: 100vw ;
+    height: 110px;
   }
-} */
+} 
+
+@keyframes test-animation-h-2 {
+  from {
+      height:0%;
+  }
+
+  to {
+    height: 100%;
+  }
+} 
+
 
 /* @keyframes test-text {
   from {
@@ -251,6 +268,21 @@ div.heading > div:nth-child(3) > p {
   }
 }
 
+@keyframes stroke-h {
+  0% {
+    height: 0;
+    position: relative;
+    top: -30px;
+    opacity: 0;
+  }
+  100% {
+    height: 340px;
+    position: relative;
+    top: -30px;
+    opacity: 1;
+  }
+}
+
 
 .slider-home {
   position: absolute !important;
@@ -268,6 +300,7 @@ div.heading > div:nth-child(3) > p {
 
 .slider-home .swiper-slide img{
   height: 70px !important;
+  object-fit: cover;
 }
 
 /* .heroType3{
