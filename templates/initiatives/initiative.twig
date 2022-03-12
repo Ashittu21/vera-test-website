@@ -98,6 +98,12 @@
       {% case 'contactUs' %}
         {% if block.anchorField is not null %}<a class="anchor-link" name="{{ block.anchorField }}" /></a>{% endif %}
         {% include '/v2/common/contactUs.twig'  with { block: block } %}
+      {% case 'bannerType3' %}{# Full width CTA without image #}
+        {% if block.anchorField is not null %}<a class="anchor-link" name="{{ block.anchorField }}" /></a>{% endif %}
+        {% include 'v2/common/initiative-bannerType3' with { block: block } %}
+      {% case 'inPageCta' %} {# In-page CTA #}
+        {% if block.anchorField is not null %}<a class="anchor-link" name="{{ block.anchorField }}" /></a>{% endif %}
+        {% include 'v2/common/initiative-bannerType4' with { block: block } %}
       {% case 'partners' %}
         {% if block.anchorField is not null %}<a class="anchor-link" name="{{ block.anchorField }}" /></a>{% endif %}
         {% include '/v2/common/partners'  with { block: block } %}
