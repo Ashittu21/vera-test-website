@@ -76,11 +76,11 @@
       {% elseif  block.type == 'singleImage' %}
         {% include 'v2/common/swiperSlider' with { block: block } %}
       {% elseif  block.type == 'video' %}
-        {% include 'v2/templates/blog/blocks/videoBlock' with { block: block } %}
+        {% include 'v2/templates/news-item/blocks/videoBlock' with { block: block } %}
       {% elseif  block.type == 'audio' %}
-        {% include 'v2/templates/blog/blocks/audioBlock' with { block: block } %}
+        {% include 'v2/templates/news-item/blocks/audioBlock' with { block: block } %}
       {% elseif block.type == 'infoModule' %}
-        {% include 'v2/templates/blog/blocks/infoModule'  with { block: block } %}
+        {% include 'v2/templates/news-item/blocks/infoModule'  with { block: block } %}
       {% elseif block.type == 'code' %}
         <div class="code-container">{{ block.code | raw }}</div>
       {% elseif block.type == 'map' %}
@@ -88,11 +88,11 @@
           {% include 'vera-maps/_maptypesBlock'  with { block: block } %}
         </div>
       {% elseif block.type == 'largeBlockQuote' %}
-        {% include 'v2/templates/blog/blocks/quoteType2' with { block: block } %}
+        {% include 'v2/templates/news-item/blocks/quoteType2' with { block: block } %}
       {% elseif block.type == 'chart' %}
-        {% include 'v2/templates/blog/blocks/chart' with { block: block } %}
+        {% include 'v2/templates/news-item/blocks/chart' with { block: block } %}
       {% elseif  block.type == 'newsItems' %}
-        {% include 'v2/templates/blog/blocks/newsItems' with { block: block } %}
+        {% include 'v2/templates/news-item/blocks/newsItems' with { block: block } %}
       {% elseif block.type == 'listing' %} {# Listing #}
     	  {% include 'v2/common/listing' with { block: block } %}
       {% elseif block.type == 'newsHero' %} {# Latest News Hero #}
@@ -110,9 +110,9 @@
       {% elseif  block.type == 'bannerType4' %}
         {% include 'v2/common/bannerType4' with { block: block } %}
       {% elseif  block.type == 'quoteType2' %}
-        {% include 'v2/templates/blog/blocks/quoteType2' with { block: block } %}
+        {% include 'v2/templates/news-item/blocks/quoteType2' with { block: block } %}
       {% elseif  block.type == 'quoteType1' %}
-        {% include 'v2/templates/blog/blocks/quoteType1' with { block: block } %}
+        {% include 'v2/templates/news-item/blocks/quoteType1' with { block: block } %}
      {# 
       {% elseif  block.type == 'relatedItems' %}
         {% include 'v2/common/relatedItems' with { block: block } %}
