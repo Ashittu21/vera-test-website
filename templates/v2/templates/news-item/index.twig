@@ -48,17 +48,31 @@
 
 
 <div class="content-page news-article">
+
     <!-- Share Icons -->
      {% include 'v2/common/shareIcons' with { entry:entry } %}
     <!-- Share Icons -->
+
     <div class="content-page-blocks">
     {% for block in blocks %}
       {% if block.type == 'headerTitle' %}
         {% include 'v2/common/headerTitle' with { block: block } %}
       {% elseif block.type == 'copy' %}
         {% include 'v2/common/copy'  with { block: block } %}
+      {% elseif block.type == 'heroType1' %} {# Header #}
+        {% include 'v2/common/heroType1' with { block: block } %}
+      {% elseif block.type == 'bannerType2' %} {# Text besides images #}
+        {% include 'v2/common/bannerType2'  with { block: block } %}
+      {% elseif  block.type == 'bannerType3' %} {# Full width CTA without image #}
+        {% include 'v2/common/bannerType3' with { block: block } %}
+      {% elseif  block.type == 'bannerType4' %}
+        {% include 'v2/common/bannerType4' with { block: block } %}
       {% elseif  block.type == 'slideshow' %}
         {% include 'v2/common/swiperSlider' with { block: block } %}
+      {% elseif  block.type == 'exploreMore' %} {# Expore More #}
+        {% include 'v2/common/exploreMore.twig'  with { block: block } %}  
+      {% elseif block.type == 'quote' %} {# Pull Quote #}
+    	  {% include 'v2/common/quote' with { block: block } %} 
       {% elseif  block.type == 'singleImage' %}
         {% include 'v2/common/swiperSlider' with { block: block } %}
       {% elseif  block.type == 'video' %}
@@ -79,6 +93,10 @@
         {% include 'v2/templates/blog/blocks/chart' with { block: block } %}
       {% elseif  block.type == 'newsItems' %}
         {% include 'v2/templates/blog/blocks/newsItems' with { block: block } %}
+      {% elseif block.type == 'listing' %} {# Listing #}
+    	  {% include 'v2/common/listing' with { block: block } %}
+      {% elseif block.type == 'newsHero' %} {# Latest News Hero #}
+    	  {% include 'v2/common/newsHero' with { block: block } %}	
       {% elseif block.type == 'twoColumns' %}
     	  {% include 'v2/common/copy-twoColumns' with { block: block } %}
       {% elseif block.type == 'threeColumns' %}
