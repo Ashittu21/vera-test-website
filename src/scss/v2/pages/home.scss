@@ -305,6 +305,7 @@
 .home .heroType2-title {
   @media(max-width:$mobile-breakpoint){
     margin-bottom: 60px;
+    margin-left: 15px;
   }
 
 }
@@ -372,4 +373,62 @@ min-height: 526px;
     opacity: 1;
     transition: opacity .5s;
   }
+}
+
+.home .block-signup-left{
+  position: absolute;
+  width: calc(100% - 190px);
+  left: 0;
+}
+
+.home .block-signup-right{
+  position: absolute;
+  z-index: 1;
+  width: 190px;
+  right: 0;
+}
+
+.home .block-signup .block-signup-container .block-signup-left {
+  position: relative;
+  margin-bottom: 35px;
+  z-index: 2;
+  @media(max-width:$mobile-breakpoint){
+    margin-bottom: 0px;
+    padding: 35px;
+  }
+}
+
+.home .bck {
+  width: 100%;
+  position: absolute;
+  background-color: #160643;
+  left: 0;
+  z-index: 0;
+  height: 398px;
+}
+
+.home .button.orange span {
+  font-size: 28px;
+  @media(max-width:$mobile-breakpoint){
+    font-size: 24px;
+  }
+}
+
+
+.home .block-signup .block-signup-container .block-signup-left .block-signup-form input[type=email] {
+  @media(max-width:$mobile-breakpoint){
+    margin-bottom: 58px;
+  }
+}
+
+.home .block-signup-form .button.orange.arrow {
+  @media(max-width:$mobile-breakpoint){
+    width: 148px;
+    height: 60px;
+  }
+}
+
+.home .home-content-items .home-content-item-left-title {
+  font-size: 45px;
+  line-height: 49.5px;
 }
