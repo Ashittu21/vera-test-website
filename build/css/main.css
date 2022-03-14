@@ -36776,6 +36776,164 @@ header {
 .achart {
   display: none; }
 
+.home .heading {
+  /* margin: 95px 0 0 160px; */
+  margin: 115px 0; }
+  @media (max-width: 768px) {
+    .home .heading {
+      margin: 47px 0;
+      font-size: 55px;
+      padding: 15px; } }
+
+.home .headTitle-content--small {
+  padding-top: 0;
+  padding-bottom: 0; }
+
+.home .heroType3-content-line1 {
+  margin-top: -5.5rem; }
+  @media (max-width: 768px) {
+    .home .heroType3-content-line1 {
+      margin-top: -1.5rem; } }
+
+.home .heroType3-content-line2 {
+  display: block;
+  position: absolute;
+  color: white;
+  background-color: var(--global-color-light-violet);
+  height: 2px;
+  width: 0;
+  -webkit-animation-name: test-animation;
+          animation-name: test-animation;
+  -webkit-animation-duration: 3s;
+          animation-duration: 3s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  margin-bottom: -34.5rem; }
+  @media (max-width: 768px) {
+    .home .heroType3-content-line2 {
+      margin: 47px 0;
+      font-size: 55px;
+      margin-top: 17rem; } }
+
+.home .latestNews-hero-copy-title {
+  margin-top: 15px !important;
+  margin-bottom: 38px !important; }
+  @media (max-width: 768px) {
+    .home .latestNews-hero-copy-title {
+      margin-bottom: 30px !important; } }
+
+@media (max-width: 768px) {
+  .home .block-latestNews {
+    margin-top: 5px; } }
+
+.home .heroType2-title {
+  margin-top: 178px;
+  margin-bottom: 235px; }
+
+.home .heroType2-content {
+  margin-top: -5.8%;
+  padding: 48px;
+  padding-bottom: 110px; }
+
+@media (max-width: 768px) {
+  .home .latestNews-hero-copy {
+    padding-bottom: 18px; } }
+
+@media (max-width: 768px) {
+  .home .sideItems-item-title {
+    padding-top: 2px; } }
+
+.home .home-content-item {
+  padding-top: 75px;
+  padding-bottom: 62px; }
+
+@media (max-width: 768px) {
+  .home .block-latestNews {
+    padding-bottom: 20px; } }
+
+@media (max-width: 768px) {
+  .home .heroType2-content {
+    margin-top: -25.8%;
+    padding: 29px;
+    width: 90%;
+    padding-bottom: 30px; } }
+
+@media (max-width: 768px) {
+  .home .home-content-item {
+    padding-top: 45px;
+    padding-bottom: 33px; } }
+
+@media (max-width: 768px) {
+  .home-content-items .home-content-item-right-image {
+    padding: 1rem; } }
+
+@media (max-width: 768px) {
+  .home-content-items {
+    padding-bottom: 50px; } }
+
+@media (max-width: 768px) {
+  .home .heroType2-title {
+    margin-bottom: 60px; } }
+
+.home .latestNews-hero-container {
+  margin-bottom: 70px; }
+
+@media (max-width: 768px) {
+  .home .block-signup-form {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding: 0;
+    margin: 0; } }
+
+.home .home-content-item-left-copy {
+  margin-top: 15px;
+  margin-bottom: 33px; }
+
+.home .block-signup .block-signup-container {
+  max-width: 100%; }
+
+.home .block-signup .block-signup-container .block-signup-left {
+  min-height: 526px; }
+
+.home .block-signup .block-signup-container .block-signup-left:after {
+  margin-bottom: 35px; }
+
+.home .headTitle-content .headTitle-title .separator {
+  margin-top: 90px; }
+
+.home .block-latestNews-content .latestNews-items .latestNews-item-category p {
+  margin: 18px 0 18px 30px; }
+
+.home .latestNews-item-copy-title {
+  margin-top: 8px; }
+
+.home .latestNews-item-copy-date {
+  margin-bottom: 15px; }
+
+.home .block-latestNews.-h {
+  padding-bottom: 18px; }
+
+@media (max-width: 768px) {
+  .home .heroType3 {
+    height: 29vh; } }
+
+@media (max-width: 768px) {
+  .home .js-scroll {
+    opacity: 1;
+    -webkit-transition: opacity .5s;
+    transition: opacity .5s; } }
+
 .initiative-page {
   min-height: 500px; }
   .initiative-page .mapContainer {
