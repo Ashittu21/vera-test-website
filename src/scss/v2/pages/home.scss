@@ -177,3 +177,258 @@
 .achart{
   display: none;
 }
+
+
+
+.home .heading {
+    /* margin: 95px 0 0 160px; */
+    margin: 115px 0;
+    @media(max-width:$mobile-breakpoint){
+      margin: 47px 0;
+      font-size: 55px;
+      padding: 15px;
+    }
+  }
+
+  .home .headTitle-content--small{
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .home .heroType3-content-line1 {
+    margin-top: -5.5rem;
+    @media(max-width:$mobile-breakpoint){
+      margin-top: -1.5rem;
+    }
+}
+
+.home .heroType3-content-line2 {
+  display: block;
+  position: absolute;
+  color: white;
+  background-color: var(--global-color-light-violet);
+  height: 2px;
+  width: 0;
+  animation-name: test-animation;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
+  margin-bottom: -34.5rem;
+  @media(max-width:$mobile-breakpoint){
+    margin: 47px 0;
+    font-size: 55px;
+    margin-top: 17rem;
+  }
+}
+
+
+
+
+
+
+.home .latestNews-hero-copy-title {
+  margin-top: 15px !important;
+  margin-bottom: 38px !important;
+  @media(max-width:$mobile-breakpoint){
+    margin-bottom: 30px !important;
+  }
+}
+
+.home .block-latestNews{
+  @media(max-width:$mobile-breakpoint){
+    margin-top: 5px;
+  }
+}
+
+.home .heroType2-title {
+  margin-top: 178px;
+  margin-bottom: 235px;
+}
+
+.home .heroType2-content{
+  margin-top: -5.8%;
+  padding: 48px;
+  padding-bottom: 110px;
+}
+
+.home .latestNews-hero-copy{
+  @media(max-width:$mobile-breakpoint){
+    padding-bottom: 18px;
+  }
+}
+
+.home .sideItems-item-title{
+  @media(max-width:$mobile-breakpoint){
+    padding-top: 2px;
+  }
+ 
+}
+
+
+.home .home-content-item {
+  padding-top: 75px;
+  padding-bottom: 62px;
+}
+
+.home .block-latestNews {
+  @media(max-width:$mobile-breakpoint){
+    padding-bottom: 20px;
+  }
+}
+.home .heroType2-content {
+  @media(max-width:$mobile-breakpoint){
+    margin-top: -25.8%;
+    padding: 29px;
+    width: 90%;
+    padding-bottom: 30px;
+  }
+ 
+}
+
+.home .home-content-item {
+  @media(max-width:$mobile-breakpoint){
+    padding-top: 45px;
+    padding-bottom: 33px;
+  }
+}
+
+.home-content-items .home-content-item-right-image {
+  @media(max-width:$mobile-breakpoint){
+    padding: 1rem;
+  }
+}
+.home-content-items {
+  @media(max-width:$mobile-breakpoint){
+    padding-bottom: 50px;
+  }
+}
+
+.home .heroType2-title {
+  @media(max-width:$mobile-breakpoint){
+    margin-bottom: 60px;
+    margin-left: 15px;
+  }
+
+}
+
+.home .latestNews-hero-container{
+  margin-bottom: 70px;
+}
+
+.home .block-signup-form{
+  @media(max-width:$mobile-breakpoint){
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.home .home-content-item-left-copy {
+  margin-top: 15px;
+  margin-bottom: 33px;
+}
+
+.home .block-signup .block-signup-container {
+  max-width: 100%;
+}
+
+.home .block-signup .block-signup-container .block-signup-left {
+min-height: 526px;
+
+}
+
+.home .block-signup .block-signup-container .block-signup-left:after {
+  margin-bottom: 35px;
+}
+
+.home .headTitle-content .headTitle-title .separator {
+  margin-top: 90px;
+}
+
+.home .block-latestNews-content .latestNews-items .latestNews-item-category p {
+  margin: 18px 0 18px 30px;
+}
+.home .latestNews-item-copy-title{
+  margin-top: 8px;
+}
+
+.home .latestNews-item-copy-date {
+  margin-bottom: 15px;
+}
+
+.home .block-latestNews.-h{
+  padding-bottom: 18px;
+}
+
+.home .heroType3{
+  @media(max-width:$mobile-breakpoint){
+    height: 29vh;
+  }
+}
+
+.home .js-scroll {
+  @media(max-width:$mobile-breakpoint){
+    opacity: 1;
+    transition: opacity .5s;
+  }
+}
+
+.home .block-signup-left{
+  position: absolute;
+  width: calc(100% - 190px);
+  left: 0;
+}
+
+.home .block-signup-right{
+  position: absolute;
+  z-index: 1;
+  width: 190px;
+  right: 0;
+}
+
+.home .block-signup .block-signup-container .block-signup-left {
+  position: relative;
+  margin-bottom: 35px;
+  z-index: 2;
+  @media(max-width:$mobile-breakpoint){
+    margin-bottom: 0px;
+    padding: 35px;
+  }
+}
+
+.home .bck {
+  width: 100%;
+  position: absolute;
+  background-color: #160643;
+  left: 0;
+  z-index: 0;
+  height: 398px;
+}
+
+.home .button.orange span {
+  font-size: 28px;
+  @media(max-width:$mobile-breakpoint){
+    font-size: 24px;
+  }
+}
+
+
+.home .block-signup .block-signup-container .block-signup-left .block-signup-form input[type=email] {
+  @media(max-width:$mobile-breakpoint){
+    margin-bottom: 58px;
+  }
+}
+
+.home .block-signup-form .button.orange.arrow {
+  @media(max-width:$mobile-breakpoint){
+    width: 148px;
+    height: 60px;
+  }
+}
+
+.home .home-content-items .home-content-item-left-title {
+  font-size: 45px;
+  line-height: 49.5px;
+}
