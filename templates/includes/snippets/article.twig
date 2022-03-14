@@ -19,8 +19,8 @@
 
 
 
-<!--<article class="post-article {{ theme ?? 'light' }}" data-highlight-share> -->
-	{# if isEditorial and (not fromOnePage or not entry.prevSibling) %}
+<article class="post-article {{ theme ?? 'light' }}" data-highlight-share> 
+	{% if isEditorial and (not fromOnePage or not entry.prevSibling) %}
 		<div class="meta-wrap container">
 			<div class="post-content__meta__date">{{ entry.postDate | date('F Y')}}</div>
 			{% include 'includes/snippets/people' with {people: entry.authors | length ? entry.authors : entry.parent.authors} %}
@@ -29,7 +29,7 @@
 		<div class="container">
 			<aside class="hr"></aside>
 		</div>
-	{% endif #}
+	{% endif %}
 
 	{% for block in article %}
 		{% if block.type == 'form' %}

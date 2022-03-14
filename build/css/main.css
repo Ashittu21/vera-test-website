@@ -8660,11 +8660,11 @@ h2 strong {
     color: #231f20; }
   .post-article.medium,
   .post-article.medium .special-reports-footer {
-    background-color: #e7e6e3;
+    background-color: #fff7f0;
     color: #231f20; }
   .post-article.medium,
   .post-article.medium .special-reports-footer {
-    background-color: #e7e6e3;
+    background-color: #fff7f0;
     color: #231f20; }
   .post-article.dark,
   .post-article.dark .special-reports-footer {
@@ -31508,7 +31508,12 @@ div.heading > div:nth-child(3) > p {
         letter-spacing: 0em;
         text-align: left; }
         .hero-type4-content-copy .authors .profile-name {
-          font-weight: 700; }
+          font-weight: 700;
+          color: #0A0319;
+          text-decoration: underline;
+          -webkit-text-decoration-color: #DA392F;
+                  text-decoration-color: #DA392F;
+          text-underline-offset: 2px; }
       .hero-type4-content-copy .date {
         margin-top: 2rem;
         font-family: var(--global-font-abc-whyte);
