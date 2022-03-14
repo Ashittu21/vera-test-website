@@ -42,11 +42,12 @@
 
 
 <div class="content-page content-detail">
+
     <!-- Share Icons -->
      {% include 'v2/common/shareIcons' with { entry:entry } %}
     <!-- Share Icons -->
-    <div class="content-page-blocks">
 
+    <div class="content-page-blocks">
     {% for block in blocks %}
       {% if block.type == 'headerTitle' %} {# Header - no image  #}
         {% include 'v2/common/headerTitle' with { block: block } %}
@@ -92,6 +93,8 @@
     	  {% include 'v2/common/listing' with { block: block } %}
       {% elseif  block.type == 'slideshow' %}
         {% include 'v2/common/swiperSlider' with { block: block } %}
+      {% elseif block.type == 'contactUs' %}
+        {% include 'v2/common/contactUs.twig'  with { block: block } %}
       {% elseif block.type == 'map' %}
         <div class="mapContainer">
           {% include 'vera-maps/mapsv2'  with { block: block } %}

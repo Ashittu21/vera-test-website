@@ -22,6 +22,9 @@ return [
         //Remove Sanitize SVG
         'sanitizeSvgUploads'=> false,
 
+        // No transform on Gifs
+        'transformGifs' => false,
+
         // Whether generated URLs should omit "index.php"
         'omitScriptNameInUrls' => true,
 
