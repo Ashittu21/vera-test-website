@@ -29,7 +29,7 @@
 @import "common/heroType4.scss";
 @import "common/heroType5.scss";
 @import "common/latestNews.scss";
-//@import "common/listing.scss";
+@import "common/inPageCTA.scss";
 @import "common/map.scss";
 @import "common/mediaContacts.scss";
 @import "common/onThisPage.scss";
@@ -54,7 +54,6 @@
 @import "global/searchToggle.scss";
 
 @import "pages/404.scss";
-
 @import "pages/contentDetail.scss";
 @import "pages/genericLanding.scss";
 @import "pages/home.scss";

@@ -126,15 +126,24 @@
     	<div class="block-latestNews-content">
     		<div class="latestNews-items">
     		  {% for newsItem in entry.relatedContent %}
-          		{% if newsItem.streamImageRectangle | length %}
-			            {% set imageset = newsItem.streamImageRectangle %}
-              {% endif %}
+          		
+            {% if newsItem.type.name == 'project'%}
+						    {% if newsItem.streamImageSquare | length %}
+							    {% set imageset = entry.streamImageSquare.first ?? null %}
+							  {% endif %}
+						{% else %}
+							{% if newsItem.streamImageRectangle | length %}
+						    {% set imageset = newsItem.streamImageRectangle.first ?? null  %}
+							{% endif %}
+						{% endif %}
+
+					
+
            <a href="{{ newsItem.url }}" class="latestNews-item">
 							<div class="latestNews-item-category">
 								<p>{{ newsItem.type.name | title | upper }}</p>
 							</div>
-							<div class="latestNews-item-image"
-								style="background-image: url('{{ imageset.first.url }}');">
+							<div class="latestNews-item-image" style="background-image: url('{{ imageset.first.url }}');">
 							</div>
 							<div class="latestNews-item-copy">
 								<h5 class="latestNews-item-copy-title">
