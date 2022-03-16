@@ -4,7 +4,13 @@
 
 {% set blocks  = entry.genericLandingBlocks %}
   <div class="generic-landing">
+      {% set blockid = 0 %}
       {% for block in blocks %}
+
+        {% set blockid = blockid + 1 %}
+        {% if craft.app.request.getQueryParam('x-craft-live-preview') %}<div class="previewBlockId">{{ block.type }}{{blockid}}</div>{% endif %}
+        <a class="anchor-link" name="{{ block.type }}{{blockid}}" /></a>
+
         {% if block.type == 'headerTitle' %} {# Header - No Image#}
           {% include 'v2/common/headerTitle' with { block: block } %}
         {% elseif block.type == 'heroType1' %} {# Header #}

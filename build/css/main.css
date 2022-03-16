@@ -28944,6 +28944,18 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
 .colorRed {
   color: #DA392F; }
 
+.previewBlockId {
+  max-width: 840px;
+  margin: 0 auto;
+  border: 2px dotted #0a0319;
+  padding: 5px 15px;
+  display: block;
+  color: black;
+  font-weight: 500;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content; }
+
 .copy-block-content h5 {
   font-size: 35px;
   margin-bottom: 45px; }
