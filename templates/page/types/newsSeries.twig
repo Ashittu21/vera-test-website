@@ -50,54 +50,80 @@
     {% for block in blocks %}
       {% if block.type == 'headerTitle' %} {# Header - no image  #}
         {% include 'v2/common/headerTitle' with { block: block } %}
+
       {% elseif block.type == 'copy' %}
         {% include 'v2/common/copy'  with { block: block } %}
+
       {% elseif block.type == 'heroType1' %} {# Header #}
         {% include 'v2/common/heroType1' with { block: block } %}
+
       {% elseif block.type == 'bannerType2' %} {# Text besides images #}
         {% include 'v2/common/bannerType2'  with { block: block } %}
+
       {% elseif  block.type == 'bannerType3' %} {# Full width CTA without image #}
         {% include 'v2/common/bannerType3' with { block: block } %}
+
       {% elseif  block.type == 'exploreMore' %} {# Expore More #}
-        {% include 'v2/common/exploreMore.twig'  with { block: block } %}       
-      {% elseif block.type == 'stats' %}
+        {% include 'v2/common/exploreMore.twig'  with { block: block } %}  
+
+      {% elseif block.type == 'stats' %}  {# Stats Multi #}
     	  {% include 'v2/common/stats' with { block: block } %}
+
+      {% elseif block.type == 'quote' %}  {# Stat-1 #}
+    	  {% include 'v2/common/quote' with { block: block } %}
+
+      {% elseif block.type == 'quoteBlockType1' %} {# Pull Quote #}
+    	  {% include 'v2/common/quoteBlockType1' with { block: block } %}        
+
       {% elseif block.type == 'twoColumns' %}
     	  {% include 'v2/common/copy-twoColumns' with { block: block } %}
+
       {% elseif block.type == 'threeColumns' %}
     	  {% include 'v2/common/copy-threeColumns' with { block: block } %}
+
       {% elseif block.type == 'signUp' %}
         {% include 'v2/common/signUp.twig'  with { block: block } %}
+
       {% elseif  block.type == 'video' %}
         {% include 'v2/common/videoBlock' with { block: block } %}
+
       {% elseif block.type == 'featuredType1' %}
         {% include 'v2/common/featuredType1' with { block: block } %}
+
       {% elseif block.type == 'featuredType2' %}
         {% include 'v2/common/featuredType2' with { block: block } %}
+
       {% elseif block.type == 'audioBlock' %}
     	  {% include 'v2/common/audioBlock' with { block: block } %}
-      {% elseif block.type == 'quote' %} {# Pull Quote #}
-    	  {% include 'v2/common/quote' with { block: block } %}
-      {% elseif block.type == 'quoteBlockType1' %}
-    	  {% include 'v2/common/quoteBlockType1' with { block: block } %}
+
       {% elseif  block.type == 'relatedItems' %}
         {% include 'v2/common/relatedItems' with { block: block } %}
+
       {% elseif  block.type == 'bannerType4' %}
         {% include 'v2/common/bannerType4' with { block: block } %}
+
       {% elseif block.type == 'newsHero' %} {# Latest News Hero #}
     	  {% include 'v2/common/newsHero' with { block: block } %}	
+
       {% elseif  block.type == 'latestNewsItems' %} {# Latest News Items #}
         {% include 'v2/common/newsItems' with { block: block } %}
+
       {% elseif block.type == 'listing' %} {# Listing #}
     	  {% include 'v2/common/listing' with { block: block } %}
+
       {% elseif  block.type == 'slideshow' %}
         {% include 'v2/common/swiperSlider' with { block: block } %}
+
       {% elseif block.type == 'map' %}
         <div class="mapContainer">
           {% include 'vera-maps/mapsv2'  with { block: block } %}
         </div>      
+
       {% elseif block.type == 'code' %}
         <div class="code-container">{{ block.code | raw }}</div> 
+
+      {% elseif block.type == 'inPageCTA' %}
+    	  {% include 'v2/common/inPageCTA' with { block: block } %}
       {% endif %}
     {% endfor %}
     

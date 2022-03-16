@@ -57,6 +57,7 @@
 
     <div class="content-page-blocks">
     {% set blockid = 0 %}
+    
     {% for block in blocks %}
       
       {% set blockid = blockid + 1 %}
@@ -170,6 +171,9 @@
       {% elseif  block.type == 'quoteType1' %}
         {% include 'v2/templates/news-item/blocks/quoteType1' with { block: block } %}
 
+      {% elseif block.type == 'inPageCTA' %}
+    	    {% include 'v2/common/inPageCTA' with { block: block } %}
+          
       {% endif %}
     {% endfor %}
     </div>

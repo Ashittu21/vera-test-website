@@ -54,40 +54,54 @@
     </div>
     <!-- Share Icons -->
 
+
+  {% set blockid = 0 %}
+
   {% for block in entry.initiativeBlocks.level(1).all() %}
+  
+    {% set blockid = blockid + 1 %}
+    {% if craft.app.request.getQueryParam('x-craft-live-preview') %}<div class="previewBlockId">{{ block.type }}{{blockid}}</div>{% endif %}
+    <a class="anchor-link" name="{{ block.type }}{{blockid}}" /></a>
+
     {% switch block.type.handle %}
+
       {% case 'heroType1' %}
-        {% if block.anchorField is not null %}<a class="anchor-link" name="{{ block.anchorField }}" /></a>{% endif %}
         {% include '/v2/common/heroType1' with { block: block } %}
-      {% case 'stats' %}
-        {% if block.anchorField is not null %}<a class="anchor-link" name="{{ block.anchorField }}" /></a>{% endif %}
+
+      {% case 'stats' %} {# Stats Multi #}
         {% include '/v2/common/stats' with { block: block } %}
+
+      {% case 'stat1' %} {# Stat-1 #}
+        {% include '/v2/common/initiative-stat' with { block: block } %}
+
+      {% case 'quoteBlockType1' %} {# Pull Quote #}
+        {% include '/v2/common/quoteBlockType1' with { block: block } %}      
+    
       {% case 'onThisPage' %}
-        {% if block.anchorField is not null %}<a class="anchor-link" name="{{ block.anchorField }}" /></a>{% endif %}
         {% include '/v2/common/onThisPage' with { block: block } %}
+
       {% case 'listing' %}
-        {% if block.anchorField is not null %}<a class="anchor-link" name="{{ block.anchorField }}" /></a>{% endif %}
         {% include '/v2/common/listing' with { block: block } %}
+
       {% case 'exploreMore' %}
-        {% if block.anchorField is not null %}<a class="anchor-link" name="{{ block.anchorField }}" /></a>{% endif %}
         {% include '/v2/common/exploreMore'  with { block: block } %}
+
       {% case 'headerTitle' %}
-        {% if block.anchorField is not null %}<a class="anchor-link" name="{{ block.anchorField }}" /></a>{% endif %}
         {% include '/v2/common/headerTitle'  with { block: block } %}
+
       {% case 'latestNews' %}
-        {% if block.anchorField is not null %}<a class="anchor-link" name="{{ block.anchorField }}" /></a>{% endif %}
         {% include '/v2/common/latestNews' with { block: block } %}
+
       {% case 'newsHero' %}
-        {% if block.anchorField is not null %}<a class="anchor-link" name="{{ block.anchorField }}" /></a>{% endif %}
         {% include '/v2/common/newsHero'     with { block: block } %}  
+
       {% case 'signUp' %}
-        {% if block.anchorField is not null %}<a class="anchor-link" name="{{ block.anchorField }}" /></a>{% endif %}
         {% include '/v2/common/signUp'     with { block: block } %}     
+
       {% case 'newsItems' %}
-        {% if block.anchorField is not null %}<a class="anchor-link" name="{{ block.anchorField }}" /></a>{% endif %}
         {% include '/v2/common/newsItems'  with { block: block } %}
+      
       {% case 'copy' %}
-          {% if block.anchorField is not null %}<a class="anchor-link" name="{{ block.anchorField }}" /></a>{% endif %}
           <!-- Copy Block -->
           <section class="copy-block-container">
             <div class="copy-block-content">
@@ -95,20 +109,23 @@
             </div>
           </section>
         <!-- Copy Block -->
+      
       {% case 'contactUs' %}
-        {% if block.anchorField is not null %}<a class="anchor-link" name="{{ block.anchorField }}" /></a>{% endif %}
         {% include '/v2/common/contactUs.twig'  with { block: block } %}
-      {% case 'bannerType3' %}{# Full width CTA without image #}
-        {% if block.anchorField is not null %}<a class="anchor-link" name="{{ block.anchorField }}" /></a>{% endif %}
+      
+      {% case 'bannerType3' %}{# Full width CTA without image #}        
         {% include 'v2/common/initiative-bannerType3' with { block: block } %}
+      
       {% case 'inPageCta' %} {# In-page CTA #}
-        {% if block.anchorField is not null %}<a class="anchor-link" name="{{ block.anchorField }}" /></a>{% endif %}
         {% include 'v2/common/initiative-bannerType4' with { block: block } %}
+      
       {% case 'partners' %}
-        {% if block.anchorField is not null %}<a class="anchor-link" name="{{ block.anchorField }}" /></a>{% endif %}
         {% include '/v2/common/partners'  with { block: block } %}
+
+      {% case 'inPageCTA' %}
+    	    {% include '/v2/common/inPageCTA' with { block: block } %}
+
       {% case 'resources' %} 
-          {% if block.anchorField is not null %}<a class="anchor-link" name="{{ block.anchorField }}" /></a>{% endif %}
             <section class="resources-block-container">
               <div class="resources-block-content">
                 <div class="resources-block-title">
@@ -131,8 +148,9 @@
               {% endif %}
               </div>
             </section>
-      {% case 'map' %}
-        {% if block.anchorField is not null %}<a class="anchor-link" name="{{ block.anchorField }}" /></a>{% endif %}
+      
+      
+      {% case 'map' %}  
         <div class="mapContainer">
           {% include '/vera-maps/mapsv2'  with { block: block } %}
         </div>       

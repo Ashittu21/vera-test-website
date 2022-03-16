@@ -1,19 +1,27 @@
 <section class="inPageCTA-container">
   <div class="inPageCTA-text">
-    <div>
-      <div class="latestNews-hero-copy-title">
-        <h4 class="h4">Featured Story or Promoted Item
-          Headline Goes Here Lorem Ipsum</h4>
+
+      <div class="inPageCTA-text-title">
+       {{ block.inPageCTA_title }}
       </div>
-      <a href="http://34.238.108.106/about"
-        class="button button-2x orange arrow">
-        <span>Read now</span>
-      </a>
-    </div>
+
+      <div class="inPageCTA-text-subtitle">
+       {{ block.inPageCTA_subtitle }}
+      </div>
+
+      <div>
+          <a href="{{ block.inPageCTA_cta.getUrl() }}"  class="button button-2x orange arrow">
+            <span>{{ block.inPageCTA_cta.customText }}</span>
+          </a>
+      </div>
+
+    
   </div>
   <div class="inPageCTA-image">
+
+   {% set image = block.inPageCTA_image.one() ?? null %}
     <img
-      src="http://34.238.108.106/images/Careers-Landing/careers-landing/header/Rectangle-233_2022-01-20-082358_muns.png"
+      src="{{ image.getUrl('image520x418') }}"
       alt="">
   </div>
 </section>

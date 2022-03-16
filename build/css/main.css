@@ -8656,7 +8656,7 @@ h2 strong {
     background-color: inherit; }
   .post-article.light,
   .post-article.light .special-reports-footer {
-    background-color: #fff;
+    background-color: #fff7f0;
     color: #231f20; }
   .post-article.medium,
   .post-article.medium .special-reports-footer {
@@ -32168,6 +32168,93 @@ div.heading > div:nth-child(3) > p {
       -webkit-transform: translateX(0);
       transform: translateX(0);
       opacity: 1; } } }
+
+.inPageCTA-container {
+  min-height: 613px;
+  max-width: 1441px;
+  width: 100%;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  background-color: var(--global-color-medium-violet);
+  background-image: -webkit-linear-gradient(180deg, var(--global-color-violet) 27.1%, var(--global-color-medium-violet) 27.1%);
+  overflow: hidden;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-line-pack: center;
+      align-content: center; }
+
+.inPageCTA-text {
+  padding: 84px 111px 84px 114px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  color: #FFF;
+  max-width: 1066px;
+  position: relative; }
+  .inPageCTA-text-title {
+    font-family: var(--global-font-abc-whyte);
+    font-size: 80px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 97.6px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #FFF;
+    margin-bottom: 0; }
+    @media (max-width: 768px) {
+      .inPageCTA-text-title {
+        font-size: 45px;
+        line-height: 49.5px; }
+        .inPageCTA-text-title br {
+          display: none; } }
+    @media (max-width: 768px) {
+      .inPageCTA-text-title {
+        margin-top: 80px; } }
+  .inPageCTA-text-subtitle {
+    font-family: var(--global-font-abc-whyte);
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 33.8px;
+    letter-spacing: 0em;
+    text-align: left;
+    padding-top: 12px;
+    padding-bottom: 47px;
+    color: #FFF; }
+    @media (max-width: 768px) {
+      .inPageCTA-text-subtitle {
+        padding-left: 1rem;
+        padding-right: 1rem;
+        padding-top: 40px; }
+        .inPageCTA-text-subtitle br {
+          display: none; } }
+
+.inPageCTA-image {
+  width: 50%;
+  overflow: hidden;
+  text-align: right;
+  padding: 84px 0 0 0; }
+  .inPageCTA-image img {
+    width: 100%; }
 
 .project-map.light ::-webkit-scrollbar-thumb {
   background-color: #CEC0BC !important; }
