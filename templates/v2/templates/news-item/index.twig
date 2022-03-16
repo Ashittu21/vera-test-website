@@ -53,7 +53,7 @@
      {% include 'v2/common/shareIcons' with { entry:entry } %}
     <!-- Share Icons -->
     
-{% if app.request.query.get('x-craft-live-preview') %}
+{% if craft.app.request.getQueryParam('x-craft-live-preview') %}
   <div>
     Preview Mode
   </div>

@@ -35,6 +35,8 @@
           {% include 'v2/common/featuredType2' with { block: block } %}
         {% elseif block.type == 'quoteBlockType1' %}
     	    {% include 'v2/common/quoteBlockType1' with { block: block } %}
+        {% elseif block.type == 'inPageCTA' %}
+    	    {% include 'v2/common/inPageCTA' with { block: block } %}
         {% endif %}
       {% endfor %}
   </div>
