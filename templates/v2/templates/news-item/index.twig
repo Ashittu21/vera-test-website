@@ -63,7 +63,7 @@
     {% set blockid = 0 %}
     {% for block in blocks %}
       
-      {% blockid = blockid + 1 %}
+      {% set blockid = blockid + 1 %}
       {% if craft.app.request.getQueryParam('x-craft-live-preview') %}<div>{{ block.type }}{{blockid}}</div>{% endif %}
 
       {% if block.type == 'headerTitle' %}
