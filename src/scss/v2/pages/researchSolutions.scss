@@ -57,6 +57,9 @@
           color: #FFF;
           overflow: hidden;
           margin-left: 230px;
+          @media(max-width:$mobile-breakpoint){
+            margin-left: 0px;
+          }
           @media (max-width: $tablet-landscape) {
             padding: 0 2rem;
           }

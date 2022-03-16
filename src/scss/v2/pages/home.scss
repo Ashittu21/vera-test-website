@@ -330,10 +330,6 @@
   margin-bottom: 33px;
 }
 
-.home .block-signup .block-signup-container {
-  max-width: 100%;
-}
-
 .home .block-signup .block-signup-container .block-signup-left {
 min-height: 526px;
 
@@ -432,3 +428,100 @@ min-height: 526px;
   font-size: 45px;
   line-height: 49.5px;
 }
+
+
+.home .block-signup-left.send-msg {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  position: relative;
+  @media(max-width:$mobile-breakpoint){
+    flex-direction: column;
+    padding-left: 0 !important;
+  }
+}
+
+.home 
+  .socials{
+    display: flex;
+    justify-content: baseline;
+    align-items: baseline;
+    width: 100%;
+    position: relative;
+    @media(max-width:$mobile-breakpoint){
+      flex-direction: column;
+      width: auto;
+      margin-left: -55px;
+    }
+  .donate-txt{
+      min-width: 50%;
+      padding-left: 110px;
+      @media(max-width:$mobile-breakpoint){
+        padding-left: 0px;
+        margin-left: -20px;
+      }
+    }
+
+  }
+  .block-signup-title .message {
+    min-width: 458px;
+    border-right: 3px solid #160643;
+    height: 315px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 30px;
+    @media(max-width:$mobile-breakpoint){
+      align-items: self-start;
+      padding-left: 0;
+      min-width: inherit;
+      border: none;
+      height: 190px;
+    }
+}
+  
+  .donate-txt p, .wrap-socials p{
+    font-size: 26px;
+    margin-bottom: 40px;
+    @media(max-width:$mobile-breakpoint){
+      font-size: 21px;
+      margin-bottom: 26px;
+    }
+  }
+
+  .home .wrap-socials p{
+    @media(max-width:$mobile-breakpoint){
+      margin-bottom: 49px;
+      margin-top: 26px;
+      margin-left: -55px;
+    }
+  }
+    
+  .home .list-social{
+    display: flex;
+    align-items: baseline;
+    list-style: none;
+    justify-content: space-between;
+    @media(max-width:$mobile-breakpoint){
+      margin-left: -55px;
+    }
+    a{
+      svg{
+        width: 45px;
+        margin-right: 7px;
+        padding: 0;
+      }
+    }
+}
+
+  .list-social button{
+    border-style: none;
+    background-color: transparent;
+
+  }
+
+  .home .wrap-socials{
+    padding-left: 38px;
+  }
