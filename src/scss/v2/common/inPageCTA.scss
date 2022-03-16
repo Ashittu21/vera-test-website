@@ -7,19 +7,19 @@
     display: flex;
     flex-direction: row;
     background-color: var(--global-color-medium-violet);
-    background-image: -webkit-linear-gradient(180deg, var(--global-color-violet) 40.1%, var(--global-color-medium-violet) 40.1%);
+    background-image: -webkit-linear-gradient(180deg, var(--global-color-violet) 27.1%, var(--global-color-medium-violet) 40.1%);
     overflow: hidden;
     box-sizing: border-box;
     justify-content: space-between;
     align-content: center;
   }
   &-text{
-    padding: 117px 0 157px 0;
+    padding: 84px 111px 0 114px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
+    align-items: flex-start;
     color: #FFF;
-    align-items: center;
     max-width: 1066px;
     position: relative;
     &-title{
@@ -29,7 +29,7 @@
       font-weight: 900;
       line-height: 97.6px;
       letter-spacing: 0em;
-      text-align: center;
+      text-align: left;
       color: #FFF;
       margin-bottom: 0;
       @media (max-width: $tablet-portrait) {
@@ -51,7 +51,6 @@
       line-height: 33.8px;
       letter-spacing: 0em;
       text-align: left;
-      text-align: center;
       padding-top: 12px;
       padding-bottom: 47px;
       color: #FFF;
@@ -70,6 +69,7 @@
     width: 50%;
     overflow: hidden;
     text-align: right;
+    padding: 84px 0 0 0;
       img {
         width: 100%;
       }

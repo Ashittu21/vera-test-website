@@ -32174,7 +32174,7 @@ div.heading > div:nth-child(3) > p {
       -ms-flex-direction: row;
           flex-direction: row;
   background-color: var(--global-color-medium-violet);
-  background-image: -webkit-linear-gradient(180deg, var(--global-color-violet) 40.1%, var(--global-color-medium-violet) 40.1%);
+  background-image: -webkit-linear-gradient(180deg, var(--global-color-violet) 27.1%, var(--global-color-medium-violet) 40.1%);
   overflow: hidden;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -32185,7 +32185,7 @@ div.heading > div:nth-child(3) > p {
       align-content: center; }
 
 .inPageCTA-text {
-  padding: 117px 0 157px 0;
+  padding: 84px 111px 0 114px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -32193,13 +32193,13 @@ div.heading > div:nth-child(3) > p {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
   color: #FFF;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   max-width: 1066px;
   position: relative; }
   .inPageCTA-text-title {
@@ -32209,7 +32209,7 @@ div.heading > div:nth-child(3) > p {
     font-weight: 900;
     line-height: 97.6px;
     letter-spacing: 0em;
-    text-align: center;
+    text-align: left;
     color: #FFF;
     margin-bottom: 0; }
     @media (max-width: 768px) {
@@ -32229,7 +32229,6 @@ div.heading > div:nth-child(3) > p {
     line-height: 33.8px;
     letter-spacing: 0em;
     text-align: left;
-    text-align: center;
     padding-top: 12px;
     padding-bottom: 47px;
     color: #FFF; }
@@ -32244,7 +32243,8 @@ div.heading > div:nth-child(3) > p {
 .inPageCTA-image {
   width: 50%;
   overflow: hidden;
-  text-align: right; }
+  text-align: right;
+  padding: 84px 0 0 0; }
   .inPageCTA-image img {
     width: 100%; }
 
