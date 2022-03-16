@@ -20,14 +20,14 @@
         {% include '../../vera-maps/_maptypesBlock'  with { block: block } %}
       </div>
 
-		{% elseif block.type == 'quote' %}
+    {% elseif block.type == 'stats' %}  {# Stats Multi #}
+      {% include 'v2/common/stats' with { block: block } %}
+
+    {% elseif block.type == 'quote' %}  {# Stat-1 #}
     	{% include 'v2/common/quote' with { block: block } %}
 
-		{% elseif block.type == 'stats' %}
-    	{% include 'v2/common/stats' with { block: block } %}
-		
-		{% elseif block.type == 'quoteBlockType1' %}
-      {% include 'v2/common/quoteBlockType1' with { block: block } %}
+    {% elseif block.type == 'quoteBlockType1' %} {# Pull Quote #}
+    	{% include 'v2/common/quoteBlockType1' with { block: block } %}    
 
 		{% elseif block.type == 'listing' %}
     	{% include 'v2/common/listing' with { block: block } %}
