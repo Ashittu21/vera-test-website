@@ -60,78 +60,118 @@
 {% endif %}
 
     <div class="content-page-blocks">
+    {% set blockid = 0 %}
     {% for block in blocks %}
+      
+      {% blockid = blockid + 1 %}
+      {% if craft.app.request.getQueryParam('x-craft-live-preview') %}<div>{{ block.type }}{{blockid}}</div>{% endif %}
+
       {% if block.type == 'headerTitle' %}
+        <a class="anchor-link" name="{{ block.type }}{{blockid}}" /></a>
         {% include 'v2/common/headerTitle' with { block: block } %}
       {% elseif block.type == 'copy' %}
+        <a class="anchor-link" name="{{ block.type }}{{blockid}}" /></a>
         {% include 'v2/common/copy'  with { block: block } %}
       {% elseif block.type == 'heroType1' %} {# Header #}
+        <a class="anchor-link" name="{{ block.type }}{{blockid}}" /></a>
         {% include 'v2/common/heroType1' with { block: block } %}
       {% elseif block.type == 'bannerType2' %} {# Text besides images #}
+        <a class="anchor-link" name="{{ block.type }}{{blockid}}" /></a>
         {% include 'v2/common/bannerType2'  with { block: block } %}
       {% elseif  block.type == 'bannerType3' %} {# Full width CTA without image #}
+        <a class="anchor-link" name="{{ block.type }}{{blockid}}" /></a>
         {% include 'v2/common/bannerType3' with { block: block } %}
       {% elseif  block.type == 'bannerType4' %}
+        <a class="anchor-link" name="{{ block.type }}{{blockid}}" /></a>
         {% include 'v2/common/bannerType4' with { block: block } %}
       {% elseif  block.type == 'slideshow' %}
+        <a class="anchor-link" name="{{ block.type }}{{blockid}}" /></a>
         {% include 'v2/common/swiperSlider' with { block: block } %}
       {% elseif block.type == 'featuredType1' %}
+        <a class="anchor-link" name="{{ block.type }}{{blockid}}" /></a>
         {% include 'v2/common/featuredType1' with { block: block } %}
       {% elseif block.type == 'quoteBlockType1' %}
+        <a class="anchor-link" name="{{ block.type }}{{blockid}}" /></a>
     	  {% include 'v2/common/quoteBlockType1' with { block: block } %}
       {% elseif block.type == 'featuredType2' %}
+        <a class="anchor-link" name="{{ block.type }}{{blockid}}" /></a>
         {% include 'v2/common/featuredType2' with { block: block } %}
       {% elseif block.type == 'twoColumns' %}
+        <a class="anchor-link" name="{{ block.type }}{{blockid}}" /></a>
     	  {% include 'v2/common/copy-twoColumns' with { block: block } %}
       {% elseif block.type == 'threeColumns' %}
+        <a class="anchor-link" name="{{ block.type }}{{blockid}}" /></a>
     	  {% include 'v2/common/copy-threeColumns' with { block: block } %}
       {% elseif block.type == 'contactUs' %}
+        <a class="anchor-link" name="{{ block.type }}{{blockid}}" /></a>
         {% include 'v2/common/contactUs.twig'  with { block: block } %}
       {% elseif  block.type == 'relatedItems' %}
+        <a class="anchor-link" name="{{ block.type }}{{blockid}}" /></a>
         {% include 'v2/common/relatedItems' with { block: block } %}
       {% elseif  block.type == 'exploreMore' %} {# Expore More #}
+        <a class="anchor-link" name="{{ block.type }}{{blockid}}" /></a>
         {% include 'v2/common/exploreMore.twig'  with { block: block } %}  
       {% elseif block.type == 'quote' %} {# Pull Quote #}
+        <a class="anchor-link" name="{{ block.type }}{{blockid}}" /></a>
     	  {% include 'v2/common/quote' with { block: block } %} 
       {% elseif  block.type == 'singleImage' %}
+        <a class="anchor-link" name="{{ block.type }}{{blockid}}" /></a>
         {% include 'v2/common/swiperSlider' with { block: block } %}
       {% elseif  block.type == 'video' %}
+        <a class="anchor-link" name="{{ block.type }}{{blockid}}" /></a>
         {% include 'v2/templates/news-item/blocks/videoBlock' with { block: block } %}
       {% elseif  block.type == 'audio' %}
+        <a class="anchor-link" name="{{ block.type }}{{blockid}}" /></a>
         {% include 'v2/templates/news-item/blocks/audioBlock' with { block: block } %}
       {% elseif block.type == 'infoModule' %}
+        <a class="anchor-link" name="{{ block.type }}{{blockid}}" /></a>
         {% include 'v2/templates/news-item/blocks/infoModule'  with { block: block } %}
       {% elseif block.type == 'code' %}
+        <a class="anchor-link" name="{{ block.type }}{{blockid}}" /></a>
         <div class="code-container">{{ block.code | raw }}</div>
       {% elseif block.type == 'map' %}
+        <a class="anchor-link" name="{{ block.type }}{{blockid}}" /></a>
         <div class="mapContainer">
           {% include 'vera-maps/_maptypesBlock'  with { block: block } %}
         </div>
       {% elseif block.type == 'largeBlockQuote' %}
+        <a class="anchor-link" name="{{ block.type }}{{blockid}}" /></a>
         {% include 'v2/templates/news-item/blocks/quoteType2' with { block: block } %}
       {% elseif block.type == 'chart' %}
+        <a class="anchor-link" name="{{ block.type }}{{blockid}}" /></a>
         {% include 'v2/templates/news-item/blocks/chart' with { block: block } %}
       {% elseif  block.type == 'newsItems' %}
+        <a class="anchor-link" name="{{ block.type }}{{blockid}}" /></a>
         {% include 'v2/templates/news-item/blocks/newsItems' with { block: block } %}
       {% elseif block.type == 'listing' %} {# Listing #}
+        <a class="anchor-link" name="{{ block.type }}{{blockid}}" /></a>
     	  {% include 'v2/common/listing' with { block: block } %}
       {% elseif block.type == 'newsHero' %} {# Latest News Hero #}
+        <a class="anchor-link" name="{{ block.type }}{{blockid}}" /></a>
     	  {% include 'v2/common/newsHero' with { block: block } %}	
       {% elseif block.type == 'twoColumns' %}
+        <a class="anchor-link" name="{{ block.type }}{{blockid}}" /></a>
     	  {% include 'v2/common/copy-twoColumns' with { block: block } %}
       {% elseif block.type == 'threeColumns' %}
+        <a class="anchor-link" name="{{ block.type }}{{blockid}}" /></a>
     	  {% include 'v2/common/copy-threeColumns' with { block: block } %}
       {% elseif block.type == 'stats' %}
+        <a class="anchor-link" name="{{ block.type }}{{blockid}}" /></a>
     	  {% include 'v2/common/stats' with { block: block } %}
       {% elseif block.type == 'signUp' %}
+        <a class="anchor-link" name="{{ block.type }}{{blockid}}" /></a>
         {% include 'v2/common/signUp.twig'  with { block: block } %}
       {% elseif block.type == 'quoteBlockType1' %}
+        <a class="anchor-link" name="{{ block.type }}{{blockid}}" /></a>
     	  {% include 'v2/common/quoteBlockType1' with { block: block } %}
       {% elseif  block.type == 'bannerType4' %}
+        <a class="anchor-link" name="{{ block.type }}{{blockid}}" /></a>
         {% include 'v2/common/bannerType4' with { block: block } %}
       {% elseif  block.type == 'quoteType2' %}
+        <a class="anchor-link" name="{{ block.type }}{{blockid}}" /></a>
         {% include 'v2/templates/news-item/blocks/quoteType2' with { block: block } %}
       {% elseif  block.type == 'quoteType1' %}
+        <a class="anchor-link" name="{{ block.type }}{{blockid}}" /></a>
         {% include 'v2/templates/news-item/blocks/quoteType1' with { block: block } %}
      {# 
       {% elseif  block.type == 'relatedItems' %}
