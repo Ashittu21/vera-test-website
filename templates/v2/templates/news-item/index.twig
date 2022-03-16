@@ -170,6 +170,9 @@
       {% elseif  block.type == 'quoteType1' %}
         {% include 'v2/templates/news-item/blocks/quoteType1' with { block: block } %}
 
+      {% elseif block.type == 'inPageCTA' %}
+    	    {% include 'v2/common/inPageCTA' with { block: block } %}
+          
       {% endif %}
     {% endfor %}
     </div>

@@ -86,6 +86,7 @@
       {% case 'newsItems' %}
         {% if block.anchorField is not null %}<a class="anchor-link" name="{{ block.anchorField }}" /></a>{% endif %}
         {% include '/v2/common/newsItems'  with { block: block } %}
+      
       {% case 'copy' %}
           {% if block.anchorField is not null %}<a class="anchor-link" name="{{ block.anchorField }}" /></a>{% endif %}
           <!-- Copy Block -->
@@ -95,18 +96,27 @@
             </div>
           </section>
         <!-- Copy Block -->
+      
       {% case 'contactUs' %}
         {% if block.anchorField is not null %}<a class="anchor-link" name="{{ block.anchorField }}" /></a>{% endif %}
         {% include '/v2/common/contactUs.twig'  with { block: block } %}
+      
       {% case 'bannerType3' %}{# Full width CTA without image #}
         {% if block.anchorField is not null %}<a class="anchor-link" name="{{ block.anchorField }}" /></a>{% endif %}
         {% include 'v2/common/initiative-bannerType3' with { block: block } %}
+      
       {% case 'inPageCta' %} {# In-page CTA #}
         {% if block.anchorField is not null %}<a class="anchor-link" name="{{ block.anchorField }}" /></a>{% endif %}
         {% include 'v2/common/initiative-bannerType4' with { block: block } %}
+      
       {% case 'partners' %}
         {% if block.anchorField is not null %}<a class="anchor-link" name="{{ block.anchorField }}" /></a>{% endif %}
         {% include '/v2/common/partners'  with { block: block } %}
+
+      {% case == 'inPageCTA' %}
+    	    {% include '/v2/common/inPageCTA' with { block: block } %}
+
+
       {% case 'resources' %} 
           {% if block.anchorField is not null %}<a class="anchor-link" name="{{ block.anchorField }}" /></a>{% endif %}
             <section class="resources-block-container">
@@ -131,6 +141,8 @@
               {% endif %}
               </div>
             </section>
+      
+      
       {% case 'map' %}
         {% if block.anchorField is not null %}<a class="anchor-link" name="{{ block.anchorField }}" /></a>{% endif %}
         <div class="mapContainer">

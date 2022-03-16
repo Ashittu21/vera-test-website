@@ -65,28 +65,42 @@
         {% include 'v2/common/newsItems' with { block: block } %}
       {% elseif  block.type == 'slideshow' %}
         {% include 'v2/common/swiperSlider' with { block: block } %}
+      
       {% elseif block.type == 'listing' %} {# Listing #}
     	  {% include 'v2/common/listing' with { block: block } %}
+      
       {% elseif block.type == 'newsHero' %} {# Latest News Hero #}
     	  {% include 'v2/common/newsHero' with { block: block } %}	
+      
       {% elseif block.type == 'quote' %} {# Pull Quote #}
     	  {% include 'v2/common/quote' with { block: block } %}
+      
       {% elseif  block.type == 'exploreMore' %} {# Expore More #}
         {% include 'v2/common/exploreMore.twig'  with { block: block } %}   
+      
       {% elseif  block.type == 'bannerType3' %} {# Full width CTA without image #}
         {% include 'v2/common/bannerType3' with { block: block } %}
+      
       {% elseif block.type == 'bannerType2' %} {# Text besides images #}
         {% include 'v2/common/bannerType2'  with { block: block } %}
+      
       {% elseif block.type == 'map' %}
         <div class="mapContainer">
           {% include 'vera-maps/mapsv2'  with { block: block } %}
         </div>      
+      
       {% elseif block.type == 'code' %}
         <div class="code-container">{{ block.code | raw }}</div> 
+      
       {% elseif block.type == 'contactUs' %}
         {% include 'v2/common/contactUs.twig'  with { block: block } %}
+      
       {% elseif block.type == 'partners' %}
-         {% include 'v2/common/partners'  with { block: block } %}
+        {% include 'v2/common/partners'  with { block: block } %}
+      
+      {% elseif block.type == 'inPageCTA' %}
+    	  {% include 'v2/common/inPageCTA' with { block: block } %}
+        
       {% endif %}
     {% endfor %}
 

@@ -4,9 +4,6 @@
 {% set filterSection   = craft.app.request.getQueryParam('section') %}
 {% set filterOrder     = craft.app.request.getQueryParam('order') %}
 
-
-
-
 {% set streamOptions = {
       title: 'All Research & Analysis',
       news: false,
@@ -148,14 +145,13 @@
             FILTER BY
           </div>
           <div class="rs-filters">
-            {% include 'v2/templates/filter' %}
+            {% include 'v2/templates/solutionsResearch/filterDesktop' %}
           </div>
 
           <div class="rs-tags">
             <a href="#" id="clearall">Clear all </a>
             <div id="searchTags"> </div>
           </div>
-
         </div>
         <div class="rs-head-form-mobile">
           <button type="button" class="filter"><span>Sort & filter</span></button>

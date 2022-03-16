@@ -32174,7 +32174,7 @@ div.heading > div:nth-child(3) > p {
       -ms-flex-direction: row;
           flex-direction: row;
   background-color: var(--global-color-medium-violet);
-  background-image: -webkit-linear-gradient(180deg, var(--global-color-violet) 27.1%, var(--global-color-medium-violet) 40.1%);
+  background-image: -webkit-linear-gradient(180deg, var(--global-color-violet) 27.1%, var(--global-color-medium-violet) 27.1%);
   overflow: hidden;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -32185,7 +32185,7 @@ div.heading > div:nth-child(3) > p {
       align-content: center; }
 
 .inPageCTA-text {
-  padding: 84px 111px 0 114px;
+  padding: 84px 111px 84px 114px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
