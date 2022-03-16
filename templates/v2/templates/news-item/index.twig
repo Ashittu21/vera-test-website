@@ -52,6 +52,12 @@
     <!-- Share Icons -->
      {% include 'v2/common/shareIcons' with { entry:entry } %}
     <!-- Share Icons -->
+    
+{% if app.request.query.get('x-craft-live-preview') %}
+  <div>
+    Preview Mode
+  </div>
+{% endif %}
 
     <div class="content-page-blocks">
     {% for block in blocks %}

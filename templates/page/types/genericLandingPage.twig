@@ -27,6 +27,14 @@
           {% include 'v2/common/newsHero' with { block: block } %}   
         {% elseif block.type == 'code'  %} {# Code #}
           <div class="code-container">{{ block.code | raw }}</div>    
+        {% elseif block.type == 'quote' %} {# Pull Quote #}
+    	    {% include 'v2/common/quote' with { block: block } %}
+        {% elseif block.type == 'featuredType1' %}
+          {% include 'v2/common/featuredType1' with { block: block } %}
+        {% elseif block.type == 'featuredType2' %}
+          {% include 'v2/common/featuredType2' with { block: block } %}
+        {% elseif block.type == 'quoteBlockType1' %}
+    	    {% include 'v2/common/quoteBlockType1' with { block: block } %}
         {% endif %}
       {% endfor %}
   </div>
