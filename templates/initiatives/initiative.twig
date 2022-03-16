@@ -56,7 +56,7 @@
 
 
   {% set blockid = 0 %}
-  
+
   {% for block in entry.initiativeBlocks.level(1).all() %}
   
     {% set blockid = blockid + 1 %}
@@ -71,8 +71,8 @@
       {% case 'stats' %} {# Stats Multi #}
         {% include '/v2/common/stats' with { block: block } %}
 
-      {% case 'quote' %} {# Stat-1 #}
-        {% include '/v2/common/quote' with { block: block } %}
+      {% case 'stat1' %} {# Stat-1 #}
+        {% include '/v2/common/initiative-stat' with { block: block } %}
 
       {% case 'quoteBlockType1' %} {# Pull Quote #}
         {% include '/v2/common/quoteBlockType1' with { block: block } %}      
