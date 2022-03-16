@@ -1,5 +1,14 @@
 .inPageCTA-image {
   &-container{
-
+    min-height: 613px;
+    max-width: 1441px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    background-color: var(--global-color-medium-violet);
+    background-image: -webkit-linear-gradient(180deg, var(--global-color-violet) 40.1%, var(--global-color-medium-violet) 40.1%);
+    overflow: hidden;
+    box-sizing: border-box;
   }
 }

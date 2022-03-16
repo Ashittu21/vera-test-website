@@ -32161,6 +32161,24 @@ div.heading > div:nth-child(3) > p {
       transform: translateX(0);
       opacity: 1; } } }
 
+.inPageCTA-image-container {
+  min-height: 613px;
+  max-width: 1441px;
+  width: 100%;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  background-color: var(--global-color-medium-violet);
+  background-image: -webkit-linear-gradient(180deg, var(--global-color-violet) 40.1%, var(--global-color-medium-violet) 40.1%);
+  overflow: hidden;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box; }
+
 .project-map.light ::-webkit-scrollbar-thumb {
   background-color: #CEC0BC !important; }
 
