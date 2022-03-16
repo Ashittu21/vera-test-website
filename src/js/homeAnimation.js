@@ -4,6 +4,11 @@
     grabCursor: false,
     draggable: false,
     noSwiping: true,
+    preventInteractionOnTransition: false,
+    allowTouchMove: false,
+    slideToClickedSlide: false,
+    preventClicksPropagation: false,
+    preventClicks: false,
     autoplay: {
         delay: 2700,
     },
