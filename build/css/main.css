@@ -37090,13 +37090,14 @@ header {
   @media (max-width: 768px) {
     .home .list-social {
       margin-left: -55px; } }
+  .home .list-social a svg {
+    width: 45px;
+    margin-right: 7px;
+    padding: 0; }
 
 .list-social button {
   border-style: none;
-  background-color: transparent;
-  width: 45px;
-  margin-right: 7px;
-  padding: 0; }
+  background-color: transparent; }
 
 .home .wrap-socials {
   padding-left: 38px; }
@@ -37454,6 +37455,9 @@ header {
             top: 0.55em;
             width: 100%;
           } */ }
+      @media (max-width: 768px) {
+        .rs-page .rs-head-container .rs-headContent .rs-title {
+          margin-left: 0px; } }
       @media (max-width: 1024px) {
         .rs-page .rs-head-container .rs-headContent .rs-title {
           padding: 0 2rem; } }

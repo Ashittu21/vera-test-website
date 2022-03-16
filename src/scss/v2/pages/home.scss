@@ -507,14 +507,19 @@ min-height: 526px;
     @media(max-width:$mobile-breakpoint){
       margin-left: -55px;
     }
+    a{
+      svg{
+        width: 45px;
+        margin-right: 7px;
+        padding: 0;
+      }
+    }
 }
 
   .list-social button{
     border-style: none;
     background-color: transparent;
-    width: 45px;
-    margin-right: 7px;
-    padding: 0;
+
   }
 
   .home .wrap-socials{
