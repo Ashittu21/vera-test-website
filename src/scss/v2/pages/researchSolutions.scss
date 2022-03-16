@@ -96,7 +96,7 @@
           width: 100%;
           
           @media (max-width: $tablet-landscape) {
-            display: none;
+            display: block;
           }
           
           .filter-by{
@@ -790,7 +790,9 @@
     margin-top: 30px;
     flex-direction: row;
     display: flex;
-
+    @media(max-width:$mobile-breakpoint){
+      justify-content: center;
+    }
     #clearall{
       font-family: var(--global-font-abc-whyte);
       font-size: 14px;

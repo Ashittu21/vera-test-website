@@ -314,7 +314,7 @@
   margin-bottom: 70px;
 }
 
-.home .block-signup-form{
+.block-signup-form{
   @media(max-width:$mobile-breakpoint){
     display: flex;
     flex-direction: column;
@@ -330,31 +330,28 @@
   margin-bottom: 33px;
 }
 
-.home .block-signup .block-signup-container .block-signup-left {
+.block-signup .block-signup-container .block-signup-left {
 min-height: 526px;
 
 }
 
-.home .block-signup .block-signup-container .block-signup-left:after {
-  margin-bottom: 35px;
-}
-
-.home .headTitle-content .headTitle-title .separator {
+.headTitle-content .headTitle-title .separator {
   margin-top: 90px;
 }
 
-.home .block-latestNews-content .latestNews-items .latestNews-item-category p {
+.block-latestNews-content .latestNews-items .latestNews-item-category p {
   margin: 18px 0 18px 30px;
 }
-.home .latestNews-item-copy-title{
+
+.latestNews-item-copy-title{
   margin-top: 8px;
 }
 
-.home .latestNews-item-copy-date {
+.latestNews-item-copy-date {
   margin-bottom: 15px;
 }
 
-.home .block-latestNews.-h{
+.block-latestNews.-h{
   padding-bottom: 18px;
 }
 
@@ -371,20 +368,20 @@ min-height: 526px;
   }
 }
 
-.home .block-signup-left{
+ .block-signup-left{
   position: absolute;
   width: calc(100% - 190px);
   left: 0;
 }
 
-.home .block-signup-right{
+ .block-signup-right{
   position: absolute;
   z-index: 1;
   width: 190px;
   right: 0;
 }
 
-.home .block-signup .block-signup-container .block-signup-left {
+ .block-signup .block-signup-container .block-signup-left {
   position: relative;
   margin-bottom: 35px;
   z-index: 2;
@@ -394,7 +391,7 @@ min-height: 526px;
   }
 }
 
-.home .bck {
+ .bck {
   width: 100%;
   position: absolute;
   background-color: #160643;
@@ -403,7 +400,7 @@ min-height: 526px;
   height: 398px;
 }
 
-.home .button.orange span {
+.block-signup-container .button.orange span {
   font-size: 28px;
   @media(max-width:$mobile-breakpoint){
     font-size: 24px;
@@ -411,39 +408,36 @@ min-height: 526px;
 }
 
 
-.home .block-signup .block-signup-container .block-signup-left .block-signup-form input[type=email] {
+ .block-signup .block-signup-container .block-signup-left .block-signup-form input[type=email] {
   @media(max-width:$mobile-breakpoint){
     margin-bottom: 58px;
   }
 }
 
-.home .block-signup-form .button.orange.arrow {
+.block-signup-form .button.orange.arrow {
   @media(max-width:$mobile-breakpoint){
     width: 148px;
     height: 60px;
   }
 }
 
-.home .home-content-items .home-content-item-left-title {
+ .home-content-items .home-content-item-left-title {
   font-size: 45px;
   line-height: 49.5px;
 }
-
-
-.home .block-signup-left.send-msg {
+ .block-signup-left.send-msg {
   display: flex;
-  flex-direction: row;
+  flex-direction: row !important;
   align-items: center;
   justify-content: flex-start;
   width: 100%;
   position: relative;
   @media(max-width:$mobile-breakpoint){
-    flex-direction: column;
+    flex-direction: column !important;
     padding-left: 0 !important;
   }
 }
-
-.home 
+ 
   .socials{
     display: flex;
     justify-content: baseline;
@@ -491,7 +485,7 @@ min-height: 526px;
     }
   }
 
-  .home .wrap-socials p{
+   .wrap-socials p{
     @media(max-width:$mobile-breakpoint){
       margin-bottom: 49px;
       margin-top: 26px;
@@ -499,7 +493,7 @@ min-height: 526px;
     }
   }
     
-  .home .list-social{
+   .list-social{
     display: flex;
     align-items: baseline;
     list-style: none;
@@ -522,6 +516,6 @@ min-height: 526px;
 
   }
 
-  .home .wrap-socials{
+  .wrap-socials{
     padding-left: 38px;
   }

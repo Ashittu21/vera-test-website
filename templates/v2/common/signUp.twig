@@ -137,6 +137,10 @@ return false;
 
 var form = document.getElementById("signUp-form");
 var formdata = new FormData(form);
+var styles = {
+    "display": "flex",
+    "flex-direction": "row"
+};
 
 fetch('https://secure.everyaction.com/v1/Forms/9MnyiyAupU20rLpl1qXycQ2', {
 method: 'POST',
