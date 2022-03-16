@@ -5,22 +5,33 @@
 {% set blocks =  entry.topicPageBlocks %}
 <div class="topicPage">
 	{% for block in blocks %}
+
 		{% if block.type == 'copy' %}
     	{% include 'v2/common/copy' with { block: block }  %}
+
 		{% elseif  block.type == 'slideshow' %}
       {% include 'v2/common/swiperSlider' with { block: block } %}
+
 		{% elseif  block.type == 'video' %}
       {% include 'v2/common/videoBlock' with { block: block } %}
+
 		{% elseif  block.type == 'map' %}
 		  <div class="mapContainer">
         {% include '../../vera-maps/_maptypesBlock'  with { block: block } %}
       </div>
+
 		{% elseif block.type == 'quote' %}
     	{% include 'v2/common/quote' with { block: block } %}
+
 		{% elseif block.type == 'stats' %}
     	{% include 'v2/common/stats' with { block: block } %}
+		
+		{% elseif block.type == 'quoteBlockType1' %}
+      {% include 'v2/common/quoteBlockType1' with { block: block } %}
+
 		{% elseif block.type == 'listing' %}
     	{% include 'v2/common/listing' with { block: block } %}
+
 		{% elseif block.type == 'exploreMore' %}
     	{% include 'v2/common/exploreMore' with { block: block } %}	
 		

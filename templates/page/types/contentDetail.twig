@@ -33,7 +33,7 @@
     <!-- Share Icons -->
 
     {% for block in blocks %}
-    
+
       {% if block.type == 'headerTitle' %} {# Header - no image  #}
         {% include 'v2/common/headerTitle' with { block: block } %}
 
@@ -69,6 +69,9 @@
 
       {% elseif block.type == 'quoteBlockType1' %}
     	  {% include 'v2/common/quoteBlockType1' with { block: block } %}
+      
+      {% elseif block.type == 'quote' %} {# Pull Quote #}
+    	  {% include 'v2/common/quote' with { block: block } %}
 
       {% elseif  block.type == 'relatedItems' %}
         {% include 'v2/common/relatedItems' with { block: block } %}
@@ -87,10 +90,7 @@
       
       {% elseif block.type == 'newsHero' %} {# Latest News Hero #}
     	  {% include 'v2/common/newsHero' with { block: block } %}	
-      
-      {% elseif block.type == 'quote' %} {# Pull Quote #}
-    	  {% include 'v2/common/quote' with { block: block } %}
-      
+
       {% elseif  block.type == 'exploreMore' %} {# Expore More #}
         {% include 'v2/common/exploreMore.twig'  with { block: block } %}   
       
