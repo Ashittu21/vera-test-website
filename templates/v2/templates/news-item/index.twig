@@ -170,6 +170,8 @@
     		  {% for newsItem in entry.relatedContent %}
           		{% if newsItem.streamImageRectangle | length %}
 			            {% set imageset = newsItem.streamImageRectangle %}
+              {% elseif  newsItem.streamImageSquare | length %}
+                 {% set imageset = newsItem.streamImageSquare %}
               {% endif %}
           <a href="{{ newsItem.url }}" class="latestNews-item">
     				<div class="latestNews-item-category">
