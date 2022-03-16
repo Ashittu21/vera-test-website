@@ -126,9 +126,11 @@
     	<div class="block-latestNews-content">
     		<div class="latestNews-items">
     		  {% for newsItem in entry.relatedContent %}
-          		{% if newsItem.streamImageRectangle | length %}
-			            {% set imageset = newsItem.streamImageRectangle %}
+          		
+					{% if newsItem.streamImageRectangle | length %}
+			            {% set imageset = newsItem.streamImageRectangle.first ?? null %}
               {% endif %}
+
            <a href="{{ newsItem.url }}" class="latestNews-item">
 							<div class="latestNews-item-category">
 								<p>{{ newsItem.type.name | title | upper }}</p>

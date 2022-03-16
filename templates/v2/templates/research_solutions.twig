@@ -20,9 +20,11 @@
       }
 %}
 
+{#
 {% if entry is defined and entry.type.handle in ['ourProjects'] %}
   {% set streamOptions = streamOptions|merge({showArchived: true}) %}
 {% endif %}
+#}
 
 {% if streamOptions.streamType is not defined %}
   {% set streamOptions = streamOptions|merge({streamType: 'content'}) %}
@@ -54,18 +56,19 @@
                 }] %}
         {% endif %}
 
+
         {% if craft.request.getParam('sections') %}
-                {% set searchSections = craft.request.getParam('sections') | split(',') %}
+          {% set searchSections = craft.request.getParam('sections') | split(',') %}
         {% elseif streamOptions.sections is defined %}
                 {% set searchSections = [] %}
                 {% for section in streamOptions.sections %}
-                        {% set searchSections = searchSections|merge([section[1]]) %}
+                    {% set searchSections = searchSections|merge([section[1]]) %}
                 {% endfor %}
-                {% if streamOptions.hiddenSections is defined %}
+                {#{% if streamOptions.hiddenSections is defined %}
                         {% set searchSections = searchSections|merge(streamOptions.hiddenSections) %}
-                {% endif %}
+                {% endif %} #}
         {% else %}
-                {% set searchSections = [] %}
+          {% set searchSections = [] %}
         {% endif %}
 
 
@@ -92,10 +95,11 @@
 
 {% set queryObj = {
     relatedTo: relations,
-    section: searchSections
+    section: searchSections,
   }
 %}
 
+{# section('and, not this, not that') #}
 {% set totalEntries = craft.entries(queryObj).limit(10).count() %}
 
 {% if filterOrder == 'newest' %}
@@ -171,7 +175,7 @@
             </div>
             <div class="rs-listing-hero-copy">
               <div>
-                <div class="rs-listing-hero-copy-category">
+                <div class="rs-listing-hero-copy-category">       
                   <p>{{ heroNews.type.name | title | upper }}</p>
                 </div>
                 <div class="rs-listing-hero-copy-title">
@@ -255,7 +259,11 @@
             <div class="rs-listing-item-wrapper">
               <div class="rs-listing-item-cat">
                 <span>
-                 {{ result.type.name }}
+                   {% if result.type.handle in ['specialReportSingle','specialReportChaptered','specialReport','specialReportCampaign'] %}
+                      <p>Special Report</p>
+                    {% else %}
+                      <p>{{ result.type.name | title | upper }}</p>
+                  {% endif %}
                 </span>
               </div>
               <div class="rs-listing-item-content">
