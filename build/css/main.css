@@ -32161,7 +32161,7 @@ div.heading > div:nth-child(3) > p {
       transform: translateX(0);
       opacity: 1; } } }
 
-.inPageCTA-image-container {
+.inPageCTA-container {
   min-height: 613px;
   max-width: 1441px;
   width: 100%;
