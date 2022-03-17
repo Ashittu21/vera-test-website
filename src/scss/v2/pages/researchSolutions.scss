@@ -159,7 +159,13 @@
           }
 
           .mobile-filter-sort{
+            display: none;
             width: 100%;
+            
+            @media (max-width: $tablet-landscape) {
+              display: block;
+            }
+            
             hr{
               border: 1px solid #3E2BB1;
               width: 80%;
@@ -206,6 +212,11 @@
           .mobile-filter-submit{
             width: 100%;
             text-align: center;
+            display: none;
+            
+            @media (max-width: $tablet-landscape) {
+              display: block;
+            }
         
             .filterSubmit{
               margin-top: 25px;
