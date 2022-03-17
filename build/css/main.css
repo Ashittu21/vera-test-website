@@ -32465,28 +32465,54 @@ div.heading > div:nth-child(3) > p {
           font-weight: 400;
           line-height: 20px; } }
     .mediaContacts .mediaContacts-header-links {
+      margin-top: 31px;
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
-      -webkit-box-pack: start;
-          -ms-flex-pack: start;
-              justify-content: flex-start;
-      margin: 20px 0 0 0; }
-      .mediaContacts .mediaContacts-header-links a {
-        margin-right: 10px; }
-      @media (max-width: 700px) {
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: row;
+              flex-direction: row;
+      height: -webkit-fit-content;
+      height: -moz-fit-content;
+      height: fit-content;
+      margin-bottom: 60px;
+      /*  display: flex;
+      justify-content: flex-start;
+      margin: 20px 0 0 0;
+
+      a {
+        margin-right: 10px;
+      }
+      
+      
+      @media (max-width: $mobile-large) {
+        flex-direction: column;
+        a {
+          text-align: center;
+          width: fit-content;
+          margin: 0 auto;
+          margin-bottom: 20px;
+        }
+      }*/ }
+      @media (max-width: 768px) {
         .mediaContacts .mediaContacts-header-links {
-          -webkit-box-orient: vertical;
-          -webkit-box-direction: normal;
-              -ms-flex-direction: column;
-                  flex-direction: column; }
+          margin-bottom: 0px;
+          -webkit-box-pack: center;
+              -ms-flex-pack: center;
+                  justify-content: center; } }
+      .mediaContacts .mediaContacts-header-links a {
+        margin-right: 10px;
+        border-radius: 2px;
+        border-color: #CEC0BC; }
+        @media (max-width: 768px) {
           .mediaContacts .mediaContacts-header-links a {
-            text-align: center;
-            width: -webkit-fit-content;
-            width: -moz-fit-content;
-            width: fit-content;
-            margin: 0 auto;
-            margin-bottom: 20px; } }
+            margin-right: 5px; } }
+        .mediaContacts .mediaContacts-header-links a.active {
+          background: #CEC0BC;
+          color: #0A0319;
+          border-radius: 2px;
+          border-color: #CEC0BC; }
   .mediaContacts .bannerType4 {
     max-width: 1060px; }
     .mediaContacts .bannerType4 .button.orange span {

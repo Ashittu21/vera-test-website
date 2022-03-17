@@ -66,7 +66,33 @@
     
     
     &-links {
+      margin-top: 31px;
       display: flex;
+      flex-direction: row;
+      height: fit-content;
+      margin-bottom: 60px;
+      @media(max-width:$mobile-breakpoint) {
+        margin-bottom: 0px;
+        justify-content: center;
+
+      }
+      a{   
+        margin-right: 10px;
+        border-radius: 2px;
+        border-color: #CEC0BC;
+        @media(max-width:$mobile-breakpoint) {
+          margin-right: 5px;
+
+        }
+        &.active{
+          background: #CEC0BC;
+          color: #0A0319;
+          border-radius: 2px;
+          border-color: #CEC0BC;
+        }
+      }
+
+    /*  display: flex;
       justify-content: flex-start;
       margin: 20px 0 0 0;
 
@@ -83,7 +109,7 @@
           margin: 0 auto;
           margin-bottom: 20px;
         }
-      }
+      }*/
     }
     
     
