@@ -130,8 +130,35 @@
     	    {% include 'v2/common/inPageCTA' with { block: block } %}
       {% endif %}
     {% endfor %}
+
     
-  </div>
+    {% set relatedItems = entry.relatedNewsItems %}
+
+    <section class="relatedItems-container">
+    <div class="relatedItems-title">Related Items</div>
+    {% for item in relatedItems %}
+    <div class="relatedItems-item">
+      <div class="relatedItems-item-content">
+        <div class="relatedItems-item-content-left">
+          <picture>
+            <source media="(max-width: 768px)" srcset="{{ item.heroImage.one.getUrl('square130') ?? null }}">
+            <source media="(min-width: 769px)" srcset="{{ item.heroImage.one.getUrl('image290X180') ?? null }}">
+            <img src="{{ item.heroImage.one.getUrl('image290X180')?? null }}" alt="{{ item.title }}">
+          </picture>
+
+        </div>
+        <div class="relatedItems-item-content-right">
+          <div class="relatedItems-item-content-right-tag">{{ item.type.name | title | upper }}</div>
+          <div class="relatedItems-item-content-right-title"> <a href="">{{ item.title }}</a> </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+    </section>
+
+    </div>
+
+
 </div>
 
 {% endblock %}
