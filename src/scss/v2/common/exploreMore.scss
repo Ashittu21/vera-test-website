@@ -88,12 +88,10 @@
 
         a {
           line-height: 0px;
-          letter-spacing: -1px;
-          justify-content: center;
+          justify-content: safe;
           align-items: center;
           font-family: var(--global-font-abc-whyte);
           font-size: 21px;
-          letter-spacing: 0em;
           font-style: normal;
           line-height: 29px;
           font-weight: 500;
@@ -101,7 +99,7 @@
           padding: 1.2rem 20px;
           text-align: left;
           min-height: 80px;
-          display: block;
+          display: flex;
           color: var(--global-color-white);
           background-color: #2E1D97;
           border-left: 2px solid var(--global-color-mint);
