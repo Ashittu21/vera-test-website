@@ -144,21 +144,45 @@
           </div>
         </div>
         <h3 class="rs-title">Solutions & Research</h3>
+
         <div class="rs-head-form">
           <div class="filter-by">
             FILTER BY
           </div>
+          <div class="mobile-filter-by">
+            Sort & Filter
+          </div>
+          
+          <button class="close-rs-filter"> </button>
+
           <div class="rs-filters">
             {% include 'v2/templates/solutionsResearch/filterDesktop' %}
           </div>
+
+        <div class="mobile-filter-sort">
+          <hr>
+          <label for="orderby" >Sort by</label>
+            <select type="text" id="orderby" onchange="orderby()"> 
+              <option value="newest" {% if filterOrder == 'newest' %} selected {% endif %}>Newest</option>
+              <option value="oldest" {% if filterOrder == 'oldest' %} selected {% endif %}>Oldest</option>
+            </select>
+        </div> 
+
+
+        <div class="mobile-filter-submit">
+          <button type="button"  class="filterSubmit apply"><span>Show Results</span></button>
+        </div>
+
 
           <div class="rs-tags">
             <a href="#" id="clearall">Clear all </a>
             <div id="searchTags"> </div>
           </div>
+
         </div>
+
         <div class="rs-head-form-mobile">
-          <button type="button" class="filter"><span>Sort & filter</span></button>
+          <button type="button" class="filter" id="sortFilter" ><span>Sort & filter</span></button>
         </div>
       </div>
     </section>
@@ -238,7 +262,7 @@
 
 
     <div class="rs-listing-filter">
-      <label for="orderby">Order by</label>
+      <label for="orderby">Sort by</label>
       <select type="text" id="orderby" onchange="orderby()"> 
         <option value="newest" {% if filterOrder == 'newest' %} selected {% endif %}>Newest</option>
         <option value="oldest" {% if filterOrder == 'oldest' %} selected {% endif %}>Oldest</option>
@@ -357,7 +381,28 @@
 
 <script>
 var optionSelected = [];
-let tagCont = document.getElementById('searchTags');
+let tagCont    = document.getElementById('searchTags');
+var sortMobile = document.querySelector('#sortFilter');
+var header     = document.querySelector('.header-v2-mobile');
+var rsForm     = document.querySelector('.rs-head-form');
+var html       = document.querySelector(':root');
+var closersFilter     = document.querySelector('.close-rs-filter');
+
+
+sortMobile.addEventListener('click', function (event) {
+ header.classList.toggle('hidden');
+ rsForm.classList.toggle('show');
+ window.scrollTo({ top: 0, behavior: 'smooth' });
+ html.classList.toggle('overflowHidden');
+});
+
+closersFilter.addEventListener('click', function (event) {
+ header.classList.toggle('hidden');
+ rsForm.classList.toggle('show');
+ html.classList.toggle('overflowHidden');
+});
+
+
 
 function createTagItem(name, id) {
   let a = document.createElement('a');
@@ -509,6 +554,8 @@ $('#clearall').click(function(event) {
   $(".dropdown-text-section").html('Select resource type');
   event.preventDefault();
 });
+
+
 </script>
 
 {% endblock %}

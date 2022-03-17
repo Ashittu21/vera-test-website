@@ -3,6 +3,7 @@
 {% block content %}
 
 {% set filterCat      = craft.app.request.getQueryParam('filter') %}
+
 {% set headerTitle    = entry.mediaPress_headerTitle %}
 {% set pageTitle      = entry.mediaPress_pageTitle %}
 {% set pageCopy       = entry.mediaPress_copy %}
@@ -23,15 +24,15 @@
 <!-- Latest News -->
 
   <div class="mediaContacts">
-    
+
     <div class="mediaContacts-header">
       <div class="mediaContacts-header-title">{{ pageTitle }}</div>
       <div class="mediaContacts-header-copy">{{ pageCopy }}</div>
       <div class="mediaContacts-header-filter">Filter By:</div>
           <div class="mediaContacts-header-links">
             <a href="{{ entry.url }}/"  class="button-sand {% if filterCat  == '' %}active{% endif %}">View all</a>
-            <a href="{{ entry.url }}/?filter=pressReleases" class="button-sand {% if filterCat  == 'pressReleases' %}{% endif %}">Press releases</a>
-            <a href="{{ entry.url }}/?filter=news"  class="button-sand {% if filterCat  == 'news' %}active{% endif %}">Media coverage</a>
+            <a href="{{ entry.url }}/?filter=pressReleases" class="button-sand {% if filterCat  == 'pressReleases' %}active{% endif %}">Press releases</a>
+            <a href="{{ entry.url }}/?filter=mediaCoverage"  class="button-sand {% if filterCat  == 'mediaCoverage' %}active{% endif %}">Media coverage</a>
           </div>   
     </div>
 
@@ -39,7 +40,7 @@
     <div class="mediaContacts-items">
 
       {% switch filterCat %}
-         {% case 'news' %}
+         {% case 'mediaCoverage' %}
            {% set totalEntries = craft.entries.section('news').limit(10).count() %}
            {% paginate craft.entries.section('news').limit(10) as pageInfo, pageEntries %}
          {% case 'pressReleases'%}
