@@ -412,8 +412,24 @@
   #section-search {
     padding: 20px;
     background-color: #2E1D97;
+    position: relative;
+    .search-wrapper {
+      position: relative;
+      transform: inherit;
+      right: inherit;
+      top: inherit;
+      .input-holder{
+        width: 100%;
+        input.search-input::placeholder {
+          color: #FFF;
+        }
+      }
+    }   
   }
 }
+
+
+
 
 
 @media(max-width: $menu-mobile-breakpoint){

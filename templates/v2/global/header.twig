@@ -57,7 +57,6 @@
                   <span></span>
                 </button>
               </form>
-
               <span class="close" onclick="searchToggle(this, event);"></span>
             </div>
           </div>
@@ -207,7 +206,21 @@
 
         </div>
 
-        <div id="section-search"></div>
+        <div id="section-search">
+          <div class="search-wrapper active">
+            <form class="input-holder"
+              action="{{ siteUrl }}/search" method="GET">
+              <div class="txt-label">Search</div>
+              <input type="text" class="search-input"
+                name="query" placeholder="Search">
+              <button class="search-icon"
+                onclick="searchToggle(this, event);">
+                <span></span>
+              </button>
+            </form>
+          </div>
+
+        </div>
       </div>
     </div>
   </section>
