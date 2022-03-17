@@ -676,7 +676,9 @@
         padding: 0;
     }
     .w-results{
-        max-width: 620px;
+        width: 620px;
+        padding: 0 15px;
+        max-width: 100%;
         #stream-content{
             margin-bottom: 200px;
         }

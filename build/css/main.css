@@ -27078,7 +27078,9 @@ button.SortableTable-header-column-button {
   padding: 0; }
 
 .search-stream .w-results {
-  max-width: 620px; }
+  width: 620px;
+  padding: 0 15px;
+  max-width: 100%; }
   .search-stream .w-results #stream-content {
     margin-bottom: 200px; }
 
@@ -30597,16 +30599,14 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
             row-gap: 20px; } }
         .block-exploreMore .block-exploreMore-container .block-exploreMore-items li a {
           line-height: 0px;
-          letter-spacing: -1px;
-          -webkit-box-pack: center;
-              -ms-flex-pack: center;
-                  justify-content: center;
+          -webkit-box-pack: safe;
+              -ms-flex-pack: safe;
+                  justify-content: safe;
           -webkit-box-align: center;
               -ms-flex-align: center;
                   align-items: center;
           font-family: var(--global-font-abc-whyte);
           font-size: 21px;
-          letter-spacing: 0em;
           font-style: normal;
           line-height: 29px;
           font-weight: 500;
@@ -30614,7 +30614,9 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
           padding: 1.2rem 20px;
           text-align: left;
           min-height: 80px;
-          display: block;
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
           color: var(--global-color-white);
           background-color: #2E1D97;
           border-left: 2px solid var(--global-color-mint);
