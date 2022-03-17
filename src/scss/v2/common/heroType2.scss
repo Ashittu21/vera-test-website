@@ -4,10 +4,15 @@
 
   &-title{
 
+    max-width: 1280px;
     font-family:var(--global-font-sectra);
-    margin-left: 40px;
-    max-width: 740px;
-    color: white;
+    color: #fff;
+    margin-left: auto;
+    margin-right: auto;
+
+    @media (min-width:$tablet-landscape){
+      padding-right: 15vw;
+    }
     
     @media(max-width:$mobile-breakpoint){
       font-size: 38px;
