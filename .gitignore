@@ -11,3 +11,8 @@ htdocs
 package-lock.json
 web/dist/css
 build/css/
+web/audio/
+web/images-transformed/
+web/images/
+web/inline-downloads/
+web/knowledge-bank/
