@@ -8,7 +8,13 @@
       </div>
       <div class="newsLanding-head-title-topic">Select a topic</div>
       <ul class="drop">
-        <li>All</li>
+        <li>All
+        <span>
+           <svg width="13" height="9" viewBox="0 0 13 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 1L6.82353 7L12 1" stroke="#EF4136" stroke-width="2"/>
+          </svg>
+        </span>
+        </li>
         <li>
           <a href="{{ siteUrl }}news-and-stories" class="button-sand {% if actual == 'blogPosts' %}active{% endif %}">News</a>
         </li>
@@ -21,11 +27,6 @@
         <li>
           <a href="{{ siteUrl }}news-and-stories-spotlights" class="button-sand {% if actual == 'spotlights' %}active{% endif %}">Spotlights</a> <!-- spotlights -->
         </li>
-        <span>
-          <svg width="13" height="9" viewBox="0 0 13 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M1 1L6.82353 7L12 1" stroke="#EF4136" stroke-width="2"/>
-          </svg>
-        </span>
       </ul>
 
     </div><!-- newsLanding-head -->

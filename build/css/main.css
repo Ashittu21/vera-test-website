@@ -30927,6 +30927,12 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
         font-size: 35px;
         line-height: 35px; }
 
+.mt {
+  margin-top: 90px; }
+  @media (max-width: 768px) {
+    .mt {
+      margin-top: 65px; } }
+
 .heroType1-container {
   background-color: var(--global-color-violet);
   height: 519px;
@@ -36117,6 +36123,9 @@ div.heading > div:nth-child(3) > p {
   opacity: .7;
   display: block; }
 
+.clicky-menu button:hover #eader-v2-bottom-nav-ending-mass-incarceration-submenu {
+  display: block; }
+
 header {
   /*display:none;*/
   width: 100%;
@@ -37606,7 +37615,26 @@ header {
 .drop li:first-child {
   display: block;
   border-top: 0px;
-  padding: 5px 10px 9px 22px; }
+  padding: 5px 10px 9px 22px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding-left: 10px; }
+
+.drop.open li:first-child {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding-left: 10px; }
+  .drop.open li:first-child span {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg); }
 
 .drop li:nth-child(1) {
   border-bottom: 1px solid #CEC0BC; }
@@ -37624,10 +37652,10 @@ header {
       display: inline-block;
       padding: 0px;
       border-radius: 2px;
-      position: absolute;
+      position: relative;
       background-color: #fff7f0;
       z-index: 1;
-      width: 99%;
+      width: 100%;
       left: 0; } }
 
 .drop li:first-child:hover {
@@ -37654,17 +37682,20 @@ header {
   padding-bottom: 30px;
   position: absolute;
   background-color: #fff7f0;
-  z-index: 1; }
+  z-index: 1;
+  width: 320px;
+  right: 0px;
+  left: 11px; }
 
-.drop span:before {
+/* .drop span:before {
   position: absolute;
   top: 5px;
   right: 15px;
-  content: "\2193"; }
-
-.drop.open span:before {
-  content: "\2191"; }
-
+  content: "\2193";
+} */
+/* .drop.open span:before {
+  content: "\2191";
+} */
 .drop.open li:last-child {
   padding-bottom: 30px; }
 
@@ -37742,7 +37773,7 @@ header {
       text-align: left;
       color: #FFF;
       overflow: hidden;
-      margin-left: 230px;
+      margin-left: 0px;
       /*        &:before {
             border-top: 2px solid var(--global-color-light-violet);
             content: '';
