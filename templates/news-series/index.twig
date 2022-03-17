@@ -141,9 +141,9 @@
       <div class="relatedItems-item-content">
         <div class="relatedItems-item-content-left">
           <picture>
-            <source media="(max-width: 768px)" srcset="{{ item.heroImage.one.getUrl('square130') ?? null }}">
-            <source media="(min-width: 769px)" srcset="{{ item.heroImage.one.getUrl('image290X180') ?? null }}">
-            <img src="{{ item.heroImage.one.getUrl('image290X180')?? null }}" alt="{{ item.title }}">
+            <source media="(max-width: 768px)" srcset="{{ item.streamImageRectangle.one.getUrl('square130') ?? null }}">
+            <source media="(min-width: 769px)" srcset="{{ item.streamImageRectangle.one.getUrl('image290X180') ?? null }}">
+            <img src="{{ item.streamImageRectangle.one.getUrl('image290X180')?? null }}" alt="{{ item.title }}">
           </picture>
 
         </div>
