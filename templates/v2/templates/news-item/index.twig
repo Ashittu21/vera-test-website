@@ -20,9 +20,27 @@
 
         {% if recentBlogPosts|length > 0 %}
             {% for bl in recentBlogPosts %}
-             {{ bl.title }}
-             {{ bl.url }}
+             {% set seriesTitle = bl.title %}
+             {% set seriesUrl   = bl.url %}
             {% endfor %} 
+
+            <!-- Header Title -->
+              <section class="headTitle bgColor-darkviolet">
+                <div class="headTitle-content {{ block.headerTitle_size }}">
+                {#  <div class="headTitle-breadcumb">
+                    if entry.level > 1 %}
+                      {% for crumb in entry.getAncestors() %}
+                        {{ crumb.getLink() }} 
+                      {% endfor %}
+                    {% endif 
+                  </div>#}
+                  <div class="headTitle-title">
+                    <h3 class="separator left-aligned">
+                    <span>{{ seriesTitle }}</span></h3>
+                  </div>
+                </div>
+              </section>
+            <!-- Header Title -->
           {% endif %}
 
 

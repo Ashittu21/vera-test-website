@@ -128,7 +128,7 @@
             align-items: center;
           }
 
-          &::after {
+          .icon-arrow {
             content: '';
             width: 20px;
             height: 20px;
@@ -138,13 +138,15 @@
             background-repeat: no-repeat;
             background-size: inherit;
             background-image: url("../img/v2/arrow.svg");
+            position: relative;
+            top: 7px;
           }
 
           &:hover {
             background-color: var(--global-color-red-2);
             text-decoration: underline;
             border-left: 2px solid var(--global-color-mint);
-            &::after {
+            .icon-arrow {
               background-image: url("../img/v2/arrow-white.svg");
             }
           }

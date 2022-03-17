@@ -30645,7 +30645,7 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
             -webkit-box-align: center;
                 -ms-flex-align: center;
                     align-items: center; }
-          .block-exploreMore .block-exploreMore-container .block-exploreMore-items li a::after {
+          .block-exploreMore .block-exploreMore-container .block-exploreMore-items li a .icon-arrow {
             content: '';
             width: 20px;
             height: 20px;
@@ -30658,12 +30658,14 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
                     align-items: center;
             background-repeat: no-repeat;
             background-size: inherit;
-            background-image: url("../img/v2/arrow.svg"); }
+            background-image: url("../img/v2/arrow.svg");
+            position: relative;
+            top: 7px; }
           .block-exploreMore .block-exploreMore-container .block-exploreMore-items li a:hover {
             background-color: var(--global-color-red-2);
             text-decoration: underline;
             border-left: 2px solid var(--global-color-mint); }
-            .block-exploreMore .block-exploreMore-container .block-exploreMore-items li a:hover::after {
+            .block-exploreMore .block-exploreMore-container .block-exploreMore-items li a:hover .icon-arrow {
               background-image: url("../img/v2/arrow-white.svg"); }
       .block-exploreMore .block-exploreMore-container .block-exploreMore-items--violet li a {
         border-left: 2px solid var(--global-color-mint);
