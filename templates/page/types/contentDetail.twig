@@ -85,9 +85,6 @@
       {% elseif  block.type == 'bannerType4' %}
         {% include 'v2/common/bannerType4' with { block: block } %}
 
-      {% elseif  block.type == 'latestNewsItems' %}
-        {% include 'v2/common/newsItems' with { block: block } %}
-
       {% elseif  block.type == 'slideshow' %}
         {% include 'v2/common/swiperSlider' with { block: block } %}
       
@@ -96,6 +93,9 @@
       
       {% elseif block.type == 'newsHero' %} {# Latest News Hero #}
     	  {% include 'v2/common/newsHero' with { block: block } %}	
+
+      {% elseif  block.type == 'newsItems' %} {# Latest News Items #}
+        {% include 'v2/common/newsItems' with { block: block } %}
 
       {% elseif  block.type == 'exploreMore' %} {# Expore More #}
         {% include 'v2/common/exploreMore.twig'  with { block: block } %}   
