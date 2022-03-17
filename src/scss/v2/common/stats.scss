@@ -43,6 +43,7 @@
     .stats-block-item {
 
       border-right: 2px solid var(--global-color-dark-sand);
+      flex-shrink: 1;
 
       @media (max-width: $tablet-portrait) {
         flex-direction: column;

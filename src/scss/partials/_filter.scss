@@ -146,6 +146,8 @@
     display: inline-block;
 }
 
+
+
 .filter__dropdown {
     width: 100%;
     max-height: 0;
@@ -666,5 +668,17 @@
 
     .filter__dropdown.dropped {
         max-height: 10000px;
+    }
+}
+
+.search-stream{
+    .container{
+        padding: 0;
+    }
+    .w-results{
+        max-width: 620px;
+        #stream-content{
+            margin-bottom: 200px;
+        }
     }
 }

@@ -314,7 +314,7 @@
   margin-bottom: 70px;
 }
 
-.home .block-signup-form{
+.block-signup-form{
   @media(max-width:$mobile-breakpoint){
     display: flex;
     flex-direction: column;
@@ -330,35 +330,28 @@
   margin-bottom: 33px;
 }
 
-.home .block-signup .block-signup-container {
-  max-width: 100%;
-}
-
-.home .block-signup .block-signup-container .block-signup-left {
+.block-signup .block-signup-container .block-signup-left {
 min-height: 526px;
 
 }
 
-.home .block-signup .block-signup-container .block-signup-left:after {
-  margin-bottom: 35px;
-}
-
-.home .headTitle-content .headTitle-title .separator {
+.headTitle-content .headTitle-title .separator {
   margin-top: 90px;
 }
 
-.home .block-latestNews-content .latestNews-items .latestNews-item-category p {
+.block-latestNews-content .latestNews-items .latestNews-item-category p {
   margin: 18px 0 18px 30px;
 }
-.home .latestNews-item-copy-title{
+
+.latestNews-item-copy-title{
   margin-top: 8px;
 }
 
-.home .latestNews-item-copy-date {
+.latestNews-item-copy-date {
   margin-bottom: 15px;
 }
 
-.home .block-latestNews.-h{
+.block-latestNews.-h{
   padding-bottom: 18px;
 }
 
@@ -375,20 +368,20 @@ min-height: 526px;
   }
 }
 
-.home .block-signup-left{
+ .block-signup-left{
   position: absolute;
   width: calc(100% - 190px);
   left: 0;
 }
 
-.home .block-signup-right{
+ .block-signup-right{
   position: absolute;
   z-index: 1;
   width: 190px;
   right: 0;
 }
 
-.home .block-signup .block-signup-container .block-signup-left {
+ .block-signup .block-signup-container .block-signup-left {
   position: relative;
   margin-bottom: 35px;
   z-index: 2;
@@ -398,7 +391,7 @@ min-height: 526px;
   }
 }
 
-.home .bck {
+ .bck {
   width: 100%;
   position: absolute;
   background-color: #160643;
@@ -407,7 +400,7 @@ min-height: 526px;
   height: 398px;
 }
 
-.home .button.orange span {
+.block-signup-container .button.orange span {
   font-size: 28px;
   @media(max-width:$mobile-breakpoint){
     font-size: 24px;
@@ -415,20 +408,114 @@ min-height: 526px;
 }
 
 
-.home .block-signup .block-signup-container .block-signup-left .block-signup-form input[type=email] {
+ .block-signup .block-signup-container .block-signup-left .block-signup-form input[type=email] {
   @media(max-width:$mobile-breakpoint){
     margin-bottom: 58px;
   }
 }
 
-.home .block-signup-form .button.orange.arrow {
+.block-signup-form .button.orange.arrow {
   @media(max-width:$mobile-breakpoint){
     width: 148px;
     height: 60px;
   }
 }
 
-.home .home-content-items .home-content-item-left-title {
+ .home-content-items .home-content-item-left-title {
   font-size: 45px;
   line-height: 49.5px;
 }
+ .block-signup-left.send-msg {
+  display: flex;
+  flex-direction: row !important;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  position: relative;
+  @media(max-width:$mobile-breakpoint){
+    flex-direction: column !important;
+    padding-left: 0 !important;
+  }
+}
+ 
+  .socials{
+    display: flex;
+    justify-content: baseline;
+    align-items: baseline;
+    width: 100%;
+    position: relative;
+    @media(max-width:$mobile-breakpoint){
+      flex-direction: column;
+      width: auto;
+      margin-left: -55px;
+    }
+  .donate-txt{
+      min-width: 50%;
+      padding-left: 110px;
+      @media(max-width:$mobile-breakpoint){
+        padding-left: 0px;
+        margin-left: -20px;
+      }
+    }
+
+  }
+  .block-signup-title .message {
+    min-width: 458px;
+    border-right: 3px solid #160643;
+    height: 315px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 30px;
+    @media(max-width:$mobile-breakpoint){
+      align-items: self-start;
+      padding-left: 0;
+      min-width: inherit;
+      border: none;
+      height: 190px;
+    }
+}
+  
+  .donate-txt p, .wrap-socials p{
+    font-size: 26px;
+    margin-bottom: 40px;
+    @media(max-width:$mobile-breakpoint){
+      font-size: 21px;
+      margin-bottom: 26px;
+    }
+  }
+
+   .wrap-socials p{
+    @media(max-width:$mobile-breakpoint){
+      margin-bottom: 49px;
+      margin-top: 26px;
+      margin-left: -55px;
+    }
+  }
+    
+   .list-social{
+    display: flex;
+    align-items: baseline;
+    list-style: none;
+    justify-content: space-between;
+    @media(max-width:$mobile-breakpoint){
+      margin-left: -55px;
+    }
+    a{
+      svg{
+        width: 45px;
+        margin-right: 7px;
+        padding: 0;
+      }
+    }
+}
+
+  .list-social button{
+    border-style: none;
+    background-color: transparent;
+
+  }
+
+  .wrap-socials{
+    padding-left: 38px;
+  }

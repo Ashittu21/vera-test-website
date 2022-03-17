@@ -13,34 +13,50 @@
 
         {% if block.type == 'headerTitle' %} {# Header - No Image#}
           {% include 'v2/common/headerTitle' with { block: block } %}
+
         {% elseif block.type == 'heroType1' %} {# Header #}
           {% include 'v2/common/heroType1' with { block: block } %}
+
         {% elseif block.type == 'copy' %}  {# Text #}
           {% include 'v2/common/copy'  with { block: block } %}
+
         {% elseif block.type == 'bannerType2' %} {# Text besides images #}
           {% include 'v2/common/bannerType2'  with { block: block } %}
+
         {% elseif  block.type == 'bannerType3' %} {# Full width CTA without image #}
           {% include 'v2/common/bannerType3' with { block: block } %}
+
         {% elseif  block.type == 'bannerType4' %} {# In-page CTA #}
           {% include 'v2/common/bannerType4' with { block: block } %}
+
         {% elseif block.type == 'signUp' %} {# Email sign up CTA #}
           {% include 'v2/common/signUp.twig'  with { block: block } %}
-        {% elseif block.type == 'stats' %} {# Stats #}
-          {% include 'v2/common/stats'  with { block: block } %}
+
+      {% elseif block.type == 'stats' %}  {# Stats Multi #}
+    	  {% include 'v2/common/stats' with { block: block } %}
+
+      {% elseif block.type == 'quote' %}  {# Stat-1 #}
+    	  {% include 'v2/common/quote' with { block: block } %}
+
+      {% elseif block.type == 'quoteBlockType1' %} {# Pull Quote #}
+    	  {% include 'v2/common/quoteBlockType1' with { block: block } %}    
+
         {% elseif  block.type == 'exploreMore' %} {# Expore More #}
-          {% include 'v2/common/exploreMore.twig'  with { block: block } %}       
+          {% include 'v2/common/exploreMore.twig'  with { block: block } %}     
+
         {% elseif  block.type == 'newsHero' %}
           {% include 'v2/common/newsHero' with { block: block } %}   
+
         {% elseif block.type == 'code'  %} {# Code #}
           <div class="code-container">{{ block.code | raw }}</div>    
-        {% elseif block.type == 'quote' %} {# Pull Quote #}
-    	    {% include 'v2/common/quote' with { block: block } %}
+
         {% elseif block.type == 'featuredType1' %}
           {% include 'v2/common/featuredType1' with { block: block } %}
+
         {% elseif block.type == 'featuredType2' %}
           {% include 'v2/common/featuredType2' with { block: block } %}
-        {% elseif block.type == 'quoteBlockType1' %}
-    	    {% include 'v2/common/quoteBlockType1' with { block: block } %}
+
+
         {% elseif block.type == 'inPageCTA' %}
     	    {% include 'v2/common/inPageCTA' with { block: block } %}
         {% endif %}
