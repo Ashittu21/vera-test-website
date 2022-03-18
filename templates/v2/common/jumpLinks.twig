@@ -2,16 +2,16 @@
     <!-- On this Page Links -->
     <section class="bannerLinks-block-container">
       <div class="bannerLinks-title-mobile">{{ block.jumpLinks_title }} </div>
-      <div class="bannerLinks-left" style="background-image: url('{{ block.jumplinks_image.first.url }}');"></div>
+      <div class="bannerLinks-left" style="background-image: url('{{ block.jumpLinks_image.first.url }}');"></div>
         <div class="bannerLinks-right">
           <div class="bannerLinks-right-title">
             {{ block.jumpLinks_title }}
           </div>
           {% if block.jumpLinks_blocks|length %}
           <div class="bannerLinks-right-items">
-            {% for jumpBlocks in block.jumpLinks_anchors  %}
+            {% for jumpBlocks in block.jumpLinks_blocks  %}
             <div class="bannerLinks-right-item">
-            		<a href="#{{ jumpBlocks.blockId }}">{{ jumpBlocks.title }}</a>
+            		<a href="#{{ jumpBlocks.jumpLinks_blocks_blockId }}">{{ jumpBlocks.jumpLinks_blocks_title }}</a>
             </div>
             {% endfor %}
           </div>
