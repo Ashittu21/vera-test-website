@@ -48,10 +48,14 @@
     <!-- Share Icons -->
 
     <div class="content-page-blocks">
+    {% set blockid = 0 %}
+    
     {% for block in blocks %}
 
-    {% if craft.app.request.getQueryParam('x-craft-live-preview') %}<div class="previewBlockId">block-{{ block.type }}-{{block.id}}</div>{% endif %}
-    <a class="anchor-link" name="block-{{ block.type }}-{{block.id}}" /></a>
+      {% set blockid = blockid + 1 %}
+      {% if craft.app.request.getQueryParam('x-craft-live-preview') %}<div class="previewBlockId">block-{{ block.type }}-{{blockid}}</div>{% endif %}
+      <span class="anchor-link" id="block-{{ block.type }}-{{blockid}}" /></span>
+
 
       {% if block.type == 'headerTitle' %} {# Header - no image  #}
         {% include 'v2/common/headerTitle' with { block: block } %}

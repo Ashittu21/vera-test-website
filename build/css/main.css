@@ -28933,8 +28933,8 @@ body.nav-pad:not(.no-pad) {
   background-color: var(--global-color-sand); }
 
 .anchor-link {
-  /*top: -120px;*/
-  position: relative; }
+  position: relative;
+  top: -100px; }
 
 h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading, .timed-slideshow-item--text, h2, h3, h4, h5 {
   font-family: 'GT Sectra';
