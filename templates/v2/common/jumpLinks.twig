@@ -11,7 +11,7 @@
           <div class="bannerLinks-right-items">
             {% for jumpBlocks in block.jumpLinks_anchors  %}
             <div class="bannerLinks-right-item">
-            		<a href="#{{ jumpBlocks.jumpLinks_blocks.blockId }}">{{ jumpBlocks.jumpLinks_blocks.title }}</a>
+            		<a href="#{{ jumpBlocks.blockId }}">{{ jumpBlocks.title }}</a>
             </div>
             {% endfor %}
           </div>
