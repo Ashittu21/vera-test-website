@@ -18523,7 +18523,7 @@ button.next-slide {
       fill: #e7e6e3;
       stroke: white; }
     .project-map.light .tooltip {
-      /* background-color: $tooltip_bg; */
+      background-color: #231f20;
       color: #fff; }
       .project-map.light .tooltip:after {
         border-top-color: #231f20; }
@@ -18698,7 +18698,7 @@ button.next-slide {
       fill: #dad9d5;
       stroke: white; }
     .project-map.medium .tooltip {
-      /* background-color: $tooltip_bg; */
+      background-color: #231f20;
       color: #fff; }
       .project-map.medium .tooltip:after {
         border-top-color: #231f20; }
@@ -18875,7 +18875,7 @@ button.next-slide {
       fill: #fff;
       stroke: white; }
     .project-map.dark .tooltip {
-      /* background-color: $tooltip_bg; */
+      background-color: #e7e6e3;
       color: #231f20; }
       .project-map.dark .tooltip:after {
         border-top-color: #e7e6e3; }
@@ -19050,7 +19050,7 @@ button.next-slide {
       fill: #fde3e1;
       stroke: white; }
     .project-map.red .tooltip {
-      /* background-color: $tooltip_bg; */
+      background-color: #fff;
       color: #231f20; }
       .project-map.red .tooltip:after {
         border-top-color: #fff; }
@@ -19340,7 +19340,7 @@ button.next-slide {
     fill: #e7e6e3;
     stroke: white; }
   .us-map .tooltip {
-    /* background-color: $tooltip_bg; */
+    background-color: #231f20;
     color: #fff; }
     .us-map .tooltip:after {
       border-top-color: #231f20; }

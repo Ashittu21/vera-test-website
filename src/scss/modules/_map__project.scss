@@ -149,7 +149,7 @@ $group6_fill__dk: #EF4136;
     stroke: white;
   }
   .tooltip {
-    /* background-color: $tooltip_bg; */
+    background-color: $tooltip_bg; 
     color: $tooltip_text;
 
     &:after {
