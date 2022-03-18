@@ -60,7 +60,7 @@
   {% for block in entry.initiativeBlocks.level(1).all() %}
   
     {% if craft.app.request.getQueryParam('x-craft-live-preview') %}<div class="previewBlockId">block-{{ block.type }}-{{block.id}}</div>{% endif %}
-    <a class="anchor-link" name="block-{{ block.type }}-{{block.id}}" /></a>
+    <a class="anchor-link" id="block-{{ block.type }}-{{block.id}}" /></a>
 
     {% switch block.type.handle %}
 
