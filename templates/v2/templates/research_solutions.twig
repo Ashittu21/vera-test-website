@@ -162,7 +162,7 @@
         <div class="mobile-filter-sort">
           <hr>
           <label for="orderby" >Sort by</label>
-            <select type="text" id="orderby" onchange="orderby()"> 
+            <select type="text" class="orderby"> 
               <option value="newest" {% if filterOrder == 'newest' %} selected {% endif %}>Newest</option>
               <option value="oldest" {% if filterOrder == 'oldest' %} selected {% endif %}>Oldest</option>
             </select>
@@ -263,7 +263,7 @@
 
     <div class="rs-listing-filter">
       <label for="orderby">Sort by</label>
-      <select type="text" id="orderby" onchange="orderby()"> 
+      <select type="text" class="orderby"> 
         <option value="newest" {% if filterOrder == 'newest' %} selected {% endif %}>Newest</option>
         <option value="oldest" {% if filterOrder == 'oldest' %} selected {% endif %}>Oldest</option>
       </select>
@@ -508,8 +508,16 @@ $('.apply').click(function(e) {
   window.location.search = query;
 });
 
-document.getElementById('orderby').addEventListener('change', function() {
-  var sections = [];
+
+
+
+
+
+function initOrderBy() {
+  const orderBy = document.querySelectorAll('.orderby');
+ orderBy.forEach(function(orderSelect) {
+    orderSelect.addEventListener('change', function(event) {
+      var sections = [];
   $(".section_checkbox:checked").each(function() {
     sections.push(this.value);
   });
@@ -536,9 +544,16 @@ document.getElementById('orderby').addEventListener('change', function() {
   var varSections = sections.join(',');
   query = 'sections=' + varSections + '&relations=' + varRelations + '&order=' + this.value;
   window.location.search = query;
-});
+    });
+  });
+}
+
+
+
+
 
 document.addEventListener("DOMContentLoaded", function() {
+  initOrderBy();
   var totalRelations = $('input[name="optionsRelations[]"]:checked').length;
   $(".dropdown-text-relations").html('Topic (' + totalRelations + ')');
   var totalSection = $('input[name="optionsTopic[]"]:checked').length;
