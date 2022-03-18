@@ -55,13 +55,12 @@
     <!-- Share Icons -->
 
 
-  {% set blockid = 0 %}
+ 
 
   {% for block in entry.initiativeBlocks.level(1).all() %}
   
-    {% set blockid = blockid + 1 %}
-    {% if craft.app.request.getQueryParam('x-craft-live-preview') %}<div class="previewBlockId">{{ block.type }}{{blockid}}</div>{% endif %}
-    <a class="anchor-link" name="{{ block.type }}{{blockid}}" /></a>
+    {% if craft.app.request.getQueryParam('x-craft-live-preview') %}<div class="previewBlockId">block-{{ block.type }}-{{block.id}}</div>{% endif %}
+    <a class="anchor-link" name="block-{{ block.type }}-{{block.id}}" /></a>
 
     {% switch block.type.handle %}
 
