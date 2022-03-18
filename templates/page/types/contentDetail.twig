@@ -36,8 +36,8 @@
 
     {% for block in blocks %}
 
-    {% if craft.app.request.getQueryParam('x-craft-live-preview') %}<div class="previewBlockId">block-{{ block.type }}-{{block.id}}</div>{% endif %}
-      <span class="anchor-link" id="block-{{ block.type }}-{{block.id}}" />{{block.id}}</span>
+    {% if craft.app.request.getQueryParam('x-craft-live-preview') %}<div class="previewBlockId">block-{{ block.type }}-{{block.fieldId}}</div>{% endif %}
+      <span class="anchor-link" id="block-{{ block.type }}-{{block.fieldId}}" /></span>
 
       {% if block.type == 'headerTitle' %} {# Header - no image  #}
         {% include 'v2/common/headerTitle' with { block: block } %}
