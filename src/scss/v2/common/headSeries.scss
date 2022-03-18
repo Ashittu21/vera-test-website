@@ -1,0 +1,89 @@
+.headSeries {
+  width: 100%;
+  overflow: hidden;
+  background-color: var(--global-color-dark-violet);
+  height: inherit;
+
+
+  &-content{
+    max-width: $desktop-ml;
+    margin: 0 auto;
+    padding-top: 30px;
+    padding-bottom: 0px;
+    overflow: visible;
+
+    .headSeries-breadcrumb{
+
+      @media (max-width: $tablet-portrait) {
+        display: none;
+      }
+    }
+
+    .headSeries-title {
+      color: white;
+      margin-bottom: 64px;
+      @media (max-width: $tablet-portrait) {
+        margin-bottom: 35px;
+      }
+      .separator {
+        overflow: visible;
+        position: relative;
+        text-align: left;
+        margin-top: 30px;
+        @media (max-width: $tablet-portrait) {
+          text-align: center;
+          margin-top: 5px;
+        }
+        &:before {
+          content: "";
+          display: inline-block;
+          position: absolute;
+          bottom: 2rem;
+          left: 0;
+          animation-name: test-animation;
+          animation-duration: 8s;
+          background-color: var(--global-color-light-violet);
+          width: 100vw;
+          height: 2px;
+          @media (max-width: $tablet-portrait) {
+            display: none;
+          }
+        }
+        @keyframes test-animation {
+          from {
+              width:0px;
+          }
+      
+          to {
+              width: 100vw ;
+          }
+        }
+        span {
+          position: relative;
+          padding-right: 1rem;
+          display: inline;
+          max-width: 80%;
+          background-color: var(--global-color-dark-violet);
+          white-space: nowrap;
+          box-sizing: content-box;
+          font-family: var(--global-font-abc-whyte);
+          font-size: 40px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 48px;
+          letter-spacing: 0em;
+          text-align: left;
+
+          @media (max-width: $tablet-portrait) {
+            font-size: 28px;
+            line-height:36px;
+            max-width: 50%;
+            white-space: normal;
+          }
+        } 
+      }
+    }
+
+  }
+}
+

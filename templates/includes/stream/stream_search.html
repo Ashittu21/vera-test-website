@@ -35,7 +35,7 @@
 		<div id="stream-content">
     {% if streamEmpty == false %}
       {% include 'includes/stream/noresults' with streamEmpty %}
-    {% else %}
+    {% elseif %}
       {{ firstStream }}
     {% endif %}
 		

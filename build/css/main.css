@@ -28969,6 +28969,37 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
 .overflowHidden {
   overflow: hidden; }
 
+.breadcrumbs {
+  color: #FFF;
+  font-family: var(--global-font-abc-whyte);
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 21px;
+  letter-spacing: 0.17em;
+  text-align: left;
+  margin-bottom: 20px;
+  text-transform: uppercase; }
+  .breadcrumbs a {
+    color: #ABFFEB;
+    font-family: var(--global-font-abc-whyte);
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 21px;
+    letter-spacing: 0.17em;
+    text-align: left;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    margin-left: 5px;
+    margin-right: 5px; }
+    .breadcrumbs a:first-child {
+      margin-left: 0px; }
+    .breadcrumbs a:hover {
+      text-decoration: underline;
+      color: #FFF;
+      background-color: #da392f; }
+
 .copy-block-content h5 {
   font-size: 35px;
   margin-bottom: 45px; }
@@ -30936,6 +30967,80 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
   @media (max-width: 768px) {
     .mt {
       margin-top: 65px; } }
+
+.headSeries {
+  width: 100%;
+  overflow: hidden;
+  background-color: var(--global-color-dark-violet);
+  height: inherit; }
+  .headSeries-content {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding-top: 30px;
+    padding-bottom: 0px;
+    overflow: visible; }
+    @media (max-width: 768px) {
+      .headSeries-content .headSeries-breadcrumb {
+        display: none; } }
+    .headSeries-content .headSeries-title {
+      color: white;
+      margin-bottom: 64px; }
+      @media (max-width: 768px) {
+        .headSeries-content .headSeries-title {
+          margin-bottom: 35px; } }
+      .headSeries-content .headSeries-title .separator {
+        overflow: visible;
+        position: relative;
+        text-align: left;
+        margin-top: 30px; }
+        @media (max-width: 768px) {
+          .headSeries-content .headSeries-title .separator {
+            text-align: center;
+            margin-top: 5px; } }
+        .headSeries-content .headSeries-title .separator:before {
+          content: "";
+          display: inline-block;
+          position: absolute;
+          bottom: 2rem;
+          left: 0;
+          -webkit-animation-name: test-animation;
+                  animation-name: test-animation;
+          -webkit-animation-duration: 8s;
+                  animation-duration: 8s;
+          background-color: var(--global-color-light-violet);
+          width: 100vw;
+          height: 2px; }
+          @media (max-width: 768px) {
+            .headSeries-content .headSeries-title .separator:before {
+              display: none; } }
+
+@keyframes test-animation {
+  from {
+    width: 0px; }
+  to {
+    width: 100vw; } }
+        .headSeries-content .headSeries-title .separator span {
+          position: relative;
+          padding-right: 1rem;
+          display: inline;
+          max-width: 80%;
+          background-color: var(--global-color-dark-violet);
+          white-space: nowrap;
+          -webkit-box-sizing: content-box;
+                  box-sizing: content-box;
+          font-family: var(--global-font-abc-whyte);
+          font-size: 40px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 48px;
+          letter-spacing: 0em;
+          text-align: left; }
+          @media (max-width: 768px) {
+            .headSeries-content .headSeries-title .separator span {
+              font-size: 28px;
+              line-height: 36px;
+              max-width: 50%;
+              white-space: normal; } }
 
 .heroType1-container {
   background-color: var(--global-color-violet);

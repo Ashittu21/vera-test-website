@@ -22,18 +22,12 @@
             {% for bl in recentBlogPosts %}
              {% set seriesUrl   = bl.url %}
          
-
-            <!-- Header Title -->
-              <section class="headTitle bgColor-darkviolet">
-                <div class="headTitle-content headTitle-content--small">
-                {#  <div class="headTitle-breadcumb">
-                    if entry.level > 1 %}
-                      {% for crumb in entry.getAncestors() %}
-                        {{ crumb.getLink() }} 
-                      {% endfor %}
-                    {% endif 
-                  </div>#}
-                  <div class="headTitle-title">
+              <section class="headSeries bgColor-darkviolet">
+                <div class="headSeries-content">
+                  <div class="headSeries-breadcrumb breadcrumbs">
+                    <a href="{{ siteUrl }}">HOME</a> // <a href="{{ seriesUrl }}">{{ bl.title }}</a> // <a href="{{ seriesUrl }}">{{ bl.title }}</a>
+                  </div>
+                  <div class="headSeries-title">
                     <h3 class="separator left-aligned">
                     <span>Series: {{ bl.title }}</span></h3>
                   </div>
@@ -51,15 +45,15 @@
       <div class="hero-type4-content">
         <div class="hero-type4-content-copy">
           <div class="hero-type4-content-copy-breadcrumbs">
-           {% if entry.level > 1 %}
+           {# if entry.level > 1 %}
               <a href="{{ siteUrl }}">HOME</a>
               //  <a href="{{ siteUrl }}news-and-stories">NEWS AND STORIES</a>
               {% for crumb in entry.getAncestors() %}
                 // {{ crumb.getLink() }} 
-              {% endfor %}
-          {% else %}
-            <a href="{{ siteUrl }}">HOME</a> // <a href="{{ siteUrl }}news-and-stories">NEWS AND STORIES</a>
-          {% endif %}  
+              {% endfor %}            
+          {% endif #}  
+
+           <a href="{{ siteUrl }}">HOME</a> // <a href="{{ siteUrl }}news-and-stories">NEWS AND STORIES</a>
           </div> 
 
 
