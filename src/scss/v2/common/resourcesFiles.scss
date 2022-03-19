@@ -110,21 +110,28 @@
             display: flex;
             background-size: 30px 30px;
             min-height: 30px;
+            @media (max-width: $mobile-large) {
+              margin-top: 25px;
+              margin-bottom: 25px;
+              width: 70px;
+            }
+            
             &:hover{
             
                 background-image: url('../img/v2/resources-link-hover.svg');
-              
+  
             }  
 
           }
-
+/*
           &.icon-pdf{
             &:after{
               background-image: url('../img/v2/resources-pdf.svg');
             }
             
-          }
+          }*/
           
+          /*
           &:after{
             width: 20%;
             height: 30px;
@@ -140,7 +147,7 @@
               margin-bottom: 25px;
               width: 70px;
             }
-          }
+          }*/
           
           &:hover {
             color: var(--global-color-white);
