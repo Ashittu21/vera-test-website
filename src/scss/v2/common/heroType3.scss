@@ -1,4 +1,8 @@
 .heroType3 {
+
+  .swiper-pointer-events.swiper-vertical{
+    min-height: 605px;
+  }
   background-color: var(--global-color-dark-violet);
   transition: all 0.2s ease-in-out;
   &-content{

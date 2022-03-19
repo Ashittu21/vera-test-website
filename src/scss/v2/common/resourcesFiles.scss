@@ -41,24 +41,7 @@
         margin: 2rem  0.5rem;
       }
       
-      .resources-block-items-title:nth-child(1){
-        margin-top: 0;
-      }
-          
-      .resources-block-items-title {
-        margin-top: 25px;
-        color: var(--global-color-white);
-        width: 100%;
-        font-family: var(--global-font-abc-whyte);
-        font-size: 21px;
-        font-style: normal;
-        font-weight: 800;
-        line-height: 27px;
-        letter-spacing: 0em;
-        text-align: left;
-        margin-bottom: 25px;
-      }
-    
+        
       .resources-block-item {
         flex: 0 46%;
         border: 2px solid var(--global-color-light-violet);
@@ -89,14 +72,20 @@
         
         
         a {
+
+          font-family: var(--global-font-abc-whyte);
+          font-size: 26px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 34px;
+          letter-spacing: 0em;
+          text-align: left;
+
+
           display: flex;
           flex-direction: row;
           font-family: var(--global-font-abc-whyte);
           color: var(--global-color-white);
-          font-size: 19px;
-          line-height: 21px;
-          font-style: normal;
-          font-weight: 400;
           text-decoration: none;
           max-width: 100%;
 
@@ -110,12 +99,13 @@
             display: flex;
             background-size: 30px 30px;
             min-height: 30px;
+            line-height: 34px;
             @media (max-width: $mobile-large) {
               margin-top: 25px;
               margin-bottom: 25px;
               width: 70px;
             }
-            
+
             &:hover{
             
                 background-image: url('../img/v2/resources-link-hover.svg');

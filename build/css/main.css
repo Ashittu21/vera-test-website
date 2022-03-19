@@ -31222,6 +31222,8 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
   background-color: var(--global-color-dark-violet);
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out; }
+  .heroType3 .swiper-pointer-events.swiper-vertical {
+    min-height: 605px; }
   .heroType3-content {
     position: relative;
     min-height: 605px;
@@ -33575,20 +33577,6 @@ div.heading > div:nth-child(3) > p {
       @media (max-width: 1024px) {
         .resources-block-container .resources-block-content .resources-block-items {
           margin: 2rem  0.5rem; } }
-      .resources-block-container .resources-block-content .resources-block-items .resources-block-items-title:nth-child(1) {
-        margin-top: 0; }
-      .resources-block-container .resources-block-content .resources-block-items .resources-block-items-title {
-        margin-top: 25px;
-        color: var(--global-color-white);
-        width: 100%;
-        font-family: var(--global-font-abc-whyte);
-        font-size: 21px;
-        font-style: normal;
-        font-weight: 800;
-        line-height: 27px;
-        letter-spacing: 0em;
-        text-align: left;
-        margin-bottom: 25px; }
       .resources-block-container .resources-block-content .resources-block-items .resources-block-item {
         -webkit-box-flex: 0;
             -ms-flex: 0 46%;
@@ -33628,6 +33616,13 @@ div.heading > div:nth-child(3) > p {
                 -ms-flex: 0 99%;
                     flex: 0 99%; } }
         .resources-block-container .resources-block-content .resources-block-items .resources-block-item a {
+          font-family: var(--global-font-abc-whyte);
+          font-size: 26px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 34px;
+          letter-spacing: 0em;
+          text-align: left;
           display: -webkit-box;
           display: -ms-flexbox;
           display: flex;
@@ -33637,10 +33632,6 @@ div.heading > div:nth-child(3) > p {
                   flex-direction: row;
           font-family: var(--global-font-abc-whyte);
           color: var(--global-color-white);
-          font-size: 19px;
-          line-height: 21px;
-          font-style: normal;
-          font-weight: 400;
           text-decoration: none;
           max-width: 100%;
           /*
@@ -33677,7 +33668,8 @@ div.heading > div:nth-child(3) > p {
             display: -ms-flexbox;
             display: flex;
             background-size: 30px 30px;
-            min-height: 30px; }
+            min-height: 30px;
+            line-height: 34px; }
             @media (max-width: 700px) {
               .resources-block-container .resources-block-content .resources-block-items .resources-block-item a.icon-link {
                 margin-top: 25px;
