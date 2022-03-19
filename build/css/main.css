@@ -33643,10 +33643,19 @@ div.heading > div:nth-child(3) > p {
           font-weight: 400;
           text-decoration: none;
           max-width: 100%; }
-          .resources-block-container .resources-block-content .resources-block-items .resources-block-item a.icon-link:after {
-            background-image: url("../img/v2/resources-link.svg"); }
-          .resources-block-container .resources-block-content .resources-block-items .resources-block-item a.icon-link:hover:after {
-            background-image: url("../img/v2/resources-link-hover.svg"); }
+          .resources-block-container .resources-block-content .resources-block-items .resources-block-item a.icon-link {
+            width: 100%;
+            background-image: url("../img/v2/resources-link.svg");
+            background-repeat: no-repeat;
+            background-position-y: top;
+            background-position-x: right;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            background-size: 30px 30px;
+            min-height: 30px; }
+            .resources-block-container .resources-block-content .resources-block-items .resources-block-item a.icon-link:hover {
+              background-image: url("../img/v2/resources-link-hover.svg"); }
           .resources-block-container .resources-block-content .resources-block-items .resources-block-item a.icon-pdf:after {
             background-image: url("../img/v2/resources-pdf.svg"); }
           .resources-block-container .resources-block-content .resources-block-items .resources-block-item a:after {

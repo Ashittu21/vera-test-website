@@ -99,16 +99,25 @@
           font-weight: 400;
           text-decoration: none;
           max-width: 100%;
+
           &.icon-link{
-            &:after{
-              background-image: url('../img/v2/resources-link.svg');
-            }      
+
+            width: 100%;
+            background-image: url('../img/v2/resources-link.svg');
+            background-repeat: no-repeat;
+            background-position-y: top;
+            background-position-x: right;
+            display: flex;
+            background-size: 30px 30px;
+            min-height: 30px;
             &:hover{
-              &:after{
+            
                 background-image: url('../img/v2/resources-link-hover.svg');
-              }
+              
             }  
+
           }
+
           &.icon-pdf{
             &:after{
               background-image: url('../img/v2/resources-pdf.svg');
