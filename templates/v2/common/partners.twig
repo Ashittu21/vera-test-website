@@ -4,7 +4,7 @@
       <div class="headTitle bgColor-darkviolet">
         <div class="headTitle-content headTitle-content--small">
           <div class="headTitle-title ">
-            <h3 class="separator left-aligned"><span>{{ block.partners.title }}</span></h3>
+            <h3 class="separator left-aligned"><span>{{ block.partners_title }}</span></h3>
           </div>
         </div>
       </div>
@@ -12,19 +12,19 @@
       <div class="partners-block-content">
 
         <div class="partners-block-copy">
-          {{ block.partners_copy }}
+          {{ block.partners_subtitle }}
         </div>
 
         <div class="partners-block-logos">
-        {% if block.partners_items|length %}
-          {% for partner in block.partners_items %}
-           {% if partner.type == 'partners_image' %}
-             <a {{ partner.partners_link.getLinkAttributes() }}><img src="{{ partner.partners_image.first.url }}" ></a>
-           {% elseif partner.type == 'partners_text' %}
-           		<a {{ partner.partners_link.getLinkAttributes() }}>{{ partner.partners_link.customText }}</a>
-           {% endif %}
-           {% endfor %}
-        {% endif %}
+          {% if block.partners|length %}
+            {% for partner in block.partners %}
+              {% if partner.partner_logo.first.url is not null %}
+                <img src="{{ partner.partner_logo.first.url }}" alt="{{ partner.title }}">
+              {% else %}
+                {{ partner.title }}           	
+            {% endif %}
+            {% endfor %}
+          {% endif %}
         </div>
 
       </div>
