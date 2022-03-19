@@ -18,11 +18,13 @@
         <div class="partners-block-logos">
           {% if block.partners|length %}
             {% for partner in block.partners %}
-              {% if partner.partner_logo.first.url is not null %}
-                <img src="{{ partner.partner_logo.first.url }}" alt="{{ partner.title }}">
-              {% else %}
-                {{ partner.title }}           	
-            {% endif %}
+              <div>
+                {% if partner.partner_logo.first.url is not null %}
+                  <img src="{{ partner.partner_logo.first.url }}" alt="{{ partner.title }}">
+                {% else %}
+                  {{ partner.title }}           	
+              {% endif %}
+              </div>
             {% endfor %}
           {% endif %}
         </div>
