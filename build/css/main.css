@@ -32956,7 +32956,8 @@ div.heading > div:nth-child(3) > p {
       line-height: 29px;
       letter-spacing: 0em;
       text-align: left;
-      margin-bottom: 30px; }
+      margin-bottom: 30px;
+      margin-left: 10px; }
       @media (max-width: 700px) {
         .partners-block-container .partners-block-content .partners-block-copy {
           margin: 0 auto;
@@ -32989,10 +32990,10 @@ div.heading > div:nth-child(3) > p {
                 justify-content: center; }
         .partners-block-container .partners-block-content .partners-block-logos div p {
           font-family: var(--global-font-abc-whyte);
-          font-size: 26px;
+          font-size: 22px;
           font-style: normal;
           font-weight: 400;
-          line-height: 34px;
+          line-height: 130%;
           color: white;
           letter-spacing: 0em;
           text-align: left;

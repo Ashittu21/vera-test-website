@@ -22,7 +22,7 @@
                 {% if partner.partner_logo.first.url is not null %}
                   <img src="{{ partner.partner_logo.first.url }}" alt="{{ partner.title }}">
                 {% else %}
-                  <p>{{ partner.title }}</p>
+                  <p>{{ partner.title }}<p>
               {% endif %}
               </div>
             {% endfor %}

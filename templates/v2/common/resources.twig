@@ -1,0 +1,14 @@
+{% if resources|length %}
+    <section class="resources-block-container">
+      <div class="resources-block-content">
+        <div class="resources-block-title">
+          {{ block.resources_title }}
+        </div>
+        <div class="resources-block-items">
+          {% for resource_item in block.resources_asset %}
+            <div class="resources-block-item"><a href="{{ resource_item.resourceAsset.url }}" class="icon-link">{{ resource_item.resourceAsset.title }}</a></div>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+{% endif %}
