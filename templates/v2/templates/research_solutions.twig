@@ -247,7 +247,7 @@
 
     <div class="rs-listing-items">    
     {% set fallback = 0 %}
-     {% for result in pageEntries %}
+     {% for result in pageEntries if result.type != "slideout" and result.type != "story"  %}
 
         {% if  result.streamImageRectangle is not null %}
           {% set image = result.streamImageRectangle.one() %}

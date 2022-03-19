@@ -58,22 +58,22 @@
 			</h3>
 
 			<p>
-				{% set preview = '' %}
-        {% if module.overview or module.bio %}
-        	{% set preview = module.overview | default(module.bio) %}
-        {% elseif module.article or module.publicationArticle or module.specialReportsArticle %}
-        	{% set article = module.article | default(module.publicationArticle) | default(module.specialReportsArticle) %}
+			{% set preview = '' %}
+			{% if module.overview or module.bio %}
+				{% set preview = module.overview | default(module.bio) %}
+			{% elseif module.article or module.publicationArticle or module.specialReportsArticle %}
+				{% set article = module.article | default(module.publicationArticle) | default(module.specialReportsArticle) %}
 
-        	{% set continue = true %}
-        	{% for block in article if continue %}
-        		{% if block['text'] is defined %}
-        			{% set preview = block.text %}
-        		{% endif %}
-        	{% endfor %}
-        {% endif %}
+				{% set continue = true %}
+				{% for block in article if continue %}
+					{% if block['text'] is defined %}
+						{% set preview = block.text %}
+					{% endif %}
+				{% endfor %}
+			{% endif %}
 
-        {% set previewlength = 260 %}
-        {% set previewtext = preview|shortcodes|striptags %}
+        	{% set previewlength = 260 %}
+        	{% set previewtext = preview|shortcodes|striptags %}
           {{ previewtext[:previewlength] }}{% if previewtext|length > previewlength %}...{% endif %}
 			</p>
         </div>

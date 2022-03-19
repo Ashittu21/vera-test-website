@@ -26,6 +26,11 @@
       text-transform: uppercase;
       color: var(--global-color-text);
       margin: 45px 0;
+
+      @media (max-width: $tablet-portrait) {
+        margin-top: 40px;
+        margin-bottom: 22px;
+      }
     }
   }
 
@@ -33,6 +38,7 @@
     display: flex;
     flex-direction: row;
     margin-bottom: 45px;
+    justify-content: center;
 
     @media (max-width: $tablet-portrait) {
       flex-direction: column;
@@ -44,6 +50,10 @@
 
       border-right: 2px solid var(--global-color-dark-sand);
       flex-shrink: 1;
+      flex-grow: 1;
+      flex-basis: 0;
+      padding-left: 93px;
+      padding-right: 93px;
 
       @media (max-width: $tablet-portrait) {
         flex-direction: column;
@@ -88,10 +98,8 @@
         letter-spacing: 0em;
         text-align: center;
         color: var(--global-color-text);
-        padding-top: 35px;
         padding-bottom: 40px;
         @media (max-width: $tablet-portrait) {
-          padding-top: 20px;
           padding-bottom: 20px;
         }
       }
