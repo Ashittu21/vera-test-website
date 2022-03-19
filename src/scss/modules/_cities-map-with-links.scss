@@ -180,6 +180,7 @@
 .CitiesMapWithLinks-sidebar-list-item {
   padding-left: 0.25em;
   padding-right: 0.25em;
+  cursor: pointer;
   &:hover {
     color: $white;
     background-color: $black;

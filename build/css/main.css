@@ -25021,7 +25021,8 @@ strong {
 
 .CitiesMapWithLinks-sidebar-list-item {
   padding-left: 0.25em;
-  padding-right: 0.25em; }
+  padding-right: 0.25em;
+  cursor: pointer; }
   .CitiesMapWithLinks-sidebar-list-item:hover {
     color: #fff;
     background-color: #231f20; }
