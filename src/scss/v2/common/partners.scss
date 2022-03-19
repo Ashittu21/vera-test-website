@@ -26,18 +26,37 @@
       flex-direction: row;
       justify-content: space-around;
 
+      div{
+        color: white;
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        justify-content: center;
+        p{
+          font-family: var(--global-font-abc-whyte);
+          font-size: 26px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 34px;
+          color: white;
+          letter-spacing: 0em;
+          text-align: left;
 
-      img{
-        height: 172px;
-        width: auto;
+        }
+
+        img{
+          height: 172px;
+          width: auto;
+          @media (max-width: $mobile-large) {
+            height: 157px;
+            width: auto;
+          }
+        }
+
       }
       
-      @media (max-width: $mobile-large) {
-        img{
-          height: 157px;
-          width: auto;
-        }
-      }
+      
+    
 
     }
   }
