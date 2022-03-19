@@ -32502,7 +32502,8 @@ div.heading > div:nth-child(3) > p {
     padding-left: 1em;
     text-decoration: underline;
     -webkit-text-decoration-color: #DA392F;
-            text-decoration-color: #DA392F; }
+            text-decoration-color: #DA392F;
+    cursor: pointer; }
     .mapContainer .project-map.CitiesMapWithLinks .container .map__inner-container .CitiesMapWithLinks-sidebar .CitiesMapWithLinks-sidebar-list-item:hover, .mapContainer .project-map.CitiesMapWithLinks .timed-slideshow-item--text .map__inner-container .CitiesMapWithLinks-sidebar .CitiesMapWithLinks-sidebar-list-item:hover, .mapContainer .project-map.CitiesMapWithLinks .PoliceBudget .map__inner-container .CitiesMapWithLinks-sidebar .CitiesMapWithLinks-sidebar-list-item:hover {
       background-color: #160643;
       text-decoration: underline; }
@@ -33669,12 +33670,14 @@ div.heading > div:nth-child(3) > p {
             display: flex;
             background-size: 30px 30px;
             min-height: 30px;
-            line-height: 34px; }
+            line-height: 34px;
+            padding-right: 33px; }
             @media (max-width: 700px) {
               .resources-block-container .resources-block-content .resources-block-items .resources-block-item a.icon-link {
                 margin-top: 25px;
                 margin-bottom: 25px;
-                width: 70px; } }
+                width: 100%;
+                padding-right: 33px; } }
             .resources-block-container .resources-block-content .resources-block-items .resources-block-item a.icon-link:hover {
               background-image: url("../img/v2/resources-link-hover.svg"); }
           .resources-block-container .resources-block-content .resources-block-items .resources-block-item a:hover {
