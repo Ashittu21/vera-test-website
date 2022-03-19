@@ -128,7 +128,10 @@
 
       {% elseif block.type == 'partners' %}
           {% include 'v2/common/partners' with { block: block } %}
-        
+
+      {% elseif block.type == 'resources' %}
+        {% include 'v2/common/resources' with { block: block } %}       
+
       {% endif %}
     {% endfor %}
 
