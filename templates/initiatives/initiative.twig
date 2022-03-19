@@ -76,8 +76,8 @@
       {% case 'quoteBlockType1' %} {# Pull Quote #}
         {% include '/v2/common/quoteBlockType1' with { block: block } %}      
     
-      {% case 'onThisPage' %}
-        {% include '/v2/common/onThisPage' with { block: block } %}
+      {% case 'jumpLinks' %}
+        {% include '/v2/common/jumpLinks' with { block: block } %}
 
       {% case 'listing' %}
         {% include '/v2/common/listing' with { block: block } %}

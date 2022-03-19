@@ -32,14 +32,14 @@
         {% elseif block.type == 'signUp' %} {# Email sign up CTA #}
           {% include 'v2/common/signUp.twig'  with { block: block } %}
 
-      {% elseif block.type == 'stats' %}  {# Stats Multi #}
-    	  {% include 'v2/common/stats' with { block: block } %}
+        {% elseif block.type == 'stats' %}  {# Stats Multi #}
+    	    {% include 'v2/common/stats' with { block: block } %}
 
-      {% elseif block.type == 'quote' %}  {# Stat-1 #}
-    	  {% include 'v2/common/quote' with { block: block } %}
+        {% elseif block.type == 'quote' %}  {# Stat-1 #}
+    	    {% include 'v2/common/quote' with { block: block } %}
 
-      {% elseif block.type == 'quoteBlockType1' %} {# Pull Quote #}
-    	  {% include 'v2/common/quoteBlockType1' with { block: block } %}    
+        {% elseif block.type == 'quoteBlockType1' %} {# Pull Quote #}
+    	    {% include 'v2/common/quoteBlockType1' with { block: block } %}    
 
         {% elseif  block.type == 'exploreMore' %} {# Expore More #}
           {% include 'v2/common/exploreMore.twig'  with { block: block } %}     
@@ -56,9 +56,12 @@
         {% elseif block.type == 'featuredType2' %}
           {% include 'v2/common/featuredType2' with { block: block } %}
 
-
         {% elseif block.type == 'inPageCTA' %}
     	    {% include 'v2/common/inPageCTA' with { block: block } %}
+		    
+        {% elseif block.type == 'jumpLinks' %}
+          {% include '/v2/common/jumpLinks' with { block: block } %}
+
         {% endif %}
       {% endfor %}
   </div>

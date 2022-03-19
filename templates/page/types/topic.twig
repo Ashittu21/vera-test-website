@@ -58,6 +58,9 @@
 		
 		{% elseif block.type == 'inPageCTA' %}
         {% include 'v2/common/inPageCTA' with { block: block } %}
+    
+		{% elseif block.type == 'jumpLinks' %}
+        {% include 'v2/common/jumpLinks' with { block: block } %}
 
 		{% endif %}
 	{% endfor %}
