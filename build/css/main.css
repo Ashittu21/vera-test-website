@@ -32995,6 +32995,8 @@ div.heading > div:nth-child(3) > p {
           line-height: 34px;
           color: white;
           letter-spacing: 0em;
+          text-align: left;
+          max-width: 170px;
           text-align: left; }
         .partners-block-container .partners-block-content .partners-block-logos div img {
           height: 172px;
