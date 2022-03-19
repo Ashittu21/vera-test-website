@@ -33,14 +33,14 @@
 
 		<!-- Stream Content Goes Here -->
 		<div id="stream-content">
-    {% if streamEmpty == false %}
-      {% include 'includes/stream/noresults' with streamEmpty %}
-    {% elseif %}
+  
+    {% if firstStream|length > 10  %}
       {{ firstStream }}
+    {% else %}
+     {% include 'includes/stream/noresults-search' with streamEmpty %}
     {% endif %}
-		
-    {% include 'includes/stream/nomore' %}
-		
+	
+    {% include 'includes/stream/nomore' %}	
 		</div>
 		{% include 'includes/stream/loader' with {loaderid: 'content_loader'} %}
 	</div>

@@ -29124,7 +29124,7 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
   font-size: 16px;
   font-weight: 500;
   line-height: 33px;
-  padding: 10px 33px 10px 20px;
+  padding: 10px 35px 10px 20px;
   color: #FFF;
   text-decoration: none;
   position: relative;
@@ -29244,7 +29244,7 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
       line-height: 42px;
       letter-spacing: 0em;
       text-align: left; }
-      @media (max-width: 768px) {
+      @media (max-width: 1180px) {
         .about-block-container .about-block-content .about-block-title {
           padding-left: 20px; } }
     .about-block-container .about-block-content .about-block-copy {
@@ -29257,7 +29257,7 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
       letter-spacing: 0em;
       text-align: left;
       margin-top: 25px; }
-      @media (max-width: 700px) {
+      @media (max-width: 1180px) {
         .about-block-container .about-block-content .about-block-copy {
           padding-right: 20px;
           padding-left: 20px; } }
@@ -29273,6 +29273,9 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
       -webkit-box-pack: justify;
           -ms-flex-pack: justify;
               justify-content: space-between; }
+      @media (max-width: 1180px) {
+        .about-block-container .about-block-content .about-block-profiles {
+          padding: 0 20px; } }
       @media (max-width: 700px) {
         .about-block-container .about-block-content .about-block-profiles {
           -webkit-box-orient: vertical;
@@ -30208,7 +30211,7 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
     line-height: 139%; }
     .copy-block-container .copy-block-content:first-child {
       padding-top: 0;
-      margin-top: 60px; }
+      margin-top: 30px; }
     @media (max-width: 768px) {
       .copy-block-container .copy-block-content {
         margin: 0; } }
@@ -30230,7 +30233,7 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
         font-size: inherit;
         margin-bottom: 0; }
       .copy-block-container .copy-block-content p:last-child {
-        margin-bottom: 75px; }
+        margin-bottom: 30px; }
     @media (max-width: 768px) {
       .copy-block-container .copy-block-content {
         padding: 0px 1rem; }
@@ -30679,7 +30682,6 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
                 -ms-flex-align: center;
                     align-items: center; }
           .block-exploreMore .block-exploreMore-container .block-exploreMore-items li a .icon-arrow {
-            content: '';
             width: 20px;
             height: 20px;
             margin-left: 12px;
@@ -32136,6 +32138,20 @@ div.heading > div:nth-child(3) > p {
         margin-top: 1rem;
         margin-bottom: 3rem;
         border: none; }
+        .block-latestNews-content .latestNews-items-link a .icon-arrow {
+          width: 20px;
+          height: 20px;
+          display: inline-block;
+          margin-left: 9px;
+          position: relative;
+          top: 8px;
+          background-repeat: no-repeat;
+          background-size: inherit;
+          background-image: url("../img/v2/arrow.svg"); }
+        .block-latestNews-content .latestNews-items-link a:hover {
+          text-decoration: underline; }
+          .block-latestNews-content .latestNews-items-link a:hover .icon-arrow {
+            background-image: url("../img/v2/arrow-red.svg"); }
     .block-latestNews-content .latest-hero-sidebar {
       display: -webkit-box;
       display: -ms-flexbox;
@@ -32998,7 +33014,9 @@ div.heading > div:nth-child(3) > p {
         width: auto; } }
     .profile-block .profile-block-img img {
       width: 185px;
-      height: 185px; }
+      height: 185px;
+      -o-object-fit: cover;
+         object-fit: cover; }
   .profile-block .profile-block-copy {
     padding: 30px 0px;
     margin-left: 30px;
@@ -33075,8 +33093,8 @@ div.heading > div:nth-child(3) > p {
   color: var(--global-color-text);
   padding: 0em;
   border-radius: 1em;
-  margin-top: 10px;
-  margin-bottom: 30px; }
+  margin-top: 12px;
+  margin-bottom: 26px; }
   @media (max-width: 768px) {
     .quote-block-type1 {
       padding: 1rem;
@@ -33952,6 +33970,10 @@ div.heading > div:nth-child(3) > p {
     text-transform: uppercase;
     color: var(--global-color-text);
     margin: 45px 0; }
+    @media (max-width: 768px) {
+      .stats-block .stats-block-title p {
+        margin-top: 40px;
+        margin-bottom: 22px; } }
   .stats-block .stats-block-items {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -33960,7 +33982,10 @@ div.heading > div:nth-child(3) > p {
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
-    margin-bottom: 45px; }
+    margin-bottom: 45px;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center; }
     @media (max-width: 768px) {
       .stats-block .stats-block-items {
         -webkit-box-orient: vertical;
@@ -33974,7 +33999,14 @@ div.heading > div:nth-child(3) > p {
     .stats-block .stats-block-items .stats-block-item {
       border-right: 2px solid var(--global-color-dark-sand);
       -ms-flex-negative: 1;
-          flex-shrink: 1; }
+          flex-shrink: 1;
+      -webkit-box-flex: 1;
+          -ms-flex-positive: 1;
+              flex-grow: 1;
+      -ms-flex-preferred-size: 0;
+          flex-basis: 0;
+      padding-left: 93px;
+      padding-right: 93px; }
       @media (max-width: 768px) {
         .stats-block .stats-block-items .stats-block-item {
           -webkit-box-orient: vertical;
@@ -34014,11 +34046,9 @@ div.heading > div:nth-child(3) > p {
         letter-spacing: 0em;
         text-align: center;
         color: var(--global-color-text);
-        padding-top: 35px;
         padding-bottom: 40px; }
         @media (max-width: 768px) {
           .stats-block .stats-block-items .stats-block-item .stats-block-item-copy {
-            padding-top: 20px;
             padding-bottom: 20px; } }
 
 .swiper {
