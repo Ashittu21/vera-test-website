@@ -99,15 +99,48 @@
   }
 %}
 
+{# TYPE ENTRIES REMOVED
+    slideout: 'slideout',
+    acknowledgements: 'acknowledgements',
+    story: 'story',
+#}
+{% set entriesTypeAllowed = {
+      resourceSite: 'resourceSite',
+      video: 'video',
+      audio: 'audio',
+      videoPlaylist: 'videoPlaylist',
+      blogSeries: 'blogSeries',
+      publicationOverview: 'publicationOverview',
+      specialReport: 'specialReport',
+      publicationDocument: 'publicationDocument',
+      fromTheDirector: 'fromTheDirector',
+      chapter: 'chapter',
+      endnotes: 'endnotes',
+      aboutThisReport: 'aboutThisReport',
+      specialReportSingle: 'specialReportSingle',
+      gala: 'gala',
+      specialReportChaptered: 'specialReportChaptered',
+      accordion: 'accordion',
+      specialReportCampaign: 'specialReportCampaign',
+      article: 'article',
+      statePublications: 'statePublications',
+      state: 'state',
+      city: 'city',
+      stateBuilder: 'stateBuilder',
+      whatJailsCostLanding: 'whatJailsCostLanding',
+      whatJailsCostPage: 'whatJailsCostPage'
+    } 
+%}
+
 {# section('and, not this, not that') #}
-{% set totalEntries = craft.entries(queryObj).limit(10).count() %}
+{% set totalEntries = craft.entries(queryObj).type(entriesTypeAllowed).limit(10).count() %}
 
 {% if filterOrder == 'newest' %}
-  {% paginate craft.entries(queryObj).orderBy('dateCreated DESC').limit(10) as pageInfo, pageEntries %}
+  {% paginate craft.entries(queryObj).type(entriesTypeAllowed).orderBy('dateCreated DESC').limit(10) as pageInfo, pageEntries %}
 {% elseif  filterOrder =="oldest" %}
-  {% paginate craft.entries(queryObj).orderBy('dateCreated ASC').limit(10) as pageInfo, pageEntries %}
+  {% paginate craft.entries(queryObj).type(entriesTypeAllowed).orderBy('dateCreated ASC').limit(10) as pageInfo, pageEntries %}
 {% else %}
-  {% paginate craft.entries(queryObj).orderBy('dateCreated DESC').limit(10) as pageInfo, pageEntries %}
+  {% paginate craft.entries(queryObj).type(entriesTypeAllowed).orderBy('dateCreated DESC').limit(10) as pageInfo, pageEntries %}
 {% endif %}
 
 <!-- Hero Block -->
@@ -247,7 +280,7 @@
 
     <div class="rs-listing-items">    
     {% set fallback = 0 %}
-     {% for result in pageEntries if result.type != "slideout" and result.type != "story"  %}
+     {% for result in pageEntries %}
 
         {% if  result.streamImageRectangle is not null %}
           {% set image = result.streamImageRectangle.one() %}
