@@ -7,16 +7,17 @@
   <div class="relatedItems-item">
     <div class="relatedItems-item-content">
       <div class="relatedItems-item-content-left">
-        <picture>
-          <source media="(max-width: 768px)" srcset="{{ item.heroImage.one.getUrl('square130') }}">
-          <source media="(min-width: 769px)" srcset="{{ item.heroImage.one.getUrl('image290X180') }}">
-          <img src="{{ item.heroImage.one.getUrl('image290X180') }}" alt="{{ item.title }}">
-        </picture>
+          <picture>
+            <source media="(max-width: 768px)" srcset="{{ item.streamImageRectangle.one.getUrl('square130') ?? null }}">
+            <source media="(min-width: 769px)" srcset="{{ item.streamImageRectangle.one.getUrl('image290X180') ?? null }}">
+            <img src="{{ item.streamImageRectangle.one.getUrl('image290X180')?? null }}" alt="{{ item.title }}">
+          </picture>
+
         
       </div>
       <div class="relatedItems-item-content-right">
         <div class="relatedItems-item-content-right-tag">{{ item.type.name | title | upper }}</div>
-        <div class="relatedItems-item-content-right-title"> <a href="">{{ item.title }}</a> </div>
+        <div class="relatedItems-item-content-right-title"><a href="{{ item.url }}">{{ item.title }}</a> </div>
       </div>
     </div>
   </div>
