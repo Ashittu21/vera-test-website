@@ -137,11 +137,11 @@
 {% set totalEntries = craft.entries(queryObj).type(entriesTypeAllowed).limit(10).count() %}
 
 {% if filterOrder == 'newest' %}
-  {% paginate craft.entries(queryObj).type(entriesTypeAllowed).orderBy('id DESC').limit(10) as pageInfo, pageEntries %}
+  {% paginate craft.entries(queryObj).type(entriesTypeAllowed).orderBy('postDate DESC').limit(10) as pageInfo, pageEntries %}
 {% elseif  filterOrder =="oldest" %}
-  {% paginate craft.entries(queryObj).type(entriesTypeAllowed).orderBy('id ASC').limit(10) as pageInfo, pageEntries %}
+  {% paginate craft.entries(queryObj).type(entriesTypeAllowed).orderBy('postDate ASC').limit(10) as pageInfo, pageEntries %}
 {% else %}
-  {% paginate craft.entries(queryObj).type(entriesTypeAllowed).orderBy('id DESC').limit(10) as pageInfo, pageEntries %}
+  {% paginate craft.entries(queryObj).type(entriesTypeAllowed).orderBy('postDate DESC').limit(10) as pageInfo, pageEntries %}
 {% endif %}
 
 <!-- Hero Block -->
