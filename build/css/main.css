@@ -30791,7 +30791,7 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
 
 .featured-type2 {
   height: auto;
-  min-height: 250px;
+  min-height: 120px;
   max-width: 935px;
   margin: 0 auto;
   background-image: url("../../dist/img/featured-2-left.svg"), url("../../dist/img/featured-2-right.svg");
@@ -30818,7 +30818,7 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
       background-image: none; } }
   .featured-type2-content {
     color: var(--global-color-medium-violet);
-    padding: 60px 50px 72px 50px;
+    padding: 48px 50px 54px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
