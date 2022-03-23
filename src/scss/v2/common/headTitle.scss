@@ -52,7 +52,9 @@
 
 
     .headTitle-breadcrumb {
-      text-align: center;
+      text-align: left;
+      margin-left: 10px;
+
       a {
         font-family: var(--global-font-abc-whyte);
         font-size: 11px;
@@ -152,9 +154,11 @@
     }
 
     &--small{
-      padding-top: 25px;
+      padding-top: 60px;
       padding-bottom: 25px;
+
       .headTitle-title {
+        margin-top:20px;
         .separator {
           &:before {
             bottom: 1rem;

@@ -28,9 +28,6 @@
 
 
 
-
-
-
     .block-signup-left {
       padding-left: 50px;
       display: flex;
@@ -114,9 +111,11 @@
         align-items: stretch;
 
 
+
         .button.orange span {
           font-size: 28px;
-
+          min-height: 70px;
+          
           @media(max-width:$mobile-breakpoint) {
             font-size: 24px;
           }

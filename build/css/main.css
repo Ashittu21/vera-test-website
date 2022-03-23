@@ -30921,7 +30921,8 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
       }
     }*/ }
     .headTitle-content .headTitle-breadcrumb {
-      text-align: center; }
+      text-align: left;
+      margin-left: 10px; }
       .headTitle-content .headTitle-breadcrumb a {
         font-family: var(--global-font-abc-whyte);
         font-size: 11px;
@@ -30999,13 +31000,15 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
               max-width: 50%;
               white-space: normal; } }
     .headTitle-content--small {
-      padding-top: 25px;
+      padding-top: 60px;
       padding-bottom: 25px; }
-      .headTitle-content--small .headTitle-title .separator:before {
-        bottom: 1rem; }
-      .headTitle-content--small .headTitle-title .separator span {
-        font-size: 35px;
-        line-height: 35px; }
+      .headTitle-content--small .headTitle-title {
+        margin-top: 20px; }
+        .headTitle-content--small .headTitle-title .separator:before {
+          bottom: 1rem; }
+        .headTitle-content--small .headTitle-title .separator span {
+          font-size: 35px;
+          line-height: 35px; }
 
 .mt {
   margin-top: 90px; }
@@ -33988,7 +33991,8 @@ div.heading > div:nth-child(3) > p {
             -ms-flex-align: stretch;
                 align-items: stretch; }
         .block-signup .block-signup-container .block-signup-left .block-signup-form .button.orange span {
-          font-size: 28px; }
+          font-size: 28px;
+          min-height: 70px; }
           @media (max-width: 768px) {
             .block-signup .block-signup-container .block-signup-left .block-signup-form .button.orange span {
               font-size: 24px; } }
