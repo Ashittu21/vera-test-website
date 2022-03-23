@@ -70,7 +70,7 @@
     </div>
 
     <div class="rowBottom" id="rowBottom">
-      <div class="rowBottom-container">
+      <div class="rowBottom-container"> 
         <div id="header-v2-bottom-nav">
           <div class="isologo">
             <a href="{{ siteUrl }}"><img src="/dist/img/v2/vera-isologo.svg"></a>
@@ -97,8 +97,8 @@
                   </ul>
                 </li>
               {% else %}
-                <li>
-                  <a {{ node.navigationMain_linkField.getLinkAttributes() }}>
+                <li class="clicky-menu-item">
+                  <a {{ node.navigationMain_linkField.getLinkAttributes() }} class="no-submenu">
                     {{ node.title }}
                   </a>
                 </li>
