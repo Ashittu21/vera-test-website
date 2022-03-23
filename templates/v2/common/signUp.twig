@@ -12,6 +12,14 @@
 					the system.
 				{% endif %}
 			</div>
+			
+			 <div class="block-signup-copy">
+       {% if  block.signUp_subtitle|length > 0 %}
+           {{ block.signUp_subtitle }}
+        {% else %}
+           Sign up for our  mailing list.
+        {% endif %}
+      </div>
 
 			<form class="block-signup-form" id="signUp-form" onsubmit="return validation(event)">
 				<input type="email" id="emailSignUp" placeholder="Email Address*">
@@ -99,7 +107,7 @@
 	<!-- SignUp -->
 
 	<script>
-		var emailAddress = document.getElementById("emailSignUp").value;
+var emailAddress = document.getElementById("emailSignUp").value;
 var emailField = document.getElementById("emailSignUp");
 
 function validation(event) {
