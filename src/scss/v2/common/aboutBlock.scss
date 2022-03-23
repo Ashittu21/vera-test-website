@@ -21,7 +21,7 @@
       line-height: 42px;
       letter-spacing: 0em;
       text-align: left;
-      @media(max-width:$mobile-breakpoint) {
+      @media(max-width:$desktop-medium) {
         padding-left: 20px;
       }
     }
@@ -36,7 +36,7 @@
       text-align: left;
       margin-top: 25px;
       
-      @media (max-width: $mobile-large) {
+      @media (max-width: $desktop-medium) {
         padding-right: 20px;
         padding-left: 20px;
       }
@@ -47,6 +47,10 @@
       flex-direction: row;
       margin-top: 50px;
       justify-content: space-between;
+
+      @media (max-width: $desktop-medium) {
+        padding: 0 20px;
+      }
       @media (max-width: $mobile-large) {
         flex-direction: column;
       }

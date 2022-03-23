@@ -353,6 +353,26 @@
           margin-top: 1rem;
           margin-bottom: 3rem;
           border: none;
+
+          .icon-arrow {
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+            margin-left: 9px;
+            position: relative;
+            top: 8px;
+            background-repeat: no-repeat;
+            background-size: inherit;
+            background-image: url("../img/v2/arrow.svg");
+          }
+
+          &:hover {
+            text-decoration: underline;
+            
+            .icon-arrow {
+              background-image: url("../img/v2/arrow-red.svg");
+            }
+          }
         }
       }
     }

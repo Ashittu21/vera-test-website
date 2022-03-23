@@ -11,7 +11,9 @@
   position: relative;
   max-height: 613px;
   @media(max-width:$mobile-breakpoint) {
-    padding: 0;
+    padding: 50px 0;
+    display: block;
+    max-height: inherit;
   }
   &::after{
     background-color: var(--global-color-light-violet);
@@ -25,7 +27,7 @@
       height: 2px;
       width: 100%;
       right: 0;
-      top: 40px;
+      top: 46px;
     }
   }
 
@@ -41,7 +43,7 @@
       height: 2px;
       width: 100%;
       left: 0;
-      bottom: 40px;
+      bottom: 46px;
     }
   }
    
@@ -99,8 +101,10 @@
         br{
           display: none;
         }
-        padding-left: 1rem;
-        padding-right: 1rem;
+        font-size: 19px;
+        line-height: 26.5px;
+        padding-left: 2rem;
+        padding-right: 2rem;
         padding-top: 40px;
       }
     }
@@ -115,15 +119,21 @@
         margin-bottom: 90px;
       }
       span{
-        line-height: 70px;
+       /* line-height: 70px;*/
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
         padding-left: 29px;
         padding-right: 55px;
+        min-height: 70px;
         font-size: 28px;
         width: 390px;
         text-align: center;
         @media(max-width:$mobile-breakpoint){
-          font-size: 20px;
-          width: 320px;
+          font-size: 24px;
+          max-width: 320px;
+          width: 100%;
+          min-height: 70px;
         }
       }
       &.orange{
