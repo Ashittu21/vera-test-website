@@ -52,10 +52,10 @@
       flex-shrink: 1;
       flex-grow: 1;
       flex-basis: 0;
-      padding-left: 93px;
-      padding-right: 93px;
+      min-width: 33.33%;
+      
 
-      @media (max-width: $tablet-portrait) {
+      @media (max-width: $tablet-landscape) {
         flex-direction: column;
         border-right: 0;
         border-bottom: 2px solid var(--global-color-dark-sand);
@@ -81,6 +81,8 @@
         letter-spacing: 0em;
         margin-bottom: 25px;
         text-align: center;
+        padding-left: 24px;
+        padding-right: 24px;
 
         @media (max-width: $tablet-portrait) {
           font-size: 45px;
@@ -99,8 +101,17 @@
         text-align: center;
         color: var(--global-color-text);
         padding-bottom: 40px;
-        @media (max-width: $tablet-portrait) {
+        padding-left: 93px;
+        padding-right: 93px;
+
+        &.px-50-percent {
+          padding-left: 42px;
+          padding-right: 42px;
+        }
+        @media (max-width: $desktop-medium) {
           padding-bottom: 20px;
+          padding-left: 42px;
+          padding-right: 42px;
         }
       }
     }
