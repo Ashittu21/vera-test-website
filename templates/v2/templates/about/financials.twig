@@ -2,6 +2,29 @@
 
 {% block content %}
 
+<!-- Header Title -->
+  <section class="headTitle bgColor-darkviolet">
+    <div class="headTitle-content {{ entry.headerTitle_size }}">
+
+      <div class="headTitle-breadcumb">
+        {% if entry.level > 1 %}
+          <a href="{{ siteUrl }}">HOME</a>
+          {% for crumb in entry.getAncestors() %}
+          // {{ crumb.getLink() }}
+          {% endfor %}
+        {% else %}
+          <a href="{{ siteUrl }}">HOME</a>
+        {% endif %}
+      </div>
+
+      <div class="headTitle-title">
+        <h3 class="separator left-aligned">
+        <span>{{ entry.headerTitle_title|striptags('p')|raw }}</span></h3>
+      </div>
+    </div>
+  </section>
+<!-- Header Title -->
+
 <!-- Financials -->
 <section class="section__content" id="SectionContent">
   <div class="section__content__inner" id="SectionContentInner">
