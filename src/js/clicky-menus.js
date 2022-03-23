@@ -31,22 +31,31 @@
 
 		function toggleOnMenuClick( e ) {
 			const button = e.currentTarget;
+			let acm= null;
+			const btn = document.getElementById( button.getAttribute( 'aria-controls' ) );
+			if(currentMenuItem !== undefined && currentMenuItem !== false && currentMenuItem !== true){
+			  acm = document.getElementById( currentMenuItem.getAttribute( 'aria-controls' ) );
+			}
 			// close open menu if there is one
 			if ( currentMenuItem && button !== currentMenuItem ) {
 				toggleSubmenu( currentMenuItem );
 			}
+			if(btn !== acm && currentMenuItem !== undefined && currentMenuItem !== false && currentMenuItem !== true){
+				//close open submenu when is different arial controls
+				toggleSubmenu( currentMenuItem );
+			}
+			
 			toggleSubmenu( button );
 		};
 
 		function toggleSubmenu( button ) {
 
 			const submenu = document.getElementById( button.getAttribute( 'aria-controls' ) );
-
-			if ( 'true' === button.getAttribute( 'aria-expanded' ) ) {
+			if ( 'true' === button.getAttribute( 'aria-expanded' ) ) { //submenu es open
 				button.setAttribute( 'aria-expanded', false );
 				submenu.setAttribute( 'aria-hidden', true );
 				currentMenuItem = false;
-			} else {
+			} else { //submenu es cerrado
 				button.setAttribute( 'aria-expanded', true );
 				submenu.setAttribute( 'aria-hidden', false );
 				preventOffScreenSubmenu( submenu );
@@ -71,7 +80,6 @@
 		}
 
 		function closeOnEscKey(e) {
-
 			if(	27 === e.keyCode ) {
 
 				// we're in a submenu item
@@ -105,7 +113,6 @@
 			menu.querySelectorAll('ul').forEach( ( submenu ) => {
 
 				const menuItem = submenu.parentElement;
-
 				if ( 'undefined' !== typeof submenu ) {
 
 					let button = convertLinkToButton( menuItem );
@@ -152,7 +159,6 @@
 
 			const submenuId = submenu.getAttribute('id');
 			let containerId = container.getAttribute('id');
-
 			let id;
 			if( null === submenuId ) {
 				id = containerId+'-'+ button.textContent.trim().replace(/\s+/g, '-').toLowerCase() + '-submenu';
