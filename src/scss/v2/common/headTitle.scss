@@ -106,7 +106,7 @@
         text-align: center;
         text-align: left;
         margin-left: 10px;
-        margin-top: 60px;
+      /*  margin-top: 60px;*/
         &:before {
           content: "";
           display: inline-block;
@@ -156,9 +156,10 @@
     &--small{
       padding-top: 60px;
       padding-bottom: 25px;
+ 
 
       .headTitle-title {
-        margin-top:20px;
+        margin-top: 30px;
         .separator {
           &:before {
             bottom: 1rem;
