@@ -2,6 +2,7 @@
 <section class="block-signup {{block.signUp_backgroundcolor}} ">
 	<div class="block-signup-container">
 		<div class="block-signup-left" style="block" id="msg">
+
 			<div class="block-signup-title">
 				{% if block.signUp_title|length > 0 %}
 					{{ block.signUp_title }}
@@ -27,8 +28,11 @@
 					<span>I’m in!</span>
 				</button>
 			</form>
+
 			<div id="error-email"></div>
 		</div>
+
+		
 		<div class="block-signup-left send-msg" style="display: none;" id="send">
 			<div class="block-signup-title">
 				<div class="message">

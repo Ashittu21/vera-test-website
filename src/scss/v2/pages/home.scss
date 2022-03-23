@@ -314,26 +314,11 @@
   margin-bottom: 70px;
 }
 
-.home .block-signup-form{
-  @media(max-width:$mobile-breakpoint){
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 0;
-    margin: 0;
-  }
-}
-
 .home .home-content-item-left-copy {
   margin-top: 15px;
   margin-bottom: 33px;
 }
 
-.home .block-signup .block-signup-container .block-signup-left {
-min-height: 526px;
-
-}
 
 .home .headTitle-content .headTitle-title .separator {
   margin-top: 90px;
@@ -368,6 +353,14 @@ min-height: 526px;
   }
 }
 
+
+.home-content-items .home-content-item-left-title {
+  font-size: 45px;
+  line-height: 49.5px;
+}
+
+
+/*
  .block-signup-left{
   position: absolute;
   width: calc(100% - 190px);
@@ -381,7 +374,7 @@ min-height: 526px;
   right: 0;
 }
 
- .block-signup .block-signup-container .block-signup-left {
+ .block-signup-left {
   position: relative;
   margin-bottom: 35px;
   z-index: 2;
@@ -390,133 +383,8 @@ min-height: 526px;
     padding: 35px;
   }
 }
-
- .bck {
-  width: 100%;
-  position: absolute;
-  background-color: #160643;
-  left: 0;
-  z-index: 0;
-  height: 398px;
-}
-
-.block-signup-container .button.orange span {
-  font-size: 28px;
-  @media(max-width:$mobile-breakpoint){
-    font-size: 24px;
-  }
-}
+*/
 
 
- .block-signup .block-signup-container .block-signup-left .block-signup-form input[type=email] {
-  @media(max-width:$mobile-breakpoint){
-    margin-bottom: 58px;
-  }
-}
 
-.block-signup-form .button.orange.arrow {
-  @media(max-width:$mobile-breakpoint){
-    width: 148px;
-    height: 60px;
-  }
-}
 
- .home-content-items .home-content-item-left-title {
-  font-size: 45px;
-  line-height: 49.5px;
-}
-
- .block-signup-left.send-msg {
-  display: flex;
-  flex-direction: row !important;
-  align-items: center;
-  justify-content: flex-start;
-  width: 100%;
-  position: relative;
-  @media(max-width:$mobile-breakpoint){
-    flex-direction: column !important;
-    padding-left: 0 !important;
-  }
-}
- 
-  .socials{
-    display: flex;
-    justify-content: baseline;
-    align-items: baseline;
-    width: 100%;
-    position: relative;
-    @media(max-width:$mobile-breakpoint){
-      flex-direction: column;
-      width: auto;
-      margin-left: -55px;
-    }
-  .donate-txt{
-      min-width: 50%;
-      padding-left: 110px;
-      @media(max-width:$mobile-breakpoint){
-        padding-left: 0px;
-        margin-left: -20px;
-      }
-    }
-
-  }
-  .block-signup-title .message {
-    min-width: 458px;
-    border-right: 3px solid #160643;
-    height: 315px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    padding-left: 30px;
-    @media(max-width:$mobile-breakpoint){
-      align-items: self-start;
-      padding-left: 0;
-      min-width: inherit;
-      border: none;
-      height: 190px;
-    }
-}
-  
-  .donate-txt p, .wrap-socials p{
-    font-size: 26px;
-    margin-bottom: 40px;
-    @media(max-width:$mobile-breakpoint){
-      font-size: 21px;
-      margin-bottom: 26px;
-    }
-  }
-
-   .wrap-socials p{
-    @media(max-width:$mobile-breakpoint){
-      margin-bottom: 49px;
-      margin-top: 26px;
-      margin-left: -55px;
-    }
-  }
-    
-   .list-social{
-    display: flex;
-    align-items: baseline;
-    list-style: none;
-    justify-content: space-between;
-    @media(max-width:$mobile-breakpoint){
-      margin-left: -55px;
-    }
-    a{
-      svg{
-        width: 45px;
-        margin-right: 7px;
-        padding: 0;
-      }
-    }
-}
-
-  .list-social button{
-    border-style: none;
-    background-color: transparent;
-
-  }
-
-  .wrap-socials{
-    padding-left: 38px;
-  }
