@@ -24,26 +24,7 @@
     padding: 16px 66px 18px 16px;
   }
 
-  &.signUp {
-    padding: 0px 50px 0px 20px;
 
-    span {
-      min-height: 70px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      font-size: 28px;
-      @media(max-width:$mobile-breakpoint) {
-        font-size: 24px;
-      }
-    }
-
-    @media(max-width:$mobile-breakpoint) {
-      width: 148px;
-      height: 60px;
-      min-height: 60px;
-    }
-  }
 
 
   &:hover {
@@ -72,7 +53,8 @@
       flex-direction: column;
       justify-content: center;
       color: #FFF;
-      font-size: 28px;
+     /* font-size: 28px;*/
+     font-size: 16px;
     }
 
     &:before,
@@ -168,6 +150,27 @@
       &:hover {
         background-image: url("../img/v2/arrow-w.svg");
       }
+    }
+  }
+
+  &.signUp {
+    padding: 0px 50px 0px 20px;
+
+    span {
+      min-height: 70px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      font-size: 28px;
+      @media(max-width:$mobile-breakpoint) {
+        font-size: 24px;
+      }
+    }
+
+    @media(max-width:$mobile-breakpoint) {
+      width: 148px;
+      height: 60px;
+      min-height: 60px;
     }
   }
 }
@@ -274,9 +277,6 @@
   min-height: 330px;
 }
 
-.button.orange span {
-  font-size: 16px;
-}
 
 .home-content-item-left-cta .button.orange:before {
   background-position: right 34px center;
