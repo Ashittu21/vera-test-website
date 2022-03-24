@@ -32279,7 +32279,8 @@ div.heading > div:nth-child(3) > p {
             .block-latestNews-content .latest-hero-sidebar-right-SideItems > div .sideItems-item {
               border-top: 2px solid var(--global-color-light-violet);
               border-bottom: 2px solid var(--global-color-light-violet);
-              padding: 25px 0;
+              padding-top: 27px;
+              padding-bottom: 30px;
               margin-top: -2px; }
               .block-latestNews-content .latest-hero-sidebar-right-SideItems > div .sideItems-item:first-child {
                 margin-top: 0; }
@@ -32290,7 +32291,7 @@ div.heading > div:nth-child(3) > p {
                 font-style: normal;
                 font-weight: normal;
                 font-size: 11px;
-                margin-bottom: 15px; }
+                margin-bottom: 20px; }
               .block-latestNews-content .latest-hero-sidebar-right-SideItems > div .sideItems-item-title {
                 font-family: var(--global-font-abc-whyte);
                 font-size: 21px;

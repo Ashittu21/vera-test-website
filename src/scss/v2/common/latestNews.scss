@@ -453,7 +453,8 @@
             .sideItems-item {
               border-top: 2px solid var(--global-color-light-violet);
               border-bottom: 2px solid var(--global-color-light-violet);
-              padding: 25px 0;
+              padding-top: 27px;
+              padding-bottom: 30px;
               margin-top: -2px;
 
               &:first-child {
@@ -467,7 +468,7 @@
                 font-style: normal;
                 font-weight: normal;
                 font-size: 11px;
-                margin-bottom: 15px;
+                margin-bottom: 20px;
               }
 
               &-title {
