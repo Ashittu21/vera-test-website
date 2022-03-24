@@ -380,15 +380,17 @@
 			content: attr(data-year);
 			position:absolute;
 			display:block;
+            color: $white;
 			@extend .ff-sans;
 			font-size: 14px;
 		    font-size: 1.4rem;
 		}
 		&:first-of-type:before {
 			top: -1.5em;
+            left: -8px;
 		}
 		&:nth-of-type(2):before {
-			right:0;
+			right:-7px;
 			bottom: -1.5em;
 		}
 	}

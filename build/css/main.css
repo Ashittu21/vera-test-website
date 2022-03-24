@@ -26853,12 +26853,14 @@ button.SortableTable-header-column-button {
       content: attr(data-year);
       position: absolute;
       display: block;
+      color: #fff;
       font-size: 14px;
       font-size: 1.4rem; }
     #date-slider .ui-slider-handle:first-of-type:before {
-      top: -1.5em; }
+      top: -1.5em;
+      left: -8px; }
     #date-slider .ui-slider-handle:nth-of-type(2):before {
-      right: 0;
+      right: -7px;
       bottom: -1.5em; }
 
 .filter__section--clear {
@@ -34271,9 +34273,8 @@ div.heading > div:nth-child(3) > p {
               flex-grow: 1;
       -ms-flex-preferred-size: 0;
           flex-basis: 0;
-      padding-left: 93px;
-      padding-right: 93px; }
-      @media (max-width: 768px) {
+      min-width: 33.33%; }
+      @media (max-width: 1024px) {
         .stats-block .stats-block-items .stats-block-item {
           -webkit-box-orient: vertical;
           -webkit-box-direction: normal;
@@ -34297,7 +34298,9 @@ div.heading > div:nth-child(3) > p {
         line-height: 60px;
         letter-spacing: 0em;
         margin-bottom: 25px;
-        text-align: center; }
+        text-align: center;
+        padding-left: 24px;
+        padding-right: 24px; }
         @media (max-width: 768px) {
           .stats-block .stats-block-items .stats-block-item .stats-block-item-number {
             font-size: 45px;
@@ -34312,10 +34315,17 @@ div.heading > div:nth-child(3) > p {
         letter-spacing: 0em;
         text-align: center;
         color: var(--global-color-text);
-        padding-bottom: 40px; }
-        @media (max-width: 768px) {
+        padding-bottom: 40px;
+        padding-left: 93px;
+        padding-right: 93px; }
+        .stats-block .stats-block-items .stats-block-item .stats-block-item-copy.px-50-percent {
+          padding-left: 42px;
+          padding-right: 42px; }
+        @media (max-width: 1180px) {
           .stats-block .stats-block-items .stats-block-item .stats-block-item-copy {
-            padding-bottom: 20px; } }
+            padding-bottom: 20px;
+            padding-left: 42px;
+            padding-right: 42px; } }
 
 .swiper {
   width: 100%;

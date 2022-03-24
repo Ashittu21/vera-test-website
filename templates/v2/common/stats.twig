@@ -10,7 +10,7 @@
         <div class="stats-block-item-number">
           {{ row.stats_item_number }}
         </div>
-        <div class="stats-block-item-copy">
+        <div class="stats-block-item-copy {% if block.stats_items|length > 2 %}px-50-percent{% endif %}">
           {{ row.stats_item_text }}
         </div>
       </div>
