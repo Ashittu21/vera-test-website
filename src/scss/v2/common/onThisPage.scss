@@ -9,11 +9,9 @@
   margin-top: 55px;
   margin-bottom: 0;
   
-  
   @media (max-width: $tablet-landscape) {
     flex-direction: column;
   }
-  
   
   .bannerLinks-title-mobile{
     font-family: var(--global-font-abc-whyte);
@@ -33,7 +31,6 @@
     }
   }
   
-  
   .bannerLinks-left{
     min-width: 510px;
     width: 100%;
@@ -50,8 +47,9 @@
     min-width: 770px;
     padding-left: 110px;
     padding-right: 110px;
-    padding-top:52px;
     padding-top:55px;
+    padding-bottom: 55px;
+
     @media (max-width: $mobile-large) {
       min-width: 100%;
       padding: 0 11px;
@@ -71,7 +69,6 @@
         display: none;
       }
     }
-    
     
     .bannerLinks-right-items{
       @media (max-width: $mobile-large) {
