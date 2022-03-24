@@ -50,12 +50,14 @@
     justify-content: center;
     padding-top: 86px;
     padding-bottom: 130px;
+    padding-right: 30px;
+
     @media(max-width: $mobile-large) {
       min-height: auto;
       padding-top: 50px;
       padding-bottom: 90px;
     }
-  
+
     &-content {
       margin-left: 80px;
 
@@ -98,16 +100,11 @@
             font-size: 38px;
           }
         }
-
-
       }
     }
 
-
     @media (max-width: $tablet-portrait) {
       width: auto;
-
     }
-
   }
 }
