@@ -56,11 +56,13 @@
 
 
  
+  {% set blockid = 0 %}
 
   {% for block in entry.initiativeBlocks.level(1).all() %}
   
-    {% if craft.app.request.getQueryParam('x-craft-live-preview') %}<div class="previewBlockId">block-{{ block.type }}-{{block.id}}</div>{% endif %}
-    <a class="anchor-link" id="block-{{ block.type }}-{{block.id}}" /></a>
+    {% set blockid = blockid + 1 %}
+    {% if craft.app.request.getQueryParam('x-craft-live-preview') %}<div class="previewBlockId">block-{{ block.type }}-{{ blockid }}</div>{% endif %}
+    <a class="anchor-link" id="block-{{ block.type }}-{{ blockid }}" /></a>
 
     {% switch block.type.handle %}
 
