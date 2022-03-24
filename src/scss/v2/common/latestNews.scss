@@ -63,6 +63,7 @@
         width: 100%;
         box-sizing: border-box;
         transition: all 0.5s ease-in-out;
+        max-height: 437px;
 
         &:hover {
           background-image: -webkit-linear-gradient(180deg, #da392f 40.1%, var(--global-color-medium-violet) 40.1%);
@@ -381,6 +382,7 @@
       display: flex;
       flex-direction: row;
       justify-content: space-between;
+      padding-bottom: 70px;
 
       @media(max-width:$mobile-breakpoint) {
         flex-direction: column;
@@ -451,7 +453,8 @@
             .sideItems-item {
               border-top: 2px solid var(--global-color-light-violet);
               border-bottom: 2px solid var(--global-color-light-violet);
-              padding: 25px 0;
+              padding-top: 27px;
+              padding-bottom: 30px;
               margin-top: -2px;
 
               &:first-child {
@@ -465,7 +468,7 @@
                 font-style: normal;
                 font-weight: normal;
                 font-size: 11px;
-                margin-bottom: 15px;
+                margin-bottom: 20px;
               }
 
               &-title {
@@ -488,7 +491,7 @@
               }
 
               &-date {
-                margin-top: 26px;
+                margin-top: 13px;
                 font-family: var(--global-font-abc-whyte);
                 font-size: 14px;
                 font-style: normal;
