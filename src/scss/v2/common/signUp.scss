@@ -110,28 +110,6 @@
         align-content: flex-end;
         align-items: stretch;
 
-
-
-        .button.orange span {
-          font-size: 28px;
-          min-height: 70px;
-          
-          @media(max-width:$mobile-breakpoint) {
-            font-size: 24px;
-          }
-        }
-
-        .button.orange.arrow {
-          @media(max-width:$mobile-breakpoint) {
-            width: 148px;
-            height: 60px;
-          }
-        }
-
-
-
-
-
         input[type=email] {
           background-color: transparent;
           border: 0;

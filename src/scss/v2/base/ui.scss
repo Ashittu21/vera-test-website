@@ -1,4 +1,4 @@
-.copy-block-content h5{
+.copy-block-content h5 {
   font-size: 35px;
   margin-bottom: 45px;
 }
@@ -17,40 +17,64 @@
   display: inline-block;
   outline: none;
   cursor: pointer;
-  transition: all 0.2s  ease;
-  
-  &-2x{
+  transition: all 0.2s ease;
+
+  &-2x {
     font-size: 28px;
     padding: 16px 66px 18px 16px;
   }
-  
-  &:hover{
-    color:#0E002C;
+
+  &.signUp {
+    padding: 0px 50px 0px 20px;
+
+    span {
+      min-height: 70px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      font-size: 28px;
+      @media(max-width:$mobile-breakpoint) {
+        font-size: 24px;
+      }
+    }
+
+    @media(max-width:$mobile-breakpoint) {
+      width: 148px;
+      height: 60px;
+      min-height: 60px;
+    }
+  }
+
+
+  &:hover {
+    color: #0E002C;
     font-weight: 500;
     background-color: #ABFFEB;
   }
-  
-  &.orange{
+
+  &.orange {
     color: #FFF;
     border: 0;
     z-index: 1;
-    
+
     &.arrow {
       background-image: url("../img/v2/arrow-white.svg");
       background-repeat: no-repeat;
       background-size: inherit;
       background-position: right 15px center;
-      
+
     }
-    
-    span{
+
+    span {
       transition: transform 0.2s ease;
       position: relative;
-      display: block;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
       color: #FFF;
       font-size: 28px;
     }
-    
+
     &:before,
     &:after {
       border: 0;
@@ -59,7 +83,7 @@
       position: absolute;
       z-index: -1;
     }
-    
+
     &:before {
       left: 0;
       top: 0;
@@ -70,10 +94,10 @@
       background-image: url("../img/v2/arrow-white.svg");
       background-repeat: no-repeat;
       background-size: inherit;
-      background-position: right 20px center; 
+      background-position: right 20px center;
       transition: all 0.2s ease;
     }
-    
+
     // BOTTOM
     &:after {
       background-color: transparent;
@@ -85,34 +109,36 @@
       transform: skewX(0deg);
       z-index: -2;
     }
-    
-    &:hover{
+
+    &:hover {
       background-color: transparent;
       box-sizing: content-box;
-      span{
+
+      span {
         transform: translate3d(6px, 6px, 0px);
         color: #FFF;
       }
+
       &:before {
         transform: translate3d(6px, 6px, 0px);
       }
     }
-    
+
   }
-  
+
   &.arrow {
     background-image: url("../img/v2/arrow.svg");
     background-repeat: no-repeat;
     background-size: inherit;
     background-position: right 20px center;
-    
-    &:hover{
+
+    &:hover {
       background-image: url("../img/v2/arrow-black.svg");
       color: var(--global-color-text);
     }
   }
 
-  &.arrowType2{
+  &.arrowType2 {
     font-family: var(--global-font-abc-whyte);
     font-size: 20px;
     font-style: normal;
@@ -128,17 +154,18 @@
     background-repeat: no-repeat;
     background-size: 20px auto;
     background-position: right 20px center;
-    
-    &:hover{
+
+    &:hover {
       background-image: url("../img/v2/arrow-red.svg");
       background-color: transparent;
-      color:white;
+      color: white;
       text-decoration: underline;
     }
 
-    &.arrowHoverWhite{
+    &.arrowHoverWhite {
       background-image: url("../img/v2/arrow-mint.svg");
-      &:hover{
+
+      &:hover {
         background-image: url("../img/v2/arrow-w.svg");
       }
     }
@@ -146,7 +173,7 @@
 }
 
 
-.button-donate{
+.button-donate {
   font-family: var(--global-font-abc-whyte);
   font-size: 16px;
   font-weight: 500;
@@ -163,6 +190,7 @@
   border: 2px solid transparent;
   height: 100%;
   justify-content: center;
+
   &.arrow {
     background-image: url("../img/v2/arrow.svg");
     background-repeat: no-repeat;
@@ -171,7 +199,7 @@
   }
 }
 
-.button-sand{
+.button-sand {
   border: 1px solid var(--global-color-dark-sand);
   background-color: transparent;
   color: var(--global-color-text);
@@ -185,13 +213,13 @@
   padding: 8px 10px 8px 11px;
   transition: all 0.2s ease;
 
-  &:hover{
+  &:hover {
     background-color: var(--global-color-red-2);
     border-color: var(--global-color-red-2);
     color: var(--global-color-white) !important;
   }
 
-  &.active{
+  &.active {
     background-color: var(--global-color-red-2);
     border-color: var(--global-color-red-2);
     color: var(--global-color-white);
@@ -207,10 +235,12 @@
   line-height: 54px;
   letter-spacing: 0em;
   text-align: left;
-  text-decoration: none;  
-  &.strong{
+  text-decoration: none;
+
+  &.strong {
     font-weight: 900;
   }
+
   &:after {
     border: 0;
     content: '';
@@ -218,23 +248,23 @@
     position: absolute;
     z-index: -1;
   }
-  
-  &:after{
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-      background-color: #EF4136;
-      background-image: url("../img/v2/arrow-white.svg");
-      background-repeat: no-repeat;
-      background-size: inherit;
-      background-position: right 20px center; 
-      transition: all 0.2s ease;    
+
+  &:after {
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-color: #EF4136;
+    background-image: url("../img/v2/arrow-white.svg");
+    background-repeat: no-repeat;
+    background-size: inherit;
+    background-position: right 20px center;
+    transition: all 0.2s ease;
   }
 }
 
-.placeHolderImg{
+.placeHolderImg {
   background: #160643;
   height: 100%;
   display: flex;
@@ -244,10 +274,10 @@
   min-height: 330px;
 }
 
-.button.orange span{
+.button.orange span {
   font-size: 16px;
 }
 
-.home-content-item-left-cta .button.orange:before{
+.home-content-item-left-cta .button.orange:before {
   background-position: right 34px center;
 }

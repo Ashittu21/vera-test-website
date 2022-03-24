@@ -26,9 +26,8 @@
   &--news{
     height: inherit;
     .headTitle-content{
-      padding-top: 0px;
       padding-bottom: 0px;
-
+      padding-top: 60px;
       .headTitle-title {
         .separator {
           &:before {
@@ -54,6 +53,13 @@
     .headTitle-breadcrumb {
       text-align: left;
       margin-left: 10px;
+      color:#FFF;
+      font-family: var(--global-font-abc-whyte);
+      font-size: 11px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      letter-spacing: 0.17em;
 
       a {
         font-family: var(--global-font-abc-whyte);

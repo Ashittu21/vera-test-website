@@ -7,14 +7,8 @@
     <div class="headTitle-content {{ entry.headerTitle_size }}">
 
       <div class="headTitle-breadcrumb">
-        {% if entry.level > 1 %}
-          <a href="{{ siteUrl }}">HOME</a>
-          {% for crumb in entry.getAncestors() %}
-          // {{ crumb.getLink() }}
-          {% endfor %}
-        {% else %}
-          <a href="{{ siteUrl }}">HOME</a>
-        {% endif %}
+          <a href="{{ siteUrl }}">HOME</a> //
+          <a href="{{ entry.url }}">{{ entry.title }}</a>
       </div>
 
       <div class="headTitle-title">
