@@ -4,6 +4,24 @@
 {% set section = 'people' %}
 
 {% block content %}
+
+<!-- Header Title -->
+  <section class="headTitle bgColor-darkviolet">
+    <div class="headTitle-content {{ entry.headerTitle_size }}">
+
+      <div class="headTitle-breadcrumb">
+          <a href="{{ siteUrl }}">HOME</a> //
+          <a href="{{ entry.url }}">{{ entry.title }}</a>
+      </div>
+
+      <div class="headTitle-title">
+        <h3 class="separator left-aligned">
+        <span>{{ entry.headerTitle_title|striptags('p')|raw }}</span></h3>
+      </div>
+    </div>
+  </section>
+<!-- Header Title -->
+
    
   {% set category = craft.categories.group('departments').title('Reform Leadership Council') %}
   {% set people = craft.entries.section('people').type('staff').relatedTo(category).with(['headshot']) %}

@@ -4,6 +4,29 @@
 {% set section = 'people' %}
 
 {% block content %}
+
+
+
+<!-- Header Title -->
+  <section class="headTitle bgColor-darkviolet">
+    <div class="headTitle-content {{ entry.headerTitle_size }}">
+
+      <div class="headTitle-breadcrumb">
+          <a href="{{ siteUrl }}">HOME</a> //
+          <a href="{{ entry.url }}">{{ entry.title }}</a>
+      </div>
+
+      <div class="headTitle-title">
+        <h3 class="separator left-aligned">
+        <span>{{ entry.headerTitle_title|striptags('p')|raw }}</span></h3>
+      </div>
+    </div>
+  </section>
+<!-- Header Title -->
+
+
+
+
     {% set entry = craft.entries.section('about').one() %}
     <!-- People -->
     <div class="people-grid">
