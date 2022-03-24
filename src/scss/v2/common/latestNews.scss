@@ -386,6 +386,7 @@
 
       @media(max-width:$mobile-breakpoint) {
         flex-direction: column;
+        padding-bottom: 3px;
       }
 
       &.reverse {
