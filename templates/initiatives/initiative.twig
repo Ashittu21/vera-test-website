@@ -65,7 +65,7 @@
     {% switch block.type.handle %}
 
        {% case  'bannerType2' %} {# Text besides images #}
-        {% include '/v2/common/bannerType2'  with { block: block } %}
+        {% include '/v2/common/initiative-bannerType2'  with { block: block } %}
 
       {% case 'code' %}
         <div class="code-container">{{ block.code | raw }}</div> 
