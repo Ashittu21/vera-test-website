@@ -33876,7 +33876,6 @@ div.heading > div:nth-child(3) > p {
             box-sizing: content-box; }
 
 .block-signup {
-  background-color: var(--global-color-dark-violet);
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -33912,6 +33911,8 @@ div.heading > div:nth-child(3) > p {
         -ms-flex-positive: 1;
             flex-grow: 1;
     color: #FFF;
+    top: -35px;
+    margin-top: 35px;
     /*
  * Social
  */ }
@@ -33972,7 +33973,7 @@ div.heading > div:nth-child(3) > p {
         font-size: 80px;
         font-style: normal;
         font-weight: 900;
-        line-height: 69px;
+        line-height: 97.6px;
         letter-spacing: 0em;
         text-align: left;
         width: 80%; }
@@ -37419,12 +37420,6 @@ header {
 @media (max-width: 768px) {
   .home .sideItems-item-title {
     padding-top: 2px; } }
-
-.home .block-signup.bgColor-darkviolet {
-  margin-top: 130px; }
-
-.home .block-signup-container {
-  margin-top: -128px; }
 
 .home .home-content-item {
   padding-top: 76px;
