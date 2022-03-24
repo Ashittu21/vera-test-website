@@ -12,7 +12,7 @@
     {% cache %}
     {% set category = craft.categories.group('departments').title('Leadership Team') %}
     {% set people = craft.entries.section('people').type('staff').relatedTo(category).with(['headshot']) %}
-    {% include '../../../../includes/snippets/people' with {grid: true, large: true} %}
+    {% include './includes/snippets/people' with {grid: true, large: true} %}
     {% endcache %}
   </div>
 </div>
@@ -43,13 +43,13 @@ filterRelations: [{
 relatedTo: excludeCategories
 } %}
 
-{% include '../../../../includes/stream/stream_people' with {isPageRequest : true} %}
+{% include './includes/stream/stream_people' with {isPageRequest : true} %}
 {% endblock %}
 
 {% block ajax_wrap_open %}
-	{% include '../../../../includes/snippets/ajax_wrap_open' %}
+	{% include './includes/snippets/ajax_wrap_open' %}
 {% endblock %}
 
 {% block ajax_wrap_close %}
-	{% include '../../../../includes/snippets/ajax_wrap_close' %}
+	{% include './includes/snippets/ajax_wrap_close' %}
 {% endblock %}
