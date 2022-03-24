@@ -1,0 +1,36 @@
+{% extends '_layout' %}
+
+{% set title = 'About' %}
+{% set section = 'people' %}
+
+{% block content %}
+   
+  {% set boardcategory = craft.categories.group('departments').title('Board of Trustees') %}
+  {% set board = craft.entries.section('people').type('staff').relatedTo(boardcategory).with(['headshot']) %}
+  <div class="people-grid">
+    <div class="container">
+      <h3>Board of Trustees</h3>
+      {% include 'includes/snippets/people' with {people: board, grid: true, large: true} %}
+    </div>
+  </div>
+
+  {% set boardcategory = craft.categories.group('departments').title('Honorary Trustees') %}
+  {% set board = craft.entries.section('people').type('staff').relatedTo(boardcategory).with(['headshot']) %}
+  {% if board | length %}
+    <div class="people-grid">
+      <div class="container">
+        <h3>Honorary Trustees</h3>
+        {% include 'includes/snippets/people' with {people: board, grid: true, large: true} %}
+      </div>
+    </div>
+  {% endif %}
+{% endblock %}
+
+{% block ajax_wrap_open %}
+	{% include './includes/snippets/ajax_wrap_open' %}
+{% endblock %}
+
+{% block ajax_wrap_close %}
+	{% include './includes/snippets/ajax_wrap_close' %}
+{% endblock %}
+

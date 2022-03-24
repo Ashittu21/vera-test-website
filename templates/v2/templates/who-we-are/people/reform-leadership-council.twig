@@ -1,0 +1,30 @@
+{% extends '_layout' %}
+
+{% set title = 'About' %}
+{% set section = 'people' %}
+
+{% block content %}
+   
+  {% set category = craft.categories.group('departments').title('Reform Leadership Council') %}
+  {% set people = craft.entries.section('people').type('staff').relatedTo(category).with(['headshot']) %}
+  <div class="people-grid">
+    <div class="container">
+      <h3>Reform Leadership Council</h3>
+      <div class="post-module module-text container">
+        <div class="module-text__inner">{{ entry.reformLeadershipCouncilDescription }}</div>
+      </div>
+      {% include 'includes/snippets/people' with {people: people, grid: true, large: true} %}
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block ajax_wrap_open %}
+	{% include './includes/snippets/ajax_wrap_open' %}
+{% endblock %}
+
+{% block ajax_wrap_close %}
+	{% include './includes/snippets/ajax_wrap_close' %}
+{% endblock %}
+
+
