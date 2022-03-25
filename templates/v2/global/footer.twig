@@ -18,10 +18,8 @@
         {% if  footer_links|length %}
         <ul class="menu-footer">
           {% for node in footer_links %}
-          <li><a
-              href="{{ node.footerLink.getUrl() }}">{{node.footerLink.customText }}
-              <img src="/dist/img/v2/arrow-menu_1.svg" width="20px">
-              </a>
+          <li>
+            <a href="{{ node.footerLink.getUrl() }}">{{node.footerLink.customText }}<img src="/dist/img/v2/arrow-menu_1.svg" width="20px"></a>
           </li>
           {% endfor %}
         </ul>
@@ -49,10 +47,8 @@
       <div class="footerV2-column footerV2-top-col04">
         <div class="mail-list">
           <div class="mail-list-container">
-                    <p class="title"> Transformative change, sent
-            to your inbox.</p>
-          <a href="https://secure.vera.org/a/signup" target="_blank" class="button orange arrow"><span>Add
-              your email</span></a>
+          <p class="title"> Transformative change, sent to your inbox.</p>
+             <a href="https://secure.vera.org/a/signup" target="_blank" class="button orange arrow"><span>Add your email</span></a>
           </div>
 
         </div>
@@ -67,21 +63,19 @@
 
     <div class="footerV2-bottom-container">
       <div class="footer-bottom-copyright">
-        © Vera Institute of Justice. All rights
-        reserved.
+        {{ footer.footerLegalCopy }}
       </div>
       <div class="footer-bottom-menu">
+        {% set footer_linksLegal = footer.footerLinksLegal.all() %}
+        {% if  footer_linksLegal|length %}
         <ul>
+          {% for node in footer_linksLegal %}
           <li>
-            <a href="">Terms of Use</a>
+            <a href="{{ node.footerLinksLegal.getUrl() }}">{{node.footerLinksLegal.customText }}</a>
           </li>
-          <li>
-            <a href="">GSA Advantage</a>
-          </li>
-          <li>
-            <a href="">Credits</a>
-          </li>
+          {% endfor %}
         </ul>
+        {% endif %}
       </div>
     </div>
 
