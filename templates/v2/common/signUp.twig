@@ -47,7 +47,7 @@
 						<p>Join us in the
 							<br>
 							fight for justice.</p>
-						<button href="#" class="button orange arrow">
+						<button href="{{ administrative.donateButtonLink }}" class="button orange arrow">
 							<span>Donate</span>
 						</button>
 					</div>
@@ -111,61 +111,62 @@
 	<!-- SignUp -->
 
 	<script>
-var emailAddress = document.getElementById("emailSignUp").value;
-var emailField = document.getElementById("emailSignUp");
+		var emailAddress = document.getElementById("emailSignUp").value;
+		var emailField = document.getElementById("emailSignUp");
 
-function validation(event) {
-event.preventDefault();
-const regex = {
-email: /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}/gi
-};
+		function validation(event) {
+			event.preventDefault();
+			const regex = {
+				email: /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}/gi
+			};
 
-var emailAddress = document.getElementById("emailSignUp").value;
-var formerror = false;
+			var emailAddress = document.getElementById("emailSignUp").value;
+			var formerror = false;
 
-if (emailAddress == "") {
-document.getElementById("emailSignUp").focus();
-emailField.classList.add('error');
-document.getElementById("error-email").innerHTML = "<i class='fa-solid fa-circle-exclamation colorRed'></i> Email address cannot be blank";
-formerror = true;
-}
+			if (emailAddress == "") {
+				document.getElementById("emailSignUp").focus();
+				emailField.classList.add('error');
+				document.getElementById("error-email").innerHTML = "<i class='fa-solid fa-circle-exclamation colorRed'></i> Email address cannot be blank";
+				formerror = true;
+			}
 
-if (emailAddress) {
-emailAddress = emailAddress.trim();
-if (! regex.email.test(emailAddress)) {
-document.getElementById("emailSignUp").focus();
-emailField.classList.add('error');
-document.getElementById("error-email").innerHTML = "<i class='fa-solid fa-circle-exclamation colorRed'></i> Please enter a valid email address";
-formerror = true;
-}
-}
+			if (emailAddress) {
+				emailAddress = emailAddress.trim();
+				if (!regex.email.test(emailAddress)) {
+					document.getElementById("emailSignUp").focus();
+					emailField.classList.add('error');
+					document.getElementById("error-email").innerHTML = "<i class='fa-solid fa-circle-exclamation colorRed'></i> Please enter a valid email address";
+					formerror = true;
+				}
+			}
 
-if (formerror) {
-var error_message = document.getElementById("error-message");
-error_message.style.display = "block";
-error_message.innerHTML = "<i class='fa-solid fa-circle-exclamation colorRed'></i> Please Correct it before submitting again";
-return false;
-}
+			if (formerror) {
+				var error_message = document.getElementById("error-message");
+				error_message.style.display = "block";
+				error_message.innerHTML = "<i class='fa-solid fa-circle-exclamation colorRed'></i> Please Correct it before submitting again";
+				return false;
+			}
 
-var form = document.getElementById("signUp-form");
-var formdata = new FormData(form);
-var styles = {
-    "display": "flex",
-    "flex-direction": "row"
-};
+			var form = document.getElementById("signUp-form");
+			var formdata = new FormData(form);
+			var styles = {
+				"display": "flex",
+				"flex-direction": "row"
+			};
 
-fetch('https://secure.everyaction.com/v1/Forms/9MnyiyAupU20rLpl1qXycQ2', {
-method: 'POST',
-headers: {
-'Content-Type': 'application/x-www-form-urlencoded'
-},
-body: 'EmailAddress=' + emailAddress + '&type=SignupForm'
-}).then(res => res.json()).then(data => {
-if (data.resultCode == "Success") {
-    document.getElementById("send").style.display ="flex";
-    document.getElementById("msg").style.display ="none";
-"<i class='fa-solid fa-circle-exclamation colorRed'></i> Please Correct it before submitting again";
-}
-});
-}
+			fetch('https://secure.everyaction.com/v1/Forms/9MnyiyAupU20rLpl1qXycQ2', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/x-www-form-urlencoded'
+				},
+				body: 'EmailAddress=' + emailAddress + '&type=SignupForm'
+			}).then(res => res.json()).then(data => {
+				if (data.resultCode == "Success") {
+					console.log(data.resultCode);
+					document.getElementById("send").style.display = "flex";
+					document.getElementById("msg").style.display = "none";
+					"<i class='fa-solid fa-circle-exclamation colorRed'></i> Please Correct it before submitting again";
+				}
+			});
+		}
 	</script>

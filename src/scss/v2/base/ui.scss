@@ -50,8 +50,12 @@
       flex-direction: column;
       justify-content: center;
       color: #FFF;
-     /* font-size: 28px;*/
-     font-size: 16px;
+      font-size: 28px !important;
+
+      @media (max-width:$mobile-breakpoint) {
+        font-size: 24px !important;
+      }
+      
     }
 
     &:before,

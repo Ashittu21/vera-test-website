@@ -15,9 +15,9 @@
 
 		// DOM element(s)
 		let	container = menu.parentElement,
-			currentMenuItem,
-			i,
-			len;
+		  	currentMenuItem,
+		 	  i,
+			  len;
 
 		this.init = function() {
 			menuSetup();
@@ -31,7 +31,7 @@
 
 		function toggleOnMenuClick( e ) {
 			const button = e.currentTarget;
-			let acm= null;
+			let acm = null;
 			const btn = document.getElementById( button.getAttribute( 'aria-controls' ) );
 			if(currentMenuItem !== undefined && currentMenuItem !== false && currentMenuItem !== true){
 			  acm = document.getElementById( currentMenuItem.getAttribute( 'aria-controls' ) );
@@ -136,9 +136,9 @@
 		function convertLinkToButton( menuItem ) {
 
 			const 	link = menuItem.getElementsByTagName( 'a' )[0],
-					linkHTML = link.innerHTML,
-					linkAtts = link.attributes,
-					button = document.createElement( 'button' );
+					    linkHTML = link.innerHTML,
+					    linkAtts = link.attributes,
+					    button = document.createElement( 'button' );
 
 			if( null !== link ) {
 
@@ -159,6 +159,8 @@
 
 			const submenuId = submenu.getAttribute('id');
 			let containerId = container.getAttribute('id');
+		
+
 			let id;
 			if( null === submenuId ) {
 				id = containerId+'-'+ button.textContent.trim().replace(/\s+/g, '-').toLowerCase() + '-submenu';

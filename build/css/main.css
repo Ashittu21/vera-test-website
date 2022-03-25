@@ -29056,8 +29056,10 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
           -ms-flex-pack: center;
               justify-content: center;
       color: #FFF;
-      /* font-size: 28px;*/
-      font-size: 16px; }
+      font-size: 28px !important; }
+      @media (max-width: 768px) {
+        .button.orange span {
+          font-size: 24px !important; } }
     .button.orange:before, .button.orange:after {
       border: 0;
       content: '';

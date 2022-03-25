@@ -15,7 +15,7 @@
             {% for node in navigationTop.level(1).all() %}
               {% if node.hasDescendants() %}
                 <li>
-                  <a href="#">
+                  <a {{ node.navigationMain_linkField.getLinkAttributes() }}>
                     {{ node.title }}
                   </a>
                   <ul>
@@ -81,7 +81,7 @@
             {% for node in navigationMain.level(1).all() %}
               {% if node.hasDescendants() %}
                 <li>
-                  <a href="#">
+                  <a {{ node.navigationMain_linkField.getLinkAttributes() }}>
                     {{ node.title }}
                   </a>
                   <ul>
