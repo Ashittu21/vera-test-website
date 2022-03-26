@@ -7,22 +7,18 @@
     		  {% for newsItem in block.newsItems_item %}
 						<!-- {{ newsItem.type.handle }} -->
 
-							{% if newsItem.streamImageRectangle | length %}
-								{% set imageset = newsItem.streamImageRectangle %}
-							{% endif %}
+						{% if newsItem.streamImageRectangle | length %}
+							{% set imageset = newsItem.streamImageRectangle.first %}
+						{% endif %}
 
 					  {% switch newsItem.type.handle %}
    						{% case 'story' %}
   							{% if newsItem.heroImage is not null %}
-										<!-- hero image -->
-                    {% set imageset = newsItem.heroImage.one() %}
-										<!-- {{ imageset.getUrl() }} -->
+                    {% set imageset = newsItem.heroImage.first %}
                 {% elseif newsItem.streamImageSquare is not null %}
-										<!-- stream image square -->
-
-                    {% set imageset = newsItem.streamImageSquare.one() %}
-										<!-- {{ imageset.getUrl() }} -->
-                {% endif %} 		
+                    {% set imageset = newsItem.streamImageSquare.first %}
+                {% endif %} 	
+									
 						{% endswitch %}
 
 					
