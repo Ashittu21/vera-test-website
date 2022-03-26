@@ -30592,6 +30592,12 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
   margin-top: 50px;
   margin-bottom: 30px;
 } */
+.formBuilder_v2 {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding-bottom: 2rem; }
+
 .block-exploreMore {
   width: 100%;
   background-color: #0f002c;
