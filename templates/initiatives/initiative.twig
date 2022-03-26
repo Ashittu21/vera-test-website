@@ -29,7 +29,7 @@
           </div>
         </section>
       <!-- Header Title -->
-    {% case  'simpleHeader' %}
+    {% case  'headerWithImage' %}
       <!-- Hero Block -->
         <div class="heroType1-container"  {% if entry.heroType1_image.first != "" %}style="background-image: url('{{ entry.heroType1_image.first.url }}');"{% endif %}>
           <div class="heroType1-block-box">
@@ -80,8 +80,6 @@
           </div>
       <!-- END Hero Block -->   
   {% endswitch %} 
-
-{{ entry.initiativeHeaderSelector }}
 
 
 
