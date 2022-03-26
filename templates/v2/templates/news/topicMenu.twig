@@ -8,25 +8,42 @@
       </div>
       <div class="newsLanding-head-title-topic">Select a topic</div>
       <ul class="drop">
-        <li>All
+        <li>
+          {% if actual == 'blogPosts' %}
+            News
+          {% elseif actual == 'blogSeries'%}
+            New Series
+          {% elseif actual == 'specialReports' %}
+            Special Reports
+          {% elseif actual == 'spotlights' %}
+            Spotlights
+          {% endif %}
         <span>
            <svg width="13" height="9" viewBox="0 0 13 9" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M1 1L6.82353 7L12 1" stroke="#EF4136" stroke-width="2"/>
           </svg>
         </span>
         </li>
+        {% if actual != 'blogPosts' %}
         <li>
-          <a href="{{ siteUrl }}news-and-stories" class="button-sand {% if actual == 'blogPosts' %}active{% endif %}">News</a>
+          <a href="{{ siteUrl }}news-and-stories" class="button-sand">News</a>
         </li>
+        {% endif %}
+        {% if actual != 'blogSeries' %}
         <li>
-          <a href="{{ siteUrl }}news-and-stories-series" class="button-sand {% if actual == 'blogSeries' %}active{% endif %}">News Series</a> <!-- blogSeries -->
+          <a href="{{ siteUrl }}news-and-stories-series" class="button-sand">News Series</a> <!-- blogSeries -->
         </li>
+        {% endif %}
+        {% if actual != 'specialReports' %}
         <li>
-          <a href="{{ siteUrl }}news-and-stories-special-reports" class="button-sand {% if actual == 'specialReports' %}active{% endif %}">Special Reports</a> <!-- specialReports	 -->
+          <a href="{{ siteUrl }}news-and-stories-special-reports" class="button-sand">Special Reports</a> <!-- specialReports	 -->
         </li>
+        {% endif %}
+        {% if actual != 'spotlights' %}
         <li>
-          <a href="{{ siteUrl }}news-and-stories-spotlights" class="button-sand {% if actual == 'spotlights' %}active{% endif %}">Spotlights</a> <!-- spotlights -->
+          <a href="{{ siteUrl }}news-and-stories-spotlights" class="button-sand">Spotlights</a> <!-- spotlights -->
         </li>
+        {% endif %}
       </ul>
 
     </div><!-- newsLanding-head -->

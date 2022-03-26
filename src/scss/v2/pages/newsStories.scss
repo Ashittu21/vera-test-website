@@ -433,7 +433,7 @@
   position: absolute;
   background-color: #fff7f0;
   z-index: 1;
-  width: 320px;
+  width: calc(100% - 22px);
   right: 0px;
   left: 11px;
 }

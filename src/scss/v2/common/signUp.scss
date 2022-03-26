@@ -2,7 +2,7 @@
   width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-start;
 
   &.bgColor-sand {
     background-color: var(--global-color-sand) !important;
@@ -79,7 +79,7 @@
         line-height: 97.6px;
         letter-spacing: 0em;
         text-align: left;
-        width: 80%;
+        width: 100%;
 
         @media (max-width: $tablet-portrait) {
           font-size: 45px;

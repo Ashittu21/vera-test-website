@@ -31365,17 +31365,29 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
     .heroType3-content-line3 {
       display: block;
       position: absolute;
-      background-color: var(--global-color-light-violet);
-      height: 0%;
-      width: 2px;
+      width: 1205px;
       top: 0;
-      right: 80px;
-      -webkit-animation-name: test-animation-h-2;
-              animation-name: test-animation-h-2;
-      -webkit-animation-duration: 2s;
-              animation-duration: 2s;
-      -webkit-animation-fill-mode: forwards;
-              animation-fill-mode: forwards; }
+      height: 100%;
+      margin: auto;
+      left: 0;
+      right: 0; }
+      .heroType3-content-line3::before {
+        position: absolute;
+        background-color: var(--global-color-light-violet);
+        width: 2px;
+        top: 0;
+        right: 0;
+        -webkit-animation-name: n;
+                animation-name: n;
+        -webkit-animation-duration: 2s;
+                animation-duration: 2s;
+        -webkit-animation-fill-mode: forwards;
+                animation-fill-mode: forwards;
+        content: "";
+        display: block;
+        height: 100%;
+        left: 100%;
+        max-width: 2px; }
       @media (max-width: 768px) {
         .heroType3-content-line3 {
           display: none; } }
@@ -33884,9 +33896,9 @@ div.heading > div:nth-child(3) > p {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center; }
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start; }
   .block-signup.bgColor-sand {
     background-color: var(--global-color-sand) !important; }
   .block-signup .block-signup-container {
@@ -33976,7 +33988,7 @@ div.heading > div:nth-child(3) > p {
         line-height: 97.6px;
         letter-spacing: 0em;
         text-align: left;
-        width: 80%; }
+        width: 100%; }
         @media (max-width: 768px) {
           .block-signup .block-signup-container .block-signup-left .block-signup-title {
             font-size: 45px;
@@ -37360,6 +37372,9 @@ header {
       font-size: 55px;
       padding: 15px; } }
 
+.home .separator.left-aligned::before {
+  display: none; }
+
 .home .headTitle-content--small {
   padding-top: 0;
   padding-bottom: 0; }
@@ -37928,7 +37943,7 @@ header {
   position: absolute;
   background-color: #fff7f0;
   z-index: 1;
-  width: 320px;
+  width: calc(100% - 22px);
   right: 0px;
   left: 11px; }
 
@@ -38066,7 +38081,7 @@ header {
         display: -ms-flexbox;
         display: flex;
         top: 0;
-        position: absolute;
+        position: fixed;
         background-color: #0e002c;
         height: 100vh; }
       .rs-page .rs-head-container .rs-headContent .rs-head-form .filter-by {
