@@ -20,10 +20,11 @@ $(function() {
 
 {% includeJsFile "https://d3js.org/d3.v3.min.js" %}
 
+
 <div class="post-module module-text">
   <div class="col-outer">
     <div class="one-third map-filter-column">
-      {{ block.dataViz[0].body}}
+      {{ map.body }}
       
       <h4>Filter:</h4>
       <div class="filter-row">
