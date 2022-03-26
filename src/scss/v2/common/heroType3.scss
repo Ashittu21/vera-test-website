@@ -77,14 +77,28 @@
     &-line3{
       display: block;
       position: absolute;
-      background-color: var(--global-color-light-violet);
-      height: 0%;
-      width: 2px;
+      width: 1205px;
       top: 0;
-      right: 80px;
-      animation-name: test-animation-h-2;
-      animation-duration: 2s;
-      animation-fill-mode: forwards;
+      height: 100%;
+      margin: auto;
+      left: 0;
+      right: 0;
+
+      &::before{
+        position: absolute;
+        background-color: var(--global-color-light-violet);
+        width: 2px;
+        top: 0;
+        right: 0;
+        animation-name: n;
+        animation-duration: 2s;
+        animation-fill-mode: forwards;
+        content: "";
+        display: block;
+        height: 100%;
+        left: 100%;
+        max-width: 2px;
+      }
       @media(max-width:$mobile-breakpoint){
         display: none;
       }
