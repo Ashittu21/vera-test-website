@@ -1,6 +1,15 @@
+  <style>
+  :root { --imagehero: url('{{ block.heroType2_image.first.url }}'); }
+  .heroType2-image { background-image: linear-gradient(to left, rgb(245 246 252 / 0%) 30%, rgb(0 0 0 / 100%) 70%), var(--imagehero) }
+
+  @media (max-width: 760px) {
+        .heroType2-image { background-image: url('{{ block.heroType2_image.first.url }}'); }
+  }
+  </style>
+  {# block.heroType2_image.first.url #}
   <!-- Hero Hero Type 2 Block -->
   <div class="heroType2">
-    <div class="heroType2-image" style="background-image: url('{{ block.heroType2_image.first.url }}');">
+    <div class="heroType2-image">
       <h2 class="heading-2 heroType2-title">{{ block.heroType2_title }}</h2>
     </div>
     <div class="heroType2-content">
