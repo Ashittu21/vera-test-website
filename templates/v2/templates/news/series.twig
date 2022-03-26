@@ -48,8 +48,8 @@
       {% paginate craft.entries.section('newsSeries').orderBy('dateCreated DESC').limit(10) as pageInfo, pageEntries %}
       {% set fallback = 0 %}
       {% for entry in pageEntries %}
-        {% if  entry.heroImage is not null %}
-           {% set image = entry.heroImage.one() %}
+        {% if  entry.heroType5_image is not null %}
+           {% set image = entry.heroType5_image.one() %}
         {% else %}
           {% set image = null %}
         {% endif %}
@@ -69,7 +69,7 @@
               {% endif %}
 
 
-        <a href="{{ entry.url }}" class="newsLanding-item">
+              <a href="{{ entry.url }}" class="newsLanding-item">
                 <div class="newsLanding-item-content">
                   <div class="newsLanding-item-content-left">
                     {% if image %}
