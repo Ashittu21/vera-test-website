@@ -151,21 +151,41 @@
 
     <section class="relatedItems-container">
     <div class="relatedItems-title">Related Items</div>
+
+    {% set fallback = 0 %}
+
     {% for item in relatedItems %}
+
+      {% if item.streamImageRectangle is not null %}
+        {% set image = item.streamImageRectangle.one() %}
+      {% else %}
+        {% set image = null %}
+      {% endif %}
     <div class="relatedItems-item">
       <div class="relatedItems-item-content">
         <div class="relatedItems-item-content-left">
-          <picture>
-            <source media="(max-width: 768px)" srcset="{{ item.streamImageRectangle.one.getUrl('square130') ?? null }}">
-            <source media="(min-width: 769px)" srcset="{{ item.streamImageRectangle.one.getUrl('image290X180') ?? null }}">
-            <img src="{{ item.streamImageRectangle.one.getUrl('image290X180')?? null }}" alt="{{ item.title }}">
-          </picture>
-
+          {% if image %}
+            <picture>
+              <source media="(max-width: 768px)" srcset="{{ item.streamImageRectangle.one.getUrl('square130') ?? null }}">
+              <source media="(min-width: 769px)" srcset="{{ item.streamImageRectangle.one.getUrl('image290X180') ?? null }}">
+              <img src="{{ item.streamImageRectangle.one.getUrl('image290X180')?? null }}" alt="{{ item.title }}">
+            </picture>
+         {% else %}
+            {% if fallback <= 3 %}
+              {% set fallback =  fallback + 1 %}
+            {% else %}
+              {% set fallback = 1 %}
+            {% endif %}
+            
+            {% include 'v2/common/placeHolderImg' with { indexColor: fallback } %}
+          {% endif %}
         </div>
+
         <div class="relatedItems-item-content-right">
           <div class="relatedItems-item-content-right-tag">{{ item.type.name | title | upper }}</div>
           <div class="relatedItems-item-content-right-title"> <a href="{{ item.url }}">{{ item.title }}</a> </div>
         </div>
+
       </div>
     </div>
     {% endfor %}
