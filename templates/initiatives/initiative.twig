@@ -165,6 +165,12 @@
       {% case 'newsItems' %}
         {% include '/v2/common/newsItems'  with { block: block } %}
       
+      {% case 'form' %}
+        {% if block.form %}
+          <div class="container formbuilder2">
+              {{ block.form.render }}
+          </div>
+        {% endif %}
       {% case 'copy' %}
         <!-- Copy Block -->
           <section class="copy-block-container">
