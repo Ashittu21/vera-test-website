@@ -31,27 +31,29 @@
   </div>
 <!-- END Hero Block -->
 {% else %}
-<div class="heroType5-container heroType5-background">
-  <div class="heroType5-container-copy">
-   <div class="heroType5-container-copy-breadcrumbs">
-      {% if entry.level > 1 %}
-          {% set bItems = entry.getAncestors()|length %}
-          {% set bItemsPrev = bItems - 2 %}
+<!-- Header Title -->
+  <section class="headTitle bgColor-darkviolet">
+    <div class="headTitle-content">
+       <div class="headTitle-breadcumb">
+        {% if entry.level > 1 %}
+            {% set bItems = entry.getAncestors()|length %}
+            {% set bItemsPrev = bItems - 2 %}
 
-          <a href="{{ siteUrl }}">HOME</a>
-          {% for crumb in entry.getAncestors()[bItemsPrev:bItems] %}
-            // {{ crumb.getLink() }} 
-          {% endfor %}
-      {% else %}
-         <a href="{{ siteUrl }}">HOME</a> // <a href="{{ entry.url }}">INITIATIVE</a>
-      {% endif %}  
+            <a href="{{ siteUrl }}">HOME</a>
+            {% for crumb in entry.getAncestors()[bItemsPrev:bItems] %}
+              // {{ crumb.getLink() }} 
+            {% endfor %}
+        {% else %}
+          <a href="{{ siteUrl }}">HOME</a> // <a href="{{ entry.url }}">INITIATIVE</a>
+        {% endif %} 
+      </div>
+      <div class="headTitle-title">
+        <h3 class="separator left-aligned">
+        <span>{{ entry.heroType1_title|striptags('p')|raw}}</span></h3>
+      </div>
     </div>
-    <div class="heroType5-container-copy-title">
-      <span>{{ entry.heroType1_title }}</span>
-    </div>
-  </div>
-</div>
-<!-- Hero Type 5 -->
+  </section>
+<!-- Header Title -->
 {% endif %}
 
 
