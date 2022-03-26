@@ -13,7 +13,6 @@
 	{% switch mapType %}
 		{% case 'map' %}
 			{% set states = map.children.order('title asc') %}
-
 			{% set data = [] %}
 			{% set activeStates = [] %}
 

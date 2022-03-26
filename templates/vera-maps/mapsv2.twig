@@ -1,13 +1,23 @@
 {% set map = block.mapEntry.one() %}  
+{% set mapId = map.id() %}
 {% set zoomeable = 'does-not-zoom' %}
+{% set mapType =  map.type.handle %}
+{% set e = craft.entries.id(mapId).one() %}
 
 {% switch map.type.handle %}
 	{% case 'citiesMapWithLinks' %}
 		{% include 'vera-maps/types/citiesMapWithLinks' with { entry: map, zoomable: 'zoom' } %}
 	{% case 'countyHeatmapWithLineCharts' %}
 		{% include 'vera-maps/types/countyHeatmapWithLineCharts' with { entry: map } %}
+	{% case 'timelineMap' %}
+	  <div class="spotlight-stream stream-outer receives-background-color receives-color">
+      <div  class="color-combo-- spotlight-block--dataViz dataViz--timelineMap">
+        <div class="container">      
+					{% include "/spotlights/blocks/viz/mapv2" with { map: map } %}
+				</div>
+			</div>
+		</div>	
 	{% default %}
-    <!-- {{ map.type.handle }} -->
-		{% include 'vera-maps/map' with {map: map, zoomable: 'zoom',  mapTheme: mapTheme ?? null} %}
+	  
 {% endswitch %}
 
