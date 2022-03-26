@@ -457,6 +457,9 @@
               padding-top: 27px;
               padding-bottom: 30px;
               margin-top: -2px;
+              min-height: 219px;
+              display: flex;
+              flex-direction: column;
 
               &:first-child {
                 margin-top: 0;
@@ -492,7 +495,7 @@
               }
 
               &-date {
-                margin-top: 13px;
+                margin-top: auto;
                 font-family: var(--global-font-abc-whyte);
                 font-size: 14px;
                 font-style: normal;

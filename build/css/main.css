@@ -30362,6 +30362,9 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
       margin-bottom: 30px;
       margin-top: 30px;
       display: inline-block; }
+      @media (max-width: 768px) {
+        .copy-block-container .copy-block-content .h4-sectra {
+          font-size: 30px; } }
     .copy-block-container .copy-block-content .h5-sectra {
       font-family: var(--global-font-sectra);
       font-size: 35px;
@@ -32341,7 +32344,15 @@ div.heading > div:nth-child(3) > p {
               border-bottom: 2px solid var(--global-color-light-violet);
               padding-top: 27px;
               padding-bottom: 30px;
-              margin-top: -2px; }
+              margin-top: -2px;
+              min-height: 219px;
+              display: -webkit-box;
+              display: -ms-flexbox;
+              display: flex;
+              -webkit-box-orient: vertical;
+              -webkit-box-direction: normal;
+                  -ms-flex-direction: column;
+                      flex-direction: column; }
               .block-latestNews-content .latest-hero-sidebar-right-SideItems > div .sideItems-item:first-child {
                 margin-top: 0; }
               .block-latestNews-content .latest-hero-sidebar-right-SideItems > div .sideItems-item-tag {
@@ -32366,7 +32377,7 @@ div.heading > div:nth-child(3) > p {
                   .block-latestNews-content .latest-hero-sidebar-right-SideItems > div .sideItems-item-title a:hover {
                     text-decoration: underline; }
               .block-latestNews-content .latest-hero-sidebar-right-SideItems > div .sideItems-item-date {
-                margin-top: 13px;
+                margin-top: auto;
                 font-family: var(--global-font-abc-whyte);
                 font-size: 14px;
                 font-style: normal;
@@ -33969,14 +33980,14 @@ div.heading > div:nth-child(3) > p {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
-    max-width: 1380px;
+    max-width: 100%;
     -ms-flex-line-pack: end;
         align-content: flex-end;
     -webkit-box-align: end;
@@ -34000,6 +34011,7 @@ div.heading > div:nth-child(3) > p {
                 flex-direction: column; } }
     .block-signup .block-signup-container .block-signup-left {
       padding-left: 50px;
+      padding-right: 50px;
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
@@ -34022,7 +34034,10 @@ div.heading > div:nth-child(3) > p {
       -webkit-transition: all 0.2s ease-in-out;
       transition: all 0.2s ease-in-out;
       height: auto;
-      min-height: 526px; }
+      min-height: 526px;
+      min-width: 450px;
+      max-width: calc(1060px + (50% - 530px));
+      position: relative; }
       .block-signup .block-signup-container .block-signup-left::after {
         content: '';
         width: 100%;
@@ -34206,7 +34221,7 @@ div.heading > div:nth-child(3) > p {
     .block-signup .block-signup-container .block-signup-right {
       background-color: var(--global-color-medium-violet);
       height: 450px;
-      width: 189px;
+      width: 185px;
       border-radius: 0px;
       position: relative;
       -webkit-transition: all 0.2s ease-in-out;
@@ -37267,6 +37282,12 @@ header {
     max-width: 1060px;
     margin: 0 auto;
     padding-bottom: 120px; }
+    @media (min-width: 1024px) {
+      .home-content-items {
+        width: 1060px;
+        margin: 0 calc(50% - 530px);
+        min-width: 1060px;
+        max-width: 100%; } }
     .home-content-items .home-content-item {
       border-top: 1px solid var(--global-color-dark-sand);
       border-bottom: 1px solid var(--global-color-dark-sand);

@@ -13,6 +13,13 @@
     margin: 0 auto;
     padding-bottom: 120px;
 
+    @media (min-width:$tablet-landscape) {
+      width: 1060px;
+      margin: 0 calc(50% - 530px);
+      min-width: 1060px;
+      max-width: 100%;
+    }
+
     .home-content-item {
       border-top: 1px solid var(--global-color-dark-sand);
       border-bottom: 1px solid var(--global-color-dark-sand);

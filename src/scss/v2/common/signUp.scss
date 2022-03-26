@@ -12,9 +12,9 @@
 
   .block-signup-container {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     flex-direction: row;
-    max-width: 1380px;
+    max-width: 100%;
     align-content: flex-end;
     align-items: flex-end;
     position: relative;
@@ -31,6 +31,7 @@
 
     .block-signup-left {
       padding-left: 50px;
+      padding-right: 50px;
       display: flex;
       flex-direction: column;
       background-color: var(--global-color-violet);
@@ -44,6 +45,9 @@
       transition: all 0.2s ease-in-out;
       height: auto;
       min-height: 526px;
+      min-width: 450px;
+      max-width: calc(1060px + (50% - 530px));
+      position: relative;
 
       &::after {
         content: '';
@@ -233,7 +237,7 @@
     .block-signup-right {
       background-color: var(--global-color-medium-violet);
       height: 450px;
-      width: 189px;
+      width: 185px;
       border-radius: 0px;
       position: relative;
       transition: all 0.2s ease-in-out;
