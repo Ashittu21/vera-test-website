@@ -33517,6 +33517,12 @@ div.heading > div:nth-child(3) > p {
   margin: 0 auto;
   padding-bottom: 60px;
   margin-top: 80px; }
+  .relatedItems-container.newsSeries .relatedItems-item .placeHolderImg {
+    width: 290px;
+    height: 180px;
+    min-height: 180px; }
+    .relatedItems-container.newsSeries .relatedItems-item .placeHolderImg svg {
+      width: 80px; }
   .relatedItems-container .relatedItems-title {
     padding-left: 39px;
     font-family: var(--global-font-sectra);
