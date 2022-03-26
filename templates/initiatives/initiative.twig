@@ -5,7 +5,7 @@
 {% block content %}
 
 
-{% if initiativeheaderSelector = 'headerWithImage' %}
+{% if initiativeheaderSelector == 'headerWithImage' %}
 <!-- Hero Block -->
   <div class="heroType1-container"  {% if entry.heroType1_image.first != "" %}style="background-image: url('{{ entry.heroType1_image.first.url }}');"{% endif %}>
     <div class="heroType1-block-box">
