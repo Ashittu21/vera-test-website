@@ -6,7 +6,13 @@
     		<div class="latestNews-items">
     		  {% for newsItem in block.newsItems_item %}
 					  {% switch newsItem.type.handle %}
-   						{% case  'headerWithImage' %}
+   						{% case 'story' %}
+							 
+  							{% if newsItem.heroImage is not null %}
+                    {% set imageset = newsItem.heroImage.one() %}
+                {% elseif newsItem.streamImageSquare is not null %}
+                    {% set imageset = newsItem.streamImageSquare.one() %}
+                {% endif %}   
 
 						  {% default %}
 								{% if newsItem.streamImageRectangle | length %}
