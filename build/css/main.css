@@ -33947,6 +33947,7 @@ div.heading > div:nth-child(3) > p {
                 flex-direction: column; } }
     .block-signup .block-signup-container .block-signup-left {
       padding-left: 50px;
+      padding-right: 50px;
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
