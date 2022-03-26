@@ -25,16 +25,16 @@
   <div class="heroType5-container-copy">
    <div class="heroType5-container-copy-breadcrumbs">
       {% if entry.level > 1 %}
-      <a href="">HOME</a>
-      {% for crumb in entry.getAncestors() %}
-      // {{ crumb.getLink() }}
-      {% endfor %}
+        <a href="">HOME</a>
+        {% for crumb in entry.getAncestors() %}
+         // {{ crumb.getLink() }}
+        {% endfor %}
       {% else %}
-      <a href="">HOME</a>
+        <a href="">HOME</a>
       {% endif %}
     </div>
     <div class="heroType5-container-copy-title">
-      <span>{{ entry.heroType5_title }}</span>
+      <span>{{ entry.title }}</span>
     </div>
   </div>
 </div>
