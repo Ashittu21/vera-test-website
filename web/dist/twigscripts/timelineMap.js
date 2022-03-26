@@ -168,11 +168,12 @@ VERA.timelineMap = function (selector, dataUrl, showOffices) {
         radius: radius,
         borderWidth: 1,
       },
+
       fills: {
-        statewide: "#c6c6c6",
+        statewide: "#2E1D97",
         point: "#EF4136",
-        inactive: "#86878C",
-        defaultFill: "#e7e6e3",
+        inactive: "#2E1D97",
+        defaultFill: "#97DFD1",
       },
       data: statewide_data_obj,
       done: function (datamap) {
