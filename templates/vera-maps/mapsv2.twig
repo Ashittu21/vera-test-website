@@ -14,7 +14,7 @@
 		{% include 'vera-maps/types/countyHeatmapWithLineCharts' with { entry: map } %}
 	 </div>
 	{% case 'timelineMap' %}
-		<div class="initiatives">
+		<div class="initiatives mapsv2">
 			<div class="spotlight-stream stream-outer receives-background-color receives-color">
 				<div class="color-combo-- spotlight-block--dataViz dataViz--timelineMap">
 					<div class="container">      
@@ -24,6 +24,8 @@
 			</div>	
 		</div>
 	{% default %}
+    <!-- {{ map.type.handle }} -->
+		{% include 'vera-maps/map' with {map: map, zoomable: 'zoom',  mapTheme: mapTheme ?? null} %}
 	  
 {% endswitch %}
 
