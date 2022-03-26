@@ -5,6 +5,9 @@
 				{% if block.newsItems_item |length %}
     		<div class="latestNews-items">
     		  {% for newsItem in block.newsItems_item %}
+							{% if newsItem.streamImageRectangle | length %}
+								{% set imageset = newsItem.streamImageRectangle %}
+							{% endif %}
 
 					  {% switch newsItem.type.handle %}
    						{% case 'story' %}
@@ -14,13 +17,7 @@
                 {% elseif newsItem.streamImageSquare is not null %}
 										<!-- stream image square -->
                     {% set imageset = newsItem.streamImageSquare.one() %}
-                {% endif %}   
-
-						  {% default %}
-								<!-- default -->
-								{% if newsItem.streamImageRectangle | length %}
-									{% set imageset = newsItem.streamImageRectangle %}
-								{% endif %}
+                {% endif %} 		
 						{% endswitch %}
 
 						<!-- {{ newsItem.type.handle }} -->
