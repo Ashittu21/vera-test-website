@@ -5,20 +5,24 @@
 				{% if block.newsItems_item |length %}
     		<div class="latestNews-items">
     		  {% for newsItem in block.newsItems_item %}
+
 					  {% switch newsItem.type.handle %}
    						{% case 'story' %}
-							 
   							{% if newsItem.heroImage is not null %}
+										<!-- hero image -->
                     {% set imageset = newsItem.heroImage.one() %}
                 {% elseif newsItem.streamImageSquare is not null %}
+										<!-- stream image square -->
                     {% set imageset = newsItem.streamImageSquare.one() %}
                 {% endif %}   
 
 						  {% default %}
+								<!-- default -->
 								{% if newsItem.streamImageRectangle | length %}
 									{% set imageset = newsItem.streamImageRectangle %}
 								{% endif %}
 						{% endswitch %}
+
 						<!-- {{ newsItem.type.handle }} -->
           <a href="{{ newsItem.url }}" class="latestNews-item">
     				<div class="latestNews-item-category">
