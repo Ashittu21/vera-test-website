@@ -308,11 +308,7 @@
     {% set fallback = 0 %}
      {% for result in pageEntries %}
 
-        {% if  result.streamImageRectangle is not null %}
           {% set image = result.streamImageRectangle.one() %}
-        {% else %}
-          {% set image = null %}
-        {% endif %}
 
           <div class="rs-listing-item">
             <div class="rs-listing-item-wrapper">
@@ -333,36 +329,60 @@
 
                 <a href="{{ result.url }}"  class="rs-listing-item-content-title" target="_blank"><h6 class="c-black">{{ result.title }}</h6></a>
                 <p class="rs-listing-item-content-copy">
-                {% switch result.type.handle %}
-                   {% case 'publicationOverview' %}
-                        {{ result.subtitle }}
-                   {% case 'audio' %}
-                        {{ result.overview|striptags|truncate(120)|raw }}
-                   {% case 'video' %}
-                        {{ result.overview|striptags|truncate(120)|raw }}
-                   {% case 'videoPlaylist' %}
-                        {{ result.overview|striptags|truncate(120)|raw }}
-                   {% case 'resourceSite' %}
-                        {{ result.overview|striptags|truncate(120)|raw }}
-                   {% case 'specialReport' %}
-                        {{ result.overview|striptags|truncate(120)|raw }}
-                   {% case 'story' %}
-                        {% if result.storiesSubtitle | length > 1 %}
-                          {{ result.storiesSubtitle|striptags|truncate(120)|raw }}
-                        {% elseif  result.overview | length > 1 %}
-                            {{ result.overview|striptags|truncate(120)|raw }}
-                        {% elseif result.specialReportsArticle.type('copy').first()  | length > 1 %}
-                            {{ result.specialReportsArticle.type('copy').first().text|striptags|truncate(120)|raw }}
-                        {% endif %}
-                   {% default %}
-                       <!-- {{ result.type.handle }} -->
-                 {% endswitch %}
+                  {% switch result.type.handle %}
+                    {% case 'publicationOverview' %}
+                          {{ result.subtitle }}
+                    {% case 'audio' %}
+                          {{ result.overview|striptags|truncate(120)|raw }}
+                    {% case 'video' %}
+                          {{ result.overview|striptags|truncate(120)|raw }}
+                    {% case 'videoPlaylist' %}
+                          {{ result.overview|striptags|truncate(120)|raw }}
+                    {% case 'resourceSite' %}
+                          {{ result.overview|striptags|truncate(120)|raw }}
+                    {% case 'specialReport' %}
+                          {{ result.overview|striptags|truncate(120)|raw }}
+                    {% case 'specialReportChaptered' %}
+                          {{ result.overview|striptags|truncate(120)|raw }}
+                          {% if result.heroImage is not null %}
+                            {% set image = result.heroImage.one() %}
+                          {% elseif result.streamImageSquare is not null %}
+                             {% set image = result.streamImageSquare.one() %}
+                          {% endif %}
+                    {% case 'specialReportSingle' %}
+                          {% if result.heroImage is not null %}
+                            {% set image = result.heroImage.one() %}
+                          {% elseif result.streamImageSquare is not null %}
+                             {% set image = result.streamImageSquare.one() %}
+                          {% endif %}   
+                    {% case 'article' %}
+                          {% if result.heroImage is not null %}
+                            {% set image = result.heroImage.one() %}
+                          {% endif %}                                              
+                    {% case 'story' %}
+                          {% if result.storiesSubtitle | length > 1 %}
+                            {{ result.storiesSubtitle|striptags|truncate(120)|raw }}
+                          {% elseif  result.overview | length > 1 %}
+                              {{ result.overview|striptags|truncate(120)|raw }}
+                          {% elseif result.specialReportsArticle.type('copy').first()  | length > 1 %}
+                              {{ result.specialReportsArticle.type('copy').first().text|striptags|truncate(120)|raw }}
+                          {% endif %}
+                    {% default %}
+                        <!-- {{ result.type.handle }} -->
+                  {% endswitch %}
                 </p>
-
               </div>
+
+
               <div class="rs-listing-item-image">
-               
-               {% if image %}
+                {% if image is not null %}
+                 
+                {% else %}
+                  {% set image = null %}
+                {% endif %}
+
+
+                {% if image %}
                         <img src="{{ image.getUrl('thumbnailVertical') }}" alt=""/>
                     {% else %}
                       {% if fallback <= 3 %}
@@ -380,7 +400,7 @@
                     
                      <img src="/dist/img/v2/series.svg" class="series-icon">
                     
-                    {% endif %}
+                {% endif %}
               </div>
             </div>
           </div>

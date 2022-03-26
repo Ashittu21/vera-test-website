@@ -5,9 +5,15 @@
 				{% if block.newsItems_item |length %}
     		<div class="latestNews-items">
     		  {% for newsItem in block.newsItems_item %}
-          		{% if newsItem.streamImageRectangle | length %}
-			            {% set imageset = newsItem.streamImageRectangle %}
-              {% endif %}
+					  {% switch newsItem.type.handle %}
+   						{% case  'headerWithImage' %}
+
+						  {% default %}
+								{% if newsItem.streamImageRectangle | length %}
+									{% set imageset = newsItem.streamImageRectangle %}
+								{% endif %}
+						{% endswitch %}
+						{{ newsItem.type.handle }} 
           <a href="{{ newsItem.url }}" class="latestNews-item">
     				<div class="latestNews-item-category">
     					<p>{{ newsItem.type.name | title | upper }}</p>
@@ -31,7 +37,5 @@
 				 <a href="#">View more news & stories<span class="icon-arrow"></span></a>
 				</div>
     	</div>
-
-
     </section>
 <!-- Latest News  Items -->
