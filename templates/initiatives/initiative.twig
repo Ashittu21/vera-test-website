@@ -1,15 +1,22 @@
 {% extends '_layout' %}
+
+{% set title = entry.title %}
+
 {% block content %}
 
 
+{% if initiativeheaderSelector = 'headerWithImage' %}
 <!-- Hero Block -->
   <div class="heroType1-container"  {% if entry.heroType1_image.first != "" %}style="background-image: url('{{ entry.heroType1_image.first.url }}');"{% endif %}>
     <div class="heroType1-block-box">
       <div class="heroType1-block-box-content">
           <div class="heroType1-block-breadcrumbs">
             {% if entry.level > 1 %}
+                {% set bItems = entry.getAncestors()|length %}
+                {% set bItemsPrev = bItems - 2 %}
+
                 <a href="{{ siteUrl }}">HOME</a>
-                {% for crumb in entry.getAncestors() %}
+                {% for crumb in entry.getAncestors()[bItemsPrev:bItems] %}
                   // {{ crumb.getLink() }} 
                 {% endfor %}
             {% else %}
@@ -23,6 +30,29 @@
     </div>
   </div>
 <!-- END Hero Block -->
+{% else %}
+<div class="heroType5-container heroType5-background">
+  <div class="heroType5-container-copy">
+   <div class="heroType5-container-copy-breadcrumbs">
+      {% if entry.level > 1 %}
+          {% set bItems = entry.getAncestors()|length %}
+          {% set bItemsPrev = bItems - 2 %}
+
+          <a href="{{ siteUrl }}">HOME</a>
+          {% for crumb in entry.getAncestors()[bItemsPrev:bItems] %}
+            // {{ crumb.getLink() }} 
+          {% endfor %}
+      {% else %}
+         <a href="{{ siteUrl }}">HOME</a> // <a href="{{ entry.url }}">INITIATIVE</a>
+      {% endif %}  
+    </div>
+    <div class="heroType5-container-copy-title">
+      <span>{{ entry.heroType1_title }}</span>
+    </div>
+  </div>
+</div>
+<!-- Hero Type 5 -->
+{% endif %}
 
 
 <div class="content-page initiative-page">
@@ -57,7 +87,6 @@
 
  
   {% set blockid = 0 %}
-
   {% for block in entry.initiativeBlocks.level(1).all() %}
   
     {% set blockid = blockid + 1 %}
@@ -66,7 +95,7 @@
 
     {% switch block.type.handle %}
 
-       {% case  'bannerType2' %} {# Text besides images #}
+      {% case  'bannerType2' %} {# Text besides images #}
         {% include '/v2/common/initiative-bannerType2'  with { block: block } %}
 
       {% case 'code' %}
@@ -109,7 +138,7 @@
         {% include '/v2/common/newsItems'  with { block: block } %}
       
       {% case 'copy' %}
-          <!-- Copy Block -->
+        <!-- Copy Block -->
           <section class="copy-block-container">
             <div class="copy-block-content">
               {{ block.copy | shortcodes }}
