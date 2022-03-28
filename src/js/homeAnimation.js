@@ -13,39 +13,51 @@
      delay: 2700,
    },
  });
-
- const animationSlideUp = [{
-     transform: 'translateY(100px)',
-     opacity: 0,
-   },
-   {
-     transform: 'translateY(0px)',
-     opacity: 1,
-
-   }
- ]
+ 
+ const wordWidth = "100%";
 
  const animationStroke = [{
-     width: '1%',
-     position: 'relative',
-     top: '-30px',
-     opacity: 0,
-   },
-   {
-     width: '100%',
-     position: 'relative',
-     top: '-30px',
-     opacity: 1,
-   }
- ]
+  width: '1%',
+  position: 'relative',
+  top: '-30px',
+  opacity: 0,
+},
+{
+  width: wordWidth,
+  position: 'relative',
+  top: '-30px',
+  opacity: 1,
+}
+]
+
+const animationSlideUp = [{
+  transform: 'translateY(100px)',
+  opacity: 0,
+},
+{
+  transform: 'translateY(0px)',
+  opacity: 1,
+
+}
+]
 
  swiper.on('slideChange', function (e) {
    const index = swiper.activeIndex + 1
    const title = document.querySelector(`.swiper-slide:nth-child(${index}) >.heading >div > p`)
    const subTitle = document.querySelector(`.swiper-slide:nth-child(${index}) >.heading > div:first-of-type + div >  p`)
    const img = document.querySelector(`.swiper-slide:nth-child(${index}) >.heading > div:last-child >  img`)
+   const lastWord = document.querySelector(`.swiper-slide:nth-child(${index}) >.heading > div:nth-of-type(2) p.slide-up`)
+   const wordWidth = lastWord.clientWidth+"px"
 
+   const animationStroke = [{
+    width: '1%',
+  },
+  {
+    width: wordWidth,
+  }
+  ]
 
+ 
    title.animate(animationSlideUp, {
      duration: 450,
      fill: 'both',

@@ -30614,7 +30614,7 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
 .block-exploreMore {
   width: 100%;
   background-color: #0f002c;
-  padding: 0 1.5rem; }
+  padding: 30px 1.5rem; }
   @media (max-width: 1280px) {
     .block-exploreMore {
       padding: 0 2rem; } }
@@ -31967,10 +31967,10 @@ div.heading > div:nth-child(3) > p {
             box-sizing: border-box;
     margin: 0;
     width: 100%;
-    margin: 0 auto; }
-    @media (max-width: 768px) {
-      .block-latestNews-content {
-        padding: 0 11px; } }
+    margin: 0 auto;
+    /*@media(max-width:$mobile-breakpoint) {
+      padding: 0 11px;
+    }*/ }
     .block-latestNews-content .latestNews-title {
       display: table;
       white-space: nowrap;
@@ -32015,8 +32015,10 @@ div.heading > div:nth-child(3) > p {
         -webkit-box-sizing: border-box;
                 box-sizing: border-box;
         -webkit-transition: all 0.5s ease-in-out;
-        transition: all 0.5s ease-in-out;
-        max-height: 437px; }
+        transition: all 0.5s ease-in-out; }
+        @media (min-width: 768px) {
+          .block-latestNews-content .latestNews-hero .latestNews-hero-container {
+            max-height: 437px; } }
         .block-latestNews-content .latestNews-hero .latestNews-hero-container:hover {
           background-image: -webkit-linear-gradient(180deg, #da392f 40.1%, var(--global-color-medium-violet) 40.1%); }
         @media (max-width: 1024px) {
@@ -32115,10 +32117,10 @@ div.heading > div:nth-child(3) > p {
                 text-align: left;
                 margin-bottom: 30px;
                 margin-top: 20px; }
-                @media (max-width: 1024px) {
+                @media (max-width: 700px) {
                   .block-latestNews-content .latestNews-hero .latestNews-hero-container .latestNews-hero-copy-title span h4 {
-                    font-size: 35px;
-                    line-height: 42px; } }
+                    font-size: 26px;
+                    line-height: 31.98px; } }
           .block-latestNews-content .latestNews-hero .latestNews-hero-container .latestNews-hero-copy-excerpt p {
             margin: 0;
             font-family: var(--global-font-abc-whyte);
@@ -32249,6 +32251,10 @@ div.heading > div:nth-child(3) > p {
               -webkit-transition: background-size .9s;
               transition: background-size .9s;
               display: initial; }
+            @media (max-width: 768px) {
+              .block-latestNews-content .latestNews-items .latestNews-item-copy-title {
+                font-size: 21px;
+                line-height: 27.3px; } }
           .block-latestNews-content .latestNews-items .latestNews-item-copy-date time {
             font-family: var(--global-font-abc-whyte);
             font-size: 14px;
@@ -34018,7 +34024,9 @@ div.heading > div:nth-child(3) > p {
         -webkit-box-orient: vertical;
         -webkit-box-direction: normal;
             -ms-flex-direction: column;
-                flex-direction: column; } }
+                flex-direction: column;
+        top: 0;
+        margin-top: 0; } }
     .block-signup .block-signup-container .block-signup-left {
       padding-left: 50px;
       padding-right: 50px;
@@ -34060,7 +34068,8 @@ div.heading > div:nth-child(3) > p {
         .block-signup .block-signup-container .block-signup-left {
           width: 100%;
           padding-right: 50px;
-          padding-right: 50px; } }
+          padding-right: 50px;
+          min-width: 0; } }
       .block-signup .block-signup-container .block-signup-left .bck {
         width: 100%;
         position: absolute;
@@ -37475,7 +37484,7 @@ header {
   padding-bottom: 0; }
 
 .home .heroType3-content-line1 {
-  margin-top: -5.5rem; }
+  margin-top: -9.5rem; }
   @media (max-width: 768px) {
     .home .heroType3-content-line1 {
       margin-top: -1.5rem; } }
@@ -37493,7 +37502,7 @@ header {
           animation-duration: 3s;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
-  margin-bottom: -34.5rem; }
+  margin-bottom: -29.6rem; }
   @media (max-width: 768px) {
     .home .heroType3-content-line2 {
       margin: 47px 0;
@@ -37506,10 +37515,6 @@ header {
   @media (max-width: 768px) {
     .home .latestNews-hero-copy-title {
       margin-bottom: 30px !important; } }
-
-@media (max-width: 768px) {
-  .home .block-latestNews {
-    margin-top: 5px; } }
 
 .home .heroType2-title {
   margin-top: 184px;
