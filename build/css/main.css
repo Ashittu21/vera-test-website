@@ -34030,7 +34030,7 @@ div.heading > div:nth-child(3) > p {
         margin-top: 0; } }
     .block-signup .block-signup-container .block-signup-left {
       /* padding-left: 50px;*/
-      padding-left: calc((100% - 1060px)/2);
+      padding-left: calc((100% - 1280px)/2);
       padding-right: 50px;
       display: -webkit-box;
       display: -ms-flexbox;
@@ -34336,9 +34336,6 @@ div.heading > div:nth-child(3) > p {
           -webkit-box-pack: justify;
               -ms-flex-pack: justify;
                   justify-content: space-between; }
-          @media (max-width: 768px) {
-            .block-signup .block-signup-container .socials .wrap-socials .list-social {
-              /*margin-left: -55px;*/ } }
           .block-signup .block-signup-container .socials .wrap-socials .list-social a svg {
             width: 45px;
             margin-right: 7px;
