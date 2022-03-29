@@ -406,13 +406,12 @@ header {
         display: flex;
         padding: 0;
         justify-content: flex-start;
-        padding-left: 20px;
         flex-wrap: wrap;
         border: 0;
         font-size: inherit;
         line-height: 1.5;
         cursor: pointer;
-       /* padding-left: 35px;*/
+        padding-left: 35px;
       }
 
       .clicky-menu>li

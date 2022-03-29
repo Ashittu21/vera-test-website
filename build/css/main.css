@@ -37052,14 +37052,13 @@ header {
         -webkit-box-pack: start;
             -ms-flex-pack: start;
                 justify-content: flex-start;
-        padding-left: 20px;
         -ms-flex-wrap: wrap;
             flex-wrap: wrap;
         border: 0;
         font-size: inherit;
         line-height: 1.5;
         cursor: pointer;
-        /* padding-left: 35px;*/ }
+        padding-left: 35px; }
       .header-v2 .rowBottom #header-v2-bottom-nav .clicky-menu > li > a {
         -webkit-box-pack: center;
             -ms-flex-pack: center;
