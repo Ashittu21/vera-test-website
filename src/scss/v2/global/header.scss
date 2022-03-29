@@ -112,6 +112,11 @@ header {
         padding-left: 20px;
         width: fit-content;
         justify-content: flex-start;
+        .textWrap{
+          &:after {
+            content: url("../img/v2/menu-close.svg");
+          }
+        }
       }
 
       .clicky-menu [aria-expanded="true"] {
@@ -120,6 +125,11 @@ header {
         padding-left: 20px;
         width: fit-content;
         justify-content: flex-start;
+        .textWrap{
+          &:after {
+            content: url("../img/v2/menu-open.svg");
+          }
+        }
       }
 
 

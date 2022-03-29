@@ -29,7 +29,8 @@
 
 
     .block-signup-left {
-      padding-left: 50px;
+     /* padding-left: 50px;*/
+      padding-left: calc((100% - 1060px)/2);
       padding-right: 50px;
       display: flex;
       flex-direction: column;
@@ -61,7 +62,7 @@
       @media (max-width: $mobile-large) {
         width: 100%;
         padding-right: 50px;
-        padding-right: 50px;
+        padding-left: 50px;
         min-width: 0;
       }
 
@@ -93,12 +94,12 @@
 
         .message {
           min-width: 458px;
-          border-right: 3px solid #160643;
+          border-right: 2px solid #160643;
           height: 315px;
           display: flex;
           justify-content: flex-start;
           align-items: center;
-          padding-left: 30px;
+        /*  padding-left: 30px;*/
 
           @media(max-width:$mobile-breakpoint) {
             align-items: self-start;
@@ -139,8 +140,6 @@
           flex-direction: column;
         }
 
-
-
         .button.orange span {
           font-size: 28px;
           min-height: 50px;
@@ -157,9 +156,6 @@
             height: 60px;
           }
         }
-
-
-
 
 
         input[type=email] {
@@ -219,15 +215,15 @@
 
       &.send-msg {
         display: flex;
-        flex-direction: row !important;
+        flex-direction: row;
         align-items: center;
         justify-content: flex-start;
         width: 100%;
         position: relative;
 
         @media(max-width:$mobile-breakpoint) {
-          flex-direction: column !important;
-          padding-left: 0 !important;
+          flex-direction: column;
+          padding-left: 35px;
         }
       }
 
@@ -283,7 +279,7 @@
 
 
 
-    /*
+/*
  * Social
  */
 
@@ -293,12 +289,23 @@
       align-items: baseline;
       width: 100%;
       position: relative;
-
       @media(max-width:$mobile-breakpoint) {
         flex-direction: column;
-        width: auto;
-        margin-left: -55px;
+        width: 100%;
       }
+
+      p {
+        font-size: 26px;
+        margin-bottom: 40px;
+
+        @media(max-width:$mobile-breakpoint) {
+          font-size: 21px;
+          margin-bottom: 26px;
+          margin-top: 26px;
+        }
+      }
+
+ 
 
       .donate-txt {
         min-width: 50%;
@@ -306,48 +313,45 @@
 
         @media(max-width:$mobile-breakpoint) {
           padding-left: 0px;
-          margin-left: -20px;
+        }
+
+        p {
+          font-size: 26px;
+          margin-bottom: 40px;
+  
+          @media(max-width:$mobile-breakpoint) {
+            font-size: 21px;
+            margin-bottom: 26px;
+            margin-top: 26px;
+          }
+        }
+      }
+
+      .wrap-socials{
+        padding-left: 73px;
+        @media(max-width:$mobile-breakpoint) {
+          padding-left: 0;
+        }
+        .list-social {
+          display: flex;
+          align-items: baseline;
+          list-style: none;
+          justify-content: space-between;
+     
+          a {
+            svg {
+              width: 45px;
+              margin-right: 7px;
+              padding: 0;
+            }
+          }
         }
       }
     }
 
-    .donate-txt p,
-    .wrap-socials p {
-      font-size: 26px;
-      margin-bottom: 40px;
+   
 
-      @media(max-width:$mobile-breakpoint) {
-        font-size: 21px;
-        margin-bottom: 26px;
-      }
-    }
 
-    .wrap-socials p {
-      @media(max-width:$mobile-breakpoint) {
-        margin-bottom: 49px;
-        margin-top: 26px;
-        margin-left: -55px;
-      }
-    }
-
-    .list-social {
-      display: flex;
-      align-items: baseline;
-      list-style: none;
-      justify-content: space-between;
-
-      @media(max-width:$mobile-breakpoint) {
-        margin-left: -55px;
-      }
-
-      a {
-        svg {
-          width: 45px;
-          margin-right: 7px;
-          padding: 0;
-        }
-      }
-    }
 
     .list-social button {
       border-style: none;
@@ -355,9 +359,7 @@
 
     }
 
-    .wrap-socials {
-      padding-left: 38px;
-    }
+ 
 
   }
 
