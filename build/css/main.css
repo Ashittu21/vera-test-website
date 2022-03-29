@@ -36867,6 +36867,10 @@ header {
             /* background-color: red;*/ }
           .header-v2 .rowTop #header-v2-top-nav .clicky-menu ul li a:hover {
             background-color: transparent; }
+        .header-v2 .rowTop #header-v2-top-nav .clicky-menu ul li:last-child a {
+          padding-bottom: 24px; }
+        .header-v2 .rowTop #header-v2-top-nav .clicky-menu ul li:first-child a {
+          padding-bottom: 10px; }
     .header-v2 .rowTop .menu-left {
       display: -webkit-box;
       display: -ms-flexbox;

@@ -229,6 +229,18 @@ header {
             background-color: transparent;
           }
         }
+
+        &:last-child{
+          a{
+            padding-bottom: 24px;
+          }
+        }
+
+        &:first-child{
+          a{
+            padding-bottom: 10px;
+          }
+        }
       }
 
     }
