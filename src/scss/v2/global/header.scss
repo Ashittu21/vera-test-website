@@ -83,13 +83,27 @@ header {
         font-style: normal;
         justify-content: left;
         align-content: center;
+        .textWrap{
+          pointer-events: none;
+          display: inline-block;
+          position: relative;
+          &:after {
+            content: url("../img/v2/menu-close.svg");
+            position: relative;
+            left: 10px;
+            top: 0;
+            right: 0;
+          }
+        }
 
-      }
-
-      .clicky-menu a:hover,
-      .clicky-menu button:hover {
-        background-color: #2E1D97;
-
+        &:hover{
+          background-color: #2E1D97;
+          .textWrap{
+            &:after {
+              content: url("../img/v2/menu-open.svg");
+            }
+          }
+        }
       }
 
       .clicky-menu [aria-expanded="false"] {
@@ -97,24 +111,15 @@ header {
         /*padding-right: 20px;*/
         padding-left: 20px;
         width: fit-content;
-        background-image: url("../img/v2/menu-close.svg");
-        background-repeat: no-repeat;
-        background-size: inherit;
-        background-position: right 17px center;
-        justify-content: center;
+        justify-content: flex-start;
       }
 
       .clicky-menu [aria-expanded="true"] {
         background-color: #2E1D97;
         border-bottom: 1px solid #3E2BB1;
         padding-left: 20px;
-        /*padding-right: 20px;*/
         width: fit-content;
-        background-image: url("../img/v2/menu-open.svg");
-        background-repeat: no-repeat;
-        background-size: inherit;
-        background-position: right 17px center;
-        justify-content: center;
+        justify-content: flex-start;
       }
 
 
@@ -144,10 +149,12 @@ header {
 
         .clicky-menu>li>a,
         .clicky-menu>li>button {
-          
           justify-content: flex-start;
           align-content: center;
-          padding-left: 35px;
+        /*  padding-left: 35px;*/
+          padding: 0;
+          justify-content: flex-start;    
+          padding-left: 20px;
         }
       }
 
@@ -367,12 +374,15 @@ header {
       .clicky-menu>li>button {
         flex: 1 0 auto;
         display: flex;
+        padding: 0;
+        justify-content: flex-start;
+        padding-left: 20px;
         flex-wrap: wrap;
         border: 0;
         font-size: inherit;
         line-height: 1.5;
         cursor: pointer;
-        padding-left: 35px;
+       /* padding-left: 35px;*/
       }
 
       .clicky-menu>li

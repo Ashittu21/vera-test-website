@@ -8,8 +8,6 @@
     background-color: var(--global-color-sand) !important;
   }
 
-
-
   .block-signup-container {
     display: flex;
     justify-content: flex-start;
@@ -28,7 +26,6 @@
       top: 0;
       margin-top: 0;
     }
-
 
 
     .block-signup-left {
@@ -240,7 +237,8 @@
     .block-signup-right {
       background-color: var(--global-color-medium-violet);
       height: 450px;
-      width: 185px;
+      /*width: 185px;*/
+      width: calc(calc(100% - 1060px)/2);
       border-radius: 0px;
       position: relative;
       transition: all 0.2s ease-in-out;
@@ -262,7 +260,6 @@
         width: 100%;
         box-sizing: border-box;
         right: 0px;
-
       }
 
       &::before {
@@ -363,6 +360,5 @@
     }
 
   }
-
 
 }

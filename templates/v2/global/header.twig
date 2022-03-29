@@ -16,7 +16,7 @@
               {% if node.hasDescendants() %}
                 <li>
                   <a {{ node.navigationMain_linkField.getLinkAttributes() }}>
-                    {{ node.title }}
+                   <div class="textWrap">{{ node.title }}</div>
                   </a>
                   <ul>
                     {% set nodeSubs = node.getChildren() %}
