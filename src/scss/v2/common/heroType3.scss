@@ -48,6 +48,9 @@
       animation-name: test-animation;
       animation-duration: 3s;
       animation-fill-mode: forwards;
+      @media not all and (min-resolution:.001dpcm) { 
+        margin-top:-3.96rem;
+      }
       @media(max-width:$mobile-breakpoint){
         margin-top: 3.85rem;
       }
@@ -64,6 +67,10 @@
       animation-name: test-animation;
       animation-duration: 3s;
       animation-fill-mode: forwards;
+      @media not all and (min-resolution:.001dpcm) { 
+        margin-top: 15.6rem;
+        margin-bottom: auto;
+      }
       @media(max-width:$mobile-breakpoint){
         margin: 47px 0;
         font-size: 55px;

@@ -31480,6 +31480,9 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
               animation-duration: 3s;
       -webkit-animation-fill-mode: forwards;
               animation-fill-mode: forwards; }
+      @media not all and (min-resolution: 0.001dpcm) {
+        .heroType3-content-line1 {
+          margin-top: -3.96rem; } }
       @media (max-width: 768px) {
         .heroType3-content-line1 {
           margin-top: 3.85rem; } }
@@ -31497,6 +31500,9 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
               animation-duration: 3s;
       -webkit-animation-fill-mode: forwards;
               animation-fill-mode: forwards; }
+      @media not all and (min-resolution: 0.001dpcm) {
+        .heroType3-content-line2 {
+          margin-top: 15.6rem; } }
       @media (max-width: 768px) {
         .heroType3-content-line2 {
           margin: 47px 0;
