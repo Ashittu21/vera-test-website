@@ -110,7 +110,12 @@
 		{% include 'includes/snippets/keyfacts' %}
 	{% endif %}
 
+
+
 	{# include 'includes/stream/module_related-content' #}
+
+
+
   <!-- Latest News Items -->
 	{% if entry.relatedContent |length %}
 		<section class="headTitle headTitle--news">
@@ -122,13 +127,16 @@
 				</div>
 			</div>
 		</section>
+
     <section class="block-latestNews">
     	<div class="block-latestNews-content">
     		<div class="latestNews-items">
     		  {% for newsItem in entry.relatedContent %}
           		
-					{% if newsItem.streamImageRectangle | length %}
-			            {% set imageset = newsItem.streamImageRectangle.first ?? null %}
+							{% if newsItem.streamImageRectangle | length %}
+			            {% set imageset = newsItem.streamImageRectangle %}
+              {% elseif  newsItem.streamImageSquare | length %}
+                 {% set imageset = newsItem.streamImageSquare %}
               {% endif %}
 
            <a href="{{ newsItem.url }}" class="latestNews-item">
@@ -153,6 +161,9 @@
     </section>
 	{% endif %} 
   <!-- Latest News  Items -->
+
+
+
 
 	<!--
 			<section class="post-module module-download">
