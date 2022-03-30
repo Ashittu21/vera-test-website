@@ -9,6 +9,7 @@
    slideToClickedSlide: false,
    preventClicksPropagation: false,
    preventClicks: false,
+  /* autoplay: false,*/
    autoplay: {
      delay: 2700,
    },

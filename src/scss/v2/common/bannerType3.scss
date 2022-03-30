@@ -15,6 +15,7 @@
     display: block;
     max-height: inherit;
   }
+  
   &::after{
     background-color: var(--global-color-light-violet);
     content: "";
@@ -56,9 +57,7 @@
     align-items: center;
     max-width: 1066px;
     position: relative;
-/*     @media (max-width: $tablet-portrait) {
-      padding: 3.5rem 0;
-    } */
+
     @media(max-width:$mobile-breakpoint) {
       padding: 0;
     }

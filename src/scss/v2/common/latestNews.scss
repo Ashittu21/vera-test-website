@@ -411,7 +411,13 @@
         .latestNews-hero {
           .latestNews-hero-container {
             margin-top: 0;
-
+            &:hover{
+              .latestNews-hero-copy {
+                &-title {
+                  text-decoration: underline;
+                }
+              }
+            }
             .latestNews-hero-copy {
               &-title {
                 .h4 {

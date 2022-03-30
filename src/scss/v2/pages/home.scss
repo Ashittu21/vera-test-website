@@ -199,7 +199,7 @@
 
 .home .heading {
   /* margin: 95px 0 0 160px; */
-  margin: 115px 0;
+  /*margin: 115px 0;*/
   @media(max-width:$mobile-breakpoint){
     margin: 47px 0;
     font-size: 55px;
@@ -215,36 +215,6 @@
   padding-top: 0;
   padding-bottom: 0;
 }
-
-.home .heroType3-content-line1 {
-  margin-top: -9.5rem;
-  @media(max-width:$mobile-breakpoint){
-    margin-top: -1.5rem;
-  }
-}
-
-.home .heroType3-content-line2 {
-  display: block;
-  position: absolute;
-  color: white;
-  background-color: var(--global-color-light-violet);
-  height: 2px;
-  width: 0;
-  animation-name: test-animation;
-  animation-duration: 3s;
-  animation-fill-mode: forwards;
-  margin-bottom: -29.6rem;
-  @media(max-width:$mobile-breakpoint){
-    margin: 47px 0;
-    font-size: 55px;
-    margin-top: 17rem;
-  }
-}
-
-
-
-
-
 
 .home .latestNews-hero-copy-title {
   margin-top: 20px !important;
@@ -380,33 +350,3 @@
   font-size: 45px;
   line-height: 49.5px;
 }
-
-
-/*
- .block-signup-left{
-  position: absolute;
-  width: calc(100% - 190px);
-  left: 0;
-}
-
- .block-signup-right{
-  position: absolute;
-  z-index: 1;
-  width: 190px;
-  right: 0;
-}
-
- .block-signup-left {
-  position: relative;
-  margin-bottom: 35px;
-  z-index: 2;
-  @media(max-width:$mobile-breakpoint){
-    margin-bottom: 0px;
-    padding: 35px;
-  }
-}
-*/
-
-
-
-
