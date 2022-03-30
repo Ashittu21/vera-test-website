@@ -13,7 +13,8 @@
         <div class="latest-hero-sidebar">
           <div class="latest-hero-sidebar-left">
             <div class="latestNews-hero">
-              <div class="latestNews-hero-container">
+
+              <a href="{{ block.featuredStory_cta.getUrl() }}" class="latestNews-hero-container">
                 <div class="latestNews-hero-copy">
                   <div>
                     <div class="latestNews-hero-copy-category">
@@ -22,15 +23,16 @@
                       <div class="latestNews-hero-copy-title">
                         <h4 class="h4">{{ block.featuredStory_title }}</h4>
                       </div>
-                      <a href="{{ block.featuredStory_cta.getUrl() }}" class="button button-2x orange arrow">
-                        <span>{{ block.featuredStory_cta.customText }}</span>
-                      </a>
+                      <span class="theButton">
+                        <span>{{ block.featuredStory_cta.customText }}<div class="theArrow"></div></span>
+                      </span>
                   </div>
                 </div>
                 <div class="latestNews-hero-image">
                   <img src="{{ block.featuredStory_image.first.url }}" alt="">
                 </div>
-              </div>
+              </a>
+
             </div>
           </div>
 

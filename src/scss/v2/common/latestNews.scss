@@ -63,17 +63,31 @@
         width: 100%;
         box-sizing: border-box;
         transition: all 0.5s ease-in-out;
-        @media (min-width: $mobile-breakpoint){
+
+        @media (min-width: $mobile-breakpoint) {
           max-height: 437px;
         }
-        
+
 
         &:hover {
           background-image: -webkit-linear-gradient(180deg, #da392f 40.1%, var(--global-color-medium-violet) 40.1%);
 
-          .latestNews-hero-copy {}
+          .theButton {
+            background-color: transparent;
+            box-sizing: content-box;
+
+            span {
+              transform: translate3d(8px, 8px, 0px);
+              color: #FFF;
+            }
+
+            &:before {
+              transform: translate3d(8px, 8px, 0px);
+            }
+          }
         }
 
+        
         @media (max-width: $tablet-landscape) {
           background-image: -webkit-linear-gradient(180deg, var(--global-color-violet) 30.1%, var(--global-color-medium-violet) 30.1%);
         }
@@ -259,6 +273,7 @@
           width: 100%;
           margin-top: 20px;
         }
+
         &-category {
           p {
             margin: 20px 0 20px 30px;
@@ -293,8 +308,9 @@
           @media(max-width:$mobile-breakpoint) {
             margin: 30px;
           }
+
           /*margin: 30px 30px 30px 30px;*/
-          
+
           &-title {
             font-family: var(--global-font-abc-whyte);
             font-size: 26px;
@@ -305,6 +321,7 @@
             text-align: left;
             text-decoration: none;
             color: white;
+
             span {
               background-image: linear-gradient(currentColor, currentColor);
               background-position: 0% 100%;
@@ -332,7 +349,8 @@
         }
 
         &:hover {
-           background-color: var(--global-color-red-2);
+          background-color: var(--global-color-red-2);
+
           .latestNews-item-category {
             p {
               color: var(--global-color-white);
@@ -341,8 +359,8 @@
 
           .latestNews-item-copy {
             .latestNews-item-copy-title {
-              span{
-                  background-size: 100% 2px;
+              span {
+                background-size: 100% 2px;
               }
             }
           }
@@ -377,7 +395,7 @@
 
           &:hover {
             text-decoration: underline;
-            
+
             .icon-arrow {
               background-image: url("../img/v2/arrow-red.svg");
             }
@@ -411,13 +429,15 @@
         .latestNews-hero {
           .latestNews-hero-container {
             margin-top: 0;
-            &:hover{
+
+            &:hover {
               .latestNews-hero-copy {
                 &-title {
                   text-decoration: underline;
                 }
               }
             }
+
             .latestNews-hero-copy {
               &-title {
                 .h4 {
@@ -546,6 +566,7 @@
 
 .scrolled.slide-right {
   animation: slide-in-right 1s ease-in-out both;
+
   @media(max-width:$mobile-breakpoint) {
     animation: none;
   }
@@ -573,7 +594,7 @@
       transform: translateX(0);
       opacity: 1;
     }
-  
+
     100% {
       -webkit-transform: translateX(0);
       transform: translateX(0);

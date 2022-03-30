@@ -29007,6 +29007,94 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
   font-size: 35px;
   margin-bottom: 45px; }
 
+.theButton {
+  background-color: transparent;
+  font-family: var(--global-font-abc-whyte);
+  line-height: 0.9;
+  color: #FFF;
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+  outline: none;
+  cursor: pointer;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  padding: 23px 31px 24px 31px;
+  border: 0;
+  z-index: 1; }
+  @media (max-width: 768px) {
+    .theButton {
+      padding: 20px 20px 18px 20px; } }
+  .theButton span {
+    font-weight: 700;
+    -webkit-transition: -webkit-transform 0.2s ease;
+    transition: -webkit-transform 0.2s ease;
+    transition: transform 0.2s ease;
+    transition: transform 0.2s ease, -webkit-transform 0.2s ease;
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    color: #FFF;
+    font-size: 28px; }
+    @media (max-width: 768px) {
+      .theButton span {
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 0.9; } }
+    .theButton span .theArrow {
+      margin-left: 13px;
+      content: url("../img/v2/theArrow.svg");
+      height: 17px;
+      width: 29px; }
+  .theButton:before, .theButton:after {
+    border: 0;
+    content: '';
+    display: block;
+    position: absolute;
+    z-index: -1; }
+  .theButton:before {
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-color: #EF4136;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease; }
+  .theButton:after {
+    background-color: transparent;
+    left: 8px;
+    top: 8px;
+    width: 100%;
+    height: 100%;
+    border: 2px solid #97DFD1;
+    -webkit-transform: skewX(0deg);
+            transform: skewX(0deg);
+    z-index: -2; }
+  .theButton:hover {
+    background-color: transparent;
+    -webkit-box-sizing: content-box;
+            box-sizing: content-box; }
+    .theButton:hover span {
+      -webkit-transform: translate3d(8px, 8px, 0px);
+              transform: translate3d(8px, 8px, 0px);
+      color: #FFF; }
+    .theButton:hover:before {
+      -webkit-transform: translate3d(8px, 8px, 0px);
+              transform: translate3d(8px, 8px, 0px); }
+
 .button {
   border: 2px solid #ABFFEB;
   background-color: transparent;
@@ -31391,7 +31479,7 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
               animation-fill-mode: forwards; }
       @media (max-width: 768px) {
         .heroType3-content-line1 {
-          margin-top: -1.5rem; } }
+          margin-top: 3.85rem; } }
     .heroType3-content-line2 {
       display: block;
       position: absolute;
@@ -31410,7 +31498,7 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
         .heroType3-content-line2 {
           margin: 47px 0;
           font-size: 55px;
-          margin-top: 17rem; } }
+          margin-top: 22rem; } }
     .heroType3-content-line3 {
       display: block;
       position: absolute;
@@ -31956,6 +32044,17 @@ div.heading > div:nth-child(3) > p {
             max-height: 437px; } }
         .block-latestNews-content .latestNews-hero .latestNews-hero-container:hover {
           background-image: -webkit-linear-gradient(180deg, #da392f 40.1%, var(--global-color-medium-violet) 40.1%); }
+          .block-latestNews-content .latestNews-hero .latestNews-hero-container:hover .theButton {
+            background-color: transparent;
+            -webkit-box-sizing: content-box;
+                    box-sizing: content-box; }
+            .block-latestNews-content .latestNews-hero .latestNews-hero-container:hover .theButton span {
+              -webkit-transform: translate3d(8px, 8px, 0px);
+                      transform: translate3d(8px, 8px, 0px);
+              color: #FFF; }
+            .block-latestNews-content .latestNews-hero .latestNews-hero-container:hover .theButton:before {
+              -webkit-transform: translate3d(8px, 8px, 0px);
+                      transform: translate3d(8px, 8px, 0px); }
         @media (max-width: 1024px) {
           .block-latestNews-content .latestNews-hero .latestNews-hero-container {
             background-image: -webkit-linear-gradient(180deg, var(--global-color-violet) 30.1%, var(--global-color-medium-violet) 30.1%); } }
