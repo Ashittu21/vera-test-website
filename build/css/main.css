@@ -435,48 +435,75 @@ button {
   font-weight: 500;
   font-style: italic;
 }*/
+/*
 @font-face {
-  font-family: "GT Walsheim Regular";
-  src: url("../css/fonts/GT-Walsheim-Regular.eot?#iefix") format("embedded-opentype"), url("../css/fonts/GT-Walsheim-Regular.woff") format("woff"), url("../css/fonts/GT-Walsheim-Regular.ttf") format("truetype");
+  font-family: $ff-gt-walsheim;
+  src: url("../css/fonts/GT-Walsheim-Regular.eot?#iefix")
+      format("embedded-opentype"),
+    url("../css/fonts/GT-Walsheim-Regular.woff") format("woff"),
+    url("../css/fonts/GT-Walsheim-Regular.ttf") format("truetype");
   font-weight: normal;
-  font-style: normal; }
-
+  font-style: normal;
+}*/
+/*
 @font-face {
-  font-family: "GT Walsheim Regular";
-  src: url("../css/fonts/GT-Walsheim-Regular-Oblique.eot?#iefix") format("embedded-opentype"), url("../css/fonts/GT-Walsheim-Regular-Oblique.woff") format("woff"), url("../css/fonts/GT-Walsheim-Regular-Oblique.ttf") format("truetype");
+  font-family: $ff-gt-walsheim;
+  src: url("../css/fonts/GT-Walsheim-Regular-Oblique.eot?#iefix")
+      format("embedded-opentype"),
+    url("../css/fonts/GT-Walsheim-Regular-Oblique.woff") format("woff"),
+    url("../css/fonts/GT-Walsheim-Regular-Oblique.ttf") format("truetype");
   font-weight: normal;
-  font-style: oblique; }
-
+  font-style: oblique;
+}*/
+/*
 @font-face {
-  font-family: "GT Walsheim Regular";
-  src: url("../css/fonts/GT-Walsheim-Bold.eot?#iefix") format("embedded-opentype"), url("../css/fonts/GT-Walsheim-Bold.woff") format("woff"), url("../css/fonts/GT-Walsheim-Bold.ttf") format("truetype");
+  font-family: $ff-gt-walsheim;
+  src: url("../css/fonts/GT-Walsheim-Bold.eot?#iefix")
+      format("embedded-opentype"),
+    url("../css/fonts/GT-Walsheim-Bold.woff") format("woff"),
+    url("../css/fonts/GT-Walsheim-Bold.ttf") format("truetype");
   font-weight: bold;
-  font-style: normal; }
-
+  font-style: normal;
+}
 @font-face {
-  font-family: "GT Walsheim Regular";
-  src: url("../css/fonts/GT-Walsheim-Bold.eot?#iefix") format("embedded-opentype"), url("../css/fonts/GT-Walsheim-Bold.woff") format("woff"), url("../css/fonts/GT-Walsheim-Bold.ttf") format("truetype");
+  font-family: $ff-gt-walsheim;
+  src: url("../css/fonts/GT-Walsheim-Bold.eot?#iefix")
+      format("embedded-opentype"),
+    url("../css/fonts/GT-Walsheim-Bold.woff") format("woff"),
+    url("../css/fonts/GT-Walsheim-Bold.ttf") format("truetype");
   font-weight: 500;
-  font-style: normal; }
-
+  font-style: normal;
+}*/
+/*
 @font-face {
-  font-family: "GT Walsheim Regular";
-  src: url("../css/fonts/GT-Walsheim-Bold-Oblique.eot?#iefix") format("embedded-opentype"), url("../css/fonts/GT-Walsheim-Bold-Oblique.woff") format("woff"), url("../css/fonts/GT-Walsheim-Bold-Oblique.ttf") format("truetype");
+  font-family: $ff-gt-walsheim;
+  src: url("../css/fonts/GT-Walsheim-Bold-Oblique.eot?#iefix")
+      format("embedded-opentype"),
+    url("../css/fonts/GT-Walsheim-Bold-Oblique.woff") format("woff"),
+    url("../css/fonts/GT-Walsheim-Bold-Oblique.ttf") format("truetype");
   font-weight: bold;
-  font-style: oblique; }
-
+  font-style: oblique;
+}*/
+/*
 @font-face {
-  font-family: "GT Walsheim Regular";
-  src: url("../css/fonts/GT-Walsheim-Thin.eot?#iefix") format("embedded-opentype"), url("../css/fonts/GT-Walsheim-Thin.woff") format("woff"), url("../css/fonts/GT-Walsheim-Thin.ttf") format("truetype");
+  font-family: $ff-gt-walsheim;
+  src: url("../css/fonts/GT-Walsheim-Thin.eot?#iefix")
+      format("embedded-opentype"),
+    url("../css/fonts/GT-Walsheim-Thin.woff") format("woff"),
+    url("../css/fonts/GT-Walsheim-Thin.ttf") format("truetype");
   font-weight: 100;
-  font-style: normal; }
-
+  font-style: normal;
+}*/
+/*
 @font-face {
-  font-family: "GT Walsheim Regular";
-  src: url("../css/fonts/GT-Walsheim-Thin-Oblique.eot?#iefix") format("embedded-opentype"), url("../css/fonts/GT-Walsheim-Thin-Oblique.woff") format("woff"), url("../css/fonts/GT-Walsheim-Thin-Oblique.ttf") format("truetype");
+  font-family: $ff-gt-walsheim;
+  src: url("../css/fonts/GT-Walsheim-Thin-Oblique.eot?#iefix")
+      format("embedded-opentype"),
+    url("../css/fonts/GT-Walsheim-Thin-Oblique.woff") format("woff"),
+    url("../css/fonts/GT-Walsheim-Thin-Oblique.ttf") format("truetype");
   font-weight: 100;
-  font-style: oblique; }
-
+  font-style: oblique;
+}*/
 @font-face {
   font-family: "Ortica Bold";
   src: url("../css/fonts/Ortica-Bold.woff2") format("woff2"), url("../css/fonts/Ortica-Bold.woff") format("woff"); }
@@ -863,7 +890,7 @@ h2,
   line-height: 1.1; }
 
 .CitiesMapWithLinks-search, .ResourceCard-meta-label {
-  font-family: "GT Walsheim Regular";
+  font-family: var(--global-font-abc-whyte);
   font-weight: 700;
   font-size: 1.2rem;
   letter-spacing: 0.2mm;
@@ -5447,7 +5474,7 @@ body.no-scroll {
   width: 100%; }
   .stream-module__carousel__title .title,
   .stream-module__carousel__title .subtitle {
-    font-family: "GT Book"; }
+    font-family: var(--global-font-abc-whyte); }
   .stream-module__carousel__title .line {
     display: block;
     position: absolute;
@@ -14321,7 +14348,7 @@ a:hover .icon-download:after {
       -ms-flex-pack: justify;
           justify-content: space-between;
   gap: 20px;
-  font-family: "GT Walsheim Regular"; }
+  font-family: var(--global-font-abc-whyte); }
 
 .StateHeatmapWithLinks-sidebar {
   margin-top: 2em;
@@ -15461,7 +15488,7 @@ p:last-child {
     position: relative;
     z-index: 1;
     text-align: center;
-    font-family: "GT Book";
+    font-family: var(--global-font-abc-whyte);
     max-width: 16em;
     padding-top: 30px;
     padding-bottom: 30px; }
@@ -16102,7 +16129,7 @@ body.color-combo--black-white .article .heading-wrap.heading-style--numberedWith
       padding: 30px;
       max-width: 100%;
       border-left: 0;
-      font-family: "GT Book"; }
+      font-family: var(--global-font-abc-whyte); }
       .article-slideshow-slide .article-photo-tile .heading:before {
         content: "";
         position: absolute;
@@ -16540,7 +16567,7 @@ color: $red;
             transform: scale(1); } }
 
 .comparison-list {
-  font-family: "GT Book";
+  font-family: var(--global-font-abc-whyte);
   margin-bottom: 12rem; }
   .comparison-list ul,
   .comparison-list ol,
@@ -16751,7 +16778,7 @@ color: $red;
       padding-bottom: 0; } }
 
 .viz-notes, .article-block-fact .notes {
-  font-family: "GT Book";
+  font-family: var(--global-font-abc-whyte);
   max-width: 30em;
   margin-top: 1em;
   color: #231f20;
@@ -17581,7 +17608,7 @@ button.next-slide {
   position: absolute;
   z-index: 2; }
   .special-reports-chapter .featured-banner.campaignSlide.hasBgImage .bg-image__caption p {
-    font-family: "GT Walsheim Regular";
+    font-family: var(--global-font-abc-whyte);
     max-width: 1400px;
     opacity: 0;
     padding: 20px;
@@ -20475,7 +20502,7 @@ button.next-slide {
     color: inherit; }
   .formbuilder2 select {
     border: 1px solid #231f20;
-    font-family: "GT Walsheim Regular";
+    font-family: var(--global-font-abc-whyte);
     background: #f3f3f2;
     width: 100%;
     background-image: url(/dist/icons/select-down.svg);
@@ -20514,7 +20541,7 @@ button.next-slide {
     background: none;
     background: #f3f3f2; }
   .formbuilder2 button {
-    font-family: "GT Walsheim Regular";
+    font-family: var(--global-font-abc-whyte);
     font-weight: bold;
     font-size: 18px;
     font-size: 1.8rem;
@@ -21115,7 +21142,7 @@ body.state-of {
   #article article.alt {
     background-color: #231f20; }
     #article article.alt .overview .state-of-article .type {
-      font-family: "GT Book";
+      font-family: var(--global-font-abc-whyte);
       font-size: 30px;
       font-size: 3rem;
       font-family: 'ABC Whyte';
@@ -21659,7 +21686,7 @@ body.nav-carousel-page.carousel-loading .streamloader {
         font-size: 1.5rem;
         font-family: 'ABC Whyte';
         color: inherit;
-        font-family: "GT Book"; }
+        font-family: var(--global-font-abc-whyte); }
         @media (min-width: 1024px) {
           .full-nav-carousel .item.introductory .intro {
             font-size: 18px;
@@ -22434,7 +22461,7 @@ article.fact {
   border: 1px solid #dad9d5; }
 
 .covid-article .search {
-  font-family: "GT Walsheim Regular";
+  font-family: var(--global-font-abc-whyte);
   padding: 0.5rem 1rem 0.5rem 4rem;
   width: 100%; }
 
@@ -22450,14 +22477,14 @@ article.fact {
   background-color: #fff; }
 
 .covid-article p {
-  font-family: "GT Walsheim Regular"; }
+  font-family: var(--global-font-abc-whyte); }
 
 .covid-article .full-nav-carousel .cover, .covid-article .full-nav-carousel,
 .covid-article .full-nav-carousel .item.introductory,
 .covid-article .full-nav-carousel .grid-intro {
   background: #000;
   border-color: #000;
-  font-family: "GT Walsheim Regular"; }
+  font-family: var(--global-font-abc-whyte); }
 
 .covid-article .full-nav-carousel .cover .enter-bar {
   background-color: #ef4136; }
@@ -22526,7 +22553,7 @@ article.fact {
       -ms-flex-direction: column;
           flex-direction: column; }
   .covid-article .state-of-article .heading, .covid-article .state-of-article .short-title {
-    font-family: "GT Walsheim Regular";
+    font-family: var(--global-font-abc-whyte);
     font-weight: 700; }
   .covid-article .state-of-article .short-title {
     -webkit-box-ordinal-group: 3;
@@ -24525,7 +24552,7 @@ body.state-of.covid-article {
   display: none; }
 
 .initiatives .text-banner__heading {
-  font-family: "GT Walsheim Regular"; }
+  font-family: var(--global-font-abc-whyte); }
 
 .initiatives h1.ff-serif--medium, .initiatives h1, .initiatives .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading, .article .heading-wrap.heading-style--default .heading-wrap-text .initiatives h3.heading, .initiatives .timed-slideshow-item--text,
 .initiatives h1.h1, .initiatives h1.text-banner__heading, .initiatives .header-publication h1.post-content__title, .header-publication .initiatives h1.post-content__title, .initiatives .header-publication .post-content__title.timed-slideshow-item--text, .header-publication .initiatives .post-content__title.timed-slideshow-item--text, .initiatives .hero-statement h1.inner, .hero-statement .initiatives h1.inner, .initiatives .hero-statement .inner.timed-slideshow-item--text, .hero-statement .initiatives .inner.timed-slideshow-item--text, .initiatives h1.ResourceCard-meta-heading, .initiatives h1.ff-serif--medium--italic, .initiatives .article .heading-wrap.heading-style--default .heading-wrap-text h3.ff-serif--medium--italic.heading, .article .heading-wrap.heading-style--default .heading-wrap-text .initiatives h3.ff-serif--medium--italic.heading, .initiatives .ff-serif--medium--italic.timed-slideshow-item--text, .initiatives h1.main-subnav__see-more, .initiatives .article .heading-wrap.heading-style--default .heading-wrap-text h3.main-subnav__see-more.heading, .article .heading-wrap.heading-style--default .heading-wrap-text .initiatives h3.main-subnav__see-more.heading, .initiatives .main-subnav__see-more.timed-slideshow-item--text, .initiatives h1.footer__address, .initiatives .article .heading-wrap.heading-style--default .heading-wrap-text h3.footer__address.heading, .article .heading-wrap.heading-style--default .heading-wrap-text .initiatives h3.footer__address.heading, .initiatives .footer__address.timed-slideshow-item--text, .initiatives h1.stream-module--placeholder__title, .initiatives .article .heading-wrap.heading-style--default .heading-wrap-text h3.stream-module--placeholder__title.heading, .article .heading-wrap.heading-style--default .heading-wrap-text .initiatives h3.stream-module--placeholder__title.heading, .initiatives .stream-module--placeholder__title.timed-slideshow-item--text, .initiatives .stream-module--uc h1.stream-module__heading, .stream-module--uc .initiatives h1.stream-module__heading, .initiatives .stream-module--uc .article .heading-wrap.heading-style--default .heading-wrap-text h3.stream-module__heading.heading, .stream-module--uc .article .heading-wrap.heading-style--default .heading-wrap-text .initiatives h3.stream-module__heading.heading, .initiatives .article .heading-wrap.heading-style--default .heading-wrap-text .stream-module--uc h3.stream-module__heading.heading, .article .heading-wrap.heading-style--default .heading-wrap-text .stream-module--uc .initiatives h3.stream-module__heading.heading, .initiatives .stream-module--uc .stream-module__heading.timed-slideshow-item--text, .stream-module--uc .initiatives .stream-module__heading.timed-slideshow-item--text, .initiatives .stream-module--uc--full.frame h1.stream-module__heading, .stream-module--uc--full.frame .initiatives h1.stream-module__heading, .initiatives .stream-module--uc--full.frame .article .heading-wrap.heading-style--default .heading-wrap-text h3.stream-module__heading.heading, .stream-module--uc--full.frame .article .heading-wrap.heading-style--default .heading-wrap-text .initiatives h3.stream-module__heading.heading, .initiatives .article .heading-wrap.heading-style--default .heading-wrap-text .stream-module--uc--full.frame h3.stream-module__heading.heading, .article .heading-wrap.heading-style--default .heading-wrap-text .stream-module--uc--full.frame .initiatives h3.stream-module__heading.heading, .initiatives .stream-module--uc--full.frame .stream-module__heading.timed-slideshow-item--text, .stream-module--uc--full.frame .initiatives .stream-module__heading.timed-slideshow-item--text, .initiatives .stream-module--uc--secondary h1.stream-module__heading, .stream-module--uc--secondary .initiatives h1.stream-module__heading, .initiatives .stream-module--uc--secondary .article .heading-wrap.heading-style--default .heading-wrap-text h3.stream-module__heading.heading, .stream-module--uc--secondary .article .heading-wrap.heading-style--default .heading-wrap-text .initiatives h3.stream-module__heading.heading, .initiatives .article .heading-wrap.heading-style--default .heading-wrap-text .stream-module--uc--secondary h3.stream-module__heading.heading, .article .heading-wrap.heading-style--default .heading-wrap-text .stream-module--uc--secondary .initiatives h3.stream-module__heading.heading, .initiatives .stream-module--uc--secondary .stream-module__heading.timed-slideshow-item--text, .stream-module--uc--secondary .initiatives .stream-module__heading.timed-slideshow-item--text, .initiatives .stream-module--uc--secondary--event h1.stream-module__heading, .stream-module--uc--secondary--event .initiatives h1.stream-module__heading, .initiatives .stream-module--uc--secondary--event .article .heading-wrap.heading-style--default .heading-wrap-text h3.stream-module__heading.heading, .stream-module--uc--secondary--event .article .heading-wrap.heading-style--default .heading-wrap-text .initiatives h3.stream-module__heading.heading, .initiatives .article .heading-wrap.heading-style--default .heading-wrap-text .stream-module--uc--secondary--event h3.stream-module__heading.heading, .article .heading-wrap.heading-style--default .heading-wrap-text .stream-module--uc--secondary--event .initiatives h3.stream-module__heading.heading, .initiatives .stream-module--uc--secondary--event .stream-module__heading.timed-slideshow-item--text, .stream-module--uc--secondary--event .initiatives .stream-module__heading.timed-slideshow-item--text, .initiatives [data-view=list] .stream-module h1.stream-module__heading, [data-view=list] .stream-module .initiatives h1.stream-module__heading, .initiatives [data-view=list] .stream-module .article .heading-wrap.heading-style--default .heading-wrap-text h3.stream-module__heading.heading, [data-view=list] .stream-module .article .heading-wrap.heading-style--default .heading-wrap-text .initiatives h3.stream-module__heading.heading, .initiatives .article .heading-wrap.heading-style--default .heading-wrap-text [data-view=list] .stream-module h3.stream-module__heading.heading, .article .heading-wrap.heading-style--default .heading-wrap-text [data-view=list] .stream-module .initiatives h3.stream-module__heading.heading, .initiatives [data-view=list] .stream-module .stream-module__heading.timed-slideshow-item--text, [data-view=list] .stream-module .initiatives .stream-module__heading.timed-slideshow-item--text, .initiatives .featured-banner.editorial h1.title, .featured-banner.editorial .initiatives h1.title, .initiatives .featured-banner.editorial .article .heading-wrap.heading-style--default .heading-wrap-text h3.title.heading, .featured-banner.editorial .article .heading-wrap.heading-style--default .heading-wrap-text .initiatives h3.title.heading, .initiatives .article .heading-wrap.heading-style--default .heading-wrap-text .featured-banner.editorial h3.title.heading, .article .heading-wrap.heading-style--default .heading-wrap-text .featured-banner.editorial .initiatives h3.title.heading, .initiatives .featured-banner.editorial .title.timed-slideshow-item--text, .featured-banner.editorial .initiatives .title.timed-slideshow-item--text, .initiatives .article .heading-wrap.heading-style--default .heading-wrap-text h3.text-banner__heading.heading, .article .heading-wrap.heading-style--default .heading-wrap-text .initiatives h3.text-banner__heading.heading, .initiatives .text-banner__heading.timed-slideshow-item--text, .initiatives .text-banner--left-bottom h1.text-banner__heading, .text-banner--left-bottom .initiatives h1.text-banner__heading, .initiatives .text-banner--left-bottom .article .heading-wrap.heading-style--default .heading-wrap-text h3.text-banner__heading.heading, .text-banner--left-bottom .article .heading-wrap.heading-style--default .heading-wrap-text .initiatives h3.text-banner__heading.heading, .initiatives .article .heading-wrap.heading-style--default .heading-wrap-text .text-banner--left-bottom h3.text-banner__heading.heading, .article .heading-wrap.heading-style--default .heading-wrap-text .text-banner--left-bottom .initiatives h3.text-banner__heading.heading, .initiatives .text-banner--left-bottom .text-banner__heading.timed-slideshow-item--text, .text-banner--left-bottom .initiatives .text-banner__heading.timed-slideshow-item--text, .initiatives .text-banner--center h1.text-banner__heading, .text-banner--center .initiatives h1.text-banner__heading, .initiatives .text-banner--center .article .heading-wrap.heading-style--default .heading-wrap-text h3.text-banner__heading.heading, .text-banner--center .article .heading-wrap.heading-style--default .heading-wrap-text .initiatives h3.text-banner__heading.heading, .initiatives .article .heading-wrap.heading-style--default .heading-wrap-text .text-banner--center h3.text-banner__heading.heading, .article .heading-wrap.heading-style--default .heading-wrap-text .text-banner--center .initiatives h3.text-banner__heading.heading, .initiatives .text-banner--center .text-banner__heading.timed-slideshow-item--text, .text-banner--center .initiatives .text-banner__heading.timed-slideshow-item--text, .initiatives .text-banner--event h1.text-banner__heading, .text-banner--event .initiatives h1.text-banner__heading, .initiatives .text-banner--event .article .heading-wrap.heading-style--default .heading-wrap-text h3.text-banner__heading.heading, .text-banner--event .article .heading-wrap.heading-style--default .heading-wrap-text .initiatives h3.text-banner__heading.heading, .initiatives .article .heading-wrap.heading-style--default .heading-wrap-text .text-banner--event h3.text-banner__heading.heading, .article .heading-wrap.heading-style--default .heading-wrap-text .text-banner--event .initiatives h3.text-banner__heading.heading, .initiatives .text-banner--event .text-banner__heading.timed-slideshow-item--text, .text-banner--event .initiatives .text-banner__heading.timed-slideshow-item--text, .initiatives .text-banner--left-center h1.text-banner__heading, .text-banner--left-center .initiatives h1.text-banner__heading, .initiatives .text-banner--left-center .article .heading-wrap.heading-style--default .heading-wrap-text h3.text-banner__heading.heading, .text-banner--left-center .article .heading-wrap.heading-style--default .heading-wrap-text .initiatives h3.text-banner__heading.heading, .initiatives .article .heading-wrap.heading-style--default .heading-wrap-text .text-banner--left-center h3.text-banner__heading.heading, .article .heading-wrap.heading-style--default .heading-wrap-text .text-banner--left-center .initiatives h3.text-banner__heading.heading, .initiatives .text-banner--left-center .text-banner__heading.timed-slideshow-item--text, .text-banner--left-center .initiatives .text-banner__heading.timed-slideshow-item--text, .initiatives h1.post-module__heading, .initiatives .article .heading-wrap.heading-style--default .heading-wrap-text h3.post-module__heading.heading, .article .heading-wrap.heading-style--default .heading-wrap-text .initiatives h3.post-module__heading.heading, .initiatives .post-module__heading.timed-slideshow-item--text, .initiatives .post-sidebar__people h1.person-name, .post-sidebar__people .initiatives h1.person-name, .initiatives .post-sidebar__people .article .heading-wrap.heading-style--default .heading-wrap-text h3.person-name.heading, .post-sidebar__people .article .heading-wrap.heading-style--default .heading-wrap-text .initiatives h3.person-name.heading, .initiatives .article .heading-wrap.heading-style--default .heading-wrap-text .post-sidebar__people h3.person-name.heading, .article .heading-wrap.heading-style--default .heading-wrap-text .post-sidebar__people .initiatives h3.person-name.heading, .initiatives .post-sidebar__people .person-name.timed-slideshow-item--text, .post-sidebar__people .initiatives .person-name.timed-slideshow-item--text, .initiatives .attribution h1.person-name, .attribution .initiatives h1.person-name, .initiatives .attribution .article .heading-wrap.heading-style--default .heading-wrap-text h3.person-name.heading, .attribution .article .heading-wrap.heading-style--default .heading-wrap-text .initiatives h3.person-name.heading, .initiatives .article .heading-wrap.heading-style--default .heading-wrap-text .attribution h3.person-name.heading, .article .heading-wrap.heading-style--default .heading-wrap-text .attribution .initiatives h3.person-name.heading, .initiatives .attribution .person-name.timed-slideshow-item--text, .attribution .initiatives .person-name.timed-slideshow-item--text, .initiatives .module-columns-3up .action-areas h1.text-outer, .module-columns-3up .action-areas .initiatives h1.text-outer, .initiatives .module-columns-3up .action-areas .article .heading-wrap.heading-style--default .heading-wrap-text h3.text-outer.heading, .module-columns-3up .action-areas .article .heading-wrap.heading-style--default .heading-wrap-text .initiatives h3.text-outer.heading, .initiatives .article .heading-wrap.heading-style--default .heading-wrap-text .module-columns-3up .action-areas h3.text-outer.heading, .article .heading-wrap.heading-style--default .heading-wrap-text .module-columns-3up .action-areas .initiatives h3.text-outer.heading, .initiatives .module-columns-3up .action-areas .text-outer.timed-slideshow-item--text, .module-columns-3up .action-areas .initiatives .text-outer.timed-slideshow-item--text, .initiatives h1.post-content__title, .initiatives .article .heading-wrap.heading-style--default .heading-wrap-text h3.post-content__title.heading, .article .heading-wrap.heading-style--default .heading-wrap-text .initiatives h3.post-content__title.heading, .initiatives .post-content__title.timed-slideshow-item--text, .initiatives .post-content__main h1, .post-content__main .initiatives h1, .initiatives .post-content__main .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading, .post-content__main .article .heading-wrap.heading-style--default .heading-wrap-text .initiatives h3.heading, .initiatives .article .heading-wrap.heading-style--default .heading-wrap-text .post-content__main h3.heading, .article .heading-wrap.heading-style--default .heading-wrap-text .post-content__main .initiatives h3.heading, .initiatives .post-content__main .timed-slideshow-item--text, .post-content__main .initiatives .timed-slideshow-item--text, .initiatives h1.homepage-3up__heading, .initiatives .article .heading-wrap.heading-style--default .heading-wrap-text h3.homepage-3up__heading.heading, .article .heading-wrap.heading-style--default .heading-wrap-text .initiatives h3.homepage-3up__heading.heading, .initiatives .homepage-3up__heading.timed-slideshow-item--text, .initiatives h1.homepage-sp__heading, .initiatives .article .heading-wrap.heading-style--default .heading-wrap-text h3.homepage-sp__heading.heading, .article .heading-wrap.heading-style--default .heading-wrap-text .initiatives h3.homepage-sp__heading.heading, .initiatives .homepage-sp__heading.timed-slideshow-item--text, .initiatives h1.banner-cta__heading, .initiatives .article .heading-wrap.heading-style--default .heading-wrap-text h3.banner-cta__heading.heading, .article .heading-wrap.heading-style--default .heading-wrap-text .initiatives h3.banner-cta__heading.heading, .initiatives .banner-cta__heading.timed-slideshow-item--text, .initiatives .event__special-guests h1.person-name, .event__special-guests .initiatives h1.person-name, .initiatives .event__special-guests .article .heading-wrap.heading-style--default .heading-wrap-text h3.person-name.heading, .event__special-guests .article .heading-wrap.heading-style--default .heading-wrap-text .initiatives h3.person-name.heading, .initiatives .article .heading-wrap.heading-style--default .heading-wrap-text .event__special-guests h3.person-name.heading, .article .heading-wrap.heading-style--default .heading-wrap-text .event__special-guests .initiatives h3.person-name.heading, .initiatives .event__special-guests .person-name.timed-slideshow-item--text, .event__special-guests .initiatives .person-name.timed-slideshow-item--text, .initiatives .event__special-guests .people--large h1.person-name, .event__special-guests .people--large .initiatives h1.person-name, .initiatives .event__special-guests .people--large .article .heading-wrap.heading-style--default .heading-wrap-text h3.person-name.heading, .event__special-guests .people--large .article .heading-wrap.heading-style--default .heading-wrap-text .initiatives h3.person-name.heading, .initiatives .article .heading-wrap.heading-style--default .heading-wrap-text .event__special-guests .people--large h3.person-name.heading, .article .heading-wrap.heading-style--default .heading-wrap-text .event__special-guests .people--large .initiatives h3.person-name.heading, .initiatives .event__special-guests .people--large .person-name.timed-slideshow-item--text, .event__special-guests .people--large .initiatives .person-name.timed-slideshow-item--text, .initiatives .people-grid__list .text-outer h1.person-name, .people-grid__list .text-outer .initiatives h1.person-name, .initiatives .people-grid__list .text-outer .article .heading-wrap.heading-style--default .heading-wrap-text h3.person-name.heading, .people-grid__list .text-outer .article .heading-wrap.heading-style--default .heading-wrap-text .initiatives h3.person-name.heading, .initiatives .article .heading-wrap.heading-style--default .heading-wrap-text .people-grid__list .text-outer h3.person-name.heading, .article .heading-wrap.heading-style--default .heading-wrap-text .people-grid__list .text-outer .initiatives h3.person-name.heading, .initiatives .people-grid__list .text-outer .person-name.timed-slideshow-item--text, .people-grid__list .text-outer .initiatives .person-name.timed-slideshow-item--text, .initiatives h1.module-intro__title, .initiatives .article .heading-wrap.heading-style--default .heading-wrap-text h3.module-intro__title.heading, .article .heading-wrap.heading-style--default .heading-wrap-text .initiatives h3.module-intro__title.heading, .initiatives .module-intro__title.timed-slideshow-item--text, .initiatives h1.intro-phrases, .initiatives .article .heading-wrap.heading-style--default .heading-wrap-text h3.intro-phrases.heading, .article .heading-wrap.heading-style--default .heading-wrap-text .initiatives h3.intro-phrases.heading, .initiatives .intro-phrases.timed-slideshow-item--text, .initiatives h1.secondary-statement, .initiatives .article .heading-wrap.heading-style--default .heading-wrap-text h3.secondary-statement.heading, .article .heading-wrap.heading-style--default .heading-wrap-text .initiatives h3.secondary-statement.heading, .initiatives .secondary-statement.timed-slideshow-item--text, .initiatives .article .heading-wrap.heading-style--default .heading-wrap-text h3.ff-serif--medium.heading, .article .heading-wrap.heading-style--default .heading-wrap-text .initiatives h3.ff-serif--medium.heading,
@@ -24546,7 +24573,7 @@ body.state-of.covid-article {
 .initiatives h3.h1, .initiatives h3.text-banner__heading, .initiatives .hero-statement h3.inner, .hero-statement .initiatives h3.inner, .initiatives h3.ResourceCard-meta-heading, .initiatives h3.ff-serif--medium--italic, .initiatives h3.main-subnav__see-more, .initiatives h3.footer__address, .initiatives h3.stream-module--placeholder__title, .initiatives .stream-module--uc h3.stream-module__heading, .stream-module--uc .initiatives h3.stream-module__heading, .initiatives .stream-module--uc--full.frame h3.stream-module__heading, .stream-module--uc--full.frame .initiatives h3.stream-module__heading, .initiatives .stream-module--uc--secondary h3.stream-module__heading, .stream-module--uc--secondary .initiatives h3.stream-module__heading, .initiatives .stream-module--uc--secondary--event h3.stream-module__heading, .stream-module--uc--secondary--event .initiatives h3.stream-module__heading, .initiatives [data-view=list] .stream-module h3.stream-module__heading, [data-view=list] .stream-module .initiatives h3.stream-module__heading, .initiatives .featured-banner.editorial h3.title, .featured-banner.editorial .initiatives h3.title, .initiatives h3.post-module__heading, .initiatives .post-sidebar__people h3.person-name, .post-sidebar__people .initiatives h3.person-name, .initiatives .attribution h3.person-name, .attribution .initiatives h3.person-name, .initiatives .module-text--small h3, .module-text--small .initiatives h3, .initiatives .module-columns-3up .action-areas h3.text-outer, .module-columns-3up .action-areas .initiatives h3.text-outer, .initiatives h3.post-content__title,
 .initiatives .post-content__main h3, .post-content__main .initiatives h3, .initiatives h3.homepage-3up__heading, .initiatives h3.homepage-sp__heading, .initiatives h3.banner-cta__heading, .initiatives .event__special-guests h3.person-name, .event__special-guests .initiatives h3.person-name, .initiatives .people-grid__list .text-outer h3.person-name, .people-grid__list .text-outer .initiatives h3.person-name, .initiatives h3.module-intro__title, .initiatives .contact-location h3, .contact-location .initiatives h3,
 .initiatives .contact-directions h3, .contact-directions .initiatives h3, .initiatives h3.intro-phrases, .initiatives h3.secondary-statement, .initiatives .comparison-list h3.comparison-item-heading, .comparison-list .initiatives h3.comparison-item-heading, .initiatives .full-nav-carousel h3.grid-intro-heading, .full-nav-carousel .initiatives h3.grid-intro-heading {
-  font-family: "GT Walsheim Regular"; }
+  font-family: var(--global-font-abc-whyte); }
 
 .initiatives .spotlight-block--form {
   background-color: #e7e6e3; }
@@ -24572,7 +24599,7 @@ body.state-of.covid-article {
   max-width: 500px;
   height: 100%;
   color: white;
-  font-family: "GT Walsheim Regular";
+  font-family: var(--global-font-abc-whyte);
   background-color: #231f20;
   padding: 1rem;
   font-size: 1.6rem;
@@ -24711,7 +24738,7 @@ body.state-of.covid-article {
             transform: scale(1.25); } }
 
 strong {
-  font-family: "GT Walsheim Regular"; }
+  font-family: var(--global-font-abc-whyte); }
 
 .map-filter-column {
   z-index: 10;
@@ -24732,7 +24759,7 @@ strong {
   .map-filter-column .year {
     font-size: 1.4rem; }
   .map-filter-column .year-value {
-    font-family: "GT Walsheim Regular"; }
+    font-family: var(--global-font-abc-whyte); }
   .map-filter-column .slider {
     -webkit-appearance: none;
     /* Override default CSS styles */
@@ -24785,13 +24812,13 @@ strong {
     .endorsers-module .endorsers-nav .asterisk {
       position: absolute;
       bottom: 2rem;
-      font-family: "GT Walsheim Regular"; }
+      font-family: var(--global-font-abc-whyte); }
   .endorsers-module .endorsers-view {
     -webkit-box-ordinal-group: 3;
         -ms-flex-order: 2;
             order: 2;
     width: 60%;
-    font-family: "GT Walsheim Regular";
+    font-family: var(--global-font-abc-whyte);
     padding-left: 4rem;
     overflow-y: auto; }
   .endorsers-module ul {
@@ -25400,7 +25427,7 @@ button.SortableTable-header-column-button {
           align-items: flex-end;
   margin-top: auto;
   width: 100%;
-  font-family: "GT Walsheim Regular";
+  font-family: var(--global-font-abc-whyte);
   font-size: 12px; }
 
 .ResourceCard-meta-tags-author {
@@ -25598,7 +25625,7 @@ button.SortableTable-header-column-button {
           flex-direction: column; }
 
 .CareersLocationCarousel-item-text {
-  font-family: "GT Walsheim Regular"; }
+  font-family: var(--global-font-abc-whyte); }
 
 .CareersLocationCarousel-item-attribution {
   display: -webkit-box;
@@ -25616,7 +25643,7 @@ button.SortableTable-header-column-button {
 
 .CareersLocationsCarousel-item-attribution-name,
 .CareersLocationsCarousel-item-attribution-title {
-  font-family: "GT Walsheim Regular";
+  font-family: var(--global-font-abc-whyte);
   font-style: normal;
   font-weight: bold;
   font-size: 14px;
@@ -25637,7 +25664,7 @@ button.SortableTable-header-column-button {
   display: -ms-flexbox;
   display: flex;
   margin-bottom: 40px;
-  font-family: "GT Walsheim Regular";
+  font-family: var(--global-font-abc-whyte);
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -25661,14 +25688,14 @@ button.SortableTable-header-column-button {
         width: 150px; } }
 
 .Alumni-list-item-name {
-  font-family: "GT Book";
+  font-family: var(--global-font-abc-whyte);
   font-style: normal;
   font-weight: 500;
   font-size: 21px;
   line-height: 18px; }
 
 .Alumni-list-item-label {
-  font-family: "GT Walsheim Regular";
+  font-family: var(--global-font-abc-whyte);
   font-style: normal;
   font-weight: 700;
   font-size: 14px;
@@ -26054,10 +26081,10 @@ button.SortableTable-header-column-button {
         padding-bottom: 1.75em; } }
 
 .PoliceBudget {
-  font-family: "GT Walsheim Regular"; }
+  font-family: var(--global-font-abc-whyte); }
 
 .PoliceBudget-title h1, .PoliceBudget-title .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading, .article .heading-wrap.heading-style--default .heading-wrap-text .PoliceBudget-title h3.heading, .PoliceBudget-title .timed-slideshow-item--text {
-  font-family: "GT Walsheim Regular";
+  font-family: var(--global-font-abc-whyte);
   font-weight: 700; }
 
 .PoliceBudget-lineitem h2,
@@ -26065,7 +26092,7 @@ button.SortableTable-header-column-button {
 .PoliceBudget-lineitem h4,
 .PoliceBudget-lineitem h5 {
   font-weight: 400;
-  font-family: "GT Walsheim Regular"; }
+  font-family: var(--global-font-abc-whyte); }
 
 .PoliceBudget-lineitem h2 {
   font-size: 18px;

@@ -137,8 +137,8 @@ $transition-timing: 0.3s;
 $ease-nice: cubic-bezier(0.19, 0.11, 0.21, 0.99);
 
 // fonts
-$ff-gt-sectra: "GT Book";
-$ff-gt-walsheim: "GT Walsheim Regular";
+$ff-gt-sectra: var(--global-font-abc-whyte);
+$ff-gt-walsheim: var(--global-font-abc-whyte);
 $ff-ortica-bold: "Ortica Bold";
 $ff-ortica-light: "Ortica Light";
 $ff-vtc-marsha: "VTC Marsha";
