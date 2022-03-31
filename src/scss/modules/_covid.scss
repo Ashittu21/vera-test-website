@@ -50,7 +50,7 @@
     border: 1px solid #dad9d5;
   }
   .search{
-     font-family: $ff-gt-walsheim;
+     font-family: $ff-abc-whyte;
      padding: 0.5rem 1rem 0.5rem 4rem;
      width: 100%;
   }
@@ -65,14 +65,14 @@
     background-color: $white;
   }
   p{
-    font-family: $ff-gt-walsheim;
+    font-family: $ff-abc-whyte;
   }
   .full-nav-carousel .cover, .full-nav-carousel,
   .full-nav-carousel .item.introductory,
   .full-nav-carousel .grid-intro{
     background: #000; 
     border-color: #000;
-    font-family: $ff-gt-walsheim;
+    font-family: $ff-abc-whyte;
   }
   .full-nav-carousel .cover .enter-bar{
     background-color: $red;
@@ -145,7 +145,7 @@
     display: flex;
     flex-direction: column;
     .heading, .short-title{
-      font-family: $ff-gt-walsheim;
+      font-family: $ff-abc-whyte;
       font-weight: 700;
     }
     .short-title{

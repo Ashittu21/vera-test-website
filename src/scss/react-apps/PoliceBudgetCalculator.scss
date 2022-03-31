@@ -1,9 +1,9 @@
 .PoliceBudget {
   @extend .container;
-  font-family: $ff-gt-walsheim;
+  font-family: $ff-abc-whyte;
 }
 .PoliceBudget-title h1 {
-  font-family: $ff-gt-walsheim;
+  font-family: $ff-abc-whyte;
   font-weight: 700;
 }
 .PoliceBudget-lineitem {
@@ -12,7 +12,7 @@
   h4,
   h5 {
     font-weight: 400;
-    font-family: $ff-gt-walsheim;
+    font-family: $ff-abc-whyte;
   }
   h2 {
     @include font-size(1.8);

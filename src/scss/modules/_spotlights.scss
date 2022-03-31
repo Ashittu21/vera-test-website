@@ -197,7 +197,7 @@
     display: none;
   }
   .text-banner__heading{
-    font-family: $ff-gt-walsheim;
+    font-family: $ff-abc-whyte;
   }
   .text-banner
   .text-banner__subheading{
@@ -205,7 +205,7 @@
   }
   h1,h2,h3{
     &.ff-serif--medium{
-      font-family: $ff-gt-walsheim;
+      font-family: $ff-abc-whyte;
     }
   }
   .spotlight-block--form{
@@ -238,7 +238,7 @@
     max-width: 500px;
     height: 100%;
     color: white;
-    font-family: $ff-gt-walsheim;
+    font-family: $ff-abc-whyte;
     background-color: $black;
     padding: 1rem;
     font-size: 1.6rem;
@@ -381,7 +381,7 @@
   }
 }
 strong{
-  font-family: $ff-gt-walsheim;
+  font-family: $ff-abc-whyte;
 }
 .map-filter-column{
   z-index: 10;
@@ -407,7 +407,7 @@ strong{
     font-size: 1.4rem;
   }
   .year-value{
-    font-family: $ff-gt-walsheim;
+    font-family: $ff-abc-whyte;
   }
   .slider{
     -webkit-appearance: none;  /* Override default CSS styles */
@@ -454,13 +454,13 @@ strong{
     .asterisk{
       position: absolute;
       bottom: 2rem;
-      font-family: $ff-gt-walsheim;
+      font-family: $ff-abc-whyte;
     }
   }
   .endorsers-view{
     order: 2;
     width: 60%;
-    font-family: $ff-gt-walsheim;
+    font-family: $ff-abc-whyte;
     
     padding-left: 4rem;
     overflow-y: auto;

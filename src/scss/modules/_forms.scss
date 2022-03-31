@@ -10,7 +10,7 @@
   }
   select {
     border: 1px solid $black;
-    font-family: $ff-gt-walsheim;
+    font-family: $ff-abc-whyte;
     background: $lt-gray;
     width: 100%;
     background-image: url(/dist/icons/select-down.svg);
@@ -53,7 +53,7 @@
     background: $lt-gray;
   }
   button {
-    font-family: $ff-gt-walsheim;
+    font-family: $ff-abc-whyte;
     font-weight: bold;
     @include font-size(1.8);
     background: $black;
