@@ -1,32 +1,22 @@
 
     <section class="page404">
       <div class="page404_container">
-        <h1>404 Page not found</h1>
+        <h1>{{ page404.page404_title }}</h1>
         <div class="page404_container_copy">
-          <strong>We’re sorry, you’ve reached this page in error.</strong><br>
-          The page might have been moved, or the web address you are using may be incorrect.
+          {{ page404.page404_subtitle }}
         </div>
         <div class="page404_container_links">
           <p>Try one of these pages:</p>
+          {% set page404_links = page404.page404_links.all() %}
+          {% if  page404_links|length %}
           <ul>
+            {% for node in page404_links %}
             <li>
-             <a href="#" class="button arrowType2">About Mass Incarceration</a>
+              <a href="{{ node.page404_link.getUrl() }}" class="button arrowType2" >{{node.page404_link.customText }}</a>
             </li>
-            <li>
-             <a href="#" class="button arrowType2">About Us</a>
-            </li>
-            <li>
-             <a href="#" class="button arrowType2">News & Stories</a>
-            </li>
-            <li>
-             <a href="#" class="button arrowType2">Contact Us</a>
-            </li>
-            <li>
-             <a href="#" class="button arrowType2">Home</a>
-            </li>
-            <li>
-             <a href="#" class="button arrowType2">Solutions and Research</a>
-            </li>
+            {% endfor %}
+          </ul>
+          {% endif %}
           </ul>
         </div>
       </div>
