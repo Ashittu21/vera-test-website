@@ -34,11 +34,13 @@
         background-repeat: no-repeat;
         background-size: cover;
       }
+
       &:hover{
         span{
           background-image: url("../img/v2/s-iconm.svg");
         }
       }
+      
     }
 
     .search-input {

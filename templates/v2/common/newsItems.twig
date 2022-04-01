@@ -3,8 +3,9 @@
     <section class="block-latestNews">
     	<div class="block-latestNews-content">
 				{% if block.newsItems_item |length %}
-    		<div class="latestNews-items">
+    		<div class="latestNews-items {% if block.newsItems_button == true %}hasLink{% endif %}">
     		  {% for newsItem in block.newsItems_item %}
+						
 						<!-- {{ newsItem.type.handle }} -->
 
 						{% if newsItem.streamImageRectangle | length %}

@@ -107,6 +107,7 @@
         display: none;
       }
     }
+
     &-line4{
       display: block;
       position: absolute;
@@ -115,28 +116,41 @@
       width: 2px;
       top: 0;
       right: 50%;
-      animation-name: test-animation-h;
+      animation-name: animationH;
+      @media(max-width:$mobile-breakpoint){
+        animation-name: animationHMobile;
+      }
       animation-duration: 2s;
       animation-fill-mode: forwards;
-      @media(max-width:$mobile-breakpoint){
-        height: 49px;
-      }
-    
     }
   }
 }
 
- @keyframes test-animation-h {
+@keyframes animationHMobile {
+  from {
+      height:0px;
+  }
+
+  to {
+    height: 42px;
+   
+  }
+} 
+
+
+ @keyframes animationH {
   from {
       height:0px;
   }
 
   to {
     height: 110px;
+   
   }
 } 
 
-@keyframes test-animation-h-2 {
+
+@keyframes animationH-2 {
   from {
       height:0%;
   }

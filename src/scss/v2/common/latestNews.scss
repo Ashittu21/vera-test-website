@@ -253,10 +253,14 @@
       flex-direction: row;
       justify-content: space-between;
       padding-top: 2rem;
-      padding-bottom: 5.5rem;
+      padding-bottom: 60px;
 
       @media (max-width: $tablet-portrait) {
         flex-direction: column;
+      }
+
+      &.hasLink{
+        padding-bottom: 0px;
       }
 
       .latestNews-item {
@@ -270,8 +274,9 @@
         transition: all 0.2s ease-in-out;
 
         @media (max-width: $tablet-portrait) {
-          width: 100%;
-          margin-top: 20px;
+          /*width: 100%;*/
+          width: auto;
+          margin: 20px 12px;
         }
 
         &-category {
@@ -304,12 +309,9 @@
           flex: 1;
           margin: 20px 30px;
 
-
           @media(max-width:$mobile-breakpoint) {
-            margin: 30px;
+            margin: 30px 22px;
           }
-
-          /*margin: 30px 30px 30px 30px;*/
 
           &-title {
             font-family: var(--global-font-abc-whyte);
@@ -369,6 +371,12 @@
       }
 
       &-link {
+
+        @media(max-width:$mobile-breakpoint) {
+          margin: 0 12px;
+        }
+  
+
         a {
           color: white;
           font-size: 21px;
