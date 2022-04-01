@@ -51,15 +51,15 @@
         </div>
         <div class="d-md-block menu-right">
           <div class="search">
-            <div class="search-wrapper">
+            <div class="search-wrapper" id="search-wrapper">
               <form class="input-holder" action="{{ siteUrl }}search" method="GET">
-                <div class="txt-label" onclick="searchToggle(this, event);" >Search</div>
+                <div class="txt-label" onclick="openSearch(event);" >Search</div>
                   <input type="text" class="search-input" name="query" placeholder="Search"/>
-                  <button class="search-icon" onclick="searchToggle(this, event);">
+                  <button class="search-icon" onclick="openSearch(event);">
                   <span></span>
                 </button>
               </form>
-              <span class="close" onclick="searchToggle(this, event);"></span>
+              <span class="close" onclick="openSearch(event);"></span>
             </div>
           </div>
           <div class="donate h-100 ">
