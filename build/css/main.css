@@ -30405,6 +30405,9 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
     .copy-block-container .copy-block-content::selection {
       background: #EF4136 !important;
       color: #FFF !important; }
+    .copy-block-container .copy-block-content sub,
+    .copy-block-container .copy-block-content sup {
+      font-size: 65%; }
     .copy-block-container .copy-block-content p {
       margin-bottom: 30px; }
       .copy-block-container .copy-block-content p.intro {

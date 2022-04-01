@@ -8,6 +8,12 @@ p::selection {
   color: #FFF !important;
 }
 
+
+sub,
+sup{
+  font-size: 65%;
+}
+
 p {
   margin-bottom: 30px;
 
@@ -23,7 +29,6 @@ p {
 
 @media(max-width:$mobile-breakpoint) {
   padding: 0px 1rem;
-
   p {
     display: inline-block;
   }
