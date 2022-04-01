@@ -45,7 +45,7 @@
 
     <div class="newsLanding-items">
 
-      {% paginate craft.entries.section('specialReports').orderBy('dateCreated DESC').limit(10) as pageInfo, pageEntries %}
+      {% paginate craft.entries.section('specialReports').level(1).orderBy('dateCreated DESC').limit(10) as pageInfo, pageEntries %}
 
       {% set fallback = 0 %}
 
@@ -67,7 +67,7 @@
                     <div class="bannerType4-text">
                     <p>{{ bannerSubtitle }}</p>
                     </div>
-                    <a href="{{ bannerCta.getUrl() }}" class="button orange arrow"><span>{{  bannerCta.customText }}</span></a>
+                    <a href="{{ bannerCta.getUrl() }}" class="theButton"><span>{{  bannerCta.customText }}<div class="theArrow"></div></span></a>
                   </div>
                 </section>
                 <!-- Banner Type 4 -->
@@ -93,7 +93,14 @@
                     {% endif %}
                   </div>
                   <div class="newsLanding-item-content-right">
-                    <div class="newsLanding-item-content-right-tag">{{ entry.type.name | title | upper }}</div>
+                    <div class="newsLanding-item-content-right-tag">
+                      {% if entry.type.handle in ['specialReportSingle','specialReportChaptered','specialReport','specialReportCampaign'] %}
+                        Special Report
+                      {% else %}
+                        {{ entry.type.name | title | upper }}
+                      {% endif %}
+                      
+                    </div>
                     <h5 class="newsLanding-item-content-right-title">
                       <span>{{ entry.title }}</span>
                     </h5>
