@@ -18,11 +18,8 @@
                 {% elseif newsItem.streamImageSquare is not null %}
                     {% set imageset = newsItem.streamImageSquare.first %}
                 {% endif %}
-
-			
 						{% endswitch %}
 
-					
           <a href="{{ newsItem.url }}" class="latestNews-item">
     				<div class="latestNews-item-category">
     					<p>{{ newsItem.type.name | title | upper }}</p>

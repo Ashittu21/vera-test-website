@@ -37239,6 +37239,8 @@ header {
         background-image: url("../img/v2/s-iconw.svg");
         background-repeat: no-repeat;
         background-size: cover; }
+      .search-wrapper .input-holder .search-icon:hover span {
+        background-image: url("../img/v2/s-iconm.svg"); }
     .search-wrapper .input-holder .search-input {
       width: 100%;
       height: 50px;
