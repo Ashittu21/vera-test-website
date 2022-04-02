@@ -50,16 +50,19 @@
           </h1>
         </div>
         <div class="d-md-block menu-right">
+
+
           <div class="search">
-            <div class="search-wrapper" id="search-wrapper">
+            <div class="search-wrapper">
               <form class="input-holder" action="{{ siteUrl }}search" method="GET">
-                <div class="txt-label" onclick="openSearch(event);" >Search</div>
-                  <input type="text" class="search-input" name="query" placeholder="Search"/>
-                  <button class="search-icon">
-                  <span></span>
-                </button>
+                  <div class="txt-label" id="searchLabel" >Search</div>
+                  <input type="text" class="search-input" id="searchInput" name="query" placeholder="Search"/>
+                  <button class="search-icon" id="searchButton">
+                    <span></span>
+                  </button>
+
               </form>
-              <span class="close" onclick="openSearch(event);"></span>
+              <span class="close" id="searchClose"></span>
             </div>
           </div>
           <div class="donate h-100 ">
@@ -138,7 +141,9 @@
       </a>
 
       <div class="donate-mobile">
-        <a href="#" class="button-donate arrow">Donate</a>
+             {% if not hideDonate %}
+               <a href="{{ administrative.donateButtonLink }}" class="button-donate arrow">Donate</a>
+            {% endif %}
       </div>
     </div>
 
@@ -213,7 +218,7 @@
             <form class="input-holder" action="{{ siteUrl }}search" method="GET">
                 <div class="txt-label">Search</div>
                 <input type="text" class="search-input" name="query" placeholder="Search">
-                <button class="search-icon" onclick="searchToggle(this, event);">
+                <button class="search-icon">
                   <span></span>
                 </button>
             </form>
@@ -224,3 +229,5 @@
     </div>
   </section>
 </header>
+
+

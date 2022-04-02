@@ -1,24 +1,34 @@
-/*function searchToggle(obj, evt){
-  var container = $('.search-wrapper');
-      if(!container.hasClass('active')){
-          container.addClass('active');
-          evt.preventDefault();
-      } else if(container.hasClass('active') && $(obj).closest('.input-holder').length == 0){
-          container.removeClass('active');
-          container.find('.search-input').val('');
-      }
-}*/
+document.addEventListener('DOMContentLoaded', function () {
 
+  var searchButton = document.getElementById("searchButton");
+  var closeButton  = document.getElementById("searchClose");
+  var searchInput  = document.getElementById("searchInput");
+  var searchLabel  = document.getElementById("searchLabel");
 
-function openSearch(e) { 
-    var container = $('#search-wrapper');
+  searchButton.addEventListener("click", function (event) {
 
-    if(!container.hasClass('active')){
-        container.addClass('active');
-        e.preventDefault();
-    } else if (container.hasClass('active') && container.closest('.input-holder').length == 0) {
-        container.removeClass('active');
-        container.find('.search-input').val('');
-        e.preventDefault();
+    var container = this.closest('.search-wrapper');
+    if (!container.classList.contains("active") && searchInput.value.length == 0 ) {
+       container.classList.add('active');
+    } else if (container.classList.contains("active") && searchInput.value.length > 0 ){ 
+      return true;
     }
-}
+
+    event.preventDefault();
+  }, false);
+
+  closeButton.addEventListener("click", function (event) {
+     var container = this.closest('.search-wrapper');
+     if (container.classList.contains("active")) {
+        container.classList.remove('active');
+     } 
+     event.preventDefault();
+  }, false);
+   
+  searchLabel.addEventListener("click", function (event) {
+   var container = this.closest('.search-wrapper');
+   container.classList.add('active');
+   event.preventDefault();
+ }, false);
+
+});
