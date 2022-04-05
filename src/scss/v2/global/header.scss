@@ -139,7 +139,7 @@ header {
       .clicky-menu>li {
         position: relative;
         /*flex: 1 1 auto;*/
-        flex: 1 1 0px;
+      /*  flex: 1 1 0px;*/
         display: flex;
         justify-content: stretch;
         flex-wrap: wrap;
@@ -148,7 +148,7 @@ header {
 
       .clicky-menu>li>a,
       .clicky-menu>li>button {
-        flex: 1 0 auto;
+       /* flex: 1 0 auto;*/
         display: flex;
         flex-wrap: wrap;
         align-items: center;
@@ -334,6 +334,7 @@ header {
 
     #header-v2-bottom-nav {
       display: flex;
+      justify-content: center;
       flex-direction: row;
       width: 100%;
 
@@ -342,11 +343,13 @@ header {
       }
 
       .clicky-menu {
-        justify-content: stretch;
+        /*justify-content: stretch;*/
         margin: 0;
         padding: 0;
         list-style: none;
         width: 100%;
+        flex-shrink: initial;
+        justify-content: center;
       }
 
       @media (min-width: 540px) {
@@ -393,10 +396,24 @@ header {
       .clicky-menu>li {
         position: relative;
         /*flex: 1 1 auto;*/
-        flex: 1 1 0px;
+       /* flex: 1 1 0px;*/
         display: flex;
         justify-content: stretch;
-        flex-wrap: wrap;
+        /*flex-wrap: wrap;*/
+        flex-wrap: inherit;
+        margin: 0 17px;
+      
+        &:first-child{
+          justify-content: flex-start;
+          margin: 0;
+          margin-right: 17px;
+        }
+
+        &:last-child{
+          justify-content: flex-end;
+          margin-left: 17px;
+          margin-right: 0;
+        }
       }
 
       .clicky-menu>li>a,
@@ -411,13 +428,13 @@ header {
         line-height: 1.5;
         cursor: pointer;
         padding-left: 35px;
+        padding-right: 35px;
       }
 
       .clicky-menu>li
       {
         >a {
           justify-content: center;
-          padding-left: 0px;
           @media (min-width: 540px) {
             justify-content: center;
           }
