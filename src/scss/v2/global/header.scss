@@ -83,6 +83,8 @@ header {
         font-style: normal;
         justify-content: left;
         align-content: center;
+        flex: 1 1 0px;
+
       /*  background-color: yellow;*/
         .textWrap{
           pointer-events: none;
@@ -144,6 +146,7 @@ header {
         justify-content: stretch;
         flex-wrap: wrap;
         max-width: 152px;
+        flex: 1 1 0px;
       }
 
       .clicky-menu>li>a,

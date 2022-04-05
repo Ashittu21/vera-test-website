@@ -36810,6 +36810,9 @@ header {
                 justify-content: left;
         -ms-flex-line-pack: center;
             align-content: center;
+        -webkit-box-flex: 1;
+            -ms-flex: 1 1 0px;
+                flex: 1 1 0px;
         /*  background-color: yellow;*/ }
         .header-v2 .rowTop #header-v2-top-nav .clicky-menu a .textWrap,
         .header-v2 .rowTop #header-v2-top-nav .clicky-menu button .textWrap {
@@ -36870,7 +36873,10 @@ header {
                 justify-content: stretch;
         -ms-flex-wrap: wrap;
             flex-wrap: wrap;
-        max-width: 152px; }
+        max-width: 152px;
+        -webkit-box-flex: 1;
+            -ms-flex: 1 1 0px;
+                flex: 1 1 0px; }
       .header-v2 .rowTop #header-v2-top-nav .clicky-menu > li > a,
       .header-v2 .rowTop #header-v2-top-nav .clicky-menu > li > button {
         /* flex: 1 0 auto;*/
