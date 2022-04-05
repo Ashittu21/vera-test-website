@@ -224,6 +224,10 @@ a {
 
 figure {
   margin: 0 40px 40px 0;
+  
+  img{
+    width: initial;
+  }
 
   figcaption {
     font-family: var(--global-font-abc-whyte);

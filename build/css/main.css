@@ -30568,6 +30568,8 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
               text-decoration-color: var(--global-color-text); }
     .copy-block-container .copy-block-content figure {
       margin: 0 40px 40px 0; }
+      .copy-block-container .copy-block-content figure img {
+        width: initial; }
       .copy-block-container .copy-block-content figure figcaption {
         font-family: var(--global-font-abc-whyte);
         font-size: 11px;
@@ -37661,7 +37663,7 @@ header {
             font-size: 80px;
             font-style: normal;
             font-weight: 900;
-            line-height: 99px;
+            line-height: 86px;
             letter-spacing: 0em;
             text-align: left;
             margin: 0; }
