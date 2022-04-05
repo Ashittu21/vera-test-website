@@ -31510,7 +31510,8 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
               animation-duration: 3s;
       -webkit-animation-fill-mode: forwards;
               animation-fill-mode: forwards;
-      /* iPhone */ }
+      /* iPhone  X*/
+      /* iPhone 6+ */ }
       @media not all and (min-resolution: 0.001dpcm) {
         .heroType3-content-line1 {
           margin-top: -6.96rem; } }
@@ -31519,7 +31520,10 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
           margin-top: 3.85rem; } }
       @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) {
         .heroType3-content-line1 {
-          margin-top: 12px; } }
+          margin-top: 13px; } }
+      @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) {
+        .heroType3-content-line1 {
+          margin-top: 13px; } }
     .heroType3-content-line2 {
       display: block;
       position: absolute;
@@ -31534,7 +31538,8 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
               animation-duration: 3s;
       -webkit-animation-fill-mode: forwards;
               animation-fill-mode: forwards;
-      /* iPhone */ }
+      /* iPhone */
+      /* iPhone 6+ */ }
       @media not all and (min-resolution: 0.001dpcm) {
         .heroType3-content-line2 {
           margin-top: 12.6rem;
@@ -31545,6 +31550,9 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
           font-size: 55px;
           margin-top: 22rem; } }
       @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) {
+        .heroType3-content-line2 {
+          margin-top: 82px; } }
+      @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) {
         .heroType3-content-line2 {
           margin-top: 82px; } }
     .heroType3-content-line3 {

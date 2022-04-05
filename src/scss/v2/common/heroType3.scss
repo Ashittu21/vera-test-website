@@ -55,12 +55,20 @@
         margin-top: 3.85rem;
       }
 
-      /* iPhone */
+      /* iPhone  X*/
       @media only screen 
         and (min-device-width: 375px) 
         and (max-device-width: 812px) 
         and (-webkit-min-device-pixel-ratio: 3) { 
-          margin-top:12px;
+          margin-top: 13px;
+      }
+
+      /* iPhone 6+ */
+      @media only screen 
+        and (min-device-width: 414px) 
+        and (max-device-width: 736px) 
+        and (-webkit-min-device-pixel-ratio: 3) { 
+          margin-top: 13px;
       }
     }
   
@@ -91,6 +99,14 @@
        and (-webkit-min-device-pixel-ratio: 3) { 
          margin-top:82px;
      }
+
+      /* iPhone 6+ */
+      @media only screen 
+        and (min-device-width: 414px) 
+        and (max-device-width: 736px) 
+        and (-webkit-min-device-pixel-ratio: 3) { 
+          margin-top: 82px;
+      }
     }
 
     &-line3{
