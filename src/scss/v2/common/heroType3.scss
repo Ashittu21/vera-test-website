@@ -104,12 +104,6 @@
         margin-bottom: auto;
       }
 
-      @media(max-width:$mobile-breakpoint) {
-        margin: 47px 0;
-        font-size: 55px;
-        margin-top: 22rem;
-      }
-
       /* iPhone  X */
       @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) {
         margin-top: 82px;
@@ -133,6 +127,12 @@
       /* iPhone 4 and 4S */
       @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
         margin-top: 82px;
+      }
+
+      @media(max-width:$mobile-breakpoint) {
+        margin: 47px 0;
+        font-size: 55px;
+        margin-top: 200px;
       }
       
     }
@@ -245,6 +245,13 @@
   @media(max-width:$mobile-breakpoint) {
     margin: 47px 0;
     font-size: 55px;
+    padding: 15px;
+  }
+
+  @media(max-width: 399px) {
+    margin: 47px 0;
+    font-size: 48px;
+    line-height: 55px;
     padding: 15px;
   }
 }

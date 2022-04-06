@@ -31561,11 +31561,6 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
         .heroType3-content-line2 {
           margin-top: 12.6rem;
           margin-bottom: auto; } }
-      @media (max-width: 768px) {
-        .heroType3-content-line2 {
-          margin: 47px 0;
-          font-size: 55px;
-          margin-top: 22rem; } }
       @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) {
         .heroType3-content-line2 {
           margin-top: 82px; } }
@@ -31581,6 +31576,11 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
       @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
         .heroType3-content-line2 {
           margin-top: 82px; } }
+      @media (max-width: 768px) {
+        .heroType3-content-line2 {
+          margin: 47px 0;
+          font-size: 55px;
+          margin-top: 200px; } }
     .heroType3-content-line3 {
       display: block;
       position: absolute;
@@ -31690,6 +31690,12 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
     .heading {
       margin: 47px 0;
       font-size: 55px;
+      padding: 15px; } }
+  @media (max-width: 399px) {
+    .heading {
+      margin: 47px 0;
+      font-size: 48px;
+      line-height: 55px;
       padding: 15px; } }
 
 .heading img {
@@ -34308,7 +34314,8 @@ div.heading > div:nth-child(3) > p {
           font-weight: 400;
           line-height: 29px;
           letter-spacing: 0em;
-          text-align: left; }
+          text-align: left;
+          border-radius: 0px; }
           .block-signup .block-signup-container .block-signup-left .block-signup-form input[type=email]:focus {
             outline: none; }
           .block-signup .block-signup-container .block-signup-left .block-signup-form input[type=email]::-webkit-input-placeholder {
