@@ -57,6 +57,11 @@
         margin-top: -6.96rem;
       }
 
+      @media(max-width: 1120px){
+        margin-top: -210px;
+      }
+    
+
       @media(max-width:$mobile-breakpoint) {
         margin-top: 3.85rem;
       }
@@ -94,7 +99,7 @@
       background-color: var(--global-color-light-violet);
       height: 2px;
       width: 0;
-      margin-bottom: -30.95rem;
+      margin-top: 310px;
       animation-name: test-animation;
       animation-duration: 3s;
       animation-fill-mode: forwards;
@@ -104,6 +109,16 @@
         margin-bottom: auto;
       }
 
+
+      @media(max-width: 1120px){
+        margin-top: 37px;
+      }
+
+      @media(max-width:768px) {
+        margin: 47px 0;
+        font-size: 55px;
+        margin-top: 200px;
+      }
 
 
       /* iPhone  X */
@@ -131,11 +146,7 @@
         margin-top: 82px;
       }*/
 
-      @media(max-width:$mobile-breakpoint) {
-        margin: 47px 0;
-        font-size: 55px;
-        margin-top: 200px;
-      }
+
       
     }
 
@@ -191,39 +202,7 @@
   }
 }
 
-@keyframes animationHMobile {
-  from {
-    height: 0px;
-  }
 
-  to {
-    height: 42px;
-
-  }
-}
-
-
-@keyframes animationH {
-  from {
-    height: 0px;
-  }
-
-  to {
-    height: 110px;
-
-  }
-}
-
-
-@keyframes animationH-2 {
-  from {
-    height: 0%;
-  }
-
-  to {
-    height: 100%;
-  }
-}
 
 
 /* Animación home */
@@ -244,10 +223,36 @@
   line-height: normal;
   color: #fff;
 
+  img {
+    height: 31px;
+  }
+
+  &>div{
+    overflow: hidden;
+    &>p{
+      width: -webkit-max-content;
+      width: -moz-max-content;
+      width: max-content;
+      white-space: nowrap;
+      margin: 0;
+      line-height: normal;
+      margin-bottom: 0;
+      @media(max-width:440px) {
+        font-size: 42px;
+        line-height: 75px;
+      }
+    }
+  }
+
+  @media(max-width: 1120px){
+    font-size: 100px;
+    padding-left: 15px;
+  }
+
   @media(max-width:$mobile-breakpoint) {
     margin: 47px 0;
     font-size: 55px;
-    padding: 15px;
+    padding-left: 15px;
   }
 
   @media(max-width: 399px) {
@@ -258,27 +263,6 @@
   }
 }
 
-.heading img {
-  height: 31px;
-}
-
-.heading>div {
-  overflow: hidden;
-}
-
-.heading>div>p {
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
-  white-space: nowrap;
-  margin: 0;
-  line-height: normal;
-  margin-bottom: 0;
-  @media(max-width:440px) {
-    font-size: 42px;
-    line-height: 75px;
-  }
-}
 
 .green {
   color: #fff;
@@ -308,7 +292,6 @@ div.heading>div:nth-child(3)>p {
   -webkit-animation: slide-up 0.9s cubic-bezier(0.65, 0, 0.35, 1) both;
   animation: slide-up 0.9s cubic-bezier(0.65, 0, 0.35, 1) both;
 }
-
 
 .stroke {
   -webkit-animation: stroke 0.9s cubic-bezier(0.65, 0, 0.35, 1) both;
@@ -407,5 +390,38 @@ div.heading>div:nth-child(3)>p {
       font-size: 42px;
       line-height: 75px;
     }
+  }
+}
+
+
+@keyframes animationHMobile {
+  from {
+    height: 0px;
+  }
+
+  to {
+    height: 42px;
+
+  }
+}
+
+@keyframes animationH {
+  from {
+    height: 0px;
+  }
+
+  to {
+    height: 110px;
+
+  }
+}
+
+@keyframes animationH-2 {
+  from {
+    height: 0%;
+  }
+
+  to {
+    height: 100%;
   }
 }

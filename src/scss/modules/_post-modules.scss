@@ -179,8 +179,15 @@
 }
 
 .module-image-with-copy {
-  @extend %h3;
-  @include body-font;
+  /*@extend %h3;
+  @include body-font;*/
+
+  color: var(--global-color-text);
+  font-family: var(--global-font-abc-whyte);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 139%;
   // line-height: 1.75;
   // @include font-size(2.2);
 
@@ -227,6 +234,7 @@
       padding-right: $padding-lg;
     }
   }
+
   .module-image-left__text {
     @media (min-width: $tablet-landscape) {
       padding-left: $padding-lg;

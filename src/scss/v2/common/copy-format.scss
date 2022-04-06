@@ -27,7 +27,7 @@ p {
   }
 }
 
-@media(max-width:$mobile-breakpoint) {
+@media(max-width:768px) {
   padding: 0px 1rem;
   p {
     display: inline-block;
@@ -124,7 +124,7 @@ h2 strong {
   margin-top: 30px;
   display: inline-block;
 
-  @media (max-width: $mobile-breakpoint) {
+  @media (max-width: 768px) {
     font-size: 30px;
   }
 }
@@ -154,7 +154,7 @@ h2 strong {
   margin-bottom: 30px;
   margin-top: 30px;
 
-  @media(max-width:$mobile-breakpoint) {
+  @media(max-width:768px) {
     margin-bottom: 20px;
   }
 
@@ -242,13 +242,13 @@ figure {
     color: #4A4A4A;
     text-align: left !important;
 
-    @media(max-width:$mobile-breakpoint) {
+    @media(max-width: 768px) {
       text-align: center;
       float: inherit;
     }
   }
 
-  @media(max-width:$mobile-breakpoint) {
+  @media(max-width: 768px) {
     width: 100% !important;
     margin: 0 auto;
     text-align: center !important;
@@ -326,7 +326,7 @@ ol {
     position: relative;
     margin: 0 0 13px 27px;
 
-    @media(max-width:$mobile-breakpoint) {
+    @media(max-width:768px) {
       margin: 0 0 13px 40px;
       font-family: var(--global-font-abc-whyte);
       font-size: 17px;
@@ -352,7 +352,7 @@ ol {
       letter-spacing: 0;
       text-align: left;
 
-      @media(max-width:$mobile-breakpoint) {
+      @media(max-width:768px) {
         left: -37px;
       }
     }
