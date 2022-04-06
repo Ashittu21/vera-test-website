@@ -20,6 +20,13 @@
 }
 
 
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: always;
+}
+
+
 .main-content{
   background-color: var(--global-color-sand);
   margin: 0 auto;

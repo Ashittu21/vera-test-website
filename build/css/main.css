@@ -28940,6 +28940,11 @@ body.color-combo--lightGrayGradient-black {
   --global-font-sectra: 'GT Sectra';
   --breakpoint-mobile: $tablet-portrait; }
 
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: always; }
+
 .main-content {
   background-color: var(--global-color-sand);
   margin: 0 auto; }
@@ -30569,6 +30574,7 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
     .copy-block-container .copy-block-content figure {
       margin: 0 40px 40px 0; }
       .copy-block-container .copy-block-content figure img {
+        margin: 0 auto;
         width: initial; }
       .copy-block-container .copy-block-content figure figcaption {
         font-family: var(--global-font-abc-whyte);
