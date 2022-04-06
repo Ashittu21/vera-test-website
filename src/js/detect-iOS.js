@@ -2,10 +2,10 @@
 
 document.addEventListener('DOMContentLoaded', function () {
 
-  var bodyTag = document.getElementsByTagName('body');
+  var contentTag = document.getElementsByTagName('main');
   var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
   if (isIOS) {
-    bodyTag.classList.add('iOS');
+    contentTag[0].classList.add('iOS');
   } 
 
 });
