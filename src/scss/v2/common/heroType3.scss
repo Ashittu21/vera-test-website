@@ -62,29 +62,29 @@
       }
 
       /* iPhone  X */
-      @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) {
+      /*@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) {
         margin-top: 13px;
-      }
+      }*/
 
       /*  iPhone 6+, 7+ and 8+ */
-      @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) {
+      /*@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) {
         margin-top: 13px;
-      }
+      }*/
 
       /* iPhone 6, 6S, 7 and 8 */
-      @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+      /*@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
         margin-top: 13px;
-      }
+      }*/
 
       /* iPhone 5, 5S, 5C and 5SE */
-      @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) {
+      /*@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) {
         margin-top: 13px;
       }
-
+*/
       /* iPhone 4 and 4S */
-      @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
+      /*@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
         margin-top: 13px;
-      }
+      }*/
     }
 
     &-line2 {
@@ -107,29 +107,29 @@
 
 
       /* iPhone  X */
-      @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) {
+      /*@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) {
         margin-top: 82px;
-      }
+      }*/
 
       /*  iPhone 6+, 7+ and 8+ */
-      @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) {
+      /*@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) {
         margin-top: 82px;
-      }
+      }*/
 
       /* iPhone 6, 6S, 7 and 8 */
-      @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+      /*@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
         margin-top: 82px;
-      }
+      }*/
 
       /* iPhone 5, 5S, 5C and 5SE */
-      @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) {
+      /*@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) {
         margin-top: 82px;
-      }
+      }*/
 
       /* iPhone 4 and 4S */
-      @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
+      /*@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
         margin-top: 82px;
-      }
+      }*/
 
       @media(max-width:$mobile-breakpoint) {
         margin: 47px 0;
@@ -373,4 +373,22 @@ div.heading>div:nth-child(3)>p {
   margin: 0;
   width: 100%;
   margin: 0 auto;
+}
+
+.iOS{
+  .heroType3{
+    &-content {
+      &-line1 {
+        @media(max-width:$mobile-breakpoint) {
+          margin-top: 13px;
+        }
+      }
+
+      &-line2 {
+        @media(max-width:$mobile-breakpoint) {
+          margin-top: 82px;
+        }
+      }
+    }
+  }
 }
