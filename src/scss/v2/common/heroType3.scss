@@ -274,6 +274,10 @@
   margin: 0;
   line-height: normal;
   margin-bottom: 0;
+  @media(max-width:440px) {
+    font-size: 42px;
+    line-height: 75px;
+  }
 }
 
 .green {
@@ -399,10 +403,9 @@ div.heading>div:nth-child(3)>p {
 
 
   .heading>div>p {
-    @media(max-width:375px) {
+    @media(max-width:440px) {
       font-size: 42px;
       line-height: 75px;
     }
- 
   }
 }

@@ -31713,6 +31713,10 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
   margin: 0;
   line-height: normal;
   margin-bottom: 0; }
+  @media (max-width: 440px) {
+    .heading > div > p {
+      font-size: 42px;
+      line-height: 75px; } }
 
 .green {
   color: #fff; }
@@ -31827,7 +31831,7 @@ div.heading > div:nth-child(3) > p {
   .iOS .heroType3-content-line2 {
     margin-top: 82px; } }
 
-@media (max-width: 375px) {
+@media (max-width: 440px) {
   .iOS .heading > div > p {
     font-size: 42px;
     line-height: 75px; } }
