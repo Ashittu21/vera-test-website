@@ -31827,6 +31827,11 @@ div.heading > div:nth-child(3) > p {
   .iOS .heroType3-content-line2 {
     margin-top: 82px; } }
 
+@media (max-width: 375px) {
+  .iOS .heading > div > p {
+    font-size: 42px;
+    line-height: 75px; } }
+
 .hero-type4 {
   background-color: var(--global-color-sand);
   -webkit-transition: all 0.2s ease-in-out;

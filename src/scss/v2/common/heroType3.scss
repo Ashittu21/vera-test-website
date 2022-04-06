@@ -375,6 +375,9 @@ div.heading>div:nth-child(3)>p {
   margin: 0 auto;
 }
 
+
+
+
 .iOS{
   .heroType3{
     &-content {
@@ -390,5 +393,16 @@ div.heading>div:nth-child(3)>p {
         }
       }
     }
+
+
+  }
+
+
+  .heading>div>p {
+    @media(max-width:375px) {
+      font-size: 42px;
+      line-height: 75px;
+    }
+ 
   }
 }
