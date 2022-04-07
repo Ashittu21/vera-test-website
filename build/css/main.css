@@ -31747,9 +31747,18 @@ div.heading > div:nth-child(3) > p {
       line-height: 75px;
     }
   }*/ }
+  @media (max-width: 1120px) {
+    .iOS .heroType3-content-line1 {
+      margin-top: -54px; } }
+  @media (max-width: 992px) {
+    .iOS .heroType3-content-line1 {
+      margin-top: 0px; } }
   @media (max-width: 768px) {
     .iOS .heroType3-content-line1 {
-      margin-top: 13px; } }
+      margin-top: 6px; } }
+  @media (max-width: 440px) {
+    .iOS .heroType3-content-line1 {
+      margin-top: 27px; } }
   @media (max-width: 768px) {
     .iOS .heroType3-content-line2 {
       margin-top: 82px; } }

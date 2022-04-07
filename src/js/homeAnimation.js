@@ -9,10 +9,10 @@
    slideToClickedSlide: false,
    preventClicksPropagation: false,
    preventClicks: false,
-   autoplay: false,
-   /*autoplay: {
+  /* autoplay: false,*/
+   autoplay: {
      delay: 2700,
-   },*/
+   },
  });
  
  const wordWidth = "100%";
