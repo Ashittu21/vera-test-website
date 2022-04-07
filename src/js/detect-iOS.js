@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   var contentTag = document.getElementsByTagName('main');
   var isMacLike = /(Mac|iPad)/i.test(navigator.platform);
-  var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+  var isIOS = /(iPhone|iPod)/i.test(navigator.userAgent) && !window.MSStream;
   var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 
   function isRetinaDisplay() {
@@ -13,8 +13,6 @@ document.addEventListener('DOMContentLoaded', function () {
         return (mq && mq.matches || (window.devicePixelRatio > 1)); 
     }
   }
-
-  
 
   if (isIOS) {
     contentTag[0].classList.add('iOS');
