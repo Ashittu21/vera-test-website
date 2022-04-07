@@ -60,10 +60,6 @@
       animation-name: test-animation;
       animation-duration: 3s;
       animation-fill-mode: forwards;
-
-      @media not all and (min-resolution:.001dpcm) {
-        margin-top: -6.96rem;
-      }
       
       @media(max-width: 1120px) {
         margin-top: -54px;
@@ -364,6 +360,52 @@ div.heading>div:nth-child(3)>p {
 }
 
 
+
+
+
+
+.retina {
+  .heroType3 {
+    &-content {
+      
+      &-line1 {
+
+        @media(max-width: 1120px) {
+          margin-top: -65px;
+        }
+        
+        @media(max-width: 992px) {
+          margin-top: 0px;
+        }
+  
+        @media(max-width:768px) {
+          margin-top: 6px;
+        }
+  
+        @media(max-width: 440px) {
+          margin-top: 27px;
+        }
+  
+      }
+
+      &-line2 {
+        @media(max-width: 1120px) {
+          margin-top: 128px;
+        }
+      }
+    }
+
+
+  }
+
+/*
+  .heading>div>p {
+    @media(max-width:440px) {
+      font-size: 42px;
+      line-height: 75px;
+    }
+  }*/
+}
 
 /**
 *  KeyFrames
