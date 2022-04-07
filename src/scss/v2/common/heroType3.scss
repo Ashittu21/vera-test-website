@@ -1,9 +1,5 @@
 .heroType3 {
 
-  .swiper-pointer-events.swiper-vertical {
-    min-height: 635px;
-  }
-
   background-color: var(--global-color-dark-violet);
   transition: all 0.2s ease-in-out;
 
@@ -15,12 +11,20 @@
     justify-content: flex-start;
     align-items: center;
 
+    @media(max-width: 1120px) {
+      min-height: 450px;
+    }
+
     @media(max-width: 992px) {
       min-height: 400px;
     }
 
     @media(max-width: 768px) {
-      min-height: 200px;
+      min-height: 400px;
+    }
+
+    @media(max-width: 440px) {
+      min-height: 300px;
     }
 
     &-title {
@@ -60,40 +64,23 @@
       @media not all and (min-resolution:.001dpcm) {
         margin-top: -6.96rem;
       }
-
-      @media(max-width: 1120px){
-        margin-top: -210px;
+      
+      @media(max-width: 1120px) {
+        margin-top: -54px;
       }
-    
-
-      @media(max-width:$mobile-breakpoint) {
-        margin-top: 3.85rem;
+      
+      @media(max-width: 992px) {
+        margin-top: 0px;
       }
 
-      /* iPhone  X */
-      /*@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) {
-        margin-top: 13px;
-      }*/
-
-      /*  iPhone 6+, 7+ and 8+ */
-      /*@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) {
-        margin-top: 13px;
-      }*/
-
-      /* iPhone 6, 6S, 7 and 8 */
-      /*@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
-        margin-top: 13px;
-      }*/
-
-      /* iPhone 5, 5S, 5C and 5SE */
-      /*@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) {
-        margin-top: 13px;
+      @media(max-width:768px) {
+        margin-top: 6px;
       }
-*/
-      /* iPhone 4 and 4S */
-      /*@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
-        margin-top: 13px;
-      }*/
+
+      @media(max-width: 440px) {
+        margin-top: 60px;
+      }
+
     }
 
     &-line2 {
@@ -113,44 +100,23 @@
         margin-bottom: auto;
       }
 
-      @media(max-width: 1120px){
-        margin-top: 37px;
+      @media(max-width: 1120px) {
+        margin-top: 195px;
+      }
+
+      @media(max-width: 992px) {
+        margin-top: 245px;
       }
 
       @media(max-width:768px) {
-        margin: 47px 0;
-        font-size: 55px;
-        margin-top: 200px;
+        margin-top: 170px;
+      }
+
+      @media(max-width: 440px) {
+        margin-top: 164px;
       }
 
 
-      /* iPhone  X */
-      /*@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) {
-        margin-top: 82px;
-      }*/
-
-      /*  iPhone 6+, 7+ and 8+ */
-      /*@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) {
-        margin-top: 82px;
-      }*/
-
-      /* iPhone 6, 6S, 7 and 8 */
-      /*@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
-        margin-top: 82px;
-      }*/
-
-      /* iPhone 5, 5S, 5C and 5SE */
-      /*@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) {
-        margin-top: 82px;
-      }*/
-
-      /* iPhone 4 and 4S */
-      /*@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
-        margin-top: 82px;
-      }*/
-
-
-      
     }
 
 
@@ -208,8 +174,50 @@
 
 
 
-/* Animación home */
+.home-slider-content {
+  max-width: 1280px;
+  box-sizing: border-box;
+  margin: 0;
+  width: 100%;
+  margin: 0 auto;
 
+  .slider-home {
+    position: absolute !important;
+    top: 0;
+    margin: 0 !important;
+    min-height: 635px;
+
+    @media(max-width: 1120px) {
+      min-height: 450px;
+    }
+
+    @media(max-width: 992px) {
+      min-height: 400px;
+    }
+
+    @media(max-width: 768px) {
+      min-height: 400px;
+    }
+
+    @media(max-width: 440px) {
+      min-height: 300px;
+    }
+
+    .swiper-slide {
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: baseline;
+
+      img {
+        height: 70px !important;
+        object-fit: cover;
+      }
+    }
+  }
+}
+
+
+/* Animación home */
 .heading {
   /* margin: 95px 0 0 160px; */
   margin: 95px 0;
@@ -230,9 +238,10 @@
     height: 31px;
   }
 
-  &>div{
+  &>div {
     overflow: hidden;
-    &>p{
+
+    &>p {
       width: -webkit-max-content;
       width: -moz-max-content;
       width: max-content;
@@ -240,30 +249,34 @@
       margin: 0;
       line-height: normal;
       margin-bottom: 0;
-      @media(max-width:440px) {
-        font-size: 42px;
-        line-height: 75px;
-      }
+
+ 
     }
   }
 
-  @media(max-width: 1120px){
+  @media(max-width: 1120px) {
     font-size: 100px;
     padding-left: 15px;
   }
 
-  @media(max-width:$mobile-breakpoint) {
-    margin: 47px 0;
-    font-size: 55px;
+  @media(max-width: 992px) {
+    font-size: 100px;
     padding-left: 15px;
   }
 
-  @media(max-width: 399px) {
-    margin: 47px 0;
-    font-size: 48px;
-    line-height: 55px;
-    padding: 15px;
+  @media(max-width: 768px) {
+    margin: 135px 0;
+    font-size: 65px;
+    padding-left: 15px;
   }
+
+  @media(max-width:440px) {
+    margin: 135px 0;
+    font-size: 42px;
+    padding-left: 15px;
+
+  }
+  
 }
 
 
@@ -304,40 +317,11 @@ div.heading>div:nth-child(3)>p {
 
 
 
-.slider-home {
-  position: absolute !important;
-  top: 0;
-  margin: 0 !important;
-}
-
-.slider-home .swiper-slide {
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: baseline;
-}
 
 
 
-.slider-home .swiper-slide img {
-  height: 70px !important;
-  object-fit: cover;
-}
-
-
-
-.home-slider-content {
-  max-width: 1280px;
-  box-sizing: border-box;
-  margin: 0;
-  width: 100%;
-  margin: 0 auto;
-}
-
-
-
-
-.iOS{
-  .heroType3{
+.iOS {
+  .heroType3 {
     &-content {
       &-line1 {
         @media(max-width:$mobile-breakpoint) {
@@ -355,13 +339,13 @@ div.heading>div:nth-child(3)>p {
 
   }
 
-
+/*
   .heading>div>p {
     @media(max-width:440px) {
       font-size: 42px;
       line-height: 75px;
     }
-  }
+  }*/
 }
 
 
@@ -443,3 +427,29 @@ div.heading>div:nth-child(3)>p {
     height: 25vh;
   }
 }*/
+
+
+      /* iPhone  X */
+      /*@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) {
+        margin-top: 13px;
+      }*/
+
+      /*  iPhone 6+, 7+ and 8+ */
+      /*@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) {
+        margin-top: 13px;
+      }*/
+
+      /* iPhone 6, 6S, 7 and 8 */
+      /*@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+        margin-top: 13px;
+      }*/
+
+      /* iPhone 5, 5S, 5C and 5SE */
+      /*@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) {
+        margin-top: 13px;
+      }
+*/
+      /* iPhone 4 and 4S */
+      /*@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
+        margin-top: 13px;
+      }*/
