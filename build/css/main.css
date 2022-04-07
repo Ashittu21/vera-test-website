@@ -31779,7 +31779,7 @@ div.heading > div:nth-child(3) > p {
         margin-top: -14px; } }
     @media (max-width: 768px) {
       .retina .heroType3-content-line1 {
-        margin-top: 6px; } }
+        margin-top: -5px; } }
     @media (max-width: 440px) {
       .retina .heroType3-content-line1 {
         margin-top: 27px; } }
@@ -31793,7 +31793,7 @@ div.heading > div:nth-child(3) > p {
         margin-top: 110px; } }
     @media (max-width: 768px) {
       .retina .heroType3-content-line2 {
-        margin-top: 6px; } }
+        margin-top: 74px; } }
     @media (max-width: 440px) {
       .retina .heroType3-content-line2 {
         margin-top: 27px; } }
