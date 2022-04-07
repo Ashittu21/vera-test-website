@@ -31552,11 +31552,12 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
       -webkit-animation-duration: 3s;
               animation-duration: 3s;
       -webkit-animation-fill-mode: forwards;
-              animation-fill-mode: forwards; }
-      @media not all and (min-resolution: 0.001dpcm) {
-        .heroType3-content-line2 {
-          margin-top: 12.6rem;
-          margin-bottom: auto; } }
+              animation-fill-mode: forwards;
+      /* @media not all and (min-resolution:.001dpcm) {
+        margin-top: 12.6rem;
+        margin-bottom: auto;
+      }
+*/ }
       @media (max-width: 1120px) {
         .heroType3-content-line2 {
           margin-top: 195px; } }

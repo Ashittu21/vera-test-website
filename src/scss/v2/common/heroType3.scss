@@ -91,11 +91,11 @@
       animation-duration: 3s;
       animation-fill-mode: forwards;
 
-      @media not all and (min-resolution:.001dpcm) {
+     /* @media not all and (min-resolution:.001dpcm) {
         margin-top: 12.6rem;
         margin-bottom: auto;
       }
-
+*/
       @media(max-width: 1120px) {
         margin-top: 195px;
       }
