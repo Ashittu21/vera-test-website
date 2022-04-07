@@ -28971,7 +28971,7 @@ body.nav-pad:not(.no-pad) {
 
 .anchor-link {
   position: relative;
-  top: -100px; }
+  /*top: -100px; */ }
 
 h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading, .timed-slideshow-item--text, h2, h3, h4, h5 {
   font-family: 'GT Sectra';
@@ -31487,6 +31487,9 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center; }
+    @media (max-width: 992px) {
+      .heroType3-content {
+        min-height: 400px; } }
     @media (max-width: 768px) {
       .heroType3-content {
         min-height: 200px; } }
@@ -31724,6 +31727,87 @@ div.heading > div:nth-child(3) > p {
   -webkit-animation: stroke 0.9s cubic-bezier(0.65, 0, 0.35, 1) both;
   animation: stroke 0.9s cubic-bezier(0.65, 0, 0.35, 1) both; }
 
+.slider-home {
+  position: absolute !important;
+  top: 0;
+  margin: 0 !important; }
+
+.slider-home .swiper-slide {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline; }
+
+.slider-home .swiper-slide img {
+  height: 70px !important;
+  -o-object-fit: cover;
+     object-fit: cover; }
+
+.home-slider-content {
+  max-width: 1280px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  width: 100%;
+  margin: 0 auto; }
+
+@media (max-width: 768px) {
+  .iOS .heroType3-content-line1 {
+    margin-top: 13px; } }
+
+@media (max-width: 768px) {
+  .iOS .heroType3-content-line2 {
+    margin-top: 82px; } }
+
+@media (max-width: 440px) {
+  .iOS .heading > div > p {
+    font-size: 42px;
+    line-height: 75px; } }
+
+/**
+*  KeyFrames
+**/
+@-webkit-keyframes animationHMobile {
+  from {
+    height: 0px; }
+  to {
+    height: 42px; } }
+@keyframes animationHMobile {
+  from {
+    height: 0px; }
+  to {
+    height: 42px; } }
+
+@-webkit-keyframes animationH {
+  from {
+    height: 0px; }
+  to {
+    height: 110px; } }
+
+@keyframes animationH {
+  from {
+    height: 0px; }
+  to {
+    height: 110px; } }
+
+@-webkit-keyframes animationH-2 {
+  from {
+    height: 0%; }
+  to {
+    height: 100%; } }
+
+@keyframes animationH-2 {
+  from {
+    height: 0%; }
+  to {
+    height: 100%; } }
+
 @-webkit-keyframes stroke {
   0% {
     width: 0;
@@ -31772,85 +31856,12 @@ div.heading > div:nth-child(3) > p {
     top: -30px;
     opacity: 1; } }
 
-.slider-home {
-  position: absolute !important;
-  top: 0;
-  margin: 0 !important; }
-
-.slider-home .swiper-slide {
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-box-align: baseline;
-      -ms-flex-align: baseline;
-          align-items: baseline; }
-
-.slider-home .swiper-slide img {
-  height: 70px !important;
-  -o-object-fit: cover;
-     object-fit: cover; }
-
-.home-slider-content {
-  max-width: 1280px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  margin: 0;
-  width: 100%;
-  margin: 0 auto; }
-
-@media (max-width: 768px) {
-  .iOS .heroType3-content-line1 {
-    margin-top: 13px; } }
-
-@media (max-width: 768px) {
-  .iOS .heroType3-content-line2 {
-    margin-top: 82px; } }
-
-@media (max-width: 440px) {
-  .iOS .heading > div > p {
-    font-size: 42px;
-    line-height: 75px; } }
-
-@-webkit-keyframes animationHMobile {
-  from {
-    height: 0px; }
-  to {
-    height: 42px; } }
-
-@keyframes animationHMobile {
-  from {
-    height: 0px; }
-  to {
-    height: 42px; } }
-
-@-webkit-keyframes animationH {
-  from {
-    height: 0px; }
-  to {
-    height: 110px; } }
-
-@keyframes animationH {
-  from {
-    height: 0px; }
-  to {
-    height: 110px; } }
-
-@-webkit-keyframes animationH-2 {
-  from {
-    height: 0%; }
-  to {
-    height: 100%; } }
-
-@keyframes animationH-2 {
-  from {
-    height: 0%; }
-  to {
-    height: 100%; } }
-
+/*
+.home .heroType3{
+  @media(max-width:$mobile-breakpoint){
+    height: 25vh;
+  }
+}*/
 .hero-type4 {
   background-color: var(--global-color-sand);
   -webkit-transition: all 0.2s ease-in-out;
@@ -37826,10 +37837,6 @@ header {
 
 .home .block-latestNews.-h {
   padding-bottom: 60px; }
-
-@media (max-width: 768px) {
-  .home .heroType3 {
-    height: 25vh; } }
 
 @media (max-width: 768px) {
   .home .js-scroll {

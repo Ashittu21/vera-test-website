@@ -15,7 +15,11 @@
     justify-content: flex-start;
     align-items: center;
 
-    @media(max-width:$mobile-breakpoint) {
+    @media(max-width: 992px) {
+      min-height: 400px;
+    }
+
+    @media(max-width: 768px) {
       min-height: 200px;
     }
 
@@ -33,7 +37,7 @@
         z-index: 1;
         color: white;
 
-        @media(max-width:$mobile-breakpoint) {
+        @media(max-width:768px) {
           font-size: 55px;
           line-height: 107%;
         }
@@ -108,7 +112,6 @@
         margin-top: 12.6rem;
         margin-bottom: auto;
       }
-
 
       @media(max-width: 1120px){
         margin-top: 37px;
@@ -300,38 +303,6 @@ div.heading>div:nth-child(3)>p {
 
 
 
-@keyframes stroke {
-  0% {
-    width: 0;
-    position: relative;
-    top: -30px;
-    opacity: 0;
-  }
-
-  100% {
-    width: 340px;
-    position: relative;
-    top: -30px;
-    opacity: 1;
-  }
-}
-
-@keyframes stroke-h {
-  0% {
-    height: 0;
-    position: relative;
-    top: -30px;
-    opacity: 0;
-  }
-
-  100% {
-    height: 340px;
-    position: relative;
-    top: -30px;
-    opacity: 1;
-  }
-}
-
 
 .slider-home {
   position: absolute !important;
@@ -394,6 +365,11 @@ div.heading>div:nth-child(3)>p {
 }
 
 
+
+/**
+*  KeyFrames
+**/
+
 @keyframes animationHMobile {
   from {
     height: 0px;
@@ -425,3 +401,45 @@ div.heading>div:nth-child(3)>p {
     height: 100%;
   }
 }
+
+
+@keyframes stroke {
+  0% {
+    width: 0;
+    position: relative;
+    top: -30px;
+    opacity: 0;
+  }
+
+  100% {
+    width: 340px;
+    position: relative;
+    top: -30px;
+    opacity: 1;
+  }
+}
+
+@keyframes stroke-h {
+  0% {
+    height: 0;
+    position: relative;
+    top: -30px;
+    opacity: 0;
+  }
+
+  100% {
+    height: 340px;
+    position: relative;
+    top: -30px;
+    opacity: 1;
+  }
+}
+
+
+
+/*
+.home .heroType3{
+  @media(max-width:$mobile-breakpoint){
+    height: 25vh;
+  }
+}*/
