@@ -205,7 +205,7 @@
       align-items: baseline;
 
       img {
-        height: 70px !important;
+        height: 70px;
         object-fit: cover;
       }
     }
@@ -347,6 +347,15 @@ div.heading>div:nth-child(3)>p {
       }
     }
 
+    .home-slider-content{
+      .slider-home {
+        .swiper-slide {
+          img {
+            height: inherit;
+          }
+        }
+      }
+    }
 
   }
 

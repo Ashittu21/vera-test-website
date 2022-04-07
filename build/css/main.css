@@ -31654,7 +31654,7 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
           -ms-flex-align: baseline;
               align-items: baseline; }
       .home-slider-content .slider-home .swiper-slide img {
-        height: 70px !important;
+        height: 70px;
         -o-object-fit: cover;
            object-fit: cover; }
 
@@ -31760,6 +31760,8 @@ div.heading > div:nth-child(3) > p {
   @media (max-width: 768px) {
     .iOS .heroType3-content-line2 {
       margin-top: 82px; } }
+  .iOS .heroType3 .home-slider-content .slider-home .swiper-slide img {
+    height: inherit; }
 
 .retina {
   /*
