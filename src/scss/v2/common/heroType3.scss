@@ -369,6 +369,7 @@ div.heading>div:nth-child(3)>p {
     &-content {
       
       &-line1 {
+        margin-top: -65px;
 
         @media(max-width: 1120px) {
           margin-top: -65px;
@@ -389,6 +390,8 @@ div.heading>div:nth-child(3)>p {
       }
 
       &-line2 {
+        margin-top: 130px;
+        
         @media(max-width: 1120px) {
           margin-top: 128px;
         }
