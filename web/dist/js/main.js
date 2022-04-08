@@ -385,6 +385,356 @@ self.loader.addClass("hidden");if(options.callback){self.callback=options.callba
 					}
 */}}var d=path.datum();var data=findData(d.entryId);self.markerSelect.find(":not([value=none])").remove();self.markerSelectMenu.menu.find('.map_select_button:not([data-option="none"])').parent().remove();data.markers.forEach(function(marker){self.markerSelect.append('<option value="'+marker.id+'">'+marker.title+"</option>");self.markerSelectMenu.menu.append('<div class="map_select_button_wrap"><button class="map_select_button" data-option="'+marker.id+'">'+marker.title+"</button></div>");self.markerSelectMenu.initButtons();});if(self.markerSelect.find("option").length<=1){self.markerSelect.addClass("hide");}else{self.markerSelect.removeClass("hide");}active.classed(activeClass,false);active=path.classed(activeClass,true);if(self.options.zoom){zoom();}self.surfaceStates(d.toggleGroup);setTimeout(function(){self.useData(d,determineBackTo(d));},100);var markersSelector='.markers g[data-state="'+d.title+'"] .marker';var $markers=$(markersSelector);$(".markers .marker").removeClass("marker__selectable");$markers.addClass("marker__selectable");if(!data.body||data.body.trim()==""){if($markers.length){var marker=d3.select(markersSelector);self.markerSelect.val(marker.datum().id);setTimeout(function(){self.markerSelect.trigger("change");},100);}}self.stateLegend.attr("aria-hidden",true);self.markerLegend.attr("aria-hidden",false);self.container.addClass(activeClass);function zoom(){var bounds=self.path.bounds(d),dx=bounds[1][0]-bounds[0][0],dy=bounds[1][1]-bounds[0][1],x=(bounds[0][0]+bounds[1][0])/2,y=(bounds[0][1]+bounds[1][1])/2,scale=self.options.zoomRatio*0.9/Math.max(dx/width,dy/height),translate=[width/2-scale*x,height/2-scale*y];if(self.options.zoomState){self.svg.selectAll(".state__path").attr("opacity",0);active.attr("opacity",1);blurCloneMap.play();}self.svg.selectAll(".states,.markers").transition().duration(transitionTime).attr("transform","translate("+translate+") scale("+scale+")");self.svg.selectAll(".marker").attr("transform",function(d){if(d.initialTransform){var thescale="scale("+(window.innerWidth>1024?1/scale:1/scale*1.5)+")";var scaler=markersize/scale;var transform="translate("+(d.startx-scaler)+" "+(d.starty-scaler)+") "+thescale;return transform;}});self.translate=translate;self.scale=scale;}}function reset(){self.stateSelect.val(self.stateSelect.find("option:first").val());closeMenu();$(".markers .marker").removeClass("marker__selectable");active.classed(activeClass,false);active=d3.select(null);self.svg.selectAll(".states,.markers").transition().duration(transitionTime).attr("transform","").on("end",function(d){self.svg.selectAll(".state__path").attr("opacity",1);});self.svg.selectAll(".marker").attr("transform",function(d){if(d.initialTransform){return d.initialTransform;}});if(self.options.zoomState){blurCloneMap.reverse();}self.container.removeClass(activeClass);self.translate=[0,0];self.scale=1;self.stateLegend.attr("aria-hidden",false);self.markerLegend.attr("aria-hidden",true);resizeSelects();}function markerClicked(path){if(d3.event){d3.event.stopPropagation();}self.currentMarker=path;var d=d3.select(path.node().parentNode).datum();var siblings=$(self.container).find('.marker[title="'+path.node().getAttribute("title")+'"]');$(self.container).find(".marker.active").removeClass("active");siblings.addClass("active");var $group=self.container.find('.markers g[data-title="'+path.node().getAttribute("title")+'"]').first();$group.parent().append($group);self.useData(d,determineBackTo(d));if(active.node()&&d){var statenum=active.node().id.split("_")[1];var markerid=d.id.split("_")[1];var currPath=window.location.href;var noquerystring=currPath.indexOf("?")===-1;var updatedPath=currPath.split("selectmap=")[0].concat((noquerystring?"?":"")+"selectmap="+statenum+":"+markerid);window.history.pushState({},"",updatedPath);}}function determineBackTo(result){switch(result.level){case 1:return self.mapdata.country;break;case 2:var state=d3.select("#"+result.id).node().parentNode.parentNode.getAttribute("data-state");var data=d3.select('.state__path[data-name="'+state+'"]');if(!data.datum().body){return self.mapdata.country;}return data;break;default:return null;}}function resizeSelect($select,$temp,other){other=other||null;$temp.html($select.find("option:selected").clone());if($select.hasClass("as-title")){$temp.addClass("as-title");}else{$temp.removeClass("as-title");}var width=$temp.width();if(other){var diff=$select.parent().outerWidth(true)-$select.parent().width();var maxwidth=other.container.outerWidth(true)-other.select.outerWidth(true)-diff;if($temp.outerWidth(true)>maxwidth){width=maxwidth-($select.outerWidth(true)-$select.width());var $parent=$select.parent();width-=diff;}}if($(window).width()<=768){width="100%";}$select.width(width);}function resizeSelects(){resizeSelect(self.stateSelect,self.tempSelect);resizeSelect(self.markerSelect,self.tempSelect);}function clone(node){return d3.select(node.parentNode.insertBefore(node.cloneNode(true),node.nextSibling));}self.init();};})(window);
 'use strict';(function(window){"use strict";var VERA=window.VERA||{};window.VERA=VERA;VERA.initPercentagePeopleData=function(){$('.percentage-people-visualization:not(.percentage-people-visualization-initialized)').each(function(i,elem){initPercentagePeople(elem);});};function initPercentagePeople(elem){var INTERVAL=3000,shifts=JSON.parse(elem.dataset.percentagePeopleShifts),pathString,pWidth,pHeight,data,shiftIndex=0,currentShift=shifts[shiftIndex],ran=false;elem.classList.add('percentage-people-visualization-initialized');var pointType=elem.dataset.pointType;switch(pointType){case'person':pathString="M18 26V11c0-1.2-1-2.2-2.2-2.2h-4.7l.8-5.1c.1-.2.1-.4.1-.6V3c0-1.6-1.4-3-3-3-1.7 0-3 1.3-3 3v.1c0 .2 0 .4.1.6l.8 5.1H2.2C1 8.8 0 9.8 0 11v16.5c0 1.8.8 2.9 2.3 3.1v-.9C.8 29.5.9 27.5.9 27.5h1.4V12.6h.9v35.6c-.9.3-1.9.8-1.9 1.7h7.3v-19h.9V50h7.3c0-.9-1-1.5-1.9-1.7V12.7h.9v14.8h1.4s.1 2-1.4 2.2v.9c1.5-.2 2.3-1.3 2.3-3.1L18 26z",pWidth=18,pHeight=50;break;default:}var cols=20,rows=100/cols,xPad=4,yPad=4,pointWidth=pWidth+xPad*2,pointHeight=pHeight+yPad*2;var width=cols*pointWidth,height=rows*pointHeight;var svg=d3.select(elem).select('.data-viz-fact-visualization').append('svg').attr("width",width).attr("height",height).attr("viewBox","0 0 "+width+" "+height);var captions=elem.querySelectorAll('.data-viz-fact-caption');var win=$(window);var viewport={top:win.scrollTop(),left:win.scrollLeft()};viewport.right=viewport.left+win.width();viewport.bottom=viewport.top+win.height();d3.select(elem).selectAll('.data-viz-fact-caption').attr("style","transition-duration: "+INTERVAL/1000+'s');update(data,shifts[shiftIndex]);window.addEventListener('scroll',_.throttle(setIntervals,500));function setIntervals(){var parent=$(elem).parent();var elementTop=parent.offset().top;var elementBottom=elementTop+parent.outerHeight();var viewportTop=$(window).scrollTop();var viewportBottom=viewportTop+$(window).height();if(elementBottom>viewportTop&&elementTop-250<viewportBottom){if(elem.classList.contains('is-animating'))return;elem.classList.add('is-animating');elem.intervalSet=setInterval(update,INTERVAL);}else{if(!elem.classList.contains('is-animating'))return;elem.classList.remove('is-animating');clearInterval(elem.intervalSet);}}function update(){d3.select(captions[shiftIndex]).classed('is-active',false);shiftIndex++;if(shiftIndex>=shifts.length){shiftIndex=0;}d3.select(captions[shiftIndex]).classed('is-active',true);var reverse=currentShift.percentageHighlighted<shifts[shiftIndex].percentageHighlighted;currentShift=shifts[shiftIndex];data=[];for(var i=0;i<100;i++){data.push({highlight:i>=100-currentShift.percentageHighlighted});}var points=svg.selectAll(".point").data(data);var enter=points.enter().append('path').attr('d',pathString).attr('class','point receives-fill-color').attr('transform',function(d,i){var row=i%rows,col=Math.floor(i/rows);return'translate('+(col*pointWidth+xPad)+','+(row*pointHeight+yPad)+')';});points.merge(enter).transition().delay(function(d,i,n){return reverse?n.length*20-i*20:i*20;}).attr('class',function(d,i){return'point receives-fill-color'+(d.highlight?' will-highlight receives-fill-highlight':'');});points.exit().remove();}}})(window);
+(function () {
+	'use strict';
+
+	var RS = function (conf) {
+		this.input 			= null;
+		this.inputDisplay 	= null;
+		this.slider 		= null;
+		this.sliderWidth	= 0;
+		this.sliderLeft		= 0;
+		this.pointerWidth	= 0;
+		this.pointerR		= null;
+		this.pointerL		= null;
+		this.activePointer	= null;
+		this.selected 		= null;
+		this.scale 			= null;
+		this.step 			= 0;
+		this.tipL			= null;
+		this.tipR			= null;
+		this.timeout		= null;
+		this.valRange		= false;
+
+		this.values = {
+			start:	null,
+			end:	null
+		};
+		this.conf = {
+			target: 	null,
+			values: 	null,
+			set: 		null,
+			range: 		false,
+			width: 		null,
+			scale:		true,
+			labels:		true,
+			tooltip:	true,
+			step: 		null,
+			disabled:	false,
+			onChange:	null
+		};
+
+		this.cls = {
+			container:	'rs-container',
+			background: 'rs-bg',
+			selected: 	'rs-selected',
+			pointer: 	'rs-pointer',
+			scale: 		'rs-scale',
+			noscale:	'rs-noscale',
+			tip: 		'rs-tooltip'
+		};
+
+		for (var i in this.conf) { if (conf.hasOwnProperty(i)) this.conf[i] = conf[i]; }
+
+		this.init();
+	};
+
+	RS.prototype.init = function () {
+		if (typeof this.conf.target === 'object') this.input = this.conf.target;
+		else this.input = document.getElementById(this.conf.target.replace('#', ''));
+
+		if (!this.input) return console.log('Cannot find target element...');
+
+		this.inputDisplay = getComputedStyle(this.input, null).display;
+		this.input.style.display = 'none';
+		this.valRange = !(this.conf.values instanceof Array);
+
+		if (this.valRange) {
+			if (!this.conf.values.hasOwnProperty('min') || !this.conf.values.hasOwnProperty('max'))
+				return console.log('Missing min or max value...');
+		}
+		return this.createSlider();
+	};
+
+	RS.prototype.createSlider = function () {
+		this.slider = createElement('div', this.cls.container);
+		this.slider.innerHTML = '<div class="rs-bg"></div>';
+		this.selected = createElement('div', this.cls.selected);
+		this.pointerL = createElement('div', this.cls.pointer, ['dir', 'left']);
+		this.scale = createElement('div', this.cls.scale);
+
+		if (this.conf.tooltip) {
+			this.tipL = createElement('div', this.cls.tip);
+			this.tipR = createElement('div', this.cls.tip);
+			this.pointerL.appendChild(this.tipL);
+		}
+		this.slider.appendChild(this.selected);
+		this.slider.appendChild(this.scale);
+		this.slider.appendChild(this.pointerL);
+
+		if (this.conf.range) {
+			this.pointerR = createElement('div', this.cls.pointer, ['dir', 'right']);
+			if (this.conf.tooltip) this.pointerR.appendChild(this.tipR);
+			this.slider.appendChild(this.pointerR);
+		}
+
+		this.input.parentNode.insertBefore(this.slider, this.input.nextSibling);
+
+        if (this.conf.width) this.slider.style.width = parseInt(this.conf.width) + 'px';
+		this.sliderLeft = this.slider.getBoundingClientRect().left;
+		this.sliderWidth = this.slider.clientWidth;
+		this.pointerWidth = this.pointerL.clientWidth;
+
+		if (!this.conf.scale) this.slider.classList.add(this.cls.noscale);
+
+		return this.setInitialValues();	
+	};
+
+	RS.prototype.setInitialValues = function () {
+		this.disabled(this.conf.disabled);
+
+		if (this.valRange) this.conf.values = prepareArrayValues(this.conf);
+
+		this.values.start = 0;
+		this.values.end = this.conf.range ? this.conf.values.length - 1 : 0;
+
+
+		if (this.conf.set && this.conf.set.length && checkInitial(this.conf)) {
+			var vals = this.conf.set;
+
+			if (this.conf.range) {
+				this.values.start = this.conf.values.indexOf(vals[0]);
+				this.values.end = this.conf.set[1] ? this.conf.values.indexOf(vals[1]) : null;
+			}
+			else this.values.end = this.conf.values.indexOf(vals[0]);
+		}
+		return this.createScale();
+	};
+
+	RS.prototype.createScale = function (resize) {
+		this.step = this.sliderWidth / (this.conf.values.length - 1);
+
+		for (var i = 0, iLen = this.conf.values.length; i < iLen; i++) {
+			var span = createElement('span'),
+				ins = createElement('ins');
+
+			span.appendChild(ins);
+			this.scale.appendChild(span);
+
+			span.style.width = i === iLen - 1 ? 0 : this.step + 'px';
+
+			if (!this.conf.labels) {
+				if (i === 0 || i === iLen - 1) ins.innerHTML = this.conf.values[i]
+			}
+			else ins.innerHTML = this.conf.values[i];
+
+			ins.style.marginLeft = (ins.clientWidth / 2) * - 1 + 'px';
+		}
+		return this.addEvents();
+	};
+
+	RS.prototype.updateScale = function () {
+		this.step = this.sliderWidth / (this.conf.values.length - 1);
+
+		var pieces = this.slider.querySelectorAll('span');
+
+		for (var i = 0, iLen = pieces.length; i < iLen; i++)
+			pieces[i].style.width = this.step + 'px';
+
+		return this.setValues();
+	};
+
+	RS.prototype.addEvents = function () {
+		var pointers = this.slider.querySelectorAll('.' + this.cls.pointer),
+			pieces = this.slider.querySelectorAll('span');
+
+		createEvents(document, 'mousemove touchmove', this.move.bind(this));
+		createEvents(document, 'mouseup touchend touchcancel', this.drop.bind(this));
+
+		for (var i = 0, iLen = pointers.length; i < iLen; i++)
+			createEvents(pointers[i], 'mousedown touchstart', this.drag.bind(this));
+
+		for (var i = 0, iLen = pieces.length; i < iLen; i++)
+			createEvents(pieces[i], 'click', this.onClickPiece.bind(this));
+
+		window.addEventListener('resize', this.onResize.bind(this));
+
+		return this.setValues();
+	};
+
+	RS.prototype.drag = function (e) {
+		e.preventDefault();
+
+		if (this.conf.disabled) return;
+
+		var dir = e.target.getAttribute('data-dir');
+		if (dir === 'left') this.activePointer = this.pointerL;
+		if (dir === 'right') this.activePointer = this.pointerR;
+
+		return this.slider.classList.add('sliding');
+	};
+
+	RS.prototype.move = function (e) {
+		if (this.activePointer && !this.conf.disabled) {
+			var coordX = e.type === 'touchmove' ? e.touches[0].clientX : e.pageX,
+				index = coordX - this.sliderLeft - (this.pointerWidth / 2);
+
+			index = Math.round(index / this.step);
+
+			if (index <= 0) index = 0;
+			if (index > this.conf.values.length - 1) index = this.conf.values.length - 1;
+
+			if (this.conf.range) {
+				if (this.activePointer === this.pointerL) this.values.start = index;
+				if (this.activePointer === this.pointerR) this.values.end = index;
+			}
+			else this.values.end = index;
+
+			return this.setValues();
+		}
+	};
+
+	RS.prototype.drop = function () {
+		this.activePointer = null;
+	};
+
+	RS.prototype.setValues = function (start, end) {
+		var activePointer = this.conf.range ? 'start' : 'end';
+
+		if (start && this.conf.values.indexOf(start) > -1)
+			this.values[activePointer] = this.conf.values.indexOf(start);
+
+		if (end && this.conf.values.indexOf(end) > -1)
+			this.values.end = this.conf.values.indexOf(end);
+
+		if (this.conf.range && this.values.start > this.values.end)
+			this.values.start = this.values.end;
+
+		this.pointerL.style.left = (this.values[activePointer] * this.step - (this.pointerWidth / 2)) + 'px';
+
+		if (this.conf.range) {
+			if (this.conf.tooltip) {
+				this.tipL.innerHTML = this.conf.values[this.values.start];
+				this.tipR.innerHTML = this.conf.values[this.values.end];
+			}
+			this.input.value = this.conf.values[this.values.start] + ',' + this.conf.values[this.values.end];
+			this.pointerR.style.left = (this.values.end * this.step - (this.pointerWidth / 2)) + 'px';
+		}
+		else {
+			if (this.conf.tooltip)
+				this.tipL.innerHTML = this.conf.values[this.values.end];
+			this.input.value = this.conf.values[this.values.end];
+		}
+
+		if (this.values.end > this.conf.values.length - 1) this.values.end = this.conf.values.length - 1;
+		if (this.values.start < 0) this.values.start = 0;
+
+		this.selected.style.width = (this.values.end - this.values.start) * this.step + 'px';
+		this.selected.style.left = this.values.start * this.step + 'px';		
+		
+		return this.onChange();
+	};
+
+	RS.prototype.onClickPiece = function (e) {
+
+		if (this.conf.disabled) return;
+
+		var idx = Math.round((e.clientX - this.sliderLeft) / this.step);
+
+		if (idx > this.conf.values.length - 1) idx = this.conf.values.length - 1;
+		if (idx < 0) idx = 0;
+
+		if (this.conf.range) {
+			if (idx - this.values.start <= this.values.end - idx) {
+				this.values.start = idx;
+			}
+			else this.values.end = idx;
+		}
+		else this.values.end = idx;
+
+		this.slider.classList.remove('sliding');
+
+		return this.setValues();
+	};
+
+	RS.prototype.onChange = function () {
+		var _this = this;
+
+		if (this.timeout) clearTimeout(this.timeout);
+
+		this.timeout = setTimeout(function () {
+			if (_this.conf.onChange && typeof _this.conf.onChange === 'function') {			
+				return _this.conf.onChange(_this.input.value);
+			}
+		}, 500);
+	};
+
+	RS.prototype.onResize = function () {
+		this.sliderLeft = this.slider.getBoundingClientRect().left;
+		this.sliderWidth = this.slider.clientWidth;
+		return this.updateScale();
+	};
+
+	RS.prototype.disabled = function (disabled) {
+		this.conf.disabled = disabled;
+		this.slider.classList[disabled ? 'add' : 'remove']('disabled');
+	};
+
+	RS.prototype.getValue = function () {
+		return this.input.value;
+	};
+
+	RS.prototype.destroy = function () {
+		this.input.style.display = this.inputDisplay;
+		this.slider.remove();
+	};
+
+	var createElement = function (el, cls, dataAttr) {
+		var element = document.createElement(el);
+		if (cls) element.className = cls;
+		if (dataAttr && dataAttr.length === 2)
+			element.setAttribute('data-' + dataAttr[0], dataAttr[1]);
+
+		return element;
+	},
+
+	createEvents = function (el, ev, callback) {
+		var events = ev.split(' ');
+
+		for (var i = 0, iLen = events.length; i < iLen; i++)
+			el.addEventListener(events[i], callback);
+	},
+
+	prepareArrayValues = function (conf) {
+		var values = [],
+			range = conf.values.max - conf.values.min;
+
+		if (!conf.step) {
+			console.log('No step defined...');
+			return [conf.values.min, conf.values.max];
+		}
+
+		for (var i = 0, iLen = (range / conf.step); i < iLen; i++)
+			values.push(conf.values.min + i * conf.step);
+
+		if (values.indexOf(conf.values.max) < 0) values.push(conf.values.max);
+
+		return values;
+	},
+
+	checkInitial = function (conf) {
+		if (!conf.set || conf.set.length < 1) return null;
+		if (conf.values.indexOf(conf.set[0]) < 0) return null;
+
+		if (conf.range) {
+			if (conf.set.length < 2 || conf.values.indexOf(conf.set[1]) < 0) return null;
+		}
+		return true;
+	};
+
+	window.rSlider = RS;
+
+})();
 'use strict';(function(){//closure
 window.addEventListener("load",function(){init();});var init=function init(){var containers=document.querySelectorAll('.scrolling-slideshow');[].forEach.call(containers,function(container){new initSlideshow(container);});};var initSlideshow=function initSlideshow(container){var slides=container.querySelectorAll('.scrolling-slideshow-item'),slideCount=slides.length;var currentSlideIndex=void 0,currentSlide=void 0;if(!slideCount){console.log("No slides");return;}var initSlides=function initSlides(slides){var sm=new ScrollMagic.Controller();console.log(container);new ScrollMagic.Scene({triggerElement:container,triggerHook:0,offset:$('.header').height()/2}).addTo(sm).setClassToggle(container,'active');//init videos
 [].filter.call(slides,function(slide){var media=slide.querySelector('.scrolling-slideshow-item-media');var video=media.querySelector('video');if(video){video.setAttribute('autoplay',true);video.setAttribute('loop',true);}new ScrollMagic.Scene({triggerElement:slide,duration:window.innerHeight}).on("enter",function(){media.classList.add("active");if(video){video.play();}}).on("leave",function(){media.classList.remove("active");if(video){video.pause();}}).addTo(sm);});};initSlides(slides);};//closure

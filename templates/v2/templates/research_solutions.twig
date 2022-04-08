@@ -1,8 +1,23 @@
 {% extends '_layout' %}
 {% block content %}
 
-{% set filterSection   = craft.app.request.getQueryParam('section') %}
-{% set filterOrder     = craft.app.request.getQueryParam('order') %}
+{% set filterSection     = craft.app.request.getQueryParam('section') %}
+{% set filterOrder       = craft.app.request.getQueryParam('order') %}
+
+{% set filterStartYear   = craft.app.request.getQueryParam('startYear') %}
+{% set filterEndYear     = craft.app.request.getQueryParam('endYear') ?? "now"|date('Y') %}
+
+
+{% set yearStart = (filterStartYear ~ '-01-01')|atom %}
+{% set yearEnd = (filterEndYear ~ '-12-31')|atom %}
+
+{#
+
+{{ yearStart }}<br>
+{{ yearEnd }}
+
+#}
+
 
 {% set streamOptions = {
       title: 'All Research & Analysis',
@@ -93,13 +108,25 @@
         {% set relations = null %}
 {% endif %}
 
+
+
+
 {% set queryObj = {
     relatedTo: relations,
     section: searchSections,
+    dateCreated : (['and', '>=' ~ yearStart , '<=' ~ yearEnd]),
+
   }
 %}
+{#
+
+
+#}
 
 {# TYPE ENTRIES REMOVED
+  date: ( ['and', '>=' ~ yearStart , '<=' ~ yearEnd])
+
+
     slideout: 'slideout',
     acknowledgements: 'acknowledgements',
     story: 'story',
@@ -221,6 +248,14 @@
         </div>
       </div>
     </section>
+
+{#
+    <ul>
+{% for year in (start_year..end_year) %}
+<li>{{ year }}</li>
+{% endfor %}
+</ul>
+#}
 
     <section class="rs-listing">
       <div class="rs-listing-content">

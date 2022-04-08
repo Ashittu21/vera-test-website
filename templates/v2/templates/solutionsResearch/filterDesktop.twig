@@ -67,7 +67,6 @@
     {% set section = streamOptions.sections[0] %}
     <input type="hidden" checked id="{{ section[1] }}" value="{{ section[1] }}" class="section_checkbox"/>
   {% else %}
- 
    <div class="dropMenu dropdown-topic">
       <div class="slabel">Type</div>
       <button class="dropdown-toggle" type="button" id="menuTopic" aria-haspopup="true">
@@ -89,6 +88,9 @@
 {% endif %}
 
 
+       <div class="slider-container">
+            <input type="text" id="slider" class="slider" />
+        </div>
 
 
 
@@ -117,3 +119,26 @@ $("#menuRelations").on('click',function(){
  }
 });
 </script>
+
+
+
+
+    <script>
+        (function () {
+            'use strict';
+
+            var init = function () {                
+
+                var slider = new rSlider({
+                    target: '#slider',
+                    values: [2008, 2009, 2009, 2009, 2009, 2009, 2009, 2009, 2009, 2009, 2009, 2009, 2009, 2009, 2009, 2009, 2009, 2009, 2010, 2011, 2012, 2013, 2014, 2015],
+                    range: true,
+                    set: [2008, 2013],
+                    onChange: function (vals) {
+                        console.log(vals);
+                    }
+                });
+            };
+            window.onload = init;
+        })();
+    </script>
