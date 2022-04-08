@@ -114,7 +114,7 @@
 {% set queryObj = {
     relatedTo: relations,
     section: searchSections,
-    dateCreated : (['and', '>=' ~ yearStart , '<=' ~ yearEnd]),
+
 
   }
 %}
@@ -124,8 +124,7 @@
 #}
 
 {# TYPE ENTRIES REMOVED
-  date: ( ['and', '>=' ~ yearStart , '<=' ~ yearEnd])
-
+    dateCreated : (['and', '>=' ~ yearStart , '<=' ~ yearEnd]),
 
     slideout: 'slideout',
     acknowledgements: 'acknowledgements',
