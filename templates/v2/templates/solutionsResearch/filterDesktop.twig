@@ -13,9 +13,7 @@
 {% endif %}
 
 
-
 {% set relencode =  craft.request.getParam('relations')|json_encode %}
-
 {% if streamOptions.filterRelations is defined %}
   {% for relationBlock in streamOptions.filterRelations %}
    
@@ -25,7 +23,6 @@
         <span class="dropdown-text-relations">Select Topic</span>
         <span class="caret"></span>
       </button>
-
       <ul class="dropdown-menu dropdown-menu-relations" id="listRelations" aria-labelledby="menuRelations">
         {% for relation in relationBlock.relations %}
           {% if relationBlock.type == 'type' %}
@@ -61,7 +58,6 @@
 {% endif %}
 
 
-
 {% if streamOptions.sections | length %}
   {% if streamOptions.sections|length == 1 %}
     {% set section = streamOptions.sections[0] %}
@@ -87,11 +83,12 @@
   {% endif %}
 {% endif %}
 
- 
+{#
 <div class="slider-container">
+  <label class="dateRange" >Date Range</label>
   <input type="text" id="slider" class="slider" />
 </div>
-
+#}
 
 
 <script>
