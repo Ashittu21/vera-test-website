@@ -1,45 +1,36 @@
 {% extends '_layout' %}
 {% block content %}
-
+{#
+ 
+#}
 {% set filterSection     = craft.app.request.getQueryParam('section') %}
 {% set filterOrder       = craft.app.request.getQueryParam('order') %}
 
-{% set filterStartYear   = craft.app.request.getQueryParam('startYear') %}
-{% set filterEndYear     = craft.app.request.getQueryParam('endYear') ?? "now"|date('Y') %}
 
+{% set filterStartYear   = craft.app.request.getQueryParam('startYear') ?? "1969"|date('Y') %}
+{% set filterEndYear     = craft.app.request.getQueryParam('endYear') ?? "now"|date('Y') %}
 
 {% set yearStart = (filterStartYear ~ '-01-01')|atom %}
 {% set yearEnd = (filterEndYear ~ '-12-31')|atom %}
 
-{#
-
-{{ yearStart }}<br>
-{{ yearEnd }}
-
-#}
-
 
 {% set streamOptions = {
-      title: 'All Research & Analysis',
-      news: false,
-      filterAltLayout: 'unstacked',
-      sections: [
-            ['Publications', 'publications'],
-            ['Audio', 'audio'],
-            ['Video', 'video'],
-            ['Resource Sites', 'resourceSite'],
-            ['Special Reports', 'specialReports'],
-            ['Blog Series', 'blogSeries']
-          ],
-      filterRelations: [{type: 'categories', relations: craft.categories.group('solutionsResearch').level(1), title: 'Resource Type'}]
+        title: 'All Research & Analysis',
+        news: false,
+        filterAltLayout: 'unstacked',
+        sections: [
+              ['Publications', 'publications'],
+              ['Audio', 'audio'],
+              ['Video', 'video'],
+              ['Resource Sites', 'resourceSite'],
+              ['Special Reports', 'specialReports'],
+              ['Blog Series', 'blogSeries']
+            ],
+        filterRelations: [{type: 'categories', relations: craft.categories.group('solutionsResearch').level(1), title: 'Resource Type'}],
+        filterLocations: [{type: 'categories', relations: craft.categories.group('locations').level(1), title: 'Locations'}]
       }
 %}
 
-{#
-{% if entry is defined and entry.type.handle in ['ourProjects'] %}
-  {% set streamOptions = streamOptions|merge({showArchived: true}) %}
-{% endif %}
-#}
 
 {% if streamOptions.streamType is not defined %}
   {% set streamOptions = streamOptions|merge({streamType: 'content'}) %}
@@ -47,21 +38,22 @@
 
 
 {% if craft.request.getParam('relations') %}
-                {% set relationObjsQuery = craft.request.getParam('relations') | split('},') %}
-                {% set relationObjs = [] %}
-                {% for relation in relationObjsQuery %}
-                        {% if not loop.last %}
-                                {% set relation = relation~'}' %}
-                        {% endif %}
-                        {% set thisrelation = relation | json_decode %}
-                        {% set relationObjs = relationObjs | merge([thisrelation]) %}
-                {% endfor %}
+        {% set relationObjsQuery = craft.request.getParam('relations') | split('},') %}
+        {% set relationObjs = [] %}
+
+        {% for relation in relationObjsQuery %}
+          {% if not loop.last %}
+            {% set relation = relation~'}' %}
+          {% endif %}
+          {% set thisrelation = relation | json_decode %}
+          {% set relationObjs = relationObjs | merge([thisrelation]) %}
+        {% endfor %}
+
 
         {% set relacionesArray = [] %}
         {% for relaciones in relationObjs %}
           {% set relacionesArray = relacionesArray|merge([relaciones["id"]]) %}
         {% endfor %}
-
 
 
         {% elseif streamOptions.primaryRelation is defined %}
@@ -79,12 +71,10 @@
                 {% for section in streamOptions.sections %}
                     {% set searchSections = searchSections|merge([section[1]]) %}
                 {% endfor %}
-                {#{% if streamOptions.hiddenSections is defined %}
-                        {% set searchSections = searchSections|merge(streamOptions.hiddenSections) %}
-                {% endif %} #}
         {% else %}
           {% set searchSections = [] %}
         {% endif %}
+
 
 
 {% if relations is not defined and relationObjs is defined and relationObjs|length > 0 %}
@@ -93,9 +83,9 @@
                 {% if relation.type == 'entries' %}
 
                         {% if (streamType == 'people') %}
-                                {% set relations = relations|merge([{sourceElement: craft.entries.id(relation.id).first}]) %}
+                            {% set relations = relations|merge([{sourceElement: craft.entries.id(relation.id).first}]) %}
                         {% else %}
-                                {% set relations = relations|merge([{targetElement: craft.entries.id(relation.id).first}]) %}
+                            {% set relations = relations|merge([{targetElement: craft.entries.id(relation.id).first}]) %}
                         {% endif %}
 
                         {% set relatedPeopleInCenter =  craft.entries.section('people').relatedTo(craft.entries.id(relation.id).first) %}
@@ -114,16 +104,12 @@
 {% set queryObj = {
     relatedTo: relations,
     section: searchSections,
-
+    postDate : (['and', '>=' ~ yearStart , '<=' ~ yearEnd]),
   }
 %}
-{#
 
-
-#}
-
-{# TYPE ENTRIES REMOVED
-     dateCreated : (['and', '>=' ~ yearStart , '<=' ~ yearEnd]),
+{#  TYPE ENTRIES REMOVED   
+dateCreated
 
     slideout: 'slideout',
     acknowledgements: 'acknowledgements',
@@ -159,6 +145,7 @@
 %}
 
 {# section('and, not this, not that') #}
+
 {% set totalEntries = craft.entries(queryObj).type(entriesTypeAllowed).limit(10).count() %}
 
 {% if filterOrder == 'newest' %}
@@ -168,6 +155,7 @@
 {% else %}
   {% paginate craft.entries(queryObj).type(entriesTypeAllowed).orderBy('postDate DESC').limit(10) as pageInfo, pageEntries %}
 {% endif %}
+
 
 <!-- Hero Block -->
   <div class="heroType1-container"  style="background-image: url('{{ entry.heroType1_image.first.url }}');">
@@ -191,9 +179,10 @@
   </div>
 <!-- END Hero Block -->
 
-{% set myEntryQuery = craft.entries().section('blogPosts').orderBy('dateCreated DESC') %}
-  <div class="rs-page">
 
+{% set myEntryQuery = craft.entries().section('blogPosts').orderBy('dateCreated DESC') %}
+
+  <div class="rs-page">
     <section class="rs-head-container">
       <div class="rs-headContent">
         <div class="rs-headContent-title">
@@ -230,7 +219,7 @@
 
 
         <div class="mobile-filter-submit">
-          <button type="button"  class="filterSubmit apply"><span>Show Results</span></button>
+          <button type="button"  class="filterSubmit apply ctaSearch"><span>Show Results</span></button>
         </div>
 
 
@@ -247,13 +236,7 @@
       </div>
     </section>
 
-{#
-    <ul>
-{% for year in (start_year..end_year) %}
-<li>{{ year }}</li>
-{% endfor %}
-</ul>
-#}
+
 
     <section class="rs-listing">
       <div class="rs-listing-content">
@@ -467,7 +450,8 @@
     </section>
   </div>
 
-<script>
+{% js %}
+
 var optionSelected = [];
 let tagCont    = document.getElementById('searchTags');
 var sortMobile = document.querySelector('#sortFilter');
@@ -566,8 +550,16 @@ $("input[type='checkbox'].relation_checkbox").change(function() {
   $(".dropdown-text-relations").html('Topic (' + totalRelations + ')');
 });
 
-$('.apply').click(function(e) {
+
+
+$('.ctaSearch').click(function(e) {
+
   var sections = [];
+  var dateRangeInput = document.getElementById('slider').value;
+  var dateRange = dateRangeInput.split(',');
+  var startYear = dateRange[0];
+  var endYear   = dateRange[1];
+
   $(".section_checkbox:checked").each(function() {
     sections.push(this.value);
   });
@@ -592,14 +584,23 @@ $('.apply').click(function(e) {
   varRelations = varRelations.replace('[', '');
   varRelations = varRelations.replace(']', '');
   var varSections = sections.join(',');
-  query = 'sections=' + varSections + '&relations=' + varRelations;
+  query = 'startYear='+startYear+'&endYear='+endYear+'&sections=' + varSections + '&relations=' + varRelations;
   window.location.search = query;
 });
 
 
+
+
 function initOrderBy() {
+
+  var dateRangeInput = document.getElementById('slider').value;
+  var dateRange = dateRangeInput.split(',');
+  var startYear = dateRange[0];
+  var endYear   = dateRange[1];
+
   const orderBy = document.querySelectorAll('.orderby');
- orderBy.forEach(function(orderSelect) {
+    
+    orderBy.forEach(function(orderSelect) {
     orderSelect.addEventListener('change', function(event) {
       var sections = [];
   $(".section_checkbox:checked").each(function() {
@@ -626,14 +627,13 @@ function initOrderBy() {
   varRelations = varRelations.replace('[', '');
   varRelations = varRelations.replace(']', '');
   var varSections = sections.join(',');
-  query = 'sections=' + varSections + '&relations=' + varRelations + '&order=' + this.value;
+
+  query = 'startYear='+startYear+'&endYear='+endYear+'&sections=' + varSections + '&relations=' + varRelations + '&order=' + this.value;
+  
   window.location.search = query;
     });
   });
 }
-
-
-
 
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -655,6 +655,16 @@ $('#clearall').click(function(event) {
 });
 
 
-</script>
+{% endjs %}
+
+
+
+{#
+    <ul>
+{% for year in (start_year..end_year) %}
+<li>{{ year }}</li>
+{% endfor %}
+</ul>
+#}
 
 {% endblock %}

@@ -28664,7 +28664,10 @@ body.color-combo--lightGrayGradient-black {
   src: url("../css/fonts/ABCWhyte-Regular.eot?#iefix") format("embedded-opentype"), url("../css/fonts/ABCWhyte-Regular.woff2") format("woff2"), url("../css/fonts/ABCWhyte-Regular.woff") format("woff"), url("../css/fonts/ABCWhyte-Regular.ttf") format("truetype"), url("../css/fonts/ABCWhyte-Regular.svg#ABCWhyte-Regular") format("svg");
   font-weight: normal;
   font-style: normal;
-  font-display: swap; }
+  font-display: swap;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: always; }
 
 @font-face {
   font-family: 'ABC Whyte';
@@ -28672,7 +28675,10 @@ body.color-combo--lightGrayGradient-black {
   src: url("../css/fonts/ABCWhyte-RegularItalic.eot?#iefix") format("embedded-opentype"), url("../css/fonts/ABCWhyte-RegularItalic.woff2") format("woff2"), url("../css/fonts/ABCWhyte-RegularItalic.woff") format("woff"), url("../css/fonts/ABCWhyte-RegularItalic.ttf") format("truetype"), url("../css/fonts/ABCWhyte-RegularItalic.svg#ABCWhyte-RegularItalic") format("svg");
   font-weight: normal;
   font-style: italic;
-  font-display: swap; }
+  font-display: swap;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: always; }
 
 @font-face {
   font-family: 'ABC Whyte';
@@ -28680,7 +28686,10 @@ body.color-combo--lightGrayGradient-black {
   src: url("../css/fonts/ABCWhyte-Thin.eot?#iefix") format("embedded-opentype"), url("../css/fonts/ABCWhyte-Thin.woff2") format("woff2"), url("../css/fonts/ABCWhyte-Thin.woff") format("woff"), url("../css/fonts/ABCWhyte-Thin.ttf") format("truetype"), url("../css/fonts/ABCWhyte-Thin.svg#ABCWhyte-Thin") format("svg");
   font-weight: 100;
   font-style: normal;
-  font-display: swap; }
+  font-display: swap;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: always; }
 
 @font-face {
   font-family: 'ABC Whyte';
@@ -28688,7 +28697,10 @@ body.color-combo--lightGrayGradient-black {
   src: url("../css/fonts/ABCWhyte-ThinItalic.eot?#iefix") format("embedded-opentype"), url("../css/fonts/ABCWhyte-ThinItalic.woff2") format("woff2"), url("../css/fonts/ABCWhyte-ThinItalic.woff") format("woff"), url("../css/fonts/ABCWhyte-ThinItalic.ttf") format("truetype"), url("../css/fonts/ABCWhyte-ThinItalic.svg#ABCWhyte-ThinItalic") format("svg");
   font-weight: 100;
   font-style: italic;
-  font-display: swap; }
+  font-display: swap;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: always; }
 
 @font-face {
   font-family: 'ABC Whyte';
@@ -28696,7 +28708,10 @@ body.color-combo--lightGrayGradient-black {
   src: url("../css/fonts/ABCWhyte-Extralight.eot?#iefix") format("embedded-opentype"), url("../css/fonts/ABCWhyte-Extralight.woff2") format("woff2"), url("../css/fonts/ABCWhyte-Extralight.woff") format("woff"), url("../css/fonts/ABCWhyte-Extralight.ttf") format("truetype"), url("../css/fonts/ABCWhyte-Extralight.svg#ABCWhyte-Extralight") format("svg");
   font-weight: 200;
   font-style: normal;
-  font-display: swap; }
+  font-display: swap;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: always; }
 
 @font-face {
   font-family: 'ABC Whyte';
@@ -28704,7 +28719,10 @@ body.color-combo--lightGrayGradient-black {
   src: url("../css/fonts/ABCWhyte-ExtralightItalic.eot?#iefix") format("embedded-opentype"), url("../css/fonts/ABCWhyte-ExtralightItalic.woff2") format("woff2"), url("../css/fonts/ABCWhyte-ExtralightItalic.woff") format("woff"), url("../css/fonts/ABCWhyte-ExtralightItalic.ttf") format("truetype"), url("../css/fonts/ABCWhyte-ExtralightItalic.svg#ABCWhyte-ExtralightItalic") format("svg");
   font-weight: 200;
   font-style: italic;
-  font-display: swap; }
+  font-display: swap;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: always; }
 
 @font-face {
   font-family: 'ABC Whyte';
@@ -28712,7 +28730,10 @@ body.color-combo--lightGrayGradient-black {
   src: url("../css/fonts/ABCWhyte-Light.eot?#iefix") format("embedded-opentype"), url("../css/fonts/ABCWhyte-Light.woff2") format("woff2"), url("../css/fonts/ABCWhyte-Light.woff") format("woff"), url("../css/fonts/ABCWhyte-Light.ttf") format("truetype"), url("../css/fonts/ABCWhyte-Light.svg#ABCWhyte-Light") format("svg");
   font-weight: 300;
   font-style: normal;
-  font-display: swap; }
+  font-display: swap;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: always; }
 
 @font-face {
   font-family: 'ABC Whyte';
@@ -28720,7 +28741,10 @@ body.color-combo--lightGrayGradient-black {
   src: url("../css/fonts/ABCWhyte-LightItalic.eot?#iefix") format("embedded-opentype"), url("../css/fonts/ABCWhyte-LightItalic.woff2") format("woff2"), url("../css/fonts/ABCWhyte-LightItalic.woff") format("woff"), url("../css/fonts/ABCWhyte-LightItalic.ttf") format("truetype"), url("../css/fonts/ABCWhyte-LightItalic.svg#ABCWhyte-LightItalic") format("svg");
   font-weight: 300;
   font-style: italic;
-  font-display: swap; }
+  font-display: swap;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: always; }
 
 @font-face {
   font-family: 'ABC Whyte';
@@ -28728,7 +28752,10 @@ body.color-combo--lightGrayGradient-black {
   src: url("../css/fonts/ABCWhyte-Book.eot?#iefix") format("embedded-opentype"), url("../css/fonts/ABCWhyte-Book.woff2") format("woff2"), url("../css/fonts/ABCWhyte-Book.woff") format("woff"), url("../css/fonts/ABCWhyte-Book.ttf") format("truetype"), url("../css/fonts/ABCWhyte-Book.svg#ABCWhyte-Book") format("svg");
   font-weight: normal;
   font-style: normal;
-  font-display: swap; }
+  font-display: swap;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: always; }
 
 @font-face {
   font-family: 'ABC Whyte';
@@ -28736,7 +28763,10 @@ body.color-combo--lightGrayGradient-black {
   src: url("../css/fonts/ABCWhyte-BookItalic.eot?#iefix") format("embedded-opentype"), url("../css/fonts/ABCWhyte-BookItalic.woff2") format("woff2"), url("../css/fonts/ABCWhyte-BookItalic.woff") format("woff"), url("../css/fonts/ABCWhyte-BookItalic.ttf") format("truetype"), url("../css/fonts/ABCWhyte-BookItalic.svg#ABCWhyte-BookItalic") format("svg");
   font-weight: normal;
   font-style: italic;
-  font-display: swap; }
+  font-display: swap;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: always; }
 
 @font-face {
   font-family: 'ABC Whyte';
@@ -28744,7 +28774,10 @@ body.color-combo--lightGrayGradient-black {
   src: url("../css/fonts/ABCWhyte-Medium.eot?#iefix") format("embedded-opentype"), url("../css/fonts/ABCWhyte-Medium.woff2") format("woff2"), url("../css/fonts/ABCWhyte-Medium.woff") format("woff"), url("../css/fonts/ABCWhyte-Medium.ttf") format("truetype"), url("../css/fonts/ABCWhyte-Medium.svg#ABCWhyte-Medium") format("svg");
   font-weight: 500;
   font-style: normal;
-  font-display: swap; }
+  font-display: swap;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: always; }
 
 @font-face {
   font-family: 'ABC Whyte';
@@ -28752,7 +28785,10 @@ body.color-combo--lightGrayGradient-black {
   src: url("../css/fonts/ABCWhyte-MediumItalic.eot?#iefix") format("embedded-opentype"), url("../css/fonts/ABCWhyte-MediumItalic.woff2") format("woff2"), url("../css/fonts/ABCWhyte-MediumItalic.woff") format("woff"), url("../css/fonts/ABCWhyte-MediumItalic.ttf") format("truetype"), url("../css/fonts/ABCWhyte-MediumItalic.svg#ABCWhyte-MediumItalic") format("svg");
   font-weight: 500;
   font-style: italic;
-  font-display: swap; }
+  font-display: swap;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: always; }
 
 @font-face {
   font-family: 'ABC Whyte';
@@ -28760,7 +28796,10 @@ body.color-combo--lightGrayGradient-black {
   src: url("../css/fonts/ABCWhyte-Bold.eot?#iefix") format("embedded-opentype"), url("../css/fonts/ABCWhyte-Bold.woff2") format("woff2"), url("../css/fonts/ABCWhyte-Bold.woff") format("woff"), url("../css/fonts/ABCWhyte-Bold.ttf") format("truetype"), url("../css/fonts/ABCWhyte-Bold.svg#ABCWhyte-Bold") format("svg");
   font-weight: bold;
   font-style: normal;
-  font-display: swap; }
+  font-display: swap;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: always; }
 
 @font-face {
   font-family: 'ABC Whyte';
@@ -28768,7 +28807,10 @@ body.color-combo--lightGrayGradient-black {
   src: url("../css/fonts/ABCWhyte-BoldItalic.eot?#iefix") format("embedded-opentype"), url("../css/fonts/ABCWhyte-BoldItalic.woff2") format("woff2"), url("../css/fonts/ABCWhyte-BoldItalic.woff") format("woff"), url("../css/fonts/ABCWhyte-BoldItalic.ttf") format("truetype"), url("../css/fonts/ABCWhyte-BoldItalic.svg#ABCWhyte-BoldItalic") format("svg");
   font-weight: bold;
   font-style: italic;
-  font-display: swap; }
+  font-display: swap;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: always; }
 
 @font-face {
   font-family: 'ABC Whyte';
@@ -28776,7 +28818,10 @@ body.color-combo--lightGrayGradient-black {
   src: url("../css/fonts/ABCWhyte-Heavy.eot?#iefix") format("embedded-opentype"), url("../css/fonts/ABCWhyte-Heavy.woff2") format("woff2"), url("../css/fonts/ABCWhyte-Heavy.woff") format("woff"), url("../css/fonts/ABCWhyte-Heavy.ttf") format("truetype"), url("../css/fonts/ABCWhyte-Heavy.svg#ABCWhyte-Heavy") format("svg");
   font-weight: 800;
   font-style: normal;
-  font-display: swap; }
+  font-display: swap;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: always; }
 
 @font-face {
   font-family: 'ABC Whyte';
@@ -28784,7 +28829,10 @@ body.color-combo--lightGrayGradient-black {
   src: url("../css/fonts/ABCWhyte-HeavyItalic.eot?#iefix") format("embedded-opentype"), url("../css/fonts/ABCWhyte-HeavyItalic.woff2") format("woff2"), url("../css/fonts/ABCWhyte-HeavyItalic.woff") format("woff"), url("../css/fonts/ABCWhyte-HeavyItalic.ttf") format("truetype"), url("../css/fonts/ABCWhyte-HeavyItalic.svg#ABCWhyte-HeavyItalic") format("svg");
   font-weight: 800;
   font-style: italic;
-  font-display: swap; }
+  font-display: swap;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: always; }
 
 @font-face {
   font-family: 'ABC Whyte';
@@ -28792,7 +28840,10 @@ body.color-combo--lightGrayGradient-black {
   src: url("../css/fonts/ABCWhyte-Black.eot?#iefix") format("embedded-opentype"), url("../css/fonts/ABCWhyte-Black.woff2") format("woff2"), url("../css/fonts/ABCWhyte-Black.woff") format("woff"), url("../css/fonts/ABCWhyte-Black.ttf") format("truetype"), url("../css/fonts/ABCWhyte-Black.svg#ABCWhyte-Black") format("svg");
   font-weight: 900;
   font-style: normal;
-  font-display: swap; }
+  font-display: swap;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: always; }
 
 @font-face {
   font-family: 'ABC Whyte';
@@ -28800,6 +28851,9 @@ body.color-combo--lightGrayGradient-black {
   src: url("../css/fonts/ABCWhyte-BlackItalic.eot?#iefix") format("embedded-opentype"), url("../css/fonts/ABCWhyte-BlackItalic.woff2") format("woff2"), url("../css/fonts/ABCWhyte-BlackItalic.woff") format("woff"), url("../css/fonts/ABCWhyte-BlackItalic.ttf") format("truetype"), url("../css/fonts/ABCWhyte-BlackItalic.svg#ABCWhyte-BlackItalic") format("svg");
   font-weight: 900;
   font-style: italic;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: always;
   font-display: swap; }
 
 @font-face {
@@ -28808,7 +28862,10 @@ body.color-combo--lightGrayGradient-black {
   src: url("../css/fonts/ABCWhyte-Super.eot?#iefix") format("embedded-opentype"), url("../css/fonts/ABCWhyte-Super.woff2") format("woff2"), url("../css/fonts/ABCWhyte-Super.woff") format("woff"), url("../css/fonts/ABCWhyte-Super.ttf") format("truetype"), url("../css/fonts/ABCWhyte-Super.svg#ABCWhyte-Super") format("svg");
   font-weight: 900;
   font-style: normal;
-  font-display: swap; }
+  font-display: swap;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: always; }
 
 @font-face {
   font-family: 'ABC Whyte';
@@ -28816,7 +28873,10 @@ body.color-combo--lightGrayGradient-black {
   src: url("../css/fonts/ABCWhyte-SuperItalic.eot?#iefix") format("embedded-opentype"), url("../css/fonts/ABCWhyte-SuperItalic.woff2") format("woff2"), url("../css/fonts/ABCWhyte-SuperItalic.woff") format("woff"), url("../css/fonts/ABCWhyte-SuperItalic.ttf") format("truetype"), url("../css/fonts/ABCWhyte-SuperItalic.svg#ABCWhyte-SuperItalic") format("svg");
   font-weight: 900;
   font-style: italic;
-  font-display: swap; }
+  font-display: swap;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: always; }
 
 @font-face {
   font-family: 'GT Sectra';
@@ -28824,7 +28884,10 @@ body.color-combo--lightGrayGradient-black {
   src: url("../css/fonts/GTSectra-Book.eot?#iefix") format("embedded-opentype"), url("../css/fonts/GTSectra-Book.woff2") format("woff2"), url("../css/fonts/GTSectra-Book.woff") format("woff"), url("../css/fonts/GTSectra-Book.ttf") format("truetype"), url("../css/fonts/GTSectra-Book.svg#GTSectra-Book") format("svg");
   font-weight: 300;
   font-style: normal;
-  font-display: swap; }
+  font-display: swap;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: always; }
 
 @font-face {
   font-family: 'GT Sectra';
@@ -28832,7 +28895,10 @@ body.color-combo--lightGrayGradient-black {
   src: url("../css/fonts/GTSectra-BookItalic.eot?#iefix") format("embedded-opentype"), url("../css/fonts/GTSectra-BookItalic.woff2") format("woff2"), url("../css/fonts/GTSectra-BookItalic.woff") format("woff"), url("../css/fonts/GTSectra-BookItalic.ttf") format("truetype"), url("../css/fonts/GTSectra-BookItalic.svg#GTSectra-BookItalic") format("svg");
   font-weight: 300;
   font-style: italic;
-  font-display: swap; }
+  font-display: swap;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: always; }
 
 @font-face {
   font-family: 'GT Sectra';
@@ -28840,7 +28906,10 @@ body.color-combo--lightGrayGradient-black {
   src: url("../css/fonts/GTSectra-Medium.eot?#iefix") format("embedded-opentype"), url("../css/fonts/GTSectra-Medium.woff2") format("woff2"), url("../css/fonts/GTSectra-Medium.woff") format("woff"), url("../css/fonts/GTSectra-Medium.ttf") format("truetype"), url("../css/fonts/GTSectra-Medium.svg#GTSectra-Medium") format("svg");
   font-weight: 500;
   font-style: normal;
-  font-display: swap; }
+  font-display: swap;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: always; }
 
 @font-face {
   font-family: 'GT Sectra';
@@ -28848,7 +28917,10 @@ body.color-combo--lightGrayGradient-black {
   src: url("../css/fonts/GTSectra-MediumItalic.eot?#iefix") format("embedded-opentype"), url("../css/fonts/GTSectra-MediumItalic.woff2") format("woff2"), url("../css/fonts/GTSectra-MediumItalic.woff") format("woff"), url("../css/fonts/GTSectra-MediumItalic.ttf") format("truetype"), url("../css/fonts/GTSectra-MediumItalic.svg#GTSectra-MediumItalic") format("svg");
   font-weight: 500;
   font-style: italic;
-  font-display: swap; }
+  font-display: swap;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: always; }
 
 .underline {
   position: relative;
@@ -29383,123 +29455,162 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
   background-position: right 34px center; }
 
 .slider-container {
-  display: inline-block;
-  width: 90%;
-  max-width: 500px;
-  margin: 0; }
-  .slider-container .slabel {
+  width: 100%;
+  margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column; }
+  .slider-container label.dateRange, .slider-container .chart_container .dateRange.legend, .chart_container .slider-container .dateRange.legend {
     color: #fff;
-    font-size: 11px;
     font-style: normal;
     font-weight: 400;
     line-height: 14px;
     letter-spacing: 0;
     text-align: left;
     margin-bottom: 13px;
-    font-family: var(--global-font-abc-whyte); }
-  .slider-container .rs-container {
     font-family: var(--global-font-abc-whyte);
+    display: inline-block;
     position: relative;
-    height: 20px;
-    margin-left: 20px;
-    margin-top: 30px; }
-    .slider-container .rs-container * {
-      -webkit-box-sizing: border-box;
-              box-sizing: border-box;
-      -webkit-user-select: none;
-         -moz-user-select: none;
-          -ms-user-select: none;
-              user-select: none; }
-    .slider-container .rs-container .rs-selected {
-      background-color: #2e1d97;
-      border: 1px solid #2e1d97;
-      -webkit-transition: all 0.2s linear;
-      transition: all 0.2s linear;
-      width: 0; }
-    .slider-container .rs-container.disabled .rs-selected {
-      background-color: #ccc;
-      border-color: #bbb; }
-    .slider-container .rs-container.disabled .rs-pointer {
-      border-color: #ccc;
-      cursor: default; }
-    .slider-container .rs-container.disabled .rs-scale span ins {
-      color: white; }
-    .slider-container .rs-container.disabled .rs-tooltip {
-      border-color: #ccc;
-      color: #999; }
-    .slider-container .rs-container .rs-pointer {
-      background-color: #abffeb;
-      border-radius: 50%;
-      cursor: pointer;
-      height: 20px;
-      width: 20px;
-      left: -10px;
-      position: absolute;
-      top: 0;
-      -webkit-transition: all 0.2s linear;
-      transition: all 0.2s linear; }
-      .slider-container .rs-container .rs-pointer::after {
-        left: auto;
-        right: 12px; }
-    .slider-container .rs-container .rs-scale {
-      left: 0;
-      position: absolute;
-      top: 5px;
-      white-space: nowrap;
-      display: none; }
-      .slider-container .rs-container .rs-scale span {
-        float: left;
-        position: relative; }
-        .slider-container .rs-container .rs-scale span::before {
-          background-color: #fff7f0;
-          content: "";
-          height: 8px;
+    font-size: 11px; }
+  .slider-container .sliderItem {
+    background: #2E1D97;
+    height: 43px;
+    padding: 5px 5px 5px 14px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start; }
+    .slider-container .sliderItem .sliderTrack {
+      max-width: 221px;
+      width: 100%;
+      padding-top: 17px;
+      padding-left: 5px; }
+      .slider-container .sliderItem .sliderTrack .rs-container {
+        font-family: var(--global-font-abc-whyte);
+        position: relative;
+        height: 20px; }
+        .slider-container .sliderItem .sliderTrack .rs-container * {
+          -webkit-box-sizing: border-box;
+                  box-sizing: border-box;
+          -webkit-user-select: none;
+             -moz-user-select: none;
+              -ms-user-select: none;
+                  user-select: none; }
+        .slider-container .sliderItem .sliderTrack .rs-container .rs-selected {
+          background-color: #2e1d97;
+          border: 1px solid #2e1d97;
+          -webkit-transition: all 0.2s linear;
+          transition: all 0.2s linear;
+          width: 0; }
+        .slider-container .sliderItem .sliderTrack .rs-container.disabled .rs-selected {
+          background-color: #ccc;
+          border-color: #bbb; }
+        .slider-container .sliderItem .sliderTrack .rs-container.disabled .rs-pointer {
+          border-color: #ccc;
+          cursor: default; }
+        .slider-container .sliderItem .sliderTrack .rs-container.disabled .rs-scale span ins {
+          color: white; }
+        .slider-container .sliderItem .sliderTrack .rs-container.disabled .rs-tooltip {
+          border-color: #ccc;
+          color: #999; }
+        .slider-container .sliderItem .sliderTrack .rs-container .rs-pointer {
+          background-color: #abffeb;
+          border-radius: 0;
+          cursor: pointer;
+          height: 15px;
+          width: 7px;
+          position: absolute;
+          top: 0;
+          -webkit-transition: all 0.2s linear;
+          transition: all 0.2s linear; }
+          .slider-container .sliderItem .sliderTrack .rs-container .rs-pointer:hover {
+            background-color: #EF4136; }
+          .slider-container .sliderItem .sliderTrack .rs-container .rs-pointer::after {
+            left: auto;
+            right: 12px; }
+        .slider-container .sliderItem .sliderTrack .rs-container .rs-scale {
           left: 0;
           position: absolute;
-          top: 10px;
-          width: 1px; }
-        .slider-container .rs-container .rs-scale span:last-child {
-          margin-left: -1px;
-          width: 0px; }
-        .slider-container .rs-container .rs-scale span ins {
-          color: #333;
-          display: inline-block;
-          font-size: 12px;
-          margin-top: 20px;
-          text-decoration: none; }
-    .slider-container .rs-container.rs-noscale span::before {
-      display: none; }
-  .slider-container .rs-container .rs-bg,
-  .slider-container .rs-container .rs-selected {
-    background-color: #fff7f0;
-    border: 1px solid #fff7f0;
-    height: 10px;
-    left: 0;
-    position: absolute;
-    top: 5px;
-    width: 100%;
-    border-radius: 5px; }
-  .slider-container .rs-container.sliding .rs-selected,
-  .slider-container .rs-container.sliding .rs-pointer {
-    -webkit-transition: none;
-    transition: none; }
-  .slider-container .rs-container.rs-noscale span:first-child::before,
-  .slider-container .rs-container.rs-noscale span:last-child::before {
-    display: block; }
-  .slider-container .rs-tooltip {
-    color: #FFF;
-    width: auto;
-    min-width: 60px;
-    height: 30px;
-    position: relative;
-    border-radius: 3px;
-    position: absolute;
-    -webkit-transform: translate(-55%, -28px);
-            transform: translate(-55%, -28px);
-    left: 13px;
-    text-align: center;
-    font-size: 11px;
-    padding: 6px 15px 0; }
+          top: 5px;
+          white-space: nowrap;
+          display: none; }
+          .slider-container .sliderItem .sliderTrack .rs-container .rs-scale span {
+            float: left;
+            position: relative; }
+            .slider-container .sliderItem .sliderTrack .rs-container .rs-scale span::before {
+              background-color: #fff7f0;
+              content: "";
+              height: 8px;
+              left: 0;
+              position: absolute;
+              top: 10px;
+              width: 1px; }
+            .slider-container .sliderItem .sliderTrack .rs-container .rs-scale span:last-child {
+              margin-left: -1px;
+              width: 0px; }
+            .slider-container .sliderItem .sliderTrack .rs-container .rs-scale span ins {
+              color: #333;
+              display: inline-block;
+              font-size: 12px;
+              margin-top: 20px;
+              text-decoration: none; }
+        .slider-container .sliderItem .sliderTrack .rs-container.rs-noscale span::before {
+          display: none; }
+      .slider-container .sliderItem .sliderTrack .rs-container .rs-bg,
+      .slider-container .sliderItem .sliderTrack .rs-container .rs-selected {
+        background-color: #160643;
+        border: 1px solid #160643;
+        height: 5px;
+        left: 0;
+        position: absolute;
+        top: 5px;
+        width: 100%;
+        border-radius: 0px;
+        max-width: 221px; }
+      .slider-container .sliderItem .sliderTrack .rs-container.sliding .rs-selected,
+      .slider-container .sliderItem .sliderTrack .rs-container.sliding .rs-pointer {
+        -webkit-transition: none;
+        transition: none; }
+      .slider-container .sliderItem .sliderTrack .rs-container.rs-noscale span:first-child::before,
+      .slider-container .sliderItem .sliderTrack .rs-container.rs-noscale span:last-child::before {
+        display: block; }
+      .slider-container .sliderItem .sliderTrack .rs-tooltip {
+        color: #FFF;
+        width: auto;
+        min-width: 60px;
+        height: 30px;
+        position: relative;
+        border-radius: 3px;
+        position: absolute;
+        -webkit-transform: translate(-65%, -24px);
+                transform: translate(-65%, -24px);
+        left: 13px;
+        text-align: center;
+        font-size: 11px;
+        padding: 6px 15px 0; }
+    .slider-container .sliderItem .sliderButton button {
+      -webkit-transition: all 0.2s ease;
+      transition: all 0.2s ease;
+      border: 0;
+      background-color: #abffeb;
+      width: 33px;
+      height: 33px;
+      margin-left: 20px;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-image: url("/dist/img/v2/dateIcon.svg"); }
+      .slider-container .sliderItem .sliderButton button:hover {
+        background-color: #EF4136; }
 
 /* Common Blocks */
 .mapsv2 .slideout {
@@ -38463,15 +38574,7 @@ header {
       text-align: left;
       color: #FFF;
       overflow: hidden;
-      margin-left: 0px;
-      /*        &:before {
-            border-top: 2px solid var(--global-color-light-violet);
-            content: '';
-            display: table-cell;
-            position: relative;
-            top: 0.55em;
-            width: 100%;
-          } */ }
+      margin-left: 0px; }
       @media (max-width: 768px) {
         .rs-page .rs-head-container .rs-headContent .rs-title {
           margin-left: 0px; } }
@@ -38483,7 +38586,7 @@ header {
         content: '';
         display: table-cell;
         position: relative;
-        top: 0.55em;
+        top: 1.55em;
         width: 100%; }
       .rs-page .rs-head-container .rs-headContent .rs-title:after {
         left: 1.5%; }
@@ -38501,7 +38604,7 @@ header {
       -webkit-box-align: start;
           -ms-flex-align: start;
               align-items: flex-start;
-      max-width: 1060px;
+      max-width: 1280px;
       width: 100%; }
       @media (max-width: 1024px) {
         .rs-page .rs-head-container .rs-headContent .rs-head-form {
@@ -38628,7 +38731,13 @@ header {
         -webkit-box-pack: start;
             -ms-flex-pack: start;
                 justify-content: flex-start;
-        width: 100%; }
+        width: 100%;
+        -ms-flex-wrap: nowrap;
+            flex-wrap: nowrap; }
+        .rs-page .rs-head-container .rs-headContent .rs-head-form .rs-filters > div {
+          -webkit-box-flex: 1;
+              -ms-flex: 1 0 25%;
+                  flex: 1 0 25%; }
         @media (max-width: 1024px) {
           .rs-page .rs-head-container .rs-headContent .rs-head-form .rs-filters {
             -webkit-box-orient: vertical;
@@ -38638,13 +38747,13 @@ header {
             text-align: center; } }
       .rs-page .rs-head-container .rs-headContent .rs-head-form .dropMenu {
         position: relative;
-        margin-right: 28px; }
+        /*margin-right: 28px;*/ }
         @media (max-width: 1024px) {
           .rs-page .rs-head-container .rs-headContent .rs-head-form .dropMenu {
             margin: 0 auto;
             width: 80%;
             margin-bottom: 20px; } }
-        .rs-page .rs-head-container .rs-headContent .rs-head-form .dropMenu .slabel {
+        .rs-page .rs-head-container .rs-headContent .rs-head-form .dropMenu .searchLabel {
           color: white;
           font-size: 11px;
           font-style: normal;
@@ -38655,7 +38764,7 @@ header {
           margin-bottom: 13px;
           font-family: var(--global-font-abc-whyte); }
         .rs-page .rs-head-container .rs-headContent .rs-head-form .dropMenu ul.dropdown-menu {
-          width: 100%;
+          width: 95%;
           background-color: #2E1D97;
           position: absolute;
           display: none;
@@ -38712,7 +38821,8 @@ header {
           display: block; }
       .rs-page .rs-head-container .rs-headContent .rs-head-form button.dropdown-toggle {
         height: 43px;
-        width: 335px;
+        max-width: 335px;
+        width: 95%;
         border-radius: 2px;
         background-color: #2E1D97;
         color: #FFF;

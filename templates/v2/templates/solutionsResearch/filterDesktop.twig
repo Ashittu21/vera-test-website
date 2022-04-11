@@ -13,12 +13,15 @@
 {% endif %}
 
 
+
+
 {% set relencode =  craft.request.getParam('relations')|json_encode %}
+
 {% if streamOptions.filterRelations is defined %}
   {% for relationBlock in streamOptions.filterRelations %}
    
     <div class="dropMenu dropdown-areas">
-     <div class="slabel">Topic</div>
+     <div class="slabel searchLabel">Topic</div>
       <button class="dropdown-toggle" type="button" id="menuRelations" aria-haspopup="true">
         <span class="dropdown-text-relations">Select Topic</span>
         <span class="caret"></span>
@@ -51,12 +54,16 @@
             </label>
           </li>
         {% endfor %}
-        <li class="applybtn"><button type="Button" class="apply">APPLY</button></li> 
+        <li class="applybtn"><button type="Button" class="apply ctaSearch">APPLY</button></li> 
       </ul>
     </div>
   {% endfor %}
 {% endif %}
 
+
+{#
+  Sections
+#}
 
 {% if streamOptions.sections | length %}
   {% if streamOptions.sections|length == 1 %}
@@ -64,7 +71,7 @@
     <input type="hidden" checked id="{{ section[1] }}" value="{{ section[1] }}" class="section_checkbox"/>
   {% else %}
    <div class="dropMenu dropdown-topic">
-      <div class="slabel">Type</div>
+      <div class="slabel searchLabel">Type</div>
       <button class="dropdown-toggle" type="button" id="menuTopic" aria-haspopup="true">
         <span class="dropdown-text-section">Select resource type</span>
         <span class="caret"></span>
@@ -77,18 +84,66 @@
             <label class="labelTopic" for="{{ section[1] }}">{{ section[0] }}</label>
           </li>
         {% endfor %}
-        <li class="applybtn"><button type="Button" class="apply">APPLY</button></li>
+        <li class="applybtn"><button type="Button" class="apply ctaSearch">APPLY</button></li>
       </ul>
     </div>
   {% endif %}
 {% endif %}
 
-{#
+
+
+
+
+
+
+{% if streamOptions.filterLocations is defined %}
+
+  {% for relationBlock in streamOptions.filterLocations %}
+   
+    <div class="dropMenu dropdown-locations">
+     <div class="location-label searchLabel">Locations</div>
+      <button class="dropdown-toggle" type="button" id="menuLocations" aria-haspopup="true">
+        <span class="dropdown-text-locations">Select Location</span>
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu dropdown-menu-locations" id="listLocations" aria-labelledby="menuLocations">
+
+        {% for relation in relationBlock.relations %}
+           {% if relationBlock.type == 'type' %}
+            {% set relation_id = relation.handle %}
+            {% set relation_type = 'type' %}
+          {% else %}
+            {% set relation_id = relation.id %}
+            {% set relation_type = 'relation' %}
+          {% endif %}
+      
+          <li class="checkFilter">
+            <input type="checkbox" name='optionsRelations[]' id="{{ relation_id }}" class="{{ relation_type }}_checkbox option justone" value="{{ relation_id }}"  data-type="{{ relationBlock.type }}" {% if relacionesArray is defined  %} {% if relation_id in relacionesArray %}checked{% endif %}{% endif %}/>
+            <label class="labelTopic" for="{{ relation_id }}">
+                {{relation.title}}
+            </label>
+          </li>
+        {% endfor %}
+        <li class="applybtn"><button type="Button" class="apply ctaSearch">APPLY</button></li> 
+      </ul>
+    </div>
+  {% endfor %}
+{% endif %}
+
+
+
 <div class="slider-container">
-  <label class="dateRange" >Date Range</label>
-  <input type="text" id="slider" class="slider" />
+  <label class="dateRange searchLabel">Date Range</label>
+  <div class="sliderItem">
+    <div class="sliderTrack">
+      <input type="text" id="slider" class="slider" value="{% if filterStartYear %}{{ filterStartYear }}{% else %}1969{% endif %},{{ filterEndYear }}" />
+    </div>
+    <div class="sliderButton">
+      <button class="ctaSearch"></button>
+    </div>
+  </div>
 </div>
-#}
+
 
 
 <script>
@@ -115,6 +170,18 @@ $("#menuRelations").on('click',function(){
       $("#listRelations").attr("aria-hidden", "false");
  }
 });
+
+
+$("#menuLocations").on('click',function(){
+  var CheckR = $("#menuLocations").attr("aria-expanded");
+ if ( CheckR == "true") {
+      $("#menuLocations").attr("aria-expanded", "false");
+      $("#listLocations").attr("aria-hidden", "true");
+ } else {
+      $("#menuLocations").attr("aria-expanded", "true");
+      $("#listLocations").attr("aria-hidden", "false");
+ }
+});
 </script>
 
 
@@ -128,9 +195,9 @@ $("#menuRelations").on('click',function(){
 
                 var slider = new rSlider({
                     target: '#slider',
-                    values: [2008, 2009, 2009, 2009, 2009, 2009, 2009, 2009, 2009, 2009, 2009, 2009, 2009, 2009, 2009, 2009, 2009, 2009, 2010, 2011, 2012, 2013, 2014, 2015],
+                    values: [{% spaceless %}{% for year in (1969..2022) %}{{ year }}, {% endfor %}{% endspaceless %}],
                     range: true,
-                    set: [2008, 2013],
+                    set: [{{filterStartYear}}, {{ filterEndYear }}],
                     onChange: function (vals) {
                         console.log(vals);
                     }
@@ -139,3 +206,6 @@ $("#menuRelations").on('click',function(){
             window.onload = init;
         })();
     </script>
+
+
+   

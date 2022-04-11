@@ -9,7 +9,6 @@
         flex-direction: column;
         align-items: center;
         
-        
         &-title{
           max-width: 700px;
           display: flex;
@@ -41,7 +40,6 @@
           
         }
         
-        
         .rs-title {
           margin-top:80px;
           max-width: 1280px;
@@ -57,28 +55,20 @@
           color: #FFF;
           overflow: hidden;
           margin-left: 0px;
+
           @media(max-width:$mobile-breakpoint){
             margin-left: 0px;
           }
           @media (max-width: $tablet-landscape) {
             padding: 0 2rem;
           }
-          
-/*        &:before {
-            border-top: 2px solid var(--global-color-light-violet);
-            content: '';
-            display: table-cell;
-            position: relative;
-            top: 0.55em;
-            width: 100%;
-          } */
 
          &:after {
             border-top: 2px solid var(--global-color-light-violet);
             content: '';
             display: table-cell;
             position: relative;
-            top: 0.55em;
+            top: 1.55em;
             width: 100%;
           } 
           
@@ -92,7 +82,7 @@
           flex-direction: column;
           justify-content: flex-start;
           align-items: flex-start;
-          max-width: 1060px;
+          max-width: 1280px;
           width: 100%;
 
           @media (max-width: $tablet-landscape) {
@@ -141,6 +131,7 @@
             margin-top: 29px;
             margin-bottom: 36px;
             display: none;
+
             @media (max-width: $tablet-landscape) {
               display: block;
             }
@@ -237,6 +228,10 @@
             color: #FFF;
             justify-content: flex-start;
             width: 100%;
+            flex-wrap: nowrap;
+            &>div{
+              flex: 1 0 25%;
+            }
             @media (max-width: $tablet-landscape) {
               flex-direction: column;
               text-align: center;
@@ -245,14 +240,14 @@
           
           .dropMenu{
             position: relative;
-            margin-right: 28px;
+            /*margin-right: 28px;*/
             @media (max-width: $tablet-landscape) {
               margin: 0 auto;
               width:80%;
               margin-bottom: 20px;
             }
             
-            .slabel{
+            .searchLabel{
               color: white;
               font-size: 11px;
               font-style: normal;
@@ -265,7 +260,7 @@
             }
             
             ul.dropdown-menu{
-              width: 100%;
+              width: 95%;
               background-color: #2E1D97;
               position: absolute;
               display: none;
@@ -337,7 +332,8 @@
           
           button.dropdown-toggle{
             height: 43px;
-            width: 335px;
+            max-width: 335px;
+            width: 95%;
             border-radius: 2px;
             background-color: #2E1D97;
             color: #FFF;
