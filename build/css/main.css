@@ -29495,6 +29495,8 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
       width: 100%;
       padding-top: 17px;
       padding-left: 5px; }
+      .slider-container .sliderItem .sliderTrack .slider {
+        display: none; }
       .slider-container .sliderItem .sliderTrack .rs-container {
         font-family: var(--global-font-abc-whyte);
         position: relative;
