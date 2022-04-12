@@ -15,8 +15,9 @@
 
       var isEmpty =
         Stream.content.container.querySelector(".stream-module") == null;
+      
       if (isEmpty) {
-        Stream.content.noresults.classList.remove("hidden");
+        //Stream.content.noresults.classList.remove("hidden");
       }
 
       //For Packery
