@@ -152,7 +152,7 @@
 
 
 
-  {% if mrel is empty and mloc is empty %}
+  {% if (mrel|length < 1) or (mloc|length < 1) %}
 
 
     {% set related = [] %}
@@ -185,7 +185,7 @@
 
 
 
-
+{{ dump(queryObj) }}
 
 
 
