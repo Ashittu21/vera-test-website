@@ -34526,6 +34526,11 @@ div.heading > div:nth-child(3) > p {
       min-width: 450px;
       max-width: calc(1060px + (50% - 530px));
       position: relative; }
+      @media (max-width: 768px) {
+        .block-signup .block-signup-container .block-signup-left {
+          padding-top: 33px;
+          padding-left: 35px;
+          padding-bottom: 53px; } }
       .block-signup .block-signup-container .block-signup-left::after {
         content: '';
         width: 100%;
@@ -34537,8 +34542,11 @@ div.heading > div:nth-child(3) > p {
       @media (max-width: 700px) {
         .block-signup .block-signup-container .block-signup-left {
           width: 100%;
-          padding-right: 50px;
-          padding-left: 50px;
+          /*  padding-right: 50px;
+        padding-left: 50px;*/
+          padding-top: 33px;
+          padding-left: 35px;
+          padding-bottom: 53px;
           min-width: 0; } }
       .block-signup .block-signup-container .block-signup-left .bck {
         width: 100%;
@@ -34599,7 +34607,8 @@ div.heading > div:nth-child(3) > p {
           .block-signup .block-signup-container .block-signup-left .block-signup-copy {
             padding-right: 50px;
             font-size: 28px;
-            line-height: 35px; } }
+            line-height: 35px;
+            margin-top: 25px; } }
       .block-signup .block-signup-container .block-signup-left .block-signup-form {
         margin-top: 30px;
         display: -webkit-box;
@@ -34615,7 +34624,8 @@ div.heading > div:nth-child(3) > p {
             -webkit-box-orient: vertical;
             -webkit-box-direction: normal;
                 -ms-flex-direction: column;
-                    flex-direction: column; } }
+                    flex-direction: column;
+            margin-top: 66px; } }
         .block-signup .block-signup-container .block-signup-left .block-signup-form .button.orange span {
           font-size: 28px;
           min-height: 50px;
@@ -34671,7 +34681,7 @@ div.heading > div:nth-child(3) > p {
                       align-items: center;
               padding: 0;
               margin: 0;
-              margin-bottom: 58px; } }
+              margin-bottom: 39px; } }
           .block-signup .block-signup-container .block-signup-left .block-signup-form input[type=email].error {
             border-bottom: 2px solid #EF4136; }
       .block-signup .block-signup-container .block-signup-left #error-email {

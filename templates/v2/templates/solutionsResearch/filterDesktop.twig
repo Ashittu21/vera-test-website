@@ -95,10 +95,11 @@
 
 
 
+{% set locationsEncode =  craft.request.getParam('locations')|json_encode %}
 
 {% if streamOptions.filterLocations is defined %}
 
-  {% for relationBlock in streamOptions.filterLocations %}
+  {% for locationsBlock in streamOptions.filterLocations %}
    
     <div class="dropMenu dropdown-locations">
      <div class="location-label searchLabel">Locations</div>
@@ -108,19 +109,19 @@
       </button>
       <ul class="dropdown-menu dropdown-menu-locations" id="listLocations" aria-labelledby="menuLocations">
 
-        {% for relation in relationBlock.relations %}
-           {% if relationBlock.type == 'type' %}
-            {% set relation_id = relation.handle %}
-            {% set relation_type = 'type' %}
+        {% for location in locationsBlock.relations %}
+           {% if locationsBlock.type == 'type' %}
+            {% set relation_id = location.handle %}
+            {% set location_type = 'type' %}
           {% else %}
-            {% set relation_id = relation.id %}
-            {% set relation_type = 'relation' %}
+            {% set location_id = location.id %}
+            {% set location_type = 'location' %}
           {% endif %}
       
           <li class="checkFilter">
-            <input type="checkbox" name='optionsRelations[]' id="{{ relation_id }}" class="{{ relation_type }}_checkbox option justone" value="{{ relation_id }}"  data-type="{{ relationBlock.type }}" {% if relacionesArray is defined  %} {% if relation_id in relacionesArray %}checked{% endif %}{% endif %}/>
-            <label class="labelTopic" for="{{ relation_id }}">
-                {{relation.title}}
+            <input type="checkbox" name='optionsLocations[]' id="{{ location_id }}" class="{{ location_type }}_checkbox option justone" value="{{ location_id }}"  data-type="{{ locationsBlock.type }}" {% if locArray is defined  %} {% if location_id in locArray %}checked{% endif %}{% endif %}/>
+            <label class="labelTopic" for="{{ location_id }}">
+                {{location.title}}
             </label>
           </li>
         {% endfor %}

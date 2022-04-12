@@ -6,7 +6,6 @@
 {% set filterSection     = craft.app.request.getQueryParam('section') %}
 {% set filterOrder       = craft.app.request.getQueryParam('order') %}
 
-
 {% set filterStartYear   = craft.app.request.getQueryParam('startYear') ?? "1969"|date('Y') %}
 {% set filterEndYear     = craft.app.request.getQueryParam('endYear') ?? "now"|date('Y') %}
 
@@ -36,80 +35,138 @@
   {% set streamOptions = streamOptions|merge({streamType: 'content'}) %}
 {% endif %}
 
+  {# 
+    RELATIONS
+  #}
 
-{% if craft.request.getParam('relations') %}
-        {% set relationObjsQuery = craft.request.getParam('relations') | split('},') %}
-        {% set relationObjs = [] %}
+  {% if craft.request.getParam('relations') %}
+    {% set relationObjsQuery = craft.request.getParam('relations') | split('},') %}
+    {% set relationObjs = [] %}
+    {% set relacionesArray = [] %}
 
-        {% for relation in relationObjsQuery %}
-          {% if not loop.last %}
-            {% set relation = relation~'}' %}
-          {% endif %}
-          {% set thisrelation = relation | json_decode %}
-          {% set relationObjs = relationObjs | merge([thisrelation]) %}
-        {% endfor %}
+    {% for relation in relationObjsQuery %}
+      {% if not loop.last %}
+        {% set relation = relation~'}' %}
+      {% endif %}
+      {% set thisrelation = relation | json_decode %}
+      {% set relationObjs = relationObjs | merge([thisrelation]) %}
+    {% endfor %}
 
+    {% for relaciones in relationObjs %}
+      {% set relacionesArray = relacionesArray|merge([relaciones["id"]]) %}
+    {% endfor %}
+  {% endif %}
 
-        {% set relacionesArray = [] %}
-        {% for relaciones in relationObjs %}
-          {% set relacionesArray = relacionesArray|merge([relaciones["id"]]) %}
-        {% endfor %}
-
-
-        {% elseif streamOptions.primaryRelation is defined %}
-                {% set relationObjs = [{
-                        type: streamOptions.primaryRelation.type,
-                        id: streamOptions.primaryRelation.relations[0].id
-                }] %}
-        {% endif %}
-
-
-        {% if craft.request.getParam('sections') %}
-          {% set searchSections = craft.request.getParam('sections') | split(',') %}
-        {% elseif streamOptions.sections is defined %}
-                {% set searchSections = [] %}
-                {% for section in streamOptions.sections %}
-                    {% set searchSections = searchSections|merge([section[1]]) %}
-                {% endfor %}
-        {% else %}
-          {% set searchSections = [] %}
-        {% endif %}
-
-
-
+  
 {% if relations is not defined and relationObjs is defined and relationObjs|length > 0 %}
-        {% set relations = [] %}
-        {% for relation in relationObjs %}
-                {% if relation.type == 'entries' %}
-
-                        {% if (streamType == 'people') %}
-                            {% set relations = relations|merge([{sourceElement: craft.entries.id(relation.id).first}]) %}
-                        {% else %}
-                            {% set relations = relations|merge([{targetElement: craft.entries.id(relation.id).first}]) %}
-                        {% endif %}
-
-                        {% set relatedPeopleInCenter =  craft.entries.section('people').relatedTo(craft.entries.id(relation.id).first) %}
-
-                {% elseif relation.type == 'categories' %}
-                        {% set relations = relations|merge([{targetElement: craft.categories.id(relation.id).first}]) %}
-                {% endif %}
-        {% endfor %}
+    {% set relations = [] %}
+    {% for relation in relationObjs %}
+      {% if relation.type == 'entries' %}
+          {% if (streamType == 'people') %}
+            {% set relations = relations|merge([{sourceElement: craft.entries.id(relation.id).first}]) %}
+          {% else %}
+            {% set relations = relations|merge([{targetElement: craft.entries.id(relation.id).first}]) %}
+          {% endif %}
+      {% elseif relation.type == 'categories' %}
+        {% set relations = relations|merge([{targetElement: craft.categories.id(relation.id).first}]) %}
+      {% endif %}
+    {% endfor %}
 {% elseif relationObjs is not defined and relations is not defined %}
         {% set relations = null %}
 {% endif %}
 
 
+  {# 
+    LOCATIONS
+  #}
 
+  {% if craft.request.getParam('locations') %}
+    {% set locationObjsQuery = craft.request.getParam('locations') | split('},') %}
+    {% set locationObjs = [] %}
+    {% set locArray = [] %}
+
+    {% for location in locationObjsQuery %}
+      {% if not loop.last %}
+        {% set location = location~'}' %}
+      {% endif %}
+      {% set thislocation = location | json_decode %}
+      {% set locationObjs = locationObjs | merge([thislocation]) %}
+    {% endfor %}
+
+    {% for loc in locationObjs %}
+      {% set locArray = locArray|merge([loc["id"]]) %}
+    {% endfor %}
+  {% endif %}
+
+  {% if locations is not defined and locationObjs is defined and locationObjs|length > 0 %}
+    {% set locations = [] %}
+    {% for location in locationObjs %}
+      {% if location.type == 'categories' %}
+        {% set locations = locations|merge([{targetElement: craft.categories.id(location.id).first}]) %}
+      {% endif %}
+    {% endfor %}
+{% elseif locationObjs is not defined and locations is not defined %}
+    {% set locations = null %}
+{% endif %}
+
+
+
+  {# 
+    SECTIONS
+  #}
+
+  {% if craft.request.getParam('sections') %}
+    {% set searchSections = craft.request.getParam('sections') | split(',') %}
+  {% elseif streamOptions.sections is defined %}
+    {% set searchSections = [] %}
+    {% for section in streamOptions.sections %}
+        {% set searchSections = searchSections|merge([section[1]]) %}
+    {% endfor %}
+  {% else %}
+    {% set searchSections = [] %}
+  {% endif %}
+
+{% set related = ['and',] %}
+
+{% set locationMerge = ['or', ] %}
+
+{% for relat in locations %}
+   {% set locationMerge = locationMerge|merge([{targetElement:relat}]) %}
+{% endfor %}
+
+
+
+ {% set related = related|merge([locationMerge]) %}
+
+{% set relationsMerge = ['or', ] %}
+
+{% for relat in relations %}
+   {% set relationsMerge = relationsMerge|merge([{targetElement:relat}]) %}
+{% endfor %} 
+ {% set related = related|merge([relationsMerge]) %}
 
 {% set queryObj = {
-    relatedTo: relations,
+    relatedTo: related,
     section: searchSections,
     postDate : (['and', '>=' ~ yearStart , '<=' ~ yearEnd]),
   }
 %}
 
+
+
+{#
+{% set queryObj = {
+    relatedTo: ['and', relations, locations]
+    section: searchSections,
+    postDate : (['and', '>=' ~ yearStart , '<=' ~ yearEnd]),
+  }
+%}
+#}
+
+
 {#  TYPE ENTRIES REMOVED   
 dateCreated
+(['and', relations, locations])
 
     slideout: 'slideout',
     acknowledgements: 'acknowledgements',
@@ -324,7 +381,7 @@ dateCreated
     {% set fallback = 0 %}
      {% for result in pageEntries %}
 
-          {% set image = result.streamImageRectangle.one() %}
+          {% set image = result.streamImageRectangle.one() ?? null %}
 
           <div class="rs-listing-item">
             <div class="rs-listing-item-wrapper">
@@ -570,6 +627,7 @@ $('.ctaSearch').click(function(e) {
     });
     var nosectionrelation = true;
   }
+  var varSections = sections.join(',');
 
   var relations = [];
   $(".relation_checkbox:checked").each(function() {
@@ -581,10 +639,29 @@ $('.ctaSearch').click(function(e) {
   });
 
   var varRelations = JSON.stringify(relations);
-  varRelations = varRelations.replace('[', '');
-  varRelations = varRelations.replace(']', '');
-  var varSections = sections.join(',');
-  query = 'startYear='+startYear+'&endYear='+endYear+'&sections=' + varSections + '&relations=' + varRelations;
+      varRelations = varRelations.replace('[', '');
+      varRelations = varRelations.replace(']', '');
+
+
+
+  var locations = [];
+  $(".location_checkbox:checked").each(function() {
+    locations.push({
+      id: this.value,
+      type: this.dataset.type,
+      category: this.dataset.category,
+    });
+  });
+  var varLocations = JSON.stringify(locations);
+      varLocations = varLocations.replace('[', '');
+      varLocations = varLocations.replace(']', '');
+
+
+
+
+
+
+  query = 'startYear='+startYear+'&endYear='+endYear+'&sections=' + varSections +'&locations=' +varLocations+ '&relations=' + varRelations;
   window.location.search = query;
 });
 
