@@ -15,6 +15,7 @@
     "dukt/twitter": "^2.1",
     "dukt/videos": "2.0.15",
     "lewisjenkins/craft-dynamic-fields": "3.0.12",
+    "mark-wff/craft-var-dumper": "^1.2",
     "mediabeastnz/timeago": "1.0.3",
     "mildlygeeky/craft-redactor-script-buttons": "^1.1",
     "mmikkel/incognito-field": "1.2.0",

@@ -34,29 +34,27 @@
 {% set firstStream %}{% include 'includes/stream/stream' %}{% endset %}
 {% set streamEmpty = {streamEmpty: firstStream|trim == ''} %}
 
-<section id="stream" class="people-grid{% if entry.type == 'about' %} people-grid--highlight{% endif %}">
-	<div{% if not entry.type == 'about' %} class="stream-outer"{% endif %}>
+<section id="stream" class="people-grid{% if entryType == 'about' %} people-grid--highlight{% endif %}">
+	<div{% if not entryType == 'about' %} class="stream-outer"{% endif %}>
 		<div class="container col-outer">
-			<div class="filter-grid-type {% if not entry.type == 'about' %}stream-module-outer col-outer{% endif %}" data-view="grid">
+			<div class="filter-grid-type {% if not entryType == 'about' %}stream-module-outer col-outer{% endif %}" data-view="grid">
 				
-				{% if entry.type == 'about' %}
-				
-				<h3>All Staff</h3>
-				
+				{% if entryType == 'about' %}
+					<h3>All Staff</h3>
 				{% endif %}
 				
 				{% include 'includes/stream/stream_filter' %}
 				
 				<div id="stream-content">
-				
-				{{ firstStream }}
-				
-				{% include 'includes/stream/nomore' %}
-				
+					{{ firstStream }}
+					{% include 'includes/stream/noresults' with streamEmpty %}
+					{% include 'includes/stream/nomore' %}		
 				</div>
+
 				
 				{% include 'includes/stream/loader' with {loaderid: 'content_loader'} %}
 				
 			</div>
+
 		</div>
 </section>

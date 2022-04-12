@@ -27,16 +27,17 @@
 
 
 
-    {% set entry = craft.entries.section('about').one() %}
+    {% set entryType = 'about' %}
+
+
+
     <!-- People -->
     <div class="people-grid">
       <div class="container">
         <h3>Leadership Team</h3>
-        {% cache %}
-        {% set category = craft.categories.group('departments').title('Leadership Team') %}
-        {% set people = craft.entries.section('people').type('staff').relatedTo(category).with(['headshot']) %}
-        {% include './includes/snippets/people' with {grid: true, large: true} %}
-        {% endcache %}
+          {% set category = craft.categories.group('departments').title('Leadership Team') %}
+          {% set people = craft.entries.section('people').type('staff').relatedTo(category).with(['headshot']) %}
+          {% include 'includes/snippets/people' with {grid: true, large: true} %}
       </div>
     </div>
 
@@ -66,13 +67,15 @@
     relatedTo: excludeCategories
     } %}
 
-    {% include './includes/stream/stream_people' with {isPageRequest : true} %}
+    {% include 'includes/stream/stream_people' with {isPageRequest : true} %}
+
+
 {% endblock %}
 
 {% block ajax_wrap_open %}
-	{% include './includes/snippets/ajax_wrap_open' %}
+	{% include 'includes/snippets/ajax_wrap_open' %}
 {% endblock %}
 
 {% block ajax_wrap_close %}
-	{% include './includes/snippets/ajax_wrap_close' %}
+	{% include 'includes/snippets/ajax_wrap_close' %}
 {% endblock %}

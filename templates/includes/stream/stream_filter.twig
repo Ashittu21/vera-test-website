@@ -209,7 +209,7 @@
 
 {% includeJsFile "/dist/twigscripts/stream.js" %}
 
-{% set streamJs %}
+{% js %}
 $(function() {
 Stream.primaryRelation =
 	{% if streamOptions.primaryRelation is defined %}{id:
@@ -307,5 +307,4 @@ Stream.primaryRelation =
 		});
 	}
 });
-{% endset %}
-<script>{{ streamJs }}</script>
+{% endjs %}
