@@ -277,6 +277,10 @@ ul {
     p{
       margin: 0;
       padding: 0;
+      &:last-child{
+        margin: 0;
+        padding: 0;
+      }
     }
 
     &:first-child {
@@ -308,6 +312,10 @@ ul {
         p{
           margin: 0;
           padding: 0;
+          &:last-child{
+            margin: 0;
+            padding: 0;
+          }
         }
       }
     }
