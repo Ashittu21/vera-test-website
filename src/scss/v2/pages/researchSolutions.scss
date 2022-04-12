@@ -267,7 +267,9 @@
               list-style: none;
               border-top: 2px solid #3E2BB1;
               z-index: 100;
-              
+              max-height: 450px;
+              overflow-y: scroll;
+
               @media (max-width: $tablet-landscape) {
                 text-align: left;
                 width: 100%;

@@ -49,7 +49,7 @@
         {% set relation = relation~'}' %}
       {% endif %}
       {% set thisrelation = relation | json_decode %}
-      {% set relationObjs = relationObjs | merge([thisrelation]) %}
+      {% set relationObjs = relationObjs|merge([thisrelation]) %}
     {% endfor %}
 
     {% for relaciones in relationObjs %}
@@ -126,47 +126,89 @@
     {% set searchSections = [] %}
   {% endif %}
 
-{% set related = ['and',] %}
-
-{% set locationMerge = ['or', ] %}
-
-{% for relat in locations %}
-   {% set locationMerge = locationMerge|merge([{targetElement:relat}]) %}
-{% endfor %}
 
 
 
- {% set related = related|merge([locationMerge]) %}
+ 
+  {# 
+    Locations
+  #}
+  {% set mergedQuery = ['AND'] %}
+  {% set mloc = []%}
+  {% for uno in locations %}
+    {% set mloc =  mloc|merge(uno) %}
+  {% endfor %}
+  {% set mergedQuery = mergedQuery|push(mloc)  %}
+  {{ dump(mloc) }}
 
-{% set relationsMerge = ['or', ] %}
+  {#
+    Topic
+  #}
+  {% set mrel = [] %}
+  {% for dos in relations %}
+    {% set mrel =  mrel|merge(dos) %}
+  {% endfor %}
+  {% set mergedQuery = mergedQuery|push(mrel)  %}
+  {{ dump(mrel) }}
 
-{% for relat in relations %}
-   {% set relationsMerge = relationsMerge|merge([{targetElement:relat}]) %}
-{% endfor %} 
- {% set related = related|merge([relationsMerge]) %}
 
-{% set queryObj = {
-    relatedTo: related,
-    section: searchSections,
-    postDate : (['and', '>=' ~ yearStart , '<=' ~ yearEnd]),
-  }
-%}
+  {% if mrel is empty and mloc is empty %}
+  limpio
+
+    {% set related = [] %}
+    {% for relat in locations %}
+      {% set  related =  related|merge([relat]) %}
+    {% endfor %}
+
+    {% for relat in relations %}
+      {% set related = related|merge([relat]) %}
+    {% endfor %} 
+
+    {% set queryObj = {
+      relatedTo: related,
+      section: searchSections,
+      postDate : (['and', '>=' ~ yearStart , '<=' ~ yearEnd]),
+        }
+    %}
+
+  {% else %}
+ query
+
+     {% set queryObj = {
+      relatedTo: mergedQuery,
+      section: searchSections,
+      postDate : (['and', '>=' ~ yearStart , '<=' ~ yearEnd]),
+        }
+    %}
+   
+  {% endif %}
+
+
+
+
+
+
+
+{{ dump(queryObj) }}
+
 
 
 
 {#
-{% set queryObj = {
-    relatedTo: ['and', relations, locations]
-    section: searchSections,
-    postDate : (['and', '>=' ~ yearStart , '<=' ~ yearEnd]),
-  }
-%}
+  {% set related = [] %}
+  {% for relat in locations %}
+    {% set  related =  related|merge([relat]) %}
+  {% endfor %}
+  {% for relat in relations %}
+    {% set related = related|merge([relat]) %}
+  {% endfor %} 
 #}
 
 
+
+
+
 {#  TYPE ENTRIES REMOVED   
-dateCreated
-(['and', relations, locations])
 
     slideout: 'slideout',
     acknowledgements: 'acknowledgements',
