@@ -63,20 +63,24 @@
 
     <div class="footerV2-bottom-container">
       <div class="footer-bottom-copyright">
-        {{ footer.footerLegalCopy ?? null }}
+      {% if footer.footerLegalCopy %}
+        {{ footer.footerLegalCopy }}
+      {% endif %}
       </div>
-      <div class="footer-bottom-menu">
-        {% set footer_linksLegal = footer.footerLinksLegal.all() %}
-        {% if  footer_linksLegal|length %}
-        <ul>
-          {% for node in footer_linksLegal %}
-          <li>
-            <a href="{{ node.footerLinksLegal.getUrl() }}">{{node.footerLinksLegal.customText }}</a>
-          </li>
-          {% endfor %}
-        </ul>
-        {% endif %}
-      </div>
+       {% if footer.footerLinksLegal %}
+        <div class="footer-bottom-menu">
+          {% set footer_linksLegal = footer.footerLinksLegal.all() %}
+          {% if  footer_linksLegal|length %}
+          <ul>
+            {% for node in footer_linksLegal %}
+            <li>
+              <a href="{{ node.footerLinksLegal.getUrl() }}">{{node.footerLinksLegal.customText }}</a>
+            </li>
+            {% endfor %}
+          </ul>
+          {% endif %}
+        </div>
+       {% endif %}
     </div>
 
 </div>
