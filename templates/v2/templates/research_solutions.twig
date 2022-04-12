@@ -139,7 +139,7 @@
     {% set mloc =  mloc|merge(uno) %}
   {% endfor %}
   {% set mergedQuery = mergedQuery|push(mloc)  %}
-  {{ dump(mloc) }}
+
 
   {#
     Topic
@@ -149,11 +149,11 @@
     {% set mrel =  mrel|merge(dos) %}
   {% endfor %}
   {% set mergedQuery = mergedQuery|push(mrel)  %}
-  {{ dump(mrel) }}
+
 
 
   {% if mrel is empty and mloc is empty %}
-  limpio
+
 
     {% set related = [] %}
     {% for relat in locations %}
@@ -172,7 +172,7 @@
     %}
 
   {% else %}
- query
+
 
      {% set queryObj = {
       relatedTo: mergedQuery,
@@ -185,11 +185,6 @@
 
 
 
-
-
-
-
-{{ dump(queryObj) }}
 
 
 

@@ -63,7 +63,7 @@
 
     <div class="footerV2-bottom-container">
       <div class="footer-bottom-copyright">
-        {{ footer.footerLegalCopy }}
+        {{ footer.footerLegalCopy ?? null }}
       </div>
       <div class="footer-bottom-menu">
         {% set footer_linksLegal = footer.footerLinksLegal.all() %}
