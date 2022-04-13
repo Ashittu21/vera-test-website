@@ -126,11 +126,28 @@
   }
 
   thead tr {
+    &.heading{
+      margin: 0;
+      font-size: 14px;
+      display: table-row;
+      flex-direction: unset;
+      font-family: var(--global-font-abc-whyte);
+    }
+
     border: 1px solid $dk-gray;
   }
 
   tr {
     height: 2.6em;
+
+    &.heading{
+      margin: 0;
+      font-size: 14px;
+      display: table-row;
+      flex-direction: unset;
+      font-family: var(--global-font-abc-whyte);
+    }
+    
 
     &.highlight {
       animation: highlight 2s forwards;

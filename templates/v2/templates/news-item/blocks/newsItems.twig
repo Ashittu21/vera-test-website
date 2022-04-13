@@ -10,7 +10,7 @@
     </section>
 
     <section class="block-latestNews">
-    	<div class="block-latestNews-content">
+    	<div class="block-latestNews-content {% if block.newsItems_button == true %}hasLink{% endif %}">
 				{% if block.newsItems_item |length %}
     		<div class="latestNews-items">
     		  {% for newsItem in block.newsItems_item %}

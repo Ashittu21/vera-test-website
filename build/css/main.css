@@ -19645,6 +19645,15 @@ button.next-slide {
     font-weight: bold; }
   .table__topx thead tr {
     border: 1px solid #4d4e56; }
+    .table__topx thead tr.heading {
+      margin: 0;
+      font-size: 14px;
+      display: table-row;
+      -webkit-box-orient: unset;
+      -webkit-box-direction: unset;
+          -ms-flex-direction: unset;
+              flex-direction: unset;
+      font-family: var(--global-font-abc-whyte); }
   .table__topx tr {
     height: 2.6em;
     /*
@@ -19665,6 +19674,15 @@ button.next-slide {
 			padding: 0;
 		}
 */ }
+    .table__topx tr.heading {
+      margin: 0;
+      font-size: 14px;
+      display: table-row;
+      -webkit-box-orient: unset;
+      -webkit-box-direction: unset;
+          -ms-flex-direction: unset;
+              flex-direction: unset;
+      font-family: var(--global-font-abc-whyte); }
     .table__topx tr.highlight {
       -webkit-animation: highlight 2s forwards;
               animation: highlight 2s forwards; }
