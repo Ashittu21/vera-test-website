@@ -225,8 +225,8 @@
           .rs-filters{
             display: flex;
             flex-direction: row;
-            color: #FFF;
             justify-content: flex-start;
+            color: #FFF;
             width: 100%;
             flex-wrap: nowrap;
             &>div{
@@ -235,6 +235,7 @@
             @media (max-width: $tablet-landscape) {
               flex-direction: column;
               text-align: center;
+              padding-bottom: 60px;
             }
           }
           

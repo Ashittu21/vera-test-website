@@ -593,9 +593,10 @@ $(document).on('click', '.filterTags', function(event) {
   event.preventDefault();
   console.log(this.getAttribute('data-check'));
   document.getElementById(this.getAttribute('data-check')).checked = false;
+
   var totalRelations = $('input[name="optionsRelations[]"]:checked').length;
-  $(".dropdown-text-relations").html('Topic (' + totalRelations + ')');
-  borra(this.getAttribute('data-check'));
+      $(".dropdown-text-relations").html('Topic (' + totalRelations + ')');
+      borra(this.getAttribute('data-check'));
 });
 
 $('body').on("click", ".dropdown-menu-section", function(e) {
@@ -617,7 +618,6 @@ $("input[type='checkbox'].section_checkbox").change(function() {
   var totalSection = $('input[name="optionsTopic[]"]:checked').length;
   $(".dropdown-text-section").html(' Resource Type(' + totalSection + ')');
 });
-
 
 
 $("input[type='checkbox'].relation_checkbox").change(function() {
@@ -642,6 +642,31 @@ $("input[type='checkbox'].relation_checkbox").change(function() {
 
   var totalRelations = $('input[name="optionsRelations[]"]:checked').length;
   $(".dropdown-text-relations").html('Topic (' + totalRelations + ')');
+});
+
+// For Locations
+$("input[type='checkbox'].location_checkbox").change(function() {
+  var a = $("input[type='checkbox'].location_checkbox");
+  if (a.length == a.filter(":checked").length) {
+    $('.selectall').prop('checked', true);
+    $(".select-text").html(' Deselect');
+  }
+
+
+  if ($(this).is(':checked')) {
+    optionSelected.push({
+      label: $(this).next().text().trim(),
+      id: $(this).attr('id')
+    });
+    tagCont.appendChild(createTagItem($(this).next().text().trim(), $(this).attr('id')));
+  } else {
+    borra($(this).attr('id'));
+  }
+
+  console.log(optionSelected);
+
+  var totalLocations = $('input[name="optionsLocations[]"]:checked').length;
+  $(".dropdown-text-locations").html('Geographic Areas (' + totalLocations + ')');
 });
 
 
@@ -762,7 +787,9 @@ function initOrderBy() {
 
 
 document.addEventListener("DOMContentLoaded", function() {
+
   initOrderBy();
+
   var totalRelations = $('input[name="optionsRelations[]"]:checked').length;
   $(".dropdown-text-relations").html('Topic (' + totalRelations + ')');
   var totalSection = $('input[name="optionsTopic[]"]:checked').length;
