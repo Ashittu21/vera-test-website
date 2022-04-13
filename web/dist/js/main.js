@@ -441,12 +441,12 @@ self.loader.addClass("hidden");if(options.callback){self.callback=options.callba
 
 	RS.prototype.init = function () {
 		if (typeof this.conf.target === 'object') this.input = this.conf.target;
-		else this.input = document.getElementById(this.conf.target.replace('#', ''));
+			else this.input = document.getElementById(this.conf.target.replace('#', ''));
 
 		if (!this.input) return console.log('Cannot find target element...');
 
 		this.inputDisplay = getComputedStyle(this.input, null).display;
-		this.input.style.display = 'none';
+	/*	this.input.style.display = 'initial';*/
 		this.valRange = !(this.conf.values instanceof Array);
 
 		if (this.valRange) {
@@ -481,9 +481,9 @@ self.loader.addClass("hidden");if(options.callback){self.callback=options.callba
 		this.input.parentNode.insertBefore(this.slider, this.input.nextSibling);
 
         if (this.conf.width) this.slider.style.width = parseInt(this.conf.width) + 'px';
-		this.sliderLeft = this.slider.getBoundingClientRect().left;
-		this.sliderWidth = this.slider.clientWidth;
-		this.pointerWidth = this.pointerL.clientWidth;
+						this.sliderLeft = this.slider.left;
+						this.sliderWidth = this.slider.clientWidth;
+						this.pointerWidth = this.pointerL.clientWidth;
 
 		if (!this.conf.scale) this.slider.classList.add(this.cls.noscale);
 
@@ -546,7 +546,7 @@ self.loader.addClass("hidden");if(options.callback){self.callback=options.callba
 
 	RS.prototype.addEvents = function () {
 		var pointers = this.slider.querySelectorAll('.' + this.cls.pointer),
-			pieces = this.slider.querySelectorAll('span');
+			  pieces = this.slider.querySelectorAll('span');
 
 		createEvents(document, 'mousemove touchmove', this.move.bind(this));
 		createEvents(document, 'mouseup touchend touchcancel', this.drop.bind(this));
@@ -558,6 +558,7 @@ self.loader.addClass("hidden");if(options.callback){self.callback=options.callba
 			createEvents(pieces[i], 'click', this.onClickPiece.bind(this));
 
 		window.addEventListener('resize', this.onResize.bind(this));
+		window.addEventListener('scroll', this.onResize.bind(this));
 
 		return this.setValues();
 	};
@@ -666,10 +667,11 @@ self.loader.addClass("hidden");if(options.callback){self.callback=options.callba
 			if (_this.conf.onChange && typeof _this.conf.onChange === 'function') {			
 				return _this.conf.onChange(_this.input.value);
 			}
-		}, 500);
+		}, 100);
 	};
 
 	RS.prototype.onResize = function () {
+		console.log('update');
 		this.sliderLeft = this.slider.getBoundingClientRect().left;
 		this.sliderWidth = this.slider.clientWidth;
 		return this.updateScale();

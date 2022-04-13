@@ -557,11 +557,17 @@ var html       = document.querySelector(':root');
 var closersFilter     = document.querySelector('.close-rs-filter');
 
 
+
+
 sortMobile.addEventListener('click', function (event) {
  header.classList.toggle('hidden');
  rsForm.classList.toggle('show');
  window.scrollTo({ top: 0, behavior: 'smooth' });
  html.classList.toggle('overflowHidden');
+ console.log('1');
+
+
+
 });
 
 closersFilter.addEventListener('click', function (event) {
@@ -791,22 +797,34 @@ function initOrderBy() {
 document.addEventListener("DOMContentLoaded", function() {
 
   initOrderBy();
-
   var totalRelations = $('input[name="optionsRelations[]"]:checked').length;
   $(".dropdown-text-relations").html('Topic (' + totalRelations + ')');
   var totalSection = $('input[name="optionsTopic[]"]:checked').length;
   $(".dropdown-text-section").html('Resource Type (' + totalSection + ')');
+
+
+   $('#clearall').click(function(event) {
+      $('.option').prop('checked', false);
+      var optionSelected = [];
+      $(".dropdown-text-relations").html('Select topic');
+      $("#searchTags").html('');
+      $(".dropdown-text-section").html('Select resource type');
+      event.preventDefault();
+   });
+
+
+
+  var rslider = new rSlider({
+      target: '#slider',
+      values: [{% spaceless %}{% for year in (1969..2022) %}{{ year }}, {% endfor %}{% endspaceless %}],
+      range: true,
+      set: [{{filterStartYear}}, {{ filterEndYear }}],
+      onChange: function (vals) {
+          console.log(vals);
+      }
 });
-
-
-$('#clearall').click(function(event) {
-  $('.option').prop('checked', false);
-  var optionSelected = [];
-  $(".dropdown-text-relations").html('Select topic');
-  $("#searchTags").html('');
-  $(".dropdown-text-section").html('Select resource type');
-  event.preventDefault();
-})
+     
+});
 </script>
 
 
