@@ -39228,10 +39228,8 @@ header {
             border-bottom: 2px solid transparent;
             color: var(--global-color-white); }
             .rs-page .rs-listing .rs-listing-content .rs-listing-items .rs-listing-item:hover .rs-listing-item-wrapper .rs-listing-item-cat span {
-              color: var(--global-color-white);
-              margin: 0; }
+              color: var(--global-color-white); }
             .rs-page .rs-listing .rs-listing-content .rs-listing-items .rs-listing-item:hover .rs-listing-item-wrapper .rs-listing-item-content-title {
-              margin-top: 5px;
               color: var(--global-color-white); }
               .rs-page .rs-listing .rs-listing-content .rs-listing-items .rs-listing-item:hover .rs-listing-item-wrapper .rs-listing-item-content-title h6 {
                 color: var(--global-color-white); }

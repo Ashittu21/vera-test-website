@@ -5,8 +5,9 @@
         {% if block.listing_articles|length %}
           {% for statsItem in block.listing_articles %}
             <a class="block-listing-item" 
-               href="{% if statsItem.type.name == 'News' %}{{ statsItem.linkUrl }}{% else %}{{ statsItem.url }}{% endif %}"
-               target="{% if statsItem.type.name == 'News' %}_blank{% else %}_self{% endif %}"
+
+               href="{% if statsItem.type.handle == 'news' %}{{ statsItem.linkUrl }}{% else %}{{ statsItem.url }}{% endif %}"
+               target="{% if statsItem.type.handle == 'news' %}_blank{% else %}_self{% endif %}"
                >
               <div class="block-listing-item-tag">
                 {{ statsItem.type.name | title | upper }}
