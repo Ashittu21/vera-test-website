@@ -13,9 +13,15 @@
     width: 100%;
     margin: 0 auto;
 
-    /*@media(max-width:$mobile-breakpoint) {
-      padding: 0 11px;
-    }*/
+    
+    &.hasLink{
+      .latestNews-items{
+        padding-bottom: 0px;
+      }
+      .latestNews-items-link{
+        padding-top: 20px;
+      }
+    }
 
     .latestNews-title {
       display: table;
@@ -259,9 +265,6 @@
         flex-direction: column;
       }
 
-      &.hasLink{
-        padding-bottom: 0px;
-      }
 
       .latestNews-item {
         display: flex;

@@ -32437,10 +32437,11 @@ div.heading > div:nth-child(3) > p {
             box-sizing: border-box;
     margin: 0;
     width: 100%;
-    margin: 0 auto;
-    /*@media(max-width:$mobile-breakpoint) {
-      padding: 0 11px;
-    }*/ }
+    margin: 0 auto; }
+    .block-latestNews-content.hasLink .latestNews-items {
+      padding-bottom: 0px; }
+    .block-latestNews-content.hasLink .latestNews-items-link {
+      padding-top: 20px; }
     .block-latestNews-content .latestNews-title {
       display: table;
       white-space: nowrap;
@@ -32657,8 +32658,6 @@ div.heading > div:nth-child(3) > p {
           -webkit-box-direction: normal;
               -ms-flex-direction: column;
                   flex-direction: column; } }
-      .block-latestNews-content .latestNews-items.hasLink {
-        padding-bottom: 0px; }
       .block-latestNews-content .latestNews-items .latestNews-item {
         display: -webkit-box;
         display: -ms-flexbox;

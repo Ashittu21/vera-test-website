@@ -1,10 +1,10 @@
 
 <!-- Latest News Items -->
     <section class="block-latestNews">
-    	<div class="block-latestNews-content">
+    	<div class="block-latestNews-content {% if block.newsItems_button == true %}hasLink{% endif %}">
 
 				{% if block.newsItems_item |length %}
-    		<div class="latestNews-items {% if block.newsItems_button == true %}hasLink{% endif %}">
+    		<div class="latestNews-items ">
     		  {% for newsItem in block.newsItems_item %}
 						
 					
@@ -39,10 +39,12 @@
     				</div>
     			</a>
           {% endfor %}
+					
+		
     		</div>
 				{% endif %} 
 
-					{% if block.newsItems_button %}
+						{% if block.newsItems_button %}
 						<div class="latestNews-items-link">
 						<a href="{{ siteUrl }}news-and-stories">View more news & stories<span class="icon-arrow"></span></a>
 						</div>
