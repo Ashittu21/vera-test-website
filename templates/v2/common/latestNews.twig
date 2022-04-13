@@ -1,8 +1,19 @@
+
+{% set featuredImage = {
+  mode: 'crop',
+  width: 401,
+  height: 344,
+  quality: 95,
+  position: 'center-center',
+  format: 'webp'
+} %}
+
+
 <!-- Latest News 2 -->
   <section class="headTitle bgColor-darkviolet">
     <div class="headTitle-content headTitle-content--small">
       <div class="headTitle-title">
-        <h3 class="separator left-aligned"><span>The Latest from Vera</span></h3>
+        <h3 class="separator left-aligned"><span>{{ block.featuredStory_title }}</span></h3>
       </div>
     </div>
   </section>
@@ -14,22 +25,26 @@
           <div class="latest-hero-sidebar-left">
             <div class="latestNews-hero">
 
-              <a href="{{ block.featuredStory_cta.getUrl() }}" class="latestNews-hero-container">
+              <a href="{{ block.featuredStory_cta.first.url }}" class="latestNews-hero-container">
                 <div class="latestNews-hero-copy">
                   <div>
                     <div class="latestNews-hero-copy-category">
-                      <p>BLOG POST</p>
+                      {% if block.featuredStory_cta.first.type in ['specialReportSingle','specialReportChaptered','specialReport','specialReportCampaign'] %}
+                        Special Report
+                      {% else %}
+                         <p>{{ block.featuredStory_cta.first.type.name | title | upper }}</p>
+                      {% endif %}
                     </div>
                       <div class="latestNews-hero-copy-title">
-                        <h4 class="h4">{{ block.featuredStory_title }}</h4>
+                        <h4 class="h4">{{ block.featuredStory_cta.first.title }}</h4>
                       </div>
                       <span class="theButton">
-                        <span>{{ block.featuredStory_cta.customText }}<div class="theArrow"></div></span>
+                        <span>Read Now<div class="theArrow"></div></span>
                       </span>
                   </div>
                 </div>
                 <div class="latestNews-hero-image">
-                  <img src="{{ block.featuredStory_image.first.url }}" alt="">
+                  <img src="{{ block.featuredStory_image.first.getUrl(featuredImage) }}" alt="">
                 </div>
               </a>
 

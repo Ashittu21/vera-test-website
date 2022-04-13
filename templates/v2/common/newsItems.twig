@@ -2,6 +2,7 @@
 <!-- Latest News Items -->
     <section class="block-latestNews">
     	<div class="block-latestNews-content">
+
 				{% if block.newsItems_item |length %}
     		<div class="latestNews-items {% if block.newsItems_button == true %}hasLink{% endif %}">
     		  {% for newsItem in block.newsItems_item %}
@@ -26,8 +27,7 @@
     				<div class="latestNews-item-category">
     					<p>{{ newsItem.type.name | title | upper }}</p>
     				</div>
-    				<div class="latestNews-item-image"
-    					style="background-image: url('{{ imageset.getUrl() }}');">
+    				<div class="latestNews-item-image" style="background-image: url('{{ imageset.getUrl() }}');">
     				</div>
     				<div class="latestNews-item-copy">
     					<h5 class="latestNews-item-copy-title">
