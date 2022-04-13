@@ -29,7 +29,8 @@
                 <div class="latestNews-hero-copy">
                   <div>
                     <div class="latestNews-hero-copy-category">
-                      {% if block.featuredStory_cta.first.type in ['specialReportSingle','specialReportChaptered','specialReport','specialReportCampaign'] %}
+                         <!-- {{ block.featuredStory_cta.first.type.handle }} -->
+                      {% if block.featuredStory_cta.first.type.handle in ['specialReportSingle','specialReportChaptered','specialReport','specialReportCampaign'] %}
                         Special Report
                       {% else %}
                          <p>{{ block.featuredStory_cta.first.type.name | title | upper }}</p>
@@ -57,7 +58,15 @@
               		{% if block.latestNews_newsItems |length %}
                     {% for newsItem in block.latestNews_newsItems %}
                       <div class="sideItems-item">
-                        <div class="sideItems-item-tag">{{ newsItem.type.name | title | upper }}</div>
+                        <div class="sideItems-item-tag">
+
+                            {% if  newsItem.type.handle in ['specialReportSingle','specialReportChaptered','specialReport','specialReportCampaign'] %}
+                              Special Report
+                            {% else %}
+                              <p>{{  newsItem.type.name | title | upper }}</p>
+                            {% endif %}
+                                               
+                          </div>
                         <div class="sideItems-item-title"><a href="{{ newsItem.url }}">{{ newsItem.title }}</a></div>
                         <div class="sideItems-item-date">{{ newsItem.postDate | date("M d, Y") }}</div>
                       </div>
