@@ -44,7 +44,11 @@
 
 	{% block footer %}
 		{# include 'includes/snippets/footer' #}
-		{% include 'v2/global/footer' %}
+		 
+		{% if entry.type.handle == "specialReportCampaign" %}
+		{% else %}
+			{% include 'v2/global/footer' %}
+		{% endif %}
 	{% endblock %}
 
 	{% block overlay %}

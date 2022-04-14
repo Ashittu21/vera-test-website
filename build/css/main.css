@@ -22911,6 +22911,8 @@ body.state-of.covid-article {
 
 .tile-list-item {
   position: relative; }
+  .tile-list-item h2 {
+    color: white; }
   .tile-list-item .label {
     margin-top: 0.5em; }
   .tile-list-item[disabled] {

@@ -21,7 +21,7 @@
 ] %}
 {# end global vars  #}
 
-{% set allowedOrigins = ["https://vera.loc","http://localhost:3000","https://vera.test"] %}
+{% set allowedOrigins = ["https://vera.loc","https://www.vera.org","http://localhost:3000","https://vera.test"] %}
 {% set origin = craft.request.getHostInfo() %}
 {% if origin in allowedOrigins %}
 {% header "Access-Control-Allow-Origin: " ~ origin %}
