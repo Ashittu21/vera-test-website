@@ -46,8 +46,8 @@
 	{% endif %}
 {% endblock %}
 
-{% block footer %}
+{# block footer %}
 	{% if not entry.getNextSibling() %}
 		{{ parent() }}
 	{% endif %}
-{% endblock %}
+{% endblock #}

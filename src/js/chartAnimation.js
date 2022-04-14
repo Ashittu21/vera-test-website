@@ -10,4 +10,4 @@ function mostrarScroll(){
   }
 }
 
-window.addEventListener('scroll', mostrarScroll)
+window.addEventListener('scroll', mostrarScroll);

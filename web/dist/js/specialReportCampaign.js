@@ -408,6 +408,7 @@ scrollCtrl = {
 			})
 			;
 		}
+
 		initSearch('https://www.vera.org/dist/data/county_lookup.json', 'county');
 		VERA.beacon = new Beacon({
 			gmapsapikey: 'AIzaSyCUEbplmckN40d3iGssxm7TX4bjW5vZ3fs',

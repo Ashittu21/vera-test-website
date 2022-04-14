@@ -1,9 +1,6 @@
 /**
  * Object for creating click-triggered navigation submenus
  *
- * Thanks for the inspiration:
- * 		- https://www.lottejackson.com/learning/a-reusable-javascript-toggle-pattern
- * 		- https://codepen.io/lottejackson/pen/yObQRM
  */
 
 
@@ -185,11 +182,35 @@
 		const menus = document.querySelectorAll( '.clicky-menu' );
 
 		menus.forEach( menu => {
-
 			let clickyMenu = new ClickyMenus(menu);
 			clickyMenu.init();
-
 		});
+
+			const itemsmenuclick = document.querySelectorAll(".clicky-menu-item > .no-submenu");
+   		itemsmenuclick.forEach( menu => {
+					menu.onmouseover = function(e){
+					if( e.target.getAttribute('class') === 'no-submenu'){
+						const items = $(e.target.parentElement).siblings();
+						for (let link of items) {
+							var children = link.childNodes;
+							for (var i = 0; i < children.length; i++) {
+								
+								if(children[i].nodeName.toLowerCase() === 'button' && children[i].getAttribute( 'aria-expanded') === 'true' ){
+									children[i].setAttribute( 'aria-expanded', false );
+									$(".heroType1-container").trigger('mouseover');
+								}
+								if(children[i].nodeName.toLowerCase() === 'ul' && children[i].getAttribute( 'aria-hidden') === 'false'){
+									children[i].setAttribute( 'aria-hidden', true );
+									$(".heroType1-container").trigger('mouseover');
+								}
+							}
+						}
+					}
+				};
+			});
 	});
+	 
+	 
+
 
 }());
