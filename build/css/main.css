@@ -38978,7 +38978,7 @@ header {
             flex-direction: column;
     padding-top: 80px;
     padding-bottom: 0; }
-    @media (max-width: 1024px) {
+    @media (max-width: 480px) {
       .rs-page .rs-listing .rs-listing-content {
         padding-top: 0px; } }
     .rs-page .rs-listing .rs-listing-content .rs-listing-hero {
@@ -39005,7 +39005,7 @@ header {
                 box-sizing: border-box;
         -webkit-transition: all 0.3s ease-in-out;
         transition: all 0.3s ease-in-out; }
-        @media (max-width: 1024px) {
+        @media (max-width: 480px) {
           .rs-page .rs-listing .rs-listing-content .rs-listing-hero .rs-listing-hero-container {
             -webkit-box-orient: vertical;
             -webkit-box-direction: normal;

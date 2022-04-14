@@ -404,7 +404,7 @@
         flex-direction: column;
         padding-top: 80px;
         padding-bottom: 0;
-        @media (max-width: $tablet-landscape) {
+        @media (max-width: $mobile-medium) {
           padding-top: 0px;
         }
         
@@ -426,7 +426,7 @@
             box-sizing: border-box;
             transition: all 0.3s ease-in-out;
 
-            @media (max-width: $tablet-landscape) {
+            @media (max-width: $mobile-medium) {
               flex-direction: column;
               margin-top: 0;
             }
