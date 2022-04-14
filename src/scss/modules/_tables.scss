@@ -103,6 +103,8 @@
 
   @media (max-width: $tablet-landscape) {
     @include font-size(1.2);
+    display: block;
+    overflow-x: auto;
   }
 
   th {
@@ -196,9 +198,9 @@
   }
 
   .post-module & {
-    @include font-size(1.4);
+    @include font-size(1.3);
     @media (max-width: $tablet-landscape) {
-      @include font-size(1.2);
+      @include font-size(1.1);
     }
 
     td {

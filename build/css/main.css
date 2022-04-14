@@ -19630,7 +19630,9 @@ button.next-slide {
     .table__topx {
       font-size: 12px;
       font-size: 1.2rem;
-      font-family: 'ABC Whyte'; } }
+      font-family: 'ABC Whyte';
+      display: block;
+      overflow-x: auto; } }
   .table__topx th {
     font-weight: bold;
     background-color: #4d4e56;
@@ -19691,13 +19693,13 @@ button.next-slide {
       .table__topx th {
         padding: 10px 15px; } }
   .post-module .table__topx {
-    font-size: 14px;
-    font-size: 1.4rem;
+    font-size: 13px;
+    font-size: 1.3rem;
     font-family: 'ABC Whyte'; }
     @media (max-width: 1024px) {
       .post-module .table__topx {
-        font-size: 12px;
-        font-size: 1.2rem;
+        font-size: 11px;
+        font-size: 1.1rem;
         font-family: 'ABC Whyte'; } }
     .post-module .table__topx td {
       border-left: 0;
