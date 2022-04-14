@@ -433,7 +433,7 @@ scrollCtrl = {
 				if (!fips) {
 					fips = fips_search['county'].search(county + " " + state).slice(0,1)[0].fips;
 				}
-				$link = 'http://trends.vera.org/incarceration-rates?data=pretrial&fips=' + fips;
+				$link = 'https://trends.vera.org/incarceration-rates?data=pretrial&fips=' + fips;
 				// each button
 				$('a.btn').each(function(){
 					$th = $(this);
