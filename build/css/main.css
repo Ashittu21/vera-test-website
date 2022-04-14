@@ -31693,7 +31693,8 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
       line-height: 28px; }
       @media (max-width: 700px) {
         .exploreLinks-container-items a {
-          margin-bottom: 30px; } }
+          margin-bottom: 30px;
+          line-height: 20px; } }
       .exploreLinks-container-items a:hover {
         background-color: #DA392F;
         color: #FFF;
