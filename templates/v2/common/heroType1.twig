@@ -18,4 +18,19 @@
         </div>
       </div>
     </div>
+
+    {% if block.exploreMore is defined %}
+       {% if block.exploreMore|length %}
+        <div class="exploreLinks">
+         <div class="exploreLinks-container">
+          <div class="exploreLinks-container-items">
+          <div class="exploreLinks-container-items-title">Explore More:</div>
+            {% for exploreItem in block.exploreMore %}
+                <a href="{{ exploreItem.url }}">{{ exploreItem.title }}</a> <span>//</span>
+            {% endfor %}
+          </div>
+          </div>
+        </div>
+       {% endif %}
+    {% endif %}
 <!-- END Hero Block -->
