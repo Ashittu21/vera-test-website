@@ -12,7 +12,7 @@
     {% for block in entry.homeBlocks.level(1).all() %}
         {% switch block.type.handle %}
             {% case 'heroType3' %}
-              {% include 'v2/common/heroType3'  with { block: block } %}
+              {% include 'v2/common/homeSlider'  with { block: block } %}
             {% case 'heroType2' %}
               {% include 'v2/common/heroType2'  with { block: block } %}
             {% case 'latestNews' %}

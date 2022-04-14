@@ -44,10 +44,10 @@ const animationSlideUp = [{
 
  swiper.on('slideChange', function (e) {
    const index = swiper.activeIndex + 1
-   const title = document.querySelector(`.swiper-slide:nth-child(${index}) >.heading >div > p`)
-   const subTitle = document.querySelector(`.swiper-slide:nth-child(${index}) >.heading > div:first-of-type + div >  p`)
-   const img = document.querySelector(`.swiper-slide:nth-child(${index}) >.heading > div:last-child >  img`)
-   const lastWord = document.querySelector(`.swiper-slide:nth-child(${index}) >.heading > div:nth-of-type(2) p.slide-up`)
+   const title = document.querySelector(`.swiper-slide:nth-child(${index}) >.headingHero >div > p`)
+   const subTitle = document.querySelector(`.swiper-slide:nth-child(${index}) >.headingHero > div:first-of-type + div >  p`)
+   const img = document.querySelector(`.swiper-slide:nth-child(${index}) >.headingHero > div:last-child >  img`)
+   const lastWord = document.querySelector(`.swiper-slide:nth-child(${index}) >.headingHero > div:nth-of-type(2) p.slide-up`)
    const wordWidth = lastWord.clientWidth+"px"
 
    const animationStroke = [{

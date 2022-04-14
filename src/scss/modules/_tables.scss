@@ -127,10 +127,6 @@
 
   thead tr {
     &.heading{
-      margin: 0;
-      font-size: 14px;
-      display: table-row;
-      flex-direction: unset;
       font-family: var(--global-font-abc-whyte);
     }
 
@@ -141,10 +137,6 @@
     height: 2.6em;
 
     &.heading{
-      margin: 0;
-      font-size: 14px;
-      display: table-row;
-      flex-direction: unset;
       font-family: var(--global-font-abc-whyte);
     }
     

@@ -12,6 +12,8 @@
     color: #FFF;
     max-width: 1280px;
     width: 100%;
+    transition: all 0.2s ease;
+    
     @media(max-width:$mobile-breakpoint){
       flex-direction: column;
     }

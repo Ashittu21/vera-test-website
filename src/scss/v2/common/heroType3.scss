@@ -214,7 +214,7 @@
 
 
 /* Animación home */
-.heading {
+.headingHero {
   /* margin: 95px 0 0 160px; */
   margin: 95px 0;
   font-size: 100px;
@@ -280,22 +280,22 @@
   color: #fff;
 }
 
-div.heading>div {
+div.headingHero>div {
   -webkit-animation-delay: 0;
   animation-delay: 0;
 }
 
-div.heading>div:nth-child(2)>p {
+div.headingHero>div:nth-child(2)>p {
   -webkit-animation-delay: 0.05s;
   animation-delay: 0.05s;
 }
 
-div.heading>div {
+div.headingHero>div {
   -webkit-animation-delay: 0;
   animation-delay: 0;
 }
 
-div.heading>div:nth-child(3)>p {
+div.headingHero>div:nth-child(3)>p {
   -webkit-animation-delay: 0.075s;
   animation-delay: 0.075s;
 }
@@ -360,7 +360,7 @@ div.heading>div:nth-child(3)>p {
   }
 
 /*
-  .heading>div>p {
+  .headingHero>div>p {
     @media(max-width:440px) {
       font-size: 42px;
       line-height: 75px;
@@ -423,7 +423,7 @@ div.heading>div:nth-child(3)>p {
   }
 
 /*
-  .heading>div>p {
+  .headingHero>div>p {
     @media(max-width:440px) {
       font-size: 42px;
       line-height: 75px;
