@@ -37,7 +37,7 @@
   top: 0;
   display: block;
  // background-color: $white;
-  background-color: transparent;
+  background-color:#FFF7F0;
   padding-top: $padding-lg;
   padding-bottom: 0.5em;
   max-width: 400px;
@@ -184,6 +184,6 @@
   cursor: pointer;
   &:hover {
     color: $white;
-    background-color: $black;
+    background-color: #160643;
   }
 }

@@ -150,7 +150,7 @@ $group6_fill__dk: #EF4136;
     fill: #97DFD1;
     stroke: #FFF7F0;
   }
-  
+
   .tooltip {
    // background-color: $tooltip_bg; 
     background-color: #160643;
@@ -158,7 +158,7 @@ $group6_fill__dk: #EF4136;
 
     &:after {
      // border-top-color: $tooltip_bg;
-     background-color: #160643;
+     border-top-color: #160643;
     }
   }
   .back {

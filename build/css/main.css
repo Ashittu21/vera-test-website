@@ -18556,7 +18556,7 @@ button.next-slide {
       background-color: #160643;
       color: #fff; }
       .project-map.light .tooltip:after {
-        background-color: #160643; }
+        border-top-color: #160643; }
     .project-map.light .back svg {
       stroke: #231f20; }
     .project-map.light .back:focus svg,
@@ -18731,7 +18731,7 @@ button.next-slide {
       background-color: #160643;
       color: #fff; }
       .project-map.medium .tooltip:after {
-        background-color: #160643; }
+        border-top-color: #160643; }
     .project-map.medium .back svg {
       stroke: #231f20; }
     .project-map.medium .back:focus svg,
@@ -18908,7 +18908,7 @@ button.next-slide {
       background-color: #160643;
       color: #231f20; }
       .project-map.dark .tooltip:after {
-        background-color: #160643; }
+        border-top-color: #160643; }
     .project-map.dark .back svg {
       stroke: #fff; }
     .project-map.dark .back:focus svg,
@@ -19083,7 +19083,7 @@ button.next-slide {
       background-color: #160643;
       color: #231f20; }
       .project-map.red .tooltip:after {
-        background-color: #160643; }
+        border-top-color: #160643; }
     .project-map.red .back svg {
       stroke: #231f20; }
     .project-map.red .back:focus svg,
@@ -19373,7 +19373,7 @@ button.next-slide {
     background-color: #160643;
     color: #fff; }
     .us-map .tooltip:after {
-      background-color: #160643; }
+      border-top-color: #160643; }
   .us-map .back svg {
     stroke: #231f20; }
   .us-map .back:focus svg,
@@ -24934,7 +24934,7 @@ strong {
   position: sticky;
   top: 0;
   display: block;
-  background-color: transparent;
+  background-color: #FFF7F0;
   padding-top: 40px;
   padding-bottom: 0.5em;
   max-width: 400px; }
@@ -25061,7 +25061,7 @@ strong {
   cursor: pointer; }
   .CitiesMapWithLinks-sidebar-list-item:hover {
     color: #fff;
-    background-color: #231f20; }
+    background-color: #160643; }
 
 .Stats {
   display: -webkit-box;
@@ -33211,7 +33211,7 @@ div.headingHero > div:nth-child(3) > p {
       background-repeat: repeat-y;
       background-position-x: center; }
   .mapContainer .project-map.CitiesMapWithLinks .container .map__inner-container .CitiesMapWithLinks-sidebar .CitiesMapWithLinks-search, .mapContainer .project-map.CitiesMapWithLinks .timed-slideshow-item--text .map__inner-container .CitiesMapWithLinks-sidebar .CitiesMapWithLinks-search, .mapContainer .project-map.CitiesMapWithLinks .PoliceBudget .map__inner-container .CitiesMapWithLinks-sidebar .CitiesMapWithLinks-search {
-    background-color: transparent; }
+    background-color: #FFF7F0; }
   .mapContainer .project-map.CitiesMapWithLinks .container .map__inner-container .CitiesMapWithLinks-sidebar .CitiesMapWithLinks-sidebar-list-item, .mapContainer .project-map.CitiesMapWithLinks .timed-slideshow-item--text .map__inner-container .CitiesMapWithLinks-sidebar .CitiesMapWithLinks-sidebar-list-item, .mapContainer .project-map.CitiesMapWithLinks .PoliceBudget .map__inner-container .CitiesMapWithLinks-sidebar .CitiesMapWithLinks-sidebar-list-item {
     padding-left: 1em;
     text-decoration: underline;
