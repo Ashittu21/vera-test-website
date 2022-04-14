@@ -148,14 +148,17 @@ $group6_fill__dk: #EF4136;
     //fill: $disabled;
     //stroke: white;
     fill: #97DFD1;
-    strole: #FFF7F0;
+    stroke: #FFF7F0;
   }
+  
   .tooltip {
-    background-color: $tooltip_bg; 
+   // background-color: $tooltip_bg; 
+    background-color: #160643;
     color: $tooltip_text;
 
     &:after {
-      border-top-color: $tooltip_bg;
+     // border-top-color: $tooltip_bg;
+     background-color: #160643;
     }
   }
   .back {
@@ -223,7 +226,8 @@ $group6_fill__dk: #EF4136;
   }
   .marker {
     stroke: $active;
-    fill: $marker;
+   // fill: $marker;
+    fill: #EF4136;
 
     .no-touch &:hover,
     &.hovered,
@@ -441,7 +445,8 @@ $group6_fill__dk: #EF4136;
 
     &:before {
       content: "";
-      border-top: 1px solid $red;
+     // border-top: 1px solid $red;
+      border-top: 1px solid #FFF;
       display: block;
       margin-top: $padding-xs;
       margin-bottom: $padding-xs;
@@ -1117,7 +1122,8 @@ $group6_fill__dk: #EF4136;
     //$active__zoomed: $white;
     $active__zoomed: $med-gray-bg;
 
-    $marker: $black;
+    $marker: #EF4136;
+    //$marker: $black;
     //$marker: $white;
 
     $tooltip_bg: $black;

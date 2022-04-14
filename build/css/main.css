@@ -18031,7 +18031,7 @@ button.next-slide {
       margin-top: 0.5em; }
   .project-map .tooltip .subtitle:before {
     content: "";
-    border-top: 1px solid #ef4136;
+    border-top: 1px solid #FFF;
     display: block;
     margin-top: 15px;
     margin-bottom: 15px;
@@ -18551,12 +18551,12 @@ button.next-slide {
         color: #ef4136; }
     .project-map.light .states {
       fill: #97DFD1;
-      strole: #FFF7F0; }
+      stroke: #FFF7F0; }
     .project-map.light .tooltip {
-      background-color: #231f20;
+      background-color: #160643;
       color: #fff; }
       .project-map.light .tooltip:after {
-        border-top-color: #231f20; }
+        background-color: #160643; }
     .project-map.light .back svg {
       stroke: #231f20; }
     .project-map.light .back:focus svg,
@@ -18601,7 +18601,7 @@ button.next-slide {
             fill: #a869e7; }
     .project-map.light .marker {
       stroke: #2E1D97;
-      fill: #231f20; }
+      fill: #EF4136; }
       .no-touch .project-map.light .marker:hover, .project-map.light .marker.hovered, .project-map.light .marker.active {
         fill: #ef4136; }
       .project-map.light .marker.marker__group1 {
@@ -18726,12 +18726,12 @@ button.next-slide {
         color: #ef4136; }
     .project-map.medium .states {
       fill: #97DFD1;
-      strole: #FFF7F0; }
+      stroke: #FFF7F0; }
     .project-map.medium .tooltip {
-      background-color: #231f20;
+      background-color: #160643;
       color: #fff; }
       .project-map.medium .tooltip:after {
-        border-top-color: #231f20; }
+        background-color: #160643; }
     .project-map.medium .back svg {
       stroke: #231f20; }
     .project-map.medium .back:focus svg,
@@ -18776,7 +18776,7 @@ button.next-slide {
             fill: #a869e7; }
     .project-map.medium .marker {
       stroke: #bcbdbc;
-      fill: #231f20; }
+      fill: #EF4136; }
       .no-touch .project-map.medium .marker:hover, .project-map.medium .marker.hovered, .project-map.medium .marker.active {
         fill: #ef4136; }
       .project-map.medium .marker.marker__group1 {
@@ -18903,12 +18903,12 @@ button.next-slide {
         color: #ef4136; }
     .project-map.dark .states {
       fill: #97DFD1;
-      strole: #FFF7F0; }
+      stroke: #FFF7F0; }
     .project-map.dark .tooltip {
-      background-color: #e7e6e3;
+      background-color: #160643;
       color: #231f20; }
       .project-map.dark .tooltip:after {
-        border-top-color: #e7e6e3; }
+        background-color: #160643; }
     .project-map.dark .back svg {
       stroke: #fff; }
     .project-map.dark .back:focus svg,
@@ -18953,7 +18953,7 @@ button.next-slide {
             fill: #a869e7; }
     .project-map.dark .marker {
       stroke: #bcbdbc;
-      fill: #231f20; }
+      fill: #EF4136; }
       .no-touch .project-map.dark .marker:hover, .project-map.dark .marker.hovered, .project-map.dark .marker.active {
         fill: #ef4136; }
       .project-map.dark .marker.marker__group1 {
@@ -19078,12 +19078,12 @@ button.next-slide {
         color: #ef4136; }
     .project-map.red .states {
       fill: #97DFD1;
-      strole: #FFF7F0; }
+      stroke: #FFF7F0; }
     .project-map.red .tooltip {
-      background-color: #fff;
+      background-color: #160643;
       color: #231f20; }
       .project-map.red .tooltip:after {
-        border-top-color: #fff; }
+        background-color: #160643; }
     .project-map.red .back svg {
       stroke: #231f20; }
     .project-map.red .back:focus svg,
@@ -19128,7 +19128,7 @@ button.next-slide {
             fill: #a869e7; }
     .project-map.red .marker {
       stroke: #ef4136;
-      fill: blue; }
+      fill: #EF4136; }
       .no-touch .project-map.red .marker:hover, .project-map.red .marker.hovered, .project-map.red .marker.active {
         fill: #ef4136; }
       .project-map.red .marker.marker__group1 {
@@ -19368,12 +19368,12 @@ button.next-slide {
       color: #ef4136; }
   .us-map .states {
     fill: #97DFD1;
-    strole: #FFF7F0; }
+    stroke: #FFF7F0; }
   .us-map .tooltip {
-    background-color: #231f20;
+    background-color: #160643;
     color: #fff; }
     .us-map .tooltip:after {
-      border-top-color: #231f20; }
+      background-color: #160643; }
   .us-map .back svg {
     stroke: #231f20; }
   .us-map .back:focus svg,
@@ -19418,7 +19418,7 @@ button.next-slide {
           fill: #a869e7; }
   .us-map .marker {
     stroke: #2E1D97;
-    fill: #231f20; }
+    fill: #EF4136; }
     .no-touch .us-map .marker:hover, .us-map .marker.hovered, .us-map .marker.active {
       fill: #ef4136; }
     .us-map .marker.marker__group1 {
@@ -24934,7 +24934,7 @@ strong {
   position: sticky;
   top: 0;
   display: block;
-  background-color: #fff;
+  background-color: transparent;
   padding-top: 40px;
   padding-bottom: 0.5em;
   max-width: 400px; }
