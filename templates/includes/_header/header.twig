@@ -19,22 +19,22 @@
 {% endswitch %}
 
 {% if withScrollTrigger %}
-{% includeJs %}
-  $(function() {
-    toggleNav()
-  })
-  function toggleNav() {
+  {% includeJs %}
+    $(function() {
+      toggleNav()
+    })
+    function toggleNav() {
 
-    if ($('.js-show-header-trigger').length) {
-      var showNav = TweenLite.to('.header', .3, { autoAlpha: 1, y: 0 });
-      var scene = new ScrollMagic.Scene({
-        triggerElement: '.js-show-header-trigger',
-        triggerHook: 0
-      })
-      .addTo(VERA.sm)
-      .setTween(showNav)
-      ;
+      if ($('.js-show-header-trigger').length) {
+        var showNav = TweenLite.to('.header', .3, { autoAlpha: 1, y: 0 });
+        var scene = new ScrollMagic.Scene({
+          triggerElement: '.js-show-header-trigger',
+          triggerHook: 0
+        })
+        .addTo(VERA.sm)
+        .setTween(showNav)
+        ;
+      }
     }
-  }
-{% endincludejs %}
+  {% endincludejs %}
 {% endif %}
