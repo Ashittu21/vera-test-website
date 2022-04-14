@@ -24,6 +24,21 @@
       </div>
   </div>
 
+    {% if entry.exploreMore is defined %}
+       {% if entry.exploreMore|length %}
+        <div class="exploreLinks">
+         <div class="exploreLinks-container">
+          <div class="exploreLinks-container-items">
+          <div class="exploreLinks-container-items-title">Explore More:</div>
+            {% for exploreItem in entry.exploreMore %}
+                <a href="{{ exploreItem.url }}">{{ exploreItem.title }}</a> <span>//</span>
+            {% endfor %}
+          </div>
+          </div>
+        </div>
+       {% endif %}
+    {% endif %}
+
 
 
 <div class="content-page content-detail">
