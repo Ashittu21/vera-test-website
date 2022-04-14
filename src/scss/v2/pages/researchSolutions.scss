@@ -404,6 +404,9 @@
         flex-direction: column;
         padding-top: 80px;
         padding-bottom: 0;
+        @media (max-width: $tablet-landscape) {
+          padding-top: 0px;
+        }
         
         .rs-listing-hero {
           box-sizing: border-box;
@@ -422,8 +425,10 @@
             width: 100%;
             box-sizing: border-box;
             transition: all 0.3s ease-in-out;
+
             @media (max-width: $tablet-landscape) {
               flex-direction: column;
+              margin-top: 0;
             }
             
             .rs-listing-hero-copy {

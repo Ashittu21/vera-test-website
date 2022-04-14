@@ -145,8 +145,10 @@ $group6_fill__dk: #EF4136;
   }
 
   .states {
-    fill: $disabled;
-    stroke: white;
+    //fill: $disabled;
+    //stroke: white;
+    fill: #97DFD1;
+    strole: #FFF7F0;
   }
   .tooltip {
     background-color: $tooltip_bg; 
@@ -339,7 +341,8 @@ $group6_fill__dk: #EF4136;
 }
 
 @mixin mapThemeLight {
-  $bg: $white;
+  //$bg: $white;
+  $bg: transparent;
   $color: $black;
   $hover: $red;
   //$disabled: #E7E7E7;

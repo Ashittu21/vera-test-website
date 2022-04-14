@@ -1,5 +1,9 @@
 <IfModule mod_rewrite.c>
 	RewriteEngine On
+  
+	# Redirect IP
+  RewriteCond %{HTTP_HOST} ^34\.238\.108\.106$ [NC]
+  RewriteRule ^(.*)$ https://www\.vera\.org\/$1 [L,R=301]
 
 	# Redirect not www
 	RewriteCond %{HTTP_HOST} ^vera\.org$ [NC]
