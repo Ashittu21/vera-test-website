@@ -19,7 +19,7 @@
 
 
 
-<article class="post-article {{ theme ?? 'light' }}" data-highlight-share> 
+<div class="post-article {{ theme ?? 'light' }}" data-highlight-share> 
 	{% if isEditorial and (not fromOnePage or not entry.prevSibling) %}
 		<div class="meta-wrap container">
 			<div class="post-content__meta__date">{{ entry.postDate | date('F Y')}}</div>
@@ -85,8 +85,9 @@
 			{% set additionalReading = block.entry.first ? block : null %}
 
 		{% elseif block.type == 'copy' %}
-		   {% include 'v2/common/copy'  with { block: block } %}
-{#			{% if firstCopy %}
+
+		   {# include 'v2/common/copy'  with { block: block } #}
+			{% if firstCopy %}
 				{% set showShare =  entry.type.handle in ['post','pressRelease'] %}
 				{% set showActionAreas = entry.type.handle in ['post','pressRelease'] %}
 				{% set firstCopy = false %}
@@ -95,7 +96,6 @@
 			{% endif %}
 
 			{% set showQuicklinks = (quickLinkBlock and block.id == quickLinkBlock.id) %}
-
 			{% set showSidebar = showQuicklinks or additionalReading %}
 
 			<div class="post-module module-text module-text--body {{ showSidebar or showActionAreas ? 'module-text--quick-links'}} {{ showShare ? 'module-text--share'}}">
@@ -180,7 +180,7 @@
 					</div>
 				</div>
 			</div>
-#}
+
 		{% elseif block.type == 'singleImage' %}
 
 			{% set image = block.image[0] %}
@@ -749,7 +749,7 @@
 		</aside>
 
 	{% endif %}
-<!--</article> -->
+</div> 
 
 {% if not firstSlideout %}
 	<article id="Slider--article">
@@ -761,5 +761,5 @@
 
 {% if includeCharts %}
 	{% include 'includes/snippets/chart_scripts' %}
-	{% includeJsFile '/dist/js/specialReportCampaign.js?v=0.2' %}
+	{% includeJsFile '/dist/js/specialReportCampaign.js?v=0.5' %}
 {% endif %}

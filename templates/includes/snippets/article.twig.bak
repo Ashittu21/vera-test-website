@@ -757,5 +757,5 @@
 
 {% if includeCharts %}
 	{% include 'includes/snippets/chart_scripts' %}
-	{% includeJsFile '/dist/js/specialReportCampaign.js?v=0.2' %}
+	{% includeJsFile '/dist/js/specialReportCampaign.js?v=0.8' %}
 {% endif %}
