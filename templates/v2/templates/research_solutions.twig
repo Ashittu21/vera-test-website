@@ -109,10 +109,8 @@
     {% set locations = null %}
 {% endif %}
 
-
-
   {# 
-    SECTIONS
+    Sections
   #}
 
   {% if craft.request.getParam('sections') %}
@@ -125,10 +123,6 @@
   {% else %}
     {% set searchSections = [] %}
   {% endif %}
-
-
-
-
  
   {# 
     Locations
@@ -144,6 +138,7 @@
   {#
     Topic
   #}
+
   {% set mrel = [] %}
   {% for dos in relations %}
     {% set mrel =  mrel|merge(dos) %}
@@ -153,7 +148,6 @@
 
 
   {% if (mrel|length < 1) or (mloc|length < 1) %}
-
 
     {% set related = [] %}
     {% for relat in locations %}
@@ -318,7 +312,7 @@
 
 
           <div class="rs-tags">
-            <a href="#" id="clearall">Clear all </a>
+            <a href="{{ siteUrl }}solutions-research" id="clearall">Clear all </a>
             <div id="searchTags">
         
             </div>
@@ -555,8 +549,6 @@ var header     = document.querySelector('.header-v2-mobile');
 var rsForm     = document.querySelector('.rs-head-form');
 var html       = document.querySelector(':root');
 var closersFilter     = document.querySelector('.close-rs-filter');
-
-
 
 
 sortMobile.addEventListener('click', function (event) {
@@ -803,14 +795,14 @@ document.addEventListener("DOMContentLoaded", function() {
   $(".dropdown-text-section").html('Resource Type (' + totalSection + ')');
 
 
-   $('#clearall').click(function(event) {
+   /*$('#clearall').click(function(event) {
       $('.option').prop('checked', false);
       var optionSelected = [];
       $(".dropdown-text-relations").html('Select topic');
       $("#searchTags").html('');
       $(".dropdown-text-section").html('Select resource type');
       event.preventDefault();
-   });
+   });*/
 
 
 
