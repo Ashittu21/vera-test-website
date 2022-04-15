@@ -215,7 +215,6 @@
 
 /* Animación home */
 .headingHero {
-  /* margin: 95px 0 0 160px; */
   margin: 95px 0;
   font-size: 100px;
   width: -webkit-max-content;
@@ -229,15 +228,15 @@
   font-size: 160px;
   line-height: normal;
   color: #fff;
-
+/*
   img {
     height: 31px;
-  }
+  }*/
 
-  &>div {
+  &>div.textWrap {
     overflow: hidden;
 
-    &>p {
+    &>div.text {
       width: -webkit-max-content;
       width: -moz-max-content;
       width: max-content;
@@ -245,8 +244,18 @@
       margin: 0;
       line-height: normal;
       margin-bottom: 0;
-
- 
+      .heroUnderline{
+        display: inline-block;
+        img{
+          height: auto;
+          display: block;
+          width: 100%;
+          object-fit: cover;
+          z-index: -1;
+          position: relative;
+          top: -30px;
+        }
+      }
     }
   }
 
@@ -285,20 +294,16 @@ div.headingHero>div {
   animation-delay: 0;
 }
 
-div.headingHero>div:nth-child(2)>p {
+div.headingHero>div:nth-child(2)>div {
   -webkit-animation-delay: 0.05s;
   animation-delay: 0.05s;
 }
 
-div.headingHero>div {
-  -webkit-animation-delay: 0;
-  animation-delay: 0;
-}
-
-div.headingHero>div:nth-child(3)>p {
+div.headingHero>div:nth-child(3)>div {
   -webkit-animation-delay: 0.075s;
   animation-delay: 0.075s;
 }
+
 
 .slide-up {
   -webkit-animation: slide-up 0.9s cubic-bezier(0.65, 0, 0.35, 1) both;
@@ -350,22 +355,15 @@ div.headingHero>div:nth-child(3)>p {
     .home-slider-content{
       .slider-home {
         .swiper-slide {
-          img {
+         /* img {
             height: inherit;
-          }
+          }*/
         }
       }
     }
 
   }
 
-/*
-  .headingHero>div>p {
-    @media(max-width:440px) {
-      font-size: 42px;
-      line-height: 75px;
-    }
-  }*/
 }
 
 
@@ -422,13 +420,6 @@ div.headingHero>div:nth-child(3)>p {
 
   }
 
-/*
-  .headingHero>div>p {
-    @media(max-width:440px) {
-      font-size: 42px;
-      line-height: 75px;
-    }
-  }*/
 }
 
 /**
@@ -499,38 +490,3 @@ div.headingHero>div:nth-child(3)>p {
     opacity: 1;
   }
 }
-
-
-
-/*
-.home .heroType3{
-  @media(max-width:$mobile-breakpoint){
-    height: 25vh;
-  }
-}*/
-
-
-      /* iPhone  X */
-      /*@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) {
-        margin-top: 13px;
-      }*/
-
-      /*  iPhone 6+, 7+ and 8+ */
-      /*@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) {
-        margin-top: 13px;
-      }*/
-
-      /* iPhone 6, 6S, 7 and 8 */
-      /*@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
-        margin-top: 13px;
-      }*/
-
-      /* iPhone 5, 5S, 5C and 5SE */
-      /*@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) {
-        margin-top: 13px;
-      }
-*/
-      /* iPhone 4 and 4S */
-      /*@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
-        margin-top: 13px;
-      }*/
