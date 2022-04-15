@@ -4,7 +4,7 @@
       <div class="headTitle bgColor-darkviolet">
         <div class="headTitle-content headTitle-content--small">
           <div class="headTitle-title ">
-            <h3 class="separator left-aligned"><span>{{ block.partners_title }}</span></h3>
+            <h3 class="separator left-aligned"><span>{{ block.partnersBlock_title }}</span></h3>
           </div>
         </div>
       </div>
@@ -12,12 +12,12 @@
       <div class="partners-block-content">
 
         <div class="partners-block-copy">
-          {{ block.partners_subtitle }}
+          {{ block.partnersBlock_title }}
         </div>
 
         <div class="partners-block-logos">
-          {% if block.partners|length %}
-            {% for partner in block.partners %}
+          {% if block.partnersBlock_items|length %}
+            {% for partner in block.partnersBlock_items %}
               <div>
                 {% if partner.partner_logo.first.url is not null %}
                   <img src="{{ partner.partner_logo.first.url }}" alt="{{ partner.title }}">
