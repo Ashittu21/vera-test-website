@@ -5,8 +5,30 @@
       {% if block.exploreMore_articles|length %}
         <ul class="block-exploreMore-items">
           {% for exploreItem in block.exploreMore_articles %}
+
+          {% switch exploreItem.type.handle %}
+   						{% case 'knowledgeNews' 
+               or 'knowledgeFundingOpportunity' 
+               or 'knowledgeEvent' 
+               or 'knowledgeWebsite' 
+               or 'knowledgePublication' 
+               or 'knowledgeBlog' 
+               or 'knowledgeVideo' 
+               or 'practiceAdvisory' 
+               or 'newslettersLegalUpdates' 
+               or 'skillsDevelopmentAndPracticeGuidance'
+               or 'referral'
+               or 'presentationSlides'
+               %}
+  							{% if exploreItem.linkUrl is not null %}
+                    {% set url = exploreItem.linkUrl %}
+                {% elseif exploreItem.document is not null %}
+                    {% set url = exploreItem.document.first.url %}
+                {% endif %}
+						{% endswitch %}
+
             <li>
-              <a href="{{ exploreItem.url }}"  class="arrow">
+              <a href="{{ url }}"  class="arrow">
                 <span>{{ exploreItem.title }}<span class="icon-arrow"></span></span>
               </a>
             </li>
@@ -17,53 +39,4 @@
 </section>
 
 <!-- Explore More -->
-
-{#
-
-knowledgeNews
--linkUrl
-
-knowledgeFundingOpportunity
--linkUrl
-
-knowledgeWebsite
--linkUrl
-
-knowledgeBlog
--linkUrl
-
-knowledgeEvent
--linkUrl
-
-knowledgePublication
--linkUrl
--document
-
-knowledgeNews
--linkUrl
-
-knowledgeVideo
--linkUrl
-
-practiceAdvisory
--document
-
-newslettersLegalUpdates
--document
-
-skillsDevelopmentAndPracticeGuidance
--document
-
-referral
--document
-
-presentationSlides
--document
-
-
-
-* liveTraining
-* webinar
-
-#}
 
