@@ -5,6 +5,8 @@
       {% if block.exploreMore_articles|length %}
         <ul class="block-exploreMore-items">
           {% for exploreItem in block.exploreMore_articles %}
+          {% set url = exploreItem.url %}
+          {% set title = exploreItem.title %}
 
           {% switch exploreItem.type.handle %}
    						{% case 'knowledgeNews' 
@@ -25,11 +27,14 @@
                 {% elseif exploreItem.document is not null %}
                     {% set url = exploreItem.document.first.url %}
                 {% endif %}
+              {% case 'webinar'  or 'liveTraining'   %}
+                  {% set url = null %}
+                  {% set title = '' %}
 						{% endswitch %}
 
             <li>
               <a href="{{ url }}"  class="arrow">
-                <span>{{ exploreItem.title }}<span class="icon-arrow"></span></span>
+                <span>{{ title }}<span class="icon-arrow"></span></span>
               </a>
             </li>
           {% endfor %}
