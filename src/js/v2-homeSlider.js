@@ -5,18 +5,18 @@ document.addEventListener('DOMContentLoaded', function () {
     var swiper = new Swiper(".homeSlider", {
       direction: "vertical",
       loop: true,
-      grabCursor: true, //false
-      draggable: true, //false
+      grabCursor: false, //false
+      draggable: false, //false
       noSwiping: true,
       preventInteractionOnTransition: false,
-      allowTouchMove: true, //false
+      allowTouchMove: false, //false
       slideToClickedSlide: false,
-      preventClicksPropagation: true,  //false
-      preventClicks: true, //false
-      autoplay: false,
-      /*autoplay: {
+      preventClicksPropagation: false,  //false
+      preventClicks: false, //false
+      //autoplay: false,
+      autoplay: {
         delay: 2700,
-      },*/
+      },
     });
 
 
