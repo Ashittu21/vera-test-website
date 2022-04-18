@@ -29930,11 +29930,16 @@ div.headingHero > div:nth-child(3) > div {
 
 @media (max-width: 440px) {
   .iOS .heroType3-content-line1 {
-    margin-top: 27px; } }
+    /*  margin-top: 27px;*/
+    margin-top: 55px; } }
 
 @media (max-width: 768px) {
   .iOS .heroType3-content-line2 {
     margin-top: 82px; } }
+
+@media (max-width: 440px) {
+  .iOS .heroType3-content-line2 {
+    margin-top: 160px; } }
 
 .iOS .heroType3 .home-slider-content .slider-home .swiper-slide {
   /* img {

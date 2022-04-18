@@ -342,7 +342,8 @@ div.headingHero>div:nth-child(3)>div {
         }
   
         @media(max-width: 440px) {
-          margin-top: 27px;
+        /*  margin-top: 27px;*/
+          margin-top: 55px;
         }
   
       }
@@ -351,6 +352,10 @@ div.headingHero>div:nth-child(3)>div {
         @media(max-width:$mobile-breakpoint) {
           margin-top: 82px;
         }
+
+        @media(max-width: 440px) {
+            margin-top: 160px;
+          }
       }
     }
 
