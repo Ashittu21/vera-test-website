@@ -29701,7 +29701,7 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
           margin-top: 6px; } }
       @media (max-width: 440px) {
         .heroType3-content-line1 {
-          margin-top: 50px; } }
+          margin-top: 57px; } }
     .heroType3-content-line2 {
       display: block;
       position: absolute;
@@ -29732,7 +29732,7 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
           margin-top: 170px; } }
       @media (max-width: 440px) {
         .heroType3-content-line2 {
-          margin-top: 153px; } }
+          margin-top: 163px; } }
     .heroType3-content-line3 {
       display: block;
       position: absolute;
@@ -29849,19 +29849,19 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
       margin-bottom: 0; }
       .headingHero > div.textWrap > div.text div {
         display: inline-block;
-        width: -webkit-max-content;
-        width: -moz-max-content;
-        width: max-content; }
+        width: -webkit-min-content;
+        width: -moz-min-content;
+        width: min-content; }
       .headingHero > div.textWrap > div.text div.heroUnderline {
         display: inline-block;
-        width: -webkit-max-content;
-        width: -moz-max-content;
-        width: max-content; }
+        width: -webkit-min-content;
+        width: -moz-min-content;
+        width: min-content; }
         .headingHero > div.textWrap > div.text div.heroUnderline .underline-word {
           display: inline-block;
-          width: -webkit-max-content;
-          width: -moz-max-content;
-          width: max-content; }
+          width: -webkit-min-content;
+          width: -moz-min-content;
+          width: min-content; }
         .headingHero > div.textWrap > div.text div.heroUnderline img {
           height: auto;
           display: block;

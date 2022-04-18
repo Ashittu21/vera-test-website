@@ -13,10 +13,15 @@ document.addEventListener('DOMContentLoaded', function () {
       slideToClickedSlide: false,
       preventClicksPropagation: false,  //false
       preventClicks: false, //false
-      //autoplay: false,
+      autoplay: false,
       autoplay: {
         delay: 2700,
       },
+     /* on: {
+        init: function () {
+          console.log('swiper initialized');
+        }
+      }*/
     });
 
 
@@ -50,6 +55,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     }
     ];
+      
 
     swiper.on(`slideChange`, function (e) {
 
@@ -62,8 +68,6 @@ document.addEventListener('DOMContentLoaded', function () {
       const img = document.querySelector(`.swiper-slide:nth-child(${index}) > .headingHero >  div:nth-of-type(2) > div > .heroUnderline > img`);
 
       const wordWidth = underline.clientWidth + "px";
-
-      console.log(wordWidth);
 
       const animationStroke = [{ width: '0px', }, { width: wordWidth,}];
 

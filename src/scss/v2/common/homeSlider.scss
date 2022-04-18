@@ -74,7 +74,7 @@
       }
 
       @media(max-width: 440px) {
-        margin-top: 50px;
+        margin-top: 57px;
       }
 
     }
@@ -109,7 +109,7 @@
       }
 
       @media(max-width: 440px) {
-        margin-top: 153px;
+        margin-top: 163px;
       }
 
 
@@ -237,15 +237,15 @@
       margin-bottom: 0;
       div{
         display: inline-block;
-        width: max-content;
+        width: min-content;
       }
       div.heroUnderline{
         display: inline-block;
-        width: max-content;
+        width: min-content;
 
         .underline-word{
           display: inline-block;
-          width: max-content;
+          width: min-content;
         }
         
         img{
@@ -474,3 +474,4 @@ div.headingHero>div:nth-child(3)>div {
     opacity: 1;
   }
 }
+
