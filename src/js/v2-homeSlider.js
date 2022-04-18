@@ -5,35 +5,40 @@ document.addEventListener('DOMContentLoaded', function () {
     var swiper = new Swiper(".homeSlider", {
       direction: "vertical",
       loop: true,
-      grabCursor: false, //false
-      draggable: false, //false
+      grabCursor: true, //false
+      draggable: true, //false
       noSwiping: true,
       preventInteractionOnTransition: false,
-      allowTouchMove: false, //false
+      allowTouchMove: true, //false
       slideToClickedSlide: false,
-      preventClicksPropagation: false,  //false
-      preventClicks: false, //false
-     // autoplay: false,
-      autoplay: {
+      preventClicksPropagation: true,  //false
+      preventClicks: true, //false
+      autoplay: false,
+      /*autoplay: {
         delay: 2700,
-      },
+      },*/
     });
 
-    const wordWidth = "100%";
+
+    const underlineFirst = document.querySelector(`.swiper-slide:nth-child(2) > .headingHero > div:nth-of-type(2) > div > .heroUnderline > .heroUnderline-word`);
+    const imgFirst       = document.querySelector(`.swiper-slide:nth-child(2) > .headingHero >  div:nth-of-type(2) > div > .heroUnderline > img`);
+    const wordWidthFirst = underlineFirst.offsetWidth;
+    imgFirst.style.setProperty("width", wordWidthFirst+"px", "important");
+    imgFirst.style.width = wordWidthFirst;
 
     const animationStroke = [{
       width: '0px',
       position: 'relative',
-      top: '-30px',
+      top: '0px',
       opacity: 0,
     },
     {
-      width: wordWidth,
+      width: wordWidthFirst,
       position: 'relative',
       top: '-30px',
       opacity: 1,
     }
-    ]
+    ];
 
     const animationSlideUp = [{
       transform: 'translateY(100px)',
@@ -44,19 +49,23 @@ document.addEventListener('DOMContentLoaded', function () {
       opacity: 1,
 
     }
-    ]
+    ];
 
-    swiper.on('slideChange', function (e) {
+    swiper.on(`slideChange`, function (e) {
 
       const index = swiper.activeIndex + 1;
-      const title = document.querySelector(`.swiper-slide:nth-child(${index}) >.headingHero > div.textWrap > div.text`);
-      const subTitle = document.querySelector(`.swiper-slide:nth-child(${index}) >.headingHero > div:first-of-type + div >div`);
-      const underline = document.querySelector(`.swiper-slide:nth-child(${index}) >.headingHero > div:nth-of-type(2) span.heroUnderline`);
-      const img = document.querySelector(`.swiper-slide:nth-child(${index}) >.headingHero >  div:nth-of-type(2) span.heroUnderline  img`);
+
+      const title = document.querySelector(`.swiper-slide:nth-child(${index}) > .headingHero > div:first-of-type > div`);
+      const subTitle = document.querySelector(`.swiper-slide:nth-child(${index}) > .headingHero > div:nth-of-type(2) > div`);
+
+      const underline = document.querySelector(`.swiper-slide:nth-child(${index}) > .headingHero > div:nth-of-type(2) > div > .heroUnderline > .heroUnderline-word`);
+      const img = document.querySelector(`.swiper-slide:nth-child(${index}) > .headingHero >  div:nth-of-type(2) > div > .heroUnderline > img`);
 
       const wordWidth = underline.clientWidth + "px";
 
-      const animationStroke = [{ width: '0px', }, { width: wordWidth, }];
+      console.log(wordWidth);
+
+      const animationStroke = [{ width: '0px', }, { width: wordWidth,}];
 
       title.animate(animationSlideUp, {
         duration: 450,
@@ -71,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function () {
       });
             
       img.animate(animationStroke, {
-        duration: 1800,
+        duration: 1300,
         fill: 'both',
         easing: 'cubic-bezier(0.65, 0, 0.35, 1)'
       });

@@ -29816,10 +29816,6 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
       -webkit-box-align: baseline;
           -ms-flex-align: baseline;
               align-items: baseline; }
-      .home-slider-content .slider-home .swiper-slide img {
-        height: 70px;
-        -o-object-fit: cover;
-           object-fit: cover; }
 
 /* Animación home */
 .headingHero {
@@ -29840,11 +29836,7 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
   font-weight: bold;
   font-size: 160px;
   line-height: normal;
-  color: #fff;
-  /*
-  img {
-    height: 31px;
-  }*/ }
+  color: #fff; }
   .headingHero > div.textWrap {
     overflow: hidden; }
     .headingHero > div.textWrap > div.text {
@@ -29855,17 +29847,33 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
       margin: 0;
       line-height: normal;
       margin-bottom: 0; }
-      .headingHero > div.textWrap > div.text .heroUnderline {
-        display: inline-block; }
-        .headingHero > div.textWrap > div.text .heroUnderline img {
+      .headingHero > div.textWrap > div.text div {
+        display: inline-block;
+        width: -webkit-max-content;
+        width: -moz-max-content;
+        width: max-content; }
+      .headingHero > div.textWrap > div.text div.heroUnderline {
+        display: inline-block;
+        width: -webkit-max-content;
+        width: -moz-max-content;
+        width: max-content; }
+        .headingHero > div.textWrap > div.text div.heroUnderline .underline-word {
+          display: inline-block;
+          width: -webkit-max-content;
+          width: -moz-max-content;
+          width: max-content; }
+        .headingHero > div.textWrap > div.text div.heroUnderline img {
           height: auto;
           display: block;
-          width: 100%;
+          width: 0px;
           -o-object-fit: cover;
              object-fit: cover;
           z-index: -1;
           position: relative;
           top: -30px; }
+          @media (max-width: 440px) {
+            .headingHero > div.textWrap > div.text div.heroUnderline img {
+              top: -7px; } }
   @media (max-width: 1120px) {
     .headingHero {
       font-size: 100px;
@@ -29905,8 +29913,8 @@ div.headingHero > div:nth-child(3) > div {
   animation: slide-up 0.9s cubic-bezier(0.65, 0, 0.35, 1) both; }
 
 .stroke {
-  -webkit-animation: stroke 0.9s cubic-bezier(0.65, 0, 0.35, 1) both;
-  animation: stroke 0.9s cubic-bezier(0.65, 0, 0.35, 1) both; }
+  -webkit-animation: stroke 0.9s cubic-bezier(0.65, 0, 0.35, 0.5) both;
+  animation: stroke 0.9s cubic-bezier(0.65, 0, 0.35, 0.5) both; }
 
 @media (max-width: 1120px) {
   .iOS .heroType3-content-line1 {
@@ -30005,48 +30013,23 @@ div.headingHero > div:nth-child(3) > div {
   0% {
     width: 0;
     position: relative;
-    top: -30px;
     opacity: 0; }
   100% {
-    width: 340px;
+    width: -webkit-max-content;
+    width: max-content;
     position: relative;
-    top: -30px;
     opacity: 1; } }
 
 @keyframes stroke {
   0% {
     width: 0;
     position: relative;
-    top: -30px;
     opacity: 0; }
   100% {
-    width: 340px;
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
     position: relative;
-    top: -30px;
-    opacity: 1; } }
-
-@-webkit-keyframes stroke-h {
-  0% {
-    height: 0;
-    position: relative;
-    top: -30px;
-    opacity: 0; }
-  100% {
-    height: 340px;
-    position: relative;
-    top: -30px;
-    opacity: 1; } }
-
-@keyframes stroke-h {
-  0% {
-    height: 0;
-    position: relative;
-    top: -30px;
-    opacity: 0; }
-  100% {
-    height: 340px;
-    position: relative;
-    top: -30px;
     opacity: 1; } }
 
 .mapsv2 .slideout {
