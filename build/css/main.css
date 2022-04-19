@@ -12732,6 +12732,8 @@ a:hover .icon-download:after {
   @media (min-width: 1024px) {
     .people-grid {
       padding: 80px 0 0; } }
+  .people-grid .council {
+    padding: 0px 20px 80px; }
 
 .people-grid__list {
   list-style: none;
