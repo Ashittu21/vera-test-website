@@ -12733,7 +12733,7 @@ a:hover .icon-download:after {
     .people-grid {
       padding: 80px 0 0; } }
   .people-grid .council {
-    padding: 0px 20px 80px; }
+    padding: 0px 20px 80px !important; }
 
 .people-grid__list {
   list-style: none;
@@ -14547,7 +14547,8 @@ a:hover .icon-download:after {
     border-color: #ef4136; }
 
 .contact-form-map {
-  background: #f3f3f2;
+  background-color: #fff7f0;
+  /* $lt-gray;*/
   padding: 40px 0; }
   @media (min-width: 1024px) {
     .contact-form-map {
