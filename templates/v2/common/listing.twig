@@ -15,6 +15,19 @@
               <div class="block-listing-item-title">
                 <p>{{ statsItem.title }}</p>
               </div>
+
+
+              {% if statsItem.type.handle in ['publicationOverview','publicationDocumentd'] %}
+                            <div> {{ subtitle }}</div>
+                            {% else %}
+                             
+                            {% endif %}
+                                            
+
+
+
+
+
               <div class="block-listing-item-date">
               {% if statsItem.type.name == 'News' %}
                <span class="txt-underline">{{ statsItem.newsSource.one().title }}</span>
