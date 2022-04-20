@@ -30770,6 +30770,8 @@ div.headingHero > div:nth-child(3) > div {
         -webkit-transition: background-size .9s;
         transition: background-size .9s;
         display: initial; }
+    .block-listing-content .block-listing-item-subtitle {
+      margin-top: 10px; }
     .block-listing-content .block-listing-item-date {
       margin-top: 10px;
       font-family: var(--global-font-abc-whyte);
