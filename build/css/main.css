@@ -26701,7 +26701,7 @@ button.SortableTable-header-column-button {
       height: 10px;
       -webkit-transform: rotate(45deg);
       transform: rotate(45deg);
-      border: 2px solid #231f20;
+      border: 2px solid var(--global-color-mint);
       border-left: 0;
       border-top: 0;
       -webkit-transition: transform 0.25s cubic-bezier(0.19, 0.11, 0.21, 0.99);
@@ -39515,13 +39515,23 @@ header {
       color: var(--global-color-text); }
   .search-stream .search-module {
     color: #FFF;
+    font-size: 17px !important;
+    line-height: 23.8px;
+    font-weight: 400;
+    font-family: var(--global-font-abc-whyte);
     width: 100%; }
     .search-stream .search-module:hover {
       color: var(--global-color-mint); }
     .search-stream .search-module .search-module__label {
-      color: var(--global-color-mint); }
+      color: var(--global-color-mint);
+      letter-spacing: .13em !important; }
     .search-stream .search-module .text-outer {
       color: #FFF; }
+      .search-stream .search-module .text-outer h3 {
+        font-size: 17px !important;
+        line-height: 23.8px;
+        font-weight: 500;
+        font-family: var(--global-font-abc-whyte); }
   .search-stream #load_more_btn {
     color: #FFF;
     border: 1px solid var(--global-color-mint); }

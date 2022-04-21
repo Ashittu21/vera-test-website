@@ -129,7 +129,7 @@
             width: 10px;
             height: 10px;
             @include transform(rotate(45deg));
-            border: 2px solid $black;
+            border: 2px solid var(--global-color-mint); //$black;
             border-left: 0;
             border-top: 0;
             @include transition(transform 0.25s $ease-nice);

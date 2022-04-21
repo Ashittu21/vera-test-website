@@ -69,16 +69,27 @@
 
   .search-module{
     color: #FFF;
+    font-size: 17px !important;
+    line-height: 23.8px;
+    font-weight: 400;
+    font-family: var(--global-font-abc-whyte);
     width: 100%;
     
     &:hover{
-      color: var(--global-color-mint);;
+      color: var(--global-color-mint);
     }
     .search-module__label{
-      color: var(--global-color-mint);;
+      color: var(--global-color-mint);
+      letter-spacing: .13em !important;
     }
     .text-outer{
       color: #FFF;
+      h3{
+        font-size: 17px !important;
+        line-height: 23.8px;
+        font-weight: 500;
+        font-family: var(--global-font-abc-whyte);
+      }
     }
   }
 
