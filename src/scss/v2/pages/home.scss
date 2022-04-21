@@ -195,18 +195,6 @@
 }
 
 
-/*
-.home .headTitle-content--small{
-  padding-top: 0;
-}*/
-
-.home .latestNews-hero-copy-title {
-  margin-top: 20px !important;
-  margin-bottom: 42px !important;
-  @media(max-width:$mobile-breakpoint){
-    margin-bottom: 30px !important;
-  }
-}
 
 .home .heroType2-title {
   margin-top: 184px;
@@ -225,6 +213,10 @@
     }
   }
   
+  .latestNews-hero-copy-title {
+    margin-top: 20px !important;
+    margin-bottom: 42px !important;
+  }
 
   .sideItems-item-title{
     @media(max-width:$mobile-breakpoint){

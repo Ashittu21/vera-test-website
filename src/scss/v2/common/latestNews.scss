@@ -145,10 +145,10 @@
             margin-bottom: 40px;
 
             h4 {
-              font-size: 45px;
+              font-size: 35px;
               font-style: normal;
               font-weight: 700;
-              line-height: 115%;
+              line-height: 42px;
               letter-spacing: 0em;
               text-align: left;
               margin: 0;
@@ -162,9 +162,9 @@
               display: initial;
               color: #fff;
 
-              @media (max-width: $tablet-landscape) {
-                font-size: 35px;
-                line-height: 42px;
+              @media (max-width: $mobile-breakpoint) {
+                font-size: 26px;
+                line-height: 31.98px;
               }
 
               &:hover {
@@ -449,13 +449,13 @@
               }
             }
 
-            .latestNews-hero-copy {
+           /* .latestNews-hero-copy {
               &-title {
                 .h4 {
                   font-size: 35px;
                 }
               }
-            }
+            }*/
 
             .latestNews-hero-image {
               height: 344px;
@@ -518,6 +518,7 @@
                 font-weight: normal;
                 font-size: 11px;
                 margin-bottom: 20px;
+                letter-spacing: 0.17rem;
               }
 
               &-title {
