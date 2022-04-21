@@ -166,7 +166,6 @@
           }
         }
 
-
       }
 
       &-cta {
@@ -196,14 +195,10 @@
 }
 
 
-.home .separator.left-aligned::before {
-  display: none;
-}
-
+/*
 .home .headTitle-content--small{
   padding-top: 0;
-  padding-bottom: 0;
-}
+}*/
 
 .home .latestNews-hero-copy-title {
   margin-top: 20px !important;
@@ -219,38 +214,68 @@
   z-index: 1;
 }
 
-.home .heroType2-content{
+
+
+
+.home{
+
+  .latestNews-hero-copy{
+    @media(max-width:$mobile-breakpoint){
+      padding-bottom: 18px;
+    }
+  }
+  
+
+  .sideItems-item-title{
+    @media(max-width:$mobile-breakpoint){
+      padding-top: 2px;
+    }
+  }
+
+  .home-content-item {
+    padding-top: 76px;
+    padding-bottom: 87px;
+  }
+
+  .headTitle-content .headTitle-title .separator {
+    margin-top: 90px;
+  }
+
+  .block-latestNews {
+
+    @media(max-width:$mobile-breakpoint){
+      padding-bottom: 20px;
+      padding-top: 0;
+    }
+
+    .block-latestNews-content{
+      .latestNews-items{
+        padding-top: 0px;
+        a {
+          &:first-child{
+            @media(max-width:$mobile-breakpoint){
+              margin: 7px 12px 20px 12px;
+            }
+          }
+        }
+        .latestNews-item-category{
+          p {
+            margin: 18px 0 18px 30px;
+          }
+        } 
+      } 
+    }
+  }
+}
+
+
+.home .heroType2-content {
   margin-top: -90px;
   padding: 48px;
   padding-bottom: 110px;
   position: relative;
   z-index: 1;
-}
 
-.home .latestNews-hero-copy{
-  @media(max-width:$mobile-breakpoint){
-    padding-bottom: 18px;
-  }
-}
-
-.home .sideItems-item-title{
-  @media(max-width:$mobile-breakpoint){
-    padding-top: 2px;
-  }
- 
-}
-
-.home .home-content-item {
-  padding-top: 76px;
-  padding-bottom: 87px;
-}
-
-.home .block-latestNews {
-  @media(max-width:$mobile-breakpoint){
-    padding-bottom: 20px;
-  }
-}
-.home .heroType2-content {
   @media(max-width:$mobile-breakpoint){
     margin-top: -96px;
     padding: 29px;
@@ -279,12 +304,13 @@
   }
 }
 
-.home .heroType2-title {
-  @media(max-width:$mobile-breakpoint){
-    margin-bottom: 60px;
-    margin-left: 15px;
+.home {
+  .heroType2-title {
+    @media(max-width:$mobile-breakpoint){
+      margin-bottom: 60px;
+      margin-left: 15px;
+    }
   }
-
 }
 
 .home .latestNews-hero-container{
@@ -301,13 +327,7 @@
 }
 
 
-.home .headTitle-content .headTitle-title .separator {
-  margin-top: 90px;
-}
 
-.home .block-latestNews-content .latestNews-items .latestNews-item-category p {
-  margin: 18px 0 18px 30px;
-}
 
 .home .latestNews-item-copy-title{
   margin-top: 8px;
