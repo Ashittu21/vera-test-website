@@ -14,7 +14,7 @@
           <ul class="top-left-menu clicky-menu no-js">
             {% for node in navigationTop.level(1).all() %}
               {% if node.hasDescendants() %}
-                <li>
+                <li {% if node.navigation_MobileDisabled %}class="hideOnMobile"{% endif %}>
             
                   <a {{ node.navigationMain_linkField.getLinkAttributes() }}>
                    <div class="textWrap">{{ node.title }}<div class="textWrap-icon"></div></div>
@@ -23,7 +23,7 @@
                     {% set nodeSubs = node.getChildren() %}
                     {% for nodeSub in nodeSubs.all() %}
                     
-                      <li  {% if nodeSub.navigation_MobileDisabled %}class="hide"{% endif %}>
+                      <li  {% if nodeSub.navigation_MobileDisabled %}class="hideOnMobile"{% endif %}>
                         <a {{ nodeSub.navigationMain_linkField.getLinkAttributes() }}>
                           <span class="subItemWrap">{{ nodeSub.title }}</span>
                         </a>

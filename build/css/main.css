@@ -29039,6 +29039,10 @@ body.color-combo--lightGrayGradient-black {
 .d-none {
   display: none !important; }
 
+@media (max-width: 768px) {
+  .hideOnMobile {
+    display: none !important; } }
+
 body.nav-pad:not(.no-pad) {
   padding-top: 0px; }
 
