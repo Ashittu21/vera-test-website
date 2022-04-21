@@ -14469,12 +14469,10 @@ a:hover .icon-download:after {
           flex-flow: row nowrap; } }
   .search-module .search-module__label {
     display: block;
-    font-size: 10px;
-    font-size: 1rem;
-    font-family: 'ABC Whyte';
+    font-size: 11px;
     text-transform: uppercase;
     color: #a3a3a3;
-    letter-spacing: 0.1mm;
+    letter-spacing: .13em;
     margin-bottom: 20px; }
   .search-module h3 span.sub {
     line-height: 1.5; }
@@ -39538,8 +39536,7 @@ header {
     .search-stream .search-module:hover {
       color: var(--global-color-mint); }
     .search-stream .search-module .search-module__label {
-      color: var(--global-color-mint);
-      letter-spacing: .13em !important; }
+      color: var(--global-color-mint); }
     .search-stream .search-module .text-outer {
       color: #FFF; }
       .search-stream .search-module .text-outer h3 {
