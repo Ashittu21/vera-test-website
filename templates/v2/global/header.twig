@@ -15,17 +15,20 @@
             {% for node in navigationTop.level(1).all() %}
               {% if node.hasDescendants() %}
                 <li>
+            
                   <a {{ node.navigationMain_linkField.getLinkAttributes() }}>
                    <div class="textWrap">{{ node.title }}<div class="textWrap-icon"></div></div>
                   </a>
                   <ul>
                     {% set nodeSubs = node.getChildren() %}
                     {% for nodeSub in nodeSubs.all() %}
-                      <li>
+                    
+                      <li  {% if nodeSub.navigation_MobileDisabled %}class="hide"{% endif %}>
                         <a {{ nodeSub.navigationMain_linkField.getLinkAttributes() }}>
                           <span class="subItemWrap">{{ nodeSub.title }}</span>
                         </a>
                       </li>
+                     
                     {% endfor %}
                   </ul>
                 </li>
