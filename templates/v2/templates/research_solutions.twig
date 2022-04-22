@@ -1,13 +1,20 @@
 {% extends '_layout' %}
 {% block content %}
-{#
- 
-#}
+
 {% set filterSection     = craft.app.request.getQueryParam('section') %}
 {% set filterOrder       = craft.app.request.getQueryParam('order') %}
 
 {% set filterStartYear   = craft.app.request.getQueryParam('startYear') ?? "1969"|date('Y') %}
 {% set filterEndYear     = craft.app.request.getQueryParam('endYear') ?? "now"|date('Y') %}
+
+{{ dump(filterStartYear) }}
+{{ dump(filterEndYear) }}
+
+{% if filterStartYear is same as "" %} {% set filterStartYear = "1969"|date('Y') %} {% endif %}
+{% if filterEndYear is same as "" %} {% set filterEndYear = "now"|date('Y') %} {% endif %}
+
+{{ dump(filterStartYear) }}
+{{ dump(filterEndYear) }}
 
 {% set yearStart = (filterStartYear ~ '-01-01')|atom %}
 {% set yearEnd = (filterEndYear ~ '-12-31')|atom %}
@@ -328,6 +335,10 @@
 
 
 
+
+
+
+
     <section class="rs-listing">
       <div class="rs-listing-content">
         {% if entry.newsHero_article|length %}
@@ -555,7 +566,7 @@ sortMobile.addEventListener('click', function (event) {
  rsForm.classList.toggle('show');
  window.scrollTo({ top: 0, behavior: 'smooth' });
  html.classList.toggle('overflowHidden');
- console.log('1');
+ console.log('2');
 
 });
 
@@ -671,10 +682,8 @@ $("input[type='checkbox'].location_checkbox").change(function() {
 $('.ctaSearch').click(function(e) {
 
   var sections = [];
-  var dateRangeInput = document.getElementById('slider').value;
-  var dateRange = dateRangeInput.split(',');
-  var startYear = dateRange[0];
-  var endYear   = dateRange[1];
+  var startYear  = document.getElementById('dateStart').value;
+  var endYear  = document.getElementById('dateEnd').value;
 
   $(".section_checkbox:checked").each(function() {
     sections.push(this.value);
@@ -725,61 +734,64 @@ $('.ctaSearch').click(function(e) {
 
 function initOrderBy() {
 
-  var dateRangeInput = document.getElementById('slider').value;
-  var dateRange = dateRangeInput.split(',');
-  var startYear = dateRange[0];
-  var endYear   = dateRange[1];
-
-  const orderBy = document.querySelectorAll('.orderby');
+  var startYear  = document.getElementById('dateStart').value;
+  var endYear  = document.getElementById('dateEnd').value;
+  var orderBy = document.querySelectorAll('.orderby');
     
     orderBy.forEach(function(orderSelect) {
+
     orderSelect.addEventListener('change', function(event) {
+   
       var sections = [];
-  $(".section_checkbox:checked").each(function() {
-    sections.push(this.value);
-  });
+      $(".section_checkbox:checked").each(function() {
+        sections.push(this.value);
+      });
 
-  if (sections.length == 0) {
-    $(".section_checkbox").each(function() {
-      sections.push(this.value);
-    });
-    var nosectionrelation = true;
-  }
+      if (sections.length == 0) {
+        $(".section_checkbox").each(function() {
+          sections.push(this.value);
+        });
+        var nosectionrelation = true;
+      }
 
+      var varSections = JSON.stringify(sections);
+          varSections = varSections.replace('[', '');
+          varSections = varSections.replace(']', '');
+          varSections = varSections.replaceAll('"', '');
   
-  
-  var relations = [];
-  $(".relation_checkbox:checked").each(function() {
-    relations.push({
-      id: this.value,
-      type: this.dataset.type,
-      category: this.dataset.category,
+      var relations = [];
+      $(".relation_checkbox:checked").each(function() {
+        relations.push({
+          id: this.value,
+          type: this.dataset.type,
+          category: this.dataset.category,
+        });
+      });
+
+      var varRelations = JSON.stringify(relations);
+          varRelations = varRelations.replace('[', '');
+          varRelations = varRelations.replace(']', '');
+
+
+
+      var locations = [];
+      $(".location_checkbox:checked").each(function() {
+        locations.push({
+          id: this.value,
+          type: this.dataset.type,
+          category: this.dataset.category,
+        });
+      });
+      var varLocations = JSON.stringify(locations);
+          varLocations = varLocations.replace('[', '');
+          varLocations = varLocations.replace(']', '');
+
+      query = 'startYear='+startYear+'&endYear='+endYear+'&sections=' + varSections +'&locations=' +varLocations+ '&relations=' + varRelations+'&order=' + this.value;
+      window.location.search = query;
+
     });
   });
 
-  var varRelations = JSON.stringify(relations);
-      varRelations = varRelations.replace('[', '');
-      varRelations = varRelations.replace(']', '');
-
-
-
-  var locations = [];
-  $(".location_checkbox:checked").each(function() {
-    locations.push({
-      id: this.value,
-      type: this.dataset.type,
-      category: this.dataset.category,
-    });
-  });
-  var varLocations = JSON.stringify(locations);
-      varLocations = varLocations.replace('[', '');
-      varLocations = varLocations.replace(']', '');
-
-
-  query = 'startYear='+startYear+'&endYear='+endYear+'&sections=' + varSections +'&locations=' +varLocations+ '&relations=' + varRelations;
-  window.location.search = query;
-    });
-  });
 }
 
 
@@ -792,26 +804,38 @@ document.addEventListener("DOMContentLoaded", function() {
   $(".dropdown-text-section").html('Resource Type (' + totalSection + ')');
 
 
-   /*$('#clearall').click(function(event) {
-      $('.option').prop('checked', false);
-      var optionSelected = [];
-      $(".dropdown-text-relations").html('Select topic');
-      $("#searchTags").html('');
-      $(".dropdown-text-section").html('Select resource type');
-      event.preventDefault();
-   });*/
 
 
+const dateStartInput = document.getElementById('dateStart');
+const datepickerStart = new Datepicker(dateStartInput, {
+      autohide: true,
+      daysOfWeekDisabled: [],
+      daysOfWeekHighlighted: [],
+      pickLevel: 2,
+      format: 'yyyy',
+      defaultViewDate: '1969',
+      minDate: '1969',
+      nextArrow: '>>',
+      prevArrow: '<<',
+      todayBtn: false,
+      todayBtnMode: 1,
+      todayHighlight: true
+}); 
 
-  var rslider = new rSlider({
-      target: '#slider',
-      values: [{% spaceless %}{% for year in (1969..2022) %}{{ year }}, {% endfor %}{% endspaceless %}],
-      range: true,
-      set: [{{filterStartYear}}, {{ filterEndYear }}],
-      onChange: function (vals) {
-          console.log(vals);
-      }
-});
+const dateStartEnd = document.getElementById('dateEnd');
+const datepickerEnd = new Datepicker(dateStartEnd, {
+      autohide: true,
+      daysOfWeekDisabled: [],
+      daysOfWeekHighlighted: [],
+      pickLevel: 2,
+      format: 'yyyy',
+      maxDate:'today',
+      nextArrow: '>>',
+      prevArrow: '<<',
+      todayBtn: false,
+      todayBtnMode: 1,
+      todayHighlight: true
+}); 
      
 });
 </script>

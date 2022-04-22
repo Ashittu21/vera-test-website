@@ -133,17 +133,33 @@
 
 
 
-<div class="slider-container">
+<div class="date-container">
   <label class="dateRange searchLabel">Date Range</label>
-  <div class="sliderItem">
-    <div class="sliderTrack">
-      <input type="text" id="slider" class="slider" value="{% if filterStartYear %}{{ filterStartYear }}{% else %}1969{% endif %},{{ filterEndYear }}" />
-    </div>
+
+
+
+  <div class="date-container-form">
+
+      <div class="date-container-inputs">
+        <input type="text" id="dateStart" placeholder="Start year" name="dateStart">
+        <span>to</span>
+        <input type="text" id="dateEnd" placeholder="End year" name="dateEnd"> 
+      </div>
+      
     <div class="sliderButton">
       <button class="ctaSearch"></button>
     </div>
   </div>
+
+
+
+
+
+<!--
+  <input type="text" id="slider" class="slider" value="{% if filterStartYear %}{{ filterStartYear }}{% else %}1969{% endif %},{{ filterEndYear }}" />
+-->
 </div>
+
 
 
 
