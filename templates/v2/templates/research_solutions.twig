@@ -7,14 +7,8 @@
 {% set filterStartYear   = craft.app.request.getQueryParam('startYear') ?? "1969"|date('Y') %}
 {% set filterEndYear     = craft.app.request.getQueryParam('endYear') ?? "now"|date('Y') %}
 
-{{ dump(filterStartYear) }}
-{{ dump(filterEndYear) }}
-
 {% if filterStartYear is same as "" %} {% set filterStartYear = "1969"|date('Y') %} {% endif %}
 {% if filterEndYear is same as "" %} {% set filterEndYear = "now"|date('Y') %} {% endif %}
-
-{{ dump(filterStartYear) }}
-{{ dump(filterEndYear) }}
 
 {% set yearStart = (filterStartYear ~ '-01-01')|atom %}
 {% set yearEnd = (filterEndYear ~ '-12-31')|atom %}
