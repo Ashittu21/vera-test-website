@@ -256,6 +256,12 @@
           }
         } 
       } 
+      &.hasLink{
+        .latestNews-items-link{
+          padding-top: 55px;
+          padding-bottom: 66px;
+        }
+      }
     }
   }
 }

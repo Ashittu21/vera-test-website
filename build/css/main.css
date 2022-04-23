@@ -29481,6 +29481,17 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
     width: 80%;
     margin-bottom: 20px; } }
 
+.date-container .searchLabel {
+  color: white;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 14px;
+  letter-spacing: 0em;
+  text-align: left;
+  margin-bottom: 13px;
+  font-family: var(--global-font-abc-whyte); }
+
 .date-container-form {
   background: #2E1D97;
   height: 44px;
@@ -29656,7 +29667,8 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
     .date-container-form {
       -webkit-box-pack: start;
           -ms-flex-pack: start;
-              justify-content: flex-start; } }
+              justify-content: flex-start;
+      max-width: 100%; } }
   .date-container-form .date-container-inputs input[type=text] {
     background-color: #1f0f65;
     cursor: pointer;
@@ -29715,6 +29727,8 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
           background-color: #abffeb;
           color: #1f0f65;
           font-weight: bold; }
+        .date-container-form .date-container-inputs .datepicker-picker .datepicker-main .datepicker-view .datepicker-cell.disabled {
+          color: #7d7d7d; }
         .date-container-form .date-container-inputs .datepicker-picker .datepicker-main .datepicker-view .datepicker-cell.prev:not(.disabled), .date-container-form .date-container-inputs .datepicker-picker .datepicker-main .datepicker-view .datepicker-cell.next:not(.disabled) {
           color: #FFF;
           font-weight: bold; }
@@ -38246,6 +38260,10 @@ header {
       margin: 7px 12px 20px 12px; } }
   .home .block-latestNews .block-latestNews-content .latestNews-items .latestNews-item-category p {
     margin: 18px 0 18px 30px; }
+
+.home .block-latestNews .block-latestNews-content.hasLink .latestNews-items-link {
+  padding-top: 55px;
+  padding-bottom: 66px; }
 
 .home .heroType2-content {
   margin-top: -90px;

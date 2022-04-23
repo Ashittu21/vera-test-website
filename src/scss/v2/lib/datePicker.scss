@@ -5,7 +5,17 @@
     width: 80%;
     margin-bottom: 20px;
   }
-
+  .searchLabel{
+    color: white;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 14px;
+    letter-spacing: 0em;
+    text-align: left;
+    margin-bottom: 13px;
+    font-family: var(--global-font-abc-whyte);
+  }
 }
 .date-container-form {
   background: #2E1D97;
@@ -19,6 +29,7 @@
 
   @media(max-width:$mobile-breakpoint){
     justify-content: flex-start;
+    max-width: 100%;
   }
 
   .date-container-inputs {
@@ -80,6 +91,10 @@
               background-color: #abffeb;
               color: #1f0f65;
               font-weight: bold;
+            }
+
+            &.disabled{
+              color: #7d7d7d;
             }
 
             &.prev:not(.disabled),
