@@ -32619,7 +32619,7 @@ div.headingHero > div:nth-child(3) > div {
       font-style: normal;
       font-weight: 700;
       line-height: 42px;
-      letter-spacing: 0em;
+      letter-spacing: 0rem;
       text-align: left;
       overflow: hidden; }
       @media (max-width: 1024px) {
@@ -32630,7 +32630,7 @@ div.headingHero > div:nth-child(3) > div {
         content: '';
         display: table-cell;
         position: relative;
-        top: 0.55em;
+        top: 0.55rem;
         width: 100%; }
       .block-latestNews-content .latestNews-title:after {
         left: 1.5%; }
@@ -38262,7 +38262,7 @@ header {
 
 .home .block-latestNews .block-latestNews-content.hasLink .latestNews-items-link {
   padding-top: 55px;
-  padding-bottom: 66px; }
+  padding-bottom: 77px; }
 
 .home .heroType2-content {
   margin-top: -90px;
