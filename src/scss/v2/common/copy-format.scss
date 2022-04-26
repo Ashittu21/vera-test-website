@@ -36,7 +36,11 @@ p {
 
 
 figure+h5 {
-  margin-top: 6rem;
+  margin-top: 40px !important;
+  padding: 0;
+}
+figure+p {
+  margin-top: 40px !important;
   padding: 0;
 }
 

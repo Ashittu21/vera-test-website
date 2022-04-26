@@ -31210,7 +31210,10 @@ div.headingHero > div:nth-child(3) > div {
         .copy-block-container .copy-block-content p {
           display: inline-block; } }
     .copy-block-container .copy-block-content figure + h5 {
-      margin-top: 6rem;
+      margin-top: 40px !important;
+      padding: 0; }
+    .copy-block-container .copy-block-content figure + p {
+      margin-top: 40px !important;
       padding: 0; }
     .copy-block-container .copy-block-content p + figure {
       padding-top: 30px; }
@@ -31524,10 +31527,6 @@ div.headingHero > div:nth-child(3) > div {
   .copy-block-content figure + p {
     margin-top: 40px; } }
 
-/* .copy-block-container .copy-block-content p {
-  margin-top: 50px;
-  margin-bottom: 30px;
-} */
 .formBuilder_v2 {
   width: 100%;
   max-width: 1280px;
