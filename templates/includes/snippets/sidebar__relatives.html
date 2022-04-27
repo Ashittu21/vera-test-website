@@ -27,7 +27,7 @@
 {% endif %}
 
 {%- if relatives|length %}
-	<article class="sidebar__{{ relativeType }} sidebar_module">
+{#	<article class="sidebar__{{ relativeType }} sidebar_module">
 		<h5 class="sidebar__label">{{ relativeTitle }}</h5>
 		<ul class="{{ sidebar_class }}">
 			{% for relative in relatives %}
@@ -52,4 +52,5 @@
 			{% endfor %}
 		</ul>
 	</article>
+	#}
 {% endif -%}
