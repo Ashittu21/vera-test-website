@@ -81,6 +81,24 @@
           </div>
         </div>
       <!-- END Hero Block -->   
+
+      <!-- Explore More -->
+      {% if entry.exploreMore is defined %}
+        {% if entry.exploreMore|length %}
+          <div class="exploreLinks">
+          <div class="exploreLinks-container">
+            <div class="exploreLinks-container-items">
+            <div class="exploreLinks-container-items-title">Explore More:</div>
+              {% for exploreItem in entry.exploreMore %}
+                  <a href="{{ exploreItem.url }}">{{ exploreItem.title }}</a> <span>//</span>
+              {% endfor %}
+            </div>
+            </div>
+          </div>
+        {% endif %}
+      {% endif %}
+      <!-- Explore More -->
+
     {% default %}
       <!-- Hero Block -->
           <div class="heroType1-container"  {% if entry.contentDetail_heroImage.first != "" %}style="background-image: url('{{ entry.contentDetail_heroImage.first.url }}');"{% endif %}>
@@ -115,20 +133,7 @@
 
 
 
-    {% if entry.exploreMore is defined %}
-       {% if entry.exploreMore|length %}
-        <div class="exploreLinks">
-         <div class="exploreLinks-container">
-          <div class="exploreLinks-container-items">
-          <div class="exploreLinks-container-items-title">Explore More:</div>
-            {% for exploreItem in entry.exploreMore %}
-                <a href="{{ exploreItem.url }}">{{ exploreItem.title }}</a> <span>//</span>
-            {% endfor %}
-          </div>
-          </div>
-        </div>
-       {% endif %}
-    {% endif %}
+
 
 
 
