@@ -25,13 +25,15 @@
 			<form class="block-signup-form" id="signUp-form" onsubmit="return validation(event)">
 				<input type="email" id="emailSignUp" placeholder="Email Address*">
 				<button href="#" class="theButton">
-					<span>I’m in!<div class="theArrow"></div></span>
+					<span>{% if block.signUp_button|length > 0 %}{{ block.signUp_button }}{% else %}I’m in!{% endif %}<div class="theArrow"></div></span>
 				</button>
 			</form>
 
 			<div id="error-email"></div>
 		</div>
 
+
+   
 		
 		<div class="block-signup-left send-msg" style="display: none;" id="send">
 			<div class="block-signup-title">
