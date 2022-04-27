@@ -29008,11 +29008,13 @@ body.color-combo--lightGrayGradient-black {
 * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: subpixel-antialiased !important;
   font-smooth: always;
-  -webkit-font-smoothing: subpixel-antialiased; }
+  text-rendering: optimizeLegibility; }
 
-body {
-  -webkit-font-smoothing: subpixel-antialiased; }
+body * {
+  -webkit-font-smoothing: subpixel-antialiased !important;
+  text-rendering: optimizeLegibility; }
 
 .main-content {
   background-color: var(--global-color-sand);
