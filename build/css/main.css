@@ -32240,12 +32240,15 @@ div.headingHero > div:nth-child(3) > div {
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out; }
   .heroType2-title {
-    max-width: 727px;
+    max-width: 1280px;
     font-family: var(--global-font-sectra);
     color: #fff;
-    margin-left: 7vw;
+    margin-left: auto;
     margin-right: auto;
     font-size: 60px; }
+    @media (min-width: 1024px) {
+      .heroType2-title {
+        padding-right: 26vw; } }
     @media (max-width: 768px) {
       .heroType2-title {
         font-size: 38px;

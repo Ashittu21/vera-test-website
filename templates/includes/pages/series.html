@@ -12,10 +12,14 @@
 			{{ entry.overview }}
 		</div>
 		<div>
+		
+    {#
 			<h6>Action Areas</h6>
 			{% for actionArea in entry.relatedIssues %}
 				{% if actionArea.level == 2 %}{{ actionArea }}{% endif %}
 			{% endfor %}
+		#
+		}
 		</div>
 	</section>
 	<section>
