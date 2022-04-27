@@ -7,7 +7,8 @@
        url('../css/fonts/ABCWhyte-Regular.ttf') format('truetype'),
        url('../css/fonts/ABCWhyte-Regular.svg#ABCWhyte-Regular') format('svg');
   font-weight: normal;
-  font-style: normal;
+  //font-style: normal;
+  -webkit-font-smoothing: subpixel-antialiased;
   font-display: swap;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -22,11 +23,10 @@
        url('../css/fonts/ABCWhyte-RegularItalic.woff') format('woff'),
        url('../css/fonts/ABCWhyte-RegularItalic.ttf') format('truetype'),
        url('../css/fonts/ABCWhyte-RegularItalic.svg#ABCWhyte-RegularItalic') format('svg');
-  font-weight: normal;
+  //font-weight: normal;
+  -webkit-font-smoothing: subpixel-antialiased;
   font-style: italic;
   font-display: swap;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   font-smooth: always;
 }
 
@@ -40,10 +40,9 @@
        url('../css/fonts/ABCWhyte-Thin.ttf') format('truetype'),
        url('../css/fonts/ABCWhyte-Thin.svg#ABCWhyte-Thin') format('svg');
   font-weight: 100;
-  font-style: normal;
+  //font-style: normal;
+  -webkit-font-smoothing: subpixel-antialiased;
   font-display: swap;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   font-smooth: always;
 }
 //ABC Whyte Thin Italic
@@ -58,10 +57,12 @@
   font-weight: 100;
   font-style: italic;
   font-display: swap;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: subpixel-antialiased;
+  //-webkit-font-smoothing: antialiased;
+  //-moz-osx-font-smoothing: grayscale;
   font-smooth: always;
 }
+
 //ABC Whyte Extralight
 @font-face {
   font-family: 'ABC Whyte';
@@ -72,10 +73,11 @@
        url('../css/fonts/ABCWhyte-Extralight.ttf') format('truetype'),
        url('../css/fonts/ABCWhyte-Extralight.svg#ABCWhyte-Extralight') format('svg');
   font-weight: 200;
-  font-style: normal;
+  //font-style: normal;
+ -webkit-font-smoothing: subpixel-antialiased;
   font-display: swap;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  //-webkit-font-smoothing: antialiased;
+  //-moz-osx-font-smoothing: grayscale;
   font-smooth: always;
 }
 //ABC Whyte Extralight Italic
@@ -90,8 +92,8 @@
   font-weight: 200;
   font-style: italic;
   font-display: swap;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  //-webkit-font-smoothing: antialiased;
+  //-moz-osx-font-smoothing: grayscale;
   font-smooth: always;
 }
 //ABC Whyte Light
@@ -104,10 +106,9 @@
        url('../css/fonts/ABCWhyte-Light.ttf') format('truetype'),
        url('../css/fonts/ABCWhyte-Light.svg#ABCWhyte-Light') format('svg');
   font-weight: 300;
-  font-style: normal;
+  //font-style: normal;
+ -webkit-font-smoothing: subpixel-antialiased;
   font-display: swap;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   font-smooth: always;
 }
 //ABC Whyte Light Italic
@@ -122,8 +123,9 @@
   font-weight: 300;
   font-style: italic;
   font-display: swap;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: subpixel-antialiased;
+  //-webkit-font-smoothing: antialiased;
+  //-moz-osx-font-smoothing: grayscale;
   font-smooth: always;
 }
 //ABC Whyte Book
@@ -135,11 +137,12 @@
        url('../css/fonts/ABCWhyte-Book.woff') format('woff'),
        url('../css/fonts/ABCWhyte-Book.ttf') format('truetype'),
        url('../css/fonts/ABCWhyte-Book.svg#ABCWhyte-Book') format('svg');
-  font-weight: normal;
-  font-style: normal;
+  font-weight: 400;
+  //font-style: normal;
+ -webkit-font-smoothing: subpixel-antialiased;
   font-display: swap;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  //-webkit-font-smoothing: antialiased;
+  //-moz-osx-font-smoothing: grayscale;
   font-smooth: always;
 }
 //ABC Whyte Book Italic
@@ -154,8 +157,9 @@
   font-weight: normal;
   font-style: italic;
   font-display: swap;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: subpixel-antialiased;
+  //-webkit-font-smoothing: antialiased;
+  //-moz-osx-font-smoothing: grayscale;
   font-smooth: always;
 }
 //ABC Whyte Medium
@@ -168,10 +172,11 @@
       url('../css/fonts/ABCWhyte-Medium.ttf') format('truetype'),
       url('../css/fonts/ABCWhyte-Medium.svg#ABCWhyte-Medium') format('svg');
   font-weight: 500;
-  font-style: normal;
+  //font-style: normal;
+ -webkit-font-smoothing: subpixel-antialiased;
   font-display: swap;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  //-webkit-font-smoothing: antialiased;
+  //-moz-osx-font-smoothing: grayscale;
   font-smooth: always;
 }
 //ABC Whyte Medium Italic
@@ -186,8 +191,9 @@
   font-weight: 500;
   font-style: italic;
   font-display: swap;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: subpixel-antialiased;
+  //-webkit-font-smoothing: antialiased;
+  //-moz-osx-font-smoothing: grayscale;
   font-smooth: always;
 }
 //ABC Whyte Bold
@@ -200,10 +206,11 @@
       url('../css/fonts/ABCWhyte-Bold.ttf') format('truetype'),
       url('../css/fonts/ABCWhyte-Bold.svg#ABCWhyte-Bold') format('svg');
   font-weight: bold;
-  font-style: normal;
+  //font-style: normal;
+ -webkit-font-smoothing: subpixel-antialiased;
   font-display: swap;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  //-webkit-font-smoothing: antialiased;
+  //-moz-osx-font-smoothing: grayscale;
   font-smooth: always;
 }
 //ABC Whyte Bold Italic
@@ -218,8 +225,9 @@
   font-weight: bold;
   font-style: italic;
   font-display: swap;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: subpixel-antialiased;
+  //-webkit-font-smoothing: antialiased;
+  //-moz-osx-font-smoothing: grayscale;
   font-smooth: always;
 }
 //ABC Whyte Heavy
@@ -232,10 +240,11 @@
       url('../css/fonts/ABCWhyte-Heavy.ttf') format('truetype'),
       url('../css/fonts/ABCWhyte-Heavy.svg#ABCWhyte-Heavy') format('svg');
   font-weight: 800;
-  font-style: normal;
+  //font-style: normal;
+ -webkit-font-smoothing: subpixel-antialiased;
   font-display: swap;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  //-webkit-font-smoothing: antialiased;
+ // -moz-osx-font-smoothing: grayscale;
   font-smooth: always;
 }
 //ABC Whyte Heavy Italic
@@ -250,8 +259,8 @@
   font-weight: 800;
   font-style: italic;
   font-display: swap;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+ // -webkit-font-smoothing: antialiased;
+  //-moz-osx-font-smoothing: grayscale;
   font-smooth: always;
 }
 //ABC Whyte Black
@@ -264,10 +273,11 @@
       url('../css/fonts/ABCWhyte-Black.ttf') format('truetype'),
       url('../css/fonts/ABCWhyte-Black.svg#ABCWhyte-Black') format('svg');
   font-weight: 900;
-  font-style: normal;
+  //font-style: normal;
+ -webkit-font-smoothing: subpixel-antialiased;
   font-display: swap;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  //-webkit-font-smoothing: antialiased;
+ // -moz-osx-font-smoothing: grayscale;
   font-smooth: always;
 }
 //ABC Whyte Black Italic
@@ -281,8 +291,9 @@
       url('../css/fonts/ABCWhyte-BlackItalic.svg#ABCWhyte-BlackItalic') format('svg');
   font-weight: 900;
   font-style: italic;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  //-webkit-font-smoothing: antialiased;
+ // -moz-osx-font-smoothing: grayscale;
+ -webkit-font-smoothing: subpixel-antialiased;
   font-smooth: always;
   font-display: swap;
 }
@@ -296,10 +307,11 @@
       url('../css/fonts/ABCWhyte-Super.ttf') format('truetype'),
       url('../css/fonts/ABCWhyte-Super.svg#ABCWhyte-Super') format('svg');
   font-weight: 900;
-  font-style: normal;
+  //font-style: normal;
+ -webkit-font-smoothing: subpixel-antialiased;
   font-display: swap;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  //-webkit-font-smoothing: antialiased;
+  //-moz-osx-font-smoothing: grayscale;
   font-smooth: always;
 }
 //ABC Whyte Super Italic
@@ -314,8 +326,9 @@
   font-weight: 900;
   font-style: italic;
   font-display: swap;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: subpixel-antialiased;
+  //-webkit-font-smoothing: antialiased;
+  //-moz-osx-font-smoothing: grayscale;
   font-smooth: always;
 }
 
@@ -329,10 +342,11 @@
       url('../css/fonts/GTSectra-Book.ttf') format('truetype'),
       url('../css/fonts/GTSectra-Book.svg#GTSectra-Book') format('svg');
   font-weight: 300;
-  font-style: normal;
+  //font-style: normal;
+ -webkit-font-smoothing: subpixel-antialiased;
   font-display: swap;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  //-webkit-font-smoothing: antialiased;
+  //-moz-osx-font-smoothing: grayscale;
   font-smooth: always;
 }
 
@@ -347,8 +361,9 @@
   font-weight: 300;
   font-style: italic;
   font-display: swap;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: subpixel-antialiased;
+  //-webkit-font-smoothing: antialiased;
+  //-moz-osx-font-smoothing: grayscale;
   font-smooth: always;
 }
 
@@ -361,10 +376,11 @@
       url('../css/fonts/GTSectra-Medium.ttf') format('truetype'),
       url('../css/fonts/GTSectra-Medium.svg#GTSectra-Medium') format('svg');
   font-weight: 500;
-  font-style: normal;
+  //font-style: normal;
+ -webkit-font-smoothing: subpixel-antialiased;
   font-display: swap;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  //-webkit-font-smoothing: antialiased;
+  //-moz-osx-font-smoothing: grayscale;
   font-smooth: always;
 }
 
@@ -379,7 +395,8 @@
   font-weight: 500;
   font-style: italic;
   font-display: swap;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: subpixel-antialiased;
+  //-webkit-font-smoothing: antialiased;
+  //-moz-osx-font-smoothing: grayscale;
   font-smooth: always;
 }
