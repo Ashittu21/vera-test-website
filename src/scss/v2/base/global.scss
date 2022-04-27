@@ -24,8 +24,12 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-smooth: always;
+  -webkit-font-smoothing: subpixel-antialiased;
 }
 
+body{
+  -webkit-font-smoothing: subpixel-antialiased;
+}
 
 .main-content{
   background-color: var(--global-color-sand);
