@@ -24616,8 +24616,8 @@ body.state-of.covid-article {
   background-color: #231f20;
   padding: 1rem;
   font-size: 1.6rem;
-  -webkit-transform: translate(100%, 0);
-          transform: translate(100%, 0); }
+  -webkit-transform: translate(100vw);
+          transform: translate(100vw); }
   @media (max-width: 767px) {
     .initiatives .slideout {
       position: fixed;
@@ -24625,6 +24625,7 @@ body.state-of.covid-article {
       left: 0;
       z-index: 10001;
       width: 100%;
+      max-width: 100vw;
       min-width: 0;
       -webkit-box-sizing: border-box;
               box-sizing: border-box; } }
