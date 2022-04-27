@@ -38,7 +38,7 @@ return [
             'subLeft' => true,
         ],
 
-        'maxUploadFileSize' => 2e+8,
+        'maxUploadFileSize' => 20777216,
         
         'postLogoutRedirect' => '/itac',
     ],

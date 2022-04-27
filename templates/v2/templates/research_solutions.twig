@@ -729,64 +729,68 @@ $('.ctaSearch').click(function(e) {
 function initOrderBy() {
 
 
-  var startYear  = document.getElementById('dateStart').value;
-  var endYear  = document.getElementById('dateEnd').value;
+
 
   var orderBy = document.querySelectorAll('.orderby');
     
     orderBy.forEach(function(orderSelect) {
 
-    orderSelect.addEventListener('change', function(event) {
-   
-      var sections = [];
-      $(".section_checkbox:checked").each(function() {
-        sections.push(this.value);
-      });
+      orderSelect.addEventListener('change', function(event) {
+        var sections = [];
+        var startYear  = document.getElementById('dateStart').value;
+        var endYear  = document.getElementById('dateEnd').value;
 
-      if (sections.length == 0) {
-        $(".section_checkbox").each(function() {
+        $(".section_checkbox:checked").each(function() {
           sections.push(this.value);
         });
-        var nosectionrelation = true;
-      }
 
-      var varSections = JSON.stringify(sections);
-          varSections = varSections.replace('[', '');
-          varSections = varSections.replace(']', '');
-          varSections = varSections.replaceAll('"', '');
-  
-      var relations = [];
-      $(".relation_checkbox:checked").each(function() {
-        relations.push({
-          id: this.value,
-          type: this.dataset.type,
-          category: this.dataset.category,
+        if (sections.length == 0) {
+          $(".section_checkbox").each(function() {
+            sections.push(this.value);
+          });
+          var nosectionrelation = true;
+        }
+
+        var varSections = JSON.stringify(sections);
+            varSections = varSections.replace('[', '');
+            varSections = varSections.replace(']', '');
+            varSections = varSections.replaceAll('"', '');
+    
+        var relations = [];
+        $(".relation_checkbox:checked").each(function() {
+          relations.push({
+            id: this.value,
+            type: this.dataset.type,
+            category: this.dataset.category,
+          });
         });
-      });
 
-      var varRelations = JSON.stringify(relations);
-          varRelations = varRelations.replace('[', '');
-          varRelations = varRelations.replace(']', '');
-
+        var varRelations = JSON.stringify(relations);
+            varRelations = varRelations.replace('[', '');
+            varRelations = varRelations.replace(']', '');
 
 
-      var locations = [];
-      $(".location_checkbox:checked").each(function() {
-        locations.push({
-          id: this.value,
-          type: this.dataset.type,
-          category: this.dataset.category,
+
+        var locations = [];
+        $(".location_checkbox:checked").each(function() {
+          locations.push({
+            id: this.value,
+            type: this.dataset.type,
+            category: this.dataset.category,
+          });
         });
+        var varLocations = JSON.stringify(locations);
+            varLocations = varLocations.replace('[', '');
+            varLocations = varLocations.replace(']', '');
+
+            console.log(startYear);
+            console.log(endYear);
+
+        query = 'startYear='+startYear+'&endYear='+endYear+'&sections=' + varSections +'&locations=' +varLocations+ '&relations=' + varRelations+'&order=' + this.value;
+        window.location.search = query;
+
       });
-      var varLocations = JSON.stringify(locations);
-          varLocations = varLocations.replace('[', '');
-          varLocations = varLocations.replace(']', '');
-
-      query = 'startYear='+startYear+'&endYear='+endYear+'&sections=' + varSections +'&locations=' +varLocations+ '&relations=' + varRelations+'&order=' + this.value;
-      window.location.search = query;
-
     });
-  });
 
 }
 
