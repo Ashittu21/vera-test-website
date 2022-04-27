@@ -4,6 +4,9 @@
 
   {% set blocks  = entry.contentDetailBlocks %}
 
+
+
+{#
   <div class="heroType1-container"  style="background-image: url('{{ entry.contentDetail_heroImage.first.url }}');">
     <div class="heroType1-block-box">
       <div class="heroType1-block-box-content">
@@ -23,6 +26,94 @@
         </div>
       </div>
   </div>
+#}
+
+
+
+
+    {% switch entry.headerType %}
+    {% case  'simpleHeader' %}
+      <!-- Header Title -->
+        <section class="headTitle bgColor-darkviolet">
+          <div class="headTitle-content">
+            <div class="headTitle-breadcrumb">
+              {% if entry.level > 1 %}
+                  {% set bItems = entry.getAncestors()|length %}
+                  {% set bItemsPrev = bItems - 2 %}
+
+                  <a href="{{ siteUrl }}">HOME</a>
+                  {% for crumb in entry.getAncestors()[bItemsPrev:bItems] %}
+                    // {{ crumb.getLink() }} 
+                  {% endfor %}
+              {% else %}
+                <a href="{{ siteUrl }}">HOME</a>
+              {% endif %} 
+            </div>
+            <div class="headTitle-title">
+              <h3 class="separator left-aligned">
+              <span>{{ entry.contentDetail_heroTitle|striptags('p')|raw}}</span></h3>
+            </div>
+          </div>
+        </section>
+      <!-- Header Title -->
+    {% case  'headerWithImage' %}
+      <!-- Hero Block -->
+        <div class="heroType1-container"  {% if entry.contentDetail_heroImage.first != "" %}style="background-image: url('{{ entry.contentDetail_heroImage.first.url }}');"{% endif %}>
+          <div class="heroType1-block-box">
+            <div class="heroType1-block-box-content">
+                <div class="heroType1-block-breadcrumbs">
+                  {% if entry.level > 1 %}
+                      {% set bItems = entry.getAncestors()|length %}
+                      {% set bItemsPrev = bItems - 2 %}
+
+                      <a href="{{ siteUrl }}">HOME</a>
+                      {% for crumb in entry.getAncestors()[bItemsPrev:bItems] %}
+                        // {{ crumb.getLink() }} 
+                      {% endfor %}
+                  {% else %}
+                    <a href="{{ siteUrl }}">HOME</a> 
+                  {% endif %}  
+                </div>
+                <div class="heroType1-block-title">
+                  <h1>{{ entry.contentDetail_heroTitle }}</h1>
+                </div>
+            </div>
+          </div>
+        </div>
+      <!-- END Hero Block -->   
+    {% default %}
+      <!-- Hero Block -->
+          <div class="heroType1-container"  {% if entry.contentDetail_heroImage.first != "" %}style="background-image: url('{{ entry.contentDetail_heroImage.first.url }}');"{% endif %}>
+            <div class="heroType1-block-box">
+              <div class="heroType1-block-box-content">
+                  <div class="heroType1-block-breadcrumbs">
+                    {% if entry.level > 1 %}
+                        {% set bItems = entry.getAncestors()|length %}
+                        {% set bItemsPrev = bItems - 2 %}
+
+                        <a href="{{ siteUrl }}">HOME</a>
+                        {% for crumb in entry.getAncestors()[bItemsPrev:bItems] %}
+                          // {{ crumb.getLink() }} 
+                        {% endfor %}
+                    {% else %}
+                      <a href="{{ siteUrl }}">HOME</a> 
+                    {% endif %}  
+                  </div>
+                  <div class="heroType1-block-title">
+                    <h1>{{ entry.contentDetail_heroTitle }}</h1>
+                  </div>
+              </div>
+            </div>
+          </div>
+      <!-- END Hero Block -->   
+  {% endswitch %} 
+
+
+
+
+
+
+
 
     {% if entry.exploreMore is defined %}
        {% if entry.exploreMore|length %}
