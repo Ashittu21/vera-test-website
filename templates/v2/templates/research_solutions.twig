@@ -1,6 +1,7 @@
 {% extends '_layout' %}
 {% block content %}
 
+
 {% set filterSection     = craft.app.request.getQueryParam('section') %}
 {% set filterOrder       = craft.app.request.getQueryParam('order') %}
 
@@ -328,17 +329,12 @@
     </section>
 
 
-
-
-
-
-
     <section class="rs-listing">
-      <div class="rs-listing-content">
+      <div class="rs-listing-content ">
         {% if entry.newsHero_article|length %}
 
         {% set heroNews = entry.newsHero_article.one() %}
-        <div class="rs-listing-hero">
+        <div class="rs-listing-hero {% if craft.request.queryString|length > 1 %}d-none{% endif %}">
           <div class="rs-listing-hero-container">
             <div class="rs-listing-hero-image">
               <img src="{{ entry.newsHero_image.first.url }}" alt="">
