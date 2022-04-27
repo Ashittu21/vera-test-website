@@ -12,17 +12,11 @@
 <div class="hero-type4">
   <div class="hero-type4-content">
     <div class="hero-type4-content-copy">
-      <div class="hero-type4-content-breadcrumbs">
-        {% if entry.level > 1 %}
-          <a href="">HOME</a>
-          {% for crumb in entry.getAncestors() %}
-            //
-            {{ crumb.getLink() }}
-          {% endfor %}
-        {% else %}
-          <a href="">HOME</a>
-        {% endif %}
-      </div>
+
+           <div class="hero-type4-content-copy-breadcrumbs">
+           <a href="{{ siteUrl }}">HOME</a> // <a href="{{ siteUrl }}news-and-stories">NEWS AND STORIES</a>  // <a href="{{ siteUrl }}media-center">Media Center</a>
+          </div> 
+
 
       <h1>{{ entry.title }}</h1>
       <span class="subtitle">{{ entry.subtitle }}</span>
