@@ -34746,8 +34746,8 @@ div.headingHero > div:nth-child(3) > div {
       -webkit-box-pack: center;
           -ms-flex-pack: center;
               justify-content: center;
-      padding-top: 75px;
-      padding-bottom: 67px;
+      padding-top: 61px;
+      padding-bottom: 65px;
       -webkit-transition: all 0.2s ease-in-out;
       transition: all 0.2s ease-in-out;
       height: auto;
@@ -34830,7 +34830,7 @@ div.headingHero > div:nth-child(3) > div {
         font-weight: 500;
         line-height: 48px;
         letter-spacing: 0em;
-        margin-top: 47px;
+        margin-top: 30px;
         text-align: left; }
         @media (max-width: 768px) {
           .block-signup .block-signup-container .block-signup-left .block-signup-copy {
@@ -34839,7 +34839,7 @@ div.headingHero > div:nth-child(3) > div {
             line-height: 35px;
             margin-top: 25px; } }
       .block-signup .block-signup-container .block-signup-left .block-signup-form {
-        margin-top: 30px;
+        margin-top: 48px;
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
@@ -34855,6 +34855,8 @@ div.headingHero > div:nth-child(3) > div {
                 -ms-flex-direction: column;
                     flex-direction: column;
             margin-top: 66px; } }
+        .block-signup .block-signup-container .block-signup-left .block-signup-form .theButton {
+          margin-bottom: 8px; }
         .block-signup .block-signup-container .block-signup-left .block-signup-form .button.orange span {
           font-size: 28px;
           min-height: 50px;
@@ -34872,7 +34874,7 @@ div.headingHero > div:nth-child(3) > div {
           border-bottom: 2px solid var(--global-color-mint);
           font-family: var(--global-font-abc-whyte);
           margin-left: 0px;
-          margin-right: 10px;
+          margin-right: 40px;
           color: var(--global-color-white);
           width: 510px;
           font-size: 21px;
