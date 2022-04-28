@@ -79,6 +79,21 @@
                 </div>
             </div>
           </div>
+
+         {#  Image Attribution #}
+         {%- if entry.contentDetail_heroImage.first.attribution -%}
+          <div class="imageAttrib">
+		        <div class="imageAttrib-wrap">
+              {%- if entry.contentDetail_heroImage.first.attributionLink -%}
+                  <a href="{{ entry.contentDetail_heroImage.first.attributionLink }}" target="_blank"> {{- entry.contentDetail_heroImage.first.attribution -}}</a>
+              {%- else -%}
+                {{- entry.contentDetail_heroImage.first.attribution -}}
+              {%- endif -%}
+            </div>
+	        </div>
+          {%- endif -%}
+          {#  Image Attribution #}
+
         </div>
       <!-- END Hero Block -->   
 
@@ -122,6 +137,20 @@
                   </div>
               </div>
             </div>
+
+            {#  Image Attribution #}
+            {%- if entry.contentDetail_heroImage.first.attribution -%}
+              <div class="imageAttrib">
+                <div class="imageAttrib-wrap">
+                  {%- if entry.contentDetail_heroImage.first.attributionLink -%}
+                      <a href="{{ entry.contentDetail_heroImage.first.attributionLink }}" target="_blank"> {{- entry.contentDetail_heroImage.first.attribution -}}</a>
+                  {%- else -%}
+                    {{- entry.contentDetail_heroImage.first.attribution -}}
+                  {%- endif -%}
+                </div>
+              </div>
+              {%- endif -%}
+              {#  Image Attribution #}
           </div>
       <!-- END Hero Block -->   
   {% endswitch %} 
