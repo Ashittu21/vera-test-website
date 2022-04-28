@@ -89,7 +89,14 @@
 
           {%- if entry.heroType1_image.first.attribution -%}
           <div class="imageAttrib">
-		        <div class="imageAttrib-wrap">{{ entry.heroType1_image.first.attribution }}</div>
+		        <div class="imageAttrib-wrap">
+            {%- if entry.heroType1_image.first.attributionLink -%}
+            		<a href="{{ entry.heroType1_image.first.attributionLink }}" target="_blank"> {{- entry.heroType1_image.first.attribution -}}</a>
+            {%- else -%}
+              {{- entry.heroType1_image.first.attribution -}}
+            {%- endif -%}
+              
+            </div>
 	        </div>
           {%- endif -%}
           </div>
