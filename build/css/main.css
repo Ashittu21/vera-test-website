@@ -29363,11 +29363,12 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
         min-height: 60px; } }
 
 .button-donate {
+  width: 114px;
   font-family: var(--global-font-abc-whyte);
   font-size: 16px;
   font-weight: 500;
-  line-height: 33px;
-  padding: 10px 35px 10px 20px;
+  line-height: 38px;
+  padding: 10px 36px 9px 16px;
   color: #FFF;
   text-decoration: none;
   position: relative;
@@ -29386,7 +29387,7 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
     background-image: url("../img/v2/arrow.svg");
     background-repeat: no-repeat;
     background-size: inherit;
-    background-position: right 8px center; }
+    background-position: right 11px center; }
 
 .button-sand {
   border: 1px solid var(--global-color-dark-sand);
@@ -35825,7 +35826,7 @@ div.headingHero > div:nth-child(3) > div {
  * @link https://github.com/jonsuh/hamburgers
  */
 .hamburger {
-  padding: 14px 14px;
+  padding: 14px 11px;
   display: inline-block;
   cursor: pointer;
   -webkit-transition-property: opacity, -webkit-filter;
@@ -36880,6 +36881,10 @@ div.headingHero > div:nth-child(3) > div {
     -webkit-transform: rotate(-90deg);
             transform: rotate(-90deg); }
 
+.hamburger-box {
+  width: 40px;
+  height: 29px; }
+
 .header-v2-mobile {
   font-family: var(--global-font-abc-whyte); }
   @media (max-width: 992px) {
@@ -36910,8 +36915,10 @@ div.headingHero > div:nth-child(3) > div {
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex; }
-        .header-v2-mobile-row-container-button .hamburger.is-active {
-          background: #2E1D97; }
+        .header-v2-mobile-row-container-button .hamburger {
+          padding: 16px 11px 12px 11px !important; }
+          .header-v2-mobile-row-container-button .hamburger.is-active {
+            background: #2E1D97; }
         .header-v2-mobile-row-container-button .menuText {
           -webkit-transition: all 0.2s ease;
           transition: all 0.2s ease;
@@ -36919,7 +36926,8 @@ div.headingHero > div:nth-child(3) > div {
           font-size: 16px;
           font-style: normal;
           font-weight: 400;
-          line-height: 21px;
+          line-height: 16px;
+          margin-bottom: 2px;
           letter-spacing: 0em;
           text-align: left;
           display: -webkit-box;
