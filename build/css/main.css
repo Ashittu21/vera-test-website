@@ -31935,6 +31935,9 @@ div.headingHero > div:nth-child(3) > div {
           background-color: var(--global-color-light-violet);
           width: 100vw;
           height: 2px; }
+          @media (max-width: 700px) {
+            .headTitle-content .headTitle-title .separator:before {
+              bottom: 1.5rem; } }
 
 @-webkit-keyframes test-animation {
   from {

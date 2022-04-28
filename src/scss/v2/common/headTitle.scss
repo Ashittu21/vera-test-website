@@ -134,7 +134,11 @@
           background-color: var(--global-color-light-violet);
           width: 100vw;
           height: 2px;
+          @media (max-width: $mobile-large) {
+            bottom: 1.5rem;
+          }
         }
+
         @keyframes test-animation {
           from {
               width:0px;
