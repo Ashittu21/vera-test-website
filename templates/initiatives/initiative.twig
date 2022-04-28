@@ -54,6 +54,13 @@
                 </div>
             </div>
           </div>
+
+	        {%- if entry.heroType1_image.first.attribution -%}
+          <div class="imageAttrib">
+		        <div class="imageAttrib-wrap">{{ entry.heroType1_image.first.attribution }}</div>
+	        </div>
+          {%- endif -%}
+
         </div>
       <!-- END Hero Block -->   
     {% default %}
@@ -79,6 +86,12 @@
                   </div>
               </div>
             </div>
+
+          {%- if entry.heroType1_image.first.attribution -%}
+          <div class="imageAttrib">
+		        <div class="imageAttrib-wrap">{{ entry.heroType1_image.first.attribution }}</div>
+	        </div>
+          {%- endif -%}
           </div>
       <!-- END Hero Block -->   
   {% endswitch %} 

@@ -29117,6 +29117,36 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
     .mt {
       margin-top: 65px; } }
 
+.imageAttrib {
+  -webkit-writing-mode: vertical-rl;
+      -ms-writing-mode: tb-rl;
+          writing-mode: vertical-rl;
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+  white-space: nowrap;
+  left: calc(100% - 0rem);
+  -webkit-transform-origin: left bottom;
+          transform-origin: left bottom;
+  position: absolute;
+  line-height: 1rem;
+  padding-top: 0;
+  width: auto;
+  z-index: 40; }
+  @media (max-width: 768px) {
+    .imageAttrib {
+      display: none; } }
+  .imageAttrib .imageAttrib-wrap {
+    display: inline-block;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 11px 7px;
+    font-family: var(--global-font-abc-whyte);
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 14px;
+    letter-spacing: 0em;
+    text-align: center; }
+
 .copy-block-content h5 {
   font-size: 35px;
   margin-bottom: 45px; }
