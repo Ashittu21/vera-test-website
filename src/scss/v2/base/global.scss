@@ -161,16 +161,19 @@ h1,h2,h3,h4,h5{
 
 
 .imageAttrib {
+  -ms-writing-mode: tb-rl;
   writing-mode: vertical-rl;
   transform: rotate(180deg);
   white-space: nowrap;
   left: calc(100% - 0rem);
-  transform-origin: left bottom;
+  transform-origin: left top;
   position: absolute;
   line-height: 1rem;
   padding-top: 0;
-  width: auto;
+  width: min-content;
   z-index: 40;
+  top: calc(100% - 15px);
+  
   @media(max-width:$mobile-breakpoint) {
     display: none;
   }
