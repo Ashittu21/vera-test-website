@@ -32245,20 +32245,24 @@ div.headingHero > div:nth-child(3) > div {
   background-color: var(--global-color-sand);
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out; }
-  .heroType2-title {
+  .heroType2-container {
     max-width: 1280px;
-    font-family: var(--global-font-sectra);
-    color: #fff;
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 60px; }
-    @media (min-width: 1024px) {
-      .heroType2-title {
-        padding-right: 26vw; } }
-    @media (max-width: 768px) {
-      .heroType2-title {
-        font-size: 38px;
-        line-height: 115%; } }
+    margin: 0 auto;
+    width: 100%; }
+    .heroType2-container-title {
+      max-width: 727px;
+      font-family: var(--global-font-sectra);
+      color: #fff;
+      /*margin-left: auto;*/
+      margin-right: auto;
+      font-size: 60px;
+      /* @media (min-width:$tablet-landscape) {
+        padding-right: 26vw;
+      }*/ }
+      @media (max-width: 768px) {
+        .heroType2-container-title {
+          font-size: 38px;
+          line-height: 115%; } }
   .heroType2-image {
     background-color: #000;
     min-height: 695px;
