@@ -28340,12 +28340,7 @@ body.color-combo--lightGrayGradient-black {
     display: inline-block;
     color: #fff;
     background-color: rgba(0, 0, 0, 0.4);
-    padding: 0 0.5em;
-    max-height: 176px;
-    display: block;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis; }
+    padding: 0 0.5em; }
   .image-attribution .illustrative {
     font-style: italic; }
 
@@ -29153,7 +29148,12 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
     font-weight: 400;
     line-height: 14px;
     letter-spacing: 0em;
-    text-align: center; }
+    text-align: center;
+    max-height: 176px;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; }
 
 .copy-block-content h5 {
   font-size: 35px;

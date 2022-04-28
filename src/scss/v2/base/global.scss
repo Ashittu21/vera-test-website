@@ -173,7 +173,7 @@ h1,h2,h3,h4,h5{
   width: min-content;
   z-index: 40;
   top: calc(100% - 15px);
-  
+
   @media(max-width:$mobile-breakpoint) {
     display: none;
   }
@@ -189,6 +189,11 @@ h1,h2,h3,h4,h5{
     line-height: 14px;
     letter-spacing: 0em;
     text-align: center;
+    max-height: 176px;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 
   }
 
