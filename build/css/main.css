@@ -29154,6 +29154,8 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis; }
+    .imageAttrib .imageAttrib-wrap a {
+      color: #FFF; }
 
 .copy-block-content h5 {
   font-size: 35px;
