@@ -2,6 +2,7 @@
 <section class="block-exploreMore">
   <div class="block-exploreMore-container">
     <h5 class="block-exploreMore-title">{{ block.exploreMore_title }}</h5>
+    
       {% if block.exploreMore_articles|length %}
         <ul class="block-exploreMore-items">
           {% for exploreItem in block.exploreMore_articles %}
@@ -9,18 +10,18 @@
           {% set title = exploreItem.title %}
 
           {% switch exploreItem.type.handle %}
-   						{% case 'knowledgeNews' 
-               or 'knowledgeFundingOpportunity' 
-               or 'knowledgeEvent' 
-               or 'knowledgeWebsite' 
-               or 'knowledgePublication' 
-               or 'knowledgeBlog' 
-               or 'knowledgeVideo' 
-               or 'practiceAdvisory' 
-               or 'newslettersLegalUpdates' 
-               or 'skillsDevelopmentAndPracticeGuidance'
-               or 'referral'
-               or 'presentationSlides'
+   						{% case  'knowledgeNews' 
+                    or 'knowledgeFundingOpportunity' 
+                    or 'knowledgeEvent' 
+                    or 'knowledgeWebsite' 
+                    or 'knowledgePublication' 
+                    or 'knowledgeBlog' 
+                    or 'knowledgeVideo' 
+                    or 'practiceAdvisory' 
+                    or 'newslettersLegalUpdates' 
+                    or 'skillsDevelopmentAndPracticeGuidance'
+                    or 'referral'
+                    or 'presentationSlides'
                %}
   							{% if exploreItem.linkUrl is not null %}
                     {% set url = exploreItem.linkUrl %}
@@ -42,6 +43,4 @@
       {% endif %}  
   </div>
 </section>
-
 <!-- Explore More -->
-

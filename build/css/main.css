@@ -32434,7 +32434,7 @@ div.headingHero > div:nth-child(3) > div {
         @media (max-width: 768px) {
           .hero-type4-content-copy h1, .hero-type4-content-copy .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading, .article .heading-wrap.heading-style--default .heading-wrap-text .hero-type4-content-copy h3.heading, .hero-type4-content-copy .timed-slideshow-item--text {
             font-size: 38px;
-            line-height: 107%; } }
+            line-height: 43.7px; } }
       .hero-type4-content-copy .subtitle {
         display: block;
         margin-top: 20px;
