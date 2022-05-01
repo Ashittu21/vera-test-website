@@ -27,9 +27,14 @@
   .slide-caption {
     opacity: 0;
   }
+
+  &:not(.swiper-slide-visible) {
+    opacity: 0;
+  }
 }
 
 .swiper-slide-visible {
+   opacity: 1;
   .slide-caption {
     position: relative;
     padding-top: 1rem;
@@ -48,7 +53,6 @@
       font-size: 11px;
       line-height: 14px;
     }
-
   }
 }
 
