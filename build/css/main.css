@@ -35174,7 +35174,10 @@ div.headingHero > div:nth-child(3) > div {
   height: 654px;
   position: relative;
   margin: 0 auto;
-  background-color: #160643; }
+  background-color: #160643;
+  overflow: inherit !important;
+  margin-top: 60px;
+  margin-bottom: 60px; }
 
 .swiper-slide {
   text-align: center;
