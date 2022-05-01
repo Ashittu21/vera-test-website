@@ -307,8 +307,9 @@
   margin-bottom: 60px;
 
   .swiper-slide {
+    opacity: 1;
     .slide-caption {
-      opacity: 0;
+      opacity: 1;
     }
 
     &:not(.swiper-slide-visible) {

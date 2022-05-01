@@ -923,6 +923,12 @@
     margin-top: 30px;
     flex-direction: row;
     display: flex;
+
+    @media (max-width: $tablet-landscape) {
+      margin: 0 auto;
+      margin-top: 30px;
+    }
+
     @media(max-width:$mobile-breakpoint){
       justify-content: center;
       width: 100%;
@@ -932,6 +938,8 @@
       justify-content: center;
       margin-top: 30px;
     }
+
+
 
     #clearall{
       font-family: var(--global-font-abc-whyte);

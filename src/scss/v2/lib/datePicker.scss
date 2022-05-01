@@ -31,6 +31,9 @@
   margin-top: 7px;
   max-width: fit-content;
 
+  @media(max-width: $tablet-landscape) {
+    margin: 0 auto;
+  }
 
   @media(max-width:$mobile-breakpoint){
     justify-content: flex-start;
