@@ -58,6 +58,14 @@
       background-position: 93%;
       background-image: url('/dist/img/v2/calendar.svg');
 
+      @media(max-width: $tablet-landscape) {
+        max-width: 119px;
+      }
+
+      @media(max-width:$mobile-breakpoint){
+        max-width: 92px;
+      }
+
       &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
         color: #FFF;
         opacity: 1; /* Firefox */

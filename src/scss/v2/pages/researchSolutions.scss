@@ -176,6 +176,12 @@
               margin: 0 auto;
               position: relative;
               margin-top: 30px;
+              @media (max-width: $tablet-landscape) {
+                max-width: 335px;
+                margin: 0 auto;
+                margin-bottom: 13px;
+              }
+              
             }
 
             select{
@@ -197,6 +203,11 @@
               background-position-x: 95%;
               background-position-y: center;
               background-size: 16px;
+              @media (max-width: $tablet-landscape) {
+                max-width: 335px;
+                margin: 0 auto;
+              }
+              
             }
           }
 
@@ -771,6 +782,7 @@
           text-align: left;
           color:#0A0319;
           margin-bottom: 13px;
+          margin-top: 20px;
         }
         
         select{
@@ -918,6 +930,7 @@
       width: 80%;
       margin-bottom: 20px;
       justify-content: center;
+      margin-top: 30px;
     }
 
     #clearall{
