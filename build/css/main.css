@@ -32165,7 +32165,10 @@ div.headingHero > div:nth-child(3) > div {
       @media (max-width: 768px) {
         .heroType2-container-title {
           font-size: 38px;
-          line-height: 115%; } }
+          line-height: 115%;
+          z-index: 1;
+          position: relative;
+          padding: 2rem; } }
   .heroType2-image {
     background-color: #000;
     min-height: 695px;
@@ -32195,8 +32198,8 @@ div.headingHero > div:nth-child(3) > div {
           width: 100%;
           height: 65%;
           background: black;
-          background: -webkit-gradient(linear, left bottom, left top, color-stop(40%, black), color-stop(86%, rgba(0, 0, 0, 0)));
-          background: linear-gradient(0deg, black 40%, rgba(0, 0, 0, 0) 86%);
+          background: -webkit-gradient(linear, left bottom, left top, color-stop(40%, black), to(rgba(0, 0, 0, 0)));
+          background: linear-gradient(0deg, black 40%, rgba(0, 0, 0, 0) 100%);
           position: absolute;
           bottom: 0;
           z-index: 0; } }
