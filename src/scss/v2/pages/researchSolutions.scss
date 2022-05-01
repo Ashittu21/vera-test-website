@@ -258,6 +258,10 @@
               text-align: left;
               margin-bottom: 13px;
               font-family: var(--global-font-abc-whyte);
+              max-width: 335px;
+              margin: 0 auto;
+              margin-bottom: 13px;
+
             }
             
             ul.dropdown-menu{
@@ -356,6 +360,7 @@
             background-size: 16px;
             @media (max-width: $tablet-landscape) {
               width:100%;
+             // max-width: 100%;
             }
           }
           

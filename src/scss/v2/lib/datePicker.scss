@@ -1,10 +1,11 @@
 .date-container{
 
-  @media(max-width:$mobile-breakpoint){
+  @media(max-width: $tablet-landscape) {
     margin: 0 auto;
     width: 80%;
     margin-bottom: 20px;
   }
+
   .searchLabel{
     color: white;
     font-size: 11px;
@@ -13,8 +14,11 @@
     line-height: 14px;
     letter-spacing: 0em;
     text-align: left;
-    margin-bottom: 13px;
     font-family: var(--global-font-abc-whyte);
+    display: block;
+    max-width: 335px;
+    margin: 0 auto;
+    margin-bottom: 13px;
   }
 }
 .date-container-form {
@@ -29,7 +33,10 @@
 
   @media(max-width:$mobile-breakpoint){
     justify-content: flex-start;
-    max-width: 100%;
+    //max-width: 100%;
+    margin: 0 auto;
+    max-width: 335px;
+    width: 100%;
   }
 
   .date-container-inputs {
