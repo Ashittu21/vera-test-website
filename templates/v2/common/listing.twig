@@ -16,15 +16,9 @@
                 <p>{{ statsItem.title }}</p>
               </div>
 
-
               {% if statsItem.type.handle in ['publicationOverview','publicationDocument'] %}
                  <div class="block-listing-item-subtitle"> {{  statsItem.subtitle }}</div>
-              {% endif %}
-                                            
-
-
-
-
+              {% endif %}                                           
 
               <div class="block-listing-item-date">
               {% if statsItem.type.name == 'News' %}

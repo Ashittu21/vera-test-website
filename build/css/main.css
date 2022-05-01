@@ -35196,7 +35196,7 @@ div.headingHero > div:nth-child(3) > div {
   .swiper-slide .slide-caption {
     opacity: 0; }
   .swiper-slide:not(.swiper-slide-visible) {
-    opacity: 0; }
+    opacity: 0 !important; }
 
 .swiper-slide-visible {
   opacity: 1; }
