@@ -914,8 +914,12 @@
     @media(max-width:$mobile-breakpoint){
       justify-content: center;
       width: 100%;
-
+      margin: 0 auto;
+      width: 80%;
+      margin-bottom: 20px;
+      justify-content: center;
     }
+
     #clearall{
       font-family: var(--global-font-abc-whyte);
       font-size: 14px;

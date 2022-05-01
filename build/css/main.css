@@ -29517,9 +29517,11 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
   line-height: 14px;
   letter-spacing: 0em;
   text-align: left;
-  margin-bottom: 13px;
   font-family: var(--global-font-abc-whyte);
-  display: block; }
+  display: block;
+  max-width: 335px;
+  margin: 0 auto;
+  margin-bottom: 13px; }
 
 .date-container-form {
   background: #2E1D97;
@@ -29538,168 +29540,15 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
   margin-top: 7px;
   max-width: -webkit-fit-content;
   max-width: -moz-fit-content;
-  max-width: fit-content;
-  /*
-    .sliderTrack {
-      
-    
-      
-      width: 100%;
-      padding-top: 17px;
-      padding-left: 5px;
-
-      .rs-container {
-        font-family: var(--global-font-abc-whyte);
-        position: relative;
-        height: 20px;
-
-
-        * {
-          box-sizing: border-box;
-          user-select: none;
-        }
-
-        .rs-selected {
-          background-color: #2e1d97;
-          border: 1px solid #2e1d97;
-          transition: all 0.2s linear;
-          width: 0;
-        }
-
-        &.disabled {
-          .rs-selected {
-            background-color: #ccc;
-            border-color: #bbb;
-          }
-
-          .rs-pointer {
-            border-color: #ccc;
-            cursor: default;
-          }
-
-          .rs-scale {
-            span {
-              ins {
-                color: rgb(255, 255, 255);
-              }
-            }
-          }
-
-          .rs-tooltip {
-            border-color: #ccc;
-            color: #999;
-          }
-        }
-
-        .rs-pointer {
-          background-color: #abffeb;
-          border-radius: 0;
-          cursor: pointer;
-          height: 15px;
-          width: 7px;
-          position: absolute;
-          top: 0;
-          transition: all 0.2s linear;
-          &:hover{
-            background-color: #EF4136;
-          }
-          &::after {
-            left: auto;
-            right: 12px;
-          }
-        }
-
-        .rs-scale {
-          left: 0;
-          position: absolute;
-          top: 5px;
-          white-space: nowrap;
-          display: none;
-
-          span {
-            float: left;
-            position: relative;
-
-            &::before {
-              background-color: #fff7f0;
-              content: "";
-              height: 8px;
-              left: 0;
-              position: absolute;
-              top: 10px;
-              width: 1px;
-            }
-
-            &:last-child {
-              margin-left: -1px;
-              width: 0px;
-            }
-
-            ins {
-              color: #333;
-              display: inline-block;
-              font-size: 12px;
-              margin-top: 20px;
-              text-decoration: none;
-            }
-          }
-        }
-
-        &.rs-noscale {
-          span {
-            &::before {
-              display: none;
-            }
-          }
-        }
-      }
-
-      .rs-container .rs-bg,
-      .rs-container .rs-selected {
-        background-color: #160643;
-        border: 1px solid #160643;
-        height: 5px;
-        left: 0;
-        position: absolute;
-        top: 5px;
-        width: 100%;
-        border-radius: 0px;
-        max-width: 221px;
-      }
-
-      .rs-container.sliding .rs-selected,
-      .rs-container.sliding .rs-pointer {
-        transition: none;
-      }
-
-      .rs-container.rs-noscale span:first-child::before,
-      .rs-container.rs-noscale span:last-child::before {
-        display: block;
-      }
-
-      .rs-tooltip {
-        color: #FFF;
-        width: auto;
-        min-width: 60px;
-        height: 30px;
-        position: relative;
-        border-radius: 3px;
-        position: absolute;
-        transform: translate(-65%, -24px);
-        left: 13px;
-        text-align: center;
-        font-size: 11px;
-        padding: 6px 15px 0;
-      }
-    }*/ }
+  max-width: fit-content; }
   @media (max-width: 768px) {
     .date-container-form {
       -webkit-box-pack: start;
           -ms-flex-pack: start;
               justify-content: flex-start;
-      margin: 0 auto;
+      width: 100%;
       max-width: 335px;
-      width: 100%; } }
+      margin: 0 auto; } }
   .date-container-form .date-container-inputs input[type=text] {
     background-color: #1f0f65;
     cursor: pointer;
@@ -39608,7 +39457,11 @@ header {
       -webkit-box-pack: center;
           -ms-flex-pack: center;
               justify-content: center;
-      width: 100%; } }
+      width: 100%;
+      margin: 0 auto;
+      width: 80%;
+      margin-bottom: 20px;
+      justify-content: center; } }
   .rs-tags #clearall {
     font-family: var(--global-font-abc-whyte);
     font-size: 14px;
