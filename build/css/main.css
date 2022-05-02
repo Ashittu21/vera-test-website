@@ -38799,7 +38799,7 @@ header {
               align-items: flex-start;
       max-width: 1280px;
       width: 100%; }
-      @media (max-width: 1024px) {
+      @media (max-width: 992px) {
         .rs-page .rs-head-container .rs-headContent .rs-head-form {
           display: none; } }
       .rs-page .rs-head-container .rs-headContent .rs-head-form.show {
