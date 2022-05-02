@@ -85,7 +85,7 @@
           max-width: 1280px;
           width: 100%;
 
-          @media (max-width: 992px) {
+          @media (max-width: 991px) {
             display: none;
           }
 
@@ -96,7 +96,7 @@
             background-color: #0e002c;
             height: 100vh;
             z-index: 500;
-            @media (min-width: 992px) {
+            @media (min-width: 991px) {
               position: inherit;
               height: auto;
             }
@@ -391,7 +391,7 @@
         }
         
         .rs-head-form-mobile{
-          @media (min-width: 992px) {
+          @media (min-width: 991px) {
             display: none;
           }
           margin: 0 auto;

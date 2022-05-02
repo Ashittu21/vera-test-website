@@ -29555,83 +29555,92 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
       width: 100%;
       max-width: 335px;
       margin: 0 auto; } }
-  .date-container-form .date-container-inputs input[type=text] {
-    background-color: #1f0f65;
-    cursor: pointer;
-    border: 0;
-    padding: 8px;
-    max-width: 92px;
-    height: 34px;
-    font-family: var(--global-font-abc-whyte);
-    font-size: 11px;
-    font-weight: 400;
-    line-height: 14px;
-    letter-spacing: 0em;
-    text-align: left;
-    background-repeat: no-repeat;
-    background-position: 93%;
-    background-image: url("/dist/img/v2/calendar.svg"); }
-    @media (max-width: 1024px) {
-      .date-container-form .date-container-inputs input[type=text] {
-        max-width: 119px; } }
-    @media (max-width: 768px) {
-      .date-container-form .date-container-inputs input[type=text] {
-        max-width: 92px; } }
-    .date-container-form .date-container-inputs input[type=text]::-webkit-input-placeholder {
-      /* Chrome, Firefox, Opera, Safari 10.1+ */
-      color: #FFF;
-      opacity: 1;
-      /* Firefox */ }
-    .date-container-form .date-container-inputs input[type=text]::-moz-placeholder {
-      /* Chrome, Firefox, Opera, Safari 10.1+ */
-      color: #FFF;
-      opacity: 1;
-      /* Firefox */ }
-    .date-container-form .date-container-inputs input[type=text]::-ms-input-placeholder {
-      /* Chrome, Firefox, Opera, Safari 10.1+ */
-      color: #FFF;
-      opacity: 1;
-      /* Firefox */ }
-    .date-container-form .date-container-inputs input[type=text]::placeholder {
-      /* Chrome, Firefox, Opera, Safari 10.1+ */
-      color: #FFF;
-      opacity: 1;
-      /* Firefox */ }
-    .date-container-form .date-container-inputs input[type=text]:-ms-input-placeholder {
-      /* Internet Explorer 10-11 */
-      color: #FFF; }
-    .date-container-form .date-container-inputs input[type=text]::-ms-input-placeholder {
-      /* Microsoft Edge */
-      color: #FFF; }
-  .date-container-form .date-container-inputs .datepicker-picker {
-    background-color: #1f0f65; }
-    .date-container-form .date-container-inputs .datepicker-picker .datepicker-header .datepicker-controls .button {
-      background-color: #abffeb;
-      margin: 2px; }
-    .date-container-form .date-container-inputs .datepicker-picker .datepicker-main .datepicker-view {
-      padding-left: 12px;
-      font-size: 10px;
-      font-weight: bold; }
-      .date-container-form .date-container-inputs .datepicker-picker .datepicker-main .datepicker-view .datepicker-cell {
-        height: 35px;
-        line-height: 35px; }
-        .date-container-form .date-container-inputs .datepicker-picker .datepicker-main .datepicker-view .datepicker-cell.focused {
-          background-color: #abffeb;
-          color: #1f0f65;
-          font-weight: bold; }
-        .date-container-form .date-container-inputs .datepicker-picker .datepicker-main .datepicker-view .datepicker-cell.disabled {
-          color: #7d7d7d; }
-        .date-container-form .date-container-inputs .datepicker-picker .datepicker-main .datepicker-view .datepicker-cell.prev:not(.disabled), .date-container-form .date-container-inputs .datepicker-picker .datepicker-main .datepicker-view .datepicker-cell.next:not(.disabled) {
-          color: #FFF;
-          font-weight: bold; }
-          .date-container-form .date-container-inputs .datepicker-picker .datepicker-main .datepicker-view .datepicker-cell.prev:not(.disabled):hover, .date-container-form .date-container-inputs .datepicker-picker .datepicker-main .datepicker-view .datepicker-cell.next:not(.disabled):hover {
+  .date-container-form .date-container-inputs {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex; }
+    .date-container-form .date-container-inputs input[type=text] {
+      background-color: #1f0f65;
+      cursor: pointer;
+      border: 0;
+      padding: 8px;
+      max-width: 92px;
+      height: 34px;
+      font-family: var(--global-font-abc-whyte);
+      font-size: 11px;
+      font-weight: 400;
+      line-height: 14px;
+      letter-spacing: 0em;
+      text-align: left;
+      background-repeat: no-repeat;
+      background-position: 93%;
+      background-image: url("/dist/img/v2/calendar.svg"); }
+      @media (max-width: 1024px) {
+        .date-container-form .date-container-inputs input[type=text] {
+          max-width: 119px; } }
+      @media (max-width: 768px) {
+        .date-container-form .date-container-inputs input[type=text] {
+          max-width: 92px; } }
+      .date-container-form .date-container-inputs input[type=text]::-webkit-input-placeholder {
+        /* Chrome, Firefox, Opera, Safari 10.1+ */
+        color: #FFF;
+        opacity: 1;
+        /* Firefox */ }
+      .date-container-form .date-container-inputs input[type=text]::-moz-placeholder {
+        /* Chrome, Firefox, Opera, Safari 10.1+ */
+        color: #FFF;
+        opacity: 1;
+        /* Firefox */ }
+      .date-container-form .date-container-inputs input[type=text]::-ms-input-placeholder {
+        /* Chrome, Firefox, Opera, Safari 10.1+ */
+        color: #FFF;
+        opacity: 1;
+        /* Firefox */ }
+      .date-container-form .date-container-inputs input[type=text]::placeholder {
+        /* Chrome, Firefox, Opera, Safari 10.1+ */
+        color: #FFF;
+        opacity: 1;
+        /* Firefox */ }
+      .date-container-form .date-container-inputs input[type=text]:-ms-input-placeholder {
+        /* Internet Explorer 10-11 */
+        color: #FFF; }
+      .date-container-form .date-container-inputs input[type=text]::-ms-input-placeholder {
+        /* Microsoft Edge */
+        color: #FFF; }
+    .date-container-form .date-container-inputs span {
+      display: block;
+      text-align: center;
+      line-height: 13px;
+      margin: 10px 5px; }
+    .date-container-form .date-container-inputs .datepicker-picker {
+      background-color: #1f0f65; }
+      .date-container-form .date-container-inputs .datepicker-picker .datepicker-header .datepicker-controls .button {
+        background-color: #abffeb;
+        margin: 2px; }
+      .date-container-form .date-container-inputs .datepicker-picker .datepicker-main .datepicker-view {
+        padding-left: 12px;
+        font-size: 10px;
+        font-weight: bold; }
+        .date-container-form .date-container-inputs .datepicker-picker .datepicker-main .datepicker-view .datepicker-cell {
+          height: 35px;
+          line-height: 35px; }
+          .date-container-form .date-container-inputs .datepicker-picker .datepicker-main .datepicker-view .datepicker-cell.focused {
             background-color: #abffeb;
             color: #1f0f65;
             font-weight: bold; }
-        .date-container-form .date-container-inputs .datepicker-picker .datepicker-main .datepicker-view .datepicker-cell:hover {
-          background-color: #abffeb;
-          color: #1f0f65;
-          font-weight: bold; }
+          .date-container-form .date-container-inputs .datepicker-picker .datepicker-main .datepicker-view .datepicker-cell.disabled {
+            color: #7d7d7d; }
+          .date-container-form .date-container-inputs .datepicker-picker .datepicker-main .datepicker-view .datepicker-cell.prev:not(.disabled), .date-container-form .date-container-inputs .datepicker-picker .datepicker-main .datepicker-view .datepicker-cell.next:not(.disabled) {
+            color: #FFF;
+            font-weight: bold; }
+            .date-container-form .date-container-inputs .datepicker-picker .datepicker-main .datepicker-view .datepicker-cell.prev:not(.disabled):hover, .date-container-form .date-container-inputs .datepicker-picker .datepicker-main .datepicker-view .datepicker-cell.next:not(.disabled):hover {
+              background-color: #abffeb;
+              color: #1f0f65;
+              font-weight: bold; }
+          .date-container-form .date-container-inputs .datepicker-picker .datepicker-main .datepicker-view .datepicker-cell:hover {
+            background-color: #abffeb;
+            color: #1f0f65;
+            font-weight: bold; }
   .date-container-form .sliderButton button {
     -webkit-transition: all 0.2s ease;
     transition: all 0.2s ease;
@@ -38799,7 +38808,7 @@ header {
               align-items: flex-start;
       max-width: 1280px;
       width: 100%; }
-      @media (max-width: 992px) {
+      @media (max-width: 991px) {
         .rs-page .rs-head-container .rs-headContent .rs-head-form {
           display: none; } }
       .rs-page .rs-head-container .rs-headContent .rs-head-form.show {
@@ -38811,7 +38820,7 @@ header {
         background-color: #0e002c;
         height: 100vh;
         z-index: 500; }
-        @media (min-width: 992px) {
+        @media (min-width: 991px) {
           .rs-page .rs-head-container .rs-headContent .rs-head-form.show {
             position: inherit;
             height: auto; } }
@@ -39064,7 +39073,7 @@ header {
         background-size: 16px; }
     .rs-page .rs-head-container .rs-headContent .rs-head-form-mobile {
       margin: 0 auto; }
-      @media (min-width: 992px) {
+      @media (min-width: 991px) {
         .rs-page .rs-head-container .rs-headContent .rs-head-form-mobile {
           display: none; } }
       .rs-page .rs-head-container .rs-headContent .rs-head-form-mobile button.filter {
