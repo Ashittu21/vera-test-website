@@ -581,29 +581,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .newsandstories-page {
   .block-latestNews {
     &:last-child {
@@ -611,6 +588,8 @@
     }
   }
 }
+
+
 
 .js-scroll {
   opacity: 0;
@@ -622,13 +601,15 @@
 }
 
 
+
 .scrolled.slide-right {
   animation: slide-in-right 1s ease-in-out both;
-
   @media(max-width:$mobile-breakpoint) {
     animation: none;
   }
 }
+
+
 
 
 @keyframes slide-in-right {
@@ -660,7 +641,6 @@
     }
   }
 }
-
 
 
 @keyframes ln-slideToLeft {

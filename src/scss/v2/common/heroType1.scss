@@ -8,7 +8,6 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-origin: border-box;
-/*  background-position: calc(402px - 100%) center;*/
   position: relative;
   background-position: 100% center;
 
@@ -16,14 +15,11 @@
   @media (max-width: $desktop-ml) {
     background-size: cover;
     background-position: center center;
-   /* background-position: calc(402px - 100%) center;*/
   }
 
   @media (max-width: $tablet-landscape) {
     background-size: cover;
     background-position: center center;
-    /*background-position-x: 350px;
-    background-position-y: center;*/
   }
 
   @media (max-width: $tablet-portrait) {
@@ -72,7 +68,6 @@
     @media(max-width: $mobile-large) {
       display: none;
     }
-
   }
 
   .heroType1-block-box {
