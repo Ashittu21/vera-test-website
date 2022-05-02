@@ -54,6 +54,7 @@
       }
     }
 
+
     .latestNews-hero {
       box-sizing: border-box;
       width: 100%;
@@ -251,6 +252,25 @@
             }
           }
         }
+
+
+        .latestNews-hero-bg{
+          background-color: var(--global-color-violet);
+          max-width: 331px;
+          height: 100%;
+          width: 100%;
+          opacity: 0;
+          position: absolute;
+          z-index: 1;
+          animation: ln-slideToLeft 1.5s ease 1.5s;
+          animation-iteration-count: 1;
+          animation-fill-mode: forwards;
+      
+          @media(max-width: $mobile-large) {
+            display: none;
+          }
+        }
+
       }
     }
 
@@ -639,4 +659,20 @@
       opacity: 1;
     }
   }
+}
+
+
+
+@keyframes ln-slideToLeft {
+  0% {
+    width:0px;
+    opacity: 0;
+  }
+  10%{
+    opacity: 1;
+  }
+  100% {
+    width:100%;
+    opacity: 1;
+  }	
 }
