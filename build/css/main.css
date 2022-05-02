@@ -38808,7 +38808,7 @@ header {
         background-color: #0e002c;
         height: 100vh;
         z-index: 500; }
-        @media (min-width: 1024px) {
+        @media (min-width: 991px) {
           .rs-page .rs-head-container .rs-headContent .rs-head-form.show {
             display: none; } }
       .rs-page .rs-head-container .rs-headContent .rs-head-form .filter-by {
