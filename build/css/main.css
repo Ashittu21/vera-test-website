@@ -32042,7 +32042,8 @@ div.headingHero > div:nth-child(3) > div {
     background-color: var(--global-color-violet);
     max-width: 402px;
     height: 100%;
-    width: 0;
+    width: 100%;
+    opacity: 0;
     -webkit-animation: slideToRight 1.5s ease 1s;
             animation: slideToRight 1.5s ease 1s;
     -webkit-animation-iteration-count: 1;
