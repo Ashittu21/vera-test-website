@@ -8,8 +8,9 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-origin: border-box;
-  background-position: calc(402px - 100%) center;
+/*  background-position: calc(402px - 100%) center;*/
   position: relative;
+  background-position: 100% center;
 
 
   @media (max-width: $desktop-ml) {
@@ -38,7 +39,30 @@
     height: 400px;
   }
 
+  @keyframes slideToRight {
+    0% {
+      width:0px;
+      opacity: 0;
+    }
+    10%{
+      opacity: 1;
+    }
+    100% {
+      width:402px;
+      opacity: 1;
+    }	
+  }
 
+  .heroType1-block-bg{
+    background-color: var(--global-color-violet);
+    max-width: 402px;
+    animation: slideToRight 1.5s ease 1s;
+    animation-iteration-count: 1;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+  }
 
   .heroType1-block-box {
     background-color: var(--global-color-dark-violet);
@@ -52,6 +76,7 @@
     padding-top: 86px;
     padding-bottom: 130px;
     padding-right: 30px;
+    z-index: 2;
 
     @media(max-width: $mobile-large) {
       min-height: auto;

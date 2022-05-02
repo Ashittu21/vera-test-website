@@ -31991,8 +31991,9 @@ div.headingHero > div:nth-child(3) > div {
   background-size: cover;
   background-repeat: no-repeat;
   background-origin: border-box;
-  background-position: calc(402px - 100%) center;
-  position: relative; }
+  /*  background-position: calc(402px - 100%) center;*/
+  position: relative;
+  background-position: 100% center; }
   @media (max-width: 1280px) {
     .heroType1-container {
       background-size: cover;
@@ -32017,6 +32018,37 @@ div.headingHero > div:nth-child(3) > div {
       background-position-x: center;
       background-position-y: bottom;
       height: 400px; } }
+
+@-webkit-keyframes slideToRight {
+  0% {
+    width: 0px;
+    opacity: 0; }
+  10% {
+    opacity: 1; }
+  100% {
+    width: 402px;
+    opacity: 1; } }
+
+@keyframes slideToRight {
+  0% {
+    width: 0px;
+    opacity: 0; }
+  10% {
+    opacity: 1; }
+  100% {
+    width: 402px;
+    opacity: 1; } }
+  .heroType1-container .heroType1-block-bg {
+    background-color: var(--global-color-violet);
+    max-width: 402px;
+    -webkit-animation: slideToRight 1.5s ease 1s;
+            animation: slideToRight 1.5s ease 1s;
+    -webkit-animation-iteration-count: 1;
+            animation-iteration-count: 1;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    z-index: 1; }
   .heroType1-container .heroType1-block-box {
     background-color: var(--global-color-dark-violet);
     color: #FFF;
@@ -32037,7 +32069,8 @@ div.headingHero > div:nth-child(3) > div {
             justify-content: center;
     padding-top: 86px;
     padding-bottom: 130px;
-    padding-right: 30px; }
+    padding-right: 30px;
+    z-index: 2; }
     @media (max-width: 700px) {
       .heroType1-container .heroType1-block-box {
         min-height: auto;

@@ -59,6 +59,7 @@
     {% case  'headerWithImage' %}
       <!-- Hero Block -->
         <div class="heroType1-container"  {% if entry.contentDetail_heroImage.first != "" %}style="background-image: url('{{ entry.contentDetail_heroImage.first.url }}');"{% endif %}>
+          <div class="heroType1-block-bg"></div>
           <div class="heroType1-block-box">
             <div class="heroType1-block-box-content">
                 <div class="heroType1-block-breadcrumbs">
@@ -117,7 +118,7 @@
     {% default %}
       <!-- Hero Block -->
           <div class="heroType1-container"  {% if entry.contentDetail_heroImage.first != "" %}style="background-image: url('{{ entry.contentDetail_heroImage.first.url }}');"{% endif %}>
-          
+            <div class="heroType1-block-bg"></div>
             <div class="heroType1-block-box">
               <div class="heroType1-block-box-content">
                   <div class="heroType1-block-breadcrumbs">
