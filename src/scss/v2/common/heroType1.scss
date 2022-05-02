@@ -20,14 +20,15 @@
   }
 
   @media (max-width: $tablet-landscape) {
+    background-size: cover;
     background-position: center center;
     /*background-position-x: 350px;
     background-position-y: center;*/
   }
 
   @media (max-width: $tablet-portrait) {
-    background-size: contain;
     padding: 15px;
+    background-size: cover;
     background-position-x: center;
     background-position-y: bottom;
     justify-content: flex-start;
@@ -36,6 +37,7 @@
 
   @media(max-width: $mobile-large) {
     padding: 15px;
+    background-size: cover;
     background-position-x: center;
     background-position-y: bottom;
     height: 400px;

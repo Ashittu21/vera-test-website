@@ -31997,15 +31997,18 @@ div.headingHero > div:nth-child(3) > div {
   @media (max-width: 1280px) {
     .heroType1-container {
       background-size: cover;
-      background-position: calc(402px - 100%) center; } }
+      background-position: center center;
+      /* background-position: calc(402px - 100%) center;*/ } }
   @media (max-width: 1024px) {
     .heroType1-container {
-      background-position-x: 350px;
-      background-position-y: center; } }
+      background-size: cover;
+      background-position: center center;
+      /*background-position-x: 350px;
+    background-position-y: center;*/ } }
   @media (max-width: 768px) {
     .heroType1-container {
-      background-size: contain;
       padding: 15px;
+      background-size: cover;
       background-position-x: center;
       background-position-y: bottom;
       -webkit-box-pack: start;
@@ -32015,6 +32018,7 @@ div.headingHero > div:nth-child(3) > div {
   @media (max-width: 700px) {
     .heroType1-container {
       padding: 15px;
+      background-size: cover;
       background-position-x: center;
       background-position-y: bottom;
       height: 400px; } }
