@@ -32041,13 +32041,13 @@ div.headingHero > div:nth-child(3) > div {
   .heroType1-container .heroType1-block-bg {
     background-color: var(--global-color-violet);
     max-width: 402px;
+    height: 100%;
+    width: 0;
     -webkit-animation: slideToRight 1.5s ease 1s;
             animation: slideToRight 1.5s ease 1s;
     -webkit-animation-iteration-count: 1;
             animation-iteration-count: 1;
-    height: 100%;
     position: absolute;
-    width: 100%;
     z-index: 1; }
   .heroType1-container .heroType1-block-box {
     background-color: var(--global-color-dark-violet);

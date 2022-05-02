@@ -56,11 +56,11 @@
   .heroType1-block-bg{
     background-color: var(--global-color-violet);
     max-width: 402px;
+    height: 100%;
+    width: 0;
     animation: slideToRight 1.5s ease 1s;
     animation-iteration-count: 1;
-    height: 100%;
     position: absolute;
-    width: 100%;
     z-index: 1;
   }
 
