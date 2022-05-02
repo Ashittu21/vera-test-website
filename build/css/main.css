@@ -29079,6 +29079,9 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
 
 .overflowHidden {
   overflow: hidden; }
+  @media (min-width: 992px) {
+    .overflowHidden {
+      overflow: auto; } }
 
 .breadcrumbs {
   color: #FFF;
@@ -38808,7 +38811,7 @@ header {
         background-color: #0e002c;
         height: 100vh;
         z-index: 500; }
-        @media (min-width: 991px) {
+        @media (min-width: 992px) {
           .rs-page .rs-head-container .rs-headContent .rs-head-form.show {
             display: none; } }
       .rs-page .rs-head-container .rs-headContent .rs-head-form .filter-by {
