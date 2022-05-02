@@ -32044,12 +32044,14 @@ div.headingHero > div:nth-child(3) > div {
     height: 100%;
     width: 100%;
     opacity: 0;
+    position: absolute;
+    z-index: 1;
     -webkit-animation: slideToRight 1.5s ease 1s;
             animation: slideToRight 1.5s ease 1s;
     -webkit-animation-iteration-count: 1;
             animation-iteration-count: 1;
-    position: absolute;
-    z-index: 1; }
+    -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards; }
   .heroType1-container .heroType1-block-box {
     background-color: var(--global-color-dark-violet);
     color: #FFF;

@@ -59,10 +59,11 @@
     height: 100%;
     width: 100%;
     opacity: 0;
-    animation: slideToRight 1.5s ease 1s;
-    animation-iteration-count: 1;
     position: absolute;
     z-index: 1;
+    animation: slideToRight 1.5s ease 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
   }
 
   .heroType1-block-box {
