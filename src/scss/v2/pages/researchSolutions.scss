@@ -97,7 +97,8 @@
             height: 100vh;
             z-index: 500;
             @media (min-width: 992px) {
-              display: none;
+              position: inherit;
+              height: auto;
             }
           }
           
@@ -390,7 +391,7 @@
         }
         
         .rs-head-form-mobile{
-          @media (min-width: $tablet-landscape) {
+          @media (min-width: 992px) {
             display: none;
           }
           margin: 0 auto;
