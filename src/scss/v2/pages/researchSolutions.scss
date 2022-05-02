@@ -96,7 +96,7 @@
             background-color: #0e002c;
             height: 100vh;
             z-index: 500;
-            @media (max-width: $tablet-landscape) {
+            @media (min-width: $tablet-landscape) {
               display: none;
             }
           }
