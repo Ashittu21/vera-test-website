@@ -16,16 +16,16 @@
 
 
 {% set streamOptions = {
-        title: 'All Research & Analysis',
+        title: 'Solutions & Research',
         news: false,
         filterAltLayout: 'unstacked',
         sections: [
-              ['Publications', 'publications'],
-              ['Audio', 'audio'],
-              ['Video', 'video'],
-              ['Resource Sites', 'resourceSite'],
-              ['Special Reports', 'specialReports'],
-              ['Blog Series', 'blogSeries']
+              ['publications'],
+              ['audio'],
+              ['video'],
+              ['resourceSite'],
+              ['specialReports'],
+              ['blogSeries']
             ],
             filterTypes: [{type: 'categories', relations: craft.categories.group('solutionsResearchTypes').level(1), title: 'Type'}],
         filterRelations: [{type: 'categories', relations: craft.categories.group('solutionsResearch').level(1), title: 'Topic'}],
@@ -33,10 +33,7 @@
       }
 %}
 
-
-{% if streamOptions.streamType is not defined %}
-  {% set streamOptions = streamOptions|merge({streamType: 'content'}) %}
-{% endif %}
+ {% set streamOptions = streamOptions|merge({streamType: 'content'}) %}
 
   {# 
     RELATIONS
@@ -118,7 +115,7 @@
   #}
     {% set searchSections = [] %}
     {% for section in streamOptions.sections %}
-        {% set searchSections = searchSections|merge([section[1]]) %}
+        {% set searchSections = searchSections|merge([section[0]]) %}
     {% endfor %}
 
     {#
@@ -203,11 +200,6 @@
     {% set related = related|merge([relat]) %}
   {% endfor %} 
 #}
-
-
-
-
-
 
 
 {% set entriesTypeAllowed = {
