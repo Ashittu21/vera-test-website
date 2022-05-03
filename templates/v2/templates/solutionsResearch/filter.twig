@@ -1,0 +1,196 @@
+
+{% if streamOptions.fieldOptions is defined %}
+  <div>
+    <span>{{ streamOptions.fieldOptions.title }}</span>
+    <ul>
+      {% for option in streamOptions.fieldOptions.options %}
+        <li><input type="checkbox" id="{{ option.title|replace(' ','_')|lower }}" class="field_checkbox" data-option={{ option.option | json_encode | raw }}/>
+          <label for="{{ option.title|replace(' ','_')|lower }}">{{ option.title }}</label>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endif %}
+
+
+
+
+{% set relencode =  craft.request.getParam('relations')|json_encode %}
+
+{% if streamOptions.filterRelations is defined %}
+  {% for relationBlock in streamOptions.filterRelations %}
+   
+    <div class="dropMenu dropdown-areas">
+     <div class="slabel searchLabel">Topic</div>
+      <button class="dropdown-toggle" type="button" id="menuRelations" aria-haspopup="true">
+        <span class="dropdown-text-relations">Select Topic</span>
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu dropdown-menu-relations" id="listRelations" aria-labelledby="menuRelations">
+        {% for relation in relationBlock.relations %}
+          {% if relationBlock.type == 'type' %}
+            {% set relation_id = relation.handle %}
+            {% set relation_type = 'type' %}
+          {% else %}
+            {% set relation_id = relation.id %}
+            {% set relation_type = 'relation' %}
+          {% endif %}
+          <li class="checkFilter">
+            <input type="checkbox" name='optionsRelations[]' id="{{ relation_id }}" class="{{ relation_type }}_checkbox option justone" value="{{ relation_id }}"  data-type="{{ relationBlock.type }}" {% if relacionesArray is defined  %} {% if relation_id in relacionesArray %}checked{% endif %}{% endif %}/>
+            <label class="labelTopic" for="{{ relation_id }}">
+              {% if relationBlock.title == 'Action Areas' %}
+                {% set workRelation = craft.entries.section('ourWork').relatedTo(relation).first %}
+                {% set shortTitle = workRelation ? workRelation.shortTitle %}
+                {% if shortTitle %}
+                  {{ shortTitle }}
+                {% else %}
+                  {{ relation }}
+                {% endif %}
+              {% elseif relationBlock.type == 'type' %}
+                {{ relation.name }}
+              {% else %}
+                {{ relation }}
+              {% endif %}
+            </label>
+          </li>
+        {% endfor %}
+        <li class="applybtn"><button type="Button" class="apply ctaSearch">APPLY</button></li> 
+      </ul>
+    </div>
+  {% endfor %}
+{% endif %}
+
+
+{#
+  Sections
+#}
+
+{% if streamOptions.sections | length %}
+  {% if streamOptions.sections|length == 1 %}
+    {% set section = streamOptions.sections[0] %}
+    <input type="hidden" checked id="{{ section[1] }}" value="{{ section[1] }}" class="section_checkbox"/>
+  {% else %}
+   <div class="dropMenu dropdown-topic">
+      <div class="slabel searchLabel">Type</div>
+      <button class="dropdown-toggle" type="button" id="menuTopic" aria-haspopup="true">
+        <span class="dropdown-text-section">Select resource type</span>
+        <span class="caret"></span>
+      </button>
+
+      <ul class="dropdown-menu dropdown-menu-section" id="listTopic" aria-labelledby="menu">
+        {% for section in streamOptions.sections %}
+          <li class="checkFilter">
+            <input type="checkbox" name='optionsTopic[]'  id="{{ section[1] }}" value="{{ section[1] }}" class="option justone section_checkbox" {% if section[1] in searchSections %}checked{% endif %}/>
+            <label class="labelTopic" for="{{ section[1] }}">{{ section[0] }}</label>
+          </li>
+        {% endfor %}
+        <li class="applybtn"><button type="Button" class="apply ctaSearch">APPLY</button></li>
+      </ul>
+    </div>
+  {% endif %}
+{% endif %}
+
+
+
+
+
+
+{% set locationsEncode =  craft.request.getParam('locations')|json_encode %}
+
+{% if streamOptions.filterLocations is defined %}
+
+  {% for locationsBlock in streamOptions.filterLocations %}
+   
+    <div class="dropMenu dropdown-locations">
+     <div class="location-label searchLabel">Locations</div>
+      <button class="dropdown-toggle" type="button" id="menuLocations" aria-haspopup="true">
+        <span class="dropdown-text-locations">Select geographic area</span>
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu dropdown-menu-locations" id="listLocations" aria-labelledby="menuLocations">
+
+        {% for location in locationsBlock.relations %}
+           {% if locationsBlock.type == 'type' %}
+            {% set relation_id = location.handle %}
+            {% set location_type = 'type' %}
+          {% else %}
+            {% set location_id = location.id %}
+            {% set location_type = 'location' %}
+          {% endif %}
+      
+          <li class="checkFilter">
+            <input type="checkbox" name='optionsLocations[]' id="{{ location_id }}" class="{{ location_type }}_checkbox option justone" value="{{ location_id }}"  data-type="{{ locationsBlock.type }}" {% if locArray is defined  %} {% if location_id in locArray %}checked{% endif %}{% endif %}/>
+            <label class="labelTopic" for="{{ location_id }}">
+                {{location.title}}
+            </label>
+          </li>
+        {% endfor %}
+        <li class="applybtn"><button type="Button" class="apply ctaSearch">APPLY</button></li> 
+      </ul>
+    </div>
+  {% endfor %}
+{% endif %}
+
+
+
+<div class="date-container">
+  <label class="dateRange searchLabel">Date Range</label>
+  <div class="date-container-form">
+      <div class="date-container-inputs">
+        <input type="text" id="dateStart" placeholder="Start year" name="dateStart" value="{% if craft.app.request.getQueryParam('startYear') %}{{ craft.app.request.getQueryParam('startYear') }}{% endif %}">
+        <span>to</span>
+        <input type="text" id="dateEnd" placeholder="End year" name="dateEnd" value="{% if craft.app.request.getQueryParam('endYear') %}{{ craft.app.request.getQueryParam('endYear') }}{% endif %}"> 
+      </div>
+      
+    <div class="sliderButton">
+      <button class="ctaSearch"></button>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<script>
+
+$("#menuTopic").on('click',function(){
+  var CheckT = $("#menuTopic").attr("aria-expanded");
+   if ( CheckT == "true") {
+      $("#menuTopic").attr("aria-expanded", "false");
+      $("#listTopic").attr("aria-hidden", "true");
+ } else {
+      $("#menuTopic").attr("aria-expanded", "true");
+      $("#listTopic").attr("aria-hidden", "false");
+ }
+});
+
+
+$("#menuRelations").on('click',function(){
+  var CheckR = $("#menuRelations").attr("aria-expanded");
+ if ( CheckR == "true") {
+      $("#menuRelations").attr("aria-expanded", "false");
+      $("#listRelations").attr("aria-hidden", "true");
+ } else {
+      $("#menuRelations").attr("aria-expanded", "true");
+      $("#listRelations").attr("aria-hidden", "false");
+ }
+});
+
+
+$("#menuLocations").on('click',function(){
+  var CheckR = $("#menuLocations").attr("aria-expanded");
+ if ( CheckR == "true") {
+      $("#menuLocations").attr("aria-expanded", "false");
+      $("#listLocations").attr("aria-hidden", "true");
+ } else {
+      $("#menuLocations").attr("aria-expanded", "true");
+      $("#listLocations").attr("aria-hidden", "false");
+ }
+});
+</script>
+
+
+
+
+   

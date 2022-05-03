@@ -27,7 +27,8 @@
               ['Special Reports', 'specialReports'],
               ['Blog Series', 'blogSeries']
             ],
-        filterRelations: [{type: 'categories', relations: craft.categories.group('solutionsResearch').level(1), title: 'Resource Type'}],
+            filterTypes: [{type: 'categories', relations: craft.categories.group('solutionsResearchTypes').level(1), title: 'Type'}],
+        filterRelations: [{type: 'categories', relations: craft.categories.group('solutionsResearch').level(1), title: 'Topic'}],
         filterLocations: [{type: 'categories', relations: craft.categories.group('locations').level(1), title: 'Locations'}]
       }
 %}
@@ -111,21 +112,29 @@
     {% set locations = null %}
 {% endif %}
 
+
   {# 
     Sections
   #}
-
-  {% if craft.request.getParam('sections') %}
-    {% set searchSections = craft.request.getParam('sections') | split(',') %}
-  {% elseif streamOptions.sections is defined %}
     {% set searchSections = [] %}
     {% for section in streamOptions.sections %}
         {% set searchSections = searchSections|merge([section[1]]) %}
     {% endfor %}
-  {% else %}
-    {% set searchSections = [] %}
-  {% endif %}
- 
+
+    {#
+      {% if craft.request.getParam('sections') %}
+        {% set searchSections = craft.request.getParam('sections') | split(',') %}
+      {% elseif streamOptions.sections is defined %}
+        {% set searchSections = [] %}
+        {% for section in streamOptions.sections %}
+            {% set searchSections = searchSections|merge([section[1]]) %}
+        {% endfor %}
+      {% else %}
+        {% set searchSections = [] %}
+      {% endif %}
+    #}
+
+
   {# 
     Locations
   #}
@@ -199,13 +208,7 @@
 
 
 
-{#  TYPE ENTRIES REMOVED   
 
-    slideout: 'slideout',
-    acknowledgements: 'acknowledgements',
-    story: 'story',
-    chapter: 'chapter',
-#}
 
 {% set entriesTypeAllowed = {
       resourceSite: 'resourceSite',
@@ -311,7 +314,7 @@
           <button class="close-rs-filter"> </button>
 
           <div class="rs-filters">
-            {% include 'v2/templates/solutionsResearch/filterDesktop' %}
+            {% include 'v2/templates/solutionsResearch/filter' %}
           </div>
 
         <div class="mobile-filter-sort">
