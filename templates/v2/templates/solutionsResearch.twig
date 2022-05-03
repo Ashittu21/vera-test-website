@@ -33,9 +33,7 @@
 %}
 
 
-  {# 
-    Topics
-  #}
+  {#  Topics  #}
   {% if craft.request.getParam('topics') %}
 
     {% set topics_ObjsQuery = craft.request.getParam('topics') | split('},') %}
@@ -107,9 +105,6 @@
 
 
   {# TYPES #}
-
-  
-  
   {% if craft.request.getParam('types') %}
     {% set typeObjsQuery = craft.request.getParam('types') | split('},') %}
     {% set typeObjs = [] %}
@@ -139,38 +134,6 @@
       {% set types = null %}
   {% endif %}
   
-  {#{% if craft.request.getParam('types') %}
-    {% set typeObjsQuery = craft.request.getParam('types') | split('},') %}
-    {% set typeObjs = [] %}
-    {% set typeArray = [] %}
-
-    {% for type in typeObjsQuery %}
-      {% if not loop.last %}
-        {% set type = type~'}' %}
-      {% endif %}
-      {% set thistype = type | json_decode %}
-      {% set typeObjs = typeObjs | merge([thistype]) %}
-    {% endfor %}
-
-    {% for type in typeObjs %}
-      {% set typeArray = typeArray|merge([type["id"]]) %}
-    {% endfor %}
-  {% endif %}
-
-  {% if types is not defined and typeObjs is defined and typeObjs|length > 0 %}
-    {% set types = [] %}
-    {% for type in typeObjs %}
-      {% if type.type == 'categories' %}
-        {% set types = types|merge([{targetElement: craft.categories.id(type.id).first}]) %}
-      {% endif %}
-    {% endfor %}
-  {% elseif typeObjs is not defined and types is not defined %}
-      {% set types = null %}
-  {% endif %}
-
-#}
-
-
 
 
 
@@ -200,31 +163,44 @@
 
 
 
-  {# 
-    Locations
-  #}
 
   {% set mergedQuery = ['AND'] %}
-  {% set mloc = []%}
-  {% for uno in locations %}
-    {% set mloc =  mloc|merge(uno) %}
-  {% endfor %}
-  {% set mergedQuery = mergedQuery|push(mloc)  %}
-
 
   {#
     Topic
   #}
-
-  {% set mrel = [] %}
-  {% for dos in topics %}
-    {% set mrel =  mrel|merge(dos) %}
+  {% set merged_Topics = [] %}
+  {% for itemTopics in topics %}
+    {% set merged_Topics =  merged_Topics|merge(itemTopics) %}
   {% endfor %}
-  {% set mergedQuery = mergedQuery|push(mrel)  %}
+  {% set mergedQuery = mergedQuery|push(merged_Topics)  %}
+
+
+  {# 
+    Type
+  #}
+  {% set merged_Types = [] %}
+  {% for itemTypes in types %}
+    {% set merged_Types =  merged_Types|merge(itemTypes) %}
+  {% endfor %}
+  {% set mergedQuery = mergedQuery|push(merged_Types)  %}
+  
+  {{ dump(types) }}
+
+  {# 
+    Locations
+  #}
+  {% set merged_Locations = [] %}
+  {% for itemLocations in locations %}
+    {% set merged_Locations =  merged_Locations|merge(itemLocations) %}
+  {% endfor %}
+  {% set mergedQuery = mergedQuery|push(merged_Locations)  %}
 
 
 
-  {% if (mrel|length < 1) or (mloc|length < 1) %}
+
+
+  {% if (merged_Topics|length < 1) or (merged_Locations|length < 1) %}
 
     {% set related = [] %}
     {% for relat in locations %}
