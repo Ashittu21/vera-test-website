@@ -957,15 +957,23 @@ document.addEventListener("DOMContentLoaded", function() {
   initOrderBy();
 
   var totalTopics = $('input[name="optionsTopics[]"]:checked').length;
+  if(totalTopics>=1){
   $(".dropdown-text-topics").html('Topic (' + totalTopics + ')');
+  }
   console.log(totalTopics);
 
+
   var totalTypes = $('input[name="optionsTypes[]"]:checked').length;
-  $(".dropdown-text-types").html('Resource Type (' + totalTypes + ')');
+  if(totalTypes>=1){
+    $(".dropdown-text-types").html('Resource Type (' + totalTypes + ')');
+  }
   console.log(totalTypes);
+  
 
   var totalLocations = $('input[name="optionsLocations[]"]:checked').length;
-  $(".dropdown-text-locations").html('Geographic Areas (' + totalLocations + ')');
+  if(totalLocations>=1){
+    $(".dropdown-text-locations").html('Geographic Areas (' + totalLocations + ')');
+  }
   console.log(totalLocations);
 
   const dateStartInput = document.getElementById('dateStart');
