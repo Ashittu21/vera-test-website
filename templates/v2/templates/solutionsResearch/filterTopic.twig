@@ -4,11 +4,11 @@
   {% for relationBlock in streamOptions.filterRelations %}
     <div class="dropMenu dropdown-areas">
      <div class="slabel searchLabel">Topic</div>
-      <button class="dropdown-toggle" type="button" id="menuRelations" aria-haspopup="true">
+      <button class="dropdown-toggle" type="button" id="menuTopics" aria-haspopup="true">
         <span class="dropdown-text-relations">Select Topic</span>
         <span class="caret"></span>
       </button>
-      <ul class="dropdown-menu dropdown-menu-relations" id="listRelations" aria-labelledby="menuRelations">
+      <ul class="dropdown-menu dropdown-menu-relations" id="listTopics" aria-labelledby="menuTopics">
         {% for relation in relationBlock.relations %}
           {% if relationBlock.type == 'type' %}
             {% set relation_id = relation.handle %}
