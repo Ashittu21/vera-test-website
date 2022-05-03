@@ -746,7 +746,10 @@ $("input[type='checkbox'].topics_checkbox").change(function() {
   console.log(optionSelected);
 
   var totalTopics = $('input[name="optionsTopics[]"]:checked').length;
-  $(".dropdown-text-topics").html('Topic (' + totalTopics + ')');
+
+  if(totalTopics>=1){
+    $(".dropdown-text-topics").html('Topic (' + totalTopics + ')');
+  }
 });
 
 
@@ -767,7 +770,10 @@ $("input[type='checkbox'].type_checkbox").change(function() {
   console.log(optionSelected);
 
   var totalTypes = $('input[name="optionsTypes[]"]:checked').length;
-  $(".dropdown-text-types").html(' Resource Type(' + totalTypes + ')');
+
+  if(totalTypes>=1){
+   $(".dropdown-text-types").html(' Resource Type(' + totalTypes + ')');
+  }
 });
 
 
@@ -789,7 +795,9 @@ $("input[type='checkbox'].location_checkbox").change(function() {
 
   console.log(optionSelected);
   var totalLocations = $('input[name="optionsLocations[]"]:checked').length;
-  $(".dropdown-text-locations").html('Geographic Areas (' + totalLocations + ')');
+  if(totalLocations>=1){
+   $(".dropdown-text-locations").html('Geographic Areas (' + totalLocations + ')');
+  }
 });
 
 
