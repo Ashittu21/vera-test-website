@@ -14,7 +14,7 @@
 
         {% for location in locationsBlock.relations %}
            {% if locationsBlock.type == 'type' %}
-            {% set relation_id = location.handle %}
+            {% set location_id  = location.handle %}
             {% set location_type = 'type' %}
           {% else %}
             {% set location_id = location.id %}

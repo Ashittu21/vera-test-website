@@ -799,7 +799,9 @@ function initOrderBy() {
             varSections = varSections.replace(']', '');
             varSections = varSections.replaceAll('"', '');
     
+    
         var relations = [];
+
         $(".relation_checkbox:checked").each(function() {
           relations.push({
             id: this.value,

@@ -13,6 +13,8 @@
 
       <ul class="dropdown-menu dropdown-menu-types" id="listTypes" aria-labelledby="menuTypes">
         {% for relation in type_option.relations %}
+          
+          {{ dump(relation.handle) }}
 
           {% if type_option.type == 'type' %}
             {% set type_option_id = relation.handle %}
@@ -33,7 +35,6 @@
                 {{ relation }}
               {% endif %}
             </label>
-            
           </li>
         {% endfor %}
         <li class="applybtn"><button type="Button" class="apply ctaSearch">APPLY</button></li> 
