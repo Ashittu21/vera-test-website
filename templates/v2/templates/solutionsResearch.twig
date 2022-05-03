@@ -1,8 +1,9 @@
 {% extends '_layout' %}
 {% block content %}
 
-{% set filterOrder       = craft.app.request.getQueryParam('order') %}
-{% set filterTypes       = craft.app.request.getQueryParam('types') %}
+{% set  filterOrder      = craft.app.request.getQueryParam('order') %}
+{% set  filterTypes      = craft.app.request.getQueryParam('types') %}
+{% set filterTopics      = craft.app.request.getQueryParam('topics') %}
 
 {% set filterStartYear   = craft.app.request.getQueryParam('startYear') ?? "1969"|date('Y') %}
 {% set filterEndYear     = craft.app.request.getQueryParam('endYear') ?? "now"|date('Y') %}
@@ -26,48 +27,52 @@
               ['blogSeries']
             ],
             filterTypes: [{type: 'categories', relations: craft.categories.group('solutionsResearchTypes').level(1), title: 'Type'}],
-          filterTopics: [{type: 'categories', relations: craft.categories.group('solutionsResearch').level(1), title: 'Topic'}],
+           filterTopics: [{type: 'categories', relations: craft.categories.group('solutionsResearch').level(1), title: 'Topic'}],
         filterLocations: [{type: 'categories', relations: craft.categories.group('locations').level(1), title: 'Locations'}]
       }
 %}
 
+
   {# 
-    RELATIONS
+    Topics
   #}
 
   {% if craft.request.getParam('topics') %}
-    {% set relationObjsQuery = craft.request.getParam('topics') | split('},') %}
-    {% set relationObjs = [] %}
-    {% set relacionesArray = [] %}
 
-    {% for relation in relationObjsQuery %}
+    {% set topics_ObjsQuery = craft.request.getParam('topics') | split('},') %}
+    {% set topics_Objs = [] %}
+
+    {% set topics_Array = [] %}
+
+    {% for topic in topics_ObjsQuery %}
       {% if not loop.last %}
-        {% set relation = relation~'}' %}
+        {% set topic = topic~'}' %}
       {% endif %}
-      {% set thisrelation = relation | json_decode %}
-      {% set relationObjs = relationObjs|merge([thisrelation]) %}
+      {% set thistopic = topic | json_decode %}
+      {% set topics_Objs = topics_Objs|merge([thistopic]) %}
     {% endfor %}
 
-    {% for relaciones in relationObjs %}
-      {% set relacionesArray = relacionesArray|merge([relaciones["id"]]) %}
+    {% for chekedArray in topics_Objs %}
+      {% set topics_Array = topics_Array|merge([chekedArray["id"]]) %}
     {% endfor %}
   {% endif %}
+
   
-{% if relations is not defined and relationObjs is defined and relationObjs|length > 0 %}
-    {% set relations = [] %}
-    {% for relation in relationObjs %}
-      {% if relation.type == 'entries' %}
+{% if topics is not defined and topics_Objs is defined and topics_Objs|length > 0 %}
+    {% set topics = [] %}
+    {% for topic in topics_Objs %}
+      {% if topic.type == 'entries' %}
           {% if (streamType == 'people') %}
-            {% set relations = relations|merge([{sourceElement: craft.entries.id(relation.id).first}]) %}
+            {% set topics = topics|merge([{sourceElement: craft.entries.id(topic.id).first}]) %}
           {% else %}
-            {% set relations = relations|merge([{targetElement: craft.entries.id(relation.id).first}]) %}
+            {% set topics = topics|merge([{targetElement: craft.entries.id(topic.id).first}]) %}
           {% endif %}
-      {% elseif relation.type == 'categories' %}
-        {% set relations = relations|merge([{targetElement: craft.categories.id(relation.id).first}]) %}
+      {% elseif topic.type == 'categories' %}
+        {% set topics = topics|merge([{targetElement: craft.categories.id(topic.id).first}]) %}
       {% endif %}
     {% endfor %}
-{% elseif relationObjs is not defined and relations is not defined %}
-        {% set relations = null %}
+{% elseif topics_Objs is not defined and topics is not defined %}
+        {% set topics = null %}
 {% endif %}
 
 
@@ -144,7 +149,7 @@
   #}
 
   {% set mrel = [] %}
-  {% for dos in relations %}
+  {% for dos in topics %}
     {% set mrel =  mrel|merge(dos) %}
   {% endfor %}
   {% set mergedQuery = mergedQuery|push(mrel)  %}
@@ -158,7 +163,7 @@
       {% set  related =  related|merge([relat]) %}
     {% endfor %}
 
-    {% for relat in relations %}
+    {% for relat in topics %}
       {% set related = related|merge([relat]) %}
     {% endfor %} 
 
@@ -192,7 +197,7 @@
   {% for relat in locations %}
     {% set  related =  related|merge([relat]) %}
   {% endfor %}
-  {% for relat in relations %}
+  {% for relat in topics %}
     {% set related = related|merge([relat]) %}
   {% endfor %} 
 #}
@@ -239,7 +244,7 @@
 
 
 <!-- Hero Block -->
-  <div class="heroType1-container"  style="background-image: url('{{ entry.heroType1_image.first.url }}');">
+  <div class="heroType1-container"  {% if entry.heroType1_image %}style="background-image: url('{{ entry.heroType1_image.first.url }}');"{% endif %}>
     <div class="heroType1-block-bg"></div>
     <div class="heroType1-block-box">
       <div class="heroType1-block-box-content">
@@ -260,7 +265,7 @@
     </div>
     
     {#  Image Attribution #}
-      {%- if entry.contentDetail_heroImage.first.attribution -%}
+      {%- if entry.contentDetail_heroImage and entry.contentDetail_heroImage.first.attribution -%}
         <div class="imageAttrib">
 	        <div class="imageAttrib-wrap">
             {%- if entry.contentDetail_heroImage.first.attributionLink -%}
@@ -641,7 +646,7 @@ $(document).on('click', '.filterTags', function(event) {
   document.getElementById(this.getAttribute('data-check')).checked = false;
 
   var totalTopics = $('input[name="optionTopics[]"]:checked').length;
-      $(".dropdown-text-relations").html('Topic (' + totalTopics + ')');
+      $(".dropdown-text-topics").html('Topic (' + totalTopics + ')');
       borra(this.getAttribute('data-check'));
 });
 
@@ -650,8 +655,10 @@ $('body').on("click", ".dropdown-menu-section", function(e) {
 });
 
 
-$("input[type='checkbox'].section_checkbox").change(function() {
-  var a = $("input[type='checkbox'].section_checkbox");
+
+// Types
+$("input[type='checkbox'].type_checkbox").change(function() {
+  var a = $("input[type='checkbox'].type_checkbox");
   if (a.length == a.filter(":checked").length) {
     $('.selectall').prop('checked', true);
     $(".select-text").html(' Deselect');
@@ -662,18 +669,17 @@ $("input[type='checkbox'].section_checkbox").change(function() {
   });
   console.log(optionSelected);
   var totalTypes = $('input[name="optionsTopic[]"]:checked').length;
-  $(".dropdown-text-section").html(' Resource Type(' + totalTypes + ')');
+  $(".dropdown-text-types").html(' Resource Type(' + totalTypes + ')');
 });
 
 
-$("input[type='checkbox'].relation_checkbox").change(function() {
-  var a = $("input[type='checkbox'].relation_checkbox");
+//Topics
+$("input[type='checkbox'].topic_checkbox").change(function() {
+  var a = $("input[type='checkbox'].topic_checkbox");
   if (a.length == a.filter(":checked").length) {
     $('.selectall').prop('checked', true);
     $(".select-text").html(' Deselect');
   }
-
-
   if ($(this).is(':checked')) {
     optionSelected.push({
       label: $(this).next().text().trim(),
@@ -686,8 +692,8 @@ $("input[type='checkbox'].relation_checkbox").change(function() {
 
   console.log(optionSelected);
 
-  var totalTopics = $('input[name="optionTopics[]"]:checked').length;
-  $(".dropdown-text-relations").html('Topic (' + totalTopics + ')');
+  var totalTopics = $('input[name="optionsTopics[]"]:checked').length;
+  $(".dropdown-text-topics").html('Topic (' + totalTopics + ')');
 });
 
 
@@ -716,10 +722,10 @@ $("input[type='checkbox'].location_checkbox").change(function() {
 
 $('.ctaSearch').click(function(e) {
 
-  var sections = [];
+ // var sections = [];
   var startYear  = document.getElementById('dateStart').value;
   var endYear  = document.getElementById('dateEnd').value;
-
+/*
   $(".section_checkbox:checked").each(function() {
     sections.push(this.value);
   });
@@ -729,25 +735,41 @@ $('.ctaSearch').click(function(e) {
       sections.push(this.value);
     });
     var nosectionrelation = true;
-  }
+  }*/
   //var varSections = sections.join(',');
 
-  var relations = [];
 
-  $(".relation_checkbox:checked").each(function() {
-    relations.push({
+  // Topics
+  var topics = [];
+  $(".topics_checkbox:checked").each(function() {
+    topics.push({
       id: this.value,
       type: this.dataset.type,
       category: this.dataset.category,
     });
   });
 
-  var varRelations = JSON.stringify(relations);
-      varRelations = varRelations.replace('[', '');
-      varRelations = varRelations.replace(']', '');
+  var varTopics = JSON.stringify(topics);
+      varTopics = varTypes.replace('[', '');
+      varTopics = varTypes.replace(']', '');
 
 
+  // Types
+  var types = [];
+  $(".types_checkbox:checked").each(function() {
+    types.push({
+      id: this.value,
+      type: this.dataset.type,
+      category: this.dataset.category,
+    });
+  });
 
+  var varTypes = JSON.stringify(types);
+      varTypes = varTypes.replace('[', '');
+      varTypes = varTypes.replace(']', '');
+
+
+  // Locations
   var locations = [];
   $(".location_checkbox:checked").each(function() {
     locations.push({
@@ -762,7 +784,7 @@ $('.ctaSearch').click(function(e) {
 
 
   //query = 'startYear='+startYear+'&endYear='+endYear+'&sections=' + varSections +'&locations=' +varLocations+ '&relations=' + varRelations;
-  query = 'startYear='+startYear+'&endYear='+endYear+'&locations=' +varLocations+ '&relations=' + varRelations;
+  query = 'startYear='+startYear+'&endYear='+endYear+'&locations='+varLocations+'&topics='+varTopics+'&types='+varTypes;
   window.location.search = query;
 });
 
@@ -779,11 +801,11 @@ function initOrderBy() {
     orderBy.forEach(function(orderSelect) {
 
       orderSelect.addEventListener('change', function(event) {
-        var sections = [];
+       // var sections = [];
         var startYear  = document.getElementById('dateStart').value;
         var endYear  = document.getElementById('dateEnd').value;
 
-        $(".section_checkbox:checked").each(function() {
+     /*   $(".section_checkbox:checked").each(function() {
           sections.push(this.value);
         });
 
@@ -797,25 +819,29 @@ function initOrderBy() {
         var varSections = JSON.stringify(sections);
             varSections = varSections.replace('[', '');
             varSections = varSections.replace(']', '');
-            varSections = varSections.replaceAll('"', '');
+            varSections = varSections.replaceAll('"', '');*/
     
     
-        var relations = [];
 
-        $(".relation_checkbox:checked").each(function() {
-          relations.push({
+
+        // Types
+        var types = [];
+        $(".type_checkbox:checked").each(function() {
+          types.push({
             id: this.value,
             type: this.dataset.type,
             category: this.dataset.category,
           });
         });
 
-        var varRelations = JSON.stringify(relations);
-            varRelations = varRelations.replace('[', '');
-            varRelations = varRelations.replace(']', '');
+        var varTypes = JSON.stringify(types);
+            varTypes = varTypes.replace('[', '');
+            varTypes = varTypes.replace(']', '');
 
 
 
+        // Locations
+  
         var locations = [];
         $(".location_checkbox:checked").each(function() {
           locations.push({
@@ -831,7 +857,7 @@ function initOrderBy() {
             console.log(startYear);
             console.log(endYear);
 
-        query = 'startYear='+startYear+'&endYear='+endYear+'&sections=' + varSections +'&locations=' +varLocations+ '&relations=' + varRelations+'&order=' + this.value;
+        query = 'startYear='+startYear+'&endYear='+endYear+'&types=' + varTypes +'&locations=' +varLocations+ '&order=' + this.value;
         window.location.search = query;
 
       });

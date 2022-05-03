@@ -13,7 +13,8 @@
       <ul class="dropdown-menu dropdown-menu-locations" id="listLocations" aria-labelledby="menuLocations">
 
         {% for location in locationsBlock.relations %}
-           {% if locationsBlock.type == 'type' %}
+          
+          {% if locationsBlock.type == 'type' %}
             {% set location_id  = location.handle %}
             {% set location_type = 'type' %}
           {% else %}
@@ -22,7 +23,7 @@
           {% endif %}
       
           <li class="checkFilter">
-            <input type="checkbox" name='optionsLocations[]' id="{{ location_id }}" class="{{ location_type }}_checkbox option justone" value="{{ location_id }}"  data-type="{{ locationsBlock.type }}" {% if locArray is defined  %} {% if location_id in locArray %}checked{% endif %}{% endif %}/>
+            <input type="checkbox" name='optionsLocations[]' id="{{ location_id }}" class="{{ location_type }}_checkbox option" value="{{ location_id }}"  data-type="{{ locationsBlock.type }}" {% if locArray is defined  %} {% if location_id in locArray %}checked{% endif %}{% endif %}/>
             <label class="labelTopic" for="{{ location_id }}">
                 {{location.title}}
             </label>

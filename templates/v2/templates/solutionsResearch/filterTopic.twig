@@ -13,15 +13,9 @@
 
       <ul class="dropdown-menu dropdown-menu-topics" id="listTopics" aria-labelledby="menuTopics">
         {% for relation in topic_item.relations %}
-          
-          {% if topic_item.type == 'type' %}
-            {% set relation_id = relation.handle %}
-            {% set relation_type = 'type' %}
-          {% else %}
             {% set relation_id = relation.id %}
-            {% set relation_type = 'relation' %}
-          {% endif %}
-
+            {% set relation_type = 'topics' %}
+    
           <li class="checkFilter">
             <input type="checkbox" name='optionTopics[]' id="{{ relation_id }}" class="{{ relation_type }}_checkbox option justone" value="{{ relation_id }}"  data-type="{{ topic_item.type }}" {% if relacionesArray is defined  %} {% if relation_id in relacionesArray %}checked{% endif %}{% endif %}/>
             <label class="labelTopic" for="{{ relation_id }}">

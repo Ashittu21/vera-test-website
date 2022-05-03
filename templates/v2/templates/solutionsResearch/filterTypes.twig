@@ -12,28 +12,16 @@
       </button>
 
       <ul class="dropdown-menu dropdown-menu-types" id="listTypes" aria-labelledby="menuTypes">
-        {% for relation in type_option.relations %}
+        {% for type in type_option.relations %}
           
-          {{ dump(relation.handle) }}
-
-          {% if type_option.type == 'type' %}
-            {% set type_option_id = relation.handle %}
-            {% set type_option_type = 'type' %}
-          {% else %}
-            {% set type_option_id = relation.id %}
-            {% set type_option_type = 'relation' %}
-          {% endif %}
+            {% set type_id   = type.id %}
+            {% set type_slug = 'type' %}
+      
 
           <li class="checkFilter">
-           
-            <input type="checkbox" name='optionsTypes[]' id="{{ type_option_id }}" class="{{ type_option_type }}_checkbox option justone" value="{{ type_option_id }}"  data-type="{{ type_option.type }}" {% if relacionesArray is defined  %} {% if type_option_id in relacionesArray %}checked{% endif %}{% endif %}/>
-           
-            <label class="labelTopic" for="{{ type_option_id }}">
-              {% if type_option.type == 'type' %}
-                {{ relation.name }}
-              {% else %}
-                {{ relation }}
-              {% endif %}
+            <input type="checkbox" name='optionsTypes[]' id="{{ type_id }}" class="{{ type_slug }}_checkbox option" value="{{ type_id }}"  data-type="{{ type_option.type }}" {% if checkArray is defined  %} {% if type_id in checkArray %}checked{% endif %}{% endif %}/>
+            <label class="labelTopic" for="{{ type_id }}">
+                {{ type }}
             </label>
           </li>
         {% endfor %}
