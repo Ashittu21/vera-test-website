@@ -1,34 +1,33 @@
 
-{% set relencode =  craft.request.getParam('relations')|json_encode %}
-{% if streamOptions.filterRelations is defined %}
-  {% for relationBlock in streamOptions.filterRelations %}
+{# set relencode =  craft.request.getParam('topics')|json_encode #}
+
+{% if streamOptions.filterTopics is defined %}
+  {% for topic_item in streamOptions.filterTopics %}
     <div class="dropMenu dropdown-areas">
      <div class="slabel searchLabel">Topic</div>
+      
       <button class="dropdown-toggle" type="button" id="menuTopics" aria-haspopup="true">
-        <span class="dropdown-text-relations">Select Topic</span>
+        <span class="dropdown-text-topics">Select Topic</span>
         <span class="caret"></span>
       </button>
-      <ul class="dropdown-menu dropdown-menu-relations" id="listTopics" aria-labelledby="menuTopics">
-        {% for relation in relationBlock.relations %}
-          {% if relationBlock.type == 'type' %}
+
+      <ul class="dropdown-menu dropdown-menu-topics" id="listTopics" aria-labelledby="menuTopics">
+        {% for relation in topic_item.relations %}
+          
+          {% if topic_item.type == 'type' %}
             {% set relation_id = relation.handle %}
             {% set relation_type = 'type' %}
           {% else %}
             {% set relation_id = relation.id %}
             {% set relation_type = 'relation' %}
           {% endif %}
+
           <li class="checkFilter">
-            <input type="checkbox" name='optionsRelations[]' id="{{ relation_id }}" class="{{ relation_type }}_checkbox option justone" value="{{ relation_id }}"  data-type="{{ relationBlock.type }}" {% if relacionesArray is defined  %} {% if relation_id in relacionesArray %}checked{% endif %}{% endif %}/>
+            <input type="checkbox" name='optionTopics[]' id="{{ relation_id }}" class="{{ relation_type }}_checkbox option justone" value="{{ relation_id }}"  data-type="{{ topic_item.type }}" {% if relacionesArray is defined  %} {% if relation_id in relacionesArray %}checked{% endif %}{% endif %}/>
             <label class="labelTopic" for="{{ relation_id }}">
-              {% if relationBlock.title == 'Action Areas' %}
-                {% set workRelation = craft.entries.section('ourWork').relatedTo(relation).first %}
-                {% set shortTitle = workRelation ? workRelation.shortTitle %}
-                {% if shortTitle %}
-                  {{ shortTitle }}
-                {% else %}
+              {% if topic_item.title == 'Action Areas' %}
                   {{ relation }}
-                {% endif %}
-              {% elseif relationBlock.type == 'type' %}
+              {% elseif topic_item.type == 'type' %}
                 {{ relation.name }}
               {% else %}
                 {{ relation }}

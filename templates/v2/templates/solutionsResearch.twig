@@ -16,6 +16,7 @@
 {% set streamOptions = {
         title: 'Solutions & Research',
         news: false,
+        streamType: 'content',
         sections: [
               ['publications'],
               ['audio'],
@@ -25,19 +26,17 @@
               ['blogSeries']
             ],
             filterTypes: [{type: 'categories', relations: craft.categories.group('solutionsResearchTypes').level(1), title: 'Type'}],
-        filterRelations: [{type: 'categories', relations: craft.categories.group('solutionsResearch').level(1), title: 'Topic'}],
+          filterTopics: [{type: 'categories', relations: craft.categories.group('solutionsResearch').level(1), title: 'Topic'}],
         filterLocations: [{type: 'categories', relations: craft.categories.group('locations').level(1), title: 'Locations'}]
       }
 %}
-
- {% set streamOptions = streamOptions|merge({streamType: 'content'}) %}
 
   {# 
     RELATIONS
   #}
 
-  {% if craft.request.getParam('relations') %}
-    {% set relationObjsQuery = craft.request.getParam('relations') | split('},') %}
+  {% if craft.request.getParam('topics') %}
+    {% set relationObjsQuery = craft.request.getParam('topics') | split('},') %}
     {% set relationObjs = [] %}
     {% set relacionesArray = [] %}
 
@@ -53,7 +52,6 @@
       {% set relacionesArray = relacionesArray|merge([relaciones["id"]]) %}
     {% endfor %}
   {% endif %}
-
   
 {% if relations is not defined and relationObjs is defined and relationObjs|length > 0 %}
     {% set relations = [] %}
@@ -642,8 +640,8 @@ $(document).on('click', '.filterTags', function(event) {
   console.log(this.getAttribute('data-check'));
   document.getElementById(this.getAttribute('data-check')).checked = false;
 
-  var totalRelations = $('input[name="optionsRelations[]"]:checked').length;
-      $(".dropdown-text-relations").html('Topic (' + totalRelations + ')');
+  var totalTopics = $('input[name="optionTopics[]"]:checked').length;
+      $(".dropdown-text-relations").html('Topic (' + totalTopics + ')');
       borra(this.getAttribute('data-check'));
 });
 
@@ -663,8 +661,8 @@ $("input[type='checkbox'].section_checkbox").change(function() {
     id: $(this).attr('id')
   });
   console.log(optionSelected);
-  var totalSection = $('input[name="optionsTopic[]"]:checked').length;
-  $(".dropdown-text-section").html(' Resource Type(' + totalSection + ')');
+  var totalTypes = $('input[name="optionsTopic[]"]:checked').length;
+  $(".dropdown-text-section").html(' Resource Type(' + totalTypes + ')');
 });
 
 
@@ -688,8 +686,8 @@ $("input[type='checkbox'].relation_checkbox").change(function() {
 
   console.log(optionSelected);
 
-  var totalRelations = $('input[name="optionsRelations[]"]:checked').length;
-  $(".dropdown-text-relations").html('Topic (' + totalRelations + ')');
+  var totalTopics = $('input[name="optionTopics[]"]:checked').length;
+  $(".dropdown-text-relations").html('Topic (' + totalTopics + ')');
 });
 
 // For Locations
@@ -844,45 +842,44 @@ function initOrderBy() {
 document.addEventListener("DOMContentLoaded", function() {
 
   initOrderBy();
-  var totalRelations = $('input[name="optionsRelations[]"]:checked').length;
-  $(".dropdown-text-relations").html('Topic (' + totalRelations + ')');
-  var totalSection = $('input[name="optionsTopic[]"]:checked').length;
-  $(".dropdown-text-section").html('Resource Type (' + totalSection + ')');
 
+  var totalTopics = $('input[name="optionTopics[]"]:checked').length;
+  $(".dropdown-text-topics").html('Topic (' + totalTopics + ')');
 
+  var totalTypes = $('input[name="optionsTypes[]"]:checked').length;
+  $(".dropdown-text-types").html('Resource Type (' + totalTypes + ')');
 
+  const dateStartInput = document.getElementById('dateStart');
+  const datepickerStart = new Datepicker(dateStartInput, {
+        autohide: true,
+        daysOfWeekDisabled: [],
+        daysOfWeekHighlighted: [],
+        pickLevel: 2,
+        format: 'yyyy',
+        defaultViewDate: '1969',
+        minDate: '1969',
+        nextArrow: '>>',
+        prevArrow: '<<',
+        todayBtn: false,
+        todayBtnMode: 1,
+        todayHighlight: true
+  }); 
 
-const dateStartInput = document.getElementById('dateStart');
-const datepickerStart = new Datepicker(dateStartInput, {
-      autohide: true,
-      daysOfWeekDisabled: [],
-      daysOfWeekHighlighted: [],
-      pickLevel: 2,
-      format: 'yyyy',
-      defaultViewDate: '1969',
-      minDate: '1969',
-      nextArrow: '>>',
-      prevArrow: '<<',
-      todayBtn: false,
-      todayBtnMode: 1,
-      todayHighlight: true
-}); 
-
-const dateStartEnd = document.getElementById('dateEnd');
-const datepickerEnd = new Datepicker(dateStartEnd, {
-      autohide: true,
-      daysOfWeekDisabled: [],
-      daysOfWeekHighlighted: [],
-      pickLevel: 2,
-      format: 'yyyy',
-      maxDate:'today',
-      nextArrow: '>>',
-      prevArrow: '<<',
-      todayBtn: false,
-      todayBtnMode: 1,
-      todayHighlight: true
-}); 
-     
+  const dateStartEnd = document.getElementById('dateEnd');
+  const datepickerEnd = new Datepicker(dateStartEnd, {
+        autohide: true,
+        daysOfWeekDisabled: [],
+        daysOfWeekHighlighted: [],
+        pickLevel: 2,
+        format: 'yyyy',
+        maxDate:'today',
+        nextArrow: '>>',
+        prevArrow: '<<',
+        todayBtn: false,
+        todayBtnMode: 1,
+        todayHighlight: true
+  }); 
+      
 });
 </script>
 
