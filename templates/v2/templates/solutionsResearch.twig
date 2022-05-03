@@ -175,6 +175,7 @@
   {% endfor %}
   {% set mergedQuery = mergedQuery|push(merged_Topics)  %}
 
+  {{ dump(topics) }}
 
   {# 
     Type
@@ -196,11 +197,11 @@
   {% endfor %}
   {% set mergedQuery = mergedQuery|push(merged_Locations)  %}
 
+  {{ dump(locations) }}
 
 
 
-
-  {% if (merged_Topics|length < 1) or (merged_Locations|length < 1) %}
+  {% if (merged_Topics|length < 1) or (merged_Locations|length < 1) or (merged_Types|length < 1)%}
 
     {% set related = [] %}
     {% for relat in locations %}
@@ -210,6 +211,12 @@
     {% for relat in topics %}
       {% set related = related|merge([relat]) %}
     {% endfor %} 
+
+    {% for relat in types %}
+      {% set related = related|merge([relat]) %}
+    {% endfor %} 
+    
+    {{ dump(related) }}
 
     {% set queryObj = {
       relatedTo: related,
