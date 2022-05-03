@@ -1,0 +1,35 @@
+
+
+{% set locationsEncode =  craft.request.getParam('locations')|json_encode %}
+{% if streamOptions.filterLocations is defined %}
+  {% for locationsBlock in streamOptions.filterLocations %}
+   
+    <div class="dropMenu dropdown-locations">
+     <div class="location-label searchLabel">Locations</div>
+      <button class="dropdown-toggle" type="button" id="menuLocations" aria-haspopup="true">
+        <span class="dropdown-text-locations">Select geographic area</span>
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu dropdown-menu-locations" id="listLocations" aria-labelledby="menuLocations">
+
+        {% for location in locationsBlock.relations %}
+           {% if locationsBlock.type == 'type' %}
+            {% set relation_id = location.handle %}
+            {% set location_type = 'type' %}
+          {% else %}
+            {% set location_id = location.id %}
+            {% set location_type = 'location' %}
+          {% endif %}
+      
+          <li class="checkFilter">
+            <input type="checkbox" name='optionsLocations[]' id="{{ location_id }}" class="{{ location_type }}_checkbox option justone" value="{{ location_id }}"  data-type="{{ locationsBlock.type }}" {% if locArray is defined  %} {% if location_id in locArray %}checked{% endif %}{% endif %}/>
+            <label class="labelTopic" for="{{ location_id }}">
+                {{location.title}}
+            </label>
+          </li>
+        {% endfor %}
+        <li class="applybtn"><button type="Button" class="apply ctaSearch">APPLY</button></li> 
+      </ul>
+    </div>
+  {% endfor %}
+{% endif %}

@@ -1,0 +1,15 @@
+
+<div class="date-container">
+  <label class="dateRange searchLabel">Date Range</label>
+  <div class="date-container-form">
+      <div class="date-container-inputs">
+        <input type="text" id="dateStart" placeholder="Start year" name="dateStart" value="{% if craft.app.request.getQueryParam('startYear') %}{{ craft.app.request.getQueryParam('startYear') }}{% endif %}">
+        <span>to</span>
+        <input type="text" id="dateEnd" placeholder="End year" name="dateEnd" value="{% if craft.app.request.getQueryParam('endYear') %}{{ craft.app.request.getQueryParam('endYear') }}{% endif %}"> 
+      </div>
+      
+    <div class="sliderButton">
+      <button class="ctaSearch"></button>
+    </div>
+  </div>
+</div>
