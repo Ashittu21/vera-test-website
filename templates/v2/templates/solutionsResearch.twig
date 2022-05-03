@@ -566,14 +566,14 @@ $("#menuTopic").on('click',function(){
 });
 
 
-$("#menuRelations").on('click',function(){
-  var CheckR = $("#menuRelations").attr("aria-expanded");
+$("#menuTypes").on('click',function(){
+  var CheckR = $("#menuTypes").attr("aria-expanded");
  if ( CheckR == "true") {
-      $("#menuRelations").attr("aria-expanded", "false");
-      $("#listRelations").attr("aria-hidden", "true");
+      $("#menuTypes").attr("aria-expanded", "false");
+      $("#listTypes").attr("aria-hidden", "true");
  } else {
-      $("#menuRelations").attr("aria-expanded", "true");
-      $("#listRelations").attr("aria-hidden", "false");
+      $("#menuTypes").attr("aria-expanded", "true");
+      $("#listTypes").attr("aria-hidden", "false");
  }
 });
 
