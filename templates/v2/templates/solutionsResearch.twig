@@ -724,7 +724,8 @@ $('.ctaSearch').click(function(e) {
 
  // var sections = [];
   var startYear  = document.getElementById('dateStart').value;
-  var endYear  = document.getElementById('dateEnd').value;
+  var endYear    = document.getElementById('dateEnd').value;
+
 /*
   $(".section_checkbox:checked").each(function() {
     sections.push(this.value);
@@ -750,8 +751,9 @@ $('.ctaSearch').click(function(e) {
   });
 
   var varTopics = JSON.stringify(topics);
-      varTopics = varTypes.replace('[', '');
-      varTopics = varTypes.replace(']', '');
+      varTopics = varTopics.replace('[', '');
+      varTopics = varTopics.replace(']', '');
+      varTopics = varTopics.replaceAll('"', '');
 
 
   // Types
@@ -767,6 +769,7 @@ $('.ctaSearch').click(function(e) {
   var varTypes = JSON.stringify(types);
       varTypes = varTypes.replace('[', '');
       varTypes = varTypes.replace(']', '');
+      varTypes = varTypes.replaceAll('"', '');
 
 
   // Locations
@@ -781,9 +784,9 @@ $('.ctaSearch').click(function(e) {
   var varLocations = JSON.stringify(locations);
       varLocations = varLocations.replace('[', '');
       varLocations = varLocations.replace(']', '');
+      varLocations = varLocations.replaceAll('"', '');
 
 
-  //query = 'startYear='+startYear+'&endYear='+endYear+'&sections=' + varSections +'&locations=' +varLocations+ '&relations=' + varRelations;
   query = 'startYear='+startYear+'&endYear='+endYear+'&locations='+varLocations+'&topics='+varTopics+'&types='+varTypes;
   window.location.search = query;
 });
@@ -801,11 +804,12 @@ function initOrderBy() {
     orderBy.forEach(function(orderSelect) {
 
       orderSelect.addEventListener('change', function(event) {
-       // var sections = [];
-        var startYear  = document.getElementById('dateStart').value;
-        var endYear  = document.getElementById('dateEnd').value;
 
-     /*   $(".section_checkbox:checked").each(function() {
+      var startYear  = document.getElementById('dateStart').value;
+      var endYear    = document.getElementById('dateEnd').value;
+
+      // var sections = [];
+      /*   $(".section_checkbox:checked").each(function() {
           sections.push(this.value);
         });
 
@@ -815,12 +819,7 @@ function initOrderBy() {
           });
           var nosectionrelation = true;
         }
-
-        var varSections = JSON.stringify(sections);
-            varSections = varSections.replace('[', '');
-            varSections = varSections.replace(']', '');
-            varSections = varSections.replaceAll('"', '');*/
-    
+      */
     
 
 
@@ -837,11 +836,11 @@ function initOrderBy() {
         var varTypes = JSON.stringify(types);
             varTypes = varTypes.replace('[', '');
             varTypes = varTypes.replace(']', '');
+            varTypes = varTypes.replaceAll('"', '');
 
 
 
         // Locations
-  
         var locations = [];
         $(".location_checkbox:checked").each(function() {
           locations.push({
@@ -853,11 +852,12 @@ function initOrderBy() {
         var varLocations = JSON.stringify(locations);
             varLocations = varLocations.replace('[', '');
             varLocations = varLocations.replace(']', '');
+            varLocations = varLocations.replaceAll('"', '');
 
             console.log(startYear);
             console.log(endYear);
 
-        query = 'startYear='+startYear+'&endYear='+endYear+'&types=' + varTypes +'&locations=' +varLocations+ '&order=' + this.value;
+        query = 'startYear='+startYear+'&endYear='+endYear+'&locations='+varLocations+'&topics='+varTopics+'&types='+varTypes+'&order='+this.value;
         window.location.search = query;
 
       });
@@ -875,6 +875,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
   var totalTypes = $('input[name="optionsTypes[]"]:checked').length;
   $(".dropdown-text-types").html('Resource Type (' + totalTypes + ')');
+
+  var totalLocations = $('input[name="optionsLocations[]"]:checked').length;
+  $(".dropdown-text-locations").html('Geographic Areas (' + totalLocations + ')');
 
   const dateStartInput = document.getElementById('dateStart');
   const datepickerStart = new Datepicker(dateStartInput, {

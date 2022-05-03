@@ -19,7 +19,11 @@
       
 
           <li class="checkFilter">
-            <input type="checkbox" name='optionsTypes[]' id="{{ type_id }}" class="{{ type_slug }}_checkbox option" value="{{ type_id }}"  data-type="{{ type_option.type }}" {% if checkArray is defined  %} {% if type_id in checkArray %}checked{% endif %}{% endif %}/>
+            <input type="checkbox" name='optionsTypes[]' 
+            id="{{ type_id }}" 
+            class="{{ type_slug }}_checkbox option" 
+            value="{{ type_id }}"  
+            data-type="{{ type_option.type }}" {% if checkArray is defined  %} {% if type_id in checkArray %}checked{% endif %}{% endif %}/>
             <label class="labelTopic" for="{{ type_id }}">
                 {{ type }}
             </label>
