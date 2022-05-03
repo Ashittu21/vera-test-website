@@ -748,7 +748,7 @@ $("input[type='checkbox'].topics_checkbox").change(function() {
   var totalTopics = $('input[name="optionsTopics[]"]:checked').length;
 
   if(totalTopics>=1){
-    $(".dropdown-text-topics").html('Topic (' + totalTopics + ')');
+   $(".dropdown-text-topics").html('Topic (' + totalTopics + ')');
   }else{
    $(".dropdown-text-topics").html('Select Topic');
   }
@@ -776,7 +776,7 @@ $("input[type='checkbox'].type_checkbox").change(function() {
   if(totalTypes>=1){
    $(".dropdown-text-types").html(' Resource Type(' + totalTypes + ')');
   }else{
-   $(".dropdown-text-topics").html('Resource Type');
+   $(".dropdown-text-types").html('Resource Type');
   }
 });
 
@@ -802,7 +802,7 @@ $("input[type='checkbox'].location_checkbox").change(function() {
   if(totalLocations>=1){
    $(".dropdown-text-locations").html('Geographic Areas (' + totalLocations + ')');
   }else{
-   $(".dropdown-text-topics").html('Select geographic area');
+   $(".dropdown-text-locations").html('Select geographic area');
   }
 });
 
@@ -975,7 +975,7 @@ document.addEventListener("DOMContentLoaded", function() {
   if(totalTypes>=1){
     $(".dropdown-text-types").html('Resource Type (' + totalTypes + ')');
   }else{
-   $(".dropdown-text-topics").html('Resource Type');
+    $(".dropdown-text-types").html('Resource Type');
   }
   console.log(totalTypes);
 
@@ -984,7 +984,7 @@ document.addEventListener("DOMContentLoaded", function() {
   if(totalLocations>=1){
     $(".dropdown-text-locations").html('Geographic Areas (' + totalLocations + ')');
   }else{
-   $(".dropdown-text-topics").html('Select geographic area');
+    $(".dropdown-text-locations").html('Select geographic area');
   }
   console.log(totalLocations);
 
