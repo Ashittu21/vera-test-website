@@ -32,6 +32,36 @@
       }
 %}
 
+{% set entriesTypeAllowed = {   
+      videoPlaylist: 'videoPlaylist',
+      publicationOverview: 'publicationOverview',
+      specialReport: 'specialReport',
+      publicationDocument: 'publicationDocument',
+      fromTheDirector: 'fromTheDirector',
+      endnotes: 'endnotes',
+      aboutThisReport: 'aboutThisReport',
+      specialReportSingle: 'specialReportSingle',
+      gala: 'gala',
+      specialReportChaptered: 'specialReportChaptered',
+      accordion: 'accordion',
+      specialReportCampaign: 'specialReportCampaign',
+      article: 'article',
+      statePublications: 'statePublications',
+      state: 'state',
+      city: 'city',
+      stateBuilder: 'stateBuilder',
+      whatJailsCostLanding: 'whatJailsCostLanding',
+      whatJailsCostPage: 'whatJailsCostPage',
+      publications: 'publications',
+      video: 'video',
+      audio: 'audio',
+      resourceSite: 'resourceSite',
+      specialReports: 'specialReports',
+      blogSeries: 'blogSeries'
+    } 
+%}
+
+
 
   {#  Topics  #}
   {% if craft.request.getParam('topics') %}
@@ -138,15 +168,6 @@
 
 
 
-
-  {# 
-    Sections
-  #}
-    {% set searchSections = [] %}
-    {% for section in streamOptions.sections %}
-        {% set searchSections = searchSections|merge([section[0]]) %}
-    {% endfor %}
-
     {#
       {% if craft.request.getParam('sections') %}
         {% set searchSections = craft.request.getParam('sections') | split(',') %}
@@ -165,6 +186,19 @@
 
 
   {% set mergedQuery = ['AND'] %}
+
+
+  
+
+  {# 
+    Sections
+  #}
+    {% set searchSections = [] %}
+    {% for section in entriesTypeAllowed %}
+    {{dump(section)}}
+        {% set searchSections = searchSections|merge([section]) %}
+    {% endfor %}
+
 
   {#
     Topic
@@ -187,6 +221,7 @@
   {% set mergedQuery = mergedQuery|push(merged_Types)  %}
   
   {{ dump(types) }}
+
 
   {# 
     Locations
@@ -254,32 +289,6 @@
 #}
 
 
-{% set entriesTypeAllowed = {
-      resourceSite: 'resourceSite',
-      video: 'video',
-      audio: 'audio',
-      videoPlaylist: 'videoPlaylist',
-      blogSeries: 'blogSeries',
-      publicationOverview: 'publicationOverview',
-      specialReport: 'specialReport',
-      publicationDocument: 'publicationDocument',
-      fromTheDirector: 'fromTheDirector',
-      endnotes: 'endnotes',
-      aboutThisReport: 'aboutThisReport',
-      specialReportSingle: 'specialReportSingle',
-      gala: 'gala',
-      specialReportChaptered: 'specialReportChaptered',
-      accordion: 'accordion',
-      specialReportCampaign: 'specialReportCampaign',
-      article: 'article',
-      statePublications: 'statePublications',
-      state: 'state',
-      city: 'city',
-      stateBuilder: 'stateBuilder',
-      whatJailsCostLanding: 'whatJailsCostLanding',
-      whatJailsCostPage: 'whatJailsCostPage'
-    } 
-%}
 
 {# section('and, not this, not that') #}
 
