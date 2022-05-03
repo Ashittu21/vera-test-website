@@ -1,28 +1,4 @@
 
-{% if streamOptions.fieldOptions is defined %}
-  <div>
-    <span>{{ streamOptions.fieldOptions.title }}</span>
-    <ul>
-      {% for option in streamOptions.fieldOptions.options %}
-        <li><input type="checkbox" id="{{ option.title|replace(' ','_')|lower }}" class="field_checkbox" data-option={{ option.option | json_encode | raw }}/>
-          <label for="{{ option.title|replace(' ','_')|lower }}">{{ option.title }}</label>
-        </li>
-      {% endfor %}
-    </ul>
-  </div>
-{% endif %}
-
-{% include 'v2/templates/solutionsResearch/filterTopic' %}
-
-{% include 'v2/templates/solutionsResearch/filterTypes' %}
-
-{% include 'v2/templates/solutionsResearch/filterLocations' %}
-
-{% include 'v2/templates/solutionsResearch/filterDate' %}
-
-{#
-  Types
-#}
 {#
 {% set filterTypes =  craft.request.getParam('types')|json_encode %}
 
@@ -52,42 +28,3 @@
 {% endif %}
 #}
 
-
-
-<script>
-
-$("#menuTopic").on('click',function(){
-  var CheckT = $("#menuTopic").attr("aria-expanded");
-   if ( CheckT == "true") {
-      $("#menuTopic").attr("aria-expanded", "false");
-      $("#listTopic").attr("aria-hidden", "true");
- } else {
-      $("#menuTopic").attr("aria-expanded", "true");
-      $("#listTopic").attr("aria-hidden", "false");
- }
-});
-
-
-$("#menuRelations").on('click',function(){
-  var CheckR = $("#menuRelations").attr("aria-expanded");
- if ( CheckR == "true") {
-      $("#menuRelations").attr("aria-expanded", "false");
-      $("#listRelations").attr("aria-hidden", "true");
- } else {
-      $("#menuRelations").attr("aria-expanded", "true");
-      $("#listRelations").attr("aria-hidden", "false");
- }
-});
-
-
-$("#menuLocations").on('click',function(){
-  var CheckR = $("#menuLocations").attr("aria-expanded");
- if ( CheckR == "true") {
-      $("#menuLocations").attr("aria-expanded", "false");
-      $("#listLocations").attr("aria-hidden", "true");
- } else {
-      $("#menuLocations").attr("aria-expanded", "true");
-      $("#listLocations").attr("aria-hidden", "false");
- }
-});
-</script>

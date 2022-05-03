@@ -1,9 +1,8 @@
 {% extends '_layout' %}
 {% block content %}
 
-
-{% set filterSection     = craft.app.request.getQueryParam('section') %}
 {% set filterOrder       = craft.app.request.getQueryParam('order') %}
+{% set filterTypes       = craft.app.request.getQueryParam('types') %}
 
 {% set filterStartYear   = craft.app.request.getQueryParam('startYear') ?? "1969"|date('Y') %}
 {% set filterEndYear     = craft.app.request.getQueryParam('endYear') ?? "now"|date('Y') %}
@@ -14,11 +13,9 @@
 {% set yearStart = (filterStartYear ~ '-01-01')|atom %}
 {% set yearEnd = (filterEndYear ~ '-12-31')|atom %}
 
-
 {% set streamOptions = {
         title: 'Solutions & Research',
         news: false,
-        filterAltLayout: 'unstacked',
         sections: [
               ['publications'],
               ['audio'],
@@ -135,6 +132,7 @@
   {# 
     Locations
   #}
+
   {% set mergedQuery = ['AND'] %}
   {% set mloc = []%}
   {% for uno in locations %}
@@ -296,22 +294,23 @@
         <h3 class="rs-title">Solutions &<br> Research</h3>
 
         <div class="rs-head-form">
-          <div class="filter-by">
-            FILTER BY
-          </div>
-          <div class="mobile-filter-by">
-            Sort & Filter
-          </div>
+
+          <div class="filter-by">FILTER BY</div>
+          <div class="mobile-filter-by">Sort & Filter</div>
           
-          <button class="close-rs-filter"> </button>
+          <button class="close-rs-filter"></button>
 
           <div class="rs-filters">
-            {% include 'v2/templates/solutionsResearch/filter' %}
+            {% include 'v2/templates/solutionsResearch/filterTopic' %}
+            {% include 'v2/templates/solutionsResearch/filterTypes' %}
+            {% include 'v2/templates/solutionsResearch/filterLocations' %}
+            {% include 'v2/templates/solutionsResearch/filterDate' %}
           </div>
+
 
         <div class="mobile-filter-sort">
           <hr>
-          <label for="orderby" >Sort by</label>
+            <label for="orderby" >Sort by</label>
             <select type="text" class="orderby"> 
               <option value="newest" {% if filterOrder == 'newest' %} selected {% endif %}>Newest</option>
               <option value="oldest" {% if filterOrder == 'oldest' %} selected {% endif %}>Oldest</option>
@@ -550,6 +549,47 @@
       </div>
     </section>
   </div>
+
+
+
+<script>
+
+$("#menuTopic").on('click',function(){
+  var CheckT = $("#menuTopic").attr("aria-expanded");
+   if ( CheckT == "true") {
+      $("#menuTopic").attr("aria-expanded", "false");
+      $("#listTopic").attr("aria-hidden", "true");
+ } else {
+      $("#menuTopic").attr("aria-expanded", "true");
+      $("#listTopic").attr("aria-hidden", "false");
+ }
+});
+
+
+$("#menuRelations").on('click',function(){
+  var CheckR = $("#menuRelations").attr("aria-expanded");
+ if ( CheckR == "true") {
+      $("#menuRelations").attr("aria-expanded", "false");
+      $("#listRelations").attr("aria-hidden", "true");
+ } else {
+      $("#menuRelations").attr("aria-expanded", "true");
+      $("#listRelations").attr("aria-hidden", "false");
+ }
+});
+
+
+$("#menuLocations").on('click',function(){
+  var CheckR = $("#menuLocations").attr("aria-expanded");
+ if ( CheckR == "true") {
+      $("#menuLocations").attr("aria-expanded", "false");
+      $("#listLocations").attr("aria-hidden", "true");
+ } else {
+      $("#menuLocations").attr("aria-expanded", "true");
+      $("#listLocations").attr("aria-hidden", "false");
+ }
+});
+</script>
+
 
 <script>
 

@@ -1,4 +1,5 @@
-{% set filterTypesEncode =  craft.request.getParam('types')|json_encode %}
+{# set filterTypesEncode =  craft.request.getParam('types')|json_encode #}
+
 {% if streamOptions.filterTypes is defined %}
   {% for relationBlock in streamOptions.filterTypes %}
     <div class="dropMenu dropdown-areas">
