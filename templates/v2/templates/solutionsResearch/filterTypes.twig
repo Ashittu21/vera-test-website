@@ -23,7 +23,9 @@
           {% endif %}
 
           <li class="checkFilter">
+           
             <input type="checkbox" name='optionsTypes[]' id="{{ relation_id }}" class="{{ relation_type }}_checkbox option justone" value="{{ relation_id }}"  data-type="{{ type_option.type }}" {% if relacionesArray is defined  %} {% if relation_id in relacionesArray %}checked{% endif %}{% endif %}/>
+           
             <label class="labelTopic" for="{{ relation_id }}">
               {% if type_option.title == 'Action Areas' %}
                 {% set workRelation = craft.entries.section('ourWork').relatedTo(relation).first %}
