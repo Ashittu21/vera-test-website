@@ -26,8 +26,8 @@
               ['specialReports'],
               ['blogSeries']
             ],
-            filterTypes: [{type: 'categories', relations: craft.categories.group('solutionsResearchTypes').level(1), title: 'Type'}],
            filterTopics: [{type: 'categories', relations: craft.categories.group('solutionsResearch').level(1), title: 'Topic'}],
+            filterTypes: [{type: 'categories', relations: craft.categories.group('solutionsResearchTypes').level(1), title: 'Type'}],
         filterLocations: [{type: 'categories', relations: craft.categories.group('locations').level(1), title: 'Locations'}]
       }
 %}
@@ -36,18 +36,18 @@
   {# 
     Topics
   #}
-
   {% if craft.request.getParam('topics') %}
 
     {% set topics_ObjsQuery = craft.request.getParam('topics') | split('},') %}
     {% set topics_Objs = [] %}
-
     {% set topics_Array = [] %}
+
 
     {% for topic in topics_ObjsQuery %}
       {% if not loop.last %}
         {% set topic = topic~'}' %}
       {% endif %}
+
       {% set thistopic = topic | json_decode %}
       {% set topics_Objs = topics_Objs|merge([thistopic]) %}
     {% endfor %}
@@ -56,29 +56,25 @@
       {% set topics_Array = topics_Array|merge([chekedArray["id"]]) %}
     {% endfor %}
   {% endif %}
-
-  
-{% if topics is not defined and topics_Objs is defined and topics_Objs|length > 0 %}
-    {% set topics = [] %}
-    {% for topic in topics_Objs %}
-      {% if topic.type == 'entries' %}
-          {% if (streamType == 'people') %}
-            {% set topics = topics|merge([{sourceElement: craft.entries.id(topic.id).first}]) %}
-          {% else %}
-            {% set topics = topics|merge([{targetElement: craft.entries.id(topic.id).first}]) %}
-          {% endif %}
-      {% elseif topic.type == 'categories' %}
-        {% set topics = topics|merge([{targetElement: craft.categories.id(topic.id).first}]) %}
-      {% endif %}
-    {% endfor %}
-{% elseif topics_Objs is not defined and topics is not defined %}
-        {% set topics = null %}
-{% endif %}
+  {% if topics is not defined and topics_Objs is defined and topics_Objs|length > 0 %}
+      {% set topics = [] %}
+      {% for topic in topics_Objs %}
+        {% if topic.type == 'entries' %}
+            {% if (streamType == 'people') %}
+              {% set topics = topics|merge([{sourceElement: craft.entries.id(topic.id).first}]) %}
+            {% else %}
+              {% set topics = topics|merge([{targetElement: craft.entries.id(topic.id).first}]) %}
+            {% endif %}
+        {% elseif topic.type == 'categories' %}
+          {% set topics = topics|merge([{targetElement: craft.categories.id(topic.id).first}]) %}
+        {% endif %}
+      {% endfor %}
+  {% elseif topics_Objs is not defined and topics is not defined %}
+      {% set topics = null %}
+  {% endif %}
 
 
-  {# 
-    LOCATIONS
-  #}
+  {# LOCATIONS #}
 
   {% if craft.request.getParam('locations') %}
     {% set locationObjsQuery = craft.request.getParam('locations') | split('},') %}
@@ -97,7 +93,6 @@
       {% set locArray = locArray|merge([loc["id"]]) %}
     {% endfor %}
   {% endif %}
-
   {% if locations is not defined and locationObjs is defined and locationObjs|length > 0 %}
     {% set locations = [] %}
     {% for location in locationObjs %}
@@ -105,9 +100,80 @@
         {% set locations = locations|merge([{targetElement: craft.categories.id(location.id).first}]) %}
       {% endif %}
     {% endfor %}
-{% elseif locationObjs is not defined and locations is not defined %}
-    {% set locations = null %}
-{% endif %}
+  {% elseif locationObjs is not defined and locations is not defined %}
+      {% set locations = null %}
+  {% endif %}
+
+
+
+  {# TYPES #}
+
+  
+  
+  {% if craft.request.getParam('types') %}
+    {% set typeObjsQuery = craft.request.getParam('types') | split('},') %}
+    {% set typeObjs = [] %}
+    {% set typeArray = [] %}
+
+    {% for type in typeObjsQuery %}
+      {% if not loop.last %}
+        {% set type = type~'}' %}
+      {% endif %}
+      {% set thistype = type | json_decode %}
+      {% set typeObjs = typeObjs | merge([thistype]) %}
+    {% endfor %}
+
+    {% for type in typeObjs %}
+      {% set typeArray = typeArray|merge([type["id"]]) %}
+    {% endfor %}
+
+  {% endif %}
+  {% if types is not defined and typeObjs is defined and typeObjs|length > 0 %}
+    {% set types = [] %}
+    {% for type in typeObjs %}
+      {% if type.type == 'categories' %}
+        {% set types = types|merge([{targetElement: craft.categories.id(type.id).first}]) %}
+      {% endif %}
+    {% endfor %}
+  {% elseif typeObjs is not defined and types is not defined %}
+      {% set types = null %}
+  {% endif %}
+  
+  {#{% if craft.request.getParam('types') %}
+    {% set typeObjsQuery = craft.request.getParam('types') | split('},') %}
+    {% set typeObjs = [] %}
+    {% set typeArray = [] %}
+
+    {% for type in typeObjsQuery %}
+      {% if not loop.last %}
+        {% set type = type~'}' %}
+      {% endif %}
+      {% set thistype = type | json_decode %}
+      {% set typeObjs = typeObjs | merge([thistype]) %}
+    {% endfor %}
+
+    {% for type in typeObjs %}
+      {% set typeArray = typeArray|merge([type["id"]]) %}
+    {% endfor %}
+  {% endif %}
+
+  {% if types is not defined and typeObjs is defined and typeObjs|length > 0 %}
+    {% set types = [] %}
+    {% for type in typeObjs %}
+      {% if type.type == 'categories' %}
+        {% set types = types|merge([{targetElement: craft.categories.id(type.id).first}]) %}
+      {% endif %}
+    {% endfor %}
+  {% elseif typeObjs is not defined and types is not defined %}
+      {% set types = null %}
+  {% endif %}
+
+#}
+
+
+
+
+
 
 
   {# 
@@ -130,6 +196,8 @@
         {% set searchSections = [] %}
       {% endif %}
     #}
+
+
 
 
   {# 
@@ -610,7 +678,6 @@ sortMobile.addEventListener('click', function (event) {
  window.scrollTo({ top: 0, behavior: 'smooth' });
  html.classList.toggle('overflowHidden');
  console.log('2');
-
 });
 
 closersFilter.addEventListener('click', function (event) {
@@ -620,66 +687,52 @@ closersFilter.addEventListener('click', function (event) {
 });
 
 
-
-function createTagItem(name, id) {
-  let a = document.createElement('a');
-  a.textContent = name;
-  a.setAttribute("data-check", id);
-  a.setAttribute("href", '#');
-  a.setAttribute("class", 'filterTags');
-  return a;
-}
-
-function borra(t) {
-  $.each(optionSelected, function(i) {
-    if (optionSelected[i].id === t) {
-      optionSelected.splice(i, 1);
-      return false;
-    }
-  });
-  document.querySelector('[data-check="' + t + '"]').remove();
-}
-
-$(document).on('click', '.filterTags', function(event) {
-  event.preventDefault();
-  console.log(this.getAttribute('data-check'));
-  document.getElementById(this.getAttribute('data-check')).checked = false;
-
-  var totalTopics = $('input[name="optionTopics[]"]:checked').length;
-      $(".dropdown-text-topics").html('Topic (' + totalTopics + ')');
-      borra(this.getAttribute('data-check'));
-});
-
-$('body').on("click", ".dropdown-menu-section", function(e) {
-  $(this).parent().is(".open") && e.stopPropagation();
-});
-
-
-
-// Types
-$("input[type='checkbox'].type_checkbox").change(function() {
-  var a = $("input[type='checkbox'].type_checkbox");
-  if (a.length == a.filter(":checked").length) {
-    $('.selectall').prop('checked', true);
-    $(".select-text").html(' Deselect');
+  // Create Tag
+  function createTagItem(name, id) {
+    let a = document.createElement('a');
+    a.textContent = name;
+    a.setAttribute("data-check", id);
+    a.setAttribute("href", '#');
+    a.setAttribute("class", 'filterTags');
+    return a;
   }
-  optionSelected.push({
-    label: $(this).next().text().trim(),
-    id: $(this).attr('id')
+
+  // Delete Tag
+  function deleteTagItem(t) {
+    $.each(optionSelected, function(i) {
+      if (optionSelected[i].id === t) {
+        optionSelected.splice(i, 1);
+        return false;
+      }
+    });
+    document.querySelector('[data-check="' + t + '"]').remove();
+  }
+
+
+  $('body').on("click", ".dropdown-menu-section", function(e) {
+    $(this).parent().is(".open") && e.stopPropagation();
   });
-  console.log(optionSelected);
-  var totalTypes = $('input[name="optionsTopic[]"]:checked').length;
-  $(".dropdown-text-types").html(' Resource Type(' + totalTypes + ')');
-});
+
+  $(document).on('click', '.filterTags', function(event) {
+
+    event.preventDefault();
+    console.log(this.getAttribute('data-check'));
+    document.getElementById(this.getAttribute('data-check')).checked = false;
+
+   /* var totalTopics = 
+        $('input[name="optionTopics[]"]:checked').length;*/
+   /*     $(".dropdown-text-topics").html('Topic (' + totalTopics + ')');
+        deleteTagItem(this.getAttribute('data-check'));*/
+  });
+
+
+
 
 
 //Topics
-$("input[type='checkbox'].topic_checkbox").change(function() {
-  var a = $("input[type='checkbox'].topic_checkbox");
-  if (a.length == a.filter(":checked").length) {
-    $('.selectall').prop('checked', true);
-    $(".select-text").html(' Deselect');
-  }
+$("input[type='checkbox'].topics_checkbox").change(function() {
+  
+  var a = $("input[type='checkbox'].topics_checkbox");
   if ($(this).is(':checked')) {
     optionSelected.push({
       label: $(this).next().text().trim(),
@@ -687,7 +740,7 @@ $("input[type='checkbox'].topic_checkbox").change(function() {
     });
     tagCont.appendChild(createTagItem($(this).next().text().trim(), $(this).attr('id')));
   } else {
-    borra($(this).attr('id'));
+    deleteTagItem($(this).attr('id'));
   }
 
   console.log(optionSelected);
@@ -697,13 +750,10 @@ $("input[type='checkbox'].topic_checkbox").change(function() {
 });
 
 
-// For Locations
-$("input[type='checkbox'].location_checkbox").change(function() {
-  var a = $("input[type='checkbox'].location_checkbox");
-  if (a.length == a.filter(":checked").length) {
-    $('.selectall').prop('checked', true);
-    $(".select-text").html(' Deselect');
-  }
+// Types
+$("input[type='checkbox'].type_checkbox").change(function() {
+
+  var a = $("input[type='checkbox'].type_checkbox");
   if ($(this).is(':checked')) {
     optionSelected.push({
       label: $(this).next().text().trim(),
@@ -711,12 +761,42 @@ $("input[type='checkbox'].location_checkbox").change(function() {
     });
     tagCont.appendChild(createTagItem($(this).next().text().trim(), $(this).attr('id')));
   } else {
-    borra($(this).attr('id'));
+    deleteTagItem($(this).attr('id'));
   }
+  
+  console.log(optionSelected);
+
+  var totalTypes = $('input[name="optionsTypes[]"]:checked').length;
+  $(".dropdown-text-types").html(' Resource Type(' + totalTypes + ')');
+});
+
+
+
+// For Locations
+$("input[type='checkbox'].location_checkbox").change(function() {
+
+  var a = $("input[type='checkbox'].location_checkbox");
+
+  if ($(this).is(':checked')) {
+    optionSelected.push({
+      label: $(this).next().text().trim(),
+      id: $(this).attr('id')
+    });
+    tagCont.appendChild(createTagItem($(this).next().text().trim(), $(this).attr('id')));
+  } else {
+    deleteTagItem($(this).attr('id'));
+  }
+
   console.log(optionSelected);
   var totalLocations = $('input[name="optionsLocations[]"]:checked').length;
   $(".dropdown-text-locations").html('Geographic Areas (' + totalLocations + ')');
 });
+
+
+
+
+
+
 
 
 
@@ -753,12 +833,12 @@ $('.ctaSearch').click(function(e) {
   var varTopics = JSON.stringify(topics);
       varTopics = varTopics.replace('[', '');
       varTopics = varTopics.replace(']', '');
-      varTopics = varTopics.replaceAll('"', '');
+     // varTopics = varTopics.replaceAll('"', '');
 
 
   // Types
   var types = [];
-  $(".types_checkbox:checked").each(function() {
+  $(".type_checkbox:checked").each(function() {
     types.push({
       id: this.value,
       type: this.dataset.type,
@@ -769,7 +849,7 @@ $('.ctaSearch').click(function(e) {
   var varTypes = JSON.stringify(types);
       varTypes = varTypes.replace('[', '');
       varTypes = varTypes.replace(']', '');
-      varTypes = varTypes.replaceAll('"', '');
+     // varTypes = varTypes.replaceAll('"', '');
 
 
   // Locations
@@ -784,7 +864,7 @@ $('.ctaSearch').click(function(e) {
   var varLocations = JSON.stringify(locations);
       varLocations = varLocations.replace('[', '');
       varLocations = varLocations.replace(']', '');
-      varLocations = varLocations.replaceAll('"', '');
+    //  varLocations = varLocations.replaceAll('"', '');
 
 
   query = 'startYear='+startYear+'&endYear='+endYear+'&locations='+varLocations+'&topics='+varTopics+'&types='+varTypes;
@@ -834,7 +914,7 @@ function initOrderBy() {
         var varTypes = JSON.stringify(types);
             varTypes = varTypes.replace('[', '');
             varTypes = varTypes.replace(']', '');
-            varTypes = varTypes.replaceAll('"', '');
+        //    varTypes = varTypes.replaceAll('"', '');
 
 
 
@@ -850,7 +930,7 @@ function initOrderBy() {
         var varLocations = JSON.stringify(locations);
             varLocations = varLocations.replace('[', '');
             varLocations = varLocations.replace(']', '');
-            varLocations = varLocations.replaceAll('"', '');
+        //    varLocations = varLocations.replaceAll('"', '');
 
             console.log(startYear);
             console.log(endYear);
@@ -868,14 +948,17 @@ document.addEventListener("DOMContentLoaded", function() {
 
   initOrderBy();
 
-  var totalTopics = $('input[name="optionTopics[]"]:checked').length;
+  var totalTopics = $('input[name="optionsTopics[]"]:checked').length;
   $(".dropdown-text-topics").html('Topic (' + totalTopics + ')');
+  console.log(totalTopics);
 
   var totalTypes = $('input[name="optionsTypes[]"]:checked').length;
   $(".dropdown-text-types").html('Resource Type (' + totalTypes + ')');
+  console.log(totalTypes);
 
   var totalLocations = $('input[name="optionsLocations[]"]:checked').length;
   $(".dropdown-text-locations").html('Geographic Areas (' + totalLocations + ')');
+  console.log(totalLocations);
 
   const dateStartInput = document.getElementById('dateStart');
   const datepickerStart = new Datepicker(dateStartInput, {
