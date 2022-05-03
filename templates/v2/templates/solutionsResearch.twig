@@ -18,17 +18,9 @@
         title: 'Solutions & Research',
         news: false,
         streamType: 'content',
-        sections: [
-              ['publications'],
-              ['audio'],
-              ['video'],
-              ['resourceSite'],
-              ['specialReports'],
-              ['blogSeries']
-            ],
-           filterTopics: [{type: 'categories', relations: craft.categories.group('solutionsResearch').level(1), title: 'Topic'}],
-            filterTypes: [{type: 'categories', relations: craft.categories.group('solutionsResearchTypes').level(1), title: 'Type'}],
-        filterLocations: [{type: 'categories', relations: craft.categories.group('locations').level(1), title: 'Locations'}]
+      filterTopics: [{type: 'categories', relations: craft.categories.group('solutionsResearch').level(1), title: 'Topic'}],
+       filterTypes: [{type: 'categories', relations: craft.categories.group('solutionsResearchTypes').level(1), title: 'Type'}],
+   filterLocations: [{type: 'categories', relations: craft.categories.group('locations').level(1), title: 'Locations'}]
       }
 %}
 
@@ -169,20 +161,7 @@
 
 
 
-    {#
-      {% if craft.request.getParam('sections') %}
-        {% set searchSections = craft.request.getParam('sections') | split(',') %}
-      {% elseif streamOptions.sections is defined %}
-        {% set searchSections = [] %}
-        {% for section in streamOptions.sections %}
-            {% set searchSections = searchSections|merge([section[1]]) %}
-        {% endfor %}
-      {% else %}
-        {% set searchSections = [] %}
-      {% endif %}
-    #}
-
-
+   
 
 
 
@@ -235,11 +214,12 @@
 
   {{ dump(locations) }}
 
-
+ {{ dump(mergedQuery) }}
 
   {% if (merged_Topics|length < 1) or (merged_Locations|length < 1) or (merged_Types|length < 1)%}
 
     {% set related = [] %}
+
     {% for relat in locations %}
       {% set  related =  related|merge([relat]) %}
     {% endfor %}
@@ -261,9 +241,11 @@
         }
     %}
 
+    normal
+
   {% else %}
 
-
+Entra consulta
      {% set queryObj = {
       relatedTo: mergedQuery,
       section: searchSections,
