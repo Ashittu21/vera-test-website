@@ -730,9 +730,10 @@ $('.ctaSearch').click(function(e) {
     });
     var nosectionrelation = true;
   }
-  var varSections = sections.join(',');
+  //var varSections = sections.join(',');
 
   var relations = [];
+
   $(".relation_checkbox:checked").each(function() {
     relations.push({
       id: this.value,
@@ -760,7 +761,8 @@ $('.ctaSearch').click(function(e) {
       varLocations = varLocations.replace(']', '');
 
 
-  query = 'startYear='+startYear+'&endYear='+endYear+'&sections=' + varSections +'&locations=' +varLocations+ '&relations=' + varRelations;
+  //query = 'startYear='+startYear+'&endYear='+endYear+'&sections=' + varSections +'&locations=' +varLocations+ '&relations=' + varRelations;
+  query = 'startYear='+startYear+'&endYear='+endYear+'&locations=' +varLocations+ '&relations=' + varRelations;
   window.location.search = query;
 });
 
