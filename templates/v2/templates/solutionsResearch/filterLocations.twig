@@ -23,7 +23,14 @@
           {% endif %}
       
           <li class="checkFilter">
-            <input type="checkbox" name='optionsLocations[]' id="{{ location_id }}" class="{{ location_type }}_checkbox option" value="{{ location_id }}"  data-type="{{ locationsBlock.type }}" {% if location_Array is defined  %} {% if location_id in location_Array %}checked{% endif %}{% endif %}/>
+            <input 
+            type="checkbox" 
+            name='optionsLocations[]'
+            id="{{ location_id }}" 
+            class="{{ location_type }}_checkbox option" 
+            value="{{ location_id }}"  
+            data-category="location"
+            data-type="{{ locationsBlock.type }}" {% if location_Array is defined  %} {% if location_id in location_Array %}checked{% endif %}{% endif %}/>
             <label class="labelTopic" for="{{ location_id }}">
                 {{location.title}}
             </label>

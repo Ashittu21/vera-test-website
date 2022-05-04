@@ -187,6 +187,7 @@
         {% set typeMerge = typeMerge|merge(craft.categories.id(type.id)) %}
         {# Array Tags #}
         {% set tagsArray = tagsArray|merge([{(type.id):(craft.categories.id(type.id).first.title)}]) %}
+        
       {% endfor %}
       {% set mergedQuery = mergedQuery|merge([{targetElement: typeMerge}]) %}
     {% else %}
@@ -194,16 +195,16 @@
     {% endif %}
 
 
-    {# 
-      Sections
-    #}
+  {# 
+    Sections
+  #}
   {% set searchSections = [] %}
   {% for section in entriesTypeAllowed %}
     {% set searchSections = searchSections|merge([section]) %}
   {% endfor %}
 
  {% if (types|length < 1) and (locations|length < 1) and (topics|length < 1) %}
-  {% set queryObj = {
+    {% set queryObj = {
       section: searchSections,
       postDate : (['and', '>=' ~ yearStart , '<=' ~ yearEnd]),
       }
@@ -216,6 +217,7 @@
       }
     %}
 {% endif %}
+
 {# section('and, not this, not that') #}
 
 {% set totalEntries = craft.entries(queryObj).type(entriesTypeAllowed).limit(10).count() %}
@@ -616,11 +618,11 @@ closersFilter.addEventListener('click', function (event) {
 
 
   // Create Tag
-  function createTagItem(name, id) {
+  function createTagItem(name, id, cat) {
     let a = document.createElement('a');
     a.textContent = name;
     a.setAttribute("data-check", id);
-  //  a.setAttribute("data-type", id);
+    a.setAttribute("data-category", cat);
     a.setAttribute("href", '#');
     a.setAttribute("class", 'filterTags');
     return a;
@@ -666,10 +668,12 @@ $("input[type='checkbox'].topics_checkbox").change(function() {
   if ($(this).is(':checked')) {
     optionSelected.push({
       label: $(this).next().text().trim(),
-      id: $(this).attr('id')
+      id: $(this).attr('id'),
+      category: $(this).data('category'),
     });
 
-    tagCont.appendChild(createTagItem($(this).next().text().trim(), $(this).attr('id')));
+    tagCont.appendChild(createTagItem($(this).next().text().trim(), $(this).attr('id'), $(this).data('category')));
+    console.log($(this).data('category'));
 
   } else {
     deleteTagItem($(this).attr('id'));
@@ -696,8 +700,9 @@ $("input[type='checkbox'].type_checkbox").change(function() {
       label: $(this).next().text().trim(),
       id: $(this).attr('id')
     });
-    tagCont.appendChild(createTagItem($(this).next().text().trim(), $(this).attr('id')));
-  console.log('tag type');
+
+    tagCont.appendChild(createTagItem($(this).next().text().trim(), $(this).attr('id'), $(this).data('category')));
+
   } else {
     deleteTagItem($(this).attr('id'));
   }
@@ -725,7 +730,7 @@ $("input[type='checkbox'].location_checkbox").change(function() {
       label: $(this).next().text().trim(),
       id: $(this).attr('id')
     });
-    tagCont.appendChild(createTagItem($(this).next().text().trim(), $(this).attr('id')));
+    tagCont.appendChild(createTagItem($(this).next().text().trim(), $(this).attr('id'), $(this).data('category')));
   } else {
     deleteTagItem($(this).attr('id'));
   }

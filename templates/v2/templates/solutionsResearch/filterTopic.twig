@@ -23,8 +23,9 @@
               type="checkbox" 
               name='optionsTopics[]' 
               id="{{ relation_id }}" 
-              class="{{ relation_type }}_checkbox option justone" value="{{ relation_id }}"  
-              data-type="{{ topic_item.type }}" 
+              class="{{ relation_type }}_checkbox" value="{{ relation_id }}"  
+              data-type="{{ topic_item.type }}"
+              data-category="topics"
               {% if topics_Array is defined  %}
                 {%- if relation_id in topics_Array -%}
                   checked
