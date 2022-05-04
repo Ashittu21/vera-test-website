@@ -626,11 +626,13 @@ closersFilter.addEventListener('click', function (event) {
     event.preventDefault();
     console.log(this.getAttribute('data-check'));
     document.getElementById(this.getAttribute('data-check')).checked = false;
+    deleteTagItem(this.getAttribute('data-check'));
 
-   /* var totalTopics = 
-        $('input[name="optionTopics[]"]:checked').length;*/
+    /*var totalTags = $('input.option:checked').length;*/
+
+    
    /*     $(".dropdown-text-topics").html('Topic (' + totalTopics + ')');
-        deleteTagItem(this.getAttribute('data-check'));*/
+       */
   });
 
 
@@ -673,6 +675,7 @@ $("input[type='checkbox'].type_checkbox").change(function() {
       id: $(this).attr('id')
     });
     tagCont.appendChild(createTagItem($(this).next().text().trim(), $(this).attr('id')));
+  console.log('tag type');
   } else {
     deleteTagItem($(this).attr('id'));
   }
