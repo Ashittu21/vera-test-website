@@ -1,7 +1,8 @@
 
-{# set relencode =  craft.request.getParam('topics')|json_encode #}
+
 
 {% if streamOptions.filterTopics is defined %}
+
   {% for topic_item in streamOptions.filterTopics %}
     <div class="dropMenu dropdown-areas">
      <div class="slabel searchLabel">Topic</div>
@@ -15,7 +16,8 @@
         {% for relation in topic_item.relations %}
             {% set relation_id = relation.id %}
             {% set relation_type = 'topics' %}
-    
+
+      
           <li class="checkFilter">
             <input 
               type="checkbox" 
@@ -23,8 +25,13 @@
               id="{{ relation_id }}" 
               class="{{ relation_type }}_checkbox option justone" value="{{ relation_id }}"  
               data-type="{{ topic_item.type }}" 
-              {% if topics_Array is defined  %}{% if relation_id in topics_Array %}checked{% endif %}{% endif %}
+              {% if topics_Array is defined  %}
+                {%- if relation_id in topics_Array -%}
+                  checked
+                {%- endif -%}
+              {% endif %}
             />
+
             <label class="labelTopic" for="{{ relation_id }}">
               {% if topic_item.type == 'type' %}
                 {{ relation.name }}
@@ -33,9 +40,14 @@
               {% endif %}
             </label>
           </li>
+
+          
         {% endfor %}
         <li class="applybtn"><button type="Button" class="apply ctaSearch">APPLY</button></li> 
       </ul>
     </div>
   {% endfor %}
+
 {% endif %}
+
+

@@ -11,50 +11,48 @@
 {% if filterStartYear is same as "" %} {% set filterStartYear = "1969"|date('Y') %} {% endif %}
 {% if filterEndYear is same as "" %} {% set filterEndYear = "now"|date('Y') %} {% endif %}
 
-{% set yearStart = (filterStartYear ~ '-01-01')|atom %}
-{% set yearEnd = (filterEndYear ~ '-12-31')|atom %}
+  {% set yearStart = (filterStartYear ~ '-01-01')|atom %}
+  {% set yearEnd = (filterEndYear ~ '-12-31')|atom %}
 
-{% set streamOptions = {
-        title: 'Solutions & Research',
-        news: false,
-        streamType: 'content',
-      filterTopics: [{type: 'categories', relations: craft.categories.group('solutionsResearch').level(1), title: 'Topic'}],
-       filterTypes: [{type: 'categories', relations: craft.categories.group('solutionsResearchTypes').level(1), title: 'Type'}],
-   filterLocations: [{type: 'categories', relations: craft.categories.group('locations').level(1), title: 'Locations'}]
-      }
-%}
+  {% set streamOptions = {
+          title: 'Solutions & Research',
+          news: false,
+          streamType: 'content',
+        filterTopics: [{type: 'categories', relations: craft.categories.group('solutionsResearch').level(1), title: 'Topic'}],
+        filterTypes: [{type: 'categories', relations: craft.categories.group('solutionsResearchTypes').level(1), title: 'Type'}],
+    filterLocations: [{type: 'categories', relations: craft.categories.group('locations').level(1), title: 'Locations'}]
+        }
+  %}
 
-{% set entriesTypeAllowed = {   
-      videoPlaylist: 'videoPlaylist',
-      publicationOverview: 'publicationOverview',
-      specialReport: 'specialReport',
-      publicationDocument: 'publicationDocument',
-      fromTheDirector: 'fromTheDirector',
-      endnotes: 'endnotes',
-      aboutThisReport: 'aboutThisReport',
-      specialReportSingle: 'specialReportSingle',
-      gala: 'gala',
-      specialReportChaptered: 'specialReportChaptered',
-      accordion: 'accordion',
-      specialReportCampaign: 'specialReportCampaign',
-      article: 'article',
-      statePublications: 'statePublications',
-      state: 'state',
-      city: 'city',
-      stateBuilder: 'stateBuilder',
-      whatJailsCostLanding: 'whatJailsCostLanding',
-      whatJailsCostPage: 'whatJailsCostPage',
-      publications: 'publications',
-      video: 'video',
-      audio: 'audio',
-      resourceSite: 'resourceSite',
-      specialReports: 'specialReports',
-      blogSeries: 'blogSeries',
-      blogPosts: 'blogPosts'
-    } 
-%}
-
-
+  {% set entriesTypeAllowed = {   
+        videoPlaylist: 'videoPlaylist',
+        publicationOverview: 'publicationOverview',
+        specialReport: 'specialReport',
+        publicationDocument: 'publicationDocument',
+        fromTheDirector: 'fromTheDirector',
+        endnotes: 'endnotes',
+        aboutThisReport: 'aboutThisReport',
+        specialReportSingle: 'specialReportSingle',
+        gala: 'gala',
+        specialReportChaptered: 'specialReportChaptered',
+        accordion: 'accordion',
+        specialReportCampaign: 'specialReportCampaign',
+        article: 'article',
+        statePublications: 'statePublications',
+        state: 'state',
+        city: 'city',
+        stateBuilder: 'stateBuilder',
+        whatJailsCostLanding: 'whatJailsCostLanding',
+        whatJailsCostPage: 'whatJailsCostPage',
+        publications: 'publications',
+        video: 'video',
+        audio: 'audio',
+        resourceSite: 'resourceSite',
+        specialReports: 'specialReports',
+        blogSeries: 'blogSeries',
+        blogPosts: 'blogPosts'
+      } 
+  %}
 
   {#  Topics  #}
   {% if craft.request.getParam('topics') %}
@@ -85,6 +83,12 @@
   {% elseif topics_Objs is not defined and topics is not defined %}
       {% set topics = null %}
   {% endif %}
+
+
+
+
+      
+  {% set tagsArray = [] %}
 
 
   {# LOCATIONS #}
@@ -155,6 +159,8 @@
       {% set topicMerge = [] %}
       {% for topic in topics_Objs %}
           {% set topicMerge = topicMerge|merge(craft.categories.id(topic.id)) %}
+          {# Array Tags #}
+          {% set tagsArray = tagsArray|merge([{(topic.id):(craft.categories.id(topic.id).first.title)}]) %}
       {% endfor %}
       {% set mergedQuery = mergedQuery|merge([{targetElement: topicMerge}]) %}
     {% else %}
@@ -166,6 +172,8 @@
       {% set locationMerge = [] %}
       {% for location in location_Objs %}
           {% set locationMerge = locationMerge|merge(craft.categories.id(location.id)) %}
+          {# Array Tags #}
+          {% set tagsArray = tagsArray|merge([{(location.id):(craft.categories.id(location.id).first.title)}]) %}
       {% endfor %}
       {% set mergedQuery = mergedQuery|merge([{targetElement: locationMerge}]) %}
     {% else %}
@@ -177,6 +185,8 @@
       {% set typeMerge = [] %}
       {% for type in typeObjs %}
         {% set typeMerge = typeMerge|merge(craft.categories.id(type.id)) %}
+        {# Array Tags #}
+        {% set tagsArray = tagsArray|merge([{(type.id):(craft.categories.id(type.id).first.title)}]) %}
       {% endfor %}
       {% set mergedQuery = mergedQuery|merge([{targetElement: typeMerge}]) %}
     {% else %}
@@ -187,10 +197,10 @@
     {# 
       Sections
     #}
-    {% set searchSections = [] %}
-    {% for section in entriesTypeAllowed %}
-        {% set searchSections = searchSections|merge([section]) %}
-    {% endfor %}
+  {% set searchSections = [] %}
+  {% for section in entriesTypeAllowed %}
+    {% set searchSections = searchSections|merge([section]) %}
+  {% endfor %}
 
  {% if (types|length < 1) and (locations|length < 1) and (topics|length < 1) %}
   {% set queryObj = {
@@ -287,6 +297,7 @@
           </div>
 
 
+
         <div class="mobile-filter-sort">
           <hr>
             <label for="orderby" >Sort by</label>
@@ -302,14 +313,20 @@
         </div>
 
 
-          <div class="rs-tags">
-            <a href="{{ siteUrl }}solutions-research" id="clearall">Clear all </a>
-            <div id="searchTags">
-        
-            </div>
-          </div>
 
+          <div class="rs-tags">
+             <a href="{{ siteUrl }}solutions-research" id="clearall">Clear all </a>
+             <div id="searchTags">
+                {% for tag in tagsArray %}
+                  {% for key, val in tag %}
+                    <a data-check="{{ key }}" href="#" class="filterTags">{{ val }}</a>
+                  {% endfor %}
+                {% endfor %}
+             </div>
+          </div>
         </div>
+
+
 
         <div class="rs-head-form-mobile">
           <button type="button" class="filter" id="sortFilter" ><span>Sort & filter</span></button>
@@ -531,6 +548,8 @@
 
 
 
+
+
 <script>
 
 $("#menuTopics").on('click',function(){
@@ -580,6 +599,7 @@ var rsForm     = document.querySelector('.rs-head-form');
 var html       = document.querySelector(':root');
 var closersFilter     = document.querySelector('.close-rs-filter');
 
+
 sortMobile.addEventListener('click', function (event) {
  header.classList.toggle('hidden');
  rsForm.classList.toggle('show');
@@ -600,6 +620,7 @@ closersFilter.addEventListener('click', function (event) {
     let a = document.createElement('a');
     a.textContent = name;
     a.setAttribute("data-check", id);
+  //  a.setAttribute("data-type", id);
     a.setAttribute("href", '#');
     a.setAttribute("class", 'filterTags');
     return a;
@@ -630,7 +651,6 @@ closersFilter.addEventListener('click', function (event) {
 
     /*var totalTags = $('input.option:checked').length;*/
 
-    
    /*     $(".dropdown-text-topics").html('Topic (' + totalTopics + ')');
        */
   });
@@ -648,7 +668,9 @@ $("input[type='checkbox'].topics_checkbox").change(function() {
       label: $(this).next().text().trim(),
       id: $(this).attr('id')
     });
+
     tagCont.appendChild(createTagItem($(this).next().text().trim(), $(this).attr('id')));
+
   } else {
     deleteTagItem($(this).attr('id'));
   }
