@@ -160,7 +160,15 @@
       {% for topic in topics_Objs %}
           {% set topicMerge = topicMerge|merge(craft.categories.id(topic.id)) %}
           {# Array Tags #}
-          {% set tagsArray = tagsArray|merge([{(topic.id):(craft.categories.id(topic.id).first.title)}]) %}
+
+          {% set topicPush = {
+            'category': 'topics',
+            'id':topic.id,
+            'tag':craft.categories.id(topic.id).first.title
+             } 
+          %}
+          {% set tagsArray = tagsArray|push(topicPush) %}
+
       {% endfor %}
       {% set mergedQuery = mergedQuery|merge([{targetElement: topicMerge}]) %}
     {% else %}
@@ -173,7 +181,15 @@
       {% for location in location_Objs %}
           {% set locationMerge = locationMerge|merge(craft.categories.id(location.id)) %}
           {# Array Tags #}
-          {% set tagsArray = tagsArray|merge([{(location.id):(craft.categories.id(location.id).first.title)}]) %}
+
+          {% set locationPush = {
+            'category': 'locations',
+            'id':location.id,
+            'tag':craft.categories.id(location.id).first.title
+             } 
+          %}
+          {% set tagsArray = tagsArray|push(locationPush) %}
+
       {% endfor %}
       {% set mergedQuery = mergedQuery|merge([{targetElement: locationMerge}]) %}
     {% else %}
@@ -186,7 +202,13 @@
       {% for type in typeObjs %}
         {% set typeMerge = typeMerge|merge(craft.categories.id(type.id)) %}
         {# Array Tags #}
-        {% set tagsArray = tagsArray|merge([{(type.id):(craft.categories.id(type.id).first.title)}]) %}
+          {% set typePush = {
+            'category': 'types',
+            'id':type.id,
+            'tag':craft.categories.id(type.id).first.title
+             } 
+          %}
+          {% set tagsArray = tagsArray|push(typePush) %}
         
       {% endfor %}
       {% set mergedQuery = mergedQuery|merge([{targetElement: typeMerge}]) %}
@@ -313,16 +335,11 @@
         <div class="mobile-filter-submit">
           <button type="button"  class="filterSubmit apply ctaSearch"><span>Show Results</span></button>
         </div>
-
-
-
           <div class="rs-tags">
              <a href="{{ siteUrl }}solutions-research" id="clearall">Clear all </a>
              <div id="searchTags">
                 {% for tag in tagsArray %}
-                  {% for key, val in tag %}
-                    <a data-check="{{ key }}" href="#" class="filterTags">{{ val }}</a>
-                  {% endfor %}
+                  <a data-check="{{ tag.id }}" data-category="{{ tag.category }}" href="#" class="filterTags">{{ tag.tag }}</a>
                 {% endfor %}
              </div>
           </div>
@@ -651,10 +668,35 @@ closersFilter.addEventListener('click', function (event) {
     document.getElementById(this.getAttribute('data-check')).checked = false;
     deleteTagItem(this.getAttribute('data-check'));
 
-    /*var totalTags = $('input.option:checked').length;*/
+    switch (this.getAttribute('data-category')) {
+      case 'topics':
+         var totalTopics = $('input[name="optionsTopics[]"]:checked').length;
+         console.log(totalTopics);
+         if(totalTopics>=1){
+          $(".dropdown-text-topics").html('Topic (' + totalTopics + ')');
+         }else{
+          $(".dropdown-text-topics").html('Select Topic');
+         }
+        break;
+      case 'locations':
+          var totalLocations = $('input[name="optionsLocations[]"]:checked').length;
+          if(totalLocations>=1){
+            $(".dropdown-text-locations").html('Geographic Areas (' + totalLocations + ')');
+          }else{
+            $(".dropdown-text-locations").html('Select geographic area');
+          }
+        break;
 
-   /*     $(".dropdown-text-topics").html('Topic (' + totalTopics + ')');
-       */
+      case 'types':
+          var totalTypes = $('input[name="optionsTypes[]"]:checked').length;
+          if(totalTypes>=1){
+           $(".dropdown-text-types").html(' Resource Type(' + totalTypes + ')');
+          }else{
+           $(".dropdown-text-types").html('Resource Type');
+          }
+        break;
+    }
+        
   });
 
 
@@ -679,7 +721,7 @@ $("input[type='checkbox'].topics_checkbox").change(function() {
     deleteTagItem($(this).attr('id'));
   }
 
-  console.log(optionSelected);
+  //console.log(optionSelected);
 
   var totalTopics = $('input[name="optionsTopics[]"]:checked').length;
 
@@ -707,10 +749,9 @@ $("input[type='checkbox'].type_checkbox").change(function() {
     deleteTagItem($(this).attr('id'));
   }
   
-  console.log(optionSelected);
+  //console.log(optionSelected);
 
   var totalTypes = $('input[name="optionsTypes[]"]:checked').length;
-
   if(totalTypes>=1){
    $(".dropdown-text-types").html(' Resource Type(' + totalTypes + ')');
   }else{
@@ -735,7 +776,7 @@ $("input[type='checkbox'].location_checkbox").change(function() {
     deleteTagItem($(this).attr('id'));
   }
 
-  console.log(optionSelected);
+ // console.log(optionSelected);
   var totalLocations = $('input[name="optionsLocations[]"]:checked').length;
   if(totalLocations>=1){
    $(".dropdown-text-locations").html('Geographic Areas (' + totalLocations + ')');
@@ -754,23 +795,8 @@ $("input[type='checkbox'].location_checkbox").change(function() {
 
 $('.ctaSearch').click(function(e) {
 
- // var sections = [];
   var startYear  = document.getElementById('dateStart').value;
   var endYear    = document.getElementById('dateEnd').value;
-
-/*
-  $(".section_checkbox:checked").each(function() {
-    sections.push(this.value);
-  });
-
-  if (sections.length == 0) {
-    $(".section_checkbox").each(function() {
-      sections.push(this.value);
-    });
-    var nosectionrelation = true;
-  }*/
-  //var varSections = sections.join(',');
-
 
   // Topics
   var topics = [];
@@ -801,8 +827,6 @@ $('.ctaSearch').click(function(e) {
   var varTypes = JSON.stringify(types);
       varTypes = varTypes.replace('[', '');
       varTypes = varTypes.replace(']', '');
-     // varTypes = varTypes.replaceAll('"', '');
-
 
   // Locations
   var locations = [];
@@ -816,8 +840,6 @@ $('.ctaSearch').click(function(e) {
   var varLocations = JSON.stringify(locations);
       varLocations = varLocations.replace('[', '');
       varLocations = varLocations.replace(']', '');
-    //  varLocations = varLocations.replaceAll('"', '');
-
 
   query = 'startYear='+startYear+'&endYear='+endYear+'&locations='+varLocations+'&topics='+varTopics+'&types='+varTypes;
   window.location.search = query;
@@ -837,20 +859,6 @@ function initOrderBy() {
 
       var startYear  = document.getElementById('dateStart').value;
       var endYear    = document.getElementById('dateEnd').value;
-
-      // var sections = [];
-      /*   $(".section_checkbox:checked").each(function() {
-          sections.push(this.value);
-        });
-
-        if (sections.length == 0) {
-          $(".section_checkbox").each(function() {
-            sections.push(this.value);
-          });
-          var nosectionrelation = true;
-        }
-      */
-    
 
 
         // Types

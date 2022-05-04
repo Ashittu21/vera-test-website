@@ -22,7 +22,7 @@
             id="{{ type_id }}" 
             class="{{ type_slug }}_checkbox option" 
             value="{{ type_id }}"  
-            data-category="type"
+            data-category="types"
             data-type="{{ type_option.type }}" {% if typeArray is defined  %} {% if type_id in typeArray %}checked{% endif %}{% endif %}/>
             <label class="labelTopic" for="{{ type_id }}">
                 {{ type }}
