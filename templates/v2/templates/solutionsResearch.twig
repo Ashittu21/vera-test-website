@@ -149,45 +149,39 @@
   
 
 
-  {% set mergedQuery = ['and'] %}
+    {% set mergedQuery = ['and'] %}
 
-  
-  {% if topics|length >= 1 %}
-    {% set topicMerge = [] %}
-    {% for topic in topics_Objs %}
-        {% set topicMerge = topicMerge|merge(craft.categories.id(topic.id)) %}
-    {% endfor %}
-  
-    {% set mergedQuery = mergedQuery|merge([{targetElement: topicMerge}]) %}
-
-  {% else %}
-    {% set topicMerge = [] %}
-  {% endif %}
+    {% if topics|length >= 1 %}
+      {% set topicMerge = [] %}
+      {% for topic in topics_Objs %}
+          {% set topicMerge = topicMerge|merge(craft.categories.id(topic.id)) %}
+      {% endfor %}
+      {% set mergedQuery = mergedQuery|merge([{targetElement: topicMerge}]) %}
+    {% else %}
+      {% set topicMerge = [] %}
+    {% endif %}
 
 
-
-  {% if locations|length >= 1 %}
-    {% set locationMerge = [] %}
-    {% for location in location_Objs %}
-        {% set locationMerge = locationMerge|merge(craft.categories.id(location.id)) %}
-    {% endfor %}
-    {% set mergedQuery = mergedQuery|merge([{targetElement: locationMerge}]) %}
-  {% else %}
-    {% set locationMerge = [] %}
-  {% endif %}
-
+    {% if locations|length >= 1 %}
+      {% set locationMerge = [] %}
+      {% for location in location_Objs %}
+          {% set locationMerge = locationMerge|merge(craft.categories.id(location.id)) %}
+      {% endfor %}
+      {% set mergedQuery = mergedQuery|merge([{targetElement: locationMerge}]) %}
+    {% else %}
+      {% set locationMerge = [] %}
+    {% endif %}
 
 
-
-  {% if types|length >= 1 %}
-    {% set typeMerge = [] %}
-    {% for type in typeObjs %}
-      {% set typeMerge = typeMerge|merge(craft.categories.id(type.id)) %}
-    {% endfor %}
-    {% set mergedQuery = mergedQuery|merge([{targetElement: typeMerge}]) %}
-  {% else %}
-    {% set typeMerge = [] %}
-  {% endif %}
+    {% if types|length >= 1 %}
+      {% set typeMerge = [] %}
+      {% for type in typeObjs %}
+        {% set typeMerge = typeMerge|merge(craft.categories.id(type.id)) %}
+      {% endfor %}
+      {% set mergedQuery = mergedQuery|merge([{targetElement: typeMerge}]) %}
+    {% else %}
+      {% set typeMerge = [] %}
+    {% endif %}
 
 
     {# 
@@ -198,33 +192,20 @@
         {% set searchSections = searchSections|merge([section]) %}
     {% endfor %}
 
-
+ {% if (types|length < 1) and (locations|length < 1) and (topics|length < 1) %}
+  {% set queryObj = {
+      section: searchSections,
+      postDate : (['and', '>=' ~ yearStart , '<=' ~ yearEnd]),
+      }
+    %}
+{% else %}
   {% set queryObj = {
       relatedTo: mergedQuery,
       section: searchSections,
       postDate : (['and', '>=' ~ yearStart , '<=' ~ yearEnd]),
       }
     %}
-  {{ dump(queryObj) }}
-
-
----
-  {% set queryObj2 = {
-      relatedTo:  [
-        'and',
-        { targetElement: topicMerge },
-        { targetElement: locationMerge },
-        { targetElement: typeMerge }       
-      ],
-      section: searchSections,
-      postDate : (['and', '>=' ~ yearStart , '<=' ~ yearEnd]),
-      }
-    %}
-
-  {{ dump(queryObj2) }}
-
-
-
+{% endif %}
 {# section('and, not this, not that') #}
 
 {% set totalEntries = craft.entries(queryObj).type(entriesTypeAllowed).limit(10).count() %}

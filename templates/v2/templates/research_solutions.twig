@@ -181,7 +181,7 @@
 
 
 
-{{ dump(queryObj) }}
+{# dump(queryObj) #}
 
 
 
@@ -248,7 +248,7 @@
 
 
 <!-- Hero Block -->
-  <div class="heroType1-container"  {% if entry.heroType1_image %}style="background-image: url('{{ entry.heroType1_image.first.url }}');"{% endif %}>
+  <div class="heroType1-container"  style="background-image: url('{{ entry.heroType1_image.first.url }}');">
     <div class="heroType1-block-bg"></div>
     <div class="heroType1-block-box">
       <div class="heroType1-block-box-content">
@@ -269,7 +269,7 @@
     </div>
     
     {#  Image Attribution #}
-        {%- if entry.contentDetail_heroImage and entry.contentDetail_heroImage.first.attribution -%}
+      {%- if entry.contentDetail_heroImage.first.attribution -%}
         <div class="imageAttrib">
 	        <div class="imageAttrib-wrap">
             {%- if entry.contentDetail_heroImage.first.attributionLink -%}
