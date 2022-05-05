@@ -30765,14 +30765,14 @@ div.headingHero > div:nth-child(3) > div {
     color: var(--global-color-text);
     -webkit-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
-    margin-left: -20px;
-    margin-right: -20px;
     padding-left: 20px;
     padding-right: 20px;
     padding-top: 0px;
     padding-bottom: 0px;
-    margin-top: -2px;
-    margin-bottom: 0px; }
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: -20px;
+    margin-right: -20px; }
     @media (max-width: 1024px) {
       .block-listing-content .block-listing-item {
         -webkit-box-flex: 0;
@@ -30824,7 +30824,6 @@ div.headingHero > div:nth-child(3) > div {
       text-align: left;
       margin-top: auto; }
     .block-listing-content .block-listing-item .block-listing-item-wrap {
-      border: 2px solid var(--global-color-darker-sand);
       padding-top: 25px;
       padding-bottom: 25px;
       border-left: 0;
@@ -30845,15 +30844,12 @@ div.headingHero > div:nth-child(3) > div {
     .block-listing-content .block-listing-item:hover {
       color: var(--global-color-white);
       background-color: var(--global-color-red-2);
-      -webkit-box-shadow: 0 2px 0 var(--global-color-red-2) inset;
-              box-shadow: 0 2px 0 var(--global-color-red-2) inset;
-      margin-top: -2px;
       border-left: 0;
       border-right: 0;
-      z-index: 1;
-      /*  padding: 2rem 2rem;*/ }
+      z-index: 1; }
       .block-listing-content .block-listing-item:hover .block-listing-item-wrap {
-        border: 2px solid transparent; }
+        -webkit-box-shadow: 0 2px 0 var(--global-color-red-2) inset;
+                box-shadow: 0 2px 0 var(--global-color-red-2) inset; }
       .block-listing-content .block-listing-item:hover .block-listing-item-title {
         color: var(--global-color-white);
         background-size: 100% 2px;
