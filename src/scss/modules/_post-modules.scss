@@ -215,6 +215,7 @@
     .module-image-with-copy__text,
     .module-image-with-copy__img {
       width: $one-half;
+      font-size: 22px;
     }
     .module-image-with-copy__img {
       position: sticky;
@@ -233,6 +234,7 @@
     @media (min-width: $tablet-landscape) {
       padding-right: $padding-lg;
     }
+    font-size: 2.2rem;
   }
 
   .module-image-left__text {
@@ -1445,4 +1447,9 @@
       padding-left: 1em;
     }
   }
+}
+
+.module-image-with-copy__text{
+  font-size: 22px;
+  line-height: 1.7;
 }
