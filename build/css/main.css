@@ -31234,7 +31234,7 @@ div.headingHero > div:nth-child(3) > div {
       line-height: 42px;
       letter-spacing: 0em;
       text-align: left;
-      margin-bottom: 30px;
+      margin-bottom: 40px;
       margin-top: 0;
       display: inline-block; }
     .copy-block-container .copy-block-content .h5 {
@@ -35433,8 +35433,8 @@ div.headingHero > div:nth-child(3) > div {
   @media (max-width: 768px) {
     .videoBlock-container {
       height: auto;
-      margin-top: 40px;
-      margin-bottom: 40px; } }
+      margin-top: 60px;
+      margin-bottom: 60px; } }
   .videoBlock-container .videoBlock-content {
     display: -webkit-box;
     display: -ms-flexbox;
