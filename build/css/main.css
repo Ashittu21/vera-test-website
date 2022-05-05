@@ -30795,13 +30795,13 @@ div.headingHero > div:nth-child(3) > div {
       letter-spacing: 0.17em;
       text-align: left; }
     .block-listing-content .block-listing-item-title {
-      margin-top: 17px; }
+      margin-top: 19px; }
       .block-listing-content .block-listing-item-title p {
         padding: 0;
         font-family: var(--global-font-abc-whyte);
         color: var(--global-color-text);
-        font-size: 19px;
-        line-height: 21px;
+        font-size: 21px;
+        line-height: 29.4px;
         font-style: normal;
         font-weight: 500;
         text-decoration: none;
@@ -30812,7 +30812,7 @@ div.headingHero > div:nth-child(3) > div {
         background-size: 0% 2px;
         -webkit-transition: background-size .9s;
         transition: background-size .9s;
-        display: initial; }
+        display: block; }
     .block-listing-content .block-listing-item-subtitle {
       margin-top: 5px; }
     .block-listing-content .block-listing-item-date {
@@ -30826,8 +30826,8 @@ div.headingHero > div:nth-child(3) > div {
       text-align: left;
       margin-top: auto; }
     .block-listing-content .block-listing-item .block-listing-item-wrap {
-      padding-top: 25px;
-      padding-bottom: 25px;
+      padding-top: 30px;
+      padding-bottom: 30px;
       border-left: 0;
       border-right: 0;
       min-height: 100%;
