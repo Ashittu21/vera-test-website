@@ -67,6 +67,7 @@
     margin-bottom: 0px;
     margin-left: -20px;
     margin-right: -20px;
+    margin-top: -2px;
 
 
     @media(max-width: $tablet-landscape){
@@ -136,8 +137,8 @@
       border-left: 0;
       border-right: 0;
       min-height: 100%;
-      box-shadow: 0px 2px var(--global-color-darker-sand) inset,
-                  0px 2px var(--global-color-darker-sand) inset;
+      box-shadow: 0px 2px 0px 0px var(--global-color-darker-sand) inset,
+                  0px -2px 0px 0px var(--global-color-darker-sand) inset;
       justify-content: space-between;
       display: flex;
       flex-direction: column;
@@ -148,8 +149,8 @@
       background-color: var(--global-color-red-2);
     
       .block-listing-item-wrap{
-        box-shadow: 0px 2px var(--global-color-red-2) inset,
-                    0px 2px var(--global-color-red-2) inset;
+        box-shadow: 0px 2px 0px 0px var(--global-color-red-2) inset,
+                    0px -2px 0px 0px var(--global-color-red-2) inset;
       }
 
       border-left: 0;

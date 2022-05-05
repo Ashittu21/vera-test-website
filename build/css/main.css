@@ -30769,7 +30769,8 @@ div.headingHero > div:nth-child(3) > div {
     margin-top: 0px;
     margin-bottom: 0px;
     margin-left: -20px;
-    margin-right: -20px; }
+    margin-right: -20px;
+    margin-top: -2px; }
     @media (max-width: 1024px) {
       .block-listing-content .block-listing-item {
         -webkit-box-flex: 0;
@@ -30828,8 +30829,8 @@ div.headingHero > div:nth-child(3) > div {
       border-left: 0;
       border-right: 0;
       min-height: 100%;
-      -webkit-box-shadow: 0px 2px var(--global-color-darker-sand) inset, 0px 2px var(--global-color-darker-sand) inset;
-              box-shadow: 0px 2px var(--global-color-darker-sand) inset, 0px 2px var(--global-color-darker-sand) inset;
+      -webkit-box-shadow: 0px 2px 0px 0px var(--global-color-darker-sand) inset, 0px -2px 0px 0px var(--global-color-darker-sand) inset;
+              box-shadow: 0px 2px 0px 0px var(--global-color-darker-sand) inset, 0px -2px 0px 0px var(--global-color-darker-sand) inset;
       -webkit-box-pack: justify;
           -ms-flex-pack: justify;
               justify-content: space-between;
@@ -30847,8 +30848,8 @@ div.headingHero > div:nth-child(3) > div {
       border-right: 0;
       z-index: 1; }
       .block-listing-content .block-listing-item:hover .block-listing-item-wrap {
-        -webkit-box-shadow: 0px 2px var(--global-color-red-2) inset, 0px 2px var(--global-color-red-2) inset;
-                box-shadow: 0px 2px var(--global-color-red-2) inset, 0px 2px var(--global-color-red-2) inset; }
+        -webkit-box-shadow: 0px 2px 0px 0px var(--global-color-red-2) inset, 0px -2px 0px 0px var(--global-color-red-2) inset;
+                box-shadow: 0px 2px 0px 0px var(--global-color-red-2) inset, 0px -2px 0px 0px var(--global-color-red-2) inset; }
       .block-listing-content .block-listing-item:hover .block-listing-item-title {
         color: var(--global-color-white);
         background-size: 100% 2px;
