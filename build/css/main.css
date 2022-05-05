@@ -35057,7 +35057,6 @@ div.headingHero > div:nth-child(3) > div {
     .stats-block {
       border-bottom: 2px solid transparent;
       border-top: 2px solid var(--global-color-dark-sand);
-      margin-top: 0;
       max-width: 280px; } }
   .stats-block .stats-block-title p {
     font-family: var(--global-font-abc-whyte);
