@@ -28,7 +28,7 @@
 
 
 .block-listing-content {
- /* margin: 2rem 0;*/
+
   column-gap: 0px;
   row-gap: 0;
   display: flex;
@@ -136,7 +136,8 @@
       border-left: 0;
       border-right: 0;
       min-height: 100%;
-      box-shadow: 0 2px 0 var(--global-color-darker-sand) inset;
+      box-shadow: 0px 2px var(--global-color-darker-sand) inset,
+                  0px 2px var(--global-color-darker-sand) inset;
       justify-content: space-between;
       display: flex;
       flex-direction: column;
@@ -147,7 +148,8 @@
       background-color: var(--global-color-red-2);
     
       .block-listing-item-wrap{
-       box-shadow: 0 2px 0  var(--global-color-red-2) inset;
+        box-shadow: 0px 2px var(--global-color-red-2) inset,
+                    0px 2px var(--global-color-red-2) inset;
       }
 
       border-left: 0;

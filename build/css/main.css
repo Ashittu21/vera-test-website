@@ -30716,7 +30716,6 @@ div.headingHero > div:nth-child(3) > div {
       margin: 2rem  0.5rem; } }
 
 .block-listing-content {
-  /* margin: 2rem 0;*/
   -webkit-column-gap: 0px;
      -moz-column-gap: 0px;
           column-gap: 0px;
@@ -30829,8 +30828,8 @@ div.headingHero > div:nth-child(3) > div {
       border-left: 0;
       border-right: 0;
       min-height: 100%;
-      -webkit-box-shadow: 0 2px 0 var(--global-color-darker-sand) inset;
-              box-shadow: 0 2px 0 var(--global-color-darker-sand) inset;
+      -webkit-box-shadow: 0px 2px var(--global-color-darker-sand) inset, 0px 2px var(--global-color-darker-sand) inset;
+              box-shadow: 0px 2px var(--global-color-darker-sand) inset, 0px 2px var(--global-color-darker-sand) inset;
       -webkit-box-pack: justify;
           -ms-flex-pack: justify;
               justify-content: space-between;
@@ -30848,8 +30847,8 @@ div.headingHero > div:nth-child(3) > div {
       border-right: 0;
       z-index: 1; }
       .block-listing-content .block-listing-item:hover .block-listing-item-wrap {
-        -webkit-box-shadow: 0 2px 0 var(--global-color-red-2) inset;
-                box-shadow: 0 2px 0 var(--global-color-red-2) inset; }
+        -webkit-box-shadow: 0px 2px var(--global-color-red-2) inset, 0px 2px var(--global-color-red-2) inset;
+                box-shadow: 0px 2px var(--global-color-red-2) inset, 0px 2px var(--global-color-red-2) inset; }
       .block-listing-content .block-listing-item:hover .block-listing-item-title {
         color: var(--global-color-white);
         background-size: 100% 2px;
