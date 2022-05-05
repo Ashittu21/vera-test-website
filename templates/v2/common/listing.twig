@@ -9,24 +9,28 @@
                href="{% if statsItem.type.handle == 'news' %}{{ statsItem.linkUrl }}{% else %}{{ statsItem.url }}{% endif %}"
                target="{% if statsItem.type.handle == 'news' %}_blank{% else %}_self{% endif %}"
                >
-              <div class="block-listing-item-tag">
-                {{ statsItem.type.name | title | upper }}
-              </div>
-              <div class="block-listing-item-title">
-                <p>{{ statsItem.title }}</p>
-              </div>
+               <div class="block-listing-item-wrap">
+                  <div class="block-listing-item-tag">
+                    {{ statsItem.type.name | title | upper }}
+                  </div>
 
-              {% if statsItem.type.handle in ['publicationOverview','publicationDocument'] %}
-                 <div class="block-listing-item-subtitle"> {{  statsItem.subtitle }}</div>
-              {% endif %}                                           
+                  <div class="block-listing-item-title">
+                    <p>{{ statsItem.title }}</p>
+                  </div>
 
-              <div class="block-listing-item-date">
-              {% if statsItem.type.name == 'News' %}
-               <span class="txt-underline">{{ statsItem.newsSource.one().title }}</span>
-              {% else %}
-                {{ statsItem.postDate | date("M d, Y") }}
-              {% endif %}
-              </div>
+                  {% if statsItem.type.handle in ['publicationOverview','publicationDocument'] %}
+                    <div class="block-listing-item-subtitle"> {{  statsItem.subtitle }}</div>
+                  {% endif %}                                           
+
+                  <div class="block-listing-item-date">
+                    {% if statsItem.type.name == 'News' %}
+                      <span class="txt-underline">{{ statsItem.newsSource.one().title }}</span>
+                    {% else %}
+                      {{ statsItem.postDate | date("M d, Y") }}
+                    {% endif %}
+                  </div>                
+               </div>
+
             </a>
           {% endfor %}
         {% endif %}

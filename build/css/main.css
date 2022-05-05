@@ -30694,8 +30694,9 @@ div.headingHero > div:nth-child(3) > div {
 .block-listing {
   width: 100%;
   max-width: 1280px;
+  background-color: yellow;
   margin: 0 auto;
-  padding-bottom: 2rem; }
+  margin-bottom: 2rem; }
   @media (max-width: 1280px) {
     .block-listing {
       padding: 0 2rem; } }
@@ -30716,10 +30717,10 @@ div.headingHero > div:nth-child(3) > div {
       margin: 2rem  0.5rem; } }
 
 .block-listing-content {
-  margin: 2rem 0;
-  -webkit-column-gap: 12px;
-     -moz-column-gap: 12px;
-          column-gap: 12px;
+  /* margin: 2rem 0;*/
+  -webkit-column-gap: 0px;
+     -moz-column-gap: 0px;
+          column-gap: 0px;
   row-gap: 0;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -30728,25 +30729,26 @@ div.headingHero > div:nth-child(3) > div {
       flex-wrap: wrap;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
-          justify-content: space-between; }
-  @media (max-width: 1024px) {
-    .block-listing-content {
-      margin: 2rem  0.5rem; } }
+          justify-content: space-between;
+  /*
+  @media(max-width: $tablet-landscape){
+    margin: 2rem  0.5rem;
+  }*/ }
   .block-listing-content:after {
     content: '';
     -webkit-box-flex: 1;
         -ms-flex: auto;
             flex: auto;
     -webkit-box-flex: 0;
-        -ms-flex: 0 32%;
-            flex: 0 32%; }
+        -ms-flex: 0 33%;
+            flex: 0 33%; }
   .block-listing-content .block-listing-item {
-    min-height: 220px;
+    min-height: 214px;
+    width: 400px;
+    background-color: aqua;
     -webkit-box-flex: 0;
-        -ms-flex: 0 32%;
-            flex: 0 32%;
-    border: 2px solid var(--global-color-darker-sand);
-    margin-top: -2px;
+        -ms-flex: 0 calc(33.3% + 14px);
+            flex: 0 calc(33.3% + 14px);
     border-left: 0;
     border-right: 0;
     text-align: left;
@@ -30761,9 +30763,16 @@ div.headingHero > div:nth-child(3) > div {
         -ms-flex-direction: column;
             flex-direction: column;
     color: var(--global-color-text);
-    padding: 2rem 0;
     -webkit-transition: all 0.2s ease-in-out;
-    transition: all 0.2s ease-in-out; }
+    transition: all 0.2s ease-in-out;
+    margin-left: -20px;
+    margin-right: -20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-top: -2px;
+    margin-bottom: 0px; }
     @media (max-width: 1024px) {
       .block-listing-content .block-listing-item {
         -webkit-box-flex: 0;
@@ -30814,15 +30823,37 @@ div.headingHero > div:nth-child(3) > div {
       letter-spacing: 0em;
       text-align: left;
       margin-top: auto; }
+    .block-listing-content .block-listing-item .block-listing-item-wrap {
+      border: 2px solid var(--global-color-darker-sand);
+      padding-top: 25px;
+      padding-bottom: 25px;
+      border-left: 0;
+      border-right: 0;
+      min-height: 100%;
+      -webkit-box-shadow: 0 2px 0 var(--global-color-darker-sand) inset;
+              box-shadow: 0 2px 0 var(--global-color-darker-sand) inset;
+      -webkit-box-pack: justify;
+          -ms-flex-pack: justify;
+              justify-content: space-between;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column; }
     .block-listing-content .block-listing-item:hover {
       color: var(--global-color-white);
       background-color: var(--global-color-red-2);
-      border: 2px solid var(--global-color-red-2);
+      -webkit-box-shadow: 0 2px 0 var(--global-color-red-2) inset;
+              box-shadow: 0 2px 0 var(--global-color-red-2) inset;
       margin-top: -2px;
       border-left: 0;
       border-right: 0;
       z-index: 1;
-      padding: 2rem 2rem; }
+      /*  padding: 2rem 2rem;*/ }
+      .block-listing-content .block-listing-item:hover .block-listing-item-wrap {
+        border: 2px solid transparent; }
       .block-listing-content .block-listing-item:hover .block-listing-item-title {
         color: var(--global-color-white);
         background-size: 100% 2px;
