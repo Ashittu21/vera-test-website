@@ -173,7 +173,8 @@
       background-repeat: no-repeat;
       background-position: center center;
       background-image: url('/dist/img/v2/dateIcon.svg');
-      @media(max-width:$mobile-breakpoint){
+      
+      @media(max-width: $tablet-landscape){
         margin-left: 0;
       }
 

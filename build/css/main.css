@@ -29676,7 +29676,7 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
     background-repeat: no-repeat;
     background-position: center center;
     background-image: url("/dist/img/v2/dateIcon.svg"); }
-    @media (max-width: 768px) {
+    @media (max-width: 1024px) {
       .date-container-form .sliderButton button {
         margin-left: 0; } }
     .date-container-form .sliderButton button:hover {
