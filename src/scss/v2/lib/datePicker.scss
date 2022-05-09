@@ -49,7 +49,7 @@
   .date-container-inputs {
     display: flex;
 
-    @media(max-width:$mobile-breakpoint){
+    @media(max-width: $tablet-landscape){
       width: 88%;
       justify-content: space-between;
     }
@@ -159,7 +159,7 @@
 
   .sliderButton {
 
-    @media(max-width:$mobile-breakpoint){
+    @media(max-width: $tablet-landscape){
       width: 10%;
     }
 

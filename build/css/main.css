@@ -29574,7 +29574,7 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex; }
-    @media (max-width: 768px) {
+    @media (max-width: 1024px) {
       .date-container-form .date-container-inputs {
         width: 88%;
         -webkit-box-pack: justify;
@@ -29662,7 +29662,7 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
             background-color: #abffeb;
             color: #1f0f65;
             font-weight: bold; }
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     .date-container-form .sliderButton {
       width: 10%; } }
   .date-container-form .sliderButton button {
