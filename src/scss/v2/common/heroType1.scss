@@ -65,7 +65,7 @@
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
 
-    @media(max-width: $mobile-large) {
+    @media(max-width: $tablet-portrait) {
       display: none;
     }
   }
