@@ -37675,7 +37675,10 @@ header {
     width: 100%;
     z-index: 500;
     -webkit-transition: all 0.2s ease;
-    transition: all 0.2s ease; }
+    transition: all 0.2s ease;
+    opacity: 1; }
+    .header-v2 .rowBottom.hide {
+      opacity: 0; }
     .header-v2 .rowBottom-container {
       -webkit-transition: all 0.2s ease;
       transition: all 0.2s ease;

@@ -298,6 +298,11 @@ header {
     width: 100%;
     z-index: 500;
     transition: all 0.2s ease;
+    opacity: 1;
+
+    &.hide{
+      opacity: 0;
+    }
 
     &-container{
       transition: all 0.2s ease;
