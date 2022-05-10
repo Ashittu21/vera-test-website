@@ -1,7 +1,8 @@
 <ul class="subway-nav">
   {% for block in blocks %}
     {% set index = loop.index %}
-    {% for link in block.children if link.headingStyle == 'numberedWithShape' %}
+    {# for link in block.children if link.headingStyle == 'numberedWithShape' #}
+    {% for link in block.children %}
       {% if link.heading %}
       <li class="sidebar-subnav-item subway-nav__item">
         <a href="#{{ link.heading | kebab }}" class="js-subnav-link" data-target="{{ link.heading | kebab }}">

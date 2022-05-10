@@ -26,7 +26,8 @@
     {% endif %}
   </div>
 
-  {% set blocks = entry.articleBuilder.level(1) %}
+  {% set blocks = entry.articleBuilder.level(1).all() %}
+
   {% if blocks | length %}
     <div class="subway-nav-wrap">
       {% include 'special-reports/custom/subway-nav' with { blocks: blocks } %}
