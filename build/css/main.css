@@ -35177,12 +35177,15 @@ div.headingHero > div:nth-child(3) > div {
 
 .dataviz .endorsers-wrap {
   width: 100%;
-  max-width: 1280px;
   margin: 0 auto; }
   .dataviz .endorsers-wrap .endorsers-module {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
-            justify-content: center; }
+            justify-content: center;
+    padding: 40px 200px; }
+    @media (max-width: 768px) {
+      .dataviz .endorsers-wrap .endorsers-module {
+        padding: 40px 0; } }
 
 .swiper {
   width: 100%;
