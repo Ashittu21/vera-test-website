@@ -1,6 +1,7 @@
 {% set video = block.video %}
-<div class="videoBlock-container">
-	<div class="videoBlock-content">
+<div class="videoBlock-container js-scroll">
+	<div class="videoBlock-content ">
+
 		<div class="videoBlock-video">
 			{% set id = video.id ~ "__" ~ random() %}
 				<div id="player__{{ id }}" class="video-player-v2 {{ video.gatewayHandle }}" data-videoid="{{ video.id }}">
@@ -18,5 +19,6 @@
 				</div>
 		</div>
 	</div>
+			<div class="videoBlock-bg"></div>
 </div>
 

@@ -35473,16 +35473,40 @@ div.headingHero > div:nth-child(3) > div {
   display: -ms-flexbox;
   display: flex;
   background-color: var(--global-color-dark-violet);
-  background-image: -webkit-linear-gradient(1turn, var(--global-color-medium-violet) 30%, var(--global-color-dark-violet) 0);
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   margin-bottom: 30px;
-  margin-top: 56px; }
+  margin-top: 56px;
+  position: relative; }
   @media (max-width: 768px) {
     .videoBlock-container {
       height: auto;
       margin-top: 60px;
       margin-bottom: 60px; } }
+  .videoBlock-container.js-scroll.scrolled .videoBlock-bg {
+    background-color: #160643;
+    max-width: 440px;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    position: absolute;
+    z-index: 1;
+    -webkit-animation: slideVideo 2s ease 0s;
+            animation: slideVideo 2s ease 0s;
+    -webkit-animation-iteration-count: 1;
+            animation-iteration-count: 1;
+    -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards; }
+    @media (max-width: 700px) {
+      .videoBlock-container.js-scroll.scrolled .videoBlock-bg {
+        -webkit-animation: slideVideoMob 2s ease 0s;
+                animation: slideVideoMob 2s ease 0s;
+        -webkit-animation-iteration-count: 1;
+                animation-iteration-count: 1;
+        -webkit-animation-fill-mode: forwards;
+                animation-fill-mode: forwards; } }
   .videoBlock-container .videoBlock-content {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -35495,7 +35519,8 @@ div.headingHero > div:nth-child(3) > div {
     width: 100%;
     margin: 0 auto;
     margin-top: 60px;
-    margin-bottom: 60px; }
+    margin-bottom: 60px;
+    position: relative; }
     @media (max-width: 768px) {
       .videoBlock-container .videoBlock-content {
         -webkit-box-orient: vertical;
@@ -35507,7 +35532,8 @@ div.headingHero > div:nth-child(3) > div {
     .videoBlock-container .videoBlock-content .videoBlock-video {
       position: relative;
       width: 840px;
-      height: 487px; }
+      height: 487px;
+      z-index: 2; }
       @media (max-width: 768px) {
         .videoBlock-container .videoBlock-content .videoBlock-video {
           width: 100%;
@@ -35625,7 +35651,8 @@ div.headingHero > div:nth-child(3) > div {
             .videoBlock-container .videoBlock-content .videoBlock-video .video-player-v2.videoStart .video-cover {
               height: auto; } }
     .videoBlock-container .videoBlock-content .videoBlock-copy {
-      margin-left: 40px; }
+      margin-left: 40px;
+      z-index: 2; }
       @media (max-width: 768px) {
         .videoBlock-container .videoBlock-content .videoBlock-copy {
           margin: 2rem; } }
@@ -35648,6 +35675,46 @@ div.headingHero > div:nth-child(3) > div {
         letter-spacing: 0em;
         text-align: left;
         margin-top: 30px; }
+
+@-webkit-keyframes slideVideo {
+  0% {
+    width: 0px;
+    opacity: 0; }
+  10% {
+    opacity: 1; }
+  100% {
+    width: 440px;
+    opacity: 1; } }
+
+@keyframes slideVideo {
+  0% {
+    width: 0px;
+    opacity: 0; }
+  10% {
+    opacity: 1; }
+  100% {
+    width: 440px;
+    opacity: 1; } }
+
+@-webkit-keyframes slideVideoMob {
+  0% {
+    width: 0px;
+    opacity: 0; }
+  10% {
+    opacity: 1; }
+  100% {
+    width: 116px;
+    opacity: 1; } }
+
+@keyframes slideVideoMob {
+  0% {
+    width: 0px;
+    opacity: 0; }
+  10% {
+    opacity: 1; }
+  100% {
+    width: 116px;
+    opacity: 1; } }
 
 .code-container {
   max-width: 980px;

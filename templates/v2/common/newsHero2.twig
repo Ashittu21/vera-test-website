@@ -4,7 +4,7 @@
 				{% if block.newsHero_article|length %}
 				  {% set heroNews = block.newsHero_article.one() %}
 					<div class="latestNews-hero">
-						<a class="latestNews-hero-container" href="{{ heroNews.url }}">
+						<a class="latestNews-hero-container js-scroll" href="{{ heroNews.url }}">
 							<div class="latestNews-hero-copy">
 								<div>
 									<div class="latestNews-hero-copy-category">
@@ -25,9 +25,10 @@
 									</div>
 								</div>
 							</div>
-							<div class="latestNews-hero-image js-scroll slide-right">
+							<div class="latestNews-hero-image">
 								<img src="{{ block.newsHero_image.first.url }}" alt="">
 							</div>
+							<div class="latestNews-hero-bg"></div>
 						</a>
 					</div>
 				{% endif %} 

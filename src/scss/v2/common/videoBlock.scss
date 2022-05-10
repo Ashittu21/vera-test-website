@@ -4,16 +4,44 @@
   height: 713px;
   display: flex;
   background-color: var(--global-color-dark-violet);
-  background-image: -webkit-linear-gradient(1turn, var(--global-color-medium-violet) 30%, var(--global-color-dark-violet) 0);
+  //background-image: -webkit-linear-gradient(1turn, var(--global-color-medium-violet) 30%, var(--global-color-dark-violet) 0);
   box-sizing: border-box;
   margin-bottom: 30px;
   margin-top: 56px;
+  position: relative;
 
   @media(max-width:$mobile-breakpoint) {
     height: auto;
     margin-top: 60px;
     margin-bottom: 60px;
   }
+
+        //Animation
+        &.js-scroll{
+          &.scrolled {
+            .videoBlock-bg {
+              background-color: #160643;
+              max-width: 440px;
+              left: 0;
+              top: 0;
+              height: 100%;
+              width: 100%;
+              opacity: 0;
+              position: absolute;
+              z-index: 1;
+              animation: slideVideo 2s ease 0s;
+              animation-iteration-count: 1;
+              animation-fill-mode: forwards;
+  
+              @media(max-width: $mobile-large) {
+                animation: slideVideoMob 2s ease 0s;
+                animation-iteration-count: 1;
+                animation-fill-mode: forwards;
+              }
+            }
+          }
+        }
+  
 
   .videoBlock-content {
 
@@ -24,6 +52,7 @@
     margin: 0 auto;
     margin-top: 60px;
     margin-bottom: 60px;
+    position: relative;
 
     @media(max-width:$mobile-breakpoint) {
       flex-direction: column;
@@ -31,10 +60,15 @@
       margin-bottom: 40px;
     }
 
+
+
+
+
     .videoBlock-video {
       position: relative;
       width: 840px;
       height: 487px;
+      z-index: 2;
 
       @media(max-width:$mobile-breakpoint) {
         width: 100%;
@@ -191,6 +225,7 @@
 
     .videoBlock-copy {
       margin-left: 40px;
+      z-index: 2;
 
       @media(max-width:$mobile-breakpoint) {
         margin: 2rem;
@@ -220,4 +255,34 @@
       }
     }
   }
+}
+
+
+@keyframes slideVideo {
+  0% {
+    width:0px;
+    opacity: 0;
+  }
+  10%{
+    opacity: 1;
+  }
+  100% {
+    width:440px;
+    opacity: 1;
+  }	
+}
+
+
+@keyframes slideVideoMob {
+  0% {
+    width:0px;
+    opacity: 0;
+  }
+  10%{
+    opacity: 1;
+  }
+  100% {
+    width:116px;
+    opacity: 1;
+  }	
 }
