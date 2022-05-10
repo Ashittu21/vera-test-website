@@ -1,0 +1,16 @@
+<div class=" blocks--3up">
+  <div class="container">
+    <h3>{{ viz.heading }}</h3>
+    <p class="subtitle">{{ viz.subtitle }}</p>
+    <div class="col-outer">
+        {% for iconBlock in viz.iconList %}
+        {% set icon = iconBlock.icon[0] ?? null %}
+        <div class="one-third">
+            <div class="image-wrap"><img src="{{ icon.url }}"></div>
+            <h5>{{ iconBlock.heading }}</h5>
+            <div>{{ iconBlock.text }}</div>
+        </div>
+        {% endfor %}
+    </div>
+  </div>
+</div>

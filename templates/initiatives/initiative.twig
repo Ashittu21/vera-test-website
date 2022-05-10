@@ -249,8 +249,9 @@
             </section>
           
       {% case 'map' %}  
-  
-          {% include '/vera-maps/mapsv2'  with { block: block } %}
+            {% include '/vera-maps/mapsv2'  with { block: block } %}
+      {% case 'dataViz' %}  
+          {% include '/initiatives/dataViz.twig'  with { block: block } %}            
      
     {% endswitch %}
   {% endfor %}    

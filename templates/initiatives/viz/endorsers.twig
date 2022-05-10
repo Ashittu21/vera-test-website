@@ -1,0 +1,48 @@
+<div class="color-combo--white-on-black">
+
+  {% set allEndorsers = '' %}
+  {% set endorserNav = '' %}
+  {% set endorserJs %}
+
+  $(()=> {
+    $('.endorser-type-label').on('click', function(){
+      $('.endorser-type-label').removeClass('active');
+      $(this).addClass('active');
+    });
+  })
+  {% endset %}
+  {% includejs endorserJs %}
+  
+  <div class="endorsers-module">
+    <div class="endorsers-view">
+    {% for endorserType in viz.endorsersViz %}
+      {% set endorsersSection = endorserType.heading | replace(' ','') %}
+      <input name="endorsersSelect" class="endorsers-select" type="radio" id="{{ endorsersSection }}"/>
+      <div class="endorsers-sect">
+      {% set endorserNav = endorserNav ~ "<li><label class='endorser-type-label' for='" ~ endorsersSection ~ "'>" ~ endorserType.heading ~"</label></li>" %}
+      <ul class="">
+        {% for endorser in endorserType.endorsers %}
+          {% set endorser = "<li class='endorser'>
+            <div class='endorser__name'>" ~  endorser.endorserName ~
+          (endorser.asterisk.contains('asterisk') == true ? "<span>*</span>" : "") ~  "</div>" ~
+             endorser.location ~ "</li>" %}
+          {% set allEndorsers = allEndorsers ~ endorser %}
+          {{ endorser|raw }}
+        {% endfor %}
+        </ul>
+      </div>
+    {% endfor %}
+    <input name="endorsersSelect" class="endorsers-select" type="radio" id="allEndorser" selected checked/>
+    <div class="endorsers-sect">
+
+      <ul class="all-endorsers">{{ allEndorsers|raw }}</ul>
+    </div>
+  </div>
+  <!-- Endorsers Nav -->
+  <div class="endorsers-nav">
+    <h3>{{ viz.title }}:</h3>
+    <ul><li><label for="allEndorser" class="endorser-type-label active">View All</label></li>{{ endorserNav|raw }}</ul>
+    <div class="asterisk">{{ viz.asteriskText }}</div>
+  </div>
+  </div>
+</div>
