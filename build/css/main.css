@@ -35183,10 +35183,7 @@ div.headingHero > div:nth-child(3) > div {
         -ms-flex-pack: center;
             justify-content: center;
     padding: 40px 200px; }
-    @media (min-width: 992px) {
-      .dataviz .endorsers-wrap .endorsers-module {
-        padding: 40px; } }
-    @media (max-width: 768px) {
+    @media (max-width: 1024px) {
       .dataviz .endorsers-wrap .endorsers-module {
         padding: 40px; } }
 

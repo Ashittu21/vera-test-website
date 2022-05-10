@@ -6,11 +6,7 @@
       justify-content: center;
       padding: 40px 200px;
 
-      @media(min-width:  $menu-mobile-breakpoint){
-        padding: 40px;
-      }
-
-      @media(max-width:$mobile-breakpoint) {
+      @media(max-width: $tablet-landscape){
         padding: 40px;
       }
     }
