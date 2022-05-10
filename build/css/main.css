@@ -35175,6 +35175,15 @@ div.headingHero > div:nth-child(3) > div {
             padding-left: 42px;
             padding-right: 42px; } }
 
+.dataviz .endorsers-wrap {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto; }
+  .dataviz .endorsers-wrap .endorsers-module {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center; }
+
 .swiper {
   width: 100%;
   max-width: 1980px;
