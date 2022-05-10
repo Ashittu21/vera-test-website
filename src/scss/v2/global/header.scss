@@ -2,50 +2,6 @@ header {
   /*display:none;*/
   width: 100%;
   display: block;
-
-  &.header-site{
-    /*&.show-logo{
-      .header-v2{
-        .rowBottom{
-          .rowBottom-container{
-            #header-v2-bottom-nav{
-              .isologo{
-                transition: all 0.2s ease;
-                height: 67px;
-                align-content: center;
-                box-sizing: border-box;
-                display: flex;
-                opacity: 1;
-                width: auto;
-                a {
-                  margin: 15px;
-                  height: auto;
-                  display: flex;
-                }
-              }
-            }
-          }
-        }
-      }
-    }*/
-
-    &.hide-logo{
-      .header-v2{
-        .rowBottom{
-          .rowBottom-container{
-            #header-v2-bottom-nav{
-              .isologo{
-                /*display: none;*/
-                opacity: 0;
-                width: 0;
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-
 }
 
 .header-v2 {
@@ -79,7 +35,7 @@ header {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    transition: all 0.2s ease;
+    transition: all 0.3s ease;
 
     &.hide {
       opacity: 0;
