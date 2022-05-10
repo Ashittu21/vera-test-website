@@ -5,8 +5,13 @@
     .endorsers-module{
       justify-content: center;
       padding: 40px 200px;
+
+      @media(min-width:  $menu-mobile-breakpoint){
+        padding: 40px;
+      }
+
       @media(max-width:$mobile-breakpoint) {
-        padding: 40px 0;
+        padding: 40px;
       }
     }
   }
