@@ -37427,8 +37427,6 @@ header {
     transition: all 0.3s ease; }
     .header-v2 .rowTop.hide {
       opacity: 0;
-      -webkit-transform: translateY(-119px);
-              transform: translateY(-119px);
       height: 0; }
     .header-v2 .rowTop-container {
       max-width: 1280px;
