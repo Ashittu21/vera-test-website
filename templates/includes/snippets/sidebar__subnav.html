@@ -1,7 +1,7 @@
 <ul class="sidebar-subnav sidebar-subnav--{{ entry.sidebarSubNav.value }} hidden-tablet">
 	{% for block in blocks %}
 		{% set index = loop.index %}
-		{% for link in block.children if link.headingStyle == 'numberedWithShape' %}
+		{% for link in block.children %} {# if link.headingStyle == 'numberedWithShape' #}
 			{% if link.heading %}
 				<li class="sidebar-subnav-item">
 					<a href="#{{ link.heading | kebab }}" class="js-subnav-link" data-target="{{ link.heading | kebab }}">
