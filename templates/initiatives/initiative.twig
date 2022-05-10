@@ -251,7 +251,9 @@
       {% case 'map' %}  
             {% include '/vera-maps/mapsv2'  with { block: block } %}
       {% case 'dataViz' %}  
+      <section class="dataviz">
           {% include '/initiatives/dataViz.twig'  with { block: block } %}            
+      </section>
      
     {% endswitch %}
   {% endfor %}    

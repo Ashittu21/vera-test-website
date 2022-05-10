@@ -1,7 +1,9 @@
 {% set  viz = block.dataViz_v2[0] %}
 
 {% if viz.type.handle == "endorsers" %}
-  {% include "/initiatives/viz/endorsers" %}
+  <div class="endorsers-wrap">
+    {% include "/initiatives/viz/endorsers" %}
+  </div>
 {% elseif viz.type.handle == "iconList" %}
 <!--Icon LIst-->
   {% include "/initiatives/viz/iconList" %}
