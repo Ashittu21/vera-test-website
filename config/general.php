@@ -40,7 +40,7 @@ return [
 
         'maxUploadFileSize' => 20777216,
 
-    //    'setPasswordPath' => 'setpassword',
+        'setPasswordPath' => 'set-password',
 
         'setPasswordRequestPath' =>'reset-password',
 
