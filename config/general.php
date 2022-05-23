@@ -40,7 +40,7 @@ return [
 
         'maxUploadFileSize' => 20777216,
 
-        //'setPasswordPath' => 'resetPassword.twig',
+        'setPasswordPath' => 'setPassword',
         'setPasswordRequestPath' =>'reset-password',
         'setPasswordSuccessPath' =>'/itac',
         'postLogoutRedirect' => '/itac',
