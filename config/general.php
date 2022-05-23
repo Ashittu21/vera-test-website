@@ -42,7 +42,7 @@ return [
 
         //'setPasswordPath' => 'resetPassword.twig',
         'setPasswordRequestPath' =>'reset-password',
-        
+        'setPasswordSuccessPath' =>'/itac',
         'postLogoutRedirect' => '/itac',
     ],
 

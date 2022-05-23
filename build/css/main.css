@@ -30108,6 +30108,12 @@ div.headingHero > div:nth-child(3) > div {
   padding: 8rem 5rem; }
   .resetPass .login-header {
     margin-bottom: 1rem; }
+  .resetPass .errors {
+    padding: 1rem 2rem;
+    color: #ef4136; }
+  .resetPass .success {
+    margin: 10px 0;
+    font-weight: bold; }
   .resetPass .resetPButton {
     margin: 10px 0;
     display: block; }
