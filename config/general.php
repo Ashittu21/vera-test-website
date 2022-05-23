@@ -40,9 +40,12 @@ return [
 
         'maxUploadFileSize' => 20777216,
 
-        'setPasswordPath' => 'setPassword',
+    //    'setPasswordPath' => 'setpassword',
+
         'setPasswordRequestPath' =>'reset-password',
+
         'setPasswordSuccessPath' =>'/itac',
+
         'postLogoutRedirect' => '/itac',
     ],
 
