@@ -38,11 +38,11 @@ return [
             'subLeft' => true,
         ],
 
-        'maxUploadFileSize' => 20777216,
+        'maxUploadFileSize' => 2000777216,
 
-        'setPasswordPath' => 'set-password',
+        'setPasswordPath' => '/set-password',
 
-        'setPasswordRequestPath' =>'reset-password',
+        'setPasswordRequestPath' =>'/reset-password',
 
         'setPasswordSuccessPath' =>'/itac',
 
