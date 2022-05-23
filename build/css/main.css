@@ -30089,6 +30089,41 @@ div.headingHero > div:nth-child(3) > div {
     position: relative;
     opacity: 1; } }
 
+.signInPage {
+  padding: 8rem 5rem; }
+  .signInPage .login-form {
+    margin: 2rem 0; }
+    .signInPage .login-form form {
+      padding: 2rem 0; }
+      .signInPage .login-form form .loginName {
+        margin-bottom: 1rem;
+        display: block; }
+      .signInPage .login-form form h3 {
+        line-height: 1rem; }
+      .signInPage .login-form form .remember-me {
+        margin: 10px 0;
+        display: block; }
+
+.resetPass {
+  padding: 8rem 5rem; }
+  .resetPass .login-header {
+    margin-bottom: 1rem; }
+  .resetPass .resetPButton {
+    margin: 10px 0;
+    display: block; }
+  .resetPass .login-form {
+    margin: 2rem 0; }
+    .resetPass .login-form form {
+      padding: 2rem 0; }
+      .resetPass .login-form form .loginName {
+        margin-bottom: 1rem;
+        display: block; }
+      .resetPass .login-form form h3 {
+        line-height: 1rem; }
+      .resetPass .login-form form .remember-me {
+        margin: 10px 0;
+        display: block; }
+
 .mapsv2 .slideout {
   background-color: #160843; }
   .mapsv2 .slideout .slideout__content h2 {

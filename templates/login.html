@@ -1,5 +1,5 @@
 {% set redirect = redirect ?? '/' %}
-
+<div>
 <form method="post" accept-charset="UTF-8">
     {{ getCsrfInput() }}
     {{ redirectInput(redirect) }}
@@ -12,12 +12,12 @@
 
     <h3><label for="password">Password:</label></h3>
     <input id="password" type="password" name="password">
-
+    <br>
     <label class="remember-me">
         <input type="checkbox" name="rememberMe" value="1">
         Remember me
     </label>
-
+    <br>
     {% if errorMessage is defined %}
         <p>{{ errorMessage }}</p>
     {% endif %}
@@ -25,4 +25,5 @@
     <input type="submit" value="Login">
 </form>
 
-<p><a href="{{ url('forgotpassword') }}">Forget your password?</a></p>
+<p><a href="{{ url('reset-password') }}">Forget your password?</a></p>
+</div>
