@@ -1,6 +1,6 @@
 # Vera.org
 
-## Local Installation
+## Local Installation with Docker and Craft Nitro
 
 1. `git clone [this repo]`
 2. Install nitro:
