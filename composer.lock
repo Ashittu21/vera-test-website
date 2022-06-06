@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "050295ee6c50d6da0d320bda92de7fa2",
+    "content-hash": "7e23c26265ee2b5e6cf25d8141e3f273",
     "packages": [
         {
             "name": "aelvan/inlin",
@@ -2866,6 +2866,62 @@
                 "schema"
             ],
             "time": "2021-07-22T09:24:00+00:00"
+        },
+        {
+            "name": "kffein/craft-bulk-edit",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kffein/craft-bulk-edit.git",
+                "reference": "ce4dbb3a3e10f1ce6273a4179a570d806ae23896"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kffein/craft-bulk-edit/zipball/ce4dbb3a3e10f1ce6273a4179a570d806ae23896",
+                "reference": "ce4dbb3a3e10f1ce6273a4179a570d806ae23896",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^3.7.0"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "name": "Craft Bulk Edit",
+                "handle": "craft-bulk-edit",
+                "hasCpSettings": false,
+                "hasCpSection": false,
+                "changelogUrl": "https://raw.githubusercontent.com/kffein/craft-bulk-edit/master/CHANGELOG.md",
+                "class": "kffein\\craftbulkedit\\CraftBulkEdit"
+            },
+            "autoload": {
+                "psr-4": {
+                    "kffein\\craftbulkedit\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kffein",
+                    "homepage": "https://kffein.com"
+                }
+            ],
+            "description": "Bulk edit",
+            "keywords": [
+                "Craft",
+                "bulk edit",
+                "cms",
+                "craft-plugin",
+                "craftcms"
+            ],
+            "support": {
+                "docs": "https://github.com/kffein/craft-bulk-edit/blob/master/README.md",
+                "issues": "https://github.com/kffein/craft-bulk-edit/issues",
+                "source": "https://github.com/kffein/craft-bulk-edit/tree/v1.1.0"
+            },
+            "time": "2021-12-07T20:04:05+00:00"
         },
         {
             "name": "kornrunner/blurhash",
@@ -10009,5 +10065,5 @@
     "platform-overrides": {
         "php": "7.4.27"
     },
-    "plugin-api-version": "2.1.0"
+    "plugin-api-version": "2.3.0"
 }
