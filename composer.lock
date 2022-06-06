@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7e23c26265ee2b5e6cf25d8141e3f273",
+    "content-hash": "c2d02133ee9f6e90f828b2dfef988e3f",
     "packages": [
         {
             "name": "aelvan/inlin",
@@ -2866,62 +2866,6 @@
                 "schema"
             ],
             "time": "2021-07-22T09:24:00+00:00"
-        },
-        {
-            "name": "kffein/craft-bulk-edit",
-            "version": "1.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/kffein/craft-bulk-edit.git",
-                "reference": "ce4dbb3a3e10f1ce6273a4179a570d806ae23896"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/kffein/craft-bulk-edit/zipball/ce4dbb3a3e10f1ce6273a4179a570d806ae23896",
-                "reference": "ce4dbb3a3e10f1ce6273a4179a570d806ae23896",
-                "shasum": ""
-            },
-            "require": {
-                "craftcms/cms": "^3.7.0"
-            },
-            "type": "craft-plugin",
-            "extra": {
-                "name": "Craft Bulk Edit",
-                "handle": "craft-bulk-edit",
-                "hasCpSettings": false,
-                "hasCpSection": false,
-                "changelogUrl": "https://raw.githubusercontent.com/kffein/craft-bulk-edit/master/CHANGELOG.md",
-                "class": "kffein\\craftbulkedit\\CraftBulkEdit"
-            },
-            "autoload": {
-                "psr-4": {
-                    "kffein\\craftbulkedit\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Kffein",
-                    "homepage": "https://kffein.com"
-                }
-            ],
-            "description": "Bulk edit",
-            "keywords": [
-                "Craft",
-                "bulk edit",
-                "cms",
-                "craft-plugin",
-                "craftcms"
-            ],
-            "support": {
-                "docs": "https://github.com/kffein/craft-bulk-edit/blob/master/README.md",
-                "issues": "https://github.com/kffein/craft-bulk-edit/issues",
-                "source": "https://github.com/kffein/craft-bulk-edit/tree/v1.1.0"
-            },
-            "time": "2021-12-07T20:04:05+00:00"
         },
         {
             "name": "kornrunner/blurhash",
@@ -8816,6 +8760,60 @@
                 "templating"
             ],
             "time": "2022-02-04T06:57:25+00:00"
+        },
+        {
+            "name": "venveo/craft-bulkedit",
+            "version": "2.0.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/venveo/craft-bulkedit.git",
+                "reference": "4bda93acb80b7e2f1b91ee0bcedc68b95f6d4fad"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/venveo/craft-bulkedit/zipball/4bda93acb80b7e2f1b91ee0bcedc68b95f6d4fad",
+                "reference": "4bda93acb80b7e2f1b91ee0bcedc68b95f6d4fad",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^3.2.0"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "name": "Bulk Edit",
+                "handle": "venveo-bulk-edit",
+                "changelogUrl": "https://raw.githubusercontent.com/venveo/craft-bulkedit/master/CHANGELOG.md",
+                "class": "venveo\\bulkedit\\Plugin"
+            },
+            "autoload": {
+                "psr-4": {
+                    "venveo\\bulkedit\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Venveo",
+                    "homepage": "https://venveo.com"
+                }
+            ],
+            "description": "Bulk edit Craft CMS element fields",
+            "keywords": [
+                "Craft",
+                "bulk edit",
+                "cms",
+                "craft-plugin",
+                "craftcms"
+            ],
+            "support": {
+                "docs": "https://github.com/venveo/craft-bulkedit/blob/master/README.md",
+                "issues": "https://github.com/venveo/craft-bulkedit/issues",
+                "source": "https://github.com/venveo/craft-bulkedit/tree/2.0.6"
+            },
+            "time": "2021-07-22T19:15:26+00:00"
         },
         {
             "name": "vlucas/phpdotenv",

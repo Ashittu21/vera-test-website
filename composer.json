@@ -14,7 +14,6 @@
     "doublesecretagency/craft-inventory": "^2.1",
     "dukt/twitter": "^2.1",
     "dukt/videos": "2.0.15",
-    "kffein/craft-bulk-edit": "^1.1",
     "lewisjenkins/craft-dynamic-fields": "3.0.12",
     "mark-wff/craft-var-dumper": "^1.2",
     "mediabeastnz/timeago": "1.0.3",
@@ -34,6 +33,7 @@
     "spacecatninja/imager-x": "v3.5.5",
     "spicyweb/craft-neo": "2.12.5",
     "topshelfcraft/supersort": "3.1.0",
+    "venveo/craft-bulkedit": "^2.0",
     "vlucas/phpdotenv": "^3.4.0",
     "whoisjuan/craft-color-mixer": "1.0.9",
     "wrav/oembed": "^1.3"
