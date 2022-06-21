@@ -88,6 +88,10 @@
 
 		<div class="post-module event-module event__description rte">{{ entry.eventOverview }}</div>
 
+		{% if entry.code %}
+			{{ entry.code | raw }}
+		{% endif %}
+
 		{% if entry.eventAgenda|length %}
 			<aside class="hr"></aside>
 
