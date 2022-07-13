@@ -35,12 +35,15 @@ header {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    transition: all 0.3s ease;
+    transition: all 0.1s ease;
 
     &.hide {
-      opacity: 0;
-      //transform: translateY(-119px);
-      height: 0;
+     // display: none;
+      //opacity: 0;
+      transition: all 0.3s ease;
+      transform: translateY(-120px);
+      //transform: translateY(-120px);
+      // height: 0;
     }
 
     &-container {
@@ -310,7 +313,11 @@ header {
     z-index: 500;
     transition: all 0.2s ease;
     opacity: 1;
+
+
     &.show-logo{
+      transform: translateY(-120px);
+      transition: all 0.3s ease;
       #header-v2-bottom-nav{
         .isologo{
           transition: all 0.2s ease;

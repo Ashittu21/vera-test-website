@@ -37531,11 +37531,13 @@ header {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-    -webkit-transition: all 0.3s ease;
-    transition: all 0.3s ease; }
+    -webkit-transition: all 0.1s ease;
+    transition: all 0.1s ease; }
     .header-v2 .rowTop.hide {
-      opacity: 0;
-      height: 0; }
+      -webkit-transition: all 0.3s ease;
+      transition: all 0.3s ease;
+      -webkit-transform: translateY(-120px);
+              transform: translateY(-120px); }
     .header-v2 .rowTop-container {
       max-width: 1280px;
       width: 100%;
@@ -37822,25 +37824,30 @@ header {
     -webkit-transition: all 0.2s ease;
     transition: all 0.2s ease;
     opacity: 1; }
-    .header-v2 .rowBottom.show-logo #header-v2-bottom-nav .isologo {
-      -webkit-transition: all 0.2s ease;
-      transition: all 0.2s ease;
-      height: 67px;
-      -ms-flex-line-pack: center;
-          align-content: center;
-      -webkit-box-sizing: border-box;
-              box-sizing: border-box;
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      opacity: 1;
-      width: auto; }
-      .header-v2 .rowBottom.show-logo #header-v2-bottom-nav .isologo a {
-        margin: 15px;
-        height: auto;
+    .header-v2 .rowBottom.show-logo {
+      -webkit-transform: translateY(-120px);
+              transform: translateY(-120px);
+      -webkit-transition: all 0.3s ease;
+      transition: all 0.3s ease; }
+      .header-v2 .rowBottom.show-logo #header-v2-bottom-nav .isologo {
+        -webkit-transition: all 0.2s ease;
+        transition: all 0.2s ease;
+        height: 67px;
+        -ms-flex-line-pack: center;
+            align-content: center;
+        -webkit-box-sizing: border-box;
+                box-sizing: border-box;
         display: -webkit-box;
         display: -ms-flexbox;
-        display: flex; }
+        display: flex;
+        opacity: 1;
+        width: auto; }
+        .header-v2 .rowBottom.show-logo #header-v2-bottom-nav .isologo a {
+          margin: 15px;
+          height: auto;
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex; }
     .header-v2 .rowBottom-container {
       -webkit-transition: all 0.2s ease;
       transition: all 0.2s ease;
