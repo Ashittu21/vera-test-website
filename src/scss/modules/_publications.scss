@@ -105,7 +105,7 @@
 }
 
 .module-quote-carousel--facts {
-  background: $white;
+  background: var(--global-color-sand);
   text-align: center;
   padding-bottom: $padding-lg * 2;
 

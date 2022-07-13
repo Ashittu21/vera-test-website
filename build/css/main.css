@@ -13844,7 +13844,7 @@ a:hover .icon-download:after {
     margin-right: 10px; }
 
 .module-quote-carousel--facts {
-  background: #fff;
+  background: var(--global-color-sand);
   text-align: center;
   padding-bottom: 80px; }
   .module-quote-carousel--facts .quote-carousel {
