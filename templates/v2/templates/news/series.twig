@@ -45,7 +45,7 @@
 
     <div class="newsLanding-items">
 
-      {% paginate craft.entries.section('newsSeries').orderBy('dateCreated DESC').limit(10) as pageInfo, pageEntries %}
+      {% paginate craft.entries.section('newsSeries').orderBy('postDate DESC').limit(10) as pageInfo, pageEntries %}
       {% set fallback = 0 %}
       {% for entry in pageEntries %}
         {% if  entry.heroType5_image is not null %}

@@ -45,7 +45,7 @@
 
     <div class="newsLanding-items">
 
-      {% paginate craft.entries.section('specialReports').level(1).orderBy('dateCreated DESC').limit(10) as pageInfo, pageEntries %}
+      {% paginate craft.entries.section('specialReports').level(1).orderBy('postDate DESC').limit(10) as pageInfo, pageEntries %}
 
       {% set fallback = 0 %}
 
