@@ -12,7 +12,8 @@
       {%- if block['explainer'] is defined -%}
       <p class="StatePublicationsHero-explainer ff-sans size--body">{{ block.explainer | shortcodes | raw }}</p>
       {%- endif -%}
-      {%- if block['download'] is defined -%}
+
+      {%- if block['download'] is not null -%}
       <a class="StatePublicationsHero-download btn" 
         href="{{ block.download.url}}" 
         target="_blank" 
@@ -20,6 +21,7 @@
         {{ block.download.label }}
       </a>
       {%- endif -%}
+
     </div>
   </div>
 </header>

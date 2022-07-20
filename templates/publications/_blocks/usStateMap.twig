@@ -15,7 +15,7 @@
 {% set csvUrl = block.dataset[0].url ?? null %}
 {% if csvUrl %}
 {% set id = "UsMap-" ~ block.id %}
-<div class="UsMap bg--lightGray">
+<div class="UsMap">{# bg--lightGray #}
   <div class="container">
     <div class="UsMap-heading h3">{{ block.heading }}</div>
     {% if block.explainer %}

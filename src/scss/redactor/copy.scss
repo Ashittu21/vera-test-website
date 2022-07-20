@@ -4,7 +4,7 @@ body .redactor-box,
 body .redactor-box:not(.redactor-box-fullscreen) {
   .redactor-styles  {
     @import "../v2/base/variables.scss";
-    @import "http://vera.loc/dist/css/main.combined.min.css";
+   // @import "../../../dist/css/main.combined.min.css";
     @import "../v2/common/copy-format.scss";
   }
 }
