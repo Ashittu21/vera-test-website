@@ -1,0 +1,127 @@
+{% set locations = [
+    {
+        title: 'brooklyn',
+        id:1
+    },
+    {
+        title: 'New york',
+        id:2,
+    },
+    {
+        title: 'Remote',
+        id:3,
+    },
+    {
+        title: 'Manhattan',
+        id:4,
+    }
+] %}
+{% set teams = [
+    {
+        title: 'Accounting',
+        id:1
+    },
+    {
+        title: 'Communications&External Affairs',
+        id:2,
+    },
+    {
+        title: 'Human Resources',
+        id:3,
+    },
+] %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="CopySection-heading">Job openings</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 py-5">
+            <div class="sj-headContent ">
+                <div class="rs-head-form">
+                    <div class="contentInput">
+                        <input type="search" placeholder="search" class="contentInput_search">
+                        <button class="contentInput__close"></button>
+                        <button class="contentInput-search"></button>
+                    </div>
+                    <div class="dropMenu dropdown-areas">
+                        <button class="dropdown-toggle" type="button" id="menuTeam" aria-haspopup="true">
+                           <span class="dropdown-text-teams">Select a team</span>
+                           <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-teams" id="listTeams" aria-labelledby="menuTeam">
+                           {% for relation in teams %}
+                                {% set relation_id = relation.id %}
+                                {% set relation_type = 'relation' %}
+                             <li class="checkFilter">
+                               <input type="checkbox" name='optionsTeams[]' id="teams-{{ relation_id }}" class="teams_checkbox option justone checkteams" value="{{ relation_id }}"  data-type="relationBlock.type" data-category="teams" {% if relacionesArray is defined  %} {% if relation_id in relacionesArray %}checked{% endif %}{% endif %}/>
+                               <label class="labelTopic" for="teams-{{ relation_id }}">
+                                    {{relation.title}}
+                               </label>
+                             </li>
+                           {% endfor %}
+                           <li class="applybtn"><button type="Button" class="apply ctaSearch">APPLY</button></li> 
+                        </ul>
+                    </div>
+                    <div class="dropMenu dropdown-areas">
+                        <button class="dropdown-toggle" type="button" id="menuLocation" aria-haspopup="true">
+                           <span class="dropdown-text-locations">Select a location</span>
+                           <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-locations" id="listLocations" aria-labelledby="menuLocation">
+                           {% for relation in locations %}
+                                {% set relation_id = relation.id %}
+                                {% set relation_type = 'relation' %}
+                             <li class="checkFilter">
+                               <input type="checkbox" name='optionsLocations[]' id="location-{{ relation_id }}" class="locations_checkbox option justone" value="{{ relation_id }}"  data-type="relationBlock.type" data-category="locations" {% if relacionesArray is defined  %} {% if relation_id in relacionesArray %}checked{% endif %}{% endif %}/>
+                               <label class="labelTopic" for="location-{{ relation_id }}">
+                                    {{relation.title}}
+                               </label>
+                             </li>
+                           {% endfor %}
+                           <li class="applybtn"><button type="Button" class="apply ctaSearch">APPLY</button></li> 
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="rs-tags">
+            <a href="#" id="clearalljobcategory">Clear all </a>
+            <div id="JobsearchTags">
+        
+            </div>
+          </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+$("#menuTeam").on('click',function(){
+  var CheckR = $("#menuTeam").attr("aria-expanded");
+ if ( CheckR == "true") {
+      $("#menuTeam").attr("aria-expanded", "false");
+      $("#listTeams").attr("aria-hidden", "true");
+ } else {
+      $("#menuTeam").attr("aria-expanded", "true");
+      $("#listTeams").attr("aria-hidden", "false");
+ }
+});
+
+$("#menuLocation").on('click',function(){
+  var CheckR = $("#menuLocation").attr("aria-expanded");
+ if ( CheckR == "true") {
+      $("#menuLocation").attr("aria-expanded", "false");
+      $("#listLocations").attr("aria-hidden", "true");
+ } else {
+      $("#menuLocation").attr("aria-expanded", "true");
+      $("#listLocations").attr("aria-hidden", "false");
+ }
+});
+
+</script>
