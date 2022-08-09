@@ -1,5 +1,6 @@
 @charset "UTF-8";
 /*!normalize.css v3.0.1 | MIT License | git.io/normalize */
+@import url(vendor/mermaid.min.css);
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -40292,7 +40293,7 @@ header {
         content: '';
         width: 100%;
         height: 100%;
-        background-image: url("data:image/svg+xml,%3Csvg width='39' height='39' viewBox='0 0 39 39' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M28.5054 28.5054L9.50172 9.50172' stroke='%232E1D97' stroke-linecap='round'/%3E%3Cpath d='M28.5041 9.50114L9.50047 28.5048' stroke='%232E1D97' stroke-linecap='round'/%3E%3C/svg%3E%0A");
+        background-image: url("data:image/svg+xml,%3Csvg width='25' height='25' viewBox='0 0 39 39' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M28.5054 28.5054L9.50172 9.50172' stroke='%232E1D97' stroke-linecap='round'/%3E%3Cpath d='M28.5041 9.50114L9.50047 28.5048' stroke='%232E1D97' stroke-linecap='round'/%3E%3C/svg%3E%0A");
         background-repeat: no-repeat;
         background-position: center; }
     .sj-headContent .contentInput-search {
@@ -40384,5 +40385,64 @@ header {
       background-image: url("data:image/svg+xml,%3Csvg width='12' height='13' viewBox='0 0 12 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cline x1='10.961' y1='1.19694' x2='0.354374' y2='11.8035' stroke='%23CEC0BC'/%3E%3Cline x1='10.9609' y1='11.8034' x2='0.354299' y2='1.19678' stroke='%23CEC0BC'/%3E%3C/svg%3E%0A"); }
       .rs-tags #JobsearchTags a:hover {
         background-image: url("data:image/svg+xml,%3Csvg width='12' height='13' viewBox='0 0 12 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cline x1='10.961' y1='1.19694' x2='0.354374' y2='11.8035' stroke='%23EF4136'/%3E%3Cline x1='10.9609' y1='11.8034' x2='0.354299' y2='1.19678' stroke='%23EF4136'/%3E%3C/svg%3E%0A"); }
+
+.tableJob {
+  width: 100%;
+  margin-bottom: 2rem; }
+  .tableJob tbody:before {
+    content: "";
+    display: block;
+    height: 30px;
+    width: 100%; }
+  .tableJob td {
+    padding: 2rem 1rem;
+    vertical-align: middle; }
+  .tableJob_head {
+    border-bottom: 2px solid var(--global-color-dark-sand);
+    color: var(--global-color-medium-violet);
+    font-size: 20px;
+    font-weight: bold; }
+    .tableJob_head th {
+      padding: 1rem;
+      text-align: left; }
+  .tableJob_headline {
+    background-color: var(--global-color-dark-violet);
+    color: var(--global-color-white);
+    vertical-align: middle;
+    text-align: start; }
+    .tableJob_headline th {
+      padding: 1rem;
+      text-align: start;
+      font-size: 20px; }
+  .tableJob_row {
+    border-bottom: 1px solid var(--global-color-dark-sand); }
+    .tableJob_row .theButton {
+      padding: 13px 21px 14px; }
+    .tableJob_row .theButton span {
+      font-size: 18px; }
+    .tableJob_row td:nth-child(1) {
+      width: 55%; }
+      .tableJob_row td:nth-child(1) .title {
+        font-size: 18px;
+        color: var(--global-color-dark-violet);
+        font-weight: bold; }
+      .tableJob_row td:nth-child(1) .label {
+        font-size: 15px;
+        color: var(--global-color-red);
+        margin: 10px 0px; }
+    .tableJob_row td:nth-child(2) {
+      font-size: 18px;
+      color: var(--global-color-dark-violet);
+      width: 15%;
+      font-weight: bold; }
+    .tableJob_row td:nth-child(3) {
+      font-size: 18px;
+      color: var(--global-color-light-violet);
+      width: 15%;
+      font-weight: bold; }
+    .tableJob_row td:nth-child(4) {
+      font-size: 18px;
+      color: var(--global-color-light-violet);
+      width: 15%; }
 
 /*# sourceMappingURL=main.css.map */

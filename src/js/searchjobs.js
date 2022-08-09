@@ -1,14 +1,69 @@
 $(function () {
+    var fakedata = [
+    {
+      jobid:1,
+      typejob:'permanent',
+      type:'Full-time',
+      position:'Senior Program Associate, Operations & Quality Assurance, Center on Immigration and Justice, Unaccompanied Children Program',
+      team:'Accounting',
+      location:'Brooklyn',
+      url:'#'
+    },
+    {
+      jobid:2,
+      typejob:'temporary',
+      type:'Full-time',
+      position:'Senior Program Associate, Operations & Quality Assurance, Center on Immigration and Justice, Unaccompanied Children Program',
+      team:'Accounting',
+      location:'Manhattan',
+      url:'#'
+    },
+    {
+      jobid:3,
+      typejob:'permanent',
+      type:'Full-time',
+      position:'Technology and Personnel Security  Compliance Manager, ITS, Acacia Center for justice ( Remote)',
+      team:'Human Resources',
+      location:'Remote',
+      url:'#'
+    },
+    {
+      jobid:4,
+      typejob:'permanent',
+      type:'Full-time',
+      position:'DC Office Intern, Workplace Services',
+      team:'Communications&External Affairs',
+      location:'Brooklyn',
+      url:'#'
+    },
+    {
+      jobid:4,
+      typejob:'temporary',
+      type:'Full-time',
+      position:'DC Office Intern, Workplace Services',
+      team:'Communications&External Affairs',
+      location:'Brooklyn',
+      url:'#'
+    },
+  ]
     var optionSelected = [];
     const contenttags = document.querySelector('#JobsearchTags');
     const inputsearch = document.querySelector('.contentInput_search');
     const btnclear = document.querySelector('.contentInput__close');
+    const tablejobs = document.querySelector('.tableJob');
+    const searchbtn = document.querySelector('.contentInput-search');
 
-
+    // INPUT 
+    searchbtn.addEventListener("click", e=>{
+      console.log("opciones : ",optionSelected);
+      // nota: hay que obtener la info de la api de acuerdo a lo seleccionado y obtener la data para generar la tabla
+      buildtableJobs(fakedata);
+    });
     btnclear.addEventListener("click", e=>{
-        inputsearch.value='';
+      inputsearch.value='';
+      
     })
-
+    
     inputsearch.addEventListener("input",e=>{
         if(e.target.value == ''){
             btnclear.style.visibility='hidden';
@@ -38,7 +93,6 @@ $(function () {
       });
       document.querySelector('[data-check="' + t + '"]').remove();
     }
-    // INPUT 
 
 
     //LOCATIONS
@@ -51,7 +105,6 @@ $(function () {
             id: $(this).attr('id'),
             category: $(this).data('category'),
           });
-          console.log(optionSelected);
       
           contenttags.appendChild(createTagItem($(this).next().text().trim(), $(this).attr('id'), $(this).data('category')));
           console.log($(this).data('category'));
@@ -60,7 +113,6 @@ $(function () {
           deleteTagItem($(this).attr('id'));
         }
       
-        console.log(optionSelected);
       
         var totalTopics = $('input[name="optionsLocations[]"]:checked').length;
       
@@ -80,10 +132,8 @@ $(function () {
             id: $(this).attr('id'),
             category: $(this).data('category'),
           });
-          console.log(optionSelected);
       
           contenttags.appendChild(createTagItem($(this).next().text().trim(), $(this).attr('id'), $(this).data('category')));
-          console.log($(this).data('category'));
       
         } else {
           deleteTagItem($(this).attr('id'));
@@ -110,7 +160,6 @@ $(function () {
         switch (this.getAttribute('data-category')) {
           case 'teams':
             var totalTeams = $('input[name="optionsTeams[]"]:checked').length;
-            console.log(totalTeams );
             if(totalTeams >=1){
              $(".dropdown-text-teams").html('' + totalTeams  + ' teams selected ');
             }else{
@@ -127,7 +176,53 @@ $(function () {
             break;
         }
             
-      });
+    });
 
+    function buildtableJobs(data) {
+      let tbody = tablejobs.querySelector('tbody');
+      let newdata = _.groupBy(data, 'typejob');
+      console.log(newdata);
+      console.log(newdata.permanent);
+      console.log(newdata.temporary);
+      tbody.innerHTML = "";
+      $(tbody).append(`
+        <tr class="tableJob_headline">
+                    <th colspan="4" scope="colgroup" class="text-star p-4">Permanent positions</th>
+          </tr>
+        `);
+      newdata.permanent.forEach(inforow => {
+        $(tbody).append(`
+        <tr class="tableJob_row">
+          <td scope="row">
+            <p class="title">${inforow.position}</p>
+            <p class="label">Team: ${inforow.team}</p>
+          </td>
+          <td>${inforow.type}</td>
+          <td>${inforow.location}</td>
+          <td> <a href="${inforow.url}" class="theButton"><span>Apply Now</span></a></td>
+        </tr>
+        `)
+      });
+      $(tbody).append(`
+        <tr class="tableJob_headline">
+                    <th colspan="4" scope="colgroup" class="text-star p-4">Temporary positions</th>
+          </tr>
+        `)
+      newdata.temporary.forEach(inforow => {
+        $(tbody).append(`
+        <tr class="tableJob_row">
+          <td scope="row">
+            <p class="title">${inforow.position}</p>
+            <p class="label">Team: ${inforow.team}</p>
+          </td>
+          <td>${inforow.type}</td>
+          <td>${inforow.location}</td>
+          <td> <a href="${inforow.url}" class="theButton"><span>Apply Now</span></a></td>
+        </tr>
+        `)
+      });
+    }
+
+      
 });
  
