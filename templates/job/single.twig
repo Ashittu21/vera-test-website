@@ -1,0 +1,66 @@
+{% extends '_layout' %}
+
+{% set title = entry.title %}
+
+{% block content %}
+    <div class="hero-type4">
+      <div class="hero-type4-content">
+        <div class="hero-type4-content-copy">
+          <div class="hero-type4-content-copy-breadcrumbs">
+           <a href="{{ siteUrl }}">HOME</a> // <a href="{{ siteUrl('careers') }}">Careers</a> // <a href="#">Job</a>
+          </div> 
+          <p class="date"> July 29, 2022</p>
+          <div>
+            <img src="/dist/img/v2/vera-horizontal.svg" class="footerV2-logo logovera" width="200px">
+          </div>
+          <h2>Senior Program Associate, Operations & Quality Assurance, Center on Immigration and Justice, Unaccompanied Children Program</h2>
+          <div class="infojob">
+            <ul>
+              <li>
+                <a href="#">Full Time</a> 
+              </li>
+              <li>
+                <a href="#">Location: Remote </a>
+              </li>
+              <li>
+                <a href="#">Team: Accounting</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+   
+        <div class="hero-type4-content-line1"></div>
+        <div class="hero-type4-content-line2"></div>
+        <div class="hero-type4-content-line3"></div>
+        <div class="hero-type4-content-line4"></div>
+        
+      </div>
+    </div>
+    <section>
+        <div class="container contentjob">
+           <!-- Share Icons -->
+            {% include 'v2/common/shareIcons' with { entry:entry } %}
+            <!-- Share Icons -->
+            <h3 class="contentjob-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h3>
+           <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, quas. Modi laboriosam nesciunt quisquam facere esse delectus ipsam atque voluptas culpa aut ducimus tempora optio, non eum quod maxime sit!
+            Vel reprehenderit adipisci facere numquam ullam suscipit sit, nihil recusandae incidunt necessitatibus nesciunt, repellat nemo cum, consequuntur officiis voluptas delectus doloribus! Veniam libero commodi, ex praesentium soluta provident repellat sapiente?
+            Et delectus praesentium dignissimos quidem cum pariatur, rerum laborum nesciunt facere iure, at explicabo ullam saepe, officiis vel quibusdam blanditiis tenetur? Sunt atque nemo nobis accusantium recusandae dolore rerum eius?
+            Nam eaque fugiat, a placeat, qui voluptate quidem quia ullam debitis quas perspiciatis quisquam reprehenderit ea, itaque nemo non odio dolore numquam? Sed, illum? Officia blanditiis eius enim quis id! <br>
+           </p>
+           <h3 class="contentjob-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h3>
+           <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, quas. Modi laboriosam nesciunt quisquam facere esse delectus ipsam atque voluptas culpa aut ducimus tempora optio, non eum quod maxime sit!
+            Vel reprehenderit adipisci facere numquam ullam suscipit sit, nihil recusandae incidunt necessitatibus nesciunt, repellat nemo cum, consequuntur officiis voluptas delectus doloribus! Veniam libero commodi, ex praesentium soluta provident repellat sapiente?
+            Et delectus praesentium dignissimos quidem cum pariatur, rerum laborum nesciunt facere iure, at explicabo ullam saepe, officiis vel quibusdam blanditiis tenetur? Sunt atque nemo nobis accusantium recusandae dolore rerum eius?
+            Nam eaque fugiat, a placeat, qui voluptate quidem quia ullam debitis quas perspiciatis quisquam reprehenderit ea, itaque nemo non odio dolore numquam? Sed, illum? Officia blanditiis eius enim quis id! <br>
+           </p>
+        </div>
+        <div class="formjob">
+            {% include "v2/common/FormApplyJob" %}
+        </div>
+    </section>
+    
+
+
+{% endblock %}

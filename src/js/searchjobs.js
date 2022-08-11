@@ -1,4 +1,5 @@
 $(function () {
+    // data de prueba para generar rows 
     var fakedata = [
     {
       jobid:1,
@@ -53,24 +54,141 @@ $(function () {
     const tablejobs = document.querySelector('.tableJob');
     const searchbtn = document.querySelector('.contentInput-search');
 
-    // INPUT 
-    searchbtn.addEventListener("click", e=>{
-      console.log("opciones : ",optionSelected);
-      // nota: hay que obtener la info de la api de acuerdo a lo seleccionado y obtener la data para generar la tabla
-      buildtableJobs(fakedata);
-    });
-    btnclear.addEventListener("click", e=>{
-      inputsearch.value='';
-      
-    })
+    if(document.querySelector('.sj-content')){
+      // INPUT 
+      searchbtn.addEventListener("click", e=>{
+        console.log("opciones : ",optionSelected);
+        // nota: hay que obtener la info de la api de acuerdo a lo seleccionado y obtener la data para generar la tabla
+        buildtableJobs(fakedata);
+      });
+
+      btnclear.addEventListener("click", e=>{
+        inputsearch.value='';
+        btnclear.style.visibility='hidden';
+      });
+
+      inputsearch.addEventListener("input",e=>{
+          if(e.target.value == ''){
+              btnclear.style.visibility='hidden';
+          }else{
+              btnclear.style.visibility='visible';
+          }
+      });
+
+      //LOCATIONS
+    $("input[type='checkbox'].locations_checkbox").change(function() {
+  
+      var a = $("input[type='checkbox'].locations_checkbox");
+      if ($(this).is(':checked')) {
+        optionSelected.push({
+          label: $(this).next().text().trim(),
+          id: $(this).attr('id'),
+          category: $(this).data('category'),
+        });
     
-    inputsearch.addEventListener("input",e=>{
-        if(e.target.value == ''){
-            btnclear.style.visibility='hidden';
-        }else{
-            btnclear.style.visibility='visible';
+        contenttags.appendChild(createTagItem($(this).next().text().trim(), $(this).attr('id'), $(this).data('category')));
+        console.log($(this).data('category'));
+    
+      } else {
+        deleteTagItem($(this).attr('id'));
+      }
+
+      var totalTopics = $('input[name="optionsLocations[]"]:checked').length;
+    
+      if(totalTopics>=1){
+       $(".dropdown-text-locations").html('' + totalTopics + ' locations selected ');
+      }else{
+       $(".dropdown-text-locations").html('Select a location');
+      }
+    });
+    // TEAMS 
+    $("input[type='checkbox'].teams_checkbox").change(function() {
+
+        var a = $("input[type='checkbox'].teams_checkbox");
+        if ($(this).is(':checked')) {
+          optionSelected.push({
+            label: $(this).next().text().trim(),
+            id: $(this).attr('id'),
+            category: $(this).data('category'),
+          });
+        
+          contenttags.appendChild(createTagItem($(this).next().text().trim(), $(this).attr('id'), $(this).data('category')));
+        
+        } else {
+          deleteTagItem($(this).attr('id'));
         }
-    })
+        var totalTopics = $('input[name="optionsTeams[]"]:checked').length;
+      
+        if(totalTopics>=1){
+         $(".dropdown-text-teams").html('' + totalTopics + ' teams selected ');
+        }else{
+         $(".dropdown-text-teams").html('Select a team');
+        }
+    });
+    $("input[type='checkbox'].jobtype_checkbox").change(function() {
+
+      var a = $("input[type='checkbox'].jobtype_checkbox");
+      if ($(this).is(':checked')) {
+        optionSelected.push({
+          label: $(this).next().text().trim(),
+          id: $(this).attr('id'),
+          category: $(this).data('category'),
+        });
+      
+        contenttags.appendChild(createTagItem($(this).next().text().trim(), $(this).attr('id'), $(this).data('category')));
+      
+      } else {
+        deleteTagItem($(this).attr('id'));
+      }
+
+    
+      var totalJobtype = $('input[name="optionsJobtype[]"]:checked').length;
+    
+      if(totalJobtype>=1){
+       $(".dropdown-text-jobtype").html('' + totalJobtype + ' Job type selected ');
+      }else{
+       $(".dropdown-text-jobtype").html('Select a job type');
+      }
+    });
+    // unselect tags
+    $(document).on('click', '.filterTags', function(event) {
+
+      event.preventDefault();
+      console.log(this.getAttribute('data-check'));
+      document.getElementById(this.getAttribute('data-check')).checked = false;
+      deleteTagItem(this.getAttribute('data-check'));
+  
+      switch (this.getAttribute('data-category')) {
+        case 'teams':
+          var totalTeams = $('input[name="optionsTeams[]"]:checked').length;
+          if(totalTeams >=1){
+           $(".dropdown-text-teams").html('' + totalTeams  + ' teams selected ');
+          }else{
+           $(".dropdown-text-teams").html('Select a team');
+          }
+          break;
+        case 'locations':
+            var totalLocations = $('input[name="optionsLocations[]"]:checked').length;
+             if(totalLocations>=1){
+              $(".dropdown-text-locations").html('' + totalLocations + ' locations selected ');
+             }else{
+              $(".dropdown-text-locations").html('Select a location');
+             }
+          break;
+        case 'jobtype':
+            var totalJobtype = $('input[name="optionsJobtype[]"]:checked').length;
+  
+            if(totalJobtype>=1){
+             $(".dropdown-text-jobtype").html('' + totalJobtype + ' Job type selected ');
+            }else{
+             $(".dropdown-text-jobtype").html('Select a job type');
+            }
+          break;
+      }
+          
+     });
+    }
+    
 
      // Create Tag
     function createTagItem(name, id, cat) {
@@ -95,95 +213,10 @@ $(function () {
     }
 
 
-    //LOCATIONS
-    $("input[type='checkbox'].locations_checkbox").change(function() {
-  
-        var a = $("input[type='checkbox'].locations_checkbox");
-        if ($(this).is(':checked')) {
-          optionSelected.push({
-            label: $(this).next().text().trim(),
-            id: $(this).attr('id'),
-            category: $(this).data('category'),
-          });
-      
-          contenttags.appendChild(createTagItem($(this).next().text().trim(), $(this).attr('id'), $(this).data('category')));
-          console.log($(this).data('category'));
-      
-        } else {
-          deleteTagItem($(this).attr('id'));
-        }
-      
-      
-        var totalTopics = $('input[name="optionsLocations[]"]:checked').length;
-      
-        if(totalTopics>=1){
-         $(".dropdown-text-locations").html('' + totalTopics + ' locations selected ');
-        }else{
-         $(".dropdown-text-locations").html('Select a location');
-        }
-    });
-    // TEAMS 
-    $("input[type='checkbox'].teams_checkbox").change(function() {
-  
-        var a = $("input[type='checkbox'].teams_checkbox");
-        if ($(this).is(':checked')) {
-          optionSelected.push({
-            label: $(this).next().text().trim(),
-            id: $(this).attr('id'),
-            category: $(this).data('category'),
-          });
-      
-          contenttags.appendChild(createTagItem($(this).next().text().trim(), $(this).attr('id'), $(this).data('category')));
-      
-        } else {
-          deleteTagItem($(this).attr('id'));
-        }
-      
-        console.log(optionSelected);
-      
-        var totalTopics = $('input[name="optionsTeams[]"]:checked').length;
-      
-        if(totalTopics>=1){
-         $(".dropdown-text-teams").html('' + totalTopics + ' teams selected ');
-        }else{
-         $(".dropdown-text-teams").html('Select a team');
-        }
-    });
-    // unselect tags
-    $(document).on('click', '.filterTags', function(event) {
-
-        event.preventDefault();
-        console.log(this.getAttribute('data-check'));
-        document.getElementById(this.getAttribute('data-check')).checked = false;
-        deleteTagItem(this.getAttribute('data-check'));
-    
-        switch (this.getAttribute('data-category')) {
-          case 'teams':
-            var totalTeams = $('input[name="optionsTeams[]"]:checked').length;
-            if(totalTeams >=1){
-             $(".dropdown-text-teams").html('' + totalTeams  + ' teams selected ');
-            }else{
-             $(".dropdown-text-teams").html('Select a team');
-            }
-            break;
-          case 'locations':
-              var totalLocations = $('input[name="optionsLocations[]"]:checked').length;
-               if(totalLocations>=1){
-                $(".dropdown-text-locations").html('' + totalLocations + ' locations selected ');
-               }else{
-                $(".dropdown-text-locations").html('Select a location');
-               }
-            break;
-        }
-            
-    });
 
     function buildtableJobs(data) {
       let tbody = tablejobs.querySelector('tbody');
       let newdata = _.groupBy(data, 'typejob');
-      console.log(newdata);
-      console.log(newdata.permanent);
-      console.log(newdata.temporary);
       tbody.innerHTML = "";
       $(tbody).append(`
         <tr class="tableJob_headline">
@@ -222,7 +255,7 @@ $(function () {
         `)
       });
     }
-
+    
       
 });
  

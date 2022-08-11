@@ -1,0 +1,132 @@
+<section>
+
+	<div class="container formApply">
+		<div class="row">
+			<div class="col-lg-12">
+				<h2 class="h1 CopySection-heading formApply_title">Apply for this job</h2>
+			</div>
+		</div>
+		<div class="row formApply_row">
+			<div class="col-md-10">
+				<div class="formApply__linkedin">
+                    <p>
+                        Your full LinkedIn profile
+                        <br>
+                        will be shared.
+                        <u>Learn More</u>
+                    </p>
+                    <button class="btn formApply__linkedin-btn">Apply with LinkedIn</button>
+                </div>
+			</div>
+		</div>
+		<div class="row d-flex justify-content-center">
+			<div class="col-md-10">
+				<form id="formapply_job" action="" class="formApply-form contact-email-form" enctype='multipart/form-data'>
+					<!-- represents the ID of the job post -->
+					<input
+					type="hidden" name="id" value="55555"/>
+					<!-- place the value of the gh_src URL parameter in the field below -->
+					<input type="hidden" name="mapped_url_token" value="token12345"/>
+					<div class="form-row row">
+						<div class="col-md-6">
+							<div class="input-group">
+								<label for="Fname">First Name</label>
+								<input name="first_name" type="text" class="form-control" placeholder="" required>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="input-group">
+								<label for="Lname">Last Name</label>
+								<input name="last_name" type="text" class="form-control" placeholder="" required>
+							</div>
+						</div>
+					</div>
+					<div class="form-row row">
+						<div class="col-md-6">
+							<div class="input-group">
+								<label for="email">Email</label>
+								<input type="email" name="email" class="form-control" placeholder="" required>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="input-group">
+								<label for="phone">Phone</label>
+								<input type="text" name="phone" class="form-control" placeholder="" required>
+							</div>
+						</div>
+					</div>
+					<div class="form-row row">
+						<div class="col-md-6">
+							<div class="input-group">
+								<label for="location">Location</label>
+								<input type="text" name="location" class="form-control" placeholder="" required>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="input-group">
+								<label for="linkedin">Linkedln Profile</label>
+								<input type="text" name="linkedin" class="form-control" placeholder="" required>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-group">
+							<label for="resume">Resume</label>
+							<div class="container-file">
+								<input id="resumefile" type="file" class="resumepond" name="resume" data-allow-reorder="true" data-max-file-size="3MB" data-max-files="1" required>
+							</div>
+							<p class="labelfile">(File types: pdf, doc, docx, txt, rft)</p>
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-group">
+							<label for="resume">Cover letter</label>
+							<div class="container-file">
+								<input id="coverfile" type="file" class="filepond" name="cover_letter" data-allow-reorder="true" data-max-file-size="3MB" data-max-files="1" required>
+							</div>
+							<p class="labelfile">(File types: pdf, doc, docx, txt, rft)</p>
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-group checkgroup">
+							<input type="checkbox" name='terms' required/>
+							<span>I agree to the
+								<a href="#">terms of service</a>
+								and
+								<a href="#">privacy policy</a>
+							</span>
+						</div>
+					</div>
+					<div class="row">
+						<button type="button" class="collapsible collapseform" id="collapseForm1">Invitation for job Applicants to Self-Identify as U.S Veteran <span><i class="fas fa-arrow-down"></i></span></button>
+                        <div class="content" id="ContentCollapse1form">
+                        <p>Lorem ipsum...</p>
+                        </div>
+                        <button type="button" class="collapsible collapseform" id="collapseForm2">Voluntary Self-identification of Disability <span><i class="fas fa-arrow-down"></i></span></button>
+                        <div class="content" id="ContentCollapse2form">
+                        <p>Lorem ipsum...</p>
+                        </div>
+					</div>
+					<div class="row">
+						<div class="input-group">
+							<button type="submit" class="btnsubmit theButton">
+								<span>Submit Application</span>
+							</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</section>
+
+<script>
+    $('#ContentCollapse1form').toggle(false);
+    $('#ContentCollapse2form').toggle(false);
+    $('#collapseForm1').click(e=>{
+        $('#ContentCollapse1form').toggle();
+    })
+    $('#collapseForm2').click(e=>{
+        $('#ContentCollapse2form').toggle();
+    })
+</script>

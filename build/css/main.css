@@ -1,6 +1,5 @@
 @charset "UTF-8";
 /*!normalize.css v3.0.1 | MIT License | git.io/normalize */
-@import url(vendor/mermaid.min.css);
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -39926,45 +39925,23 @@ header {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center; }
-  .sj-headContent .rs-title {
-    margin-top: 80px;
-    max-width: 1280px;
-    display: table;
-    white-space: nowrap;
-    font-family: var(--global-font-sectra);
-    font-size: 35px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 42px;
-    letter-spacing: 0em;
-    text-align: left;
-    color: #FFF;
-    overflow: hidden;
-    margin-left: 0px; }
-    @media (max-width: 768px) {
-      .sj-headContent .rs-title {
-        margin-left: 0px; } }
-    @media (max-width: 1024px) {
-      .sj-headContent .rs-title {
-        padding: 0 2rem; } }
-    .sj-headContent .rs-title:after {
-      border-top: 2px solid var(--global-color-light-violet);
-      content: '';
-      display: table-cell;
-      position: relative;
-      top: 1.55em;
-      width: 100%; }
-    .sj-headContent .rs-title:after {
-      left: 1.5%; }
+  @media (max-width: 991px) {
+    .sj-headContent {
+      padding-top: 40px; } }
   .sj-headContent .rs-head-form {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     max-width: 1280px;
     width: 100%;
     gap: 1rem; }
     @media (max-width: 991px) {
       .sj-headContent .rs-head-form {
-        display: none; } }
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem; } }
+    @media (max-width: 768px) {
+      .sj-headContent .rs-head-form {
+        grid-template-columns: 1fr;
+        gap: 3rem; } }
     .sj-headContent .rs-head-form.show {
       display: -webkit-box;
       display: -ms-flexbox;
@@ -39995,23 +39972,6 @@ header {
           margin: 0 auto;
           margin-bottom: 13px;
           display: none; } }
-    .sj-headContent .rs-head-form .mobile-filter-by {
-      font-family: var(--global-font-abc-whyte);
-      font-size: 21px;
-      font-style: normal;
-      font-weight: 400;
-      line-height: 27px;
-      letter-spacing: 0em;
-      text-align: left;
-      color: white;
-      width: 80%;
-      margin: 0 auto;
-      margin-top: 29px;
-      margin-bottom: 36px;
-      display: none; }
-      @media (max-width: 1024px) {
-        .sj-headContent .rs-head-form .mobile-filter-by {
-          display: block; } }
     .sj-headContent .rs-head-form .close-rs-filter {
       background-image: url("../img/v2/X-red.svg");
       border: 0;
@@ -40072,23 +40032,6 @@ header {
           .sj-headContent .rs-head-form .mobile-filter-sort select {
             max-width: 335px;
             margin: 0 auto; } }
-    .sj-headContent .rs-head-form .mobile-filter-submit {
-      width: 100%;
-      text-align: center;
-      display: none; }
-      @media (max-width: 1024px) {
-        .sj-headContent .rs-head-form .mobile-filter-submit {
-          display: block; } }
-      .sj-headContent .rs-head-form .mobile-filter-submit .filterSubmit {
-        margin-top: 25px;
-        border: 2px solid #abffeb;
-        background-color: transparent;
-        padding: 10px;
-        color: var(--global-color-text);
-        width: 217px;
-        font-size: 16px;
-        font-weight: 400;
-        font-family: var(--global-font-abc-whyte); }
     .sj-headContent .rs-head-form .rs-filters {
       display: -webkit-box;
       display: -ms-flexbox;
@@ -40122,8 +40065,7 @@ header {
       @media (max-width: 1024px) {
         .sj-headContent .rs-head-form .dropMenu {
           margin: 0 auto;
-          width: 80%;
-          margin-bottom: 20px; } }
+          width: 80%; } }
       .sj-headContent .rs-head-form .dropMenu .searchLabel {
         color: var(--global-color-text);
         font-size: 11px;
@@ -40169,7 +40111,7 @@ header {
             background-position: left center;
             background-size: auto 18px;
             background-repeat: no-repeat;
-            background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8' standalone='no'%3F%3E%3Csvg xmlns:dc='http://purl.org/dc/elements/1.1/' xmlns:cc='http://creativecommons.org/ns%23' xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns%23' xmlns:svg='http://www.w3.org/2000/svg' xmlns='http://www.w3.org/2000/svg' xmlns:sodipodi='http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd' xmlns:inkscape='http://www.inkscape.org/namespaces/inkscape' width='18' height='18' viewBox='0 0 18 18' fill='none' version='1.1' id='svg30' sodipodi:docname='blanco.svg' inkscape:version='1.0.2-2 (e86c870879, 2021-01-15)'%3E%3Cmetadata id='metadata36'%3E%3Crdf:RDF%3E%3Ccc:Work rdf:about=''%3E%3Cdc:format%3Eimage/svg+xml%3C/dc:format%3E%3Cdc:type rdf:resource='http://purl.org/dc/dcmitype/StillImage' /%3E%3Cdc:title%3E%3C/dc:title%3E%3C/cc:Work%3E%3C/rdf:RDF%3E%3C/metadata%3E%3Cdefs id='defs34' /%3E%3Csodipodi:namedview pagecolor='%23ffffff' bordercolor='%23666666' borderopacity='1' objecttolerance='10' gridtolerance='10' guidetolerance='10' inkscape:pageopacity='0' inkscape:pageshadow='2' inkscape:window-width='1920' inkscape:window-height='1017' id='namedview32' showgrid='false' inkscape:zoom='8.6533067' inkscape:cx='71.848977' inkscape:cy='22.134238' inkscape:window-x='1358' inkscape:window-y='-8' inkscape:window-maximized='1' inkscape:current-layer='svg30' inkscape:document-rotation='0' /%3E%3Crect y='0.075498007' width='18' height='18' fill='%23ef4136' id='rect26' x='0' style='fill:%23ffffff' /%3E%3C/svg%3E%0A"); }
+            background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8' standalone='no'%3F%3E%3Csvg xmlns:dc='http://purl.org/dc/elements/1.1/' xmlns:cc='http://creativecommons.org/ns%23' xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns%23' xmlns:svg='http://www.w3.org/2000/svg' xmlns='http://www.w3.org/2000/svg' xmlns:sodipodi='http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd' xmlns:inkscape='http://www.inkscape.org/namespaces/inkscape' width='18' height='18' viewBox='0 0 18 18' fill='none' stroke='%23000' stroke-width='2' version='1.1' id='svg30' sodipodi:docname='blanco.svg' inkscape:version='1.0.2-2 (e86c870879, 2021-01-15)'%3E%3Cmetadata id='metadata36'%3E%3Crdf:RDF%3E%3Ccc:Work rdf:about=''%3E%3Cdc:format%3Eimage/svg+xml%3C/dc:format%3E%3Cdc:type rdf:resource='http://purl.org/dc/dcmitype/StillImage' /%3E%3Cdc:title%3E%3C/dc:title%3E%3C/cc:Work%3E%3C/rdf:RDF%3E%3C/metadata%3E%3Cdefs id='defs34' /%3E%3Csodipodi:namedview pagecolor='%23ffffff' bordercolor='%23666666' borderopacity='1' objecttolerance='10' gridtolerance='10' guidetolerance='10' inkscape:pageopacity='0' inkscape:pageshadow='2' inkscape:window-width='1920' inkscape:window-height='1017' id='namedview32' showgrid='false' inkscape:zoom='8.6533067' inkscape:cx='71.848977' inkscape:cy='22.134238' inkscape:window-x='1358' inkscape:window-y='-8' inkscape:window-maximized='1' inkscape:current-layer='svg30' inkscape:document-rotation='0' /%3E%3Crect y='0.075498007' width='18' height='18' fill='%23ef4136' id='rect26' x='0' style='fill:%23ffffff' /%3E%3C/svg%3E%0A"); }
           .sj-headContent .rs-head-form .dropMenu ul.dropdown-menu li.checkFilter input[type='checkbox'] {
             opacity: 0;
             z-index: 2;
@@ -40219,30 +40161,15 @@ header {
       @media (max-width: 1024px) {
         .sj-headContent .rs-head-form button.dropdown-toggle {
           width: 100%; } }
+      @media (max-width: 768px) {
+        .sj-headContent .rs-head-form button.dropdown-toggle {
+          max-width: 100%; } }
     .sj-headContent .rs-head-form button.dropdown-toggle[aria-expanded="true"] {
       background-image: url("../img/v2/menu-open-red.svg");
       background-repeat: no-repeat;
       background-position-x: 95%;
       background-position-y: center;
       background-size: 16px; }
-  .sj-headContent .rs-head-form-mobile {
-    margin: 0 auto; }
-    @media (min-width: 991px) {
-      .sj-headContent .rs-head-form-mobile {
-        display: none; } }
-    .sj-headContent .rs-head-form-mobile button.filter {
-      margin-top: 25px;
-      border: 2px solid #abffeb;
-      background-color: transparent;
-      padding: 10px;
-      color: white;
-      width: 217px;
-      font-size: 16px;
-      font-weight: 400;
-      font-family: var(--global-font-abc-whyte); }
-      .sj-headContent .rs-head-form-mobile button.filter span {
-        margin-left: auto;
-        margin-right: auto; }
   .sj-headContent .contentInput {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -40255,7 +40182,17 @@ header {
             align-items: center;
     position: relative;
     border-bottom: 2px solid var(--global-color-violet);
-    height: 100%; }
+    height: 100%;
+    padding-bottom: 0.5em; }
+    @media (max-width: 991px) {
+      .sj-headContent .contentInput {
+        -webkit-box-pack: end;
+            -ms-flex-pack: end;
+                justify-content: flex-end; } }
+    @media (max-width: 768px) {
+      .sj-headContent .contentInput {
+        width: 80%;
+        margin: 0 auto; } }
     .sj-headContent .contentInput_search {
       width: 80%;
       height: 100%;
@@ -40276,6 +40213,9 @@ header {
       .sj-headContent .contentInput_search::placeholder {
         color: var(--global-color-text);
         font-size: 17px; }
+      @media (max-width: 991px) {
+        .sj-headContent .contentInput_search {
+          width: 70%; } }
     .sj-headContent .contentInput__close {
       display: -webkit-box;
       display: -ms-flexbox;
@@ -40338,8 +40278,7 @@ header {
       margin: 0 auto;
       width: 80%;
       margin-bottom: 20px;
-      justify-content: center;
-      margin-top: 30px; } }
+      justify-content: center; } }
   .rs-tags #clearalljobcategory {
     font-family: var(--global-font-abc-whyte);
     font-size: 14px;
@@ -40364,9 +40303,6 @@ header {
             flex-direction: row;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap; }
-    @media (max-width: 768px) {
-      .rs-tags #JobsearchTags {
-        display: none; } }
     .rs-tags #JobsearchTags a {
       border: 1px solid #CEC0BC;
       font-family: var(--global-font-abc-whyte);
@@ -40444,5 +40380,1258 @@ header {
       font-size: 18px;
       color: var(--global-color-light-violet);
       width: 15%; }
+
+@media (max-width: 992px) {
+  .tablejob_container .tableJob_head tr {
+    display: none; }
+    .tablejob_container .tableJob_head tr th {
+      display: none; }
+  .tablejob_container .table {
+    display: block; }
+  .tablejob_container .table > *, .tablejob_container .table tr, .tablejob_container .table td, .tablejob_container .table th {
+    display: block; }
+  .tablejob_container .table tbody tr {
+    height: auto; }
+  .tablejob_container .table tbody tr td {
+    padding-left: 30% !important;
+    position: relative;
+    width: 100%;
+    font-size: 16px; }
+    .tablejob_container .table tbody tr td .title {
+      font-size: 16px; }
+  .tablejob_container .table tbody tr td:first-child {
+    border: none; }
+  .tablejob_container .table tbody tr td:nth-child(2) {
+    border: none; }
+  .tablejob_container .table tbody tr td:last-child {
+    margin-bottom: 0;
+    text-align: center;
+    -ms-flex-line-pack: center;
+        align-content: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    border: none; }
+  .tablejob_container .table tbody tr td:before {
+    position: absolute;
+    width: 30%;
+    -ms-flex-line-pack: center;
+        align-content: center;
+    text-align: center;
+    left: 0;
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--global-color-dark-violet); }
+  .tablejob_container .table tbody tr td:nth-child(1):before {
+    content: "Position:"; }
+  .tablejob_container .table tbody tr td:nth-child(2):before {
+    content: "Type:"; }
+  .tablejob_container .table tbody tr td:nth-child(3):before {
+    content: "Location:"; }
+  .tablejob_container .table tbody tr td:nth-child(4):before {
+    content: ""; }
+  .tablejob_container .table tbody tr td:nth-child(4) {
+    padding-left: 0px !important;
+    text-align: center;
+    width: 100%; } }
+
+/*!
+ * FilePond 4.30.4
+ * Licensed under MIT, https://opensource.org/licenses/MIT/
+ * Please visit https://pqina.nl/filepond/ for details.
+ */
+/* eslint-disable */
+.filepond--assistant {
+  position: absolute;
+  overflow: hidden;
+  height: 1px;
+  width: 1px;
+  padding: 0;
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  -webkit-clip-path: inset(50%);
+  clip-path: inset(50%);
+  white-space: nowrap; }
+
+/* Hard to override styles */
+.filepond--browser.filepond--browser {
+  /* is positioned absolute so it is focusable for form validation errors */
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  /* is positioned ~behind drop label */
+  left: 1em;
+  top: 1.75em;
+  width: calc(100% - 2em);
+  /* hide visually */
+  opacity: 0;
+  font-size: 0;
+  /* removes text cursor in Internet Explorer 11 */ }
+
+.filepond--data {
+  position: absolute;
+  width: 0;
+  height: 0;
+  padding: 0;
+  margin: 0;
+  border: none;
+  visibility: hidden;
+  pointer-events: none;
+  contain: strict; }
+
+.filepond--drip {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  opacity: 0.1;
+  /* can't interact with this element */
+  pointer-events: none;
+  /* inherit border radius from parent (needed for drip-blob cut of) */
+  border-radius: 0.5em;
+  /* this seems to prevent Chrome from redrawing this layer constantly */
+  background: rgba(0, 0, 0, 0.01); }
+
+.filepond--drip-blob {
+  position: absolute;
+  -webkit-transform-origin: center center;
+  transform-origin: center center;
+  top: 0;
+  left: 0;
+  width: 8em;
+  height: 8em;
+  margin-left: -4em;
+  margin-top: -4em;
+  background: #292625;
+  border-radius: 50%;
+  /* will be animated */
+  will-change: transform, opacity; }
+
+.filepond--drop-label {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  margin: 0;
+  color: #4f4f4f;
+  /* center contents */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  /* fixes IE11 centering problems (is overruled by label min-height) */
+  height: 0px;
+  /* dont allow selection */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  /* will be animated */
+  will-change: transform, opacity; }
+
+/* Hard to override styles on purpose */
+.filepond--drop-label.filepond--drop-label label, .filepond--drop-label.filepond--drop-label .chart_container .legend, .chart_container .filepond--drop-label.filepond--drop-label .legend {
+  display: block;
+  margin: 0;
+  padding: 0.5em;
+  /* use padding instead of margin so click area is not impacted */ }
+
+.filepond--drop-label label, .filepond--drop-label .chart_container .legend, .chart_container .filepond--drop-label .legend {
+  cursor: default;
+  font-size: 0.875em;
+  font-weight: normal;
+  text-align: center;
+  line-height: 1.5; }
+
+.filepond--label-action {
+  text-decoration: underline;
+  -webkit-text-decoration-skip: ink;
+  text-decoration-skip-ink: auto;
+  -webkit-text-decoration-color: #a7a4a4;
+  text-decoration-color: #a7a4a4;
+  cursor: pointer; }
+
+.filepond--root[data-disabled] .filepond--drop-label label, .filepond--root[data-disabled] .filepond--drop-label .chart_container .legend, .chart_container .filepond--root[data-disabled] .filepond--drop-label .legend {
+  opacity: 0.5; }
+
+/* Hard to override styles */
+.filepond--file-action-button.filepond--file-action-button {
+  font-size: 1em;
+  width: 1.625em;
+  height: 1.625em;
+  font-family: inherit;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  will-change: transform, opacity;
+  /* hidden label */ }
+
+.filepond--file-action-button.filepond--file-action-button span {
+  position: absolute;
+  overflow: hidden;
+  height: 1px;
+  width: 1px;
+  padding: 0;
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  -webkit-clip-path: inset(50%);
+  clip-path: inset(50%);
+  white-space: nowrap; }
+
+.filepond--file-action-button.filepond--file-action-button {
+  /* scale SVG to fill button */ }
+
+.filepond--file-action-button.filepond--file-action-button svg {
+  width: 100%;
+  height: 100%; }
+
+.filepond--file-action-button.filepond--file-action-button {
+  /* bigger touch area */ }
+
+.filepond--file-action-button.filepond--file-action-button::after {
+  position: absolute;
+  left: -0.75em;
+  right: -0.75em;
+  top: -0.75em;
+  bottom: -0.75em;
+  content: ''; }
+
+/* Soft styles */
+.filepond--file-action-button {
+  /* use default arrow cursor */
+  cursor: auto;
+  /* reset default button styles */
+  color: #fff;
+  /* set default look n feel */
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.5);
+  background-image: none;
+  /* we animate box shadow on focus */
+  /* it's only slightly slower than animating */
+  /* a pseudo-element with transforms and renders */
+  /* a lot better on chrome */
+  -webkit-box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+          box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+  -webkit-transition: -webkit-box-shadow 0.25s ease-in;
+  transition: -webkit-box-shadow 0.25s ease-in;
+  transition: box-shadow 0.25s ease-in;
+  transition: box-shadow 0.25s ease-in, -webkit-box-shadow 0.25s ease-in; }
+
+.filepond--file-action-button:hover,
+.filepond--file-action-button:focus {
+  -webkit-box-shadow: 0 0 0 0.125em rgba(255, 255, 255, 0.9);
+          box-shadow: 0 0 0 0.125em rgba(255, 255, 255, 0.9); }
+
+.filepond--file-action-button[disabled] {
+  color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(0, 0, 0, 0.25); }
+
+.filepond--file-action-button[hidden] {
+  display: none; }
+
+/* edit button */
+.filepond--action-edit-item.filepond--action-edit-item {
+  width: 2em;
+  height: 2em;
+  padding: 0.1875em; }
+
+.filepond--action-edit-item.filepond--action-edit-item[data-align*='center'] {
+  margin-left: -0.1875em; }
+
+.filepond--action-edit-item.filepond--action-edit-item[data-align*='bottom'] {
+  margin-bottom: -0.1875em; }
+
+.filepond--action-edit-item-alt {
+  border: none;
+  line-height: inherit;
+  background: transparent;
+  font-family: inherit;
+  color: inherit;
+  outline: none;
+  padding: 0;
+  margin: 0 0 0 0.25em;
+  pointer-events: all;
+  position: absolute; }
+
+.filepond--action-edit-item-alt svg {
+  width: 1.3125em;
+  height: 1.3125em; }
+
+.filepond--action-edit-item-alt span {
+  font-size: 0;
+  opacity: 0; }
+
+.filepond--file-info {
+  position: static;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  margin: 0 0.5em 0 0;
+  min-width: 0;
+  /* will be animated */
+  will-change: transform, opacity;
+  /* can't do anything with this info */
+  pointer-events: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  /* no margins on children */ }
+
+.filepond--file-info * {
+  margin: 0; }
+
+.filepond--file-info {
+  /* we don't want to have these overrules so these selectors are a bit more specific */ }
+
+.filepond--file-info .filepond--file-info-main {
+  font-size: 0.75em;
+  line-height: 1.2;
+  /* we want ellipsis if this bar gets too wide */
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%; }
+
+.filepond--file-info .filepond--file-info-sub {
+  font-size: 0.625em;
+  opacity: 0.5;
+  -webkit-transition: opacity 0.25s ease-in-out;
+  transition: opacity 0.25s ease-in-out;
+  white-space: nowrap; }
+
+.filepond--file-info .filepond--file-info-sub:empty {
+  display: none; }
+
+.filepond--file-status {
+  position: static;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-flex: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  margin: 0;
+  min-width: 2.25em;
+  text-align: right;
+  /* will be animated */
+  will-change: transform, opacity;
+  /* can't do anything with this info */
+  pointer-events: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  /* no margins on children */ }
+
+.filepond--file-status * {
+  margin: 0;
+  white-space: nowrap; }
+
+.filepond--file-status {
+  /* font sizes */ }
+
+.filepond--file-status .filepond--file-status-main {
+  font-size: 0.75em;
+  line-height: 1.2; }
+
+.filepond--file-status .filepond--file-status-sub {
+  font-size: 0.625em;
+  opacity: 0.5;
+  -webkit-transition: opacity 0.25s ease-in-out;
+  transition: opacity 0.25s ease-in-out; }
+
+/* Hard to override styles */
+.filepond--file-wrapper.filepond--file-wrapper {
+  border: none;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+  height: 100%;
+  /* hide legend for visual users */ }
+
+.filepond--file-wrapper.filepond--file-wrapper > legend {
+  position: absolute;
+  overflow: hidden;
+  height: 1px;
+  width: 1px;
+  padding: 0;
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  -webkit-clip-path: inset(50%);
+  clip-path: inset(50%);
+  white-space: nowrap; }
+
+.filepond--file {
+  position: static;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  padding: 0.5625em 0.5625em;
+  color: #fff;
+  border-radius: 0.5em;
+  /* control positions */ }
+
+.filepond--file .filepond--file-status {
+  margin-left: auto;
+  margin-right: 2.25em; }
+
+.filepond--file .filepond--processing-complete-indicator {
+  pointer-events: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  z-index: 3; }
+
+.filepond--file .filepond--processing-complete-indicator,
+.filepond--file .filepond--progress-indicator,
+.filepond--file .filepond--file-action-button {
+  position: absolute; }
+
+.filepond--file {
+  /* .filepond--file-action-button */ }
+
+.filepond--file [data-align*='left'] {
+  left: 0.5625em; }
+
+.filepond--file [data-align*='right'] {
+  right: 0.5625em; }
+
+.filepond--file [data-align*='center'] {
+  left: calc(50% - 0.8125em);
+  /* .8125 is half of button width */ }
+
+.filepond--file [data-align*='bottom'] {
+  bottom: 1.125em; }
+
+.filepond--file [data-align='center'] {
+  top: calc(50% - 0.8125em); }
+
+.filepond--file .filepond--progress-indicator {
+  margin-top: 0.1875em; }
+
+.filepond--file .filepond--progress-indicator[data-align*='right'] {
+  margin-right: 0.1875em; }
+
+.filepond--file .filepond--progress-indicator[data-align*='left'] {
+  margin-left: 0.1875em; }
+
+/* make sure text does not overlap */
+[data-filepond-item-state='cancelled'] .filepond--file-info,
+[data-filepond-item-state*='invalid'] .filepond--file-info,
+[data-filepond-item-state*='error'] .filepond--file-info {
+  margin-right: 2.25em; }
+
+[data-filepond-item-state~='processing'] .filepond--file-status-sub {
+  opacity: 0; }
+
+[data-filepond-item-state~='processing'] .filepond--action-abort-item-processing ~ .filepond--file-status .filepond--file-status-sub {
+  opacity: 0.5; }
+
+[data-filepond-item-state='processing-error'] .filepond--file-status-sub {
+  opacity: 0; }
+
+[data-filepond-item-state='processing-error'] .filepond--action-retry-item-processing ~ .filepond--file-status .filepond--file-status-sub {
+  opacity: 0.5; }
+
+[data-filepond-item-state='processing-complete'] {
+  /* busy state */ }
+
+[data-filepond-item-state='processing-complete'] .filepond--action-revert-item-processing svg {
+  -webkit-animation: fall 0.5s 0.125s linear both;
+  animation: fall 0.5s 0.125s linear both; }
+
+[data-filepond-item-state='processing-complete'] {
+  /* hide details by default, only show when can revert */ }
+
+[data-filepond-item-state='processing-complete'] .filepond--file-status-sub {
+  opacity: 0.5; }
+
+[data-filepond-item-state='processing-complete'] .filepond--processing-complete-indicator:not([style*='hidden']) ~ .filepond--file-status .filepond--file-status-sub {
+  opacity: 0; }
+
+[data-filepond-item-state='processing-complete'] .filepond--file-info-sub {
+  opacity: 0; }
+
+[data-filepond-item-state='processing-complete'] .filepond--action-revert-item-processing ~ .filepond--file-info .filepond--file-info-sub {
+  opacity: 0.5; }
+
+/* file state can be invalid or error, both are visually similar but */
+/* having them as separate states might be useful */
+[data-filepond-item-state*='invalid'] .filepond--panel,
+[data-filepond-item-state*='invalid'] .filepond--file-wrapper,
+[data-filepond-item-state*='error'] .filepond--panel,
+[data-filepond-item-state*='error'] .filepond--file-wrapper {
+  -webkit-animation: shake 0.65s linear both;
+  animation: shake 0.65s linear both; }
+
+/* spins progress indicator when file is marked as busy */
+[data-filepond-item-state*='busy'] .filepond--progress-indicator svg {
+  -webkit-animation: spin 1s linear infinite;
+  animation: spin 1s linear infinite; }
+
+/**
+ * States
+ */
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotateZ(0deg);
+    transform: rotateZ(0deg); }
+  100% {
+    -webkit-transform: rotateZ(360deg);
+    transform: rotateZ(360deg); } }
+
+@keyframes spin {
+  0% {
+    -webkit-transform: rotateZ(0deg);
+    transform: rotateZ(0deg); }
+  100% {
+    -webkit-transform: rotateZ(360deg);
+    transform: rotateZ(360deg); } }
+
+@-webkit-keyframes shake {
+  10%,
+  90% {
+    -webkit-transform: translateX(-0.0625em);
+    transform: translateX(-0.0625em); }
+  20%,
+  80% {
+    -webkit-transform: translateX(0.125em);
+    transform: translateX(0.125em); }
+  30%,
+  50%,
+  70% {
+    -webkit-transform: translateX(-0.25em);
+    transform: translateX(-0.25em); }
+  40%,
+  60% {
+    -webkit-transform: translateX(0.25em);
+    transform: translateX(0.25em); } }
+
+@keyframes shake {
+  10%,
+  90% {
+    -webkit-transform: translateX(-0.0625em);
+    transform: translateX(-0.0625em); }
+  20%,
+  80% {
+    -webkit-transform: translateX(0.125em);
+    transform: translateX(0.125em); }
+  30%,
+  50%,
+  70% {
+    -webkit-transform: translateX(-0.25em);
+    transform: translateX(-0.25em); }
+  40%,
+  60% {
+    -webkit-transform: translateX(0.25em);
+    transform: translateX(0.25em); } }
+
+@-webkit-keyframes fall {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out; }
+  70% {
+    opacity: 1;
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+    -webkit-animation-timing-function: ease-in-out;
+    animation-timing-function: ease-in-out; }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out; } }
+
+@keyframes fall {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out; }
+  70% {
+    opacity: 1;
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+    -webkit-animation-timing-function: ease-in-out;
+    animation-timing-function: ease-in-out; }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out; } }
+
+/* ignore all other interaction elements while dragging a file */
+.filepond--hopper[data-hopper-state='drag-over'] > * {
+  pointer-events: none; }
+
+/* capture all hit tests using a hidden layer, this speeds up the event flow */
+.filepond--hopper[data-hopper-state='drag-over']::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100; }
+
+.filepond--progress-indicator {
+  z-index: 103; }
+
+.filepond--file-action-button {
+  z-index: 102; }
+
+.filepond--file-status {
+  z-index: 101; }
+
+.filepond--file-info {
+  z-index: 100; }
+
+.filepond--item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  padding: 0;
+  margin: 0.25em;
+  will-change: transform, opacity;
+  /* item children order */ }
+
+.filepond--item > .filepond--panel {
+  z-index: -1; }
+
+/* has a slight shadow */
+.filepond--item > .filepond--panel .filepond--panel-bottom {
+  -webkit-box-shadow: 0 0.0625em 0.125em -0.0625em rgba(0, 0, 0, 0.25);
+          box-shadow: 0 0.0625em 0.125em -0.0625em rgba(0, 0, 0, 0.25); }
+
+.filepond--item {
+  /* drag related */ }
+
+.filepond--item > .filepond--file-wrapper,
+.filepond--item > .filepond--panel {
+  -webkit-transition: opacity 0.15s ease-out;
+  transition: opacity 0.15s ease-out; }
+
+.filepond--item[data-drag-state] {
+  cursor: -webkit-grab;
+  cursor: grab; }
+
+.filepond--item[data-drag-state] > .filepond--panel {
+  -webkit-transition: -webkit-box-shadow 0.125s ease-in-out;
+  transition: -webkit-box-shadow 0.125s ease-in-out;
+  transition: box-shadow 0.125s ease-in-out;
+  transition: box-shadow 0.125s ease-in-out, -webkit-box-shadow 0.125s ease-in-out;
+  -webkit-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+          box-shadow: 0 0 0 rgba(0, 0, 0, 0); }
+
+.filepond--item[data-drag-state='drag'] {
+  cursor: -webkit-grabbing;
+  cursor: grabbing; }
+
+.filepond--item[data-drag-state='drag'] > .filepond--panel {
+  -webkit-box-shadow: 0 0.125em 0.3125em rgba(0, 0, 0, 0.325);
+          box-shadow: 0 0.125em 0.3125em rgba(0, 0, 0, 0.325); }
+
+.filepond--item[data-drag-state]:not([data-drag-state='idle']) {
+  z-index: 2; }
+
+/* states */
+.filepond--item-panel {
+  background-color: #64605e; }
+
+[data-filepond-item-state='processing-complete'] .filepond--item-panel {
+  background-color: #369763; }
+
+[data-filepond-item-state*='invalid'] .filepond--item-panel,
+[data-filepond-item-state*='error'] .filepond--item-panel {
+  background-color: #c44e47; }
+
+/* style of item panel */
+.filepond--item-panel {
+  border-radius: 0.5em;
+  -webkit-transition: background-color 0.25s;
+  transition: background-color 0.25s; }
+
+/* normal mode */
+.filepond--list-scroller {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0;
+  will-change: transform; }
+
+/* scroll mode */
+.filepond--list-scroller[data-state='overflow'] .filepond--list {
+  bottom: 0;
+  right: 0; }
+
+.filepond--list-scroller[data-state='overflow'] {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  -webkit-mask: -webkit-gradient(linear, left top, left bottom, from(#000), to(transparent));
+  -webkit-mask: linear-gradient(to bottom, #000 calc(100% - 0.5em), transparent 100%);
+  mask: -webkit-gradient(linear, left top, left bottom, from(#000), to(transparent));
+  mask: linear-gradient(to bottom, #000 calc(100% - 0.5em), transparent 100%); }
+
+/* style scrollbar */
+.filepond--list-scroller::-webkit-scrollbar {
+  background: transparent; }
+
+.filepond--list-scroller::-webkit-scrollbar:vertical {
+  width: 1em; }
+
+.filepond--list-scroller::-webkit-scrollbar:horizontal {
+  height: 0; }
+
+.filepond--list-scroller::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 99999px;
+  border: 0.3125em solid transparent;
+  background-clip: content-box; }
+
+/* hard to overide styles on purpose */
+.filepond--list.filepond--list {
+  position: absolute;
+  top: 0;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  /* prevents endless paint calls on filepond--list-scroller */
+  will-change: transform; }
+
+/* used for padding so allowed to be restyled */
+.filepond--list {
+  left: 0.75em;
+  right: 0.75em; }
+
+.filepond--root[data-style-panel-layout~='integrated'] {
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  margin: 0; }
+
+.filepond--root[data-style-panel-layout~='circle'] .filepond--panel-root,
+.filepond--root[data-style-panel-layout~='integrated'] .filepond--panel-root {
+  border-radius: 0; }
+
+.filepond--root[data-style-panel-layout~='circle'] .filepond--panel-root > *,
+.filepond--root[data-style-panel-layout~='integrated'] .filepond--panel-root > * {
+  display: none; }
+
+.filepond--root[data-style-panel-layout~='circle'] .filepond--drop-label,
+.filepond--root[data-style-panel-layout~='integrated'] .filepond--drop-label {
+  bottom: 0;
+  height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  z-index: 7; }
+
+.filepond--root[data-style-panel-layout~='circle'],
+.filepond--root[data-style-panel-layout~='integrated'] {
+  /* we're only loading one item, this makes the intro animation a bit nicer */ }
+
+.filepond--root[data-style-panel-layout~='circle'] .filepond--item-panel,
+.filepond--root[data-style-panel-layout~='integrated'] .filepond--item-panel {
+  display: none; }
+
+.filepond--root[data-style-panel-layout~='compact'] .filepond--list-scroller,
+.filepond--root[data-style-panel-layout~='integrated'] .filepond--list-scroller {
+  overflow: hidden;
+  height: 100%;
+  margin-top: 0;
+  margin-bottom: 0; }
+
+.filepond--root[data-style-panel-layout~='compact'] .filepond--list,
+.filepond--root[data-style-panel-layout~='integrated'] .filepond--list {
+  left: 0;
+  right: 0;
+  height: 100%; }
+
+.filepond--root[data-style-panel-layout~='compact'] .filepond--item,
+.filepond--root[data-style-panel-layout~='integrated'] .filepond--item {
+  margin: 0; }
+
+.filepond--root[data-style-panel-layout~='compact'] .filepond--file-wrapper,
+.filepond--root[data-style-panel-layout~='integrated'] .filepond--file-wrapper {
+  height: 100%; }
+
+.filepond--root[data-style-panel-layout~='compact'] .filepond--drop-label,
+.filepond--root[data-style-panel-layout~='integrated'] .filepond--drop-label {
+  z-index: 7; }
+
+.filepond--root[data-style-panel-layout~='circle'] {
+  border-radius: 99999rem;
+  overflow: hidden; }
+
+.filepond--root[data-style-panel-layout~='circle'] > .filepond--panel {
+  border-radius: inherit; }
+
+.filepond--root[data-style-panel-layout~='circle'] > .filepond--panel > * {
+  display: none; }
+
+.filepond--root[data-style-panel-layout~='circle'] {
+  /* circle cuts of this info, so best to hide it */ }
+
+.filepond--root[data-style-panel-layout~='circle'] .filepond--file-info {
+  display: none; }
+
+.filepond--root[data-style-panel-layout~='circle'] .filepond--file-status {
+  display: none; }
+
+.filepond--root[data-style-panel-layout~='circle'] .filepond--action-edit-item {
+  opacity: 1 !important;
+  visibility: visible !important; }
+
+/* dirfty way to fix circular overflow issue on safari 11+ */
+@media not all and (min-resolution: 0.001dpcm) {
+  @supports (-webkit-appearance: none) and (stroke-color: transparent) {
+    .filepond--root[data-style-panel-layout~='circle'] {
+      will-change: transform; } } }
+
+.filepond--panel-root {
+  border-radius: 0.5em;
+  background-color: #f1f0ef; }
+
+.filepond--panel {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  margin: 0;
+  /* defaults to 100% height (fixed height mode) this fixes problem with panel height in IE11 */
+  height: 100% !important;
+  /* no interaction possible with panel */
+  pointer-events: none; }
+
+.filepond-panel:not([data-scalable='false']) {
+  height: auto !important; }
+
+.filepond--panel[data-scalable='false'] > div {
+  display: none; }
+
+.filepond--panel[data-scalable='true'] {
+  /* this seems to fix Chrome performance issues */
+  /* - when box-shadow is enabled */
+  /* - when multiple ponds are active on the same page */
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  /* prevent borders and backgrounds */
+  background-color: transparent !important;
+  border: none !important; }
+
+.filepond--panel-top,
+.filepond--panel-bottom,
+.filepond--panel-center {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  margin: 0;
+  padding: 0; }
+
+.filepond--panel-top,
+.filepond--panel-bottom {
+  height: 0.5em; }
+
+.filepond--panel-top {
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+  border-bottom: none !important;
+  /* fixes tiny transparant line between top and center panel */ }
+
+.filepond--panel-top::after {
+  content: '';
+  position: absolute;
+  height: 2px;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  background-color: inherit; }
+
+.filepond--panel-center,
+.filepond--panel-bottom {
+  will-change: transform;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform-origin: left top;
+  transform-origin: left top;
+  -webkit-transform: translate3d(0, 0.5em, 0);
+  transform: translate3d(0, 0.5em, 0); }
+
+.filepond--panel-bottom {
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+  border-top: none !important;
+  /* fixes tiny transparant line between bottom and center of panel */ }
+
+.filepond--panel-bottom::before {
+  content: '';
+  position: absolute;
+  height: 2px;
+  left: 0;
+  right: 0;
+  top: -1px;
+  background-color: inherit; }
+
+.filepond--panel-center {
+  /* the center panel is scaled using scale3d to fit the correct height */
+  /* we use 100px instead of 1px as scaling 1px to a huge height is really laggy on chrome */
+  height: 100px !important;
+  border-top: none !important;
+  border-bottom: none !important;
+  border-radius: 0 !important;
+  /* hide if not transformed, prevents a little flash when the panel is at 100px height while attached for first time */ }
+
+.filepond--panel-center:not([style]) {
+  visibility: hidden; }
+
+.filepond--progress-indicator {
+  position: static;
+  width: 1.25em;
+  height: 1.25em;
+  color: #fff;
+  /* can't have margins */
+  margin: 0;
+  /* no interaction possible with progress indicator */
+  pointer-events: none;
+  /* will be animated */
+  will-change: transform, opacity; }
+
+.filepond--progress-indicator svg {
+  width: 100%;
+  height: 100%;
+  vertical-align: top;
+  transform-box: fill-box;
+  /* should center the animation correctly when zoomed in */ }
+
+.filepond--progress-indicator path {
+  fill: none;
+  stroke: currentColor; }
+
+.filepond--list-scroller {
+  z-index: 6; }
+
+.filepond--drop-label {
+  z-index: 5; }
+
+.filepond--drip {
+  z-index: 3; }
+
+.filepond--root > .filepond--panel {
+  z-index: 2; }
+
+.filepond--browser {
+  z-index: 1; }
+
+.filepond--root {
+  /* layout*/
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  position: relative;
+  margin-bottom: 1em;
+  /* base font size for whole component */
+  font-size: 1rem;
+  /* base line height */
+  line-height: normal;
+  /* up uses default system font family */
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  /* will increase font weight a bit on Safari */
+  font-weight: 450;
+  /* default text alignment */
+  text-align: left;
+  /* better text rendering on Safari */
+  text-rendering: optimizeLegibility;
+  /* text direction is ltr for now */
+  direction: ltr;
+  /* optimize rendering */
+  /* https://developer.mozilla.org/en-US/docs/Web/CSS/contain */
+  contain: layout style size;
+  /* correct box sizing, line-height and positioning on child elements */ }
+
+.filepond--root * {
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+  line-height: inherit; }
+
+.filepond--root *:not(text) {
+  font-size: inherit; }
+
+.filepond--root {
+  /* block everything */ }
+
+.filepond--root[data-disabled] {
+  pointer-events: none; }
+
+.filepond--root[data-disabled] .filepond--list-scroller {
+  pointer-events: all; }
+
+.filepond--root[data-disabled] .filepond--list {
+  pointer-events: none; }
+
+/**
+ * Root element children layout 
+ */
+.filepond--root .filepond--drop-label {
+  min-height: 4.75em; }
+
+.filepond--root .filepond--list-scroller {
+  margin-top: 1em;
+  margin-bottom: 1em; }
+
+.filepond--root .filepond--credits {
+  position: absolute;
+  right: 0;
+  opacity: 0.175;
+  line-height: 0.85;
+  font-size: 11px;
+  color: inherit;
+  text-decoration: none;
+  z-index: 3;
+  bottom: -14px; }
+
+.filepond--root .filepond--credits[style] {
+  top: 0;
+  bottom: auto;
+  margin-top: 14px; }
+
+.formApply_title {
+  color: var(--global-color-red); }
+
+.formApply_row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-bottom: 1px solid var(--global-color-dark-sand); }
+
+.formApply__linkedin {
+  margin-top: 1em;
+  margin-bottom: 1em; }
+  .formApply__linkedin-btn {
+    background-color: #0273B1;
+    color: var(--global-color-white);
+    margin-top: 1em;
+    margin-bottom: 1em; }
+
+.formApply-form {
+  width: 80%;
+  margin: auto;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  accent-color: var(--global-color-red); }
+  .formApply-form .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    gap: 2em; }
+    @media (max-width: 768px) {
+      .formApply-form .form-row {
+        grid-template-columns: 1fr; } }
+  .formApply-form .input-group label, .formApply-form .input-group .chart_container .legend, .chart_container .formApply-form .input-group .legend {
+    padding-bottom: 0.5em; }
+    .formApply-form .input-group label::after, .formApply-form .input-group .chart_container .legend::after, .chart_container .formApply-form .input-group .legend::after {
+      content: '*';
+      color: var(--global-color-red);
+      height: auto;
+      width: 10px;
+      padding-left: 5px; }
+  .formApply-form .input-group .labelfile {
+    font-size: small;
+    text-align: center;
+    margin-top: 1em;
+    margin-bottom: 1em; }
+  .formApply-form .input-group button[type=submit].btnsubmit {
+    background-color: transparent;
+    border: none;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    padding: 13px 31px 14px; }
+    .formApply-form .input-group button[type=submit].btnsubmit span {
+      font-size: 17px; }
+  .formApply-form .checkgroup {
+    display: grid;
+    grid-template-columns: 0.03fr 1fr;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-top: 1em;
+    margin-bottom: 1em; }
+    @media (max-width: 768px) {
+      .formApply-form .checkgroup {
+        gap: 1em; } }
+  .formApply-form .container-file {
+    border: 3px dashed var(--global-color-red); }
+  .formApply-form .collapseform {
+    width: 100%;
+    border: none;
+    border-top: 1px solid var(--global-color-dark-sand);
+    border-bottom: 1px solid var(--global-color-dark-sand);
+    background-color: transparent;
+    text-align: left;
+    padding: 1em;
+    display: grid;
+    grid-template-columns: 1fr 0.03fr;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center; }
+    .formApply-form .collapseform svg {
+      color: var(--global-color-light-violet); }
+
+.formApply-form {
+  /* the text color of the drop label*/
+  /* underline color for "Browse" button */
+  /* the background color of the filepond drop area */
+  /* the border radius of the drop area */
+  /* the border radius of the file item */
+  /* the background color of the file and file panel (used when dropping an image) */
+  /* the background color of the drop circle */
+  /* the background color of the black action buttons */
+  /* the icon color of the black action buttons */
+  /* the color of the focus ring */
+  /* the text color of the file status and info labels */
+  /* error state color */
+  /* bordered drop area */ }
+  .formApply-form .formApply-form .filepond--drop-label {
+    font-size: 15px; }
+  .formApply-form .filepond--drop-label.filepond--drop-label label, .formApply-form .filepond--drop-label.filepond--drop-label .chart_container .legend, .chart_container .formApply-form .filepond--drop-label.filepond--drop-label .legend {
+    font-size: 15px;
+    color: var(--global-color-text); }
+    .formApply-form .filepond--drop-label.filepond--drop-label label svg, .formApply-form .filepond--drop-label.filepond--drop-label .chart_container .legend svg, .chart_container .formApply-form .filepond--drop-label.filepond--drop-label .legend svg {
+      fill: var(--global-color-light-violet);
+      color: var(--global-color-light-violet);
+      font-size: 18px;
+      -webkit-transform: rotate(315deg);
+              transform: rotate(315deg);
+      margin-right: 10px;
+      font-family: var(--global-font-abc-whyte); }
+    .formApply-form .filepond--drop-label.filepond--drop-label label::after, .formApply-form .filepond--drop-label.filepond--drop-label .chart_container .legend::after, .chart_container .formApply-form .filepond--drop-label.filepond--drop-label .legend::after {
+      content: '';
+      visibility: hidden; }
+  .formApply-form .filepond--file-action-button {
+    cursor: pointer; }
+  .formApply-form .filepond--drop-label {
+    color: #555;
+    height: 70px; }
+  .formApply-form .filepond--label-action {
+    text-decoration: none; }
+  .formApply-form .filepond--panel-root {
+    background-color: #eee; }
+  .formApply-form .filepond--panel-root {
+    border-radius: 0.5em;
+    padding: 3rem; }
+  .formApply-form .filepond--item-panel {
+    border-radius: 0.5em; }
+  .formApply-form .filepond--item-panel {
+    background-color: var(--global-color-medium-violet); }
+  .formApply-form .filepond--drip-blob {
+    background-color: #999; }
+  .formApply-form .filepond--file-action-button {
+    background-color: transparent; }
+  .formApply-form .filepond--file-action-button {
+    color: white; }
+  .formApply-form .filepond--file-action-button:hover,
+  .formApply-form .filepond--file-action-button:focus {
+    -webkit-box-shadow: 0 0 0 0.125em rgba(255, 255, 255, 0.9);
+            box-shadow: 0 0 0 0.125em rgba(255, 255, 255, 0.9); }
+  .formApply-form .filepond--file {
+    color: white; }
+  .formApply-form [data-filepond-item-state*='error'] .filepond--item-panel,
+  .formApply-form [data-filepond-item-state*='invalid'] .filepond--item-panel {
+    background-color: var(--global-color-red-2); }
+  .formApply-form [data-filepond-item-state='processing-complete'] .filepond--item-panel {
+    background-color: var(--global-color-medium-violet); }
+  .formApply-form .filepond--panel-root {
+    background-color: transparent; }
+
+.filepond--credits {
+  display: none; }
+
+.logovera {
+  width: 200px;
+  margin-top: 1em;
+  margin-bottom: 1em; }
+
+.infojob ul {
+  list-style: none; }
+  .infojob ul li {
+    display: inline-block;
+    color: var(--global-color-light-violet);
+    font-size: 18px; }
+    .infojob ul li a {
+      color: var(--global-color-light-violet); }
+    .infojob ul li::after {
+      content: '|';
+      color: var(--global-color-red);
+      padding-left: 1em;
+      padding-right: 1em; }
+    .infojob ul li:nth-child(3) {
+      color: var(--global-color-red); }
+      .infojob ul li:nth-child(3)::after {
+        content: '';
+        visibility: hidden;
+        display: none; }
+
+.contentjob-title {
+  color: var(--global-color-light-violet);
+  margin-top: 1em;
+  margin-bottom: 1em; }
 
 /*# sourceMappingURL=main.css.map */

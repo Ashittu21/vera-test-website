@@ -1,0 +1,247 @@
+.formApply {
+    &_title {
+        color: var(--global-color-red);
+    }
+
+    &_row {
+        display: flex;
+        justify-content: center;
+        border-bottom: 1px solid var(--global-color-dark-sand);
+    }
+    &__linkedin{
+        margin-top: 1em;
+        margin-bottom: 1em;
+        &-btn{
+            background-color: #0273B1;
+            color: var(--global-color-white);
+            margin-top: 1em;
+            margin-bottom: 1em;
+
+        }
+    }
+    &-form {
+        width: 80%;
+        margin: auto;
+        margin-top: 40px;
+        margin-bottom: 40px;
+        accent-color: var(--global-color-red);
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            justify-content: center;
+            gap: 2em;
+
+            @media(max-width:$mobile-breakpoint) {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .input-group {
+            label {
+                padding-bottom: 0.5em;
+                &::after {
+                    content: '*';
+                    color: var(--global-color-red);
+                    height: auto;
+                    width: 10px;
+                    padding-left: 5px;
+                }
+            }
+            .labelfile{
+                font-size: small;
+                text-align: center;
+                margin-top: 1em;
+                margin-bottom: 1em;
+            }
+            button[type=submit].btnsubmit{
+                background-color: transparent;
+                border:none;
+                margin-top: 1em;
+                margin-bottom: 1em;
+                padding: 13px 31px 14px;
+                span{
+                    font-size: 17px;
+                }
+            }
+        }
+        .checkgroup{
+            display: grid;
+            grid-template-columns: 0.03fr 1fr;
+            justify-content: center;
+            align-items: center;
+            margin-top: 1em;
+            margin-bottom: 1em;
+            @media(max-width:$mobile-breakpoint) {
+                gap: 1em;
+            }
+            
+        }
+        .container-file{
+            border: 3px dashed var(--global-color-red);
+        }
+
+        .collapseform{
+            width: 100%;
+            border: none;
+            border-top: 1px solid var(--global-color-dark-sand);
+            border-bottom: 1px solid var(--global-color-dark-sand);
+            background-color: transparent;
+            text-align: left;
+            padding: 1em;
+            display: grid;
+            grid-template-columns: 1fr 0.03fr;
+            justify-content: center;
+            align-items: center;
+            svg{
+                color: var(--global-color-light-violet);
+            }
+        }
+        
+    }
+
+}
+
+.formApply-form {
+    .formApply-form .filepond--drop-label {
+        font-size: 15px;
+    }
+    .filepond--drop-label.filepond--drop-label label{
+        font-size: 15px;
+        color: var(--global-color-text);
+        svg{
+            fill: var( --global-color-light-violet);
+            color: var( --global-color-light-violet);
+            font-size: 18px;
+            transform: rotate(315deg);
+            margin-right: 10px;
+            font-family: var(--global-font-abc-whyte);
+        }
+        &::after{
+            content: '';
+            visibility: hidden;
+        }
+    }
+    .filepond--file-action-button {
+        cursor: pointer;
+    }
+
+    /* the text color of the drop label*/
+    .filepond--drop-label {
+        color: #555;
+        height: 70px;
+    }
+
+    /* underline color for "Browse" button */
+    .filepond--label-action {
+        text-decoration: none;
+    }
+
+    /* the background color of the filepond drop area */
+    .filepond--panel-root {
+        background-color: #eee;
+    }
+
+    /* the border radius of the drop area */
+    .filepond--panel-root {
+        border-radius: 0.5em;
+        padding: 3rem;
+    }
+
+    /* the border radius of the file item */
+    .filepond--item-panel {
+        border-radius: 0.5em;
+    }
+
+    /* the background color of the file and file panel (used when dropping an image) */
+    .filepond--item-panel {
+        background-color: var(--global-color-medium-violet);
+    }
+
+    /* the background color of the drop circle */
+    .filepond--drip-blob {
+        background-color: #999;
+    }
+
+    /* the background color of the black action buttons */
+    .filepond--file-action-button {
+        background-color: transparent;
+    }
+
+    /* the icon color of the black action buttons */
+    .filepond--file-action-button {
+        color: white;
+    }
+
+    /* the color of the focus ring */
+    .filepond--file-action-button:hover,
+    .filepond--file-action-button:focus {
+        box-shadow: 0 0 0 0.125em rgba(255, 255, 255, 0.9);
+    }
+
+    /* the text color of the file status and info labels */
+    .filepond--file {
+        color: white;
+    }
+
+    /* error state color */
+    [data-filepond-item-state*='error'] .filepond--item-panel,
+    [data-filepond-item-state*='invalid'] .filepond--item-panel {
+        background-color: var(--global-color-red-2);
+    }
+
+    [data-filepond-item-state='processing-complete'] .filepond--item-panel {
+        background-color: var(--global-color-medium-violet);
+    }
+
+    /* bordered drop area */
+    .filepond--panel-root {
+        background-color: transparent;  
+    }
+}
+
+.filepond--credits {
+    display: none;
+}
+
+.logovera{
+    width: 200px;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.infojob{
+    ul{
+        list-style: none;
+        li{
+            display: inline-block;
+            color: var(--global-color-light-violet);
+            font-size: 18px;
+            a{
+                color: var(--global-color-light-violet);
+            }
+            &::after{
+                content: '|';
+                color: var(--global-color-red);
+                padding-left: 1em;
+                padding-right: 1em;
+            }
+            &:nth-child(3){
+                color: var(--global-color-red);
+                &::after{
+                    content: '';
+                    visibility: hidden;
+                    display: none;
+                }
+            }
+        }
+        
+    }
+}
+.contentjob{
+    
+    &-title{
+        color: var(--global-color-light-violet);
+        margin-top: 1em;
+        margin-bottom: 1em;
+    }
+}

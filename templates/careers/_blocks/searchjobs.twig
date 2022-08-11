@@ -15,6 +15,7 @@
         title: 'Manhattan',
         id:4,
     }
+    
 ] %}
 {% set teams = [
     {
@@ -31,6 +32,21 @@
     },
 ] %}
 
+{% set jobtype = [
+    {
+        title: 'Accounting',
+        id:1
+    },
+    {
+        title: 'Communications',
+        id:2,
+    },
+    {
+        title: 'Human Resources',
+        id:3,
+    },
+] %}
+
 
 <div class="container py-5">
     <div class="row">
@@ -39,13 +55,30 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-12 py-5">
+        <div class="col-md-12 py-5 sj-content">
             <div class="sj-headContent ">
                 <div class="rs-head-form">
                     <div class="contentInput">
-                        <input type="Search positions" placeholder="search" class="contentInput_search">
+                        <input type="search" placeholder="Search positions" class="contentInput_search">
                         <button class="contentInput__close"></button>
                         <button class="contentInput-search"></button>
+                    </div>
+                    <div class="dropMenu dropdown-areas">
+                        <button class="dropdown-toggle" type="button" id="menuJobtype" aria-haspopup="true">
+                           <span class="dropdown-text-jobtype">select a job type</span>
+                           <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-teams" id="listJobtype" aria-labelledby="menuJobtype">
+                           {% for item in jobtype %}
+                                {% set item_id = item.id %}
+                                <li class="checkFilter">
+                                  <input type="checkbox" name='optionsJobtype[]' id="jobtype-{{ item_id }}" class="jobtype_checkbox option justone checktypejob" value="{{ item_id }}" data-category="jobtype"/>
+                                  <label class="labelTopic" for="jobtype-{{ item_id }}">
+                                       {{item.title}}
+                                  </label>
+                                </li>
+                           {% endfor %}
+                        </ul>
                     </div>
                     <div class="dropMenu dropdown-areas">
                         <button class="dropdown-toggle" type="button" id="menuTeam" aria-haspopup="true">
@@ -53,17 +86,15 @@
                            <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu dropdown-menu-teams" id="listTeams" aria-labelledby="menuTeam">
-                           {% for relation in teams %}
-                                {% set relation_id = relation.id %}
-                                {% set relation_type = 'relation' %}
-                             <li class="checkFilter">
-                               <input type="checkbox" name='optionsTeams[]' id="teams-{{ relation_id }}" class="teams_checkbox option justone checkteams" value="{{ relation_id }}"  data-type="relationBlock.type" data-category="teams" {% if relacionesArray is defined  %} {% if relation_id in relacionesArray %}checked{% endif %}{% endif %}/>
-                               <label class="labelTopic" for="teams-{{ relation_id }}">
-                                    {{relation.title}}
-                               </label>
-                             </li>
+                           {% for item in teams %}
+                                {% set item_id = item.id %}
+                                <li class="checkFilter">
+                                  <input type="checkbox" name='optionsTeams[]' id="teams-{{ item_id }}" class="teams_checkbox option justone checkteams" value="{{ item_id }}" data-category="teams"/>
+                                  <label class="labelTopic" for="teams-{{ item_id }}">
+                                       {{item.title}}
+                                  </label>
+                                </li>
                            {% endfor %}
-                           <li class="applybtn"><button type="Button" class="apply ctaSearch">APPLY</button></li> 
                         </ul>
                     </div>
                     <div class="dropMenu dropdown-areas">
@@ -72,35 +103,31 @@
                            <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu dropdown-menu-locations" id="listLocations" aria-labelledby="menuLocation">
-                           {% for relation in locations %}
-                                {% set relation_id = relation.id %}
-                                {% set relation_type = 'relation' %}
-                             <li class="checkFilter">
-                               <input type="checkbox" name='optionsLocations[]' id="location-{{ relation_id }}" class="locations_checkbox option justone" value="{{ relation_id }}"  data-type="relationBlock.type" data-category="locations" {% if relacionesArray is defined  %} {% if relation_id in relacionesArray %}checked{% endif %}{% endif %}/>
-                               <label class="labelTopic" for="location-{{ relation_id }}">
-                                    {{relation.title}}
-                               </label>
-                             </li>
+                           {% for item in locations %}
+                                {% set item_id = item.id %}
+                                <li class="checkFilter">
+                                  <input type="checkbox" name='optionsLocations[]' id="location-{{ item_id }}" class="locations_checkbox option justone" value="{{ item_id }}" data-category="locations"/>
+                                  <label class="labelTopic" for="location-{{ item_id }}">
+                                       {{item.title}}
+                                  </label>
+                                </li>
                            {% endfor %}
-                           <li class="applybtn"><button type="Button" class="apply ctaSearch">APPLY</button></li> 
                         </ul>
                     </div>
                 </div>
+                
             </div>
         </div>
     </div>
     <div class="row">
         <div class="col-md-12">
             <div class="rs-tags">
-            <a class="d-none" href="#" id="clearalljobcategory">Clear all </a>
-            <div id="JobsearchTags">
-        
-            </div>
+            <div id="JobsearchTags"></div>
           </div>
         </div>
     </div>
     <div class="row">
-        <div class="col-md-12">   
+        <div class="col-md-12 tablejob_container">   
             <table class="table tableJob">
                 <thead class="tableJob_head">
                   <tr>
@@ -151,11 +178,38 @@
                     </a>
                      </td>
                   </tr>
+                  <tr class="tableJob_headline">
+                    <th colspan="4" scope="colgroup" class="text-star p-4">Temporary positions</th>
+                  </tr>
+                  <tr class="tableJob_row">
+                    <td scope="row">
+                        <p class="title">Technology and Personnel Security  Compliance Manager, ITS, Acacia Center for justice ( Remote) </p>
+                        <p class="label">Team:Accounting</p>
+                    </td>
+                    <td>Full-time</td>
+                    <td>Brooklyn</td>
+                    <td> <a href="#" class="theButton"><span>Apply Now</span></a>
+                     </td>
+                  </tr>
+                  <tr class="tableJob_row">
+                    <td scope="row">
+                        <p class="title">Senior Program Associate, Operations & Quality Assurance, Center
+                        on Immigration and Justice, Unaccompanied Children Program
+                        </p>
+                        <p class="label">Team:Accounting</p>
+                    </td>
+                    <td>Full-time</td>
+                    <td>Brooklyn</td>
+                    <td> <a href="#" class="theButton"><span>Apply Now</span>
+                    </a>
+                     </td>
+                  </tr>
                 </tbody>
               </table>
         </div>
     </div>
 </div>
+
 
 <script>
 
@@ -178,6 +232,17 @@ $("#menuLocation").on('click',function(){
  } else {
       $("#menuLocation").attr("aria-expanded", "true");
       $("#listLocations").attr("aria-hidden", "false");
+ }
+});
+
+$("#menuJobtype").on('click',function(){
+  var CheckR = $("#menuJobtype").attr("aria-expanded");
+ if ( CheckR == "true") {
+      $("#menuJobtype").attr("aria-expanded", "false");
+      $("#listJobtype").attr("aria-hidden", "true");
+ } else {
+      $("#menuJobtype").attr("aria-expanded", "true");
+      $("#listJobtype").attr("aria-hidden", "false");
  }
 });
 
