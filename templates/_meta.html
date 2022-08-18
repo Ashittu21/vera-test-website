@@ -34,14 +34,19 @@
 
 <head>
 
-  <!-- swiper -->
+  {# Swiper #}
   <link  rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  {# Axios #}
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  {# Greenhouse #}
+  <script src="https://boards.greenhouse.io/embed/job_board/js?for=verainstituteofjustice"></script>
 
   <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
   <script src="https://kit.fontawesome.com/808596d26d.js"  crossorigin="anonymous"></script>
   
-  {#<!-- 	<script src="https://cdn.optimizely.com/js/1135080016.js"></script> -->#}
+  {# <script src="https://cdn.optimizely.com/js/1135080016.js"></script> #}
+
   <meta charset="utf-8" />
   <meta property="fb:pages" content="104760636770" />
   <meta name="facebook-domain-verification" content="rnu32rfxo22sjnrj3znub1a4x3m1cv" />
@@ -126,7 +131,7 @@
   <meta name="google-site-verification" content="fQZtb85e-J7dDkE9XD3MY6B8ObyCZlUaD53c7A7FW5o" />
 </head>
 
-<body class="no-touch nav-pad {% block bodyClass %}{% endblock %}"> {% block body %}{% endblock %}
+<body class="no-touch nav-pad {% block bodyClass %}{% endblock %} bc-{{ craft.request.getSegment(1) ?: 'home' }}"> {% block body %}{% endblock %}
 
   <div class="tooltip_templates hide-on-print"></div>
 

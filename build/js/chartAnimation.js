@@ -1,0 +1,1 @@
+"use strict";var acharts=document.querySelectorAll(".achart");function mostrarScroll(){var scrollTop=document.documentElement.scrollTop;for(var i=0;i<acharts.length;i++){var alturaAnimado=acharts[i].offsetTop;if(alturaAnimado-30<scrollTop){acharts[i].style.display="block";}}}window.addEventListener('scroll',mostrarScroll);

@@ -14,6 +14,7 @@
     "doublesecretagency/craft-inventory": "^2.1",
     "dukt/twitter": "^2.1",
     "dukt/videos": "2.0.15",
+    "guzzlehttp/guzzle": "^7.0",
     "lewisjenkins/craft-dynamic-fields": "3.0.12",
     "mark-wff/craft-var-dumper": "^1.2",
     "mediabeastnz/timeago": "1.0.3",

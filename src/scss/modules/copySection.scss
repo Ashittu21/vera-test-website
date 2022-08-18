@@ -27,7 +27,17 @@
 .CopySection-heading {
   @extend %h3;
   padding-right: $padding-lg;
-
+  font-size: 35px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: justify;
+  color: #0e002c;
+  margin-bottom: 55px;
+  margin-top: 100px;
+  
   &:before {
     content: "";
     width: 82px;
