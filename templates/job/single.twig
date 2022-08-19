@@ -4,6 +4,8 @@
 {% set  jobId  = craft.app.request.getQueryParam('gh_jid') ?? null %}
 
 {% block content %}
+{# Greenhouse #}
+<script src="https://boards.greenhouse.io/embed/job_board/js?for=verainstituteofjustice"></script>
 
 <input type="hidden" id="jobId" value="{{ jobId }}">
 
@@ -20,9 +22,9 @@
           <h2 id="jobTitle"></h2>
           <div class="infojob">
             <ul>
-              {#<li>
-                <a href="#"><!--Full Time--></a> 
-              </li>#}
+              <li>
+                <a href="#"><span id="jobType"></span></a> 
+              </li>
               <li>
                 <a href="#">Location: <span id="jobLocation"></span> </a>
               </li>

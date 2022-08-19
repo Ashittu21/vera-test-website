@@ -35,7 +35,7 @@ gulp.task("scripts", function (cb) {
       gulp.src(["src/js/*.js"]),
     //  $.eslint(),
     //  $.eslint.format(),
-      $.if(["*.js", "!*.min.js"], $.babel({ presets: ["es2015"] })),
+    // $.if(["*.js", "!*.min.js"], $.babel({ presets: ["es2015"] })),
     //  $.if(["*.js", "!*.min.js"], $.uglify()),
       $.concat("main.js"),
       $.size({ gzip: true, showFiles: true }),
@@ -52,6 +52,7 @@ gulp.task("scripts", function (cb) {
 });
 
 /*** Javascript ***/
+
 //TODO implement and remove scripts task
 
 // babel js task - transpile our Javascript into the build directory

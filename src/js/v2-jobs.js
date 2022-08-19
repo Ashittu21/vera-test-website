@@ -8,12 +8,16 @@ document.addEventListener('DOMContentLoaded', function () {
       response.data.jobs.forEach((obj) => {
         const rowElement = document.createElement("tr");
         rowElement.classList.add('tableJob_row');
+        var jobtype = '';
+        if (obj.metadata[0]) {
+        var jobtype = obj.metadata[0].value ?? '';
+      }
         rowElement.innerHTML = `
         <td scope="row">
           <p class="title">${obj.title}</p>
           <p class="label">Team: ${obj.departments[0].name}</p>
         </td>
-        <!--<td>Full Time</td> -->
+        <td>${jobtype}</td>
         <td>${obj.location.name}</td>
         <td><a href="./job?gh_jid=${obj.id}"class="theButton"><span>Apply Now</span></a></td>`;
         tableBody.appendChild(rowElement);
@@ -52,13 +56,12 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         var d = new Date(response.data.updated_at);
-
         document.getElementById("jobDate").innerHTML =   d.toLocaleString('en-US', { weekday: 'short', day: 'numeric', year: 'numeric', month: 'long', });
         document.getElementById("jobContent").innerHTML = htmlDecode(response.data.content);
         document.getElementById("jobTitle").innerHTML = response.data.title;
         document.getElementById("jobLocation").innerHTML = response.data.location.name;
-        document.getElementById("jobTeam").innerHTML   = response.data.departments[0].name;
-      
+        document.getElementById("jobTeam").innerHTML = response.data.departments[0].name;
+        document.getElementById("jobType").innerHTML = response.data.metadata[0].value ?? '';
     })
     .catch(function (error) {
       console.log(error);

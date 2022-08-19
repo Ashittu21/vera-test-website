@@ -40617,7 +40617,9 @@ header {
   .infojob ul li {
     display: inline-block;
     color: var(--global-color-light-violet);
-    font-size: 18px; }
+    font-size: 18px;
+    display: inline;
+    word-break: break-word; }
     .infojob ul li a {
       color: var(--global-color-light-violet); }
     .infojob ul li::after {
@@ -40672,7 +40674,7 @@ header {
       background-repeat: no-repeat;
       background-position: 0rem 0.5rem;
       margin-top: 20px;
-      padding-left: 15px;
+      padding-left: 20px;
       margin-left: 20px;
       padding-top: 0;
       font-size: 18px;
