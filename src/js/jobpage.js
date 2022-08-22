@@ -1,5 +1,6 @@
+/*
 $(function () {
-  // Drag and frop files
+
   const Resumefile = document.querySelector('#resumefile');
   const coverletterfile = document.querySelector('#coverfile');
   const formApply = document.querySelector('#formapply_job');
@@ -23,7 +24,8 @@ $(function () {
     })
   }
 
-  
+
 
 
 });
+*/

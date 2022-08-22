@@ -8,6 +8,7 @@
         @media (max-width: 991px) {
           padding-top: 40px;
         }
+        
         .rs-head-form{
           display: grid;
           grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -153,11 +154,11 @@
             //display: flex;
             //justify-content: center; 
 
-            /*margin-right: 28px;*/
+         
             @media (max-width: $tablet-landscape) {
               margin: 0 auto;
               width:80%;
-              //margin-bottom: 20px;
+
             }
             
             .searchLabel{
@@ -434,7 +435,7 @@
   }
   td{
     padding: 2rem 1rem;
-    vertical-align: middle;
+    vertical-align: top;
   }
   &_head{
     border-bottom: 2px solid var(--global-color-dark-sand);
@@ -458,6 +459,9 @@
     }
   }
   &_row{
+    &.is-hidden{
+      display: none;
+    }
     border-bottom: 1px solid var(--global-color-dark-sand);
     .theButton{
       padding: 13px 21px 14px;
@@ -574,4 +578,6 @@
   
   
 
-  
+  .oculto{
+    display: none;
+  }

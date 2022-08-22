@@ -48,7 +48,6 @@
 ] %}
 
 
-
 <div class="container py-5">
     <div class="row">
         <div class="col-md-12">
@@ -56,13 +55,13 @@
         </div>
     </div>
 
-    {#
+    
     <div class="row">
         <div class="col-md-12 py-5 sj-content">
             <div class="sj-headContent ">
                 <div class="rs-head-form">
                     <div class="contentInput">
-                        <input type="search" placeholder="Search positions" class="contentInput_search">
+                        <input type="search" placeholder="Search positions"  id="searchbox" class="contentInput_search">
                         <button class="contentInput__close"></button>
                         <button class="contentInput-search"></button>
                     </div>
@@ -71,50 +70,31 @@
                            <span class="dropdown-text-jobtype">select a job type</span>
                            <span class="caret"></span>
                         </button>
-                        <ul class="dropdown-menu dropdown-menu-teams" id="listJobtype" aria-labelledby="menuJobtype">
-                           {% for item in jobtype %}
-                                {% set item_id = item.id %}
-                                <li class="checkFilter">
-                                  <input type="checkbox" name='optionsJobtype[]' id="jobtype-{{ item_id }}" class="jobtype_checkbox option justone checktypejob" value="{{ item_id }}" data-category="jobtype"/>
-                                  <label class="labelTopic" for="jobtype-{{ item_id }}">
-                                       {{item.title}}
-                                  </label>
-                                </li>
-                           {% endfor %}
-                        </ul>
+                        <ul class="dropdown-menu dropdown-menu-teams" id="listJobtype" aria-labelledby="menuJobtype"></ul>
                     </div>
+
                     <div class="dropMenu dropdown-areas">
                         <button class="dropdown-toggle" type="button" id="menuTeam" aria-haspopup="true">
                            <span class="dropdown-text-teams">Select a team</span>
                            <span class="caret"></span>
                         </button>
-                        <ul class="dropdown-menu dropdown-menu-teams" id="listTeams" aria-labelledby="menuTeam">
-                           {% for item in teams %}
-                                {% set item_id = item.id %}
-                                <li class="checkFilter">
-                                  <input type="checkbox" name='optionsTeams[]' id="teams-{{ item_id }}" class="teams_checkbox option justone checkteams" value="{{ item_id }}" data-category="teams"/>
-                                  <label class="labelTopic" for="teams-{{ item_id }}">
-                                       {{item.title}}
-                                  </label>
-                                </li>
-                           {% endfor %}
-                        </ul>
+                        <ul class="dropdown-menu dropdown-menu-teams" id="listTeams" aria-labelledby="menuTeam"></ul>
                     </div>
+
                     <div class="dropMenu dropdown-areas">
                         <button class="dropdown-toggle" type="button" id="menuLocation" aria-haspopup="true">
                            <span class="dropdown-text-locations">Select a location</span>
                            <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu dropdown-menu-locations" id="listLocations" aria-labelledby="menuLocation">
-                           {% for item in locations %}
-                                {% set item_id = item.id %}
+                        
                                 <li class="checkFilter">
-                                  <input type="checkbox" name='optionsLocations[]' id="location-{{ item_id }}" class="locations_checkbox option justone" value="{{ item_id }}" data-category="locations"/>
-                                  <label class="labelTopic" for="location-{{ item_id }}">
-                                       {{item.title}}
+                                  <input type="checkbox" name='optionsLocations[]' id="location-3" class="locations_checkbox option justone" value="3" data-category="locations"/>
+                                  <label class="labelTopic" for="location-3">
+                                     Location
                                   </label>
                                 </li>
-                           {% endfor %}
+                        
                         </ul>
                     </div>
                 </div>
@@ -122,7 +102,7 @@
             </div>
         </div>
     </div>
-    #}
+    
 
     <div class="row">
         <div class="col-md-12">
