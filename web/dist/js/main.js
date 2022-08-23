@@ -6791,8 +6791,11 @@ console.log('clicky');
 				button.innerHTML = linkHTML.trim();
 				for( i = 0, len = linkAtts.length; i < len; i++ ) {
 					let attr = linkAtts[i];
-					if( 'href' !== attr.name ) {
-						button.setAttribute( attr.name, attr.value );
+
+					if ('href' == attr.name) {
+						button.setAttribute("onClick", "linkButtonJZG('"+attr.value+"');");
+					} else { 
+						button.setAttribute(attr.name, attr.value);
 					}
 				}
 				menuItem.replaceChild( button, link );
@@ -6867,6 +6870,15 @@ console.log('clicky');
 }());
 
 
+
+function linkButtonJZG(url){
+	if (window.innerWidth > 768) {
+		location.href = url;
+		//  return false;
+	} else { 
+		return false;
+	}
+}
 
 
 
