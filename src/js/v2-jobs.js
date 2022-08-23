@@ -186,8 +186,6 @@ document.addEventListener('DOMContentLoaded', function () {
           buildTableJobs(optionSelected);
         });
         
-
-  
         
         //  Remove duplicated Locations
         const ulString = new Set(allLocations.map(JSON.stringify));

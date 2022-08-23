@@ -3861,37 +3861,6 @@ function navCarousel(
     })
   }
 })();
-/*
-$(function () {
-
-  const Resumefile = document.querySelector('#resumefile');
-  const coverletterfile = document.querySelector('#coverfile');
-  const formApply = document.querySelector('#formapply_job');
-
-  if(formApply){
-    if(Resumefile){
-      var resumepond = FilePond.create(Resumefile,{
-        labelIdle: `<i class="fas fa-paperclip"></i> Browse your resume or  <span class="filepond--label-action">just drop it here</span>`
-      });
-    }
-    if(coverletterfile){
-      var coverpond = FilePond.create(coverletterfile,{
-        labelIdle: `<i class="fas fa-paperclip"></i> Browse your cover letter or  <span class="filepond--label-action">just drop it here</span>`
-      });
-    }
-    formApply.addEventListener('submit',e=>{
-      e.preventDefault();
-      let files = resumepond.getFiles();
-      console.log("files ",files);
-      alert("form submit");
-    })
-  }
-
-
-
-
-});
-*/
 (function (window) {
   window.VERA = window.VERA || {};
 
@@ -6679,13 +6648,14 @@ function UsMapIncarcerationRegions({
 
 
 const format = n => (+n).toLocaleString(undefined,{ maximumFractionDigits: 0 })
+console.log('clicky');
+
  (function() {
 
 	'use strict';
 
-	const ClickyMenus = function( menu ) {
-
-		console.log('menu');
+	const ClickyMenus = function(menu) {
+		console.log(menu);
 		// DOM element(s)
 		let	container = menu.parentElement,
 		  	currentMenuItem,
@@ -6769,7 +6739,7 @@ const format = n => (+n).toLocaleString(undefined,{ maximumFractionDigits: 0 })
 
 		}
 
-		function closeOpenMenu( e ) {
+    function closeOpenMenu( e ) {
 
 			if ( currentMenuItem && ! e.target.closest( '#' + container.id ) ) {
 				toggleSubmenu( currentMenuItem );
@@ -6803,7 +6773,9 @@ const format = n => (+n).toLocaleString(undefined,{ maximumFractionDigits: 0 })
 
 		};
 
-		/**
+
+
+    		/**
 		 * Why do this? See https://justmarkup.com/articles/2019-01-21-the-link-to-button-enhancement/
 		 */
 		function convertLinkToButton( menuItem ) {
@@ -6853,11 +6825,14 @@ const format = n => (+n).toLocaleString(undefined,{ maximumFractionDigits: 0 })
 
 	}
 
-	/* Create a ClickMenus object and initiate menu for any menu with .clicky-menu class */
+   
+   
+   	/* Create a ClickMenus object and initiate menu for any menu with .clicky-menu class */
 	document.addEventListener('DOMContentLoaded', function(){
 		const menus = document.querySelectorAll( '.clicky-menu' );
 
-		menus.forEach( menu => {
+		menus.forEach(menu => {
+		
 			let clickyMenu = new ClickyMenus(menu);
 			clickyMenu.init();
 		});
@@ -6890,6 +6865,9 @@ const format = n => (+n).toLocaleString(undefined,{ maximumFractionDigits: 0 })
 
 
 }());
+
+
+
 
 
 
@@ -7243,8 +7221,6 @@ document.addEventListener('DOMContentLoaded', function () {
           buildTableJobs(optionSelected);
         });
         
-
-  
         
         //  Remove duplicated Locations
         const ulString = new Set(allLocations.map(JSON.stringify));

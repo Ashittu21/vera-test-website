@@ -480,14 +480,14 @@ header {
       }
 
       /* Responsive Submenu Behavior */
-      .clicky-menu ul[aria-hidden="false"] {
+      .clicky-menu ul{
         position: static;
         width: 100%;
         flex: 0 0 auto;
       }
 
       @media (min-width: 540px) {
-        .clicky-menu ul[aria-hidden="false"] {
+        .clicky-menu ul {
           position: absolute;
           //width: auto;
           min-width: 413px;

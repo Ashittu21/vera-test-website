@@ -337,7 +337,7 @@
         <div class="menu-left" id="header-v2-top-nav">
 
           {% set navigationTop = craft.entries.section('navigationTop') %}
-          <ul class="top-left-menu clicky-menu no-js">
+          <ul class="top-left-menu clicky-menu no-js ">
             {% for node in navigationTop.level(1).all() %}
               {% if node.hasDescendants() %}
                 <li>
@@ -402,7 +402,7 @@
     </div>
 
     <div class="rowBottom" id="rowBottom">
-      <div class="rowBottom-container  testclass"> 
+      <div class="rowBottom-container"> 
         <div id="header-v2-bottom-nav">
           <div class="isologo">
             <a href="{{ siteUrl }}"><img src="/dist/img/v2/vera-isologo.svg"></a>

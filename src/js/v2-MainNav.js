@@ -1,10 +1,11 @@
+console.log('clicky');
+
  (function() {
 
 	'use strict';
 
-	const ClickyMenus = function( menu ) {
-
-		console.log('menu');
+	const ClickyMenus = function(menu) {
+		console.log(menu);
 		// DOM element(s)
 		let	container = menu.parentElement,
 		  	currentMenuItem,
@@ -88,7 +89,7 @@
 
 		}
 
-		function closeOpenMenu( e ) {
+    function closeOpenMenu( e ) {
 
 			if ( currentMenuItem && ! e.target.closest( '#' + container.id ) ) {
 				toggleSubmenu( currentMenuItem );
@@ -122,7 +123,9 @@
 
 		};
 
-		/**
+
+
+    		/**
 		 * Why do this? See https://justmarkup.com/articles/2019-01-21-the-link-to-button-enhancement/
 		 */
 		function convertLinkToButton( menuItem ) {
@@ -172,11 +175,14 @@
 
 	}
 
-	/* Create a ClickMenus object and initiate menu for any menu with .clicky-menu class */
+   
+   
+   	/* Create a ClickMenus object and initiate menu for any menu with .clicky-menu class */
 	document.addEventListener('DOMContentLoaded', function(){
 		const menus = document.querySelectorAll( '.clicky-menu' );
 
-		menus.forEach( menu => {
+		menus.forEach(menu => {
+		
 			let clickyMenu = new ClickyMenus(menu);
 			clickyMenu.init();
 		});
@@ -209,3 +215,6 @@
 
 
 }());
+
+
+

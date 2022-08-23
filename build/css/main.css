@@ -38005,14 +38005,14 @@ header {
         padding: 0;
         list-style: none;
         background-color: #2E1D97; }
-      .header-v2 .rowBottom #header-v2-bottom-nav .clicky-menu ul[aria-hidden="false"] {
+      .header-v2 .rowBottom #header-v2-bottom-nav .clicky-menu ul {
         position: static;
         width: 100%;
         -webkit-box-flex: 0;
             -ms-flex: 0 0 auto;
                 flex: 0 0 auto; }
       @media (min-width: 540px) {
-        .header-v2 .rowBottom #header-v2-bottom-nav .clicky-menu ul[aria-hidden="false"] {
+        .header-v2 .rowBottom #header-v2-bottom-nav .clicky-menu ul {
           position: absolute;
           min-width: 413px;
           z-index: 500; } }
