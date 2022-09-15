@@ -25558,7 +25558,7 @@ button.SortableTable-header-column-button {
   font-style: normal;
   line-height: normal;
   letter-spacing: normal;
-  text-align: justify;
+  text-align: left;
   color: #0e002c;
   margin-bottom: 55px;
   margin-top: 100px; }
@@ -35946,6 +35946,10 @@ div.headingHero > div:nth-child(3) > div {
                 box-sizing: border-box;
         position: absolute;
         width: 100%; }
+        @media (max-width: 2040px) {
+          .footerV2 .footerV2-top .footerV2-top-col04 .mail-list {
+            padding: 30px;
+            position: relative; } }
         @media (max-width: 768px) {
           .footerV2 .footerV2-top .footerV2-top-col04 .mail-list {
             position: relative; } }

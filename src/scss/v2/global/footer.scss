@@ -171,6 +171,12 @@
         box-sizing: border-box;
         position: absolute;
         width: 100%;
+
+        @media(max-width: 2040px) {
+         padding: 30px;
+         position: relative;
+        }
+
         @media(max-width: $mobile-breakpoint) {
           position: relative;
         }
