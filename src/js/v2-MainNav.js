@@ -1,11 +1,11 @@
-console.log('clicky');
+//console.log('clicky');
 
  (function() {
 
 	'use strict';
 
 	const ClickyMenus = function(menu) {
-		console.log(menu);
+		//console.log(menu);
 		// DOM element(s)
 		let	container = menu.parentElement,
 		  	currentMenuItem,
