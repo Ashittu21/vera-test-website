@@ -8434,7 +8434,7 @@ h2 strong {
   color: #fff; }
 
 .color-combo--black-white article.article-block-standard {
-  background-color: #231f20;
+  background-color: #231f20 !important;
   --bg-color: #231f20; }
 
 .h5 {
