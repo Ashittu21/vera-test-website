@@ -793,14 +793,7 @@ h2 strong {
 }
 
 
-[data-color-combo="black-white"] {
-  /* Styles */
-  article{
-    background-color: #000;
-    color: #fff;
-  }
-  
-}
+
 
 .color-combo--trueblack-white {
 
@@ -834,7 +827,7 @@ h2 strong {
   }
 
   article.article-block-standard {
-    background-color: #231f20 !important;
+    background-color: #231f20;
     --bg-color: #231f20;
   }
 }
@@ -871,4 +864,20 @@ h2 strong {
   letter-spacing: 0em;
   text-align: left;
   margin-bottom: 1rem;
+}
+
+[data-color-combo="black-white"] {
+
+  article{
+    background-color: #000;
+    color: #fff;
+  }
+  
+}
+
+.pecialReportChaptered.color-combo--black-white{
+  article.article{
+    background-color: #231f20;
+    color:#fff;
+  }
 }

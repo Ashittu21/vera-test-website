@@ -8411,12 +8411,6 @@ h2 strong {
   margin-bottom: 30px;
   margin-top: 30px; }
 
-[data-color-combo="black-white"] {
-  /* Styles */ }
-  [data-color-combo="black-white"] article {
-    background-color: #000;
-    color: #fff; }
-
 .color-combo--trueblack-white .h2,
 .color-combo--trueblack-white h2,
 .color-combo--trueblack-white h2 strong {
@@ -8440,7 +8434,7 @@ h2 strong {
   color: #fff; }
 
 .color-combo--black-white article.article-block-standard {
-  background-color: #231f20 !important;
+  background-color: #231f20;
   --bg-color: #231f20; }
 
 .h5 {
@@ -8472,6 +8466,14 @@ h2 strong {
   letter-spacing: 0em;
   text-align: left;
   margin-bottom: 1rem; }
+
+[data-color-combo="black-white"] article {
+  background-color: #000;
+  color: #fff; }
+
+.pecialReportChaptered.color-combo--black-white article.article {
+  background-color: #231f20;
+  color: #fff; }
 
 .post-sidebar {
   font-size: 14px;
