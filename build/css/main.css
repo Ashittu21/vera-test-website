@@ -8411,6 +8411,11 @@ h2 strong {
   margin-bottom: 30px;
   margin-top: 30px; }
 
+[data-color-combo="black-white"] {
+  /* Styles */
+  background-color: #000;
+  color: #fff; }
+
 .color-combo--trueblack-white .h2,
 .color-combo--trueblack-white h2,
 .color-combo--trueblack-white h2 strong {
