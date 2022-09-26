@@ -758,6 +758,8 @@ article .module-text-heading {
 
 
 
+
+
 .h2,
 h2,
 h2 strong {
@@ -772,6 +774,27 @@ h2 strong {
  margin-top: 30px;
 }
 
+
+.color-combo--trueblack-white{
+.h2,h2, h2 strong{
+  --bg-color: #000;
+  --color: #fff;
+  --accent: #ef4136;
+  background-color: #000;
+  color: #fff;
+
+}
+}
+
+.color-combo--black-white {
+  .h2,h2, h2 strong{
+  --bg-color: #231f20;
+  --color: #fff;
+  --accent: #ef4136;
+  background-color: #231f20;
+  color: #fff;
+  }
+}
 .h5{
  font-family: var(--global-font-sectra);
  font-size: 35px;
