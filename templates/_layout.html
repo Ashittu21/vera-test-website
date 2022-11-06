@@ -14,7 +14,11 @@
 {% set mc_list_id = 'e0468627fa' %}
 {% set mc_subscribe_link = 'http://eepurl.com/b9IGNH' %}
 
+
 {% block body %}
+  
+	{% include 'modal-popup/index.twig' %}
+
 	{% block nav %}
 		{% if entry is not defined or entry is not null and (entry.type.handle not in ['donate','donateAppeal'] or entry.donateNavToggle == true) %}
 			{# cache globally #}
@@ -31,6 +35,11 @@
 		{% block content %}{% endblock %}
 		{% block ajax_wrap_close %}{% endblock %}
 		
+
+
+
+
+
 		<!-- Modals -->
 		{% set currentDonateCta = craft.entries.section('donateCta').first %}
 		{% if entry is defined and entry and entry.section.handle not in ['donate','donateAppeal','careersLanding'] and not entry.suppressDonatePopup %}
@@ -40,7 +49,10 @@
 				{% include 'includes/snippets/newsletter_popup' %}
 			{% endif %}
 		{% endif %}
+		
 	</main>
+
+
 
 	{% block footer %}
 		{# include 'includes/snippets/footer' #}

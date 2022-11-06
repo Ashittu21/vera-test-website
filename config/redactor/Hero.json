@@ -17,6 +17,11 @@
       "title": "Underline 2",
       "api": "module.inline.format",
       "args": {"tag": "span", "class": "underline2"}
+    },
+    "underline3": {
+      "title": "Underline 3",
+      "api": "module.inline.format",
+      "args": {"tag": "span", "class": "underline-hero underline-hero-1"}
     }
   }
 }

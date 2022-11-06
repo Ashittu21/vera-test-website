@@ -1,0 +1,27 @@
+   {% set banner = craft.entries().section('headBanner').one() %}
+
+   <div class="head-banner">
+     <div class="head-banner_container">
+       <div class="head-banner_container_left">
+         <div class="head-banner_container_left--title">
+           {{ banner.head_title }}
+         </div>
+
+         <div class="head-banner_container_left--subtitle">
+           {{ banner.head_subtitle }}
+         </div>
+
+         <div class="head-banner_container_left--cta">
+            <a href="{{ banner.head_cta.getUrl() }}" target="_blank" class="button orange arrow"><span>{{ banner.head_cta.customText }}</span></a>
+         </div>
+
+       </div>
+       <div class="head-banner_container_right">
+         <img
+           src="{{ banner.head_image.one().getUrl('headBanner') }}"
+           width="{{ banner.head_image.one().getWidth('headBanner') }}"
+           height="{{ banner.head_image.one().getHeight('headBanner') }}">
+       </div>
+     </div>
+   </div>
+

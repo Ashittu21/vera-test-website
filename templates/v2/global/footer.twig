@@ -132,9 +132,7 @@
 
 
 
-
-
-(function(){
+(function () {
 
   var doc = document.documentElement;
   var w = window;
@@ -146,20 +144,29 @@
 
   var header = document.getElementById('rowTop');
   var headerBottom = document.getElementById('rowBottom');
-  var offs   = header.offsetTop;
-  var checkScroll = function() {
+  var offs = header.offsetTop;
+  var checkScroll = function () {
 
     /*
-    ** Find the direction of scroll
-    ** 0 - initial, 1 - up, 2 - down
-    */
+     ** Find the direction of scroll
+     ** 0 - initial, 1 - up, 2 - down
+     */
+    console.log(w.scrollY);
+if (document.querySelector('.head-banner-small')) {
+    if (w.scrollY > 0) {
+      document.querySelector('.head-banner').classList.add('hide');
+      document.querySelector('.head-banner-small').classList.add('show');
+    } else {
+      document.querySelector('.head-banner').classList.remove('hide');
+      document.querySelector('.head-banner-small').classList.remove('show');
+    }
+}
 
     curScroll = w.scrollY || doc.scrollTop;
-    if (curScroll > prevScroll) { 
+    if (curScroll > prevScroll) {
       //scrolled up
       direction = 2;
-    }
-    else if (curScroll < prevScroll) { 
+    } else if (curScroll < prevScroll) {
       //scrolled down
       direction = 1;
     }
@@ -171,15 +178,51 @@
     prevScroll = curScroll;
   };
 
-  var toggleHeader = function(direction, curScroll) {
-    if (direction === 2 && curScroll > 5) { 
-      //replace 52 with the height of your header in px
+  var toggleHeader = function (direction, curScroll) {
+
+
+
+    if (direction === 2 && curScroll > 1) {
+  
       header.classList.add('hide');
+      var headerTopHeight = header.offsetHeight;
+      header.style.transform = "translateY(-" + headerTopHeight + "px)";
+      headerBottom.style.transform = "translateY(-" + headerTopHeight + "px)";
       headerBottom.classList.add('show-logo');
       prevDirection = direction;
-    }
-    else if (direction === 1) {
+
+      if (document.querySelector('.head-banner-small')) {
+         var smallTopHeight  = document.querySelector('.head-banner-small');
+            var dd = 80;
+            var ht = headerTopHeight+dd;
+            header.style.transform = "translateY(-"+ht+"px)";
+      }
+    /*   if (document.querySelector('.head-banner-small')) {
+            var smallTopHeight  = document.querySelector('.head-banner-small');
+            var dd = smallTopHeight.offsetHeight;
+            var ht = headerTopHeight-dd;
+            headerBottom.style.transform = "translateY(-"+ht+"px)";
+         } else {
+            headerBottom.style.transform = "translateY(-"+smallHeight+"px)";
+        }*/
+
+     /*   if (document.querySelector('.head-banner-small')) {
+            var smallTopHeight  = document.querySelector('.head-banner-small');
+            smallTopHeight.classList.add('show');
+          }*/
+      
+
+    } else if (direction === 1) {
+      
+       /* if (document.querySelector('.head-banner-small')) {
+          var smallTopHeight  = document.querySelector('.head-banner-small');
+          smallTopHeight.classList.remove('show');
+        }*/
+      
+
       header.classList.remove('hide');
+      header.style.transform = "";
+      headerBottom.style.transform = "";
       headerBottom.classList.remove('show-logo');
       prevDirection = direction;
     }
@@ -188,6 +231,5 @@
   window.addEventListener('scroll', checkScroll);
 
 })();
-
 
 {% endjs %}

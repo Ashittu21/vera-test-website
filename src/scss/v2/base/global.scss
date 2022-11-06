@@ -17,6 +17,14 @@
   --global-font-abc-whyte: 'ABC Whyte';
   --global-font-sectra: 'GT Sectra';
   --breakpoint-mobile: $tablet-portrait;
+
+  /* Underline */
+  --underline-intrinsic-width: 14;
+  --underline-width: 19;
+  --underline-color: #2e1d97;
+  --underline-cap-width: 0px;
+  --underline-offset-y: -2px;
+  --underline-padding-x: 0.12em;
 }
 
 

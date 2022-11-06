@@ -28,23 +28,169 @@ header {
     }
   }
 
+  .head-banner-small {
+    transition: all .5s ease;
+    height: 0;
+    background-color: #3f2ab1;
+    position: relative;
+    top: 0;
+    opacity: 0;
+    color: #FFF;
+    pointer-events: none;
+    font-size: 25px;
+    font-weight: 600;
+    font-family: var(--global-font-abc-whyte);
+    width: 100%;
+
+    .underline-hero-1 {
+      --underline-width: 25;
+      --underline-offset-y: 12px;
+    }
+
+    &_container {
+      max-width: 1280px;
+      margin: 0 auto;
+      height: 80px;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+
+  
+
+      &_left{
+        width: 60%;
+      }
+      &_right{
+        flex: 1;
+        justify-content: flex-start;
+        align-items: flex-start;
+        display: flex;
+        .button span {
+          font-size: 17px !important;
+          padding: 0.5rem 1rem;
+        }
+      }
+    }
+
+    /*  transform: translateY(-80px);*/
+    &.show {
+      pointer-events: all;
+      opacity: 1;
+      height: 80px;
+      /*  transform: translateY(0px);*/
+    }
+  }
+
+  .head-banner {
+    &.hide {
+      opacity: 0;
+      pointer-events: none;
+      height: 0;
+    }
+
+    transition: height 0.6s ease,
+    opacity 0.5s ease;
+    opacity: 1;
+    pointer-events: all;
+    height: 400px;
+    width: 100%;
+    display: flex;
+    margin: 0 auto;
+    background: linear-gradient(270deg, #2e1d97, #2e1d97 50%, #160643 0);
+
+    &_container {
+      background: linear-gradient(270deg, #2e1d97, #2e1d97 17%, #160643 0);
+      max-width: 1280px;
+      width: 100%;
+      height: 400px;
+      margin: 0 auto;
+      @media(max-width:1350px){
+        padding:0 5rem;
+      }
+
+
+
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      justify-content: space-between;
+      align-items: center;
+      justify-content: space-between;
+      align-items: stretch;
+
+      &_left {
+
+        flex: 1;
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+
+        justify-content: center;
+        color: #FFF;
+
+        &--title {
+          font-family: $ff-abc-whyte;
+          font-size: 60px;
+          font-weight: 800;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: 1.08;
+          @media(max-width:1350px){
+            font-size: 44px;
+          }
+        }
+
+        &--subtitle {
+          font-family: $ff-abc-whyte;
+          font-size: 25px;
+          font-weight: 500;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: 1.3;
+          margin-top: 3rem;
+          @media(max-width:1350px){
+            font-size: 18px;
+          }
+        }
+
+        &--cta {
+          margin-top: 3rem;
+
+          .button span {
+            font-size: 18px !important;
+            padding: 0.5rem 1rem;
+          }
+        }
+      }
+
+      &_right {
+        display: flex;
+        align-items: center;
+
+      }
+    }
+  }
+
+
   .rowTop {
     background-color: #0E002C;
-    height: 119px;
+    // height: 119px;
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     transition: all 0.1s ease;
+    z-index: 99999;
+    position: relative;
 
     &.hide {
-     // display: none;
-      //opacity: 0;
-      transition: all 0.3s ease;
-      transform: translateY(-120px);
-      //transform: translateY(-120px);
-      // height: 0;
+      transition: all 0.1s ease;
     }
+
+
+
 
     &-container {
       max-width: 1280px;
@@ -52,6 +198,7 @@ header {
       display: flex;
       flex-direction: row;
       margin: 0 auto;
+      height: 119px;
     }
 
     .menu-left {
@@ -307,7 +454,7 @@ header {
 
   .rowBottom {
     background-color: #160643;
-    height: 67px;
+    /* height: 67px;*/
     border-bottom: 2px solid #3E2BB1;
     width: 100%;
     z-index: 500;
@@ -315,11 +462,18 @@ header {
     opacity: 1;
 
 
-    &.show-logo{
-      transform: translateY(-120px);
+    &.show-logo {
+      /* transform: translateY(-120px);*/
       transition: all 0.3s ease;
-      #header-v2-bottom-nav{
-        .isologo{
+
+      .headBottom-banner {
+        height: 50px;
+        display: flex;
+        background-color: yellow;
+      }
+
+      #header-v2-bottom-nav {
+        .isologo {
           transition: all 0.2s ease;
           height: 67px;
           align-content: center;
@@ -327,6 +481,7 @@ header {
           display: flex;
           opacity: 1;
           width: auto;
+
           a {
             margin: 15px;
             height: auto;
@@ -376,7 +531,7 @@ header {
       ul.row-bottom-menu {
         height: 67px;
         background-color: #160643;
-        border-bottom: 2px solid #3e2bb1;
+        /* border-bottom: 2px solid #3e2bb1;*/
         z-index: 500;
 
         ul {
@@ -480,7 +635,7 @@ header {
       }
 
       /* Responsive Submenu Behavior */
-      .clicky-menu ul{
+      .clicky-menu ul {
         position: static;
         width: 100%;
         flex: 0 0 auto;

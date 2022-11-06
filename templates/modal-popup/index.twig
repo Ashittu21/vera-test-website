@@ -1,0 +1,60 @@
+
+{% set url = craft.app.request.url %}
+{% if url != "/" %}
+
+  {% set modal = craft.entries({
+    section: 'modalPopup',
+    enabledForSite: true,
+    status: 'live'}).one() %}
+
+    {% if modal | length > 0 %}
+        <div class="modal-popup">
+          <dialog  id="veraModal" class="modal-popup__content style-1" aria-labelledby="modalTitle" aria-describedby="modalDescription">
+            <a class="modal-popup__close" href="javascript: closeModal();" aria-label="Close this dialog window" data-cooltipz-dir="top" onclick="closeModal()"></a>
+            <div class="modal-wrapper">
+
+              <div class="modal-wrapper_left">
+                <img src="{{ modal.modal_image.one().getUrl('modal') }}"
+                width="{{ modal.modal_image.one().getWidth('modal') }}"
+                height="{{ modal.modal_image.one().getHeight('modal') }}">
+              </div>
+
+              <div class="modal-wrapper_right">
+                <div class="modal-wrapper_right--title">
+                  {{ modal.modal_title }}
+                </div>
+              
+                <div class="modal-wrapper_right--subtitle">
+                  {{ modal.modal_subtitle }}
+                </div>
+
+                <div class="modal-wrapper_right--cta">
+                  <a href="{{ modal.modal_cta.getUrl() }}" target="_blank" class="button orange arrow"><span>{{ modal.modal_cta.customText }}</span></a>
+                </div>
+              </div>
+            </div>
+          </dialog>
+          <div class="modal-popup__overlay" onclick="closeModal()"></div>
+        </div>
+
+        <script>
+        document.addEventListener("keyup", escapeKeyHandler);
+        function escapeKeyHandler(e) {
+          if (e.keyCode === 27 || e.key === "Escape") {
+            closeModal();
+          }
+        }
+        function closeModal() {
+          document.getElementById("veraModal").removeAttribute("open");
+        }
+        function openModal() {
+          document.getElementById("veraModal").setAttribute("open", "open");
+        }
+        setTimeout(()=>{
+        document.getElementById("veraModal").setAttribute("open", "open");
+        },5000);
+        </script>
+
+    {% endif %}
+
+{% endif %}
