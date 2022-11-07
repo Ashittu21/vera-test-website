@@ -38506,13 +38506,13 @@ header {
   0% {
     background-size: 0% 100%; }
   100% {
-    background-size: 17% 100%; } }
+    background-size: 100% 100%; } }
 
 @keyframes side-animation {
   0% {
     background-size: 0% 100%; }
   100% {
-    background-size: 17% 100%; } }
+    background-size: 100% 100%; } }
 
 /*
 @keyframes bottom-animation {
