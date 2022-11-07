@@ -9,14 +9,24 @@
 
     {% if modal | length > 0 %}
         <div class="modal-popup">
-          <dialog  id="veraModal" class="modal-popup__content style-1" aria-labelledby="modalTitle" aria-describedby="modalDescription">
+          <dialog  id="veraModal" class="modal-popup__content {{ modal.modal_style }}" aria-labelledby="modalTitle" aria-describedby="modalDescription">
             <a class="modal-popup__close" href="javascript: closeModal();" aria-label="Close this dialog window" data-cooltipz-dir="top" onclick="closeModal()"></a>
             <div class="modal-wrapper">
 
               <div class="modal-wrapper_left">
-                <img src="{{ modal.modal_image.one().getUrl('modal') }}"
-                width="{{ modal.modal_image.one().getWidth('modal') }}"
-                height="{{ modal.modal_image.one().getHeight('modal') }}">
+
+                <div class="modal-wrapper_left_imgDesktop">
+                  <img src="{{ modal.modal_image.one().getUrl('modal') }}"
+                    width="{{ modal.modal_image.one().getWidth('modal') }}"
+                    height="{{ modal.modal_image.one().getHeight('modal') }}">
+                </div>
+                
+                <div class="modal-wrapper_left_imgMobile">
+                  <img src="{{ modal.modal_imageMobile.one().getUrl('modalMobile') }}"
+                    width="{{ modal.modal_imageMobile.one().getWidth('modalMobile') }}"
+                    height="{{ modal.modal_imageMobile.one().getHeight('modalMobile') }}">
+                </div>
+                
               </div>
 
               <div class="modal-wrapper_right">
@@ -50,9 +60,63 @@
         function openModal() {
           document.getElementById("veraModal").setAttribute("open", "open");
         }
-        setTimeout(()=>{
+      setTimeout(()=>{
         document.getElementById("veraModal").setAttribute("open", "open");
-        },5000);
+        },{{ modal.modal_delay }}000);
+
+
+
+/*
+
+
+
+  document.addEventListener("DOMContentLoaded", function () {
+
+  setCookie("modal","time", {{ modal.modal_cookie }} ); 
+  var cookieModal = getCookie("modal");
+  if (document.readyState == "interactive") {
+    console.log('listo');
+
+    if (cookieModal == null) {
+      console.log('no hay cookie - carga modal');
+      setTimeout(()=>{
+        document.getElementById("veraModal").setAttribute("open", "open");
+        },{{ modal.modal_delay }}000);
+
+
+    } else {
+      console.log('cookie: ya existe');
+
+       
+ 
+      }
+	
+      console.log(cookieLang);
+    }
+  }
+});
+
+
+function setCookie(name, value, days) {
+  var expires = "";
+  if (days) {
+    var date = new Date();
+    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+    expires = "; expires=" + date.toUTCString();
+  }
+  document.cookie = name + "=" + (value || "") + expires + "; path=/";
+}
+
+function getCookie(name) {
+  var nameEQ = name + "=";
+  var ca = document.cookie.split(';');
+  for (var i = 0; i < ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+    if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+  }
+  return null;
+}*/
         </script>
 
     {% endif %}
