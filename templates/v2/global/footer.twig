@@ -145,15 +145,29 @@
   var header = document.getElementById('rowTop');
   var headerBottom = document.getElementById('rowBottom');
   var offs = header.offsetTop;
+
+  var heroHeight = document.getElementsByClassName('heroType3-content');
+  var mainDiv = document.getElementById('content');
+  var hhDiv = document.getElementById('header-desktop');
+  var originalTop = hhDiv.offsetHeight;
+  
+  var hHeight = document.getElementsByClassName('home');
+
   var checkScroll = function () {
+
+      console.log(' Original: '+originalTop);
 
     /*
      ** Find the direction of scroll
      ** 0 - initial, 1 - up, 2 - down
      */
-    console.log(w.scrollY);
+   
+
+
+ 
+
 if (document.querySelector('.head-banner-small')) {
-    if (w.scrollY > 0) {
+    if (w.scrollY > heroHeight[0].offsetHeight ) {
       document.querySelector('.head-banner').classList.add('hide');
       document.querySelector('.head-banner-small').classList.add('show');
     } else {
@@ -163,12 +177,23 @@ if (document.querySelector('.head-banner-small')) {
 }
 
     curScroll = w.scrollY || doc.scrollTop;
+    console.log(' Current: '+curScroll);
+
     if (curScroll > prevScroll) {
       //scrolled up
       direction = 2;
+      console.log('DOWN');
+  
+
     } else if (curScroll < prevScroll) {
       //scrolled down
       direction = 1;
+      console.log('UP');
+           if(curScroll == 0 ){
+        mainDiv.style.marginTop ="";
+     }
+
+
     }
 
     if (direction !== prevDirection) {
@@ -178,12 +203,19 @@ if (document.querySelector('.head-banner-small')) {
     prevScroll = curScroll;
   };
 
+
+
+    
   var toggleHeader = function (direction, curScroll) {
 
+    mainDiv.style.marginTop = (hhDiv.offsetHeight)+"px";
 
 
-    if (direction === 2 && curScroll > 1) {
-  
+
+ 
+
+    if (direction === 2 && curScroll > heroHeight[0].offsetHeight) {
+
       header.classList.add('hide');
       var headerTopHeight = header.offsetHeight;
       header.style.transform = "translateY(-" + headerTopHeight + "px)";
@@ -191,41 +223,27 @@ if (document.querySelector('.head-banner-small')) {
       headerBottom.classList.add('show-logo');
       prevDirection = direction;
 
+    
+
       if (document.querySelector('.head-banner-small')) {
-         var smallTopHeight  = document.querySelector('.head-banner-small');
+            var smallTopHeight  = document.querySelector('.head-banner-small');
             var dd = 80;
             var ht = headerTopHeight+dd;
             header.style.transform = "translateY(-"+ht+"px)";
       }
-    /*   if (document.querySelector('.head-banner-small')) {
-            var smallTopHeight  = document.querySelector('.head-banner-small');
-            var dd = smallTopHeight.offsetHeight;
-            var ht = headerTopHeight-dd;
-            headerBottom.style.transform = "translateY(-"+ht+"px)";
-         } else {
-            headerBottom.style.transform = "translateY(-"+smallHeight+"px)";
-        }*/
-
-     /*   if (document.querySelector('.head-banner-small')) {
-            var smallTopHeight  = document.querySelector('.head-banner-small');
-            smallTopHeight.classList.add('show');
-          }*/
       
 
     } else if (direction === 1) {
-      
-       /* if (document.querySelector('.head-banner-small')) {
-          var smallTopHeight  = document.querySelector('.head-banner-small');
-          smallTopHeight.classList.remove('show');
-        }*/
-      
+
 
       header.classList.remove('hide');
       header.style.transform = "";
       headerBottom.style.transform = "";
       headerBottom.classList.remove('show-logo');
       prevDirection = direction;
-    }
+
+
+    } 
   };
 
   window.addEventListener('scroll', checkScroll);
