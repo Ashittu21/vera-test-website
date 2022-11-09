@@ -189,9 +189,11 @@ if (document.querySelector('.head-banner-small')) {
       //scrolled down
       direction = 1;
       console.log('UP');
-           if(curScroll == 0 ){
-        mainDiv.style.marginTop ="";
+        if (document.querySelector('.head-banner-small')) {
+            if(curScroll == 0 ){
+          mainDiv.style.marginTop ="";
      }
+      }
 
 
     }
@@ -207,10 +209,9 @@ if (document.querySelector('.head-banner-small')) {
 
     
   var toggleHeader = function (direction, curScroll) {
-
-    mainDiv.style.marginTop = (hhDiv.offsetHeight)+"px";
-
-
+  if (document.querySelector('.head-banner-small')) {
+      mainDiv.style.marginTop = (hhDiv.offsetHeight)+"px";
+  }
 
  
 

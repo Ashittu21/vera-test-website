@@ -5,5 +5,13 @@ body .redactor-box:not(.redactor-box-fullscreen) {
   .redactor-styles  {
     @import "../v2/base/variables.scss";
     @import "../v2/common/hero-format.scss";
+
+
+    .underline-hero-1 {
+      text-decoration: underline;
+      text-decoration-color: #2e1d97;
+      text-decoration-style: solid;
+      text-decoration-thickness: 5px;
+    }
   }
 }

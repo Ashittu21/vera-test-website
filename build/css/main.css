@@ -38314,14 +38314,14 @@ header {
     margin: 0;
     padding: 1rem;
     /*max-width: 90%;*/
-    min-width: 974px;
+    width: 974px;
     min-height: 556px;
     border-radius: 0px;
     border: 0px;
     padding: 0; }
     @media (max-width: 920px) {
       .modal-popup__content {
-        min-width: 100%; } }
+        width: 100%; } }
     .modal-popup__content:not([open]) + .modal-popup__overlay {
       opacity: 0;
       pointer-events: none; }
@@ -38452,7 +38452,9 @@ header {
           line-height: 1.08; }
           @media (max-width: 990px) {
             .modal-popup__content .modal-wrapper_right--title {
-              font-size: 60px; } }
+              font-size: 60px; }
+              .modal-popup__content .modal-wrapper_right--title br {
+                display: none; } }
           @media (max-width: 900px) {
             .modal-popup__content .modal-wrapper_right--title {
               font-size: 50px; } }
@@ -38467,6 +38469,9 @@ header {
           font-style: normal;
           line-height: 1.3;
           margin-top: 3rem; }
+          @media (max-width: 990px) {
+            .modal-popup__content .modal-wrapper_right--subtitle br {
+              display: none; } }
         .modal-popup__content .modal-wrapper_right--cta {
           margin-top: 3rem; }
           .modal-popup__content .modal-wrapper_right--cta .button span {
