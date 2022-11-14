@@ -106,6 +106,10 @@
           &:before{
             background-color:#efa256;
             background-image: url('../img/v2/arrow-purple.svg');
+            background-size: 40px;
+            @media(max-width: 700px) {
+              background-size: 28px;
+            }
           }
           &:after{
             border: 2px solid #eececb;
@@ -115,6 +119,10 @@
           }
           &.arrow{
             background-image: url('../img/v2/arrow-purple.svg');
+            background-size: 40px;
+            @media(max-width: 700px) {
+              background-size: 28px;
+            }
           }
         }
       }
@@ -218,7 +226,7 @@
 
         &--subtitle {
           font-family: $ff-abc-whyte;
-          font-size: 25px;
+          font-size: 33px;
           font-weight: 500;
           font-stretch: normal;
           font-style: normal;
@@ -230,15 +238,36 @@
               display: none;
             }
           }
+          @media(max-width: 700px) {
+            font-size: 25px;
+          }
         }
 
         &--cta {
           margin-top: 3rem;
-
-          .button span {
-            font-size: 18px !important;
-            padding: 0.5rem 1rem;
-          }
+       
+          .button{
+            &:before{
+              background-size: 40px;
+              @media(max-width: 700px) {
+                background-size: 28px;
+              }
+            }
+            span {
+              font-size: 31px!important;
+              padding: 2rem 3rem;
+              @media(max-width: 700px) {
+                font-size: 23px!important;
+                padding: 1rem 1rem;
+              }
+            }
+            &.arrow{
+              background-size: 40px;
+              @media(max-width: 700px) {
+                background-size: 28px;
+              }
+            }
+          } 
         }
       }
     }
