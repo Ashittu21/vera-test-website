@@ -1,0 +1,17 @@
+{
+  "buttons": [
+    "format",
+    "bold",
+    "italic",
+    "html"
+  ],
+  "plugins": ["fullscreen","alignment","customstyles"],
+  "formatting": ["p", "blockquote", "span"],
+  "formattingAdd": {
+    "underline": {
+      "title": "Modal Underline",
+      "api": "module.inline.format",
+      "args": {"tag": "span", "class": "underline-hero underline-hero-1"}
+    }
+  }
+}

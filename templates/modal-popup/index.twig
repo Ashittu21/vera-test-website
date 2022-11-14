@@ -9,7 +9,7 @@
 
     {% if modal | length > 0 %}
         <div class="modal-popup">
-          <dialog  id="veraModal" class="modal-popup__content {{ modal.modal_style }}" aria-labelledby="modalTitle" aria-describedby="modalDescription">
+          <dialog  id="veraModal" class="modal-popup__content  style-3{# modal.modal_style #}" aria-labelledby="modalTitle" aria-describedby="modalDescription">
             <a class="modal-popup__close" href="javascript: closeModal();" aria-label="Close this dialog window" data-cooltipz-dir="top" onclick="closeModal()"></a>
             <div class="modal-wrapper">
 
@@ -49,23 +49,50 @@
 
         <script>
         document.addEventListener("keyup", escapeKeyHandler);
+
         function escapeKeyHandler(e) {
           if (e.keyCode === 27 || e.key === "Escape") {
             closeModal();
           }
         }
+
         function closeModal() {
           document.getElementById("veraModal").removeAttribute("open");
         }
+
         function openModal() {
           document.getElementById("veraModal").setAttribute("open", "open");
         }
-      setTimeout(()=>{
+
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+
+          //get cookie 
+          var cookiename = getCookie("cookiename");
+          if (cookiename == "value") {} else {
+
+          setTimeout(()=>{
         document.getElementById("veraModal").setAttribute("open", "open");
+              
+                document.cookie = "cookiename=value; expires=0; path=/";
         },{{ modal.modal_delay }}000);
 
 
+          }
 
+          //function getCookie        
+          function getCookie(cname) {
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+              var c = ca[i];
+              while (c.charAt(0) == ' ') c = c.substring(1);
+              if (c.indexOf(name) != -1) return c.substring(name.length, c.length);
+            }
+            return "";
+          }
+        });
 /*
   document.addEventListener("DOMContentLoaded", function () {
 
