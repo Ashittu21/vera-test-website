@@ -159,7 +159,7 @@
      */
    
     if (document.querySelector('.head-banner-small')) {
-        if (w.scrollY > 0 ) {
+        if (w.scrollY >= 40 ) {
           document.querySelector('.head-banner').classList.add('hide');
           document.querySelector('.head-banner-small').classList.add('show');
         } else {
@@ -198,16 +198,20 @@
   var toggleHeader = function (direction, curScroll) {
 
   if (document.querySelector('.head-banner-small')) {
-
-      // rowTop + head Banner
-      var espacio = "149px";
+    if(curScroll >= 40){
+    var espacio = "189px";  //149
       mainDiv.style.marginTop =  espacio;
+      }else{
+    var espacio = "588px";  //149
+      mainDiv.style.marginTop =  espacio;
+      }
   }
 
  
   if (document.querySelector('.head-banner-small')) {
-    if (direction === 2 && curScroll > 0) {
+    if (direction === 2 && curScroll >= 40) {
 
+    //  var espacio = "149px";  //149
       header.classList.add('hide');
       var headerTopHeight = header.offsetHeight;
       header.style.transform = "translateY(-" + headerTopHeight + "px)";
