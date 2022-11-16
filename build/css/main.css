@@ -37577,9 +37577,21 @@ div.headingHero > div:nth-child(3) > div {
   display: block; }
 
 header {
-  /*display:none;*/
   width: 100%;
   display: block; }
+
+.bg-blue {
+  background-color: #160643;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content; }
+
+.bgBlue {
+  background-color: #160643; }
+
+#header-v2 {
+  -webkit-transition: background-color 0.5s ease;
+  transition: background-color 0.5s ease; }
 
 .header-v2 {
   font-family: var(--global-font-abc-whyte); }
@@ -37598,8 +37610,12 @@ header {
     width: 184px;
     height: 63px; }
   .header-v2 .head-banner-small {
-    -webkit-transition: all .5s ease;
-    transition: all .5s ease;
+    -webkit-transform: translateY(-80px);
+            transform: translateY(-80px);
+    -webkit-transition: -webkit-transform .2s ease-in-out;
+    transition: -webkit-transform .2s ease-in-out;
+    transition: transform .2s ease-in-out;
+    transition: transform .2s ease-in-out, -webkit-transform .2s ease-in-out;
     height: 0;
     background-color: #3f2ab1;
     position: relative;
@@ -37611,7 +37627,7 @@ header {
     font-weight: 600;
     font-family: var(--global-font-abc-whyte);
     width: 100%;
-    /*  transform: translateY(-80px);*/ }
+    z-index: 9999999; }
     .header-v2 .head-banner-small .underline-hero-1 {
       --underline-width: 25;
       --underline-offset-y: 12px; }
@@ -37655,10 +37671,13 @@ header {
       pointer-events: all;
       opacity: 1;
       height: 80px;
-      /*  transform: translateY(0px);*/ }
+      -webkit-transform: translateY(0px);
+              transform: translateY(0px); }
   .header-v2 .head-banner {
-    -webkit-transition: height 0.6s ease, opacity 0.5s ease;
-    transition: height 0.6s ease, opacity 0.5s ease;
+    -webkit-transition: -webkit-transform .2s ease-in-out;
+    transition: -webkit-transform .2s ease-in-out;
+    transition: transform .2s ease-in-out;
+    transition: transform .2s ease-in-out, -webkit-transform .2s ease-in-out;
     opacity: 1;
     pointer-events: all;
     height: 400px;
@@ -37670,9 +37689,12 @@ header {
     background: -webkit-gradient(linear, right top, left top, from(#2e1d97), color-stop(50%, #2e1d97), color-stop(0, #160643));
     background: linear-gradient(270deg, #2e1d97, #2e1d97 50%, #160643 0); }
     .header-v2 .head-banner.hide {
-      opacity: 0;
       pointer-events: none;
-      height: 0; }
+      height: 0;
+      -webkit-transform: translateY(-400px);
+              transform: translateY(-400px); }
+      .header-v2 .head-banner.hide .head-banner_container {
+        opacity: 0; }
     .header-v2 .head-banner_container {
       background: -webkit-gradient(linear, right top, left top, from(#2e1d97), color-stop(17%, #2e1d97), color-stop(0, #160643));
       background: linear-gradient(270deg, #2e1d97, #2e1d97 17%, #160643 0);
@@ -37680,6 +37702,7 @@ header {
       width: 100%;
       height: 400px;
       margin: 0 auto;
+      opacity: 1;
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
@@ -37756,6 +37779,7 @@ header {
                 align-items: center; }
   .header-v2 .rowTop {
     background-color: #0E002C;
+    height: 119px;
     width: 100%;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -37767,13 +37791,14 @@ header {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-    -webkit-transition: all 0.1s ease;
-    transition: all 0.1s ease;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
     z-index: 99999;
     position: relative; }
     .header-v2 .rowTop.hide {
-      -webkit-transition: all 0.1s ease;
-      transition: all 0.1s ease; }
+      -webkit-transform: translateY(-199px);
+              transform: translateY(-199px);
+      height: 0; }
     .header-v2 .rowTop-container {
       max-width: 1280px;
       width: 100%;
@@ -38058,41 +38083,37 @@ header {
     border-bottom: 2px solid #3E2BB1;
     width: 100%;
     z-index: 500;
-    -webkit-transition: all 0.2s ease;
-    transition: all 0.2s ease;
+    -webkit-transition: -webkit-transform .2s ease-in-out;
+    transition: -webkit-transform .2s ease-in-out;
+    transition: transform .2s ease-in-out;
+    transition: transform .2s ease-in-out, -webkit-transform .2s ease-in-out;
     opacity: 1; }
-    .header-v2 .rowBottom.show-logo {
-      /* transform: translateY(-120px);*/
-      -webkit-transition: all 0.3s ease;
-      transition: all 0.3s ease; }
-      .header-v2 .rowBottom.show-logo .headBottom-banner {
-        height: 50px;
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        background-color: yellow; }
-      .header-v2 .rowBottom.show-logo #header-v2-bottom-nav .isologo {
-        -webkit-transition: all 0.2s ease;
-        transition: all 0.2s ease;
-        height: 67px;
-        -ms-flex-line-pack: center;
-            align-content: center;
-        -webkit-box-sizing: border-box;
-                box-sizing: border-box;
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        opacity: 1;
-        width: auto; }
-        .header-v2 .rowBottom.show-logo #header-v2-bottom-nav .isologo a {
-          margin: 15px;
-          height: auto;
-          display: -webkit-box;
-          display: -ms-flexbox;
-          display: flex; }
-    .header-v2 .rowBottom-container {
+    .header-v2 .rowBottom.show-logo .headBottom-banner {
+      height: 50px;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      background-color: yellow; }
+    .header-v2 .rowBottom.show-logo #header-v2-bottom-nav .isologo {
       -webkit-transition: all 0.2s ease;
       transition: all 0.2s ease;
+      height: 67px;
+      -ms-flex-line-pack: center;
+          align-content: center;
+      -webkit-box-sizing: border-box;
+              box-sizing: border-box;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      opacity: 1;
+      width: auto; }
+      .header-v2 .rowBottom.show-logo #header-v2-bottom-nav .isologo a {
+        margin: 15px;
+        height: auto;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex; }
+    .header-v2 .rowBottom-container {
       max-width: 1280px;
       width: 100%;
       display: -webkit-box;

@@ -134,6 +134,7 @@
   var direction = 0;
   var prevDirection = 0;
   var header = document.getElementById('rowTop');
+  var headerv2 = document.getElementById('header-v2');
   var offs = header.offsetTop;
 
   var headerBottom = document.getElementById('rowBottom');
@@ -213,9 +214,10 @@
 
     //  var espacio = "149px";  //149
       header.classList.add('hide');
+      headerv2.classList.remove('bgBlue');
       var headerTopHeight = header.offsetHeight;
       header.style.transform = "translateY(-" + headerTopHeight + "px)";
-      headerBottom.style.transform = "translateY(-" + headerTopHeight + "px)";
+      //headerBottom.style.transform = "translateY(-" + headerTopHeight + "px)";
       headerBottom.classList.add('show-logo');
       prevDirection = direction;
 
@@ -229,8 +231,9 @@
 
     } else if (direction === 1) {
       header.classList.remove('hide');
+      headerv2.style.backgroundColor = "#0e002c";
       header.style.transform = "";
-      headerBottom.style.transform = "";
+    //  headerBottom.style.transform = "";
       headerBottom.classList.remove('show-logo');
       prevDirection = direction;
 
@@ -240,9 +243,10 @@
       
       if (direction === 2 && curScroll > 0 ) {
       header.classList.add('hide');
+       headerv2.style.backgroundColor = "";
       var headerTopHeight = header.offsetHeight;
       header.style.transform = "translateY(-" + headerTopHeight + "px)";
-      headerBottom.style.transform = "translateY(-" + headerTopHeight + "px)";
+     // headerBottom.style.transform = "translateY(-" + headerTopHeight + "px)";
       headerBottom.classList.add('show-logo');
       prevDirection = direction;
 
@@ -256,8 +260,9 @@
 
     } else if (direction === 1) {
       header.classList.remove('hide');
+      headerv2.style.backgroundColor = "#0e002c";
       header.style.transform = "";
-      headerBottom.style.transform = "";
+    //  headerBottom.style.transform = "";
       headerBottom.classList.remove('show-logo');
       prevDirection = direction;
     } 
