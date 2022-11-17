@@ -37674,10 +37674,10 @@ header {
       -webkit-transform: translateY(0px);
               transform: translateY(0px); }
   .header-v2 .head-banner {
-    -webkit-transition: -webkit-transform .2s ease-in-out;
-    transition: -webkit-transform .2s ease-in-out;
-    transition: transform .2s ease-in-out;
-    transition: transform .2s ease-in-out, -webkit-transform .2s ease-in-out;
+    -webkit-transition: opacity .5s ease-in-out, -webkit-transform;
+    transition: opacity .5s ease-in-out, -webkit-transform;
+    transition: transform, opacity .5s ease-in-out;
+    transition: transform, opacity .5s ease-in-out, -webkit-transform;
     opacity: 1;
     pointer-events: all;
     height: 400px;
@@ -37692,7 +37692,8 @@ header {
       pointer-events: none;
       height: 0;
       -webkit-transform: translateY(-400px);
-              transform: translateY(-400px); }
+              transform: translateY(-400px);
+      opacity: 0; }
       .header-v2 .head-banner.hide .head-banner_container {
         opacity: 0; }
     .header-v2 .head-banner_container {
