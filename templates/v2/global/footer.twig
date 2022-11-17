@@ -160,7 +160,7 @@
      */
    
     if (document.querySelector('.head-banner-small')) {
-        if (w.scrollY >= 40 ) {
+        if (w.scrollY >= 200 ) {
           document.querySelector('.head-banner').classList.add('hide');
           document.querySelector('.head-banner-small').classList.add('show');
         } else {
@@ -199,7 +199,7 @@
   var toggleHeader = function (direction, curScroll) {
 
   if (document.querySelector('.head-banner-small')) {
-    if(curScroll >= 40){
+    if(curScroll >= 200){
     var espacio = "189px";  //149
       mainDiv.style.marginTop =  espacio;
       }else{
@@ -210,7 +210,7 @@
 
  
   if (document.querySelector('.head-banner-small')) {
-    if (direction === 2 && curScroll >= 40) {
+    if (direction === 2 && curScroll >= 200) {
 
     //  var espacio = "149px";  //149
       header.classList.add('hide');
