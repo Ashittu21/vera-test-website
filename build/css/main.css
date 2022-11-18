@@ -37714,10 +37714,10 @@ header {
     margin: 0 auto;
     background: -webkit-gradient(linear, right top, left top, from(#2e1d97), color-stop(50%, #2e1d97), color-stop(0, #160643));
     background: linear-gradient(270deg, #2e1d97, #2e1d97 50%, #160643 0);
-    -webkit-transition: height, opacity, -webkit-transform .2s ease-out;
-    transition: height, opacity, -webkit-transform .2s ease-out;
-    transition: height, opacity, transform .2s ease-out;
-    transition: height, opacity, transform .2s ease-out, -webkit-transform .2s ease-out; }
+    -webkit-transition: height, opacity, -webkit-transform 0.6s ease-out;
+    transition: height, opacity, -webkit-transform 0.6s ease-out;
+    transition: height, opacity, transform 0.6s ease-out;
+    transition: height, opacity, transform 0.6s ease-out, -webkit-transform 0.6s ease-out; }
     @media (max-width: 991px) {
       .header-v2 .head-banner {
         display: none; } }
@@ -37726,10 +37726,10 @@ header {
       opacity: 0;
       -webkit-transform: translateY(-400px);
               transform: translateY(-400px);
-      -webkit-transition: height, opacity, -webkit-transform .3s ease-in;
-      transition: height, opacity, -webkit-transform .3s ease-in;
-      transition: height, opacity, transform .3s ease-in;
-      transition: height, opacity, transform .3s ease-in, -webkit-transform .3s ease-in; }
+      -webkit-transition: height, opacity, -webkit-transform 0.6s ease-in;
+      transition: height, opacity, -webkit-transform 0.6s ease-in;
+      transition: height, opacity, transform 0.6s ease-in;
+      transition: height, opacity, transform 0.6s ease-in, -webkit-transform 0.6s ease-in; }
     .header-v2 .head-banner_container {
       background: -webkit-gradient(linear, right top, left top, from(#2e1d97), color-stop(17%, #2e1d97), color-stop(0, #160643));
       background: linear-gradient(270deg, #2e1d97, #2e1d97 17%, #160643 0);
