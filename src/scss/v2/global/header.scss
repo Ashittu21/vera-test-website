@@ -1,3 +1,30 @@
+
+.curtain-mobile{
+  background-color: #ef4136;
+  height: 70px;
+  color: #FFF;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  p{
+    color: #fff;
+    font-size: 4vw;
+  }
+  @media (min-width:991px){
+    display: none;
+  }
+  @media (min-width:740px){
+    p{
+      font-size: 3vw;
+    }
+  }
+}
+
+
+
 header {
   width: 100%;
   display: block;
@@ -42,7 +69,7 @@ header {
 
   .head-banner-small {
     transform: translateY(-80px);
-    transition: transform .2s ease-in-out;
+    transition: transform .5s ease-in-out;
     height: 0;
     background-color: #3f2ab1;
     position: relative;
@@ -101,24 +128,28 @@ header {
   }
 
   .head-banner {
+    @media (max-width:991px){
+      display: none;
+    }
     &.hide {
-      pointer-events: none;
       height: 0;
-      transform: translateY(-400px);
       opacity:0;
-      .head-banner_container {
-        opacity: 0;
-      }
+      transform: translateY(-400px);
+      transition: height, opacity, transform .3s ease-in;
     }
 
-    transition: transform, opacity .5s ease-in-out;
+  
     opacity: 1;
     pointer-events: all;
     height: 400px;
+    transform: translateY(0px);
+
     width: 100%;
     display: flex;
     margin: 0 auto;
     background: linear-gradient(270deg, #2e1d97, #2e1d97 50%, #160643 0);
+
+    transition: height, opacity, transform .2s ease-out;
 
     &_container {
       background: linear-gradient(270deg, #2e1d97, #2e1d97 17%, #160643 0);
@@ -202,7 +233,7 @@ header {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    transition: all 0.2s ease;
+    transition: all 0.3s ease-in-out;
     z-index: 99999;
     position: relative;
 

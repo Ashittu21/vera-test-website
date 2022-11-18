@@ -91,32 +91,51 @@
 <script>
  document.addEventListener('DOMContentLoaded', function () {
 
+const contentDiv = document.getElementById('content');
+var contentDiv_offsetTop = contentDiv.offsetTop;
+var headerDesktop = document.getElementById("header-desktop");
+var rowBottom = document.getElementById("rowBottom");
+var rowBottom_height = rowBottom.offsetHeight;
+var rowTop = document.getElementById('rowTop');
+var rowTop_height = rowTop.offsetHeight;
+var stuck = false;
+
+
+console.log(contentDiv_offsetTop);
+
  // Sticky Menu
  if (document.querySelector('#header-desktop')) { 
-		var headerDesktop = document.getElementById("header-desktop");
-		var headerBottom = document.getElementById("rowBottom");
-		var stuck = false;
+
+
 		var stickPoint = getDistance();
+
 
 		function getDistance() {
 		  var topDist = headerDesktop.offsetTop;
+      console.log(topDist);
 		  return topDist;
 		}
 	 
 	window.onscroll = function(e) {
 		var distance = getDistance() - window.pageYOffset;
+    console.log(distance);
 		var offset = window.pageYOffset;
-		if ((distance <= 0) && !stuck) {
+		if ((distance <= rowBottom_height ) && !stuck) {
         headerDesktop.style.position = 'fixed';
         headerDesktop.style.top = '0px';
         stuck = true;
         headerDesktop.classList.add("show-logo");
         headerDesktop.classList.remove("hide-logo");
-  		 } else if (stuck && (offset <= stickPoint)){
-        headerDesktop.style.position = 'static';
-        stuck = false;
-        headerDesktop.classList.add("hide-logo");
-        headerDesktop.classList.remove("show-logo");
+         if(window.innerWidth > 991 ){
+        contentDiv.style.marginTop = contentDiv_offsetTop+'px';
+         }
+
+   } else if (stuck && (offset <= stickPoint)){
+          stuck = false;
+          contentDiv.style.marginTop ='0px';
+          headerDesktop.style.position = 'static';
+          headerDesktop.classList.add("hide-logo");
+          headerDesktop.classList.remove("show-logo");
 		 }
 	}
 }
@@ -133,39 +152,47 @@
   var curScroll;
   var direction = 0;
   var prevDirection = 0;
-  var header = document.getElementById('rowTop');
-  var headerv2 = document.getElementById('header-v2');
-  var offs = header.offsetTop;
 
-  var headerBottom = document.getElementById('rowBottom');
+  var rowBottom = document.getElementById('rowBottom');
+  var rowTop_height = rowTop.offsetHeight;
+
+  var curtainActive = document.querySelector('.head-banner-small');
+
+
+  var headerv2 = document.getElementById('header-v2');
+  var offs = rowTop.offsetTop;
+
+
   var heroHeight = document.getElementsByClassName('heroType3-content');
   var mainDiv = document.getElementById('content');
 
-  var hhDiv = document.getElementById('header-desktop');
-  var originalTop = hhDiv.offsetHeight;
+  var headerDesktop = document.getElementById('header-desktop');
+  var offsetDesktop = headerDesktop.offsetHeight;
   
-  var hHeight = document.getElementsByClassName('home');
-
-  if (document.querySelector('.head-banner-small')) {
-  var altoHeight = heroHeight[0].offsetHeight;
-  }
   
   var checkScroll = function () {
   
-    console.log(' Original: '+originalTop);
-
     /*
      ** Find the direction of scroll
      ** 0 - initial, 1 - up, 2 - down
      */
    
-    if (document.querySelector('.head-banner-small')) {
-        if (w.scrollY >= 200 ) {
+     var rowTop = document.getElementById('rowTop');
+     var rowTop_height = rowTop.offsetHeight;
+
+    if (curtainActive) {
+        if (w.scrollY >= rowTop_height ) {
           document.querySelector('.head-banner').classList.add('hide');
           document.querySelector('.head-banner-small').classList.add('show');
         } else {
           document.querySelector('.head-banner').classList.remove('hide');
           document.querySelector('.head-banner-small').classList.remove('show');
+          if(window.innerWidth > 991 ){
+             mainDiv.style.marginTop =  '588px';
+          }else{
+             mainDiv.style.marginTop =  '0px';
+          }
+         
         }
       }
 
@@ -173,17 +200,16 @@
     console.log(' Current: '+curScroll);
 
     if (curScroll > prevScroll) {
-      //scrolled up
-      direction = 2;
+      direction = 2; //ABAJO
       console.log('DOWN');
     } else if (curScroll < prevScroll) {
-      //scrolled down
-      direction = 1;
+
+      direction = 1; // ARRIBA
       console.log('UP');
       if (document.querySelector('.head-banner-small')) {
-            if(curScroll == 0 ){
-          mainDiv.style.marginTop ="";
-       }
+         if(curScroll == 0 ){
+           mainDiv.style.marginTop ="";
+         }
       }
     }
 
@@ -198,73 +224,59 @@
     
   var toggleHeader = function (direction, curScroll) {
 
-  if (document.querySelector('.head-banner-small')) {
-    if(curScroll >= 200){
-    var espacio = "189px";  //149
-      mainDiv.style.marginTop =  espacio;
-      }else{
-    var espacio = "588px";  //149
-      mainDiv.style.marginTop =  espacio;
-      }
-  }
 
+  var rowTop = document.getElementById('rowTop');
+  var rowTop_height = rowTop.offsetHeight;
  
-  if (document.querySelector('.head-banner-small')) {
-    if (direction === 2 && curScroll >= 200) {
+  if (curtainActive) {
 
-    //  var espacio = "149px";  //149
-      header.classList.add('hide');
+    if (direction === 2 && curScroll >= rowTop_height ) {
+      rowTop.classList.add('hide');
       headerv2.classList.remove('bgBlue');
-      var headerTopHeight = header.offsetHeight;
-      header.style.transform = "translateY(-" + headerTopHeight + "px)";
-      //headerBottom.style.transform = "translateY(-" + headerTopHeight + "px)";
-      headerBottom.classList.add('show-logo');
-      prevDirection = direction;
 
-      if (document.querySelector('.head-banner-small')) {
+      if(window.innerWidth > 991 ){
+             mainDiv.style.marginTop =  '268px';
+          }else{
+             mainDiv.style.marginTop =  '0px';
+          }
+      rowTop.style.transform = "translateY(-" + rowTop_height + "px)";
+      rowBottom.classList.add('show-logo');
+      prevDirection = direction;
+    
             var smallTopHeight  = document.querySelector('.head-banner-small');
             var dd = 80;
-            var ht = headerTopHeight+dd;
-            header.style.transform = "translateY(-"+ht+"px)";
-      }
-      
-
+            var ht = rowTop_height+dd;
+            rowTop.style.transform = "translateY(-"+ht+"px)";
+    
     } else if (direction === 1) {
-      header.classList.remove('hide');
+      rowTop.classList.remove('hide');
       headerv2.style.backgroundColor = "#0e002c";
-      header.style.transform = "";
-    //  headerBottom.style.transform = "";
-      headerBottom.classList.remove('show-logo');
+      rowTop.style.transform = "";
+      rowBottom.classList.remove('show-logo');
       prevDirection = direction;
-
-
     } 
+
   } else {
-      
-      if (direction === 2 && curScroll > 0 ) {
-      header.classList.add('hide');
-       headerv2.style.backgroundColor = "";
-      var headerTopHeight = header.offsetHeight;
-      header.style.transform = "translateY(-" + headerTopHeight + "px)";
-     // headerBottom.style.transform = "translateY(-" + headerTopHeight + "px)";
-      headerBottom.classList.add('show-logo');
-      prevDirection = direction;
 
-      if (document.querySelector('.head-banner-small')) {
-            var smallTopHeight  = document.querySelector('.head-banner-small');
-            var dd = 80;
-            var ht = headerTopHeight+dd;
-            header.style.transform = "translateY(-"+ht+"px)";
-      }
-      
+    /**
+     * No curtain
+     **/
 
+   var rowTop = document.getElementById('rowTop');
+   var rowTop_height = rowTop.offsetHeight;
+
+   if (direction === 2 && curScroll >= rowTop_height ) {
+        rowTop.classList.add('hide');
+        headerv2.style.backgroundColor = "";
+        rowTop.style.transform = "translateY(-" + rowTop_height + "px)";
+        rowBottom.classList.add('show-logo');
+        prevDirection = direction;
     } else if (direction === 1) {
-      header.classList.remove('hide');
-      headerv2.style.backgroundColor = "#0e002c";
-      header.style.transform = "";
-    //  headerBottom.style.transform = "";
-      headerBottom.classList.remove('show-logo');
-      prevDirection = direction;
+        rowTop.classList.remove('hide');
+        headerv2.style.backgroundColor = "#0e002c";
+        rowTop.style.transform = "";
+        rowBottom.classList.remove('show-logo');
+        prevDirection = direction;
     } 
   }
 

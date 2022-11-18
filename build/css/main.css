@@ -37576,6 +37576,34 @@ div.headingHero > div:nth-child(3) > div {
 .clicky-menu button:hover #eader-v2-bottom-nav-ending-mass-incarceration-submenu {
   display: block; }
 
+.curtain-mobile {
+  background-color: #ef4136;
+  height: 70px;
+  color: #FFF;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; }
+  .curtain-mobile p {
+    color: #fff;
+    font-size: 4vw; }
+  @media (min-width: 991px) {
+    .curtain-mobile {
+      display: none; } }
+  @media (min-width: 740px) {
+    .curtain-mobile p {
+      font-size: 3vw; } }
+
 header {
   width: 100%;
   display: block; }
@@ -37612,10 +37640,10 @@ header {
   .header-v2 .head-banner-small {
     -webkit-transform: translateY(-80px);
             transform: translateY(-80px);
-    -webkit-transition: -webkit-transform .2s ease-in-out;
-    transition: -webkit-transform .2s ease-in-out;
-    transition: transform .2s ease-in-out;
-    transition: transform .2s ease-in-out, -webkit-transform .2s ease-in-out;
+    -webkit-transition: -webkit-transform .5s ease-in-out;
+    transition: -webkit-transform .5s ease-in-out;
+    transition: transform .5s ease-in-out;
+    transition: transform .5s ease-in-out, -webkit-transform .5s ease-in-out;
     height: 0;
     background-color: #3f2ab1;
     position: relative;
@@ -37674,28 +37702,34 @@ header {
       -webkit-transform: translateY(0px);
               transform: translateY(0px); }
   .header-v2 .head-banner {
-    -webkit-transition: opacity .5s ease-in-out, -webkit-transform;
-    transition: opacity .5s ease-in-out, -webkit-transform;
-    transition: transform, opacity .5s ease-in-out;
-    transition: transform, opacity .5s ease-in-out, -webkit-transform;
     opacity: 1;
     pointer-events: all;
     height: 400px;
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
     width: 100%;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     margin: 0 auto;
     background: -webkit-gradient(linear, right top, left top, from(#2e1d97), color-stop(50%, #2e1d97), color-stop(0, #160643));
-    background: linear-gradient(270deg, #2e1d97, #2e1d97 50%, #160643 0); }
+    background: linear-gradient(270deg, #2e1d97, #2e1d97 50%, #160643 0);
+    -webkit-transition: height, opacity, -webkit-transform .2s ease-out;
+    transition: height, opacity, -webkit-transform .2s ease-out;
+    transition: height, opacity, transform .2s ease-out;
+    transition: height, opacity, transform .2s ease-out, -webkit-transform .2s ease-out; }
+    @media (max-width: 991px) {
+      .header-v2 .head-banner {
+        display: none; } }
     .header-v2 .head-banner.hide {
-      pointer-events: none;
       height: 0;
+      opacity: 0;
       -webkit-transform: translateY(-400px);
               transform: translateY(-400px);
-      opacity: 0; }
-      .header-v2 .head-banner.hide .head-banner_container {
-        opacity: 0; }
+      -webkit-transition: height, opacity, -webkit-transform .3s ease-in;
+      transition: height, opacity, -webkit-transform .3s ease-in;
+      transition: height, opacity, transform .3s ease-in;
+      transition: height, opacity, transform .3s ease-in, -webkit-transform .3s ease-in; }
     .header-v2 .head-banner_container {
       background: -webkit-gradient(linear, right top, left top, from(#2e1d97), color-stop(17%, #2e1d97), color-stop(0, #160643));
       background: linear-gradient(270deg, #2e1d97, #2e1d97 17%, #160643 0);
@@ -37792,8 +37826,8 @@ header {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-    -webkit-transition: all 0.2s ease;
-    transition: all 0.2s ease;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
     z-index: 99999;
     position: relative; }
     .header-v2 .rowTop.hide {
@@ -38304,6 +38338,19 @@ header {
   height: 60px;
   border-bottom: 2px solid #3E2BB1; }
 
+/*
+#content{
+  transition: margin-top 0.1s ease;
+}
+
+.modal-mtop{
+  margin-top:588px;
+}
+
+
+.modal-mtop-collapsed{
+  margin-top: 149px !important;
+}*/
 .modal-popup {
   z-index: 1000000;
   background-color: rgba(0, 0, 0, 0.6);

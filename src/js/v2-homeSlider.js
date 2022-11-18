@@ -14,9 +14,9 @@ document.addEventListener('DOMContentLoaded', function () {
       preventClicksPropagation: false,  //false
       preventClicks: false, //false
       autoplay: false,
-      autoplay: {
+     /*autoplay: {
         delay: 2700,
-      },
+      },*/
      /* on: {
         init: function () {
           console.log('swiper initialized');
