@@ -1,6 +1,10 @@
 {% set url = craft.app.request.url %}
 {% if url == "/" %}
-<a class="curtain-mobile" href="https://google.com" target="_blank">
-  <p>Make your Giving Tuesday gift for 3x the impact</p>
-</a>
+   {% set banner = craft.entries().section('headBanner').one() %}
+  <a class="curtain-mobile" href="{{ banner.head_mobile_cta.getUrl() }}" target="_blank">
+    <p>{{ banner.head_mobile_cta.customText }}</p>
+  </a>
 {% endif %}  
+
+
+

@@ -1,5 +1,4 @@
-
-.curtain-mobile{
+.curtain-mobile {
   background-color: #ef4136;
   height: 70px;
   color: #FFF;
@@ -9,15 +8,17 @@
   justify-content: center;
   align-items: center;
 
-  p{
+  p {
     color: #fff;
     font-size: 4vw;
   }
-  @media (min-width:991px){
+
+  @media (min-width:991px) {
     display: none;
   }
-  @media (min-width:740px){
-    p{
+
+  @media (min-width:740px) {
+    p {
       font-size: 3vw;
     }
   }
@@ -128,17 +129,18 @@ header {
   }
 
   .head-banner {
-    @media (max-width:991px){
+    @media (max-width:991px) {
       display: none;
     }
+
     &.hide {
       height: 0;
-      opacity:0;
+      opacity: 0;
       transform: translateY(-400px);
       transition: height, opacity, transform 0.6s ease-in;
     }
 
-  
+
     opacity: 1;
     pointer-events: all;
     height: 400px;
@@ -149,7 +151,9 @@ header {
     margin: 0 auto;
     background: linear-gradient(270deg, #2e1d97, #2e1d97 50%, #160643 0);
 
-    transition: height, opacity, transform 0.6s ease-out;
+    transition: height,
+    opacity,
+    transform 0.6s ease-out;
 
     &_container {
       background: linear-gradient(270deg, #2e1d97, #2e1d97 17%, #160643 0);
@@ -234,7 +238,7 @@ header {
     flex-direction: column;
     justify-content: center;
     transition: all 0.3s ease-in-out;
-  //  transition-delay: 0.5s;
+    //  transition-delay: 0.5s;
     z-index: 99999;
     position: relative;
 
@@ -513,8 +517,8 @@ header {
 
 
     &.show-logo {
-    // -  transform: translateY(-120px);
-   
+      // -  transform: translateY(-120px);
+
 
       .headBottom-banner {
         height: 50px;
