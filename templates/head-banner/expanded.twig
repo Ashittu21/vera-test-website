@@ -1,6 +1,7 @@
 {% set url = craft.app.request.url %}
 {% if url == "/" %}
-   {% set banner = craft.entries().section('headBanner').one() %}
+  {% set banner = craft.entries().section('headBanner').status('live').one() %}
+  {% if banner|length %}
    <div class="head-banner">
      <div class="head-banner_container">
        <div class="head-banner_container_left">
@@ -25,5 +26,6 @@
        </div>
      </div>
    </div>
+   {% endif %}  
 {% endif %}   
 

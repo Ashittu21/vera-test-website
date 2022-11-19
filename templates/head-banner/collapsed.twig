@@ -1,12 +1,14 @@
 {% set url = craft.app.request.url %}
 {% if url == "/" %}
-  {% set banner = craft.entries().section('headBanner').one() %}
-  <div class="head-banner-small">
-    <div class="head-banner-small_container">
-      <div class="head-banner-small_container_left">{{ banner.head_collapsed_title }}</div>
-      <div class="head-banner-small_container_right">
-        <a href="{{ banner.head_collapsed_cta.getUrl() }}" target="_blank" class="button orange arrow"><span>{{ banner.head_collapsed_cta.customText }}</span></a>
+  {% set banner = craft.entries().section('headBanner').status('live').one() %}
+    {% if banner|length %}
+    <div class="head-banner-small">
+      <div class="head-banner-small_container">
+        <div class="head-banner-small_container_left">{{ banner.head_collapsed_title }}</div>
+        <div class="head-banner-small_container_right">
+          <a href="{{ banner.head_collapsed_cta.getUrl() }}" target="_blank" class="button orange arrow"><span>{{ banner.head_collapsed_cta.customText }}</span></a>
+        </div>
       </div>
     </div>
-  </div>
+    {% endif %}  
 {% endif %}   
