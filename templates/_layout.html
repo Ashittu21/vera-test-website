@@ -16,8 +16,10 @@
 
 
 {% block body %}
-  
-	{% include 'modal-popup/index.twig' %}
+	
+	{% if entry.uri != "__home__" %}
+		{% include 'modal-popup/index.twig' %}
+	{% endif %}
 
 	{% block nav %}
 		{% if entry is not defined or entry is not null and (entry.type.handle not in ['donate','donateAppeal'] or entry.donateNavToggle == true) %}

@@ -1,11 +1,20 @@
 
-{% set url = craft.app.request.url %}
-{% if url != "/" %}
 
-  {% set modal = craft.entries({
+{% if craft.app.request.isPreview %}
+  {% set modal = craft.entries().section('modalPopup').enabledForSite('true').one() %}
+{% else %}
+  {% set modal = craft.entries().section('modalPopup').status('live').one() %}
+{% endif %}
+
+
+  {# set modal = craft.entries({
     section: 'modalPopup',
     enabledForSite: true,
-    status: 'live'}).one() %}
+    status: 'live'}).one() #}
+
+
+
+
 
     {% if modal | length > 0 %}
 
@@ -49,6 +58,24 @@
         </div>
 
         <script>
+        {% if craft.app.request.isPreview %}
+          document.addEventListener("DOMContentLoaded", function () {
+             document.getElementById("veraModal").setAttribute("open", "open");
+               function escapeKeyHandler(e) {
+          if (e.keyCode === 27 || e.key === "Escape") {
+            closeModal();
+          }
+        }
+        function closeModal() {
+          document.getElementById("veraModal").removeAttribute("open");
+        }
+
+        function openModal() {
+          document.getElementById("veraModal").setAttribute("open", "open");
+        }
+          });
+         {% else %}
+
         document.addEventListener("keyup", escapeKeyHandler);
 
         function escapeKeyHandler(e) {
@@ -56,7 +83,6 @@
             closeModal();
           }
         }
-
         function closeModal() {
           document.getElementById("veraModal").removeAttribute("open");
         }
@@ -65,19 +91,22 @@
           document.getElementById("veraModal").setAttribute("open", "open");
         }
 
-
-
         document.addEventListener("DOMContentLoaded", function () {
 
           //get cookie 
           var cookiename = getCookie("cookiename");
           if (cookiename == "value") {} else {
 
-          setTimeout(()=>{
-        document.getElementById("veraModal").setAttribute("open", "open");
-              
+            setTimeout(() => {
+                document.getElementById("veraModal").setAttribute("open", "open");
+
                 document.cookie = "cookiename=value; expires=0; path=/";
-        },{{ modal.modal_delay }}000);
+              }, {
+                {
+                  modal.modal_delay
+                }
+              }
+              000);
 
 
           }
@@ -94,9 +123,9 @@
             return "";
           }
         });
+        {% endif %}
 
         </script>
 
     {% endif %}
 
-{% endif %}

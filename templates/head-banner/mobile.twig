@@ -1,12 +1,15 @@
-{% set url = craft.app.request.url %}
-{% if url == "/" %}
-   {% set banner = craft.entries().section('headBanner').status('live').one() %}
+{% if craft.app.request.isPreview %}
+  {% set banner = craft.entries().section('headBanner').enabledForSite('true').one() %}
+{% else %}
+  {% set banner = craft.entries().section('headBanner').status('live').one() %}
+{% endif %}
+
    {% if banner|length %}
     <a class="curtain-mobile" href="{{ banner.head_mobile_cta.getUrl() }}" target="_blank">
       <p>{{ banner.head_mobile_cta.customText }}</p>
     </a>
   {% endif %}  
-{% endif %}  
+
 
 
 
