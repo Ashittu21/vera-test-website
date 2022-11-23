@@ -58,6 +58,7 @@
         </div>
 
         <script>
+        {% if craft.app.request.isPreview %}
         document.addEventListener("keyup", escapeKeyHandler);
 
         function escapeKeyHandler(e) {
@@ -65,7 +66,7 @@
             closeModal();
           }
         }
-        
+
         function closeModal() {
           document.getElementById("veraModal").removeAttribute("open");
         }
