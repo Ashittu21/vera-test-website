@@ -58,14 +58,14 @@
         </div>
 
         <script>
-        {% if craft.app.request.isPreview %}
-          document.addEventListener("DOMContentLoaded", function () {
-             document.getElementById("veraModal").setAttribute("open", "open");
-               function escapeKeyHandler(e) {
+        document.addEventListener("keyup", escapeKeyHandler);
+
+        function escapeKeyHandler(e) {
           if (e.keyCode === 27 || e.key === "Escape") {
             closeModal();
           }
         }
+        
         function closeModal() {
           document.getElementById("veraModal").removeAttribute("open");
         }
@@ -73,6 +73,9 @@
         function openModal() {
           document.getElementById("veraModal").setAttribute("open", "open");
         }
+
+          document.addEventListener("DOMContentLoaded", function () {
+             document.getElementById("veraModal").setAttribute("open", "open");       
           });
          {% else %}
 
