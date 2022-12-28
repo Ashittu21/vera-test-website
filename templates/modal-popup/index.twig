@@ -104,7 +104,10 @@
             setTimeout(() => {
                 document.getElementById("veraModal").setAttribute("open", "open");
 
-                document.cookie = "cookiename=value; expires=0; path=/";
+                /*document.cookie = "cookiename=value; expires=0; path=/";*/
+                var now = new Date();
+                now.setTime(now.getTime() + 1 * 3600 * 1000);
+                document.cookie = "cookiename=value; expires=" + now.toUTCString() + "; path=/";
               }, {{ modal.modal_delay }}000);
           }
 
