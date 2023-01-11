@@ -453,7 +453,9 @@
 <!-- Mobile Nav -->
 
 <section class="header-v2-mobile">
+
   <div class="header-v2-mobile-row">
+
     <div class="header-v2-mobile-row-container">
       <div class="header-v2-mobile-row-container-button">
 
@@ -483,14 +485,14 @@
       <div class="w-opacity"></div>
       <div id="section-01">
         {% set navigationMain = craft.entries.section('navigationMain') %}
-        <ul class="clicky-menu no-js">
+        <ul>
           {% for node in navigationMain.level(1).all() %}
             {% if node.hasDescendants() %}
-              <li >
-                <a href="#">
+              <li class="dropMobile">
+                <a href="#" data-toggle="dropMobile">
                   {{ node.title }}
                 </a>
-                <ul>
+                <ul class="dropMobile-menu">
                   {% set nodeSubs = node.getChildren() %}
                   {% for nodeSub in nodeSubs.all() %}
                     <li>
@@ -503,7 +505,7 @@
               </li>
             {% else %}
               <li>
-                <a {{ node.navigationMain_linkField.getLinkAttributes() }}>
+                <a {{ node.navigationMain_linkField.getLinkAttributes() }} class="no-submenu">
                   {{ node.title }}
                 </a>
               </li>
@@ -514,17 +516,17 @@
         <div id="section-02">
 
           {% set navigationTop = craft.entries.section('navigationTop') %}
-          <ul class="clicky-menu no-js">
+          <ul>
             {% for node in navigationTop.level(1).all() %}
               {% if node.hasDescendants() %}
-                <li {% if node.navigation_MobileDisabled %}class="hideOnMobile"{% endif %}>
-                  <a href="#">
+                <li class="dropMobile {% if node.navigation_MobileDisabled %}hideOnMobile{% endif %}" >
+                  <a href="#" data-toggle="dropMobile">
                     {{ node.title }}
                   </a>
-                  <ul>
+                  <ul class="dropMobile-menu">
                     {% set nodeSubs = node.getChildren() %}
                     {% for nodeSub in nodeSubs.all() %}
-                      <li {% if nodeSub.navigation_MobileDisabled %}class="hideOnMobile"{% endif %}>
+                      <li class="{% if nodeSub.navigation_MobileDisabled %}hideOnMobile{% endif %}">
                         <a {{ nodeSub.navigationMain_linkField.getLinkAttributes() }}>
                           {{ nodeSub.title }}
                         </a>
@@ -564,3 +566,35 @@
       {% include 'head-banner/mobile.twig' %}
   {% endif %}
 
+
+<script>
+// Dropdown Menu
+var dropdown = document.querySelectorAll('.dropMobile');
+var dropdownArray = Array.prototype.slice.call(dropdown,0);
+dropdownArray.forEach(function(el){
+	var button = el.querySelector('a[data-toggle="dropMobile"]'),
+			menu = el.querySelector('.dropMobile-menu'),
+			arrow = button.querySelector('i.icon-arrow');
+
+	button.onclick = function(event) {
+		if(!menu.hasClass('show')) {
+			menu.classList.add('show');
+			menu.classList.remove('hide');
+			arrow.classList.add('open');
+			arrow.classList.remove('close');
+			event.preventDefault();
+		}
+		else {
+			menu.classList.remove('show');
+			menu.classList.add('hide');
+			arrow.classList.remove('open');
+			arrow.classList.add('close');
+			event.preventDefault();
+		}
+	};
+})
+
+Element.prototype.hasClass = function(className) {
+    return this.className && new RegExp("(^|\\s)" + className + "(\\s|$)").test(this.className);
+};
+</script>

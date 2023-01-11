@@ -6691,8 +6691,8 @@ const format = n => (+n).toLocaleString(undefined,{ maximumFractionDigits: 0 })
 			toggleSubmenu( button );
 		};
 
-		function toggleSubmenu( button ) {
 
+		function toggleSubmenu( button ) {
 			const submenu = document.getElementById( button.getAttribute( 'aria-controls' ) );
 			if ( 'true' === button.getAttribute( 'aria-expanded' ) ) { //submenu es open
 				button.setAttribute( 'aria-expanded', false );
@@ -6707,8 +6707,8 @@ const format = n => (+n).toLocaleString(undefined,{ maximumFractionDigits: 0 })
 
 		};
 
-		function preventOffScreenSubmenu( submenu ) {
 
+		function preventOffScreenSubmenu( submenu ) {
 			const 	screenWidth =	window.innerWidth ||
 									document.documentElement.clientWidth ||
 									document.body.clientWidth,
@@ -6740,12 +6740,12 @@ const format = n => (+n).toLocaleString(undefined,{ maximumFractionDigits: 0 })
 		}
 
     function closeOpenMenu( e ) {
-
 			if ( currentMenuItem && ! e.target.closest( '#' + container.id ) ) {
 				toggleSubmenu( currentMenuItem );
 			}
 
 		};
+
 
 		/*===========================================================
 		=            Modify Menu Markup & Bind Listeners            =
@@ -6775,7 +6775,7 @@ const format = n => (+n).toLocaleString(undefined,{ maximumFractionDigits: 0 })
 
 
 
-    		/**
+    /**
 		 * Why do this? See https://justmarkup.com/articles/2019-01-21-the-link-to-button-enhancement/
 		 */
 		function convertLinkToButton( menuItem ) {
@@ -6835,7 +6835,6 @@ const format = n => (+n).toLocaleString(undefined,{ maximumFractionDigits: 0 })
 		const menus = document.querySelectorAll( '.clicky-menu' );
 
 		menus.forEach(menu => {
-		
 			let clickyMenu = new ClickyMenus(menu);
 			clickyMenu.init();
 		});

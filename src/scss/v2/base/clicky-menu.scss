@@ -13,10 +13,11 @@
  *
  * Triggers menus on hover rather than click. Supports keyboard navigation in modern browsers.
  */
+
 .clicky-menu.no-js li:hover > ul {
 	visibility: visible;
 }
-.clicky-menu.no-js li:focus-within > ul { /*[2]*/
+.clicky-menu.no-js li:focus-within > ul { 
 	visibility: visible;
 }
 
@@ -25,6 +26,8 @@
  */
 .clicky-menu ul[aria-hidden="false"] {
 	visibility: visible;
+	position: relative;
+	background-color: red;
 }
 
 /* Prevent offscreen-submenus */

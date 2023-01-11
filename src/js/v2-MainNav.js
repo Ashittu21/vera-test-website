@@ -41,8 +41,8 @@
 			toggleSubmenu( button );
 		};
 
-		function toggleSubmenu( button ) {
 
+		function toggleSubmenu( button ) {
 			const submenu = document.getElementById( button.getAttribute( 'aria-controls' ) );
 			if ( 'true' === button.getAttribute( 'aria-expanded' ) ) { //submenu es open
 				button.setAttribute( 'aria-expanded', false );
@@ -57,8 +57,8 @@
 
 		};
 
-		function preventOffScreenSubmenu( submenu ) {
 
+		function preventOffScreenSubmenu( submenu ) {
 			const 	screenWidth =	window.innerWidth ||
 									document.documentElement.clientWidth ||
 									document.body.clientWidth,
@@ -90,12 +90,12 @@
 		}
 
     function closeOpenMenu( e ) {
-
 			if ( currentMenuItem && ! e.target.closest( '#' + container.id ) ) {
 				toggleSubmenu( currentMenuItem );
 			}
 
 		};
+
 
 		/*===========================================================
 		=            Modify Menu Markup & Bind Listeners            =
@@ -125,7 +125,7 @@
 
 
 
-    		/**
+    /**
 		 * Why do this? See https://justmarkup.com/articles/2019-01-21-the-link-to-button-enhancement/
 		 */
 		function convertLinkToButton( menuItem ) {
@@ -185,7 +185,6 @@
 		const menus = document.querySelectorAll( '.clicky-menu' );
 
 		menus.forEach(menu => {
-		
 			let clickyMenu = new ClickyMenus(menu);
 			clickyMenu.init();
 		});

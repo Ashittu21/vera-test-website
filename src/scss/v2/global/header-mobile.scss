@@ -97,32 +97,17 @@
   &.show-menu {
     width: 100%;
     transform: translateY(0);
-  }
-
-  #section-01 {
-    padding: 20px;
     background-color: #2E1D97;
+  }
+/*
+  #section-01 {
+ 
 
-    .clicky-menu {
-      justify-content: stretch;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-      width: 100%;
-      @media(max-width: $mobile-medium) {
-        max-width: 80%;
-        margin: 0 auto;
-      }
-    
-    }
 
-    @media (min-width: $menu-mobile-breakpoint) {
-      .clicky-menu {
-        display: flex;
-      }
-    }
 
-    /* General Link & Button Styles */
+
+
+ 
     .clicky-menu a,
     .clicky-menu button {
       color: #FFF;
@@ -161,7 +146,7 @@
       background-position: right 10px center;
     }
 
-    /* Top Level Items */
+ 
     .clicky-menu>li {
       position: relative;
       flex: 1 1 auto;
@@ -198,7 +183,7 @@
       }
     }
 
-    /* Submenu Styles */
+ 
     .clicky-menu ul {
       min-width: 100%;
       width: 12em;
@@ -212,7 +197,7 @@
       .clicky-menu {}
     }
 
-    /* Responsive Submenu Behavior */
+   
     .clicky-menu ul[aria-hidden="false"] {
       position: static;
       width: 100%;
@@ -221,13 +206,13 @@
 
     @media (min-width: $menu-mobile-breakpoint) {
       .clicky-menu ul[aria-hidden="false"] {
-        position: absolute;
+        position: relative;
         //width: auto;
         width: 413px;
       }
     }
 
-    /* Submenu Links */
+
     .clicky-menu ul li {
       padding: 10px 10px 10px 30px;
       font-size: 14px;
@@ -284,7 +269,7 @@
       }
     }
 
-    /* General Link & Button Styles */
+  
     .clicky-menu a,
     .clicky-menu button {
       color: #FFF;
@@ -322,7 +307,7 @@
       background-position: right 10px center;
     }
 
-    /* Top Level Items */
+
     .clicky-menu>li {
       position: relative;
       flex: 1 1 auto;
@@ -331,35 +316,11 @@
       flex-wrap: wrap;
     }
 
-    .clicky-menu>li>a,
-    .clicky-menu>li>button {
-      flex: 1 0 auto;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      border: 0;
-      font-size: inherit;
-      line-height: 1.5;
-      cursor: pointer;
-      &:focus {
-        outline: none;
-        box-shadow: none;
-      }
-    }
 
-    @media (min-width: 540px) {
 
-      .clicky-menu>li>a,
-      .clicky-menu>li>button {
-        justify-content: center;
-        &:focus {
-          outline: none;
-          box-shadow: none;
-        }
-      }
-    }
+   
 
-    /* Submenu Styles */
+ 
     .clicky-menu ul {
       min-width: 100%;
       width: 12em;
@@ -370,22 +331,16 @@
       padding: 10px 0px;
     }
 
-    /* Responsive Submenu Behavior */
+   
     .clicky-menu ul[aria-hidden="false"] {
       position: static;
       width: 100%;
       flex: 0 0 auto;
     }
 
-    @media (min-width: 540px) {
-      .clicky-menu ul[aria-hidden="false"] {
-        position: absolute;
-        width: 413px;
 
-      }
-    }
 
-    /* Submenu Links */
+ 
     .clicky-menu ul li {
       padding: 10px 10px 10px 30px;
 
@@ -421,7 +376,7 @@
       }
     }
   }
-
+*/
   #section-search {
     padding: 20px;
     background-color: #2E1D97;
@@ -439,6 +394,125 @@
       }
     }   
   }
+
+
+
+
+
+/* New Nav */
+
+
+#section-01,
+#section-02 {
+ 
+ // padding: 20px;
+	max-width: 100%;
+  margin: 0 auto;
+  & > ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+  }
+
+  .no-submenu{
+    color: #FFF;
+    padding: 15px 30px;
+    display: block;
+  }
+  
+}
+
+#section-01{
+  background-color: #2e1e97;
+  padding-top: 2rem;
+}
+
+
+#section-02{
+  background-color: #3E2BB1;
+  [data-toggle="dropMobile"] {
+    background-color: #3E2BB1;
+  }
+}
+
+
+
+$openBg: #3E2BB1;
+
+@mixin ul-nostyle {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+
+
+.dropMobile {
+	a {
+		text-decoration: none;
+    color: white;
+
+    background-image: url("../img/v2/menu-close.svg");
+    background-repeat: no-repeat;
+    background-size: 16px;
+    background-position: 85% center;
+	}
+
+	[data-toggle="dropMobile"] {
+		position: relative;
+		display: block;
+		color: white;
+    background-color: #2E1D97;
+    padding: 15px 30px;
+	}
+
+	.icon-arrow {
+		position: absolute;
+		display: block;
+		font-size: 0.7em;
+		color: #fff;
+		top: 14px;
+		right: 10px;
+
+	
+
+		&:before {
+			content: '\25BC';
+		}
+	}
+
+	.dropMobile-menu {
+		max-height: 0;
+		overflow: hidden;
+		list-style: none;
+    padding: 0;
+    margin: 0;
+
+		li {
+			padding: 0;
+
+			a {
+				display: block;
+				color: #FFF;
+				background: $openBg;
+        padding: 15px 30px;
+			}
+		}
+	}
+
+	.show {
+		display: block;
+		max-height: 9999px;
+	}
+
+	.hide {
+		max-height: 0;
+	}
+}
+
+/* New Nav */
+
+
 }
 
 .w-opacity {
