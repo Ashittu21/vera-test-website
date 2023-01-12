@@ -37250,284 +37250,6 @@ div.headingHero > div:nth-child(3) > div {
           transform: translateY(-200%);
   z-index: 100;
   position: relative;
-  /*
-  #section-01 {
- 
-
-
-
-
-
- 
-    .clicky-menu a,
-    .clicky-menu button {
-      color: #FFF;
-      text-decoration: none;
-      font-size: 17px;
-      font-weight: bold;
-      background: transparent;
-      height: 67px;
-      margin: 0;
-      padding: 0;
-      &:focus {
-        outline: none;
-        box-shadow: none;
-      }
-    }
-
-    .clicky-menu a:hover,
-    .clicky-menu :hover {
-      background-color: #2E1D97;
-
-    }
-
-    .clicky-menu [aria-expanded="false"] {
-      background-color: #2E1D97;
-      background-image: url("../img/v2/menu-mobile-close.svg");
-      background-repeat: no-repeat;
-      background-size: inherit;
-      background-position: right 10px center;
-    }
-
-    .clicky-menu [aria-expanded="true"] {
-      background-color: #2E1D97;
-      background-image: url("../img/v2/menu-mobile-open.svg");
-      background-repeat: no-repeat;
-      background-size: inherit;
-      background-position: right 10px center;
-    }
-
- 
-    .clicky-menu>li {
-      position: relative;
-      flex: 1 1 auto;
-      display: flex;
-      justify-content: stretch;
-      flex-wrap: wrap;
-    }
-
-    .clicky-menu>li>a,
-    .clicky-menu>li>button {
-      flex: 1 0 auto;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      border: 0;
-      font-size: inherit;
-      line-height: 1.5;
-      cursor: pointer;
-      &:focus {
-        outline: none;
-        box-shadow: none;
-      }
-    }
-
-    @media (min-width: $menu-mobile-breakpoint) {
-
-      .clicky-menu>li>a,
-      .clicky-menu>li>button {
-        justify-content: center;
-        &:focus {
-          outline: none;
-          box-shadow: none;
-        }
-      }
-    }
-
- 
-    .clicky-menu ul {
-      min-width: 100%;
-      width: 12em;
-      margin-top: 0;
-      padding: 0;
-      list-style: none;
-      background-color: #2E1D97;
-    }
-
-    @media (min-width: $menu-mobile-breakpoint) {
-      .clicky-menu {}
-    }
-
-   
-    .clicky-menu ul[aria-hidden="false"] {
-      position: static;
-      width: 100%;
-      flex: 0 0 auto;
-    }
-
-    @media (min-width: $menu-mobile-breakpoint) {
-      .clicky-menu ul[aria-hidden="false"] {
-        position: relative;
-        //width: auto;
-        width: 413px;
-      }
-    }
-
-
-    .clicky-menu ul li {
-      padding: 10px 10px 10px 30px;
-      font-size: 14px;
-
-      &:hover {
-        background-color: #3E2BB1;
-
-        .hover-arrow {
-          padding-right: 30px;
-          width: fit-content;
-          background-image: url("../img/v2/arrow.svg");
-          background-repeat: no-repeat;
-          background-size: inherit;
-          background-position: right 0px center;
-        }
-      }
-
-      a {
-        display: block;
-        font-size: 14px;
-        background-color: transparent;
-        height: inherit;
-
-        &:hover {
-          background-color: transparent;
-        }
-      }
-    }
-  }
-
-  #section-02 {
-    background-color: #3E2BB1;
-    width: 100%;
-    padding: 20px;
-    height: fit-content;
-    z-index: 300;
-    position: relative;
-
-    .clicky-menu {
-      justify-content: stretch;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-      width: 100%;
-      @media(max-width: $mobile-medium) {
-        max-width: 80%;
-        margin: 0 auto;
-      }
-    }
-
-    @media (min-width: $menu-mobile-breakpoint) {
-      .clicky-menu {
-        display: flex;
-      }
-    }
-
-  
-    .clicky-menu a,
-    .clicky-menu button {
-      color: #FFF;
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 400;
-      background: transparent;
-      height: 40px;
-      padding: 0;
-      &:focus {
-        outline: none;
-        box-shadow: none;
-      }
-    }
-
-    .clicky-menu a:hover,
-    .clicky-menu :hover {
-      background-color: transparent;
-    }
-
-    .clicky-menu [aria-expanded="false"] {
-      background-color: transparent;
-      background-image: url("../img/v2/menu-mobile-close.svg");
-      background-repeat: no-repeat;
-      background-size: inherit;
-      background-position: right 10px center;
-    }
-
-
-    .clicky-menu [aria-expanded="true"] {
-      background-color: transparent;
-      background-image: url("../img/v2/menu-mobile-open.svg");
-      background-repeat: no-repeat;
-      background-size: inherit;
-      background-position: right 10px center;
-    }
-
-
-    .clicky-menu>li {
-      position: relative;
-      flex: 1 1 auto;
-      display: flex;
-      justify-content: stretch;
-      flex-wrap: wrap;
-    }
-
-
-
-   
-
- 
-    .clicky-menu ul {
-      min-width: 100%;
-      width: 12em;
-      margin-top: 0;
-      padding: 0;
-      list-style: none;
-      background-color: transparent;
-      padding: 10px 0px;
-    }
-
-   
-    .clicky-menu ul[aria-hidden="false"] {
-      position: static;
-      width: 100%;
-      flex: 0 0 auto;
-    }
-
-
-
- 
-    .clicky-menu ul li {
-      padding: 10px 10px 10px 30px;
-
-      &:hover {
-        background-color: #3E2BB1;
-
-        .hover-arrow {
-          padding-right: 30px;
-          width: fit-content;
-          background-image: url("../img/v2/arrow.svg");
-          background-repeat: no-repeat;
-          background-size: inherit;
-          background-position: right 0px center;
-        }
-      }
-
-      a {
-        display: block;
-        background-color: transparent;
-        height: inherit;
-
-        span {
-          font-size: 14px;
-          font-weight: 400;
-          word-wrap: break-word;
-          height: inherit;
-        }
-
-        &:hover {
-          height: inherit;
-          background-color: transparent;
-        }
-      }
-    }
-  }
-*/
   /* New Nav */
   /* New Nav */ }
   .mobile-nav.show-menu {
@@ -37563,11 +37285,12 @@ div.headingHero > div:nth-child(3) > div {
     .mobile-nav #section-02 > ul {
       list-style: none;
       padding: 0;
-      margin: 0 0 20px 0; }
+      /*margin: 0 0 20px 0;*/
+      margin: 0px; }
     .mobile-nav #section-01 .no-submenu,
     .mobile-nav #section-02 .no-submenu {
       color: #FFF;
-      padding: 15px 30px;
+      padding: 20px 30px;
       display: block; }
   .mobile-nav #section-01 {
     background-color: #2e1e97;
@@ -37583,21 +37306,14 @@ div.headingHero > div:nth-child(3) > div {
     background-repeat: no-repeat;
     background-size: 16px;
     background-position: 85% center; }
+    .mobile-nav .dropMobile a.open {
+      background-image: url("../img/v2/menu-open.svg"); }
   .mobile-nav .dropMobile [data-toggle="dropMobile"] {
     position: relative;
     display: block;
     color: white;
     background-color: #2E1D97;
-    padding: 15px 30px; }
-  .mobile-nav .dropMobile .icon-arrow {
-    position: absolute;
-    display: block;
-    font-size: 0.7em;
-    color: #fff;
-    top: 14px;
-    right: 10px; }
-    .mobile-nav .dropMobile .icon-arrow:before {
-      content: '\25BC'; }
+    padding: 20px 30px; }
   .mobile-nav .dropMobile .dropMobile-menu {
     max-height: 0;
     overflow: hidden;
@@ -37610,7 +37326,7 @@ div.headingHero > div:nth-child(3) > div {
         display: block;
         color: #FFF;
         background: #3E2BB1;
-        padding: 15px 30px; }
+        padding: 20px 30px; }
   .mobile-nav .dropMobile .show {
     display: block;
     max-height: 9999px; }
