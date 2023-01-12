@@ -489,7 +489,7 @@
           {% for node in navigationMain.level(1).all() %}
             {% if node.hasDescendants() %}
               <li class="dropMobile">
-                <a href="#" data-toggle="dropMobile">
+                <a href="javascript:;" data-toggle="dropMobile">
                   {{ node.title }}
                 </a>
                 <ul class="dropMobile-menu">
@@ -520,7 +520,7 @@
             {% for node in navigationTop.level(1).all() %}
               {% if node.hasDescendants() %}
                 <li class="dropMobile {% if node.navigation_MobileDisabled %}hideOnMobile{% endif %}" >
-                  <a href="#" data-toggle="dropMobile">
+                  <a href="javascript:;" data-toggle="dropMobile">
                     {{ node.title }}
                   </a>
                   <ul class="dropMobile-menu">
