@@ -2,7 +2,7 @@
     <div class="img-outer">
 	    {% set image = office.heroImage.first ?? null %}
         <img src="{% if image %}{{ image.url }}{% else %}http://placehold.it/500x500{% endif %}" alt=""/>
-        {% include 'includes/snippets/map' with {address: office.streetAddress~', '~office.city~', '~office.state~' '~office.zipCode} %}
+        {% include 'includes/snippets/map' with {address: office.streetAddress~', '~office.city~', '~office.state~' '~office.zipCode , 'coords': office.coordinates} %}
     </div>
 
     <div class="contact-location-info col-outer">

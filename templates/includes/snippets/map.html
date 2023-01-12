@@ -28,9 +28,8 @@
 	function initMap() {
 		
 		geocoder = new google.maps.Geocoder();
-		
 		var address = '{{ address }}';
-		
+		//
 		geocoder.geocode({'address': address}, function(results, status) {
 			
 			if (status == google.maps.GeocoderStatus.OK) {
@@ -51,7 +50,7 @@
 	function makeMap(coords) {
 	
 		map.map = new google.maps.Map(mapwrap, {
-			center: coords,
+			center: '{{ coords }}',
 			zoom: 16,
 			styles: mapstyles,
 			disableDefaultUI: true,
@@ -61,7 +60,7 @@
 			draggable: false,
 		});
 		
-		map.coords = coords;
+		map.coords = '{{ coords }}';
 		
 		var marker = new google.maps.Marker({
 			map: map.map,
