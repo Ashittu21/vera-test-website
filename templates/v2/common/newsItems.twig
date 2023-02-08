@@ -20,6 +20,8 @@
                 {% elseif newsItem.streamImageSquare is not null %}
                     {% set imageset = newsItem.streamImageSquare.first %}
                 {% endif %}
+								{% case 'initiatives' %}
+										{% set imageset = newsItem.heroType1_image.first %}           
 						{% endswitch %}
 
           <a href="{{ newsItem.url }}" class="latestNews-item">
