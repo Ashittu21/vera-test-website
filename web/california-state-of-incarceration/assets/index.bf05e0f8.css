@@ -1450,32 +1450,32 @@ li.item-tab.svelte-17m17xl > span.svelte-17m17xl {
   color: #fff;
   border-bottom: 1px solid #2e1d97;
 }
-#county__container.svelte-o9m9yf.svelte-o9m9yf,
-#county_header.svelte-o9m9yf.svelte-o9m9yf,
-#county_footer.svelte-o9m9yf.svelte-o9m9yf {
+#county__container.svelte-rtr6r5.svelte-rtr6r5,
+#county_header.svelte-rtr6r5.svelte-rtr6r5,
+#county_footer.svelte-rtr6r5.svelte-rtr6r5 {
   width: 90%;
   margin: auto;
 }
-#county__container__pdf.svelte-o9m9yf.svelte-o9m9yf {
+#county__container__pdf.svelte-rtr6r5.svelte-rtr6r5 {
   display: none;
 }
-h1.county__title_pdf.svelte-o9m9yf.svelte-o9m9yf {
+h1.county__title_pdf.svelte-rtr6r5.svelte-rtr6r5 {
   font-size: 40px;
 }
-#pdf-content.svelte-o9m9yf.svelte-o9m9yf {
+#pdf-content.svelte-rtr6r5.svelte-rtr6r5 {
   margin-top: 20px;
 }
-.top.svelte-o9m9yf.svelte-o9m9yf {
+.top.svelte-rtr6r5.svelte-rtr6r5 {
   display: flex;
 }
-.top.svelte-o9m9yf > div.svelte-o9m9yf {
+.top.svelte-rtr6r5 > div.svelte-rtr6r5 {
   width: 50%;
 }
-#download-button.svelte-o9m9yf.svelte-o9m9yf {
+#download-button.svelte-rtr6r5.svelte-rtr6r5 {
   border: 1px solid #ccc;
   margin-top: 20px;
 }
-#disparitylegend.svelte-o9m9yf.svelte-o9m9yf {
+#disparitylegend.svelte-rtr6r5.svelte-rtr6r5 {
   margin-top: 0;
   padding-top: 5px;
   background-color: #fafafa;
@@ -1484,21 +1484,21 @@ h1.county__title_pdf.svelte-o9m9yf.svelte-o9m9yf {
   margin-left: 210px;
 }
 @media only screen and (max-width: 800px) {
-  #county__container.svelte-o9m9yf.svelte-o9m9yf,
-  #county_header.svelte-o9m9yf.svelte-o9m9yf,
-  #county_footer.svelte-o9m9yf.svelte-o9m9yf {
+  #county__container.svelte-rtr6r5.svelte-rtr6r5,
+  #county_header.svelte-rtr6r5.svelte-rtr6r5,
+  #county_footer.svelte-rtr6r5.svelte-rtr6r5 {
     width: 95%;
     margin: auto;
   }
 }
 @media only screen and (max-width: 600px) {
-  .top.svelte-o9m9yf.svelte-o9m9yf {
+  .top.svelte-rtr6r5.svelte-rtr6r5 {
     flex-direction: column;
   }
-  .top.svelte-o9m9yf > div.svelte-o9m9yf {
+  .top.svelte-rtr6r5 > div.svelte-rtr6r5 {
     width: 100%;
   }
-  h1.svelte-o9m9yf.svelte-o9m9yf {
+  h1.svelte-rtr6r5.svelte-rtr6r5 {
     font-size: 2.8em;
   }
 }
