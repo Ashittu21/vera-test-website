@@ -454,7 +454,7 @@ li.local.svelte-r95kt6 span.svelte-r95kt6 {
   margin-left: 2px;
   width: 30px;
   cursor: pointer;
-  background-image: url(/images/fwd.png);
+  background-image: url(/california-state-of-incarceration/images/fwd.png);
   background-repeat: no-repeat;
   background-size: contain;
 }
@@ -464,7 +464,7 @@ li.local.svelte-r95kt6 span.svelte-r95kt6 {
   height: 15px;
   width: 30px;
   cursor: pointer;
-  background-image: url(/images/bckwd.png);
+  background-image: url(/california-state-of-incarceration/images/bckwd.png);
   background-repeat: no-repeat;
   background-size: contain;
 }
@@ -1669,13 +1669,13 @@ a.svelte-7hk6rx.svelte-7hk6rx.svelte-7hk6rx.svelte-7hk6rx {
   margin-top: 36px;
 }
 .button.arrow.svelte-7hk6rx.svelte-7hk6rx.svelte-7hk6rx.svelte-7hk6rx {
-  background-image: url(/images/arrow.svg);
+  background-image: url(/california-state-of-incarceration/images/arrow.svg);
   background-repeat: no-repeat;
   background-size: inherit;
   background-position: right 20px center;
 }
 .button.arrow.svelte-7hk6rx.svelte-7hk6rx.svelte-7hk6rx.svelte-7hk6rx:hover {
-  background-image: url(/images/arrow-black.svg);
+  background-image: url(/california-state-of-incarceration/images/arrow-black.svg);
   background-color: #abffeb !important;
   color: #0e002c;
 }
@@ -1756,7 +1756,7 @@ nav#primary.svelte-7hk6rx
   left: 10px;
   top: 0;
   right: 0;
-  content: url(/images/menu-close.svg);
+  content: url(/california-state-of-incarceration/images/menu-close.svg);
 }
 nav#primary.svelte-7hk6rx
   ul
@@ -1766,7 +1766,7 @@ nav#primary.svelte-7hk6rx
   left: 10px;
   top: 0;
   right: 0;
-  content: url(/images/menu-open.svg);
+  content: url(/california-state-of-incarceration/images/menu-open.svg);
 }
 nav#secondary.svelte-7hk6rx.svelte-7hk6rx.svelte-7hk6rx.svelte-7hk6rx {
   margin: 0;
@@ -1879,7 +1879,7 @@ nav#secondary.svelte-7hk6rx
   left: 10px;
   top: 0;
   right: 0;
-  content: url(/images/menu-close.svg);
+  content: url(/california-state-of-incarceration/images/menu-close.svg);
 }
 .hover-arrow.svelte-7hk6rx.svelte-7hk6rx.svelte-7hk6rx.svelte-7hk6rx {
   margin-bottom: 5px;
@@ -1892,7 +1892,7 @@ nav#secondary.svelte-7hk6rx
   .hover-arrow.svelte-7hk6rx.svelte-7hk6rx.svelte-7hk6rx {
   padding-right: 30px;
   width: fit-content;
-  background-image: url(/images/arrow.svg);
+  background-image: url(/california-state-of-incarceration/images/arrow.svg);
   background-repeat: no-repeat;
   background-size: inherit;
   background-position: right 0px center;
@@ -1961,7 +1961,7 @@ ul.svelte-lsm6da li a.svelte-lsm6da.svelte-lsm6da:hover:after {
 }
 #transformative.svelte-lsm6da button.svelte-lsm6da.svelte-lsm6da {
   background-color: #ef4136;
-  background-image: url(/images/arrow-white.svg);
+  background-image: url(/california-state-of-incarceration/images/arrow-white.svg);
   background-repeat: no-repeat;
   background-position: right 20px center;
   color: #fff;
