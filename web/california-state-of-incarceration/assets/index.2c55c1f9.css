@@ -176,16 +176,26 @@ input:checked ~ .tab-content {
 text.legend {
   font-size: 14px;
 }
-#disparitylegend {
+#disparitylegend,
+#facilitylegend {
   display: flex;
   margin-top: 20px;
 }
 .dislegend-li,
-.dotlegend-li {
+.dotlegend-li,
+.fdotlegend-li {
   display: flex;
   font-size: 14px;
 }
-.dotlegend-li > .circ {
+.fcirc {
+  margin-right: 60px !important;
+}
+.ftext {
+  margin-left: 20px;
+  margin-top: -5px;
+}
+.dotlegend-li > .circ,
+.fdotlegend-li > .fcirc {
   border-radius: 50%;
   width: 12px;
   height: 12px;
@@ -194,16 +204,20 @@ text.legend {
   margin-left: 5px;
   background-color: #000;
 }
-.dotlegend-li > .circ.jail {
+.dotlegend-li > .circ.jail,
+.fdotlegend-li > .fcirc.jail {
   background-color: #abffeb;
 }
-.dotlegend-li > .circ.prison {
+.dotlegend-li > .circ.prison,
+.fdotlegend-li > .fcirc.prison {
   background-color: #265bf2;
 }
-.dotlegend-li > .circ.juvenile {
+.dotlegend-li > .circ.juvenile,
+.fdotlegend-li > .fcirc.juvenile {
   background-color: #ef4136;
 }
-.dotlegend-li > .circ.ice {
+.dotlegend-li > .circ.ice,
+.fdotlegend-li > .fcirc.ice {
   background-color: #ff9e44;
 }
 .dislegend-li > .box.black {
@@ -899,19 +913,19 @@ main.svelte-6bybw8.svelte-6bybw8 {
 text.svelte-3mprwh {
   font-size: 14px;
 }
-#container.svelte-1x4lvdz.svelte-1x4lvdz {
+#container.svelte-yqfyg7.svelte-yqfyg7 {
   display: flex;
   flex-direction: column;
 }
-#legend.svelte-1x4lvdz.svelte-1x4lvdz {
+#legend.svelte-yqfyg7.svelte-yqfyg7 {
   margin-left: 65px;
 }
-#legend.svelte-1x4lvdz.svelte-1x4lvdz,
-#up.svelte-1x4lvdz.svelte-1x4lvdz,
-#down.svelte-1x4lvdz.svelte-1x4lvdz {
+#legend.svelte-yqfyg7.svelte-yqfyg7,
+#up.svelte-yqfyg7.svelte-yqfyg7,
+#down.svelte-yqfyg7.svelte-yqfyg7 {
   display: flex;
 }
-.tooltip.svelte-1x4lvdz.svelte-1x4lvdz {
+.tooltip.svelte-yqfyg7.svelte-yqfyg7 {
   position: absolute;
   padding: 15px;
   font: 12px sans-serif;
@@ -924,25 +938,25 @@ text.svelte-3mprwh {
   max-width: 300px;
   visibility: hidden;
 }
-.box.svelte-1x4lvdz.svelte-1x4lvdz {
+.box.svelte-yqfyg7.svelte-yqfyg7 {
   width: 20px;
   height: 20px;
   margin-right: 5px;
 }
-#up.svelte-1x4lvdz .box.svelte-1x4lvdz {
+#up.svelte-yqfyg7 .box.svelte-yqfyg7 {
   background-color: #ef4136;
 }
-#down.svelte-1x4lvdz .box.svelte-1x4lvdz {
+#down.svelte-yqfyg7 .box.svelte-yqfyg7 {
   background-color: #0e002c;
   margin-left: 10px;
 }
-.triangleChart.svelte-1x4lvdz.svelte-1x4lvdz {
+.triangleChart.svelte-yqfyg7.svelte-yqfyg7 {
   padding-right: 80px;
 }
-#downloads.svelte-1x4lvdz.svelte-1x4lvdz {
+#downloads.svelte-yqfyg7.svelte-yqfyg7 {
   display: flex;
 }
-#download_image.svelte-1x4lvdz.svelte-1x4lvdz {
+#download_image.svelte-yqfyg7.svelte-yqfyg7 {
   border-bottom: 1px solid #000;
   margin-top: 40px;
   cursor: pointer;
@@ -974,20 +988,20 @@ text.svelte-3mprwh {
   margin-top: 40px;
   cursor: pointer;
 }
-#navigation.svelte-1g64jbu.svelte-1g64jbu {
+#navigation.svelte-1wwz2e5.svelte-1wwz2e5 {
   width: 100%;
 }
-#aspects.svelte-1g64jbu.svelte-1g64jbu {
+#aspects.svelte-1wwz2e5.svelte-1wwz2e5 {
   display: flex;
 }
-#aspects.svelte-1g64jbu button.svelte-1g64jbu {
+#aspects.svelte-1wwz2e5 button.svelte-1wwz2e5 {
   border-radius: 0;
   width: calc(33.3% - 1px);
   background-color: #0e002c;
   color: #fff;
   border-right: 1px solid #fff7f0;
 }
-#aspects.svelte-1g64jbu button.svelte-1g64jbu:hover {
+#aspects.svelte-1wwz2e5 button.svelte-1wwz2e5:hover {
   background-color: #2e1d97;
 }
 #about-data.svelte-u7rjb0 {
@@ -1023,19 +1037,19 @@ p.svelte-6lp8xr {
     padding: 1em;
   }
 }
-#county.svelte-1wkgzxj {
+#county.svelte-1un33vs {
   display: flex;
 }
-.county.svelte-1wkgzxj:hover {
+.county.svelte-1un33vs:hover {
   fill: #ddd;
   stroke-width: 1px;
 }
-#tooltip.svelte-1wkgzxj {
+#tooltip.svelte-1un33vs {
   position: fixed;
   background-color: #fff;
   padding: 5px 8px;
 }
-.tooltip.svelte-1wkgzxj {
+.tooltip.svelte-1un33vs {
   position: absolute;
   padding: 15px;
   font: 14px sans-serif;
@@ -1048,20 +1062,25 @@ p.svelte-6lp8xr {
   max-width: 340px;
   visibility: hidden;
 }
-#zoom-buttons.svelte-1wkgzxj {
+#zoom-buttons.svelte-1un33vs {
   position: absolute;
   margin-left: 10px;
   margin-top: 10px;
 }
-button.svelte-1wkgzxj {
+button.svelte-1un33vs {
   padding: 0;
   width: 35px;
   height: 35px;
   border-radius: 0;
   border: 1px solid #999;
 }
+#countyselectdropdown.svelte-1un33vs {
+  margin: -39px 0 0;
+  position: absolute;
+  border: 0;
+}
 @media only screen and (max-width: 600px) {
-  #zoom-buttons.svelte-1wkgzxj {
+  #zoom-buttons.svelte-1un33vs {
     position: absolute;
     right: 35px;
     margin-top: 10px;
