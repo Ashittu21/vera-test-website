@@ -101,12 +101,6 @@ strong {
   height: 100vh
 }
 
-@media only screen and (max-width: 990px) {
-  #app {
-    overflow-x: hidden
-  }
-}
-
 button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -1264,7 +1258,7 @@ p.svelte-6lp8xr {
   font-weight: 700
 }
 
-.label.svelte-1483xmh.svelte-1483xmh {
+.label.svelte-5dn08.svelte-5dn08 {
   display: inline-block;
   height: 100px;
   left: calc((50% - 50px) + (75px * var(--sin)));
@@ -1274,31 +1268,31 @@ p.svelte-6lp8xr {
   width: 100px
 }
 
-.points.svelte-1483xmh:not(:hover)>.label.svelte-1483xmh {
+.points.svelte-5dn08:not(:hover)>.label.svelte-5dn08 {
   --cos: 0 !important;
   --sin: 0 !important
 }
 
-.points.svelte-1483xmh:not(:hover)>.label.svelte-1483xmh:not(.selected) {
+.points.svelte-5dn08:not(:hover)>.label.svelte-5dn08:not(.selected) {
   z-index: -1
 }
 
-#county.svelte-1483xmh.svelte-1483xmh {
+#county.svelte-5dn08.svelte-5dn08 {
   display: flex
 }
 
-.county.svelte-1483xmh.svelte-1483xmh:hover {
+.county.svelte-5dn08.svelte-5dn08:hover {
   fill: #ddd;
   stroke-width: 1px
 }
 
-#tooltip.svelte-1483xmh.svelte-1483xmh {
+#tooltip.svelte-5dn08.svelte-5dn08 {
   position: fixed;
   background-color: #fff;
   padding: 5px 8px
 }
 
-.tooltip.svelte-1483xmh.svelte-1483xmh {
+.tooltip.svelte-5dn08.svelte-5dn08 {
   position: absolute;
   padding: 15px;
   font: 14px sans-serif;
@@ -1312,13 +1306,13 @@ p.svelte-6lp8xr {
   visibility: hidden
 }
 
-#zoom-buttons.svelte-1483xmh.svelte-1483xmh {
+#zoom-buttons.svelte-5dn08.svelte-5dn08 {
   position: absolute;
   margin-left: 10px;
   margin-top: 10px
 }
 
-button.svelte-1483xmh.svelte-1483xmh {
+button.svelte-5dn08.svelte-5dn08 {
   padding: 0;
   width: 35px;
   height: 35px;
@@ -1326,14 +1320,15 @@ button.svelte-1483xmh.svelte-1483xmh {
   border: 1px solid #999
 }
 
-#countyselectdropdown.svelte-1483xmh.svelte-1483xmh {
+#countyselectdropdown.svelte-5dn08.svelte-5dn08 {
   margin: -39px 0 0;
   position: absolute;
   border: 0
 }
 
 @media only screen and (max-width: 600px) {
-  #zoom-buttons.svelte-1483xmh.svelte-1483xmh {
+  #zoom-buttons.svelte-5dn08.svelte-5dn08 {
+    display: none;
     position: absolute;
     right: 35px;
     margin-top: 10px
@@ -1910,7 +1905,7 @@ h2.svelte-177wph {
   font-style: normal
 }
 
-header.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e {
+header.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c {
   width: 100%;
   margin: 0 auto 80px;
   display: flex;
@@ -1918,19 +1913,19 @@ header.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e {
   font-family: Whyte Book
 }
 
-nav.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e {
+nav.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c {
   display: flex;
   flex-direction: row;
   width: 100%
 }
 
-.header-v2.svelte-yu0e7e .rowTop.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e {
+.header-v2.svelte-1ftim0c .rowTop.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c {
   background-color: #0e002c;
   height: 119px;
   width: 100%
 }
 
-.header-v2.svelte-yu0e7e .rowTop-container.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e {
+.header-v2.svelte-1ftim0c .rowTop-container.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c {
   max-width: 1280px;
   width: 100%;
   display: -ms-flexbox;
@@ -1941,25 +1936,25 @@ nav.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e {
   height: 119px
 }
 
-nav#secondary.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e {
+nav#secondary.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c {
   background-color: #160643;
   border-bottom: 2px solid #3e2bb1;
   color: #fff
 }
 
-.menu-center.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e {
+.menu-center.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c {
   justify-content: center;
   max-width: 260px
 }
 
-nav.svelte-yu0e7e h1.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e {
+nav.svelte-1ftim0c h1.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c {
   font-family: GT Sectra Bold;
   color: #ef1436;
   font-size: 55pt;
   margin: 28px 0
 }
 
-.logo.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e {
+.logo.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c {
   background: url(https://www.vera.org/dist/img/v2/vera-logo.svg) 0 0 no-repeat transparent;
   background-size: contain;
   color: transparent;
@@ -1969,11 +1964,11 @@ nav.svelte-yu0e7e h1.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e {
   height: 63px
 }
 
-ul.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e {
+ul.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c {
   margin: 0
 }
 
-.header-v2.svelte-yu0e7e .rowTop .menu-right.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e {
+.header-v2.svelte-1ftim0c .rowTop .menu-right.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-direction: row;
@@ -1984,11 +1979,11 @@ ul.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e {
   justify-content: flex-end
 }
 
-ul.svelte-yu0e7e li.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e {
+ul.svelte-1ftim0c li.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c {
   display: inline
 }
 
-.header-v2.svelte-yu0e7e .rowTop #header-v2-top-nav .clicky-menu a.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e {
+.header-v2.svelte-1ftim0c .rowTop #header-v2-top-nav .clicky-menu a.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c {
   color: #fff;
   text-decoration: none;
   background: transparent;
@@ -2004,28 +1999,28 @@ ul.svelte-yu0e7e li.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e {
   flex: 1 1 0px
 }
 
-a.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e {
+a.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c {
   color: #ef4136;
   text-decoration: none
 }
 
-a.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e {
+a.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c {
   background: transparent
 }
 
-.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e {
+.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-smooth: always
 }
 
-.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e,
-.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e:after,
-.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e:before {
+.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c,
+.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c:after,
+.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c:before {
   box-sizing: border-box
 }
 
-.button.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e {
+.button.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c {
   border: 2.5px solid #abffeb;
   background-color: transparent;
   font-size: 16px;
@@ -2043,39 +2038,39 @@ a.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e {
   margin-top: 36px
 }
 
-.button.arrow.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e {
+.button.arrow.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c {
   background-image: url(/california-state-of-incarceration/images/arrow.svg);
   background-repeat: no-repeat;
   background-size: inherit;
   background-position: right 20px center
 }
 
-.button.arrow.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e:hover {
+.button.arrow.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c:hover {
   background-image: url(/california-state-of-incarceration/images/arrow-black.svg);
   background-color: #abffeb !important;
   color: #0e002c
 }
 
-nav#primary.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e {
+nav#primary.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c {
   margin: 32px 0;
   width: 70.5%;
   font-weight: 300
 }
 
-nav#primary.svelte-yu0e7e ul.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e {
+nav#primary.svelte-1ftim0c ul.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c {
   padding: 0;
   margin: 0;
   list-style: none;
   position: relative
 }
 
-nav#primary.svelte-yu0e7e ul.svelte-yu0e7e li.svelte-yu0e7e.svelte-yu0e7e {
+nav#primary.svelte-1ftim0c ul.svelte-1ftim0c li.svelte-1ftim0c.svelte-1ftim0c {
   display: inline-block;
   background-color: #0e002c;
   color: #fff
 }
 
-nav#primary.svelte-yu0e7e a.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e {
+nav#primary.svelte-1ftim0c a.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c {
   display: block;
   padding: 10px 22px;
   color: #fff;
@@ -2083,31 +2078,31 @@ nav#primary.svelte-yu0e7e a.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e {
   text-decoration: none
 }
 
-nav#primary.svelte-yu0e7e a.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e:hover {
+nav#primary.svelte-1ftim0c a.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c:hover {
   background-color: #361694
 }
 
-nav#primary.svelte-yu0e7e ul.svelte-yu0e7e ul.svelte-yu0e7e.svelte-yu0e7e {
+nav#primary.svelte-1ftim0c ul.svelte-1ftim0c ul.svelte-1ftim0c.svelte-1ftim0c {
   display: none;
   position: absolute;
   top: 44px
 }
 
-nav#primary.svelte-yu0e7e ul li ul li:hover .liText.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e {
+nav#primary.svelte-1ftim0c ul li ul li:hover .liText.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c {
   text-decoration-line: underline;
   text-decoration-thickness: 1px;
   text-decoration-color: #221f20
 }
 
-nav#primary.svelte-yu0e7e ul.svelte-yu0e7e li.svelte-yu0e7e:hover>ul.svelte-yu0e7e {
+nav#primary.svelte-1ftim0c ul.svelte-1ftim0c li.svelte-1ftim0c:hover>ul.svelte-1ftim0c {
   display: inherit
 }
 
-nav#third ul.svelte-yu0e7e li.svelte-yu0e7e:hover>ul.svelte-yu0e7e.svelte-yu0e7e {
+nav#third ul.svelte-1ftim0c li.svelte-1ftim0c:hover>ul.svelte-1ftim0c.svelte-1ftim0c {
   display: inherit
 }
 
-nav#primary.svelte-yu0e7e ul.svelte-yu0e7e ul li.svelte-yu0e7e.svelte-yu0e7e {
+nav#primary.svelte-1ftim0c ul.svelte-1ftim0c ul li.svelte-1ftim0c.svelte-1ftim0c {
   width: 154px;
   background-color: #361694;
   float: none;
@@ -2117,17 +2112,17 @@ nav#primary.svelte-yu0e7e ul.svelte-yu0e7e ul li.svelte-yu0e7e.svelte-yu0e7e {
   z-index: 100
 }
 
-nav#primary.svelte-yu0e7e ul.svelte-yu0e7e ul li a.svelte-yu0e7e.svelte-yu0e7e:hover {
+nav#primary.svelte-1ftim0c ul.svelte-1ftim0c ul li a.svelte-1ftim0c.svelte-1ftim0c:hover {
   background-color: #4625ae
 }
 
-nav#primary.svelte-yu0e7e ul.svelte-yu0e7e ul ul li.svelte-yu0e7e.svelte-yu0e7e {
+nav#primary.svelte-1ftim0c ul.svelte-1ftim0c ul ul li.svelte-1ftim0c.svelte-1ftim0c {
   position: relative;
   top: -60px;
   left: 135px
 }
 
-.textWrap-icon.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e {
+.textWrap-icon.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c {
   position: relative;
   left: 10px;
   top: 0;
@@ -2135,7 +2130,7 @@ nav#primary.svelte-yu0e7e ul.svelte-yu0e7e ul ul li.svelte-yu0e7e.svelte-yu0e7e 
   content: url(/california-state-of-incarceration/images/menu-close.svg)
 }
 
-nav#primary.svelte-yu0e7e ul li:hover .textWrap-icon.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e {
+nav#primary.svelte-1ftim0c ul li:hover .textWrap-icon.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c {
   position: relative;
   left: 10px;
   top: 0;
@@ -2143,14 +2138,14 @@ nav#primary.svelte-yu0e7e ul li:hover .textWrap-icon.svelte-yu0e7e.svelte-yu0e7e
   content: url(/california-state-of-incarceration/images/menu-open.svg)
 }
 
-nav#secondary.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e {
+nav#secondary.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c {
   margin: 0;
   width: 100%;
   font-weight: 300;
   border-bottom: 2px solid #4625ae
 }
 
-nav#secondary.svelte-yu0e7e ul.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e {
+nav#secondary.svelte-1ftim0c ul.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c {
   padding: 0;
   margin: 0 auto;
   list-style: none;
@@ -2158,7 +2153,7 @@ nav#secondary.svelte-yu0e7e ul.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e {
   display: flex
 }
 
-nav#secondary.svelte-yu0e7e ul.svelte-yu0e7e li.svelte-yu0e7e.svelte-yu0e7e {
+nav#secondary.svelte-1ftim0c ul.svelte-1ftim0c li.svelte-1ftim0c.svelte-1ftim0c {
   display: inline-block;
   background-color: #190442;
   color: #fff;
@@ -2167,14 +2162,14 @@ nav#secondary.svelte-yu0e7e ul.svelte-yu0e7e li.svelte-yu0e7e.svelte-yu0e7e {
   margin: 0 17px 0 0
 }
 
-nav#secondary.svelte-yu0e7e ul.svelte-yu0e7e li a.svelte-yu0e7e.svelte-yu0e7e {
+nav#secondary.svelte-1ftim0c ul.svelte-1ftim0c li a.svelte-1ftim0c.svelte-1ftim0c {
   justify-content: center;
   flex: 1 0 auto;
   flex-wrap: wrap;
   padding: 17px 35px
 }
 
-nav#secondary.svelte-yu0e7e a.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e {
+nav#secondary.svelte-1ftim0c a.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c {
   display: block;
   padding: 0 10px;
   color: #fff;
@@ -2183,21 +2178,21 @@ nav#secondary.svelte-yu0e7e a.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e {
   text-decoration: none
 }
 
-nav#secondary.svelte-yu0e7e a.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e:hover {
+nav#secondary.svelte-1ftim0c a.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c:hover {
   background-color: #361694
 }
 
-nav#secondary.svelte-yu0e7e ul.svelte-yu0e7e ul.svelte-yu0e7e.svelte-yu0e7e {
+nav#secondary.svelte-1ftim0c ul.svelte-1ftim0c ul.svelte-1ftim0c.svelte-1ftim0c {
   display: none;
   position: absolute;
   top: 60px
 }
 
-nav#secondary.svelte-yu0e7e ul.svelte-yu0e7e li.svelte-yu0e7e:hover>ul.svelte-yu0e7e {
+nav#secondary.svelte-1ftim0c ul.svelte-1ftim0c li.svelte-1ftim0c:hover>ul.svelte-1ftim0c {
   display: inherit
 }
 
-nav#secondary.svelte-yu0e7e ul.svelte-yu0e7e ul li.svelte-yu0e7e.svelte-yu0e7e {
+nav#secondary.svelte-1ftim0c ul.svelte-1ftim0c ul li.svelte-1ftim0c.svelte-1ftim0c {
   width: 415px;
   background-color: #361694;
   float: none;
@@ -2206,15 +2201,15 @@ nav#secondary.svelte-yu0e7e ul.svelte-yu0e7e ul li.svelte-yu0e7e.svelte-yu0e7e {
   font-size: 14px
 }
 
-nav#secondary.svelte-yu0e7e ul.svelte-yu0e7e ul li a.svelte-yu0e7e.svelte-yu0e7e {
+nav#secondary.svelte-1ftim0c ul.svelte-1ftim0c ul li a.svelte-1ftim0c.svelte-1ftim0c {
   padding: 17px 20px 17px 35px
 }
 
-nav#secondary.svelte-yu0e7e ul.svelte-yu0e7e ul li:last-child a.svelte-yu0e7e.svelte-yu0e7e {
+nav#secondary.svelte-1ftim0c ul.svelte-1ftim0c ul li:last-child a.svelte-1ftim0c.svelte-1ftim0c {
   padding-bottom: 40px
 }
 
-.header-v2.svelte-yu0e7e .rowBottom #head nav#secondary ul ul li span.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e {
+.header-v2.svelte-1ftim0c .rowBottom #head nav#secondary ul ul li span.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c {
   font-size: 14px;
   font-weight: 400;
   word-wrap: break-word;
@@ -2222,23 +2217,23 @@ nav#secondary.svelte-yu0e7e ul.svelte-yu0e7e ul li:last-child a.svelte-yu0e7e.sv
   line-height: 100% !important
 }
 
-nav#secondary.svelte-yu0e7e ul.svelte-yu0e7e ul li a.svelte-yu0e7e.svelte-yu0e7e:hover {
+nav#secondary.svelte-1ftim0c ul.svelte-1ftim0c ul li a.svelte-1ftim0c.svelte-1ftim0c:hover {
   background-color: #4625ae
 }
 
-nav#secondary.svelte-yu0e7e ul.svelte-yu0e7e ul ul li.svelte-yu0e7e.svelte-yu0e7e {
+nav#secondary.svelte-1ftim0c ul.svelte-1ftim0c ul ul li.svelte-1ftim0c.svelte-1ftim0c {
   position: relative;
   top: -60px;
   left: 135px
 }
 
-.textWrap.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e {
+.textWrap.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c {
   width: 110px;
   position: relative;
   display: flex
 }
 
-.textWrap-icon.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e {
+.textWrap-icon.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c {
   position: relative;
   left: 10px;
   top: 0;
@@ -2246,11 +2241,11 @@ nav#secondary.svelte-yu0e7e ul.svelte-yu0e7e ul ul li.svelte-yu0e7e.svelte-yu0e7
   content: url(/california-state-of-incarceration/images/menu-close.svg)
 }
 
-.hover-arrow.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e {
+.hover-arrow.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c {
   margin-bottom: 5px
 }
 
-nav#secondary.svelte-yu0e7e ul li ul li:hover .hover-arrow.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e {
+nav#secondary.svelte-1ftim0c ul li ul li:hover .hover-arrow.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c {
   padding-right: 30px;
   width: fit-content;
   background-image: url(/california-state-of-incarceration/images/arrow.svg);
@@ -2259,62 +2254,62 @@ nav#secondary.svelte-yu0e7e ul li ul li:hover .hover-arrow.svelte-yu0e7e.svelte-
   background-position: right 0px center
 }
 
-.top-nav-mobile.svelte-yu0e7e ul.menu:hover li.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e {
+.top-nav-mobile.svelte-1ftim0c ul.menu:hover li.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c {
   display: flex
 }
 
 @media only screen and (max-width: 990px) {
-  ul.svelte-yu0e7e li.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e {
+  ul.svelte-1ftim0c li.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c {
     display: flex
   }
 
-  .header-v2.svelte-yu0e7e .rowTop-container.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e,
-  .header-v2.svelte-yu0e7e .rowTop.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e {
+  .header-v2.svelte-1ftim0c .rowTop-container.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c,
+  .header-v2.svelte-1ftim0c .rowTop.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c {
     height: 62.5px
   }
 
-  .logo.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e {
+  .logo.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c {
     background: url(/california-state-of-incarceration/images/vera-isologo.svg) 0 0 no-repeat transparent;
     background-size: contain;
     height: 35px;
     margin: auto
   }
 
-  nav#secondary.svelte-yu0e7e ul.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e {
+  nav#secondary.svelte-1ftim0c ul.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c {
     flex-direction: column
   }
 
-  .menu-center.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e {
+  .menu-center.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c {
     max-width: 100px
   }
 
-  nav#primary.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e,
-  nav#secondary.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e,
-  nav#secondary.svelte-yu0e7e ul.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e {
+  nav#primary.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c,
+  nav#secondary.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c,
+  nav#secondary.svelte-1ftim0c ul.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c {
     display: none
   }
 
-  header.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e {
+  header.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c {
     margin: 0 auto
   }
 
-  .menu-center.svelte-yu0e7e h1.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e {
+  .menu-center.svelte-1ftim0c h1.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c {
     padding-top: 15px;
     margin: 0
   }
 
-  nav.whowhat.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e {
+  nav.whowhat.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c {
     width: 55%;
     margin-left: auto
   }
 
-  nav.whowhat.svelte-yu0e7e .menu-right.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e {
+  nav.whowhat.svelte-1ftim0c .menu-right.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c {
     height: 100%;
     align-items: center;
     justify-content: center
   }
 
-  nav.whowhat.svelte-yu0e7e .menu-right a.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e {
+  nav.whowhat.svelte-1ftim0c .menu-right a.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c {
     margin: 0;
     height: 100%;
     background-color: #2e1d97 !important;
@@ -2323,13 +2318,13 @@ nav#secondary.svelte-yu0e7e ul li ul li:hover .hover-arrow.svelte-yu0e7e.svelte-
     padding-top: 20px
   }
 
-  nav.whowhat.svelte-yu0e7e .menu-right a.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e:hover {
+  nav.whowhat.svelte-1ftim0c .menu-right a.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c:hover {
     background-color: #2e1d97 !important;
     color: #fff
   }
 }
 
-.top-nav-mobile.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e {
+.top-nav-mobile.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -2341,7 +2336,7 @@ nav#secondary.svelte-yu0e7e ul li ul li:hover .hover-arrow.svelte-yu0e7e.svelte-
   width: 125px
 }
 
-.menu.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e {
+.menu.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c {
   display: flex;
   flex-direction: row;
   list-style-type: none;
@@ -2349,14 +2344,14 @@ nav#secondary.svelte-yu0e7e ul li ul li:hover .hover-arrow.svelte-yu0e7e.svelte-
   padding: 0
 }
 
-.menu.svelte-yu0e7e>a.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e {
+.menu.svelte-1ftim0c>a.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c {
   background-color: #2e1d97;
   width: 100%;
   text-decoration: none;
   color: #fff
 }
 
-.menu-button-container.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e {
+.menu-button-container.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c {
   display: none;
   height: 100%;
   width: 30px;
@@ -2366,13 +2361,13 @@ nav#secondary.svelte-yu0e7e ul li ul li:hover .hover-arrow.svelte-yu0e7e.svelte-
   align-items: center
 }
 
-#menu-toggle.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e {
+#menu-toggle.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c {
   display: none
 }
 
-.menu-button.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e,
-.menu-button.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e:before,
-.menu-button.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e:after {
+.menu-button.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c,
+.menu-button.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c:before,
+.menu-button.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c:after {
   font-weight: 100;
   display: block;
   background-color: #abffeb;
@@ -2383,46 +2378,55 @@ nav#secondary.svelte-yu0e7e ul li ul li:hover .hover-arrow.svelte-yu0e7e.svelte-
   border-radius: 1px
 }
 
-.menu-button.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e:before {
+.menu-button.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c:before {
   content: "";
   margin-top: -8px
 }
 
-.menu-button.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e:after {
+.menu-button.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c:after {
   content: "";
   margin-top: 8px
 }
 
-#menu-toggle:checked+.menu-button-container.svelte-yu0e7e .menu-button.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e:before {
+#menu-toggle:checked+.menu-button-container.svelte-1ftim0c .menu-button.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c:before {
   margin-top: 0;
   transform: rotate(405deg)
 }
 
-#menu-toggle:checked+.menu-button-container.svelte-yu0e7e .menu-button.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e {
+#menu-toggle:checked+.menu-button-container.svelte-1ftim0c .menu-button.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c {
   background: rgba(255, 255, 255, 0)
 }
 
-#menu-toggle:checked+.menu-button-container.svelte-yu0e7e .menu-button.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e:after {
+#menu-toggle:checked+.menu-button-container.svelte-1ftim0c .menu-button.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c:after {
   margin-top: 0;
   transform: rotate(-405deg)
 }
 
-ul.menu.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e,
-.menulabel.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e {
+ul.menu.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c,
+.menulabel.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c {
   display: none
 }
 
 @media (max-width: 990px) {
-  .menu-button-container.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e {
+  .menu-button-container.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c {
     display: flex
   }
 
-  ul.menu.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e,
-  .menulabel.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e {
+  ul.menu.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c {
+    overflow: hidden
+  }
+
+  .rowTop-container.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c {
+    position: fixed;
+    background: #0b012a
+  }
+
+  ul.menu.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c,
+  .menulabel.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c {
     display: inherit
   }
 
-  .menu.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e {
+  .menu.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c {
     position: absolute;
     top: 0;
     margin-top: 62.5px;
@@ -2433,7 +2437,7 @@ ul.menu.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e,
     align-items: center
   }
 
-  #menu-toggle~.menu.svelte-yu0e7e li.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e {
+  #menu-toggle~.menu.svelte-1ftim0c li.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c {
     height: 0;
     margin: 0;
     padding: 0;
@@ -2441,30 +2445,30 @@ ul.menu.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e,
     transition: height .4s cubic-bezier(.23, 1, .32, 1)
   }
 
-  #menu-toggle:checked~.menu.svelte-yu0e7e li.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e {
+  #menu-toggle:checked~.menu.svelte-1ftim0c li.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c {
     height: 2.5em;
     padding: .5em 30px;
     transition: height .4s cubic-bezier(.23, 1, .32, 1)
   }
 
-  #menu-toggle:checked~.menu.svelte-yu0e7e li.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e:first-of-type {
+  #menu-toggle:checked~.menu.svelte-1ftim0c li.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c:first-of-type {
     padding: 2rem 30px .5em;
     height: 4.5em
   }
 
-  .menulabel.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e {
+  .menulabel.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c {
     color: #abffeb;
     padding-right: 3px
   }
 }
 
-nav.svelte-yu0e7e ul ul.svelte-yu0e7e.svelte-yu0e7e.svelte-yu0e7e {
+nav.svelte-1ftim0c ul ul.svelte-1ftim0c.svelte-1ftim0c.svelte-1ftim0c {
   display: none;
   position: absolute;
   top: 60px
 }
 
-nav.svelte-yu0e7e ul li.svelte-yu0e7e:hover>ul.svelte-yu0e7e.svelte-yu0e7e {
+nav.svelte-1ftim0c ul li.svelte-1ftim0c:hover>ul.svelte-1ftim0c.svelte-1ftim0c {
   display: inherit
 }
 
