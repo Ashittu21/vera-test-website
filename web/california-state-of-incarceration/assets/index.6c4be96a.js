@@ -42,7 +42,7 @@
     California State Controller\u2019s Office (county budgets). The researchers
     supplemented this data with information from Vera\u2019s <a href="https://trends.vera.org/" target="_blank">Incarceration Trends</a>.</p> 
 
-  <span class="more"><a href="/data">More about the data</a></span>`,w(t,"id","about-data"),w(t,"class","svelte-u7rjb0")},m(A,n){be(A,t,n)},p:jt,i:jt,o:jt,d(A){A&&ye(t)}}}class ww extends EA{constructor(t){super(),UA(this,t,null,rF,FA,{})}}function rc(e){let t,A;function n(a){A=e.getAttribute("title"),e.removeAttribute("title"),t=document.createElement("div"),t.textContent=A,t.style=`
+  <span class="more"><a href="/california-state-of-incarceration/data">More about the data</a></span>`,w(t,"id","about-data"),w(t,"class","svelte-u7rjb0")},m(A,n){be(A,t,n)},p:jt,i:jt,o:jt,d(A){A&&ye(t)}}}class ww extends EA{constructor(t){super(),UA(this,t,null,rF,FA,{})}}function rc(e){let t,A;function n(a){A=e.getAttribute("title"),e.removeAttribute("title"),t=document.createElement("div"),t.textContent=A,t.style=`
 			border: 1px solid #ddd;
 			box-shadow: 1px 1px 1px #ddd;
 			background: #fff;
