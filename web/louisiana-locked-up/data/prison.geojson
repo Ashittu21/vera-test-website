@@ -1,0 +1,21 @@
+{
+"type": "FeatureCollection",
+"name": "prison",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::4269" } },
+"features": [
+{ "type": "Feature", "properties": { "uuid": 8, "name": "Allen Parish", "type": "Prison", "operator": "State", "capacity": "1538", "facility_name": "Allen Correctional Center" }, "geometry": { "type": "Point", "coordinates": [ -92.7887592, 30.5671196 ] } },
+{ "type": "Feature", "properties": { "uuid": 9, "name": "Allen Parish", "type": "Prison", "operator": "Federal", "capacity": "861", "facility_name": "FCI Oakdale" }, "geometry": { "type": "Point", "coordinates": [ -92.63692143, 30.83225604 ] } },
+{ "type": "Feature", "properties": { "uuid": 10, "name": "Allen Parish", "type": "Prison", "operator": "Federal", "capacity": "1063", "facility_name": "Oakdale II FCI AND SCP" }, "geometry": { "type": "Point", "coordinates": [ -92.6365941, 30.83239884 ] } },
+{ "type": "Feature", "properties": { "uuid": 15, "name": "Avoyelles Parish", "type": "Prison", "operator": "State", "capacity": "1564", "facility_name": "Raymond Laborde Correctional Center" }, "geometry": { "type": "Point", "coordinates": [ -92.0339652, 30.9744628 ] } },
+{ "type": "Feature", "properties": { "uuid": 51, "name": "Claiborne Parish", "type": "Prison", "operator": "State", "capacity": "1244", "facility_name": "David Wade Correctional Center" }, "geometry": { "type": "Point", "coordinates": [ -93.0193999, 32.9056733 ] } },
+{ "type": "Feature", "properties": { "uuid": 59, "name": "East Baton Rouge Parish", "type": "Prison", "operator": "State", "capacity": "200", "facility_name": "State Police Inmate Barracks" }, "geometry": { "type": "Point", "coordinates": [ -91.26230733, 30.59779553 ] } },
+{ "type": "Feature", "properties": { "uuid": 70, "name": "East Feliciana Parish", "type": "Prison", "operator": "State", "capacity": "1800", "facility_name": "Dixon Correctional Institute" }, "geometry": { "type": "Point", "coordinates": [ -91.2065189, 30.8128306 ] } },
+{ "type": "Feature", "properties": { "uuid": 79, "name": "Grant Parish", "type": "Prison", "operator": "Federal", "capacity": "1290", "facility_name": "USP Pollock" }, "geometry": { "type": "Point", "coordinates": [ -92.43227443, 31.46532822 ] } },
+{ "type": "Feature", "properties": { "uuid": 80, "name": "Grant Parish", "type": "Prison", "operator": "Federal", "capacity": "270", "facility_name": "Pollock Camp" }, "geometry": { "type": "Point", "coordinates": [ -92.43227443, 31.46532822 ] } },
+{ "type": "Feature", "properties": { "uuid": 81, "name": "Grant Parish", "type": "Prison", "operator": "Federal", "capacity": "1640", "facility_name": "FCI Pollock" }, "geometry": { "type": "Point", "coordinates": [ -92.43227443, 31.46532822 ] } },
+{ "type": "Feature", "properties": { "uuid": 85, "name": "Iberville Parish", "type": "Prison", "operator": "State", "capacity": "1875", "facility_name": "Elayn Hunt Correctional Center" }, "geometry": { "type": "Point", "coordinates": [ -91.0824733, 30.2593839 ] } },
+{ "type": "Feature", "properties": { "uuid": 86, "name": "Iberville Parish", "type": "Prison", "operator": "State", "capacity": "1100", "facility_name": "Louisiana Correctional Institute for Women" }, "geometry": { "type": "Point", "coordinates": [ -91.0724417, 30.2602581 ] } },
+{ "type": "Feature", "properties": { "uuid": 203, "name": "Washington Parish", "type": "Prison", "operator": "State", "capacity": "1156", "facility_name": "B.B. Rayburn Correctional Center" }, "geometry": { "type": "Point", "coordinates": [ -89.8164031, 30.9217019 ] } },
+{ "type": "Feature", "properties": { "uuid": 214, "name": "West Feliciana Parish", "type": "Prison", "operator": "State", "capacity": "5108", "facility_name": "Louisiana State Penitentiary" }, "geometry": { "type": "Point", "coordinates": [ -91.5684335, 30.9406505 ] } }
+]
+}
