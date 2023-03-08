@@ -1116,50 +1116,53 @@ button.svelte-1483xmh.svelte-1483xmh {
     margin-top: 10px;
   }
 }
-#stats.svelte-g0moel {
+#stats.svelte-15trn9u {
   border: 1px solid #d2bab4;
   width: 50%;
 }
-.num.svelte-g0moel {
+.num.svelte-15trn9u {
   font-family: Whyte Bold;
 }
-.title.svelte-g0moel {
+.title.svelte-15trn9u {
   padding: 10px 20px 0;
 }
-.hold.svelte-g0moel {
+.hold.svelte-15trn9u {
   padding: 10px 20px;
 }
-#facility-numbers.svelte-g0moel {
+#facility-numbers.svelte-15trn9u {
   display: flex;
   padding: 0 20px 10px;
 }
-#jail.svelte-g0moel,
-#prison.svelte-g0moel,
-#ice.svelte-g0moel {
+#jail.svelte-15trn9u,
+#prison.svelte-15trn9u,
+#ice.svelte-15trn9u {
   width: 20%;
   padding-right: 5%;
 }
-#held.svelte-g0moel {
+#held.svelte-15trn9u {
   border-top: 1px solid #d2bab4;
 }
-#arrested.svelte-g0moel,
-#rank.svelte-g0moel {
+#arrested.svelte-15trn9u,
+#rank.svelte-15trn9u {
   padding: 10px 20px 0;
 }
-.ranks.svelte-g0moel {
+.ranks.svelte-15trn9u {
   margin-top: 1em;
   margin-bottom: 1rem;
 }
-#tooltip.svelte-g0moel {
+#tooltip.svelte-15trn9u {
   position: fixed;
   background-color: #fff;
   padding: 5px 8px;
 }
-p.svelte-g0moel {
+p.svelte-15trn9u {
   margin: 0;
 }
+#oc_exception.svelte-15trn9u {
+  padding: 50px 20px 10px;
+}
 @media only screen and (max-width: 600px) {
-  #stats.svelte-g0moel {
+  #stats.svelte-15trn9u {
     width: 100%;
   }
 }
