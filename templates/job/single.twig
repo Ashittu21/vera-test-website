@@ -1,11 +1,11 @@
 {% extends '_layout' %}
 
-{% set title = entry.title %}
+{% set   title = entry.title %}
 {% set  jobId  = craft.app.request.getQueryParam('gh_jid') ?? null %}
 
 {% block content %}
 {# Greenhouse #}
-<script src="https://boards.greenhouse.io/embed/job_board/js?for=verainstituteofjustice"></script>
+<!--<script src="https://boards.greenhouse.io/embed/job_board/js?for=verainstituteofjustice"></script> -->
 
 <input type="hidden" id="jobId" value="{{ jobId }}">
 
@@ -42,23 +42,132 @@
         
       </div>
     </div>
+
     <section>
-        <div class="container contentjob">
-           <!-- Share Icons -->
-            {% include 'v2/common/shareIcons' with { entry:entry } %}
-            <!-- Share Icons -->
-           <div id="jobContent"></div>
-        </div>
-        <div class="formjob">
-        <div id="grnhse_app"></div>
-            {# include "v2/common/FormApplyJob" #}
-        </div>
+      <div class="container contentjob">
+        <!-- Share Icons -->
+        {% include 'v2/common/shareIcons' with { entry:entry } %}
+        <!-- Share Icons -->
+        <div id="jobContent"></div>
+      </div>
+      <div class="container">
+        <form class="formApply" id="formContainer" method="POST" enctype='multipart/form-data'>
+          <input type="hidden" name="id" id="idJobInput" value="" />
+          <div class="row">
+            <div class="col-lg-12">
+              <h2
+                class="h1 CopySection-heading formApply_title">
+                Apply for this job</h2>
+            </div>
+          </div>
+            <div id="formJob" class="row formApply-form"></div>          
+        </form>
+        <div id="formMessage"></div>
+      </div>
     </section>
     
 <style>
-#grnhse_app iframe{
-  min-height:1001px;
+#grnhse_app iframe {
+  min-height: 1001px;
+  /*display:none;*/
 }
+.actions{
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 2rem;
+}
+#submitJobForm span {
+  font-size: 19px !important;
+}
+.formApply-form .input-group textarea{
+    border: 1px solid #868686 !important;
+    background-color: #FFF !important;
+    margin-top: 1rem;
+}
+
+.formApply {
+  max-width: 822px;
+  margin: 0 auto;
+  margin-bottom: 60px;
+}
+.selectForm label{
+    text-align: right;
+    margin-right: 10px;
+    margin-left: 35px;
+    margin-bottom: 2rem;
+    margin-top: 10px;
+    display: inline-block;
+    color: #4d4d4f;
+        min-width: 200px;
+
+}
+.formApply_title {
+    color: #ef4136;
+    font-size: 45px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: justify;
+    font-family: GT Sectra;
+    font-weight: 700;
+    margin-bottom: 60px;
+}
+.select-css {
+	display: inline-block;
+  background: url("data:image/svg+xml;charset=utf-8,%3Csvg width='13' height='9' viewBox='0 0 13 9' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l5.824 6L12 1' stroke='%23EF4136' stroke-width='2'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: 97% center;
+  width: min-content  !important;
+  border: 1px solid #cccccc !important;
+  text-transform: capitalize;
+}
+.select-css::-ms-expand {
+	display: none;
+}
+.select-css:hover {
+	border-color: #888;
+}
+.select-css:focus {
+	border-color: #aaa;
+	box-shadow: 0 0 1px 3px rgba(59, 153, 252, .7);
+	box-shadow: 0 0 0 3px -moz-mac-focusring;
+	color: #222; 
+	outline: none;
+}
+.select-css option {
+	font-weight:normal;
+}
+.toggleText{
+  margin-top: 1rem;
+    display: block;
+ }
+
+ #formMessage{
+    max-width: 822px;
+    margin: 0 auto;
+    margin-bottom: 60px;
+ }
+
+ #formMessage.errorForm{
+    border: 1px solid #ef4136;
+    padding: 2rem;
+    font-size: 13px;
+    color: #ef4136;
+    text-align: center;
+ }
+
+
+ #formMessage.successForm{
+    border: 1px solid white;
+    padding: 2rem;
+    font-size: 15px;
+    font-weight: 400;
+    background-color: #abffeb;
+    color: #160644;
+    text-align: center;
+ }
 </style>
 
 {% endblock %}

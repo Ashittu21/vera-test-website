@@ -1355,7 +1355,8 @@ article.fact .viz-text, .best-of-list,
 .person-item .subheading,
 .person-item .body, .sidebar-subnav--subwayNav .sidebar-subnav-item, .black-box-copy, .open-box-copy, .timed-slideshow-description, .subway-nav__item .copy-wrap p, .subway-nav__item .copy-wrap span, .styleguide #tab-type:checked ~ nav .tab-type label, .styleguide #tab-type:checked ~ nav .tab-type .chart_container .legend, .chart_container .styleguide #tab-type:checked ~ nav .tab-type .legend,
 .styleguide #tab-colors:checked ~ nav .tab-colors label, .styleguide #tab-colors:checked ~ nav .tab-colors .chart_container .legend, .chart_container .styleguide #tab-colors:checked ~ nav .tab-colors .legend,
-.styleguide #tab-viz:checked ~ nav .tab-viz label, .styleguide #tab-viz:checked ~ nav .tab-viz .chart_container .legend, .chart_container .styleguide #tab-viz:checked ~ nav .tab-viz .legend, .styleguide .grid--label, .styleguide .grid--label-dk, .styleguide .block-grid span, .ByTheNumbers-text, .CitiesMapWithLinks-sidebar ul, .CitiesMapWithLinks-tooltip-item-value, .CitiesMapWithLinks-detail-heading, .StatBlock, .RevenuesChart-item, .JailBudget, .PoliceBudget-total, .filter__dropdown-inner label, .filter__dropdown-inner .chart_container .legend, .chart_container .filter__dropdown-inner .legend, .filter__section--date__select, #date-slider .ui-slider-handle:before, .dropdown-outer, .resource-grid li, .resource-grid .resource__see-more, .audio-loading, .audio-player, .image-attribution, #print .slideout--article * {
+.styleguide #tab-viz:checked ~ nav .tab-viz label, .styleguide #tab-viz:checked ~ nav .tab-viz .chart_container .legend, .chart_container .styleguide #tab-viz:checked ~ nav .tab-viz .legend, .styleguide .grid--label, .styleguide .grid--label-dk, .styleguide .block-grid span, .ByTheNumbers-text, .CitiesMapWithLinks-sidebar ul, .CitiesMapWithLinks-tooltip-item-value, .CitiesMapWithLinks-detail-heading, .StatBlock, .RevenuesChart-item, .JailBudget, .PoliceBudget-total, .filter__dropdown-inner label, .filter__dropdown-inner .chart_container .legend, .chart_container .filter__dropdown-inner .legend, .filter__section--date__select, #date-slider .ui-slider-handle:before, .dropdown-outer, .resource-grid li, .resource-grid .resource__see-more, .audio-loading, .audio-player, .image-attribution, #print .slideout--article *, .formApply-form .input-group input,
+.formApply-form .input-group textarea {
   font-weight: normal; }
 
 .ff-sans--oblique, .featured-banner.editorial .subtitle, .special-reports__post-byline, .filter__dropdown-inner .filter__section-label, .filter__dropdown-inner .filter__label {
@@ -40838,21 +40839,19 @@ header {
     margin-bottom: 1em; }
 
 .formApply-form {
-  width: 80%;
+  width: 100%;
   margin: auto;
-  margin-top: 40px;
-  margin-bottom: 40px;
-  accent-color: var(--global-color-red); }
-  .formApply-form .form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    gap: 2em; }
-    @media (max-width: 768px) {
-      .formApply-form .form-row {
-        grid-template-columns: 1fr; } }
+  accent-color: var(--global-color-red);
+  /*.form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      justify-content: center;
+      gap: 2em;
+      
+      @media(max-width:$mobile-breakpoint) {
+        grid-template-columns: 1fr;
+      }
+    }*/ }
   .formApply-form .input-group label, .formApply-form .input-group .chart_container .legend, .chart_container .formApply-form .input-group .legend {
     padding-bottom: 0.5em; }
     .formApply-form .input-group label::after, .formApply-form .input-group .chart_container .legend::after, .chart_container .formApply-form .input-group .legend::after {
@@ -41085,5 +41084,72 @@ header {
             .contentjob #jobContent ul li > ul li p:last-child {
               margin: 0;
               padding: 0; }
+
+.formApply .compilance strong {
+  margin: 2rem 0 1rem 0;
+  display: block; }
+
+.formApply .compilance p {
+  margin-bottom: 1rem; }
+
+.formApply .compilance ul {
+  margin-left: 3rem;
+  margin-bottom: 2rem; }
+
+.formApply .compilance .selectForm {
+  margin: 2rem 0; }
+
+.formApply-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 2em; }
+  @media (max-width: 768px) {
+    .formApply-form {
+      grid-template-columns: 1fr; } }
+  .formApply-form .input-group label, .formApply-form .input-group .chart_container .legend, .chart_container .formApply-form .input-group .legend {
+    padding-bottom: 0.5em; }
+    .formApply-form .input-group label::after, .formApply-form .input-group .chart_container .legend::after, .chart_container .formApply-form .input-group .legend::after {
+      content: '*';
+      color: var(--global-color-red);
+      height: auto;
+      width: 10px;
+      padding-left: 5px; }
+  .formApply-form .input-group label, .formApply-form .input-group .chart_container .legend, .chart_container .formApply-form .input-group .legend {
+    display: block; }
+  .formApply-form .input-group input,
+  .formApply-form .input-group textarea {
+    width: 100%;
+    border-radius: 0;
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid #231f20;
+    font-size: 14px;
+    font-size: 1.4rem;
+    font-family: 'ABC Whyte'; }
+    .formApply-form .input-group input.error,
+    .formApply-form .input-group textarea.error {
+      border-bottom-color: #ef4136; }
+  .formApply-form .input-group textarea {
+    width: 100%;
+    height: 175px;
+    border: 1px solid #231f20;
+    resize: none;
+    overflow: auto; }
+  .formApply-form .input-group .labelfile {
+    font-size: small;
+    text-align: center;
+    margin-top: 1em;
+    margin-bottom: 1em; }
+  .formApply-form .input-group button[type=submit].btnsubmit {
+    background-color: transparent;
+    border: none;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    padding: 13px 31px 14px; }
+    .formApply-form .input-group button[type=submit].btnsubmit span {
+      font-size: 17px; }
 
 /*# sourceMappingURL=main.css.map */
