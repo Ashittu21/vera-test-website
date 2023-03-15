@@ -234,12 +234,12 @@
 
     li {
       display: inline-block;
-      color: var(--global-color-light-violet);
       font-size: 18px;
       display: inline;
       word-break: break-word;
+      color: var(--global-color-light-violet) !important;
 
-      a {
+      span {
         color: var(--global-color-light-violet);
       }
 
@@ -299,7 +299,7 @@
       color: #0a0319;
     }
 
-    ul {
+   > ul {
       list-style-type: none;
       padding: 0;
       margin: 0;
@@ -308,7 +308,7 @@
       margin-bottom: 60px;
       margin-top: 10px;
 
-      li {
+    >  li {
         display: block;
         background-image: url('../../dist/img/red-bullet.svg');
         background-repeat: no-repeat;
@@ -333,8 +333,8 @@
         &:first-child {
           margin-top: 0px;
         }
-
-        >ul {
+/*
+        > ul {
           list-style-type: none;
           padding: 0;
           margin: 0;
@@ -368,10 +368,13 @@
               }
             }
           }
-        }
+        }*/
       }
     }
 
+
+
+    
   }
 }
 

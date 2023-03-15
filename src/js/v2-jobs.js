@@ -371,10 +371,6 @@ document.addEventListener('DOMContentLoaded', function () {
             });
           });
 
-
-
-
-
           const resumeInput = document.getElementsByName('resume')[0];
           const resumeToggle = document.getElementsByClassName('toggleText')[0];
           const resumeText = document.getElementsByName('resume_text')[0];
@@ -456,139 +452,9 @@ document.addEventListener('DOMContentLoaded', function () {
             coverLetterInput.required = true; // Make coverLetterInput mandatory
           });
 
-
           addSubmitButtonToForm('formContainer');
 
-        
-        
-        
           const submitJobForm = document.getElementById('submitJobForm');
-/*
-          submitJobForm.addEventListener('click', (event) => {
-            event.preventDefault();
-            
-            // Get form data
-            const form = document.getElementById('formContainer');
-            const formData = new FormData(form);
-
-            // Send form data with Axios
-            axios.post(form.action, formData)
-              .then(response => {
-                if (response.data.success) {
-                  // Show success message
-                  const successMessage = document.createElement('div');
-                  successMessage.textContent = response.data.success;
-                  form.insertAdjacentElement('afterend', successMessage);
-                }
-              })
-              .catch(error => console.error(error));
-          });*/
-/*
-          submitJobForm.addEventListener('click', (event) => {
-            event.preventDefault();
-            
-            // Get form data
-            const form = document.getElementById('formContainer');
-            const formData = new FormData(form);
-          
-            // Validate required fields
-            let allRequiredFieldsHaveValue = true;
-            const requiredFields = form.querySelectorAll('[required]');
-            requiredFields.forEach(field => {
-              if (!formData.get(field.name)) {
-                // Field is required but has no value
-                allRequiredFieldsHaveValue = false;
-                field.classList.add('error'); // add error class to show error style
-          
-                // Add event listener to remove error class on input
-                field.addEventListener('input', () => {
-                  if (formData.get(field.name)) {
-                    field.classList.remove('error'); // remove error class if field has value
-                  }
-                });
-              } else {
-                field.classList.remove('error'); // remove error class if previously added
-              }
-            });
-          
-            if (!allRequiredFieldsHaveValue) {
-              return; // stop execution if any required field is empty
-            }
-          
-            // Send form data with Axios
-            axios.post(form.action, formData)
-            .then(response => {
-              if (response.data.success) {
-                // Show success message
-                const successMessage = document.createElement('div');
-                successMessage.textContent = response.data.success;
-                form.insertAdjacentElement('afterend', successMessage);
-              } else if (response.status === 422 && response.data.error === "Invalid attributes: email") {
-                // Show email error message
-                const errorMessage = document.createElement('div');
-                errorMessage.textContent = "Invalid email address";
-                form.insertAdjacentElement('afterend', errorMessage);
-              }
-            })
-            .catch(error => console.error(error));
-          });
-        */
-        
-        
-         /*
-          submitJobForm.addEventListener('click', (event) => {
-            event.preventDefault();
-            
-            // Get form data
-            const form = document.getElementById('formContainer');
-            const formData = new FormData(form);
-          
-            // Validate required fields
-            let allRequiredFieldsHaveValue = true;
-            const requiredFields = form.querySelectorAll('[required]');
-            requiredFields.forEach(field => {
-              if (!formData.get(field.name)) {
-                // Field is required but has no value
-                allRequiredFieldsHaveValue = false;
-                field.classList.add('error'); // add error class to show error style
-          
-                // Add event listener to remove error class on input
-                field.addEventListener('input', () => {
-                  if (formData.get(field.name)) {
-                    field.classList.remove('error'); // remove error class if field has value
-                  }
-                });
-              } else {
-                field.classList.remove('error'); // remove error class if previously added
-              }
-            });
-          
-            if (!allRequiredFieldsHaveValue) {
-              return; // stop execution if any required field is empty
-            }
-          
-            // Send form data with Axios
-            axios.post(form.action, formData)
-              .then(response => {
-                if (response.data.success) {
-                  // Show success message
-                  const successMessage = document.createElement('div');
-                  successMessage.textContent = response.data.success;
-                  form.insertAdjacentElement('afterend', successMessage);
-                }
-              })
-              .catch(error => {
-                if (error.response && error.response.status === 422 && error.response.data.error) {
-                  // Show error message
-                  const errorMessage = document.createElement('div');
-                  errorMessage.textContent = error.response.data.error;
-                  form.insertAdjacentElement('afterend', errorMessage);
-                } else {
-                  console.error(error);
-                }
-              });
-          });*/
-          
           const formMessage = document.getElementById('formMessage');
 
           submitJobForm.addEventListener('click', (event) => {
@@ -680,6 +546,7 @@ function buildForm(json, containerId) {
 
       if (field.type === 'input_file') {
         input.type = 'file';
+        input.accept = ".pdf, .doc, .docx, .txt, .rtf";
       } else {
         input.type = field.type;
       }
@@ -735,9 +602,7 @@ function generateMarkup(json, containerId) {
     }
 
     if (item.questions.length > 0) {
-
       const form = document.createElement('div');
-
       item.questions.forEach(question => {
         const div = document.createElement('div');
         div.classList.add('selectForm');
@@ -746,7 +611,6 @@ function generateMarkup(json, containerId) {
           question.label === 'Gender' ? 'Gender' :
           question.label === 'VeteranStatus' ? 'Veteran Status' :
           question.label === 'DisabilityStatus' ? 'Disability Status' : question.label;
-
 
         div.appendChild(label);
         question.fields.forEach(field => {
@@ -831,10 +695,8 @@ function addSubmitButtonToForm(formId) {
   // Create a div element and set its class name
   const actionsDiv = document.createElement('div');
   actionsDiv.classList.add('actions');
-
   // Append the button to the actions div
   actionsDiv.appendChild(button);
-
   // Add the actions div to the end of the form
   form.appendChild(actionsDiv);
 }

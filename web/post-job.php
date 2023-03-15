@@ -1,9 +1,9 @@
 <?php
-require '../vendor/autoload.php';
-$client = new GuzzleHttp\Client();
-$jobid = filter_var($_POST['id'], FILTER_VALIDATE_INT);
-header('Content-Type: application/json');
-$form_data = [];
+  require '../vendor/autoload.php';
+  $client = new GuzzleHttp\Client();
+  $jobid = filter_var($_POST['id'], FILTER_VALIDATE_INT);
+  header('Content-Type: application/json');
+  $form_data = [];
 
 foreach ($_POST as $key => $value) {
     $form_data[$key] = $value;
@@ -20,7 +20,6 @@ try {
     $body = $response->getBody();
     echo $body;
 } catch (GuzzleHttp\Exception\ClientException $e) {
-    // handle the exception
     $response = $e->getResponse();
     $responseBodyAsString = $response->getBody()->getContents();
     echo $responseBodyAsString;

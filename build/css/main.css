@@ -40986,11 +40986,11 @@ header {
   list-style: none; }
   .infojob ul li {
     display: inline-block;
-    color: var(--global-color-light-violet);
     font-size: 18px;
     display: inline;
-    word-break: break-word; }
-    .infojob ul li a {
+    word-break: break-word;
+    color: var(--global-color-light-violet) !important; }
+    .infojob ul li span {
       color: var(--global-color-light-violet); }
     .infojob ul li::after {
       content: '|';
@@ -41030,7 +41030,7 @@ header {
     line-height: 1.33;
     letter-spacing: normal;
     color: #0a0319; }
-  .contentjob #jobContent ul {
+  .contentjob #jobContent > ul {
     list-style-type: none;
     padding: 0;
     margin: 0;
@@ -41038,7 +41038,7 @@ header {
     height: auto;
     margin-bottom: 60px;
     margin-top: 10px; }
-    .contentjob #jobContent ul li {
+    .contentjob #jobContent > ul > li {
       display: block;
       background-image: url("../../dist/img/red-bullet.svg");
       background-repeat: no-repeat;
@@ -41048,42 +41048,51 @@ header {
       margin-left: 20px;
       padding-top: 0;
       font-size: 18px;
-      font-weight: 300; }
-      .contentjob #jobContent ul li p {
+      font-weight: 300;
+      /*
+        > ul {
+          list-style-type: none;
+          padding: 0;
+          margin: 0;
+          margin-top: 26px;
+
+          li {
+            display: block;
+            background-image: url('../../dist/img/red-bullet.svg');
+            background-repeat: no-repeat;
+            background-position: 0rem 0.7rem;
+            font-family: var(--global-font-abc-whyte);
+            font-size: 18px;
+            font-style: normal;
+            line-height: 24px;
+            letter-spacing: 0em;
+            text-align: left;
+            height: auto;
+            margin-top: 0rem;
+            padding-left: 31px;
+            margin-bottom: 20px;
+            font-weight: 300;
+
+
+            p {
+              margin: 0;
+              padding: 0;
+
+              &:last-child {
+                margin: 0;
+                padding: 0;
+              }
+            }
+          }
+        }*/ }
+      .contentjob #jobContent > ul > li p {
         margin: 0;
         padding: 0; }
-        .contentjob #jobContent ul li p:last-child {
+        .contentjob #jobContent > ul > li p:last-child {
           margin: 0;
           padding: 0; }
-      .contentjob #jobContent ul li:first-child {
+      .contentjob #jobContent > ul > li:first-child {
         margin-top: 0px; }
-      .contentjob #jobContent ul li > ul {
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
-        margin-top: 26px; }
-        .contentjob #jobContent ul li > ul li {
-          display: block;
-          background-image: url("../../dist/img/red-bullet.svg");
-          background-repeat: no-repeat;
-          background-position: 0rem 0.7rem;
-          font-family: var(--global-font-abc-whyte);
-          font-size: 18px;
-          font-style: normal;
-          line-height: 24px;
-          letter-spacing: 0em;
-          text-align: left;
-          height: auto;
-          margin-top: 0rem;
-          padding-left: 31px;
-          margin-bottom: 20px;
-          font-weight: 300; }
-          .contentjob #jobContent ul li > ul li p {
-            margin: 0;
-            padding: 0; }
-            .contentjob #jobContent ul li > ul li p:last-child {
-              margin: 0;
-              padding: 0; }
 
 .formApply .compilance strong {
   margin: 2rem 0 1rem 0;
