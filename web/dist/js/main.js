@@ -7376,44 +7376,376 @@ function liveSearch(cards) {
 }
 
 
+document.addEventListener('DOMContentLoaded', function () {
 
-document.addEventListener('DOMContentLoaded', function () { 
-  
   if (document.body.classList.contains('bc-job')) {
-    
+
     console.log(document.getElementById("jobId").value);
     let jobId = document.getElementById("jobId").value;
+
+
     console.log(jobId);
-    
+
     async function loadInfo(url) {
-      
+
       axios.get(url).then(function (response) {
-        
-        console.log(response);
-        
-        const htmlDecode = (input) => {
-          const doc = new DOMParser().parseFromString(input, "text/html");
-          return doc.documentElement.textContent;
-        }
-        
-        var d = new Date(response.data.updated_at);
-        document.getElementById("jobDate").innerHTML =   d.toLocaleString('en-US', { weekday: 'short', day: 'numeric', year: 'numeric', month: 'long', });
-        document.getElementById("jobContent").innerHTML = htmlDecode(response.data.content);
-        document.getElementById("jobTitle").innerHTML = response.data.title;
-        document.getElementById("jobLocation").innerHTML = response.data.location.name;
-        document.getElementById("jobTeam").innerHTML = response.data.departments[0].name;
-        document.getElementById("jobType").innerHTML = response.data.metadata[0].value ?? '';
-      })
-      .catch(function (error) {
-        console.log(error);
-      })
-      .then(function () {
-      });
+
+          var d = new Date(response.data.updated_at);
+          document.getElementById("jobDate").innerHTML = d.toLocaleString('en-US', {
+            weekday: 'short',
+            day: 'numeric',
+            year: 'numeric',
+            month: 'long',
+          });
+          document.getElementById("jobContent").innerHTML = htmlDecode(response.data.content);
+          document.getElementById("jobTitle").innerHTML = response.data.title;
+          document.getElementById("jobLocation").innerHTML = response.data.location.name;
+          document.getElementById("jobTeam").innerHTML = response.data.departments[0].name;
+          document.getElementById("jobType").innerHTML = response.data.metadata[0].value ?? '';
+
+          buildForm(response.data.questions, 'formJob');
+          setFormActionUrl("formContainer", jobId);
+          generateMarkup(response.data.compliance, 'formContainer');
+
+          const fileInputs = document.querySelectorAll('input[type="file"]');
+          fileInputs.forEach(fileInput => {
+            fileInput.addEventListener('change', async () => {
+              const inputName = fileInput.name;
+              const file = fileInput.files[0];
+              await encodeFileToBase64(file, inputName);
+              console.log(`File ${file.name} uploaded`);
+            });
+          });
+
+          const resumeInput = document.getElementsByName('resume')[0];
+          const resumeToggle = document.getElementsByClassName('toggleText')[0];
+          const resumeText = document.getElementsByName('resume_text')[0];
+
+          // Add event listener to resumeToggle link
+          resumeToggle.addEventListener('click', (e) => {
+            e.preventDefault(); // Prevent default link behavior
+
+            // Toggle display of resumeText
+            if (resumeText.style.display === 'none') {
+              resumeText.style.display = 'block';
+              resumeText.required = true; // Make resumeText mandatory
+              resumeInput.required = false; // Make resumeInput not mandatory
+
+              var contentInputs = document.querySelectorAll('[name="resume_content"]');
+              var filenameInputs = document.querySelectorAll('[name="resume_content_filename"]');
+
+              contentInputs.forEach(function (element) {
+                element.remove();
+              });
+
+              filenameInputs.forEach(function (element) {
+                element.remove();
+              });
+
+            } else {
+              resumeText.style.display = 'none';
+              resumeText.required = false; // Make resumeText not mandatory
+              resumeInput.required = true; // Make resumeInput mandatory
+            }
+          });
+
+          // Add event listener to resumeInput
+          resumeInput.addEventListener('change', () => {
+            // Hide resumeText if file is selected
+            resumeText.style.display = 'none';
+            resumeText.required = false; // Make resumeText not mandatory
+            resumeInput.required = true; // Make resumeInput mandatory
+          });
+
+          const coverLetterInput = document.getElementsByName('cover_letter')[0];
+          const coverLetterToggle = document.getElementsByClassName('toggleText')[1];
+          const coverLetterText = document.getElementsByName('cover_letter_text')[0];
+
+          // Add event listener to coverLetterToggle link
+          coverLetterToggle.addEventListener('click', (e) => {
+            e.preventDefault(); // Prevent default link behavior
+
+            // Toggle display of coverLetterText
+            if (coverLetterText.style.display === 'none') {
+              coverLetterText.style.display = 'block';
+              coverLetterText.required = true; // Make coverLetterText mandatory
+              coverLetterInput.required = false; // Make coverLetterInput not mandatory
+              coverLetterInput.value = "";
+
+              var contentInputs = document.querySelectorAll('[name="cover_letter_content"]');
+              var filenameInputs = document.querySelectorAll('[name="cover_letter_content_filename"]');
+
+              contentInputs.forEach(function (element) {
+                element.remove();
+              });
+
+              filenameInputs.forEach(function (element) {
+                element.remove();
+              });
+
+
+            } else {
+              coverLetterText.style.display = 'none';
+              coverLetterText.required = false; // Make coverLetterText not mandatory
+              coverLetterInput.required = true; // Make coverLetterInput mandatory
+            }
+          });
+
+          // Add event listener to coverLetterInput
+          coverLetterInput.addEventListener('change', () => {
+            coverLetterText.style.display = 'none';
+            coverLetterText.required = false; // Make coverLetterText not mandatory
+            coverLetterInput.required = true; // Make coverLetterInput mandatory
+          });
+
+          addSubmitButtonToForm('formContainer');
+
+          const submitJobForm = document.getElementById('submitJobForm');
+          const formMessage = document.getElementById('formMessage');
+
+          submitJobForm.addEventListener('click', (event) => {
+            event.preventDefault();
+            
+            // Get form data
+            const form = document.getElementById('formContainer');
+            const formData = new FormData(form);
+          
+            // Validate required fields
+            let allRequiredFieldsHaveValue = true;
+            const requiredFields = form.querySelectorAll('[required]');
+            const invalidFields = [];
+            requiredFields.forEach(field => {
+              if (!formData.get(field.name)) {
+                // Field is required but has no value
+                allRequiredFieldsHaveValue = false;
+                field.classList.add('error'); // add error class to show error style
+                invalidFields.push(field.getAttribute('data-name')); // add field name to invalid fields array
+          
+                // Add event listener to remove error class on input
+                field.addEventListener('input', () => {
+                  if (formData.get(field.name)) {
+                    field.classList.remove('error'); // remove error class if field has value
+                    invalidFields.splice(invalidFields.indexOf(field.getAttribute('data-name')), 1); // remove field from invalid fields array
+                  }
+                });
+              } else {
+                field.classList.remove('error'); // remove error class if previously added
+              }
+            });
+          
+            if (!allRequiredFieldsHaveValue) {
+              formMessage.classList.add('errorForm');
+              formMessage.innerHTML = `Please fill in the following required fields: ${invalidFields.join(', ')}.`;
+              return; // stop execution if any required field is empty
+            }
+          
+            // Send form data with Axios
+            axios.post(form.action, formData)
+              .then(response => {
+                if (response.data.success) {
+                  // Show success message
+                  formMessage.classList.remove('errorForm');
+                  formMessage.classList.add('successForm');
+                  //formMessage.innerHTML = response.data.success;
+                  form.setAttribute('style', 'display:none;');
+                  formMessage.innerHTML = '<strong>Thank you for applying.</strong><br>Your application has been received. If there is a fit, someone will be getting back to you.';
+                }
+              })
+              .catch(error => {
+                if (error.response && error.response.status === 422 && error.response.data.error) {
+                  // Show error message
+                  const errorMessage = document.createElement('div');
+                  errorMessage.classList.add('errorForm');
+                  errorMessage.textContent = error.response.data.error;
+                  formMessage.innerHTML = '';
+                  formMessage.appendChild(errorMessage);
+                } else {
+                  console.error(error);
+                }
+              });
+          });
+          
+
+        })
+        .catch(function (error) {
+          console.log(error);
+        })
+        .then(function () {});
     }
-    loadInfo("./get-job.php?id="+jobId);
+    loadInfo("./get-job.php?id=" + jobId);
   }
 });
 
+function buildForm(json, containerId) {
+  const container = document.getElementById(containerId);
+  json.forEach(question => {
+    //console.log(question.name);
+    const questionDiv = document.createElement('div');
+    questionDiv.className = 'col-md-6';
+    questionDiv.classList.add('input-group');
+
+    const label = document.createElement('label');
+    label.textContent = question.label;
+
+    const fields = question.fields.map(field => {
+      const input = document.createElement(field.type === 'textarea' ? 'textarea' : 'input');
+
+      if (field.type === 'input_file') {
+        input.type = 'file';
+        input.accept = ".pdf, .doc, .docx, .txt, .rtf";
+      } else {
+        input.type = field.type;
+      }
+
+      if (field.type === 'textarea') {
+        input.style.display = 'none';
+      }
+
+      input.name = field.name;
+      input.placeholder = field.placeholder || '';
+      input.required = question.required;
+      input.setAttribute('data-name', question.label);
+      return input;
+    });
+
+    fields.forEach(field => {
+      questionDiv.appendChild(field);
+    });
+
+    if (question.fields.some(field => field.type === 'input_file')) {
+      const link = document.createElement('a');
+      link.href = '#';
+      link.className = 'toggleText';
+      link.textContent = 'Attach or enter manually';
+      questionDiv.appendChild(link);
+    }
+
+    questionDiv.insertBefore(label, fields[0]);
+
+    container.appendChild(questionDiv);
+
+  });
+}
+
+const htmlDecode = (input) => {
+  const doc = new DOMParser().parseFromString(input, "text/html");
+  return doc.documentElement.textContent;
+}
+
+function generateMarkup(json, containerId) {
+
+  const container = document.getElementById(containerId);
+  let markup = '';
+  console.log(json);
+  for (let i = json.length - 1; i >= 0; i--) {
+    const item = json[i];
+
+    if (item.description) {
+      const div = document.createElement('div');
+      div.classList.add('compilance', 'col-md-12');
+      div.innerHTML = htmlDecode(item.description);
+      container.appendChild(div);
+    }
+
+    if (item.questions.length > 0) {
+      const form = document.createElement('div');
+      item.questions.forEach(question => {
+        const div = document.createElement('div');
+        div.classList.add('selectForm');
+        const label = document.createElement('label');
+        label.textContent = question.label === 'Race' ? 'Are you Hispanic/Latino?' :
+          question.label === 'Gender' ? 'Gender' :
+          question.label === 'VeteranStatus' ? 'Veteran Status' :
+          question.label === 'DisabilityStatus' ? 'Disability Status' : question.label;
+
+        div.appendChild(label);
+        question.fields.forEach(field => {
+          let input;
+          switch (field.type) {
+            case 'multi_value_single_select':
+              input = document.createElement('select');
+              input.name = field.name;
+              input.classList.add('select-css');
+              field.values.forEach(value => {
+                const option = document.createElement('option');
+                option.value = value.value;
+                option.textContent = value.label;
+                input.appendChild(option);
+              });
+              break;
+          }
+          div.appendChild(input);
+        });
+        form.appendChild(div);
+      });
+      container.appendChild(form);
+    }
+  };
+}
+
+function setFormActionUrl(formId, idParameter) {
+  // Construct the URL using the idParameter
+  var url = "./post-job.php";
+  // Get the form element
+  var form = document.getElementById(formId);
+  var jobID = document.getElementById("idJobInput");
+  jobID.value = idParameter;
+  form.action = url;
+}
+
+function encodeFileToBase64(file, inputName) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+      const fileName = file.name;
+      const base64EncodedData = reader.result.split(',')[1];
+      const contentInput = document.querySelector(`input[name="${inputName}_content"]`);
+      if (contentInput) {
+        contentInput.value = base64EncodedData;
+      } else {
+        const contentInput = document.createElement('input');
+        contentInput.type = 'hidden';
+        contentInput.name = `${inputName}_content`;
+        contentInput.value = base64EncodedData;
+        const fileInput = document.querySelector(`input[name="${inputName}"]`);
+        fileInput.insertAdjacentElement('afterend', contentInput);
+      }
+      const filenameInput = document.querySelector(`input[name="${inputName}_content_filename"]`);
+      if (filenameInput) {
+        filenameInput.value = fileName;
+      } else {
+        const filenameInput = document.createElement('input');
+        filenameInput.type = 'hidden';
+        filenameInput.name = `${inputName}_content_filename`;
+        filenameInput.value = fileName;
+        const contentInput = document.querySelector(`input[name="${inputName}_content"]`);
+        contentInput.insertAdjacentElement('afterend', filenameInput);
+      }
+      resolve({ fileName, base64EncodedData });
+    };
+    reader.onerror = error => reject(error);
+  });
+}
+
+function addSubmitButtonToForm(formId) {
+  // Get a reference to the form element
+  const form = document.getElementById(formId);
+
+  // Create the button element and set its attributes
+  const button = document.createElement('button');
+  button.id = 'submitJobForm';
+  button.classList.add('button', 'button-2x', 'orange');
+  button.innerHTML = '<span>Submit Application</span>';
+
+  // Create a div element and set its class name
+  const actionsDiv = document.createElement('div');
+  actionsDiv.classList.add('actions');
+  // Append the button to the actions div
+  actionsDiv.appendChild(button);
+  // Add the actions div to the end of the form
+  form.appendChild(actionsDiv);
+}
 
 
 document.addEventListener('DOMContentLoaded', function () {

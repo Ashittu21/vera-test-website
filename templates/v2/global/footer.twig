@@ -101,20 +101,20 @@ var rowTop_height = rowTop.offsetHeight;
 var stuck = false;
 
 
-console.log(contentDiv_offsetTop);
+//console.log(contentDiv_offsetTop);
 
  // Sticky Menu
  if (document.querySelector('#header-desktop')) { 
 		var stickPoint = getDistance();
 		function getDistance() {
 		  var topDist = headerDesktop.offsetTop;
-      console.log(topDist);
+    //  console.log(topDist);
 		  return topDist;
 		}
 	 
 	window.onscroll = function(e) {
 		var distance = getDistance() - window.pageYOffset;
-    console.log(distance);
+   // console.log(distance);
 		var offset = window.pageYOffset;
 		if ((distance <= rowBottom_height ) && !stuck) {
         headerDesktop.style.position = 'fixed';
@@ -193,15 +193,15 @@ console.log(contentDiv_offsetTop);
       }
 
     curScroll = w.scrollY || doc.scrollTop;
-    console.log(' Current: '+curScroll);
+    //console.log(' Current: '+curScroll);
 
     if (curScroll > prevScroll) {
       direction = 2; //ABAJO
-      console.log('DOWN');
+     // console.log('DOWN');
     } else if (curScroll < prevScroll) {
 
       direction = 1; // ARRIBA
-      console.log('UP');
+    //  console.log('UP');
       if (document.querySelector('.head-banner-small')) {
          if(curScroll == 0 ){
            mainDiv.style.marginTop ="";

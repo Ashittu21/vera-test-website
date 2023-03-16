@@ -25,11 +25,14 @@
           <div class="latest-hero-sidebar-left">
             <div class="latestNews-hero">
 
-            {% if block.featuredStory_cta.first.type.handle == 'resourceSite' %}
-              <a href="{{ block.featuredStory_cta.first.linkUrl }}" target="_blank" class="latestNews-hero-container">
-            {% else %}
-              <a href="{{ block.featuredStory_cta.first.url }}" class="latestNews-hero-container">
-            {% endif %}
+
+{% if block.featuredStory_ctaLink.getUrl()  == null %}
+
+                {% if block.featuredStory_cta.first.type.handle == 'resourceSite' %}
+                  <a href="{{ block.featuredStory_cta.first.linkUrl }}" target="_blank" class="latestNews-hero-container">
+                {% else %}
+                  <a href="{{ block.featuredStory_cta.first.url }}" class="latestNews-hero-container">
+                {% endif %}
                 <div class="latestNews-hero-copy">
                   <div>
                     <div class="latestNews-hero-copy-category">
@@ -48,7 +51,25 @@
                       </span>
                   </div>
                 </div>
+{% else %}
 
+ <a href="{{ block.featuredStory_ctaLink.getUrl() }}" target="_blank" class="latestNews-hero-container">
+             <div class="latestNews-hero-copy">
+                  <div>
+                    <div class="latestNews-hero-copy-category">
+       
+
+        
+                    </div>
+                      <div class="latestNews-hero-copy-title">
+                        <h4 class="h4">{{ block.featuredStory_ctaLink.customText }}</h4>
+                      </div>
+                      <span class="theButton">
+                        <span>Read Now<div class="theArrow"></div></span>
+                      </span>
+                  </div>
+                </div>
+{% endif %}
                 <div class="latestNews-hero-image">
                   <img src="{{ block.featuredStory_image.first.getUrl(featuredImage) }}" alt="">
                 </div>
