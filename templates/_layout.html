@@ -29,14 +29,14 @@
 	
 	{% switch modalOption %}
 			{% case 'allWebSite' %}
-					{% include modalTemplate %}
+					{% include 'modal-popup/index.twig' with { option: modalOption } %}
 			{% case 'allWebsiteExcludingEntries' %}
 					{% if entry.id not in modalExcluded %}
-							{% include modalTemplate %}
+							{% include 'modal-popup/index.twig' with { option: modalOption } %}
 					{% endif %}
 			{% case 'selectedEntries' %}
 					{% if entry.id in modalSelected %}
-							{% include modalTemplate %}
+							{% include 'modal-popup/index.twig' with { option: modalOption } %}
 					{% endif %}
 			{% default %}
 	{% endswitch %}
