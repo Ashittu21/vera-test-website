@@ -12,10 +12,6 @@
     enabledForSite: true,
     status: 'live'}).one() #}
 
-
-
-
-
     {% if modal | length > 0 %}
 
         <div class="modal-popup">
@@ -98,16 +94,15 @@
         document.addEventListener("DOMContentLoaded", function () {
 
           //get cookie 
-          var cookiename = getCookie("cookiename");
+          var cookiename = getCookie("cookiename_{{modal.id}}");
           if (cookiename == "value") {} else {
 
             setTimeout(() => {
                 document.getElementById("veraModal").setAttribute("open", "open");
-
                 /*document.cookie = "cookiename=value; expires=0; path=/";*/
                 var now = new Date();
                 now.setTime(now.getTime() + {{ modal.modal_cookie ?? 1 }} * 3600 * 1000);
-                document.cookie = "cookiename=value; expires=" + now.toUTCString() + "; path=/";
+                document.cookie = "cookiename_{{modal.id}}=value; expires=" + now.toUTCString() + "; path=/";
               }, {{ modal.modal_delay }}000);
           }
 
