@@ -204,18 +204,19 @@
 	{% for relation in relationObjs %}
 		{% if relation.type == 'entries' %}
 
-			{% if(streamType == 'people') %}
+			{% if streamType == 'people' %}
 				{# When searching relatedToVeraStaff/center field use sourceElement #}
 				{% set relations = relations|merge([{sourceElement: craft.entries.id(relation.id).first}]) %}
 			{% else %}
 				{% set relations = relations|merge([{targetElement: craft.entries.id(relation.id).first}]) %}
-			{% endif%}
+			{% endif %}
 
 			{% set relatedPeopleInCenter =  craft.entries.section('people').relatedTo(craft.entries.id(relation.id).first) %}
 
 		{% elseif relation.type == 'categories' %}
 			{% set relations = relations|merge([{targetElement: craft.categories.id(relation.id).first}]) %}
 		{% endif %}
+		
 	{% endfor %}
 {% elseif relationObjs is not defined and relations is not defined %}
 	{% set relations = null %}

@@ -38,7 +38,8 @@
 		{% else %}
 			<h2 class="post-content__title">{{ entry.title }}
 			 {% if entry.subtitle %}<span class="post-content__subtitle ff-serif--italic size--h3">{{ entry.subtitle}}</span>{% endif %}</h2>
-		{% endif %}
+			 {% if entry.pronouns | length %}<div class="people-pronouns">{{ entry.pronouns }}</div>{% endif %}
+			 {% endif %}
 
 		{# Resolve with people snippet #}
 		{% set isPerson = entry.type.handle in ['staff','guestAuthor'] %}
@@ -58,10 +59,12 @@
 	                {% endif %}
 	                <div class="text-outer">
 	                	{% if isPerson %}
-	                	<h2 class="post-content__title">{{ entry.title }}</h2>
+	                		<h2 class="post-content__title">{{ entry.title }}</h2>
+											{% if entry.pronouns | length %}<div class="people-pronouns-mob">{{ entry.pronouns }}</div>{% endif %}
 	                	{% endif %}
 		                {% if personinfo | length %}
 	                    <h4 class="post-content__author__title">{{ personinfo }}</h4>
+										
 	                    {% endif %}
 						{% if person.email or person.telephone or person.social | length %}
 		                    <ul class="post-content__author__social">
