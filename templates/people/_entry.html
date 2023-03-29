@@ -22,7 +22,7 @@
                     {%- set relatedCenters = craft.entries.section('centers').relatedTo(entry) -%}
                    
                     {% if entry.initiative | length %}
-                        {% include 'includes/snippets/sidebar__type' with {relatives: entry.initiative, relativeTitle: 'Initiatives', relativeType: 'category', sidebar_class: 'sidebar__grid'} %}
+                        {% include 'includes/snippets/sidebar__type' with {relatives: entry.initiative, relativeTitle: 'Initiative', relativeType: 'category', sidebar_class: 'sidebar__grid'} %}
                     {% endif %}
 
                     {# if relatedCenters | length %}
