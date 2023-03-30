@@ -60,12 +60,15 @@
       type: 'categories',
       relations: craft.categories.group('departments').id(excludeCategories)
     }, {
-      title: 'Center or Program',
-      type: 'entries',
-      relations: craft.entries.section('centers').level(1)
+      title: 'Initiatives',
+      type: 'categories',
+      relations: craft.categories.group('initiatives')
     }],
     relatedTo: excludeCategories
     } %}
+
+
+
 
     {% include 'includes/stream/stream_people' with {isPageRequest : true} %}
 
