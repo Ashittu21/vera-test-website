@@ -1,0 +1,72 @@
+{% macro names(entries) %}
+	{% set names = '' %}
+	{% for author in entries %}
+		{% if loop.length > 1 %}
+			{% if not loop.first and not loop.last %}
+				{% set names = names ~ ', ' %}
+			{% elseif loop.last and loop.length == 2 %}
+				{% set names = names ~ " and " %}
+			{% elseif loop.last %}
+				{% set names = names ~ ", and " %}
+			{% endif %}
+		{% endif %}
+		{% set author = author.bio ? ('<a href="' ~ author.url ~ '" target="_blank">' ~ author.title ~ '</a>') : author.title %}
+		{% set names = names~author %}
+	{% endfor %}
+	{{- names | raw -}}
+{% endmacro %}
+{% import _self as macros %}
+{% extends '_layout' %}
+
+{% set title = entry.title %}
+
+{% block content %}
+
+	<section class="special-reports-landing special-reports-landing-no-hero">
+		<div class="special-reports-landing__inner">
+			<header class="special-reports__header">
+				<div class="container">
+					<h1>{{ entry.title }}</h1>
+					<h3>{{ entry.subtitle }}</h3>
+					<p class="ff-sans">{{ entry.postDate  | date("F d, Y")}}</p>
+
+					{% include 'includes/snippets/share_links' with {horizontal: true } %}
+				</div>
+				{% if entry.authors | length or entry.photographers | length or entry.illustrators | length %}
+					<aside class="special-reports__post-byline">
+						{% if entry.authors|length %}
+							{# {% include 'includes/snippets/people' with { people: entry.authors } %} #}
+							<p>By
+								{{ macros.names(entry.authors) }}</p>
+						{% endif %}
+						{% if entry.photographers|length %}
+							<p>Photography by
+								{{ macros.names(entry.photographers) }}</p>
+						{% endif %}
+						{% if entry.illustrators|length %}
+							<p>Illustrated by
+								{{ macros.names(entry.illustrators) }}</p>
+						{% endif %}
+					</p>
+				</p>
+			</aside>
+		{% endif %}
+
+	</header>
+	<div></section>
+
+	<div class="container">
+		<aside class="hr"></aside>
+	</div>
+
+	{% include 'includes/snippets/article' with {article: entry.specialReportsArticle} %}
+
+	{% include 'includes/stream/module_related-content' %}
+
+{% endblock %}
+
+{% block overlay %}
+
+	{% include 'includes/snippets/share_overlay' %}
+
+{% endblock %}

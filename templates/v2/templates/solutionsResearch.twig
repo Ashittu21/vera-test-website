@@ -33,6 +33,7 @@
         endnotes: 'endnotes',
         aboutThisReport: 'aboutThisReport',
         specialReportSingle: 'specialReportSingle',
+        specialReportSingleNoHero: 'specialReportSingleNoHero',
         gala: 'gala',
         specialReportChaptered: 'specialReportChaptered',
         accordion: 'accordion',
@@ -445,7 +446,7 @@
             <div class="rs-listing-item-wrapper">
               <div class="rs-listing-item-cat">
                 <span>
-                   {% if result.type.handle in ['specialReportSingle','specialReportChaptered','specialReport','specialReportCampaign'] %}
+                   {% if result.type.handle in ['specialReportSingle','specialReportSingleNoHero','specialReportChaptered','specialReport','specialReportCampaign'] %}
                       <p>Special Report</p>
                     {% else %}
                       <p>{{ result.type.name | title | upper }}</p>
