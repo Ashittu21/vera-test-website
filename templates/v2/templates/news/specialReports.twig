@@ -94,7 +94,7 @@
                   </div>
                   <div class="newsLanding-item-content-right">
                     <div class="newsLanding-item-content-right-tag">
-                      {% if entry.type.handle in ['specialReportSingle','specialReportChaptered','specialReport','specialReportCampaign'] %}
+                      {% if entry.type.handle in ['specialReportSingle','specialReportSingleNoHero','specialReportChaptered','specialReport','specialReportCampaign'] %}
                         Special Report
                       {% else %}
                         {{ entry.type.name | title | upper }}

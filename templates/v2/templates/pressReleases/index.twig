@@ -156,7 +156,7 @@
                 {% endif %}
 
                 {% switch newsItem.type.handle %}
-                  {% case 'story' or 'article' or 'specialReportChaptered' or 'specialReport' or 'specialReportSingle' or 'specialReportCampaign' or 'spotlight' %}
+                  {% case 'story' or 'article' or 'specialReportChaptered' or 'specialReport' or 'specialReportSingle' or 'specialReportSingleNoHero' or 'specialReportCampaign' or 'spotlight' %}
                     {% if newsItem.heroImage is not null %}
                         {% set imageset = newsItem.heroImage.first %}
                     {% elseif newsItem.streamImageSquare is not null %}
