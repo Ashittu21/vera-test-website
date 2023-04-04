@@ -7404,9 +7404,13 @@ document.addEventListener('DOMContentLoaded', function () {
           document.getElementById("jobType").innerHTML = response.data.metadata[0].value ?? '';
 
           buildForm(response.data.questions, 'formJob');
-          setFormActionUrl("formContainer", jobId);
-          generateMarkup(response.data.compliance, 'formContainer');
+        
+           setFormActionUrl("formContainer", jobId);
 
+          if (response.data.compliance !== null) {
+            generateMarkup(response.data.compliance, 'formContainer');
+        } 
+        
           const fileInputs = document.querySelectorAll('input[type="file"]');
           fileInputs.forEach(fileInput => {
             fileInput.addEventListener('change', async () => {
