@@ -41161,4 +41161,31 @@ header {
     .formApply-form .input-group button[type=submit].btnsubmit span {
       font-size: 17px; }
 
+.post-content__single__header--staff h2.post-content__title {
+  margin-bottom: 0;
+  padding-bottom: 0; }
+
+.post-content__single__header--staff .people-pronouns {
+  font-size: 22px; }
+  @media (max-width: 768px) {
+    .post-content__single__header--staff .people-pronouns {
+      display: none; } }
+
+.post-content__single__header--staff .text-outer .people-pronouns-mob {
+  font-size: 22px;
+  text-align: center;
+  margin-bottom: 4rem; }
+  @media (min-width: 768px) {
+    .post-content__single__header--staff .text-outer .people-pronouns-mob {
+      display: none; } }
+
+.post-content__sidebar.module-intro__sidebar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column; }
+
 /*# sourceMappingURL=main.css.map */

@@ -100,8 +100,8 @@
 			
 			{#
 			
-            {% if entry.relatedCenters | length %}
-                {% include 'includes/snippets/sidebar__type' with {relatives: entry.relatedCenters, relativeTitle: 'Related Centers', relativeType: 'centers', sidebar_class: 'sidebar__grid'} %}
+            {% if entry.initiative | length %}
+                {% include 'includes/snippets/sidebar__type' with {relatives: entry.initiatives, relativeTitle: 'Initiatives', relativeType: 'category', sidebar_class: 'sidebar__grid'} %}
             {% endif %}
 
             {% if entry.relatedLocations | length %}

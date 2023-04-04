@@ -1,5 +1,8 @@
 
 
+
+
+
 {% if craft.app.request.isPreview %}
   {% set modal = craft.entries().section('modalPopup').enabledForSite('true').one() %}
 {% else %}
@@ -11,10 +14,6 @@
     section: 'modalPopup',
     enabledForSite: true,
     status: 'live'}).one() #}
-
-
-
-
 
     {% if modal | length > 0 %}
 
@@ -40,7 +39,7 @@
               </div>
 
               <div class="modal-wrapper_right">
-                <div class="modal-wrapper_right--title">
+                <div class="modal-wrapper_right--title"> 
                   {{ modal.modal_title }}
                 </div>
               
@@ -98,16 +97,15 @@
         document.addEventListener("DOMContentLoaded", function () {
 
           //get cookie 
-          var cookiename = getCookie("cookiename");
+          var cookiename = getCookie("cookiename_{{ option }}_{{modal.id}}");
           if (cookiename == "value") {} else {
 
             setTimeout(() => {
                 document.getElementById("veraModal").setAttribute("open", "open");
-
                 /*document.cookie = "cookiename=value; expires=0; path=/";*/
                 var now = new Date();
                 now.setTime(now.getTime() + {{ modal.modal_cookie ?? 1 }} * 3600 * 1000);
-                document.cookie = "cookiename=value; expires=" + now.toUTCString() + "; path=/";
+                document.cookie = "cookiename_{{ option }}_{{modal.id}}=value; expires=" + now.toUTCString() + "; path=/";
               }, {{ modal.modal_delay }}000);
           }
 

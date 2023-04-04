@@ -18,7 +18,29 @@
 {% block body %}
 	
 	{# if entry.uri != "__home__" %}	{% endif #}
-		{% include 'modal-popup/index.twig' %}
+
+	
+	{% set modalData = craft.app.globals.getSetByHandle('modal') %}
+
+	{% set modalOption   = modalData.modalFunction %}
+	{% set modalSelected = modalData.modalEntries.ids() %}
+	{% set modalExcluded = modalData.modalExcludeEntries.ids() %}
+	{% set modalTemplate = 'modal-popup/index.twig' %}
+	
+	{% switch modalOption %}
+			{% case 'allWebSite' %}
+					{% include 'modal-popup/index.twig' with { option: modalOption } %}
+			{% case 'allWebsiteExcludingEntries' %}
+					{% if entry.id not in modalExcluded %}
+							{% include 'modal-popup/index.twig' with { option: modalOption } %}
+					{% endif %}
+			{% case 'selectedEntries' %}
+					{% if entry.id in modalSelected %}
+							{% include 'modal-popup/index.twig' with { option: modalOption } %}
+					{% endif %}
+			{% default %}
+	{% endswitch %}
+	
 
 
 	{% block nav %}
