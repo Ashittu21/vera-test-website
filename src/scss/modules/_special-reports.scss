@@ -293,6 +293,21 @@ body.special-report-editorial {
   }
 }
 
+.special-reports-landing-no-hero {
+
+  & + .container {
+    margin-top: -$padding-xl;
+  }
+
+  @media (min-width:991px) {
+      margin-top: $padding-xl * 3;
+
+      & + .container {
+        margin-top: -$padding-xl * 3;
+      }
+    }
+}
+
 .video-embed-outer + .post-module.special-reports-landing {
   transition: 0.5s;
 }

@@ -15088,6 +15088,15 @@ body.special-report-editorial .people-list {
   .special-reports-landing + .container, .special-reports-landing + .timed-slideshow-item--text, .special-reports-landing + .PoliceBudget {
     margin-top: -80px; }
 
+.special-reports-landing-no-hero + .container, .special-reports-landing-no-hero + .timed-slideshow-item--text, .special-reports-landing-no-hero + .PoliceBudget {
+  margin-top: -60px; }
+
+@media (min-width: 991px) {
+  .special-reports-landing-no-hero {
+    margin-top: 180px; }
+    .special-reports-landing-no-hero + .container, .special-reports-landing-no-hero + .timed-slideshow-item--text, .special-reports-landing-no-hero + .PoliceBudget {
+      margin-top: -180px; } }
+
 .video-embed-outer + .post-module.special-reports-landing {
   -webkit-transition: 0.5s;
   transition: 0.5s; }
