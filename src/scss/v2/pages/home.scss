@@ -185,6 +185,7 @@
   }
 
   .headTitle-content{
+    position: relative;
     padding-top: 10rem;
   }
 
@@ -234,7 +235,7 @@
   }
 
   .block-latestNews {
-
+    position: relative;
     @media(max-width:$mobile-breakpoint){
       padding-bottom: 20px;
       padding-top: 0;
