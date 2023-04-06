@@ -141,7 +141,11 @@
 
            <a href="{{ newsItem.url }}" class="latestNews-item">
 							<div class="latestNews-item-category">
-								<p>{{ newsItem.type.name | title | upper }}</p>
+								{% if newsItem.type.handle in ['specialReportSingle','specialReportSingleNoHero','specialReportChaptered','specialReport','specialReportCampaign'] %}
+									<p>SPECIAL REPORT</p>
+								{% else %}
+									<p>{{ newsItem.type.name | title | upper }}</p>
+								{% endif %}
 							</div>
 							<div class="latestNews-item-image"
 								style="background-image: url('{{ imageset.first.url }}');">

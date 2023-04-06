@@ -296,16 +296,21 @@ body.special-report-editorial {
 .special-reports-landing-no-hero {
 
   & + .container {
-    margin-top: -$padding-xl;
+    margin-top: -$padding-sm * 5;
+  }
+ 
+  @media (min-width:991px) and (max-width:1024px){
+    margin-top: $padding-lg * 2;
+    margin-bottom: $padding-lg;
   }
 
-  @media (min-width:991px) {
-      margin-top: $padding-xl * 3;
+  @media (min-width: $tablet-landscape) {
+    margin-top: $padding-xl * 3;
 
-      & + .container {
-        margin-top: -$padding-xl * 3;
-      }
+    & + .container {
+      margin-top: -$padding-xl * 3;
     }
+  }
 }
 
 .video-embed-outer + .post-module.special-reports-landing {
@@ -316,6 +321,10 @@ body.special-report-editorial {
   background: $white;
   position: relative;
   z-index: 2;
+}
+
+.special-reports-landing-no-hero .special-reports-landing__inner {
+  background: #FFF7F0;
 }
 
 // landing page header
@@ -351,6 +360,20 @@ body.special-report-editorial {
     margin-top: $padding-lg;
   }
 }
+
+
+.special-reports-landing-no-hero .special-reports__header {
+
+  @media (min-width: 991px) {
+    padding: 0;
+  }
+
+  @media (min-width: $tablet-landscape) {
+    padding: 0;
+  }
+
+}
+
 
 // .special-reports__intro p:first-of-type:first-letter { // styled by user?
 //     @include big-letter;
