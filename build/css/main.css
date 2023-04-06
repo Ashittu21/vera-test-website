@@ -32402,11 +32402,13 @@ div.headingHero > div:nth-child(3) > div {
 .heroType2 {
   background-color: var(--global-color-sand);
   -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out; }
+  transition: all 0.2s ease-in-out;
+  position: relative; }
   .heroType2-container {
     max-width: 1280px;
     margin: 0 auto;
-    width: 100%; }
+    width: 100%;
+    position: relative; }
     .heroType2-container-title {
       max-width: 727px;
       font-family: var(--global-font-sectra);
@@ -38672,7 +38674,8 @@ header {
 
 .home-content {
   background-color: var(--global-color-sand);
-  width: 100%; }
+  width: 100%;
+  position: relative; }
   @media (max-width: 768px) {
     .home-content {
       max-width: 100%;
