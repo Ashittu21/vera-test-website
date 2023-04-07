@@ -3,6 +3,7 @@
   background-color: var(--global-color-dark-violet);
   transition: all 0.2s ease-in-out;
   overflow: hidden;
+  position: relative;
 
   &-content {
     position: relative;
@@ -226,9 +227,11 @@
   font-size: 160px;
   line-height: normal;
   color: #fff;
+  position: relative;
 
   &>div.textWrap {
     overflow: hidden;
+    position: relative;
 
     &>div.text {
       width: -webkit-max-content;

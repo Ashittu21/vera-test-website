@@ -29790,7 +29790,8 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
   background-color: var(--global-color-dark-violet);
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
-  overflow: hidden; }
+  overflow: hidden;
+  position: relative; }
   .heroType3-content {
     position: relative;
     min-height: 605px;
@@ -29994,9 +29995,11 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
   font-weight: bold;
   font-size: 160px;
   line-height: normal;
-  color: #fff; }
+  color: #fff;
+  position: relative; }
   .headingHero > div.textWrap {
-    overflow: hidden; }
+    overflow: hidden;
+    position: relative; }
     .headingHero > div.textWrap > div.text {
       width: -webkit-max-content;
       width: -moz-max-content;
