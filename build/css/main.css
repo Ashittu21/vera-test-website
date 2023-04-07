@@ -30009,7 +30009,9 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
         display: inline-block;
         width: -webkit-min-content;
         width: -moz-min-content;
-        width: min-content; }
+        width: min-content;
+        position: relative;
+        z-index: 2; }
       .headingHero > div.textWrap > div.text div.heroUnderline {
         display: inline-block;
         width: -webkit-min-content;
@@ -30026,7 +30028,7 @@ h1, .article .heading-wrap.heading-style--default .heading-wrap-text h3.heading,
           width: 0px;
           -o-object-fit: cover;
              object-fit: cover;
-          z-index: -1;
+          z-index: 1;
           position: relative;
           top: -30px; }
           @media (max-width: 440px) {
