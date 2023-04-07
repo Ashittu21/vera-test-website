@@ -1,7 +1,8 @@
 .home-content {
   background-color: var(--global-color-sand);
   width: 100%;
-
+  position: relative;
+  
   @media(max-width:$mobile-breakpoint) {
     max-width: 100%;
     padding: 30px 12px;
@@ -185,6 +186,7 @@
   }
 
   .headTitle-content{
+    position: relative;
     padding-top: 10rem;
   }
 
@@ -234,7 +236,7 @@
   }
 
   .block-latestNews {
-
+    position: relative;
     @media(max-width:$mobile-breakpoint){
       padding-bottom: 20px;
       padding-top: 0;
