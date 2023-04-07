@@ -2,6 +2,7 @@
 
   background-color: var(--global-color-dark-violet);
   transition: all 0.2s ease-in-out;
+  overflow: hidden;
 
   &-content {
     position: relative;
@@ -10,6 +11,7 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    overflow: hidden;
 
     @media(max-width: 1120px) {
       min-height: 450px;
@@ -176,6 +178,7 @@
   margin: 0;
   width: 100%;
   margin: 0 auto;
+  overflow: hidden;
 
   .slider-home {
     position: absolute !important;
