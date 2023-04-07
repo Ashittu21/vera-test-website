@@ -6933,34 +6933,45 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     const underlineFirst = document.querySelector(`.swiper-slide:nth-child(2) > .headingHero > div:nth-of-type(2) > div > .heroUnderline > .heroUnderline-word`);
-    const imgFirst       = document.querySelector(`.swiper-slide:nth-child(2) > .headingHero >  div:nth-of-type(2) > div > .heroUnderline > img`);
-    const wordWidthFirst = underlineFirst.offsetWidth;
-    imgFirst.style.setProperty("width", wordWidthFirst+"px", "important");
-    imgFirst.style.width = wordWidthFirst;
+    const imgFirst = document.querySelector(`.swiper-slide:nth-child(2) > .headingHero >  div:nth-of-type(2) > div > .heroUnderline > img`);
+    
+    const wordWidthFirst = underlineFirst.clientWidth + "px";
+    const animationStrokeFirst = [{ width: '0px', }, { width: wordWidthFirst,}];
+
+    //const wordWidthFirst = underlineFirst.offsetWidth;
+    //imgFirst.style.setProperty("width", wordWidthFirst+"px", "important");
+    //imgFirst.style.width = wordWidthFirst;
+
+
+    imgFirst.animate(animationStrokeFirst, {
+      duration: 1300,
+      fill: 'both',
+      easing: 'cubic-bezier(0.65, 0, 0.35, 1)'
+    });
 
     const animationStroke = [{
-      width: '0px',
-      position: 'relative',
-      top: '0px',
-      opacity: 0,
-    },
-    {
-      width: wordWidthFirst,
-      position: 'relative',
-      top: '-30px',
-      opacity: 1,
-    }
+        width: '0px',
+        position: 'relative',
+        top: '0px',
+        opacity: 0,
+      },
+      {
+        width: wordWidthFirst,
+        position: 'relative',
+        top: '-30px',
+        opacity: 1,
+      }
     ];
 
     const animationSlideUp = [{
-      transform: 'translateY(100px)',
-      opacity: 0,
-    },
-    {
-      transform: 'translateY(0px)',
-      opacity: 1,
+        transform: 'translateY(100px)',
+        opacity: 0,
+      },
+      {
+        transform: 'translateY(0px)',
+        opacity: 1,
 
-    }
+      }
     ];
       
 
