@@ -3,6 +3,7 @@
   background-color: var(--global-color-dark-violet);
   transition: all 0.2s ease-in-out;
   overflow: hidden;
+  position: relative;
 
   &-content {
     position: relative;
@@ -226,9 +227,11 @@
   font-size: 160px;
   line-height: normal;
   color: #fff;
+  position: relative;
 
   &>div.textWrap {
     overflow: hidden;
+    position: relative;
 
     &>div.text {
       width: -webkit-max-content;
@@ -241,14 +244,18 @@
       div{
         display: inline-block;
         width: min-content;
+        position: relative;
+        z-index: 2;
       }
       div.heroUnderline{
         display: inline-block;
         width: min-content;
+   
 
         .underline-word{
           display: inline-block;
           width: min-content;
+      
         }
         
         img{
@@ -256,7 +263,7 @@
           display: block;
           width: 0px;
           object-fit: cover;
-          z-index: -1;
+          z-index: 1;
           position: relative;
           top: -30px;
 
