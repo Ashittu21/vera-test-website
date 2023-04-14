@@ -791,7 +791,7 @@ uniform ${B} ${N} u_${G};
             facilities now use the forced labor of incarcerated people (who are
             disproportionally Black) to sustain the “corrections” industry.</p></div>`,Fe=Ge(),$e=Ae("section"),$e.innerHTML=`<div class="col-medium"><p>Adding youth prisons and jails to the facilities already outlined
             shows that there are more than 230 jails and prisons across
-            Louisiana. In comparison, there are only 43 universities and
+            Louisiana. In comparison, there are only 42 universities and
             colleges in the state.</p></div>`,ct=Ge(),We=Ae("section"),mt=Ae("a"),xe=Ge(),Ne=Ae("div"),Le=Ae("p"),Le.textContent=`These numbers matter: more facilities lead to more incarceration.
             The parishes with the most outsized jails often have the highest
             pretrial detention and prison incarceration rates.`,ut=Ge(),Ze=Ae("p"),Ze.innerHTML=`<strong>Visit your parish page to see how local policies add up to
