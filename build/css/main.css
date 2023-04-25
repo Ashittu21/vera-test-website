@@ -31264,6 +31264,7 @@ div.headingHero > div:nth-child(3) > div {
 
 .copy-block-container {
   background-color: var(--global-color-sand);
+  position: relative;
   padding: 0; }
   .copy-block-container::-moz-selection {
     background: #EF4136;
