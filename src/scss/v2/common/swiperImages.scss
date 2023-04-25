@@ -9,7 +9,7 @@
 
 
   .swiper-wrapper {
-
+    position: relative;
 
     &.singleImage {
       .swiper-slide {
@@ -55,7 +55,7 @@
       }
 
       &:not(.swiper-slide-visible) {
-        opacity: 0 !important;
+        opacity: 0;
       }
     }
 
