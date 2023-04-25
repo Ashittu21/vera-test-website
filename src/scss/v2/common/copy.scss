@@ -1,5 +1,6 @@
 .copy-block-container {
   background-color: var(--global-color-sand);
+  position: relative;
   padding: 0;
 
   &::selection {
