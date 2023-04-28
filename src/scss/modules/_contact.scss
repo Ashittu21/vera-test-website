@@ -146,22 +146,23 @@
 }
 
 .contact-other-locations {
-  padding: $padding-lg 0;
-
-  @media (min-width: $tablet-landscape) {
-    padding: $padding-lg * 2 0;
-  }
+  padding: $padding-sm 0;
 
   .contact-location {
     ul {
       margin-bottom: $padding-sm;
-
-      @media (min-width: $tablet-landscape) {
-        margin-bottom: $padding-lg;
-      }
     }
   }
 }
+
+.contact-text {
+  padding-bottom: $padding-lg;
+  @media (min-width: $tablet-landscape) {
+    padding-bottom: $padding-lg * 2;
+    margin-bottom: $padding-lg;
+  }
+}
+
 
 .contact-directions {
   .label {
