@@ -14727,16 +14727,17 @@ a:hover .icon-download:after {
   border-color: #231f20; }
 
 .contact-other-locations {
-  padding: 20px 0; }
+  padding: 20px 0 0 0; }
   .contact-other-locations .contact-location ul {
     margin-bottom: 20px; }
 
 .contact-text {
+  margin-bottom: 40px;
   padding-bottom: 40px; }
   @media (min-width: 1024px) {
     .contact-text {
-      padding-bottom: 80px;
-      margin-bottom: 40px; } }
+      margin: 40px 0;
+      padding-bottom: 40px; } }
 
 .contact-directions .label {
   width: 60px; }
