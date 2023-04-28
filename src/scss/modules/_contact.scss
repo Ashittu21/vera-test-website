@@ -146,7 +146,7 @@
 }
 
 .contact-other-locations {
-  padding: $padding-sm 0;
+  padding: $padding-sm 0 0 0;
 
   .contact-location {
     ul {
@@ -156,13 +156,14 @@
 }
 
 .contact-text {
+  margin-bottom: $padding-lg;
   padding-bottom: $padding-lg;
+
   @media (min-width: $tablet-landscape) {
-    padding-bottom: $padding-lg * 2;
-    margin-bottom: $padding-lg;
+    margin: $padding-lg 0;
+    padding-bottom: $padding-lg;
   }
 }
-
 
 .contact-directions {
   .label {
