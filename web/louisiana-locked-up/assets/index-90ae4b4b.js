@@ -719,9 +719,9 @@ uniform ${B} ${N} u_${G};
       <div class="citem svelte-j3bpv"><div class="color c svelte-j3bpv"></div> 
         <div class="rank svelte-j3bpv">More than twice U.S. Avg.</div> 
         <div class="title svelte-j3bpv">(26+ per 10k)</div></div>`,O(n,"class","choro svelte-j3bpv"),O(c,"id","colors"),O(c,"class","svelte-j3bpv")},m(h,p){fe(h,n,p),fe(h,a,p),fe(h,c,p)},d(h){h&&ce(n),h&&ce(a),h&&ce(c)}}}function Sv(t){let n;function a(p,_){return p[0]=="map01"?kv:p[0]=="map02"?Tv:p[0]=="map04"||p[0]=="map05"?wv:p[0]=="map08"?bv:p[0]=="map12"?xv:p[0]=="map13"?vv:p[0]=="map14"?yv:p[0]=="map15"?_v:gv}let c=a(t),h=c(t);return{c(){n=Ae("div"),h.c(),O(n,"id","legend"),O(n,"class","svelte-j3bpv")},m(p,_){fe(p,n,_),h.m(n,null)},p(p,[_]){c!==(c=a(p))&&(h.d(1),h=c(p),h&&(h.c(),h.m(n,null)))},i:Ft,o:Ft,d(p){p&&ce(n),h.d()}}}function Ev(t,n,a){let{lo:c}=n;return t.$$set=h=>{"lo"in h&&a(0,c=h.lo)},[c]}class Cv extends _i{constructor(n){super(),gi(this,n,Ev,Sv,di,{lo:0})}}function Av(t){let n,a,c,h,p,_,o,b,S,E,P;return{c(){n=Ae("h2"),n.textContent="Acknowledgments",a=Ge(),c=Ae("p"),c.textContent=`Vera would like to thank Families and Friends of Louisiana’s Incarcerated
-  Children, Power Coalition for Equity and Justice, and Voice of the Experienced
-  for sharing their advice, guidance, and time throughout the process of
-  creating this tool.`,h=Ge(),p=Ae("p"),p.textContent=`Vera would like to thank the following colleagues for their support in
+  Children, the Pixley Hill Foundation, Power Coalition for Equity and Justice,
+  and Voice of the Experienced for sharing their advice, guidance, and time
+  throughout the process of creating this tool.`,h=Ge(),p=Ae("p"),p.textContent=`Vera would like to thank the following colleagues for their support in
   providing research and invaluable advice: Connor Burruss, Sarah Omojola, Josh
   Pichon, Kimberly Dickerson, Jacob Kang-Brown, Nina Siulc, and Karen Ball.`,_=Ge(),o=Ae("p"),o.textContent=`Vera would like to thank the Ford Foundation, the Foundation for Louisiana,
   and the Huey and Angelina Wilson Foundation for their generous financial
@@ -1182,9 +1182,13 @@ uniform ${B} ${N} u_${G};
           <li class="svelte-9nsqyw"><a href="https://www.vera.org/ending-mass-incarceration/dignity-behind-bars" class="svelte-9nsqyw"><div class="hover-arrow svelte-9nsqyw">Dignity Behind Bars</div> 
               <span class="svelte-9nsqyw">Centering dignity and minimizing the harms of criminal legal
                 and immigration system involvement</span></a></li></ul></li> 
-      <li class="svelte-9nsqyw"><a href="https://www.vera.org/investing-in-communities" class="svelte-9nsqyw">Investing in Communities</a></li> 
+      <li class="svelte-9nsqyw"><a href="https://www.vera.org/investing-in-communities" class="svelte-9nsqyw">Our Work</a> 
+        <ul class="svelte-9nsqyw"><li class="svelte-9nsqyw"><a href="" class="svelte-9nsqyw"><div class="hover-arrow svelte-9nsqyw">Something</div> 
+              <span class="svelte-9nsqyw">yada yada</span></a></li> 
+          <li class="svelte-9nsqyw"><a href="" class="svelte-9nsqyw"><div class="hover-arrow svelte-9nsqyw">Something</div> 
+              <span class="svelte-9nsqyw">yada yada</span></a></li></ul></li> 
       <li class="svelte-9nsqyw"><a href="https://www.vera.org/solutions-research" class="svelte-9nsqyw">Solutions &amp; Research</a></li> 
-      <li class="svelte-9nsqyw"><a href="https://www.vera.org/get-involved" class="svelte-9nsqyw">News</a> 
+      <li class="svelte-9nsqyw"><a href="https://www.vera.org/get-involved" class="svelte-9nsqyw">News &amp; Stories</a> 
         <ul class="svelte-9nsqyw"><li class="svelte-9nsqyw"><a href="https://www.vera.org/news-and-stories" class="svelte-9nsqyw"><div class="hover-arrow svelte-9nsqyw">Latest News &amp; Stories</div> 
               <span class="svelte-9nsqyw">Ideas, opinions, and strategies to end mass incarceration</span></a></li> 
           <li class="svelte-9nsqyw"><a href="https://www.vera.org/media-center" class="svelte-9nsqyw"><div class="hover-arrow svelte-9nsqyw">Media Center</div> 
