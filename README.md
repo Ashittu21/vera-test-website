@@ -46,3 +46,4 @@ If you are prompted to install mysql/postgres/redis, say no to all
 14. `composer update`
 15. `exit`
 16. You should be up and running now at https://vera-website.nitro
+# vera-test-website
