@@ -13,7 +13,7 @@ pipeline {
         }
         stage('Sonar Build') {
             steps {
-                withSonarQubeEnv('git sonarqube') {
+                withSonarQubeEnv('sonarqube') {
                     sh '''
                         ARTIFACTORY_URL=http://44.217.150.130:8081/repository/nexus-repo/
                         cd $WORKSPACE
