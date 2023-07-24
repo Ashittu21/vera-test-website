@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        lable 'Vera-Web-Server'
+        label 'Vera-Web-Server'
     }
 
     stages {
