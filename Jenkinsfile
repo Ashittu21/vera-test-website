@@ -52,7 +52,7 @@ pipeline {
                             [artifactId: '1', classifier: '', file: '/var/www/html/**', type: 'zip']
                         ],
                         repositoryId: 'nexus-repo', // Replace with your Nexus repository ID
-                        credentialsId: 'admin' // Replace with the credentials ID to access Nexus (configured in Jenkins)
+                        credentialsId: 'nexus-user' // Replace with the credentials ID to access Nexus (configured in Jenkins)
                     ]
                 ]
             }
