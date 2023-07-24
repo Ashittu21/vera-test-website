@@ -8,7 +8,7 @@ pipeline {
             steps {
                 // Checkout the code from your GitHub repository or copy it from a source
                 // Replace 'your-username' and 'your-repo' with your GitHub username and repository name
-                git credentialsId: 'git-token-user', url: 'https://github.com/Ashittu21/vera-test-website'
+                git credentialsId: 'git-token-user', url: 'https://github.com/Ashittu21/vera-test-website.git'
             }
         }
         stage('Sonar Build') {
@@ -17,7 +17,7 @@ pipeline {
                     sh '''
                         ARTIFACTORY_URL=http://44.217.150.130:8081/repository/nexus-repo/
                         cd $WORKSPACE
-                        mvn clean verify test sonar:sonar
+                        mvn clean verify test sonar:sonarqube
                     '''
                 }
             }
