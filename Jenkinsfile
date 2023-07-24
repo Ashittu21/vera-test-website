@@ -14,7 +14,7 @@ pipeline {
         stage('Deploy Project') {
             steps {
                 // Go to the specified directory
-                sh 'cd ${http://3.214.39.124:8080/job/vera-test/}'
+                sh 'cd ${Workspace}'
                 sh 'ls -lrt'
                 // Perform some action in the directory
                 sh '''
