@@ -8,7 +8,7 @@ pipeline {
             steps {
                 // Checkout the code from your GitHub repository or copy it from a source
                 // Replace 'your-username' and 'your-repo' with your GitHub username and repository name
-                git credentialsId: 'git-token-user', url: 'https://github.com/Ashittu21/vera-test-website.git'
+                git credentialsId: 'git-token-user', url: 'https://github.com/Ashittu21/vera-test-website'
             }
         }
         stage('Sonar Build') {
