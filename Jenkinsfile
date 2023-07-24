@@ -15,7 +15,7 @@ pipeline {
             steps {
                 withSonarQubeEnv('sonarqube') {
                     sh '''
-                        ARTIFACTORY_URL=http://23.21.135.171:9000/
+                        ARTIFACTORY_URL=http://44.217.150.130:8081/repository/nexus-repo/
                         cd $WORKSPACE
                         mvn clean verify test sonar:sonarqube
                     '''
@@ -49,7 +49,7 @@ pipeline {
                 nexusPublisher nexusInstanceId: 'nexus', nexusRepositoryId: 'nexus-repo', packages: [
                     [ 
                         artifacts: [
-                            [artifactId: 'your-artifact-id', classifier: '', file: '/var/www/html/**', type: 'zip']
+                            [artifactId: '1', classifier: '', file: '/var/www/html/**', type: 'zip']
                         ],
                         repositoryId: 'nexus-repo', // Replace with your Nexus repository ID
                         credentialsId: 'admin' // Replace with the credentials ID to access Nexus (configured in Jenkins)
