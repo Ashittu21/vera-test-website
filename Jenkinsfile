@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        lable 'Vera-Web-Server'
+        label 'Vera-Web-Server'
     }
 
     stages {
@@ -43,7 +43,7 @@ pipeline {
         stage('Upload to Nexus') {
             steps {
                 // Upload the project artifact to Nexus
-                nexusPublisher nexusInstanceId: 'nexus', nexusRepositoryId: [
+                nexusPublisher nexusInstanceId: 'nexus', nexusRepositoryId: 'nexus-repo'[
                     [
                         nexusRepositoryId: 'nexus-repo', // Replace with your Nexus repository ID
                         credentialsId: 'nexus', // Replace with the credentials ID to access Nexus (configured in Jenkins)
