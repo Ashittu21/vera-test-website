@@ -13,7 +13,7 @@ pipeline {
         }
         stage('Sonar Build') {
             steps {
-                withSonarQubeEnv('<sonarqube'){
+                withSonarQubeEnv('sonarqube'){
                     sh '''
                         ARTIFACTORY_URL=http://44.217.150.130:8081/repository/nexus-repo/
                         cd $WORKSPACE
@@ -46,7 +46,7 @@ pipeline {
                 nexusPublisher nexusInstanceId: 'nexus', nexusRepositoryId: 'nexus-repo'[
                     [
                         nexusRepositoryId: 'nexus-repo', // Replace with your Nexus repository ID
-                        credentialsId: 'nexus', // Replace with the credentials ID to access Nexus (configured in Jenkins)
+                        credentialsId: 'admin', // Replace with the credentials ID to access Nexus (configured in Jenkins)
                         packages: [[$class: 'PatternArtifactUploader', pattern: '/var/www/html/**']] // Replace with the path to your built artifact
                     ]
                 ]
