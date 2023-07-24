@@ -8,7 +8,7 @@ pipeline {
             steps {
                 // Checkout the code from your GitHub repository or copy it from a source
                 // Replace 'your-username' and 'your-repo' with your GitHub username and repository name
-                git credentialsID: 'ashittu21', url: 'https://github.com/Ashittu21/vera-test-website.git'
+                git credentialsId: 'ashittu21', url: 'https://github.com/Ashittu21/vera-test-website.git'
             }
         }
         stage('Sonar Build') {
@@ -43,7 +43,7 @@ pipeline {
         stage('Upload to Nexus') {
             steps {
                 // Upload the project artifact to Nexus
-                nexusPublisher nexusInstanceId: 'nexus', repositories: [
+                nexusPublisher nexusInstanceId: 'nexus', nexusRepositoryId: [
                     [
                         nexusRepositoryId: 'nexus-repo', // Replace with your Nexus repository ID
                         credentialsId: 'nexus', // Replace with the credentials ID to access Nexus (configured in Jenkins)
