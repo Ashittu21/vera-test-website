@@ -1,14 +1,17 @@
 pipeline {
     agent any
         
-    
-
     stages {
         stage('Clone or Pull') {
             steps {
                 // Checkout the code from your GitHub repository or copy it from a source
                 // Replace 'your-username' and 'your-repo' with your GitHub username and repository name
-               git branch: 'main', git credentialsId: 'git', url: 'https://github.com/Ashittu21/vera-test-website.git'
+                script {
+                    // Define the branch name
+                    def branchName = 'main' // Replace 'main' with the desired branch name
+                    sh "git checkout -b ${branchName}"
+                    sh "git credentialsId: 'git', url: 'https://github.com/Ashittu21/vera-test-website.git'"
+                }
             }
         }
         stage('Sonar Build') {
@@ -49,7 +52,7 @@ pipeline {
                 nexusPublisher nexusInstanceId: 'nexus', nexusRepositoryId: 'nexus-repo', packages: [
                     [ 
                         artifacts: [
-                            [artifactId: '1', classifier: '', file: '/var/www/html/**', type: 'zip']
+                            [artifactId: '1', classifier: '', file: '/var/www/html/your_artifact.zip', type: 'zip']
                         ],
                         repositoryId: 'nexus-repo', // Replace with your Nexus repository ID
                         credentialsId: 'nexus-user' // Replace with the credentials ID to access Nexus (configured in Jenkins)
