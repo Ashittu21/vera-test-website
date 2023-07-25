@@ -1,7 +1,7 @@
 pipeline {
-    agent  {
-       label 'any'
-    }
+    agent any
+        
+    
 
     stages {
         stage('Clone or Pull') {
