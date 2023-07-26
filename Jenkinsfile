@@ -2,64 +2,69 @@ pipeline {
     agent any
 
     tools {
-        maven 'M3'
+        git 'Git' // Use the name of the Git tool you configured in Global Tool Configuration
+        jdk "jdk"
     }
-        
+
     stages {
-        /*stage('Clone or Pull') {
+        stage('Checkout') {
             steps {
-                // Checkout the code from your GitHub repository or copy it from a source
-                // Replace 'your-username' and 'your-repo' with your GitHub username and repository name
-                script {
-                    // Define the branch name
-                    def branchName = 'main' // Replace 'main' with the desired branch name
-                    sh "git checkout -b ${branchName}"
-                    sh "git credentialsId: 'git', url: 'https://github.com/Ashittu21/vera-test-website.git'"
-                }
-            }
-        }*/
-        stage('Sonar Build') {
-            steps {
-                withSonarQubeEnv('sonarqube') {
-                    sh '''
-                        mvn sonar:sonar
-                    '''
-                }
+                // Replace the repository URL with your PHP project's Git repository
+                git branch: 'main', credentialsId: 'git-token-user', url: 'https://github.com/Ashittu21/vera-test-website/'
             }
         }
-        stage('Sonar quality check') {
+        
+        stage('Static Code Analysis') {
+            
             steps {
-                script {
-                    def qg = waitForQualityGate abortPipeline: true, credentialsId: 'sonarqube'
-                    if (qg.status != 'OK') {
-                        error("Pipeline aborted due to Quality Gate failure: ${qg.status}")
+                script{
+                    def scannerHome = tool 'SonarQubeScanner'
+                    withSonarQubeEnv('sonarqube') {
+                        withEnv(["SONAR_SCANNER_OPTS=-Xmx512m"]) {
+                            sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=vera-test-website -Dsonar.projectName='vera-test-website' -Dsonar.sources=. -Dsonar.host.url=http://23.21.135.171:9000 -Dsonar.login=squ_8e19a655c6bc87e9b402f4537d65571e3bba989b"
+                        }
                     }
                 }
+                
             }
         }
+        
+        stage('Create Zip Archive') {
+            steps {
+                sh 'mkdir archivaldir'
+                sh 'cd archivaldir'
+                dir('archivaldir') {
+                    git branch: 'main', credentialsId: 'git-token-user', url: 'https://github.com/Ashittu21/vera-test-website/'
+                }
+                sh 'tar --exclude=vera-test-website.tar.gz -czf vera-test-website.tar.gz archivaldir'
+                sh 'ls'
+            }
+            post{
+                always{
+                    sh 'rm -rf archivaldir'
+                }
+            }
+        }
+        
+        stage('Archive Artifact'){
+            steps{
+                archiveArtifacts artifacts: '**/*.tar.gz', allowEmptyArchive: true
+            }
+        }
+
+        
+
+       stage('Upload to Nexus') {
+            steps {
+                sh 'curl -v -u admin:admin --upload-file vera-test-website.tar.gz http://44.217.150.130:8081/repository/php-raw-repo/vera-test-website.tar.gz'
+            }
+        }
+    
+        
         stage('Deploy Project') {
             steps {
-                // Go to the specified directory
-                sh 'cd ${WORKSPACE}'
-                sh 'ls -lrt'
-                // Perform some action in the directory
-                sh '''
-                    cp -r * /var/www/html/
-                '''
-            }
-        }
-        stage('Upload to Nexus') {
-            steps {
-                // Upload the project artifact to Nexus
-                nexusPublisher nexusInstanceId: 'nexus', nexusRepositoryId: 'nexus-repo', packages: [
-                    [ 
-                        artifacts: [
-                            [artifactId: '1', classifier: '', file: '/var/www/html/your_artifact.zip', type: 'zip']
-                        ],
-                        repositoryId: 'nexus-repo', // Replace with your Nexus repository ID
-                        credentialsId: 'nexus-user' // Replace with the credentials ID to access Nexus (configured in Jenkins)
-                    ]
-                ]
+                // Replace  '/var/www/html/' with the path to your web server's document root
+                sh 'echo "Dummy Deploying" '
             }
         }
     }
