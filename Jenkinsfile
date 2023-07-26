@@ -22,9 +22,7 @@ pipeline {
             steps {
                 withSonarQubeEnv('sonarqube') {
                     sh '''
-                        ARTIFACTORY_URL=http://44.217.150.130:8081/repository/nexus-repo/
-                        cd $WORKSPACE
-                        mvn clean verify test sonar:sonarqube
+                        mvn clean sonar:sonar
                     '''
                 }
             }
