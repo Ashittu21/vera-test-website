@@ -2,7 +2,7 @@ pipeline {
     agent any
         
     stages {
-        stage('Clone or Pull') {
+        /*stage('Clone or Pull') {
             steps {
                 // Checkout the code from your GitHub repository or copy it from a source
                 // Replace 'your-username' and 'your-repo' with your GitHub username and repository name
@@ -13,7 +13,7 @@ pipeline {
                     sh "git credentialsId: 'git', url: 'https://github.com/Ashittu21/vera-test-website.git'"
                 }
             }
-        }
+        }*/
         stage('Sonar Build') {
             steps {
                 withSonarQubeEnv('sonarqube') {
