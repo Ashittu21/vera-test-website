@@ -59,12 +59,20 @@ pipeline {
                 sh 'curl -v -u admin:admin --upload-file vera-test-website.tar.gz http://44.217.150.130:8081/repository/php-raw-repo/vera-test-website.tar.gz'
             }
         }
-    
         
-        stage('Deploy Project') {
+        stage('Deploy to Server') {
+            agent { label 'vera-web-server' }
             steps {
-                // Replace  '/var/www/html/' with the path to your web server's document root
-                sh 'echo "Dummy Deploying" '
+                script {
+                    // Transfer the artifact to the destination server and deploy the website
+                    sh '''
+                        rm -rf archivaldir
+                        curl -O -u admin:admin http://44.217.150.130:8081/repository/php-raw-repo/vera-test-website.tar.gz
+                        tar -zxvf vera-test-website.tar.gz
+                        ls -lrt
+                        cp -r archivaldir /var/www/html/
+                    '''
+                }
             }
         }
     }
