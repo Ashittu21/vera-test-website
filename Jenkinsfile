@@ -70,7 +70,7 @@ pipeline {
                         curl -O -u admin:admin http://44.217.150.130:8081/repository/php-raw-repo/vera-test-website.tar.gz
                         tar -zxvf vera-test-website.tar.gz
                         ls -lrt
-                        cp -r archivaldir /var/www/html/
+                        mv archivaldir/* /var/www/html/
                     '''
                 }
             }
