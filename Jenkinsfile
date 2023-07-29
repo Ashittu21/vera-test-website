@@ -64,7 +64,7 @@ pipeline {
             agent { label 'vera-web-server' }
             steps {
                 script {
-                    // Transfer the artifact to the destination server and deploy the website
+                     // Transfer the artifact to the destination server and deploy the website.
                     sh '''
                         rm -rf archivaldir
                         curl -O -u admin:admin http://44.217.150.130:8081/repository/php-raw-repo/vera-test-website.tar.gz
