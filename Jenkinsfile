@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     tools {
-        git 'Git' // Use the name of the Git tool you configured in Global Tool Configuration
+        git 'git' // Use the name of the Git tool you configured in Global Tool Configuration
         jdk "jdk"
     }
 
