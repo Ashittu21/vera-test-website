@@ -10,7 +10,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Replace the repository URL with your PHP project's Git repository
-                git branch: 'main', credentialsId: 'git-token-user', url: 'https://github.com/Ashittu21/vera-test-website/'
+                git branch: 'main', credentialsId: 'git-token1', url: 'https://github.com/Ashittu21/vera-test-website/'
             }
         }
         
@@ -34,7 +34,7 @@ pipeline {
                 sh 'mkdir archivaldir'
                 sh 'cd archivaldir'
                 dir('archivaldir') {
-                    git branch: 'main', credentialsId: 'git-token-user', url: 'https://github.com/Ashittu21/vera-test-website/'
+                    git branch: 'main', credentialsId: 'git-token1', url: 'https://github.com/Ashittu21/vera-test-website/'
                 }
                 sh 'tar --exclude=vera-test-website.tar.gz -czf vera-test-website.tar.gz archivaldir'
                 sh 'ls'
