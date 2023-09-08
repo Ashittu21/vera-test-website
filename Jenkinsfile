@@ -10,7 +10,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Replace the repository URL with your PHP project's Git repository
-                git branch: 'main', credentialsId: 'git-token1', url: 'https://github.com/Ashittu21/vera-test-website/'
+                git branch: 'main', credentialsId: 'git-token', url: 'https://github.com/Ashittu21/vera-test-website/'
             }
         }
         
