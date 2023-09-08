@@ -61,7 +61,7 @@ pipeline {
         }
         
         stage('Deploy to Server') {
-            agent { label 'VeractionWeb_Staging)' }
+            agent { label 'Staging)' }
             steps {
                 script {
                      //  Transfer the artifact to the destination server and deploy the website.
